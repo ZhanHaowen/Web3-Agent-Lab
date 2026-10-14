@@ -1,0 +1,74 @@
+{
+  "testedAt": "2026-10-14T13:09:23.286Z",
+  "appUrl": "http://127.0.0.1:4437",
+  "description": "Synthetic HTTP model protocol with real local Anvil execution. Not an LLM capability evaluation.",
+  "realModelTested": false,
+  "results": [
+    {
+      "taskId": "balance",
+      "case": "success",
+      "runId": "8fbd0fdd-da42-4f44-9f4b-7e3d3e6bd8e8",
+      "status": "success",
+      "modelCalls": 2,
+      "toolCalls": 1,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    },
+    {
+      "taskId": "transfer",
+      "case": "success",
+      "runId": "6dfe3a64-6b02-4785-9710-d831cad24dac",
+      "status": "success",
+      "modelCalls": 2,
+      "toolCalls": 1,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    },
+    {
+      "taskId": "approve",
+      "case": "success",
+      "runId": "bc282541-5b23-4e9b-8292-11492a32ddab",
+      "status": "success",
+      "modelCalls": 2,
+      "toolCalls": 1,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    },
+    {
+      "taskId": "swap",
+      "case": "success",
+      "runId": "c1058e56-d460-45d9-ad8b-e4b1a52e551c",
+      "status": "success",
+      "modelCalls": 3,
+      "toolCalls": 2,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    },
+    {
+      "taskId": "swap_deposit",
+      "case": "success",
+      "runId": "21c59c4e-1de1-413f-99a1-abb5df9fa681",
+      "status": "success",
+      "modelCalls": 6,
+      "toolCalls": 5,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    },
+    {
+      "taskId": "balance",
+      "case": "http-429-no-retry",
+      "runId": "75422ce2-89e8-4510-8b3c-6754b5131da2",
+      "status": "failure",
+      "modelCalls": 1,
+      "toolCalls": 0,
+      "recordingValid": true,
+      "dataOrigin": "protocol_fixture",
+      "secretAbsentFromExport": true
+    }
+  ]
+}

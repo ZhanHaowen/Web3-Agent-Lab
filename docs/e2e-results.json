@@ -1,0 +1,212 @@
+{
+  "suite": "packaged-http-e2e",
+  "startedAt": "2026-10-14T13:09:01.584Z",
+  "platform": "win32",
+  "arch": "x64",
+  "node": "v24.19.0",
+  "base": "http://127.0.0.1:4437",
+  "tests": [
+    {
+      "name": "scripted_balance",
+      "passed": true,
+      "durationMs": 342,
+      "details": {
+        "runId": "57295155-a40c-45d8-91e6-968d88b49522",
+        "status": "success"
+      }
+    },
+    {
+      "name": "scripted_transfer",
+      "passed": true,
+      "durationMs": 436,
+      "details": {
+        "runId": "4377114d-5527-4656-a1a0-fcfc4c93a390",
+        "status": "success"
+      }
+    },
+    {
+      "name": "scripted_approve",
+      "passed": true,
+      "durationMs": 483,
+      "details": {
+        "runId": "86b3bb52-f1c1-40a1-b394-217cf55bed5f",
+        "status": "success"
+      }
+    },
+    {
+      "name": "scripted_swap",
+      "passed": true,
+      "durationMs": 637,
+      "details": {
+        "runId": "8c6d6804-521a-4a27-b565-86dc72c1e3bd",
+        "status": "success"
+      }
+    },
+    {
+      "name": "scripted_swap_deposit",
+      "passed": true,
+      "durationMs": 1051,
+      "details": {
+        "runId": "df221721-6961-4d27-a16c-1297ce7ebcaa",
+        "status": "success"
+      }
+    },
+    {
+      "name": "transfer_revert",
+      "passed": true,
+      "durationMs": 421,
+      "details": {
+        "runId": "288ec236-59dd-4e0e-9ad5-09744120561d",
+        "status": "failure"
+      }
+    },
+    {
+      "name": "wrong_recipient",
+      "passed": true,
+      "durationMs": 457,
+      "details": {
+        "runId": "a58a3aed-becd-4d25-b9be-888dd4ae2a10",
+        "status": "failure"
+      }
+    },
+    {
+      "name": "tool_override_preserves_raw_and_rejects_wrong_balance",
+      "passed": true,
+      "durationMs": 364,
+      "details": {
+        "runId": "5a4ecb18-f739-4181-91e1-d539aa12907b"
+      }
+    },
+    {
+      "name": "pending_live_reconciliation_offline_replay_and_epoch_guard",
+      "passed": true,
+      "durationMs": 898,
+      "details": {
+        "runId": "27734ad4-c161-49c6-9a07-d324e900e9b3",
+        "original": "pending",
+        "live": "success",
+        "offline": "pending",
+        "resetGuard": "rejected"
+      }
+    },
+    {
+      "name": "pauseBeforeTool",
+      "passed": true,
+      "durationMs": 807,
+      "details": {
+        "runId": "d0f8a18f-ddba-4298-858e-f769315424f7",
+        "phase": "before_tool",
+        "nonceBeforeResume": 0
+      }
+    },
+    {
+      "name": "pauseBeforeTransaction",
+      "passed": true,
+      "durationMs": 797,
+      "details": {
+        "runId": "a581e273-9f39-4e96-ad92-2ce06779fba1",
+        "phase": "before_transaction",
+        "nonceBeforeResume": 0
+      }
+    },
+    {
+      "name": "cancel_paused_run_has_no_transaction_side_effect",
+      "passed": true,
+      "durationMs": 390,
+      "details": {
+        "runId": "f689eb76-50fe-4a93-ac67-3f3bd8a43ed1"
+      }
+    },
+    {
+      "name": "session_token_and_origin_guards",
+      "passed": true,
+      "durationMs": 46
+    },
+    {
+      "name": "export_all_raw_manifest_hashes_valid",
+      "passed": true,
+      "durationMs": 467,
+      "details": {
+        "runs": 12,
+        "verifiedRawFiles": 300
+      }
+    },
+    {
+      "name": "concurrent_reset_and_run_are_mutually_exclusive",
+      "passed": true,
+      "durationMs": 133,
+      "details": {
+        "resetAccepted": true,
+        "runAccepted": false
+      }
+    }
+  ],
+  "runIds": [
+    "57295155-a40c-45d8-91e6-968d88b49522",
+    "4377114d-5527-4656-a1a0-fcfc4c93a390",
+    "86b3bb52-f1c1-40a1-b394-217cf55bed5f",
+    "8c6d6804-521a-4a27-b565-86dc72c1e3bd",
+    "df221721-6961-4d27-a16c-1297ce7ebcaa",
+    "288ec236-59dd-4e0e-9ad5-09744120561d",
+    "a58a3aed-becd-4d25-b9be-888dd4ae2a10",
+    "5a4ecb18-f739-4181-91e1-d539aa12907b",
+    "27734ad4-c161-49c6-9a07-d324e900e9b3",
+    "d0f8a18f-ddba-4298-858e-f769315424f7",
+    "a581e273-9f39-4e96-ad92-2ce06779fba1",
+    "f689eb76-50fe-4a93-ac67-3f3bd8a43ed1"
+  ],
+  "build": {
+    "version": "0.1.1",
+    "displayVersion": "V.011",
+    "releaseRevision": "trace-2",
+    "releaseLabel": "V.011-Trace-Fix1",
+    "builtAt": "2026-10-14T13:08:04.415Z",
+    "node": "v24.19.0",
+    "sourceHash": "60ed75b2ee634186ce6111138af4dbdc2a96216f8e130ec13995dfd0f3c3eb26",
+    "files": {
+      "src/agent.ts": "a18600a973b08592313638446d1251ee8a5a4aeb01eebb723345760e405cf06d",
+      "src/chain.ts": "218ec490203b8e280d18dad6eb389e564d29593edf0cac732062d970db729aa1",
+      "src/checker.ts": "b87f72990c16f76a3215107e41318c546bb6e5ac0be22ee5795cd51c59bb0ae9",
+      "src/cli.ts": "bb67973d164beae4a74f8d82a662aaffcfe85ead1aa0a799dd080ce10181ce78",
+      "src/diagnostics.ts": "bd8e85d06276a65956bbfc9207f4459999266306b72c0f5f407a14e8e59a0146",
+      "src/graph.ts": "12fca23def93524d6a355090955aa9ae60834366545a3513fbdb45973946cd79",
+      "src/server.ts": "90421df5590419716a25313c01c2afc48981b512ab2665c377306aa6458996cf",
+      "src/store.ts": "a70dea226de7bb1ee1b6d85c205e2dd521eabedb98bc293316998c340810c3f5",
+      "src/tasks.ts": "cdee0b9911b1649b5ed97696e7d4813ebee9827b4cf3b2591cbb8e762afd923c",
+      "src/trace.ts": "a07d007db7d9120a80ba2b6d9f4a764867157edfc97ca293e9aa9302211256c0",
+      "src/units.ts": "8df93c136d84a0c6ad9e682deb06f9a25a25e3ad148c62226e96e483f11955ee",
+      "public/app.js": "a6755f494823a48cae94d21ae9dd1797c95200ccc194c941029b2ccf8715bcca",
+      "public/index.html": "f801b408f9be836eec83395f2314f95fecd55ef91c92ec0514d34dc6eb633f41",
+      "public/style.css": "ca027a20260b6323bc2274ca2dde20ab545483a76c276cfe84851658e60e78f9",
+      "contracts/artifacts/LabAMM.json": "a654bfa137de18eacf0d2b7a7ca986fce5c31f4b8735bde17da72bad44b5c18a",
+      "contracts/artifacts/LabToken.json": "0d52cdb470244c0a7607d85731be4bde6bd4b8479b995da71512b2d73de4d5d8",
+      "contracts/artifacts/LabVault.json": "43e7884a9d2733147417ced4f04f1811c4796dc54f3e2e2eea4a22b86d1041a8",
+      "contracts/LabContracts.sol": "b8823ab0ae4ec564e1f6c2ad848ee23b4317bda2814ecf035c72ca2071015346",
+      "scripts/amount-e2e.mjs": "3a28c1d2440c84fac8a71d1610016c55be5d5c08b1ef027114b48fa81ca803f8",
+      "scripts/build.mjs": "c10ed0d1154718c48a3674429f68407a13c652ef1251f4b5e4ccd6cfd92bbeb8",
+      "scripts/compile-contracts.mjs": "43730f8c2c8f42d46567eee5e26d0d25814c6e917f30d1aee28c7483fc8c0b96",
+      "scripts/e2e.mjs": "59f5aba145a3379f8bd518cfd77ac0b165869a940ae83b8a3163eed3f2d27d42",
+      "scripts/examples.mjs": "462b7f071c7a06fce2cf0dc981b867ebdb47109c615c2f6a98a13d4511fe80c5",
+      "scripts/feedback-e2e.mjs": "d88993e12fa85d0d855f250cf9b03267b492ac442a0fe7769b4605efd5e62d04",
+      "scripts/licenses.mjs": "93a470111ecbd5aace2a7509f2e2da225febe9eb1ff2de5587d5883d34629521",
+      "scripts/model-e2e.mjs": "11819dcd5ff5e093a7ab0bec63bf0a15f6bd8e364c78c68779a319027b03c788",
+      "scripts/package-release.py": "36d802e80b6a012659c514b0e3c3b68915c0beb3d7ac92bed060735dfe96a2dd",
+      "scripts/setup-runtime.mjs": "c3916d9ea2afb5e9c0e46efc7977dbe89c1c558b901ac4cf9f9cd0c3c854aebe",
+      "scripts/start-windows.ps1": "e8050ff49dff753210cd7db8ef82ad6e3a3078ea0720d2653e518f6d1f88f8ac",
+      "scripts/stop-windows.ps1": "2ad439b2cf7018e631c0151405cb8a302cb3c2642535a0c5244895ee31f21414",
+      "scripts/trace-e2e.mjs": "af799bc7386859db98d8540333a47a4607337911563f4985da840f1706ae69f6",
+      "scripts/validate-graph.py": "dbc18d8e94f5c48e26699c25f203b6723d5acc3ab168b320c752fddf5c22a68b",
+      "package.json": "4c69790cd669e5107edd6fc52b35dab4854d66d7a44aeeb82936bc7268facfd6",
+      "pnpm-lock.yaml": "7253b6fb8c7438beb838cd775a0188ab7c469882af6c2f6559a2f7d6a9f0dab7",
+      "pnpm-workspace.yaml": "9479ba74262a9264a1966c1d8517090a1f31ebd4d1601bb7e1a9cece4fd3286c",
+      "Start.command": "1e0f6f7157bb3e08b35e8d3f9a642c190830933b84ce22e9fb6097f03159b37f",
+      "Stop.command": "e10cb79a1ce9d37fd55a1f2a5405324a12747c13edbf03dabf22141696787fc0",
+      "start.cmd": "6668ccdd2edc288448fcfc3eb3df358629eba886bc3e1b8c2aee8b1c59874c8d",
+      "stop.cmd": "7f2c738ade73218ed2920414b83d9dd9e161afd3b3d975aa93bdba3329e9f6e4"
+    },
+    "agentkitEntry": "@coinbase/agentkit@0.10.4/dist/action-providers/actionProvider.js"
+  },
+  "finishedAt": "2026-10-14T13:09:09.357Z",
+  "passed": 15,
+  "failed": 0
+}

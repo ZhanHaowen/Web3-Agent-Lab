@@ -1,0 +1,65 @@
+{
+  "component": "rpc-websockets",
+  "version": "9.3.9",
+  "declared_license": "LGPL-3.0-only",
+  "upstream_repository": "https://github.com/elpheria/rpc-websockets",
+  "npm_metadata_url": "https://registry.npmjs.org/rpc-websockets/9.3.9",
+  "npm_git_head": "af8980776b55c2320b790556f775266fd5afc3ce",
+  "upstream_modifications": "None; original npm package bundled by esbuild.",
+  "npm_archive": {
+    "file": "rpc-websockets-9.3.9-npm.tgz",
+    "url": "https://registry.npmjs.org/rpc-websockets/-/rpc-websockets-9.3.9.tgz",
+    "integrity": "sha512-2iQDaTB4g5fDB2ihrTFSJSibCEuxaRi1q7qTW7ZO9/M5/TC+ToHA4D9/ffNLEbAoHNNrcdeP05oATNk44SKZXA==",
+    "integrity_verified": true,
+    "sha256": "bb21465e865d4598608b6c4620278e72a144620a6dff1e8dc9adbbdc8089d6c5"
+  },
+  "source_archive": {
+    "file": "rpc-websockets-9.3.9-source.tar.gz",
+    "url": "https://codeload.github.com/elpheria/rpc-websockets/tar.gz/af8980776b55c2320b790556f775266fd5afc3ce",
+    "sha256": "afa61746aac88e804d0509d01f996ffa66c1bc7214ff7613bafbae5fc4698245",
+    "includes": [
+      "src/",
+      "package.json",
+      "package-lock.json",
+      "tsup.config.ts",
+      "tsconfig.json",
+      "LICENSE",
+      "test/"
+    ]
+  },
+  "npm_sourcemap_source_comparison": [
+    {
+      "path": "src/lib/client/websocket.ts",
+      "matches_source_archive": true
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "matches_source_archive": true
+    },
+    {
+      "path": "src/lib/client.ts",
+      "matches_source_archive": true
+    },
+    {
+      "path": "src/lib/server.ts",
+      "matches_source_archive": true
+    },
+    {
+      "path": "src/index.ts",
+      "matches_source_archive": true
+    }
+  ],
+  "license_texts": [
+    {
+      "file": "../LGPL-3.0.txt",
+      "url": "https://www.gnu.org/licenses/lgpl-3.0.txt",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+    },
+    {
+      "file": "../GPL-3.0.txt",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  ],
+  "retrieved_date": "2026-10-14"
+}

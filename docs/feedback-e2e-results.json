@@ -1,0 +1,147 @@
+{
+  "suite": "V.011-user-feedback",
+  "realModelTested": false,
+  "tests": [
+    {
+      "name": "independent_then_continuous_inherits_90_and_80",
+      "passed": true,
+      "details": {
+        "first": "d8b741e9-7971-4781-bbd4-d2046082b7a9",
+        "second": "a1d95e7b-36f1-4c9d-bb4b-d0ecfbe5fa94",
+        "third": "3a2f8dcf-0817-495b-b18f-7ed82f4b38cc"
+      }
+    },
+    {
+      "name": "continuous_balance_and_approval_from_nonzero_state",
+      "passed": true
+    },
+    {
+      "name": "continuous_swap_deposit_preserves_preexisting_B_and_shares",
+      "passed": true
+    },
+    {
+      "name": "continuous_pending_guard_then_confirmation",
+      "passed": true
+    },
+    {
+      "name": "snapshot_restore_resets_lineage_and_supports_explicit_continuation",
+      "passed": true
+    },
+    {
+      "name": "mined_approval_success_but_task_failure_explained",
+      "passed": true,
+      "details": {
+        "runId": "ca65f9f0-3c8c-4b4a-9fe0-05458debd47f",
+        "diagnostics": {
+          "stage": "checker",
+          "title": "授权对象与数量",
+          "summary": "链上交易已执行成功，但2项任务条件未满足；交易成功不等于任务成功。",
+          "items": [
+            {
+              "layer": "checker",
+              "severity": "error",
+              "code": "correct-approval-target-and-amount",
+              "assertionId": "correct-approval-target-and-amount",
+              "title": "授权对象与数量",
+              "detail": "approve必须指向指定spender并设置目标数量。 期望：是；实际：否。 具体目标：TokenA合约0x5fbdb2315678afecb367f032d93f642f64180aa3，AMM spender=0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0，设置20 TokenA（最小单位20000000）。实际成功approve：合约0x5fbdb2315678afecb367f032d93f642f64180aa3，spender=0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0，数量=10 TokenA（最小单位 10000000），交易=0x3967bd3445626bc3f2d9b9e3517b17414b9f00cf6b796961b73e042edac58959。",
+              "expected": true,
+              "actual": false,
+              "suggestion": "amount=\"20\"表示20代币；approve会覆盖allowance，而非累加。",
+              "seq": 22
+            },
+            {
+              "layer": "checker",
+              "severity": "error",
+              "code": "allowance-exact",
+              "assertionId": "allowance-exact",
+              "title": "最终授权数量",
+              "detail": "最终allowance应恰好等于任务目标。 期望：20 TokenA（最小单位 20000000）；实际：10 TokenA（最小单位 10000000）。",
+              "expected": "20000000",
+              "actual": "10000000",
+              "suggestion": "核对approve的amount单位；20 TokenA对应20000000最小单位。",
+              "seq": 22
+            }
+          ],
+          "transactions": [
+            {
+              "hash": "0x3967bd3445626bc3f2d9b9e3517b17414b9f00cf6b796961b73e042edac58959",
+              "status": "success",
+              "label": "已上链成功",
+              "gasUsed": "46115",
+              "blockNumber": "8",
+              "seq": 13
+            }
+          ],
+          "chainExecutionStatus": "success"
+        }
+      }
+    },
+    {
+      "name": "balance_answer_failure_is_not_transaction_failure",
+      "passed": true
+    },
+    {
+      "name": "model_http_error_is_localized_and_preserved_on_recheck",
+      "passed": true
+    },
+    {
+      "name": "reverted_transaction_and_bad_mode",
+      "passed": true
+    }
+  ],
+  "startedAt": "2026-10-14T13:26:15.132Z",
+  "build": {
+    "version": "0.1.2",
+    "displayVersion": "V0.12",
+    "releaseRevision": "beta-1",
+    "releaseLabel": "V0.12",
+    "builtAt": "2026-10-14T13:25:21.552Z",
+    "node": "v24.19.0",
+    "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+    "files": {
+      "src/agent.ts": "a18600a973b08592313638446d1251ee8a5a4aeb01eebb723345760e405cf06d",
+      "src/chain.ts": "218ec490203b8e280d18dad6eb389e564d29593edf0cac732062d970db729aa1",
+      "src/checker.ts": "b87f72990c16f76a3215107e41318c546bb6e5ac0be22ee5795cd51c59bb0ae9",
+      "src/cli.ts": "a2eacab74c984b435f72920059a7a7370bf7e476a947a45c78125da824d2f0ec",
+      "src/diagnostics.ts": "bd8e85d06276a65956bbfc9207f4459999266306b72c0f5f407a14e8e59a0146",
+      "src/graph.ts": "12fca23def93524d6a355090955aa9ae60834366545a3513fbdb45973946cd79",
+      "src/server.ts": "9a3bffc23870cad73c4bfda00a285aea467d0dd528fda11c3e22467d087a4f52",
+      "src/store.ts": "a70dea226de7bb1ee1b6d85c205e2dd521eabedb98bc293316998c340810c3f5",
+      "src/tasks.ts": "cdee0b9911b1649b5ed97696e7d4813ebee9827b4cf3b2591cbb8e762afd923c",
+      "src/trace.ts": "a07d007db7d9120a80ba2b6d9f4a764867157edfc97ca293e9aa9302211256c0",
+      "src/units.ts": "8df93c136d84a0c6ad9e682deb06f9a25a25e3ad148c62226e96e483f11955ee",
+      "public/app.js": "ff869c8ce8092f5a45604ad2acb3645c3e6f79aeb9dbdfa17072bbf0fe791306",
+      "public/index.html": "5709b057f75d089b57678b0b82aa04913b896120177369db82168949b0ae070c",
+      "public/style.css": "ca027a20260b6323bc2274ca2dde20ab545483a76c276cfe84851658e60e78f9",
+      "contracts/artifacts/LabAMM.json": "a654bfa137de18eacf0d2b7a7ca986fce5c31f4b8735bde17da72bad44b5c18a",
+      "contracts/artifacts/LabToken.json": "0d52cdb470244c0a7607d85731be4bde6bd4b8479b995da71512b2d73de4d5d8",
+      "contracts/artifacts/LabVault.json": "43e7884a9d2733147417ced4f04f1811c4796dc54f3e2e2eea4a22b86d1041a8",
+      "contracts/LabContracts.sol": "b8823ab0ae4ec564e1f6c2ad848ee23b4317bda2814ecf035c72ca2071015346",
+      "scripts/amount-e2e.mjs": "3a28c1d2440c84fac8a71d1610016c55be5d5c08b1ef027114b48fa81ca803f8",
+      "scripts/build.mjs": "c10ed0d1154718c48a3674429f68407a13c652ef1251f4b5e4ccd6cfd92bbeb8",
+      "scripts/compile-contracts.mjs": "43730f8c2c8f42d46567eee5e26d0d25814c6e917f30d1aee28c7483fc8c0b96",
+      "scripts/e2e.mjs": "59f5aba145a3379f8bd518cfd77ac0b165869a940ae83b8a3163eed3f2d27d42",
+      "scripts/examples.mjs": "462b7f071c7a06fce2cf0dc981b867ebdb47109c615c2f6a98a13d4511fe80c5",
+      "scripts/feedback-e2e.mjs": "b77cbfb7a4d331e4456a92f688a2a2063fa69819e49d54c76dda90b9baa8159b",
+      "scripts/licenses.mjs": "c8f99a5bf45780f3a2b1003583f63fa5e73aedaab0399c3c155416c535e618cd",
+      "scripts/model-e2e.mjs": "11819dcd5ff5e093a7ab0bec63bf0a15f6bd8e364c78c68779a319027b03c788",
+      "scripts/package-release.py": "36d802e80b6a012659c514b0e3c3b68915c0beb3d7ac92bed060735dfe96a2dd",
+      "scripts/setup-runtime.mjs": "c3916d9ea2afb5e9c0e46efc7977dbe89c1c558b901ac4cf9f9cd0c3c854aebe",
+      "scripts/start-windows.ps1": "c9b55e8acf715c338a9ceb066e880c17495745defaa38416fd68531ac9d79521",
+      "scripts/stop-windows.ps1": "2ad439b2cf7018e631c0151405cb8a302cb3c2642535a0c5244895ee31f21414",
+      "scripts/trace-e2e.mjs": "3b07677fd561fac781b2c9ec84b8c400b12f6284c3ac6d49a717e07c67959c16",
+      "scripts/validate-graph.py": "dbc18d8e94f5c48e26699c25f203b6723d5acc3ab168b320c752fddf5c22a68b",
+      "package.json": "bd3c993df4c1f2d9da8c54cdd5ec9f5a0b98cab8981413c8e34b088b4e9bf844",
+      "pnpm-lock.yaml": "7253b6fb8c7438beb838cd775a0188ab7c469882af6c2f6559a2f7d6a9f0dab7",
+      "pnpm-workspace.yaml": "9479ba74262a9264a1966c1d8517090a1f31ebd4d1601bb7e1a9cece4fd3286c",
+      "Start.command": "f190ba40021cfedd9c8749495e4eb5c2b17c28c201051b1dc97250de0108654e",
+      "Stop.command": "e10cb79a1ce9d37fd55a1f2a5405324a12747c13edbf03dabf22141696787fc0",
+      "start.cmd": "6668ccdd2edc288448fcfc3eb3df358629eba886bc3e1b8c2aee8b1c59874c8d",
+      "stop.cmd": "7f2c738ade73218ed2920414b83d9dd9e161afd3b3d975aa93bdba3329e9f6e4"
+    },
+    "agentkitEntry": "@coinbase/agentkit@0.10.4/dist/action-providers/actionProvider.js"
+  },
+  "finishedAt": "2026-10-14T13:26:25.309Z",
+  "passed": 9,
+  "failed": 0
+}

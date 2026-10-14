@@ -1,0 +1,23 @@
+{
+  "version": "V.011",
+  "releaseRevision": "trace-2",
+  "sourceHash": "60ed75b2ee634186ce6111138af4dbdc2a96216f8e130ec13995dfd0f3c3eb26",
+  "testedAt": "2026-10-14T13:10:38.927Z",
+  "browser": "155.0.4283.45",
+  "headless": true,
+  "runId": "9c78b687-ab60-4d75-be7a-b1e38957c5dd",
+  "nodes": 31,
+  "edges": 55,
+  "checks": [
+    "graph preview",
+    "click node evidence",
+    "tool/contract details",
+    "trace JSON download",
+    "graph JSON and GraphML downloads",
+    "full bundle export/import",
+    "offline imported graph downloads without requests",
+    "mobile no page overflow",
+    "no page errors"
+  ],
+  "passed": true
+}

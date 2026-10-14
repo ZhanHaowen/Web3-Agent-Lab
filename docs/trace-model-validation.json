@@ -1,0 +1,11 @@
+{
+  "runId": "21c59c4e-1de1-413f-99a1-abb5df9fa681",
+  "sourceHash": "60ed75b2ee634186ce6111138af4dbdc2a96216f8e130ec13995dfd0f3c3eb26",
+  "dataOrigin": "protocol_fixture",
+  "realModelTested": false,
+  "modelCalls": 6,
+  "tools": 5,
+  "contracts": 5,
+  "modelResultEdges": 15,
+  "passed": true
+}

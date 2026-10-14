@@ -1,0 +1,91 @@
+{
+  "version": "V0.12",
+  "releaseRevision": "beta-1",
+  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+  "testedAt": "2026-10-14T13:26:37.030Z",
+  "realModelTested": false,
+  "results": [
+    {
+      "name": "trace_balance",
+      "passed": true,
+      "runId": "00df3e33-93cd-4991-b04e-d60f3b7a3da7",
+      "tools": 1,
+      "contracts": 1,
+      "transactions": 0,
+      "frames": 0,
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "name": "trace_transfer",
+      "passed": true,
+      "runId": "1ec4df4c-5dec-46a7-90dc-41252945b01f",
+      "tools": 1,
+      "contracts": 1,
+      "transactions": 1,
+      "frames": 1,
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "name": "trace_approve",
+      "passed": true,
+      "runId": "0d3e02c3-4879-4885-b70f-3666a6e47d91",
+      "tools": 1,
+      "contracts": 1,
+      "transactions": 1,
+      "frames": 1,
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "name": "trace_swap",
+      "passed": true,
+      "runId": "ecb75109-0521-44c5-86ab-324978a3f68f",
+      "tools": 2,
+      "contracts": 2,
+      "transactions": 2,
+      "frames": 6,
+      "nodes": 19,
+      "edges": 30
+    },
+    {
+      "name": "trace_swap_deposit",
+      "passed": true,
+      "runId": "ab7ee54a-4685-4a60-8808-746dc28ebbcd",
+      "tools": 5,
+      "contracts": 5,
+      "transactions": 4,
+      "frames": 9,
+      "nodes": 31,
+      "edges": 55
+    },
+    {
+      "name": "read_raw_and_overridden_results_stay_distinct",
+      "passed": true,
+      "runId": "83612abd-5ea5-4b15-b5cb-98c5bec63e56"
+    },
+    {
+      "name": "revert_keeps_failed_transaction_and_internal_call_evidence",
+      "passed": true,
+      "runId": "fcaf3008-c58c-4eb5-a767-94db40a26bc9"
+    },
+    {
+      "name": "pending_trace_remains_original_after_live_reconciliation",
+      "passed": true,
+      "runId": "ca88d951-6ebb-45dd-9630-bd8bd22ba2a4"
+    },
+    {
+      "name": "paused_export_rejected_and_cancelled_tool_does_not_fabricate_contract",
+      "passed": true,
+      "runId": "45e0c5fa-f34d-4a96-83e3-bef32e5e0eb5"
+    },
+    {
+      "name": "cancelled_before_submission_is_preparation_not_a_broadcast_edge",
+      "passed": true,
+      "runId": "b0384c2b-d654-4eaa-a688-1ef62b973b31"
+    }
+  ],
+  "passed": 10,
+  "failed": 0
+}
