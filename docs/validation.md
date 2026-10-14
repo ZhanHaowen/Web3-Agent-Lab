@@ -22,7 +22,11 @@
 
 本次未重新执行旧有 HTTP 综合用例 15 项、独立模型接口用例 6 项、Edge 浏览器操作及 NetworkX 互操作验收；下节保留此前金额修复版的验证范围，不将这些旧报告计入 V0.12 新执行数量。GUI 结构测试不等同于真实浏览器或 macOS 真机测试。
 
-公开仓库所附跨平台 CI 工作流在本记录编写时尚未远程执行，不能据此声称 macOS CI 或真机验收通过。模型测试仍使用明确标记的本地协议模拟器，不代表真实 LLM 能力；macOS 运行文件的打包与完整性验证不等同于实机执行。
+公开仓库提交 `42a7fdf2d30b19b5e0fedfef250bca814b31bb5c` 已通过 GitHub Actions 的 Windows、macOS Apple Silicon 和 Intel 三个平台的固定依赖安装、构建、类型检查和测试。[远程运行记录](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517)及 `docs/ci-validation.json` 保存对应提交和结果；后续发行提交仅补充文档与验证报告，应用源码及上述构建摘要不变。托管 CI 测试不等同于 Mac 桌面安装与 GUI 实机验收。
+
+解压后的 Windows V0.12 部署包已使用其自带 Node 与编译程序实际运行：授权 20、连续兑换 10 均成功，授权余量从 20 降为 10；包内 CLI 的完整性验证、独立检查和图生成通过。Windows/macOS ZIP 的文件完整性、源码摘要及无用户数据检查通过，macOS 启动脚本 LF 与执行权限正确。对应证据见 `docs/package-validation.json`；文档更新后的重新打包仅复查文件与哈希，不重复计入一次应用执行测试。
+
+模型测试仍使用明确标记的本地协议模拟器，不代表真实 LLM 能力；macOS 运行文件的打包与完整性验证不等同于桌面实机执行。
 
 ## 既有 V.011 金额修复版验证
 

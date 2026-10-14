@@ -1,0 +1,34 @@
+{
+  "version": "V0.12",
+  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+  "publicCommit": "42a7fdf2d30b19b5e0fedfef250bca814b31bb5c",
+  "macRealMachineTested": false,
+  "realModelTested": false,
+  "windowsSmoke": {
+    "passed": true,
+    "testedAt": "2026-10-14T13:32:38.317Z",
+    "executor": "extracted-package/runtime/node.exe",
+    "application": "extracted-package/dist/server.mjs",
+    "ports": {
+      "gui": 4438,
+      "chain": 18578
+    },
+    "displayVersion": "V0.12",
+    "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+    "approval": {
+      "runId": "786a7660-2038-4a3c-8b91-eb755a9eaab4",
+      "status": "success",
+      "allowanceBaseUnits": "20000000"
+    },
+    "continuousSwap": {
+      "runId": "a9f4cbb8-8ccc-4401-9fde-f94c2255ef78",
+      "status": "success",
+      "remainingAllowanceBaseUnits": "10000000"
+    },
+    "exportedBundleVerifiedOffline": true,
+    "bundledExampleVerifiedOffline": true,
+    "offlineGraphNodes": 16
+  },
+  "shutdownRequested": true,
+  "verificationScope": "Windows execution smoke test of the extracted V0.12 package before the final documentation-only refresh. Application bytes and sourceHash are unchanged; final archive hashes are supplied separately in the release SHA256 file."
+}
