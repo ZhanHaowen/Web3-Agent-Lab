@@ -40,7 +40,7 @@
 
 `examples/` 提供 46 个完整实验包：38 个原有 V0.12 样例保持原始字节及构建身份，另新增 8 个 V0.13 反馈样例。原有样例中，35 个为真实 Anvil 执行的脚本基线：15 次五类正常基线、6 次真实失败/错误收款人交易、3 次工具返回替换、3 次待确认、3 次工具禁用失败，另有 5 轮连续状态继承示例（1 轮独立起点＋4 轮连续运行）。`examples/amount-fix/` 的另外 3 个包使用本地协议模拟模型与真实 Anvil，展示授权参数纠正、兑换参数纠正，以及仅格式校验模式下的超额授权。`examples/feedback-v013/` 的 8 个新包涵盖 30/27 自定义目标、精确小数、模型参数纠错、pending 父运行及恢复后的子运行、交易成功但任务失败。46 个包逐一通过完整性及独立检查，详见 `docs/example-validation-v013.json`。各类示例均不能用于报告真实模型成功率。在 GUI「实验档案 → 打开导出包」选择任一 JSON，仅在浏览器本地读入并校验。
 
-`docs/validation.md` 和 JSON 测试报告说明本次实际验证范围。V0.13 已针对六组反馈建立任务规格、真实 Anvil 时间与状态、会话恢复、HTTP API、GUI 和浏览器回归；完整结果以 [验证记录](docs/validation.md) 为准。模型接口使用明确标记的本地协议替身；实际云模型效果需自行配置后采集。V0.12 的[跨平台 CI 记录](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517)属于历史版本，V0.13 CI 请查看本仓库 Actions。CI 不能替代 Mac 桌面实机验收。
+`docs/validation.md` 和 JSON 测试报告说明本次实际验证范围。V0.13 已针对六组反馈建立任务规格、真实 Anvil 时间与状态、会话恢复、HTTP API、GUI 和浏览器回归；完整结果以 [验证记录](docs/validation.md) 为准。模型接口使用明确标记的本地协议替身；实际云模型效果需自行配置后采集。V0.13 的 Windows、macOS Apple Silicon 和 Intel [跨平台 CI](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/39147266797)均通过安装、构建、类型检查及自动化测试；Windows 解压包另通过22项实际接口回归。CI 不能替代 Mac 桌面实机验收。
 
 ## 源码开发
 

@@ -1,0 +1,153 @@
+{
+  "version": "V0.13 Beta",
+  "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+  "repositoryHead": "5585d4d8371c229042d8b51658d16cc7febf628e",
+  "testedAt": "2026-10-19T00:57:54.253685+08:00",
+  "packagePhase": "execution-tested-before-final-documentation-only-refresh",
+  "windows": {
+    "executionTested": true,
+    "isolatedPorts": {
+      "gui": 4463,
+      "chain": 18603
+    },
+    "runtime": "ZIP-bundled runtime/node.exe and runtime/anvil.exe; no global Node/npm/Anvil required",
+    "apiRegression": {
+      "passed": true,
+      "tests": 22,
+      "proof": "package-v013-regression.json"
+    },
+    "offlineExamples": [
+      {
+        "file": "examples/feedback-v013/01-custom-transfer-30.json",
+        "runId": "a2700fe2-eda4-4b3e-b0b8-6493884e0235",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amount": "30"
+        },
+        "graphNodes": 9,
+        "graphEdges": 12,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/02-custom-approval-23.125456.json",
+        "runId": "e5b5d3da-6f0c-4322-97d1-5bf4232661be",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amount": "23.125456"
+        },
+        "graphNodes": 9,
+        "graphEdges": 12,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/03-custom-swap-30-minimum-27.json",
+        "runId": "7249d3cb-d0ba-4e60-a2c4-1f06638ff985",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amountIn": "30",
+          "minAmountOut": "27"
+        },
+        "graphNodes": 19,
+        "graphEdges": 30,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/04-custom-swap-deposit-30-minimum-27.json",
+        "runId": "59791278-17a5-4f64-9f1e-1d9cc177a449",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amountIn": "30",
+          "minAmountOut": "27"
+        },
+        "graphNodes": 31,
+        "graphEdges": 55,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/05-protocol-guard-corrects-custom-30.json",
+        "runId": "cf9dc86e-925f-40d8-8675-d80c86105646",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amountIn": "30",
+          "minAmountOut": "27"
+        },
+        "graphNodes": 24,
+        "graphEdges": 38,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/06-manual-pending-parent.json",
+        "runId": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+        "verify": true,
+        "expectedVerdict": "pending",
+        "actualVerdict": "pending",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amount": "30"
+        },
+        "graphNodes": 10,
+        "graphEdges": 12,
+        "explicitParentPreserved": false
+      },
+      {
+        "file": "examples/feedback-v013/07-confirmed-continuation-child.json",
+        "runId": "a0f71b2e-9b75-49fd-b673-72f74e3f468b",
+        "verify": true,
+        "expectedVerdict": "success",
+        "actualVerdict": "success",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amount": "30"
+        },
+        "graphNodes": 24,
+        "graphEdges": 33,
+        "explicitParentPreserved": true
+      },
+      {
+        "file": "examples/feedback-v013/08-chain-success-task-failure.json",
+        "runId": "67a7508c-003d-4d8d-878e-a33389908bd1",
+        "verify": true,
+        "expectedVerdict": "failure",
+        "actualVerdict": "failure",
+        "checkerVersion": "2.2.0",
+        "taskParameters": {
+          "amount": "10"
+        },
+        "graphNodes": 9,
+        "graphEdges": 12,
+        "explicitParentPreserved": false
+      }
+    ],
+    "sourceHashVerifiedAtRuntime": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+    "testedAt": "2026-10-19T00:58:08.639756+08:00",
+    "qaDataExcludedFromArchives": true,
+    "serverStopped": true
+  },
+  "macOS": {
+    "executionTested": false,
+    "scope": "Archive integrity, source hashes, LF shell entries and executable bits only; no desktop or native runtime claim."
+  },
+  "passed": true,
+  "bundle": {
+    "completeHistoryVerified": true,
+    "head": "5585d4d8371c229042d8b51658d16cc7febf628e",
+    "mainMatchesHead": true,
+    "source": "current public repository only"
+  },
+  "scopeNote": "Windows execution uses extracted ZIP runtimes and the compiled app. Final documentation-only repack must preserve these executable bytes; final archive hashes are supplied by the Release SHA256 file, outside this self-contained evidence."
+}

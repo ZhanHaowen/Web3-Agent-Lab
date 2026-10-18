@@ -45,3 +45,11 @@
 模型端点的用户名密码、query和fragment在创建原始记录前拒绝；专项测试确认400且档案数不增加。图动态颜色改用CSSOM，保留CSP，无unsafe-inline。
 
 V0.12历史说明在[历史验证](validation_V0.12.md)。部分根目录同名报告现为V0.13；原始旧报告请使用[v0.12 tag](https://github.com/ZhanHaowen/Web3-Agent-Lab/tree/v0.12/docs)，不能用当前报告替代历史证据。
+
+## Windows 解压包验收
+
+使用 Windows ZIP 自带的 Node、Anvil 和编译程序，在隔离端口4463/18603实际运行，反馈专项22/22通过；8个新样例的 CLI verify/check/graph 共24次通过。CRC、源码摘要和禁入目录检查通过，Mac脚本LF及执行权限正确。证据见package-validation-v013.json与package-v013-regression.json。最终仅补文档的重打包须保证应用及运行文件字节不变；最终ZIP哈希由Release校验表给出。
+
+## GitHub 三平台验证
+
+运行 https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/39147266797 已 completed/success；测试提交为5585d4d8371c229042d8b51658d16cc7febf628e。Windows、macos-latest与macos-15-intel均通过固定依赖安装、Anvil下载校验、构建、类型检查、pnpm test和UI DOM测试。远程精确用例数量未从日志另行提取，不将本地145/24冒充远程观测计数。报告ci-validation-v013.json保存各step结论。最终发行提交仅追加本文档和验收报告，应用源码摘要及已实测Windows程序字节不变。Mac托管测试仍不等同桌面GUI实机验收。
