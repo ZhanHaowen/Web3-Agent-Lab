@@ -10,7 +10,7 @@ const source = readFileSync(new URL('../public/app.js', import.meta.url), 'utf8'
 const ids = [...html.matchAll(/id="([^"]+)"/g)].map(match => match[1]);
 class Element {
   constructor(tag = 'div') {
-    this.tag = tag; this.children = []; this.value = ''; this.checked = false;
+    this.tag = tag; this.children = []; this.value = ''; this.checked = false; this.style = {};
     this.className = ''; this.dataset = {}; this.listeners = {}; this.scrollHeight = 0; this._text = '';
     this.classList = {
       toggle: (name, force) => {
@@ -28,7 +28,7 @@ class Element {
   replaceChildren(...children) { this._text = ''; this.children = children; }
   addEventListener(type, listener) { this.listeners[type] = listener; }
   setAttribute(name, value) { this.attributes ||= {}; this.attributes[name] = String(value); if (name === 'class') this.className = String(value); }
-  querySelectorAll() { return []; }
+  querySelectorAll(selector) { const descendants = this.children.flatMap(child => [child, ...child.querySelectorAll('*')]); return selector === '*' ? descendants : selector.startsWith('.') ? descendants.filter(child => child.className.split(' ').includes(selector.slice(1))) : []; }
   scrollIntoView() {}
   before(element) { this.insertedBefore = element; element.nextElementSibling = this; }
   click() { this.wasClicked = true; }
@@ -50,7 +50,7 @@ function harness() {
   runInContext(source.slice(0, boundary), context);
   const pollStart = source.indexOf('async function poll()');
   runInContext(source.slice(pollStart, source.indexOf('async function bootstrap()', pollStart)), context);
-  const api = runInContext('({exactUnits,integerDelta,comparisonStates,experimentMode,renderRun,renderHistory,evidenceIndex,openBundle,getConfiguration,updateButtons,exportRun,exportExecutionTrace,validExecutionTrace,exportExecutionGraph,validExecutionGraph,loadRun,refreshCurrentRun,poll,state})', context);
+  const api = runInContext('({exactUnits,integerDelta,comparisonStates,experimentMode,renderRun,renderHistory,refreshHistory,historyMatches,historyChainStatus,modelSummary,showArchiveDetails,redactConfiguration,resolveTaskForm,graphFilter,graphZoom,renderExecutionGraph,showGraphEdge,showGraphNode,evidenceIndex,openBundle,getConfiguration,updateButtons,exportRun,exportExecutionTrace,validExecutionTrace,exportExecutionGraph,validExecutionGraph,loadRun,refreshCurrentRun,poll,state})', context);
   return { api, elements, context, created };
 }
 const response = (value, status = 200) => ({ ok: status >= 200 && status < 300, status, text: async () => JSON.stringify(value) });
@@ -304,4 +304,56 @@ test('graph JSON and GraphML export reject errors and download imported files wi
   assert.equal(await api.exportExecutionGraph('json'), true); assert.equal(await api.exportExecutionGraph('graphml'), true);
   assert.deepEqual(created.filter(element => element.tag === 'a' && element.wasClicked).map(element => element.download), ['web3-provenance-graph-test.json', 'web3-provenance-graph-test.graphml']);
   delete run.execution_graphml; api.renderRun(run, { replay: true, imported: true }); assert.equal(elements['export-graphml'].disabled, true);
+});
+test('archive combines Chinese/English task search with separate task and chain outcomes and retains filters across refresh', async () => {
+  const { api, elements, context } = harness();
+  const rows = [
+    { runId: 'tx-task-failed', taskId: 'transfer', mode: 'llm', model: { model: 'requested-v1' }, taskInput: '给 recipient 转账 30 TokenA', result: { status: 'failure', diagnostics: { chainExecutionStatus: 'success' } }, modelSummary: { requested: 'requested-v1', reported: ['actual-v2'] } },
+    { runId: 'tx-task-success', taskId: 'transfer', result: { status: 'success', diagnostics: { chainExecutionStatus: 'success' } } },
+    { runId: 'swap-failed', taskId: 'swap', result: { status: 'failure', diagnostics: { chainExecutionStatus: 'reverted' } } },
+  ]; api.state.runs = rows;
+  elements['history-filter'].value = '转账 actual-v2'; elements['history-task'].value = 'transfer'; elements['history-task-result'].value = 'failure'; elements['history-chain-result'].value = 'success';
+  api.renderHistory(); assert.equal(elements['history-list'].children.length, 1); assert.match(elements['history-list'].textContent, /tx-task-failed/); assert.match(elements['history-list'].textContent, /actual-v2/);
+  context.fetch = async () => response(rows); await api.refreshHistory(); assert.equal(elements['history-list'].children.length, 1); assert.equal(elements['history-task-result'].value, 'failure');
+  elements['history-filter'].value = 'TRANSFER'; api.renderHistory(); assert.equal(elements['history-list'].children.length, 1, 'Changing only filter must invalidate cache');
+  elements['history-chain-result'].value = 'reverted'; api.renderHistory(); assert.equal(elements['history-list'].children.length, 0, 'Task failure must not imply failed transaction');
+  elements['history-task'].value = 'swap'; elements['history-filter'].value = '兑换'; api.renderHistory(); assert.equal(elements['history-list'].children.length, 1);
+});
+test('archive model report is taken from response evidence, does not invent old model or task input, and re-redacts configuration', () => {
+  const { api, elements, created } = harness();
+  const run = { runId: 'detail-1', taskId: 'approve', mode: 'llm', taskInput: '<img src=x onerror=alert(1)> 授权30', model: { model: 'requested-v1', apiKey: 'hidden-secret' }, privateKey: 'private-secret', events: [{ type: 'model.response', payload: { response: { model: 'actual-snapshot' } } }] };
+  api.showArchiveDetails(run); assert.match(elements['archive-detail-input'].textContent, /授权30/); assert.match(elements['archive-detail-model'].textContent, /actual-snapshot/); assert.match(elements['archive-detail-model'].textContent, /接口自报/);
+  assert.doesNotMatch(elements['archive-detail-config'].textContent, /hidden-secret|private-secret/); assert.equal(created.filter(element => element.tag === 'img').length, 0);
+  api.showArchiveDetails({ runId: 'old', taskId: 'approve', mode: 'llm' }); assert.match(elements['archive-detail-input'].textContent, /未记录/); assert.match(elements['archive-detail-model'].textContent, /服务端报告：未提供/);
+  assert.equal(api.historyChainStatus({ taskId: 'balance', result: { status: 'success' } }), 'query_only');
+});
+test('graph relation filtering and edge/node selection keep complete offline graph and highlight only explicit neighbors', () => {
+  const { api, elements } = harness(); const run = failedTransfer(), graph = executionGraph();
+  graph.nodes.push({ id: 'previous', type: 'run_reference', label: 'previous' }); graph.edges.push({ id: 'edge-2', source: 'previous', target: 'tool-1', type: 'follows_run', source_events: [{ seq: 1, event_id: 'e1' }], attributes: { evidence: 'original-order' } });
+  run.execution_graph = graph; api.renderRun(run, { replay: true, imported: true });
+  const colors = elements['graph-relation-filters'].children.map(label => label.children[1].style.backgroundColor); assert.notEqual(colors[0], colors[1], 'Relation legend colors must differ');
+  api.graphFilter('follows'); assert.match(elements['execution-graph-note'].textContent, /2 \/ 3 个节点，1 \/ 2 条边/); assert.equal(api.state.run.execution_graph.edges.length, 2);
+  const edge = elements['execution-graph-preview'].querySelectorAll('.graph-edge')[0]; api.showGraphEdge(graph.edges[1], graph); assert.match(edge.className, /highlighted/); assert.match(elements['execution-graph-detail-json'].textContent, /original-order/); assert.match(elements['execution-graph-source-links'].textContent, /事件 #1/);
+  api.graphFilter('all'); api.showGraphNode(graph.nodes[1], graph); const nodes = elements['execution-graph-preview'].querySelectorAll('.graph-node'); assert.match(nodes.find(node => node.dataset.nodeId === 'previous').className, /dimmed/); assert.match(nodes.find(node => node.dataset.nodeId === 'tool-1').className, /neighbor/);
+  api.graphZoom(2); assert.equal(api.state.graphSvg.attributes.width, String(api.state.graphWidth * 2));
+  api.graphFilter('none'); assert.match(elements['execution-graph-note'].textContent, /0 \/ 3 个节点，0 \/ 2 条边/); assert.equal(graph.nodes.length, 3);
+});
+test('resolved form synchronizes supported task input, structured parameters and checker target without silent fallback', async () => {
+  const { api, elements, context } = harness(); elements['task-id'].value = 'transfer'; elements['task-input'].value = '转账30 TokenA';
+  let submitted; context.fetch = async (path, options) => { submitted = JSON.parse(options.body); return response({ id: 'transfer', input: submitted.taskInput || '转账30 TokenA（标准）', completion: 'recipient增加30', taskParameters: { amount: '30' }, parameterSource: submitted.taskParameters ? 'structured' : 'input' }); };
+  await api.resolveTaskForm('input'); assert.equal(submitted.taskInput, '转账30 TokenA'); assert.equal(elements['parameter-amount'].value, '30'); assert.match(elements['task-resolution-note'].textContent, /amount = 30/); assert.match(elements['task-completion'].textContent, /增加30/);
+  elements['parameter-amount'].value = '30'; await api.resolveTaskForm('structured'); assert.equal(submitted.taskParameters.amount, '30'); assert.equal(submitted.taskInput, undefined); assert.match(elements['task-input'].value, /标准/);
+  context.fetch = async () => response({ error: 'TASK_INPUT_AMBIGUOUS' }, 400); await assert.rejects(() => api.resolveTaskForm('input'), /TASK_INPUT_AMBIGUOUS/); assert.equal(elements['parameter-amount'].value, '30');
+});
+test('continuation controls distinguish checker-only reconciliation from resuming an eligible current Agent', () => {
+  const { api, elements } = harness(); const run = failedTransfer(); run.config.mode = 'llm'; run.result.status = 'pending'; run.continuation = { allowed: true }; api.state.status = { ready: true, busy: false }; api.renderRun(run);
+  assert.equal(elements['continue-agent-run'].disabled, false); assert.match(elements['continue-agent-note'].textContent, /创建关联子运行/); assert.match(elements['continue-agent-note'].textContent, /只更新检查器/);
+  run.continuation = { allowed: false, reason: 'CHAIN_ENVIRONMENT_CHANGED' }; api.renderRun(run); assert.equal(elements['continue-agent-run'].disabled, true); assert.match(elements['continue-agent-note'].textContent, /CHAIN_ENVIRONMENT_CHANGED/);
+  api.renderRun({ ...run, continuation: { allowed: true } }, { replay: true, imported: true }); assert.equal(elements['continue-agent-run'].disabled, true);
+});
+test('protocol fixtures can continue a server-approved Agent driver while retaining explicit simulated-model labels', () => {
+  const { api, elements } = harness(); const run = failedTransfer(); run.config.mode = 'llm'; run.config.data_origin = 'protocol_fixture'; run.continuation = { allowed: true }; api.state.status = { ready: true, busy: false }; api.renderRun(run);
+  assert.equal(elements['continue-agent-run'].disabled, false); assert.doesNotMatch(elements['continue-agent-run'].className, /hidden/);
+  assert.match(elements['current-run-mode'].textContent, /接口模拟测试（非LLM）/); assert.match(elements['continue-agent-note'].textContent, /接口模拟测试（非真实模型）/); assert.match(elements['continue-agent-note'].textContent, /不能作为模型能力结果/);
+  assert.equal(api.state.run.config.data_origin, 'protocol_fixture', 'GUI must preserve recorded data origin');
 });

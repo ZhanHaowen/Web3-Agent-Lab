@@ -1,9 +1,9 @@
 {
   "name": "web3-agent-lab",
-  "version": "0.1.2",
-  "displayVersion": "V0.12",
+  "version": "0.1.3",
+  "displayVersion": "V0.13",
   "releaseRevision": "beta-1",
-  "releaseLabel": "V0.12",
+  "releaseLabel": "V0.13",
   "private": true,
   "type": "module",
   "description": "Local reproducible Web3 agent experiments with Anvil and a browser GUI",
@@ -14,8 +14,8 @@
   "scripts": {
     "build": "node scripts/compile-contracts.mjs && node scripts/build.mjs",
     "start": "node dist/server.mjs",
-    "dev": "tsx src/server.ts",
-    "test": "tsx --test tests/*.test.ts",
+    "dev": "node --import ./scripts/register-agentkit.mjs --import tsx src/server.ts",
+    "test": "node --import ./scripts/register-agentkit.mjs --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
     "examples": "node scripts/examples.mjs"
   },

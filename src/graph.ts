@@ -90,11 +90,35 @@ export function buildProvenanceGraph(trace: any, config: any = {}, events: any[]
     addNode(prior, 'run_reference', '上一轮实验', { run_id: config.previous_run_id, session_id: config.session_id, evidence: 'config.previous_run_id', loaded: false });
     addEdge(prior, rootId, 'follows_run', [], { meaning: 'recorded_session_order_not_proof_of_causality', evidence_path: 'config.json#previous_run_id' });
   }
+  for (const event of events.filter(event => event.type === 'continuation.parent')) {
+    const parent = event.payload || {};
+    if (typeof parent.parentRunId !== 'string' || !parent.parentRunId) continue;
+    const refs = [eventRef(event)];
+    const prior = `run-reference:${parent.parentRunId}`;
+    addNode(prior, 'run_reference', 'Agent 续行的父实验', { run_id: parent.parentRunId, manifest_sha256: parent.parentManifestSha256 ?? null, loaded: false, evidence: 'continuation.parent' }, refs);
+    addEdge(prior, rootId, 'continues_agent', refs, { meaning: 'explicit_conversation_continuation_in_a_new_run', parent_manifest_sha256: parent.parentManifestSha256 ?? null });
+    for (const upstream of array(parent.parentToolReferences)) {
+      if (typeof upstream.toolCallId !== 'string' || !upstream.toolCallId) continue;
+      const id = `parent-tool-result:${upstream.run_id || parent.parentRunId}:${upstream.toolCallId}`;
+      addNode(id, 'external_tool_result', `父运行工具结果 ${upstream.toolCallId}`, { ...upstream, loaded: false, evidence: 'external_recorded_reference_not_a_new_tool_execution' }, refs);
+      addEdge(prior, id, 'references_parent_tool_result', refs, { upstream_run_id: upstream.run_id || parent.parentRunId });
+      for (const model of array(trace.model_calls)) {
+        const requests = events.filter(e => e.type === 'model.request' && model.source_events.some((r: any) => r.event_id === e.event_id));
+        if (requests.some(e => array(e.payload?.request?.messages).some(m => m.role === 'tool' && m.tool_call_id === upstream.toolCallId))) addEdge(id, model.id, 'provides_parent_result', refs, { upstream_run_id: upstream.run_id || parent.parentRunId });
+      }
+    }
+  }
+  for (const event of events.filter(event => event.type === 'state.continuation')) {
+    const id = `state:${trace.run_id}:${event.seq}`;
+    const refs = [eventRef(event)];
+    addNode(id, 'state', `出块后观察区块 ${event.payload?.blockNumber ?? event.payload?.state?.blockNumber ?? '未知'}`, event.payload || {}, refs);
+    addEdge(rootId, id, 'observes_after_mining', refs, { meaning: 'fresh_chain_observation_before_model_continuation' });
+  }
   const countBy = (list: { type: string }[]) => Object.fromEntries([...new Set(list.map(item => item.type))].map(type => [type, list.filter(item => item.type === type).length]));
   const graph: ProvenanceGraph = {
     schema_version: '1.0', format: 'web3-agent-provenance-graph', run_id: trace.run_id,
     directed: true, multigraph: true, nodes: [...nodes.values()], edges,
-    provenance: { ...trace.provenance, graph_builder_version: '1.0', semantics: 'Observed execution provenance; temporal relationships are labeled separately. Not a specified PGG or W3C PROV conformance claim.' },
+    provenance: { ...trace.provenance, graph_builder_version: '1.1', semantics: 'Observed execution provenance; temporal relationships are labeled separately. Not a specified PGG or W3C PROV conformance claim.' },
     summary: { node_count: nodes.size, edge_count: edges.length, node_types: countBy([...nodes.values()]), edge_types: countBy(edges) }, warnings,
   };
   validateProvenanceGraph(graph);

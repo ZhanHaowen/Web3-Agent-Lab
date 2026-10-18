@@ -38,7 +38,7 @@ async function main() {
     if(command==='check') {
       const e=events.find((e:any)=>e.type==='check.evidence')?.payload;
       if(!e) throw new Error('MISSING_CHECK_EVIDENCE');
-      console.log(json((checkTask as any)(config.taskId,e.before,e.after,e.transactions,e.agentFinal,e.observations,{experimentMode:config.experimentMode||'independent'})));
+      console.log(json((checkTask as any)(config.taskId,e.before,e.after,e.transactions,e.agentFinal,e.observations,{experimentMode:config.experimentMode||'independent',taskParameters:config.taskParameters})));
     }
     return;
   }
@@ -50,6 +50,6 @@ async function main() {
     const response=await fetch(base+target,{method:'POST',headers:{'content-type':'application/json','x-lab-token':health.csrfToken},body:JSON.stringify(body)});
     console.log(await response.text()); if(!response.ok) process.exitCode=1; return;
   }
-  console.log('Web3 Agent Lab V0.12 CLI\n  init | reset | run [balance|transfer|approve|swap|swap_deposit] [--continuous]\n  verify <bundle.json> | replay <bundle.json> | check <bundle.json>\n  trace <bundle.json> | graph <bundle.json>\n  trace-files <bundle.json> <new-output-directory>\nOffline commands never initialize Anvil or call a model. Trace views are regenerated from verified raw evidence.');
+  console.log('Web3 Agent Lab V0.13 Beta CLI\n  init | reset | run [balance|transfer|approve|swap|swap_deposit] [--continuous]\n  verify <bundle.json> | replay <bundle.json> | check <bundle.json>\n  trace <bundle.json> | graph <bundle.json>\n  trace-files <bundle.json> <new-output-directory>\nOffline commands never initialize Anvil or call a model. Trace views are regenerated from verified raw evidence.');
 }
 main().catch(error=>{console.error(error.message);process.exitCode=1;});

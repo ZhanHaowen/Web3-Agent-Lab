@@ -1,7 +1,8 @@
 import type { BalanceObservation, ChainState, TxRecord } from './chain.js';
-import type { TaskId } from './tasks.js';
+import { resolveTask, taskAmountBaseUnits, type TaskId, type TaskParameters } from './tasks.js';
 
-export interface CheckOptions {experimentMode?:'independent'|'continuous';}
+export const CHECKER_VERSION='2.2.0';
+export interface CheckOptions {experimentMode?:'independent'|'continuous';taskParameters?:TaskParameters;}
 export interface Assertion {id:string;passed:boolean;expected:unknown;actual:unknown;}
 export interface CheckResult {
   checkerVersion:string;taskId:TaskId;status:'success'|'failure'|'pending'|'unknown';
@@ -62,7 +63,10 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
   const add=(id:string,expected:unknown,actual:unknown,passed=expected===actual)=>assertions.push({id,passed,expected,actual});
   const unique=new Map<string,TxRecord>();transactions.forEach((tx,i)=>unique.set(tx.hash||tx.txHash||`unbroadcast-${i}`,tx));
   const txs=[...unique.values()];
-  const result:CheckResult={checkerVersion:'2.1.0',taskId,status:'unknown',validationStatus:'checked',reason:'',assertions,evidence:{before,after,transactions:txs,agentFinal,observations,options:{experimentMode:mode}},costs:{gasUsed:'0',gasCostWei:'0',transactionAttempts:txs.length}};
+  const result:CheckResult={checkerVersion:CHECKER_VERSION,taskId,status:'unknown',validationStatus:'checked',reason:'',assertions,evidence:{before,after,transactions:txs,agentFinal,observations,options:{experimentMode:mode,...(options.taskParameters?{taskParameters:options.taskParameters}:{})}},costs:{gasUsed:'0',gasCostWei:'0',transactionAttempts:txs.length}};
+  let parameters:TaskParameters;
+  try {parameters=resolveTask(taskId,{taskParameters:options.taskParameters}).taskParameters;}
+  catch(error) {result.validationStatus='precondition_error';result.reason=String(error);return result;}
   let gas=0n,gasCost=0n;
   for(const tx of txs) if(tx.receipt) {gas+=big(tx.receipt.gasUsed||0);gasCost+=big(tx.receipt.gasUsed||0)*big(tx.receipt.effectiveGasPrice||0);}
   result.costs.gasUsed=String(gas);result.costs.gasCostWei=String(gasCost);
@@ -91,7 +95,8 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
   const sameBalances=()=>Object.keys(before.balances).filter(key=>key!=='native').every(key=>before.balances[key as keyof typeof before.balances]===after.balances[key as keyof typeof after.balances]);
   const samePool=()=>before.reserves.A===after.reserves.A&&before.reserves.B===after.reserves.B;
   const unchangedVault=()=>before.shares===after.shares&&before.vaultAssets===after.vaultAssets&&before.allowances.vaultB===after.allowances.vaultB;
-  const amount=10_000_000n;
+  const amount=taskAmountBaseUnits(parameters.amount??parameters.amountIn??'10');
+  const minimum=taskAmountBaseUnits(parameters.minAmountOut??'9',true);
   const quoted=amount*997n*big(before.reserves.B)/(big(before.reserves.A)*1000n+amount*997n);
   const recipientUnchanged=after.balances.recipientA===before.balances.recipientA&&after.balances.recipientB===before.balances.recipientB;
   add('agent-nonce-vs-mined-transactions',txs.filter(tx=>tx.receipt).length,after.nonce-before.nonce);
@@ -119,9 +124,10 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
       add('pool-unchanged',true,samePool());add('shares-unchanged',before.shares,after.shares);add('vault-assets-unchanged',before.vaultAssets,after.vaultAssets);
       break;
     case 'approve': {
-      const correct=matches(a.tokenA,'approve',[a.amm,'20000000']);
-      add('correct-approval-target-and-amount',true,correct.length===successful.length&&(before.allowances.ammA==='20000000'||correct.length>0));
-      add('allowance-exact','20000000',after.allowances.ammA);
+      const approval=String(amount);
+      const correct=matches(a.tokenA,'approve',[a.amm,approval]);
+      add('correct-approval-target-and-amount',true,correct.length===successful.length&&(before.allowances.ammA===approval||correct.length>0));
+      add('allowance-exact',approval,after.allowances.ammA);
       add('token-balances-unchanged',true,sameBalances());
       add('other-allowance-unchanged',before.allowances.vaultB,after.allowances.vaultB);
       add('pool-unchanged',true,samePool());add('shares-unchanged',before.shares,after.shares);add('vault-assets-unchanged',before.vaultAssets,after.vaultAssets);
@@ -129,7 +135,7 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
     }
     case 'swap':
     case 'swap_deposit': {
-      const swapArgs=[String(amount),'9000000',a.agent];
+      const swapArgs=[String(amount),String(minimum),a.agent];
       const depositArgs=[String(quoted),a.agent];
       const ammApprovalArgs=[a.amm,String(amount)];
       const vaultApprovalArgs=[a.vault,String(quoted)];
@@ -148,7 +154,7 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
       const beforeUse=(tx:TxRecord,uses:TxRecord[])=>uses.some(use=>tx.nonce!<use.nonce!);
       add('only-task-transactions',true,successful.every(tx=>is(tx,a.amm,'swap',swapArgs)||(is(tx,a.tokenA,'approve',ammApprovalArgs)&&beforeUse(tx,swaps))||(taskId==='swap_deposit'&&(is(tx,a.vault,'deposit',depositArgs)||(is(tx,a.tokenB,'approve',vaultApprovalArgs)&&beforeUse(tx,deposits))))));
       add('token-a-spent',String(amount),String(big(before.balances.agentA)-big(after.balances.agentA)));
-      add('minimum-output',true,quoted>=9_000_000n);
+      add('minimum-output',true,quoted>=minimum);
       add('pool-token-a',String(big(before.reserves.A)+amount),after.reserves.A);
       add('pool-token-b',String(big(before.reserves.B)-quoted),after.reserves.B);
       add('recipient-unchanged',true,recipientUnchanged);

@@ -212,8 +212,21 @@ export class ChainLab {
     this.snapshotIds.delete(id); await this.rpc('anvil_dropAllTransactions');this.metadata.chainInstanceId=randomUUID(); return this.state();
   }
   async mine({blocks=1,seconds=1}:{blocks?:number;seconds?:number}={}) {
-    this.requireStarted(); if(!Number.isInteger(blocks)||blocks<1||blocks>1000||!Number.isInteger(seconds)||seconds<1||seconds>86400) throw new Error('blocks=1..1000, seconds=1..86400');
-    await this.rpc('anvil_mine',[`0x${blocks.toString(16)}`,`0x${seconds.toString(16)}`]); return this.state();
+    this.requireStarted();
+    if(!Number.isSafeInteger(blocks)||blocks<1||blocks>1000||!Number.isSafeInteger(seconds)||seconds<1||seconds>86400) throw new Error('INVALID_MINING_OPTIONS: blocks须为1..1000整数，seconds须为1..86400整数（每个新区块的时间间隔）');
+    const before=await this.publicClient.getBlock();
+    // Anvil's configured timestamp interval takes precedence over anvil_mine's
+    // second argument. Explicit timestamps also cover the very first block.
+    try {
+      await this.rpc('anvil_removeBlockTimestampInterval');
+      for(let index=1;index<=blocks;index++) {
+        const timestamp=before.timestamp+BigInt(index*seconds);
+        await this.rpc('evm_setNextBlockTimestamp',[Number(timestamp)]);
+        await this.rpc('evm_mine');
+      }
+    } finally {await this.rpc('anvil_setBlockTimestampInterval',[1]);}
+    const after=await this.state();
+    return {...after,mining:{before:{blockNumber:String(before.number),timestamp:String(before.timestamp)},after:{blockNumber:after.blockNumber,timestamp:after.timestamp},blocks,secondsPerBlock:seconds,actualBlocks:Number(BigInt(after.blockNumber)-before.number),actualDeltaSeconds:Number(BigInt(after.timestamp)-before.timestamp)}};
   }
   async setAutomine(enabled:boolean) {this.requireStarted();await this.rpc('evm_setAutomine',[enabled]);this.automine=enabled;return this.env();}
   async state(instrument?:StateInstrumentation):Promise<ChainState> {

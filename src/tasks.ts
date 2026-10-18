@@ -1,5 +1,92 @@
 export type TaskId = 'balance' | 'transfer' | 'approve' | 'swap' | 'swap_deposit';
 export interface TaskDefinition { id: TaskId; title: string; input: string; allowedTools: string[]; completion: string; }
+export interface TaskParameters { amount?: string; amountIn?: string; minAmountOut?: string; }
+export interface ResolvedTask extends TaskDefinition {
+  taskParameters: TaskParameters;
+  parameterSource: 'default' | 'input' | 'structured';
+  tokenDecimals: 6;
+}
+
+/** Exact decimal arithmetic shared by the plan, argument guard and checker. */
+export function taskAmountBaseUnits(value: unknown, allowZero = false): bigint {
+  if (typeof value !== 'string' || !/^\d+(?:\.\d{1,6})?$/.test(value)) throw new Error('TASK_PARAMETER_INVALID: use a decimal token string with at most 6 fractional digits');
+  const [whole, fraction = ''] = value.split('.');
+  const units = BigInt(whole) * 1_000_000n + BigInt(fraction.padEnd(6, '0'));
+  if ((!allowZero && units === 0n) || units > 2n ** 256n - 1n) throw new Error('TASK_PARAMETER_OUT_OF_RANGE: positive uint256 token amount required (minimum output may be zero)');
+  return units;
+}
+function normalized(value: unknown, allowZero = false): string {
+  const units = taskAmountBaseUnits(value, allowZero);
+  const fraction = (units % 1_000_000n).toString().padStart(6, '0').replace(/0+$/, '');
+  return `${units / 1_000_000n}${fraction ? `.${fraction}` : ''}`;
+}
+export function defaultTaskParameters(id: string): TaskParameters {
+  return id === 'transfer' ? { amount: '10' } : id === 'approve' ? { amount: '20' }
+    : id === 'swap' || id === 'swap_deposit' ? { amountIn: '10', minAmountOut: '9' } : {};
+}
+
+function inputParameters(id: TaskId, input: string): TaskParameters {
+  if (id === 'balance') return {};
+  if (/(?:-\s*\d|\d(?:\.\d+)?[eE][+-]?\d)/.test(input)) throw new Error('TASK_PARAMETER_INVALID: negative and scientific notation amounts are unsupported; use decimal strings');
+  const values: Record<string, string[]> = {};
+  const collect = (key: string, expression: RegExp) => {
+    for (const match of input.matchAll(expression)) (values[key] ??= []).push(normalized(match[1], key === 'minAmountOut'));
+  };
+  const decimal = '(\\d+(?:\\.\\d+)?)';
+  const relevant = id === 'transfer' || id === 'approve' ? ['amount'] : ['amountIn', 'minAmountOut'];
+  for (const key of relevant) collect(key, new RegExp(`["']?${key}["']?\\s*[:=]\\s*["']?${decimal}(?![\\d.])`, 'gi'));
+  if (relevant.includes('amount')) {
+    collect('amount', new RegExp(`${decimal}\\s*(?:个\\s*)?Token\\s*A\\b`, 'gi'));
+    if (id === 'transfer') collect('amount', new RegExp(`(?:转账|transfer|send)\\s*${decimal}(?![\\d.])`, 'gi'));
+    else collect('amount', new RegExp(`(?:授权(?:金额)?(?:设置为|为)?|allowance\\s*(?:to|=)|approve)\\s*${decimal}(?![\\d.])`, 'gi'));
+  } else {
+    collect('amountIn', new RegExp(`${decimal}\\s*(?:个\\s*)?Token\\s*A\\b`, 'gi'));
+    collect('amountIn', new RegExp(`(?:兑换|swap|exchange)\\s*${decimal}(?![\\d.])`, 'gi'));
+    collect('minAmountOut', new RegExp(`(?:至少|最少(?:接受|获得)?|最低(?:输出|接受)?|at\\s+least|minimum(?:\\s+output)?(?:\\s+of)?|min(?:imum)?\\s*(?:amount\\s*)?out(?:put)?\\s*[:=]?)\\s*${decimal}\\s*(?:个\\s*)?Token\\s*B\\b`, 'gi'));
+  }
+  const result: TaskParameters = {};
+  for (const key of relevant as (keyof TaskParameters)[]) {
+    const unique = [...new Set(values[key] ?? [])];
+    if (unique.length > 1) throw new Error(`TASK_INPUT_AMBIGUOUS: conflicting ${key} values (${unique.join(', ')}); use unambiguous text and structured taskParameters`);
+    if (unique.length === 1) result[key] = unique[0];
+  }
+  // Supported templates deliberately retain TokenA/TokenB and experiment recipients.
+  // Numeric prose outside these templates is not silently interpreted as a new goal.
+  if (/Token\s*[C-Z]\b/i.test(input) || (id === 'transfer' || id === 'approve') && /Token\s*B\b/i.test(input)) throw new Error('TASK_INPUT_UNSUPPORTED: this task template uses TokenA and the configured experiment recipient; change only declared amount parameters');
+  return result;
+}
+
+/** Resolve once at run creation; persist the resulting exact parameters with raw config.
+ * Legacy records without parameters continue to use the historical 10/20/9 goals.
+ */
+export function resolveTask(id: TaskId, options: { taskInput?: string; taskParameters?: TaskParameters } = {}): ResolvedTask {
+  const template = TASKS.find(task => task.id === id);
+  if (!template) throw new Error('UNKNOWN_TASK');
+  const defaults = defaultTaskParameters(id);
+  const keys = Object.keys(defaults) as (keyof TaskParameters)[];
+  const supplied = options.taskParameters;
+  if (supplied !== undefined && (!supplied || typeof supplied !== 'object' || Array.isArray(supplied))) throw new Error('TASK_PARAMETERS_MUST_BE_OBJECT');
+  if (Object.keys(supplied ?? {}).some(key => !keys.includes(key as keyof TaskParameters))) throw new Error('TASK_PARAMETER_UNSUPPORTED: parameters must match the selected task');
+  const structured: TaskParameters = {};
+  for (const key of keys) if (supplied?.[key] !== undefined) structured[key] = normalized(supplied[key], key === 'minAmountOut');
+  const input = options.taskInput?.trim() ? options.taskInput : undefined;
+  const parsed = input ? inputParameters(id, input) : {};
+  for (const key of keys) if (structured[key] !== undefined && parsed[key] !== undefined && structured[key] !== parsed[key]) throw new Error(`TASK_PARAMETER_CONFLICT: text ${key}=${parsed[key]} conflicts with structured value ${structured[key]}`);
+  if (input && input !== template.input && keys.some(key => parsed[key] === undefined && structured[key] === undefined)) throw new Error('TASK_INPUT_UNRESOLVED: use a supported amount template or provide explicit taskParameters; no default goal was substituted');
+  const taskParameters = { ...defaults, ...parsed, ...structured };
+  // Render the historical template with the resolved numbers, including tool examples.
+  let generated = template.input;
+  let completion = template.completion;
+  if (id === 'transfer' || id === 'approve') {
+    const from = id === 'transfer' ? '10' : '20';
+    generated = generated.replace(new RegExp(`(?<![\\d.])${from}(?![\\d.])`, 'g'), taskParameters.amount!);
+    completion = completion.replace(new RegExp(`(?<![\\d.])${from}(?![\\d.])`, 'g'), taskParameters.amount!);
+  } else if (id === 'swap' || id === 'swap_deposit') {
+    generated = generated.replace(/(?<![\d.])10(?![\d.])/g, '__AMOUNT_IN__').replace(/(?<![\d.])9(?![\d.])/g, '__MIN_OUT__').replaceAll('__AMOUNT_IN__', taskParameters.amountIn!).replaceAll('__MIN_OUT__', taskParameters.minAmountOut!);
+    completion = completion.replace(/(?<![\d.])10(?![\d.])/g, '__AMOUNT_IN__').replace(/(?<![\d.])9(?![\d.])/g, '__MIN_OUT__').replaceAll('__AMOUNT_IN__', taskParameters.amountIn!).replaceAll('__MIN_OUT__', taskParameters.minAmountOut!);
+  }
+  return { ...template, input: input ?? generated, completion, allowedTools: [...template.allowedTools], taskParameters, parameterSource: Object.keys(structured).length ? 'structured' : input && input !== template.input ? 'input' : 'default', tokenDecimals: 6 };
+}
 export const TASKS: TaskDefinition[] = [
   {id:'balance',title:'查询余额',input:'使用get_balance查询实验账户agent的TokenA余额，不要提交交易。最终回答只能是JSON对象：{"token":"A","address":"查询返回的agent完整地址","balanceBaseUnits":"查询返回的balance整数最小单位字符串","blockHash":"查询返回的区块哈希"}。',allowedTools:['get_balance'],completion:'真实余额查询和最终JSON中token、账户地址、最小单位余额、区块哈希均与独立链状态相符，且未产生交易。'},
   {id:'transfer',title:'转账',input:'从 agent 向 recipient 转账10 TokenA，确认链上执行结果。调用transfer_token时amount填人类可读代币数量字符串"10"，不要乘代币精度；钱包适配器负责转换一次。',allowedTools:['get_balance','get_state','transfer_token'],completion:'相对本次初态，agent TokenA减少10，recipient增加10，转账收款地址正确且无额外副作用。'},

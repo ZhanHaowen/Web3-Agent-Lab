@@ -1,14 +1,14 @@
 {
-  "version": "V0.12",
+  "version": "V0.13",
   "releaseRevision": "beta-1",
-  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
-  "testedAt": "2026-10-14T13:26:37.030Z",
+  "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+  "testedAt": "2026-10-18T16:54:05.151Z",
   "realModelTested": false,
   "results": [
     {
       "name": "trace_balance",
       "passed": true,
-      "runId": "00df3e33-93cd-4991-b04e-d60f3b7a3da7",
+      "runId": "69da10ff-6f99-41bf-90fc-f54008a92c3f",
       "tools": 1,
       "contracts": 1,
       "transactions": 0,
@@ -19,7 +19,7 @@
     {
       "name": "trace_transfer",
       "passed": true,
-      "runId": "1ec4df4c-5dec-46a7-90dc-41252945b01f",
+      "runId": "e4c2997e-83fe-4a55-863c-154277a2768a",
       "tools": 1,
       "contracts": 1,
       "transactions": 1,
@@ -30,7 +30,7 @@
     {
       "name": "trace_approve",
       "passed": true,
-      "runId": "0d3e02c3-4879-4885-b70f-3666a6e47d91",
+      "runId": "00e4c8f2-b9b7-4f90-8476-30540b1bebf8",
       "tools": 1,
       "contracts": 1,
       "transactions": 1,
@@ -41,7 +41,7 @@
     {
       "name": "trace_swap",
       "passed": true,
-      "runId": "ecb75109-0521-44c5-86ab-324978a3f68f",
+      "runId": "22d77c4d-2e77-43b7-82c1-5bbb2c2d6cb1",
       "tools": 2,
       "contracts": 2,
       "transactions": 2,
@@ -52,7 +52,7 @@
     {
       "name": "trace_swap_deposit",
       "passed": true,
-      "runId": "ab7ee54a-4685-4a60-8808-746dc28ebbcd",
+      "runId": "823d77be-3918-4db9-aad0-f95ff865fa95",
       "tools": 5,
       "contracts": 5,
       "transactions": 4,
@@ -63,27 +63,27 @@
     {
       "name": "read_raw_and_overridden_results_stay_distinct",
       "passed": true,
-      "runId": "83612abd-5ea5-4b15-b5cb-98c5bec63e56"
+      "runId": "629cf24f-c110-4dc8-9954-17df58ce6ff2"
     },
     {
       "name": "revert_keeps_failed_transaction_and_internal_call_evidence",
       "passed": true,
-      "runId": "fcaf3008-c58c-4eb5-a767-94db40a26bc9"
+      "runId": "2f6f53cb-60d4-41e5-a07c-90987a0b736b"
     },
     {
       "name": "pending_trace_remains_original_after_live_reconciliation",
       "passed": true,
-      "runId": "ca88d951-6ebb-45dd-9630-bd8bd22ba2a4"
+      "runId": "b436c04e-6727-4547-a90f-05413facfd0e"
     },
     {
       "name": "paused_export_rejected_and_cancelled_tool_does_not_fabricate_contract",
       "passed": true,
-      "runId": "45e0c5fa-f34d-4a96-83e3-bef32e5e0eb5"
+      "runId": "1fe25d8f-5ce8-41de-a963-b3d4183decbc"
     },
     {
       "name": "cancelled_before_submission_is_preparation_not_a_broadcast_edge",
       "passed": true,
-      "runId": "b0384c2b-d654-4eaa-a688-1ef62b973b31"
+      "runId": "d7dbd083-44ae-4e72-a40f-6377deecdc19"
     }
   ],
   "passed": 10,

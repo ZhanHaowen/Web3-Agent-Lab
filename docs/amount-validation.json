@@ -1,45 +1,45 @@
 {
-  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+  "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
   "origin": "synthetic model protocol + real Anvil; not a real LLM benchmark",
   "results": [
     {
       "name": "continuous_approve_rejects_base_units_then_retries_without_rewriting",
       "passed": true,
-      "runId": "970f694e-ed95-485d-b7c1-9c54b3c9c317",
+      "runId": "a9a2f100-8a66-4e7b-b246-b1792abb55a9",
       "transactions": 1,
       "rejectedAttempts": 1
     },
     {
       "name": "continuous_swap_rejects_base_units_and_reuses_prior_approval",
       "passed": true,
-      "runId": "aa090ac9-0741-4804-b33f-873b04b13912"
+      "runId": "c7193b53-d0d6-4ba0-b903-749869eedd1d"
     },
     {
       "name": "unchanged_bad_proposal_is_failure_without_oversized_chain_approval",
       "passed": true,
-      "runId": "96739128-dc16-4ca0-942b-a7b9b1fa7324"
+      "runId": "f2f0667b-55ac-4bde-8c3e-af1908b1b635"
     },
     {
       "name": "raw_research_mode_reproduces_user_numbers_and_keeps_policy_failure",
       "passed": true,
-      "runId": "0b6ebae5-3cde-4727-93a2-1bbfdfedbcbc",
+      "runId": "62b341f0-5fc6-4f1e-a737-8afdf2083ce9",
       "expectedRemainder": "999999999999990000000",
       "policyFailureRetained": true
     },
     {
       "name": "inherited_large_allowance_is_consumed_without_forced_reset",
       "passed": true,
-      "runId": "6a6c2fc3-60b9-4cf6-af07-ca6ed9e2e9cf"
+      "runId": "8ef15317-e6e7-4296-8677-46e1ff006188"
     },
     {
       "name": "valid_prerequisite_approve_is_part_of_swap",
       "passed": true,
-      "runId": "f2ad57f4-e571-4c45-a17c-291a3423ae9d"
+      "runId": "a0376efe-6e19-41e1-bbcc-6922b76eefb1"
     },
     {
       "name": "trace_export_graph_and_offline_recheck_keep_unit_evidence",
       "passed": true,
-      "runId": "970f694e-ed95-485d-b7c1-9c54b3c9c317"
+      "runId": "a9a2f100-8a66-4e7b-b246-b1792abb55a9"
     },
     {
       "name": "invalid_validation_mode_rejected",

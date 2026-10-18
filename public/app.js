@@ -2,7 +2,7 @@
 
 // Untrusted model, tool, and imported values are rendered with textContent only.
 const $ = (id) => document.getElementById(id);
-const state = { csrfToken: '', tasks: [], status: null, runs: [], runId: null, run: null, events: [], selectedEvent: null, replay: false, imported: false, polling: false, action: false, firstStatus: true, connected: false, lastEventSignature: '', historySignature: '', lastReadError: '' };
+const state = { csrfToken: '', tasks: [], status: null, runs: [], runId: null, run: null, events: [], selectedEvent: null, replay: false, imported: false, polling: false, action: false, firstStatus: true, connected: false, lastEventSignature: '', historySignature: '', lastReadError: '', graphView: { runId: null, types: null, expanded: false, limit: 120, zoom: 1, selected: null } };
 const labels = {
   success: '成功', succeeded: '成功', failure: '失败', failed: '失败', pending: '等待确认', unknown: '结果未知', running: '运行中', paused: '已暂停', cancelled: '已取消', canceled: '已取消', completed: '已完成', complete: '已完成', stopped: '已停止', error: '执行错误', precondition_error: '初始条件不满足', invalid: '记录无效', incomplete: '记录不完整', sealed: '记录已封存', ready: '就绪', idle: '空闲', scripted: '脚本基线', llm: 'LLM Agent'
 };
@@ -70,6 +70,12 @@ function updateButtons() {
   const canLiveCheck = /pending|unknown/.test(resultStatus(runVerdict(state.run)) || '');
   $('live-check-run').classList.toggle('hidden', !canLiveCheck);
   $('live-check-run').disabled = !state.runId || state.action || state.imported || busy() || !ready();
+  const continuation = state.run?.continuation; const isLLM = state.run?.config?.mode === 'llm';
+  $('continue-agent-run').classList.toggle('hidden', !isLLM || state.imported);
+  $('continue-agent-run').disabled = !isLLM || state.action || busy() || !ready() || state.imported || !continuation?.allowed;
+  $('continue-agent-note').classList.toggle('hidden', !isLLM || state.imported);
+  const continuationNote = continuation?.allowed ? '「更新链上结论」只更新检查器；「出块并继续 Agent」按链与环境中的区块数和时间出块，给 Agent 新状态并创建关联子运行，服务可能继续提交交易。' : '继续 Agent 当前不可用：' + (continuation?.reason || '旧记录未提供可恢复会话；需当前会话末次 Agent 运行及一致链环境。');
+  text($('continue-agent-note'), (isProtocolFixture(state.run) ? '接口模拟测试（非真实模型）：恢复的是协议模拟服务对话，此记录不能作为模型能力结果。' : '') + continuationNote);
   $('rerun-run').disabled = !state.runId || state.action || state.imported || busy();
   const continuous = experimentMode(state.run) === 'continuous';
   $('rerun-run').classList.toggle('hidden', continuous);
@@ -112,7 +118,7 @@ function renderStatus(value) {
 function setConnection(connected) {
   state.connected = connected; $('connection-dot').className = 'status-dot ' + (connected ? 'connected' : 'failed');
   const version = typeof state.status?.version === 'object' ? state.status.version.version : state.status?.version;
-  $('connection-text').replaceChildren(document.createTextNode(connected ? '本地服务已连接' : '本地服务未连接'), create('small', '', version === '0.1.2' ? 'V0.12 · ' + (state.status?.version?.releaseRevision || '0.1.2') : version ? 'V0.12 界面 · 服务 ' + version : 'V0.12 · localhost:4317'));
+  $('connection-text').replaceChildren(document.createTextNode(connected ? '本地服务已连接' : '本地服务未连接'), create('small', '', version === '0.1.3' ? 'V0.13 · ' + (state.status?.version?.releaseRevision || 'beta-1') : version ? 'V0.13 界面 · 服务 ' + version : 'V0.13 · localhost:4317'));
 }
 function exactUnits(value, decimals = 6, signed = false) {
   if (value === null || value === undefined || !/^-?\d+$/.test(String(value))) return '未采集';
@@ -145,6 +151,10 @@ function renderTasks(tasks) {
 function taskChanged() {
   const task = currentTask(); if (!task) return;
   $('task-input').value = task.input || task.userInput || task.user_input || '';
+  state.taskEditSource = 'input'; state.taskResolution = null;
+  const taskId = task.id || task.taskId, parameters = task.taskParameters || (taskId === 'approve' ? { amount: '20' } : taskId === 'transfer' ? { amount: '10' } : /swap/.test(taskId) ? { amountIn: '10', minAmountOut: '9' } : {});
+  for (const name of ['amount', 'amountIn', 'minAmountOut']) { $('parameter-' + name + '-field').classList.toggle('hidden', parameters[name] === undefined); $('parameter-' + name).value = parameters[name] || ''; }
+  $('task-parameters').classList.toggle('hidden', taskId === 'balance'); text($('task-resolution-note'), '开始前将解析本次目标；修改输入后可点击解析预览。');
   text($('task-completion'), task.completion ? '完成条件：' + task.completion : '');
   $('allowed-tools').replaceChildren();
   for (const item of task.allowedTools || task.allowed_tools || []) {
@@ -163,7 +173,7 @@ function setMode(mode) {
   for (const button of document.querySelectorAll('[data-mode]')) button.classList.toggle('selected', button.dataset.mode === mode);
   $('model-settings').classList.toggle('hidden', mode !== 'llm');
   $('model-name').required = mode === 'llm';
-  text($('input-note'), mode === 'llm' ? '实际发送给 Agent 的用户输入。检查器仍依据所选任务的固定完成条件判定。' : '脚本基线执行固定计划；修改输入只改变记录，不改变脚本操作。');
+  text($('input-note'), mode === 'llm' ? '实际发送给 Agent 的用户输入。开始前解析目标，金额校验与检查器按同一本次任务目标判定。' : '脚本基线按解析后的本次任务参数执行；修改输入中的支持金额会同步改变脚本与检查器。');
   text($('mode-note'), mode === 'llm' ? '通过模型工具调用决定行动；输出受模型服务与采样参数影响。' : '确定性工具调用，用于验证基础设施；不属于大模型实验。');
   updateFaultField();
 }
@@ -175,10 +185,25 @@ function getConfiguration() {
   if (mode === 'llm' && !modelName) throw new Error('请填写模型名称。');
   const allowedTools = [...$('allowed-tools').querySelectorAll('input:checked')].map(input => input.value);
   if (!allowedTools.length) throw new Error('请至少允许一种工具。');
-  return { taskId: $('task-id').value, mode, experimentMode: $('experiment-mode').value, amountValidation: $('validate-task-amounts').checked ? 'fixed_task' : 'schema_only', taskInput: $('task-input').value, allowedTools,
+  return { taskId: $('task-id').value, mode, experimentMode: $('experiment-mode').value, amountValidation: $('validate-task-amounts').checked ? 'fixed_task' : 'schema_only', taskInput: $('task-input').value, ...(state.taskResolution ? { taskParameters: state.taskResolution.taskParameters } : {}), allowedTools,
     model: { baseUrl: $('base-url').value.trim(), model: modelName, apiKey: $('api-key').value, temperature: Number($('temperature').value), maxSteps: Number($('max-steps').value), ...($('system-prompt').value.trim() ? { systemPrompt: $('system-prompt').value } : {}) },
     pauseBeforeTool: $('pause-before-tool').checked, pauseBeforeTransaction: $('pause-before-transaction').checked,
     toolOverrides: overrides, faultMode: $('fault-mode').value };
+}
+async function resolveTaskForm(source = state.taskEditSource || 'input') {
+  const taskId = $('task-id').value, input = $('task-input').value;
+  const names = /swap/.test(taskId) ? ['amountIn', 'minAmountOut'] : ['transfer', 'approve'].includes(taskId) ? ['amount'] : [];
+  const parameters = Object.fromEntries(names.map(name => [name, $('parameter-' + name).value.trim()]));
+  const value = await api('/api/tasks/resolve', { method: 'POST', body: { taskId, ...(source === 'structured' ? { taskParameters: parameters } : { taskInput: input }) } });
+  const resolved = value.task || value;
+  if ($('task-id').value !== taskId || $('task-input').value !== input || source === 'structured' && names.some(name => $('parameter-' + name).value.trim() !== parameters[name])) throw new Error('解析期间任务输入或参数已改变，请再次解析。');
+  if (!resolved.taskParameters || typeof resolved.input !== 'string') throw new Error('服务没有返回有效的任务目标。');
+  state.taskResolution = resolved; state.taskEditSource = 'input';
+  if (source === 'structured') $('task-input').value = resolved.input;
+  for (const name of names) $('parameter-' + name).value = resolved.taskParameters[name] ?? '';
+  text($('task-completion'), '完成条件：' + (resolved.completion || '未提供'));
+  text($('task-resolution-note'), '本次目标已核对：' + (names.length ? names.map(name => name + ' = ' + resolved.taskParameters[name]).join('；') : '只查询余额，不提交交易') + '。来源：' + ({ input: '任务输入', structured: '结构化参数', default: '标准默认任务' }[resolved.parameterSource] || resolved.parameterSource || '未标注'));
+  return resolved;
 }
 
 function eventType(event) { return event.type || event.event_type || event.eventType || event.kind || 'event'; }
@@ -234,36 +259,82 @@ function validExecutionGraph(graph, id) {
   return nodeIds.size === graph.nodes.length && new Set(graph.edges.map(edge => edge.id)).size === graph.edges.length && graph.edges.every(edge => nodeIds.has(edge.source) && nodeIds.has(edge.target));
 }
 function validGraphML(value) { return typeof value === 'string' && /<(?:\w+:)?graphml\b[^>]*>/.test(value) && /<\/(?:\w+:)?graphml\s*>/.test(value); }
-const graphNodeLabels = { task: '任务', model_call: '模型调用', tool_call: '工具调用', contract_call: '合约调用', transaction: '交易', evm_call: 'EVM 调用', contract: '合约', address: '地址', state: '状态', run_reference: '前次运行' };
+const graphNodeLabels = { task: '任务', model_call: '模型调用', tool_call: '工具调用', contract_call: '合约调用', transaction: '交易', evm_call: 'EVM 调用', contract: '合约', address: '地址', state: '状态', run_reference: '前次运行', external_tool_result: '父运行工具结果' };
 function svgElement(tag, attributes = {}, content) {
   const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
   for (const [name, value] of Object.entries(attributes)) el.setAttribute(name, String(value));
   if (content !== undefined) el.textContent = String(content); return el;
 }
 function showGraphNode(node, graph) {
+  state.graphView.selected = { kind: 'node', id: node.id };
   $('execution-graph-detail').classList.remove('hidden');
   text($('execution-graph-detail-title'), (graphNodeLabels[node.type] || node.type) + ' · ' + (node.label || node.id));
   text($('execution-graph-detail-json'), json({ node, connected_edges: graph.edges.filter(edge => edge.source === node.id || edge.target === node.id) }));
   $('execution-graph-source-links').replaceChildren(); traceSourceLinks($('execution-graph-source-links'), node);
-  for (const el of $('execution-graph-preview').querySelectorAll('.graph-node')) el.classList.toggle('selected', el.dataset.nodeId === node.id);
+  highlightGraph(graph);
 }
-function renderExecutionGraph(run) {
+const graphColors = ['#087f72', '#9462b8', '#2378bd', '#bd6b20', '#b54868', '#687f26', '#4963b0', '#a15c3c', '#747a86'];
+function graphColor(type) { return state.graphRelationColors?.get(type) || graphColors[0]; }
+function showGraphEdge(edge, graph) {
+  state.graphView.selected = { kind: 'edge', id: edge.id };
+  $('execution-graph-detail').classList.remove('hidden');
+  text($('execution-graph-detail-title'), '关系 · ' + (edge.type || '未分类') + ' · ' + edge.id);
+  text($('execution-graph-detail-json'), json({ edge, source_node: graph.nodes.find(node => node.id === edge.source), target_node: graph.nodes.find(node => node.id === edge.target) }));
+  $('execution-graph-source-links').replaceChildren(); traceSourceLinks($('execution-graph-source-links'), edge); highlightGraph(graph);
+}
+function highlightGraph(graph) {
+  const selected = state.graphView.selected; const nodeIds = new Set(), edgeIds = new Set();
+  if (selected?.kind === 'node') { nodeIds.add(selected.id); for (const edge of graph.edges) if (edge.source === selected.id || edge.target === selected.id) { edgeIds.add(edge.id); nodeIds.add(edge.source); nodeIds.add(edge.target); } }
+  if (selected?.kind === 'edge') { const edge = graph.edges.find(item => item.id === selected.id); if (edge) { edgeIds.add(edge.id); nodeIds.add(edge.source); nodeIds.add(edge.target); } }
+  for (const el of $('execution-graph-preview').querySelectorAll('.graph-node')) {
+    el.classList.toggle('selected', selected?.kind === 'node' && el.dataset.nodeId === selected.id);
+    el.classList.toggle('neighbor', Boolean(selected) && nodeIds.has(el.dataset.nodeId)); el.classList.toggle('dimmed', Boolean(selected) && !nodeIds.has(el.dataset.nodeId));
+  }
+  for (const el of $('execution-graph-preview').querySelectorAll('.graph-edge')) { el.classList.toggle('highlighted', edgeIds.has(el.dataset.edgeId)); el.classList.toggle('dimmed', Boolean(selected) && !edgeIds.has(el.dataset.edgeId)); }
+}
+function graphFilter(mode) {
+  const graph = state.run?.execution_graph; if (!validExecutionGraph(graph, state.runId)) return;
+  state.graphView.types = mode === 'all' ? null : mode === 'follows' ? new Set(['follows_run']) : new Set();
+  state.graphView.selected = null; renderExecutionGraph(state.run, true);
+}
+function graphZoom(value) {
+  const svg = state.graphSvg; if (!svg) return;
+  state.graphView.zoom = Math.max(0.12, Math.min(4, value));
+  svg.setAttribute('width', state.graphWidth * state.graphView.zoom); svg.setAttribute('height', state.graphHeight * state.graphView.zoom);
+  text($('graph-zoom-label'), Math.round(state.graphView.zoom * 100) + '%');
+}
+function renderExecutionGraph(run, force = false) {
   const graph = run?.execution_graph;
-  const signature = json([state.runId, state.imported, graph, run?.execution_graph_error]);
-  if (signature === state.executionGraphSignature) return;
+  const view = state.graphView;
+  if (view.runId !== state.runId) { Object.assign(view, { runId: state.runId, types: null, limit: 120, zoom: 1, selected: null }); }
+  const signature = json([state.runId, state.imported, graph, run?.execution_graph_error, view.types ? [...view.types].sort() : null, view.limit]);
+  if (!force && signature === state.executionGraphSignature) return;
   state.executionGraphSignature = signature;
   const container = $('execution-graph-preview'); container.replaceChildren(); $('execution-graph-detail').classList.add('hidden');
+  $('graph-relation-filters').replaceChildren(); state.graphSvg = null;
   if (!validExecutionGraph(graph, state.runId)) {
     text($('execution-graph-note'), run?.execution_graph_error || (graph ? '图格式、节点关系或实验编号无效，未绘制。' : '当前记录没有派生关系图。可继续查看工具轨迹与原始事件。')); return;
   }
+  const relationTypes = [...new Set(graph.edges.map(edge => edge.type || '未分类'))].sort();
+  state.graphRelationColors = new Map(relationTypes.map((type, index) => [type, index < graphColors.length ? graphColors[index] : `hsl(${Math.round(index * 137.508) % 360} 55% 36%)`]));
+  for (const type of relationTypes) {
+    const label = create('label', 'graph-relation-option'); const input = create('input'); input.type = 'checkbox'; input.value = type; input.checked = view.types === null || view.types.has(type);
+    const dot = create('span', 'graph-color-dot'); dot.style.backgroundColor = graphColor(type);
+    label.append(input, dot, document.createTextNode(type + ' (' + graph.edges.filter(edge => (edge.type || '未分类') === type).length + ')'));
+    input.addEventListener('change', () => { if (view.types === null) view.types = new Set(relationTypes); input.checked ? view.types.add(type) : view.types.delete(type); view.selected = null; renderExecutionGraph(state.run, true); }); $('graph-relation-filters').append(label);
+  }
+  const selectedEdges = graph.edges.filter(edge => view.types === null || view.types.has(edge.type || '未分类'));
+  const endpoints = new Set(selectedEdges.flatMap(edge => [edge.source, edge.target]));
   const primaryTypes = new Set(['task', 'model_call', 'tool_call', 'contract_call', 'transaction', 'contract']);
-  const candidates = graph.nodes.length > 120 ? graph.nodes.filter(node => primaryTypes.has(node.type)) : graph.nodes;
-  const visibleNodes = candidates.slice(0, 120);
+  let candidates = view.types === null ? graph.nodes : graph.nodes.filter(node => endpoints.has(node.id));
+  if (candidates.length > view.limit) candidates = [...candidates.filter(node => primaryTypes.has(node.type)), ...candidates.filter(node => !primaryTypes.has(node.type))];
+  const visibleNodes = candidates.slice(0, view.limit);
   const nodeIds = new Set(visibleNodes.map(node => node.id));
-  const matchingEdges = graph.edges.filter(edge => nodeIds.has(edge.source) && nodeIds.has(edge.target));
-  const visibleEdges = matchingEdges.slice(0, 300);
-  const partial = visibleNodes.length !== graph.nodes.length || visibleEdges.length !== graph.edges.length;
-  text($('execution-graph-note'), `${partial ? '大图已折叠，仅预览主要活动：' : '完整预览：'}${visibleNodes.length} / ${graph.nodes.length} 个节点，${visibleEdges.length} / ${graph.edges.length} 条边。点击节点查看属性与事件来源；下载保留完整图。箭头表示记录中的关联，follows_run 仅表示先后顺序。`);
+  const matchingEdges = selectedEdges.filter(edge => nodeIds.has(edge.source) && nodeIds.has(edge.target));
+  const visibleEdges = matchingEdges.slice(0, view.limit * 4);
+  const partial = visibleNodes.length < candidates.length || visibleEdges.length < matchingEdges.length;
+  $('graph-more').disabled = !partial || view.limit >= 2000; text($('graph-more'), partial ? view.limit >= 2000 ? '已达预览上限，下载完整图' : '展开更多节点（最多 ' + Math.min(2000, view.limit * 2) + '）' : '已展示所选关系');
+  text($('execution-graph-note'), `${partial ? '大图已折叠：' : view.types === null ? '完整预览：' : '关系筛选预览：'}${visibleNodes.length} / ${graph.nodes.length} 个节点，${visibleEdges.length} / ${graph.edges.length} 条边。点击节点高亮相邻关系，点击连线查看关系详情；拖动平移。下载保留完整图，不受筛选影响。follows_run 仅表示先后顺序。`);
   if (!visibleNodes.length) { container.append(create('p', 'trace-missing', '图中没有可预览的节点；完整数据可通过导出查看。')); return; }
   const groups = [[], [], [], [], []]; const layerMap = { task: 0, model_call: 0, run_reference: 0, tool_call: 1, contract_call: 2, transaction: 3, evm_call: 3, contract: 4, address: 4, state: 4 };
   visibleNodes.forEach(node => groups[layerMap[node.type] ?? 4].push(node));
@@ -271,7 +342,7 @@ function renderExecutionGraph(run) {
   const positions = new Map(); const nodeWidth = 134, nodeHeight = 49, gapX = 29, gapY = 24;
   const width = 5 * (nodeWidth + gapX) + 24; const height = Math.max(150, Math.max(...groups.map(group => group.length)) * (nodeHeight + gapY) + 50);
   const svg = svgElement('svg', { viewBox: `0 0 ${width} ${height}`, width, height, role: 'img', 'aria-label': '实验执行溯源关系图；可点击节点查看证据' });
-  const defs = svgElement('defs'); const marker = svgElement('marker', { id: 'execution-graph-arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 5, markerHeight: 5, orient: 'auto-start-reverse' }); marker.append(svgElement('path', { d: 'M 0 0 L 10 5 L 0 10 z', fill: '#87a899' })); defs.append(marker); svg.append(defs);
+  const defs = svgElement('defs'); relationTypes.forEach((type, index) => { const marker = svgElement('marker', { id: 'execution-graph-arrow-' + index, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 5, markerHeight: 5, orient: 'auto-start-reverse' }); marker.append(svgElement('path', { d: 'M 0 0 L 10 5 L 0 10 z', fill: graphColor(type) })); defs.append(marker); }); svg.append(defs);
   groups.forEach((nodes, column) => {
     const x = 14 + column * (nodeWidth + gapX); svg.append(svgElement('text', { x, y: 20, class: 'graph-layer-title' }, layerTitles[column]));
     nodes.forEach((node, index) => positions.set(node.id, { x, y: 38 + index * (nodeHeight + gapY) }));
@@ -280,16 +351,19 @@ function renderExecutionGraph(run) {
     const from = positions.get(edge.source), to = positions.get(edge.target); if (!from || !to) continue;
     const startX = from.x + nodeWidth, startY = from.y + nodeHeight / 2, endX = to.x, endY = to.y + nodeHeight / 2;
     const bend = Math.max(18, Math.abs(endX - startX) / 2);
-    const path = svgElement('path', { d: `M ${startX} ${startY} C ${startX + bend} ${startY}, ${endX - bend} ${endY}, ${endX - 3} ${endY}`, class: 'graph-edge', 'marker-end': 'url(#execution-graph-arrow)' }); path.append(svgElement('title', {}, `${edge.type || '关联'}: ${edge.source} → ${edge.target}`)); svg.append(path);
+    const route = from.x === to.x ? `M ${startX} ${startY} C ${startX + 24} ${startY}, ${startX + 24} ${endY}, ${startX + 3} ${endY}` : `M ${startX} ${startY} C ${startX + bend} ${startY}, ${endX - bend} ${endY}, ${endX - 3} ${endY}`;
+    const path = svgElement('path', { d: route, class: 'graph-edge', 'marker-end': 'url(#execution-graph-arrow-' + relationTypes.indexOf(edge.type || '未分类') + ')' }); path.style.stroke = graphColor(edge.type || '未分类'); path.dataset.edgeId = edge.id; path.append(svgElement('title', {}, `${edge.type || '关联'}: ${edge.source} → ${edge.target}`));
+    const hit = svgElement('path', { d: route, class: 'graph-edge-hit', tabindex: 0, role: 'button', 'aria-label': '查看关系 ' + (edge.type || '未分类') + ' ' + edge.id }); hit.dataset.edgeId = edge.id;
+    const select = () => { if (!state.graphDragMoved) showGraphEdge(edge, graph); }; hit.addEventListener('click', select); path.addEventListener('click', select); hit.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showGraphEdge(edge, graph); } }); svg.append(path, hit);
   }
   for (const node of visibleNodes) {
     const { x, y } = positions.get(node.id); const group = svgElement('g', { class: 'graph-node', tabindex: 0, role: 'button', 'aria-label': (graphNodeLabels[node.type] || node.type) + '：' + (node.label || node.id) }); group.dataset.nodeId = node.id;
     group.append(svgElement('rect', { x, y, width: nodeWidth, height: nodeHeight, rx: 6 }));
     group.append(svgElement('text', { x: x + 9, y: y + 16, class: 'graph-node-type' }, graphNodeLabels[node.type] || node.type));
     const label = String(node.label || node.id); group.append(svgElement('text', { x: x + 9, y: y + 34, class: 'graph-node-label' }, label.length > 17 ? label.slice(0, 16) + '…' : label)); group.append(svgElement('title', {}, label));
-    group.addEventListener('click', () => showGraphNode(node, graph)); group.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showGraphNode(node, graph); } }); svg.append(group);
+    group.addEventListener('click', () => { if (!state.graphDragMoved) showGraphNode(node, graph); }); group.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showGraphNode(node, graph); } }); svg.append(group);
   }
-  container.append(svg);
+  container.append(svg); state.graphSvg = svg; state.graphWidth = width; state.graphHeight = height; graphZoom(view.zoom); highlightGraph(graph);
 }
 function traceSourceLinks(parent, entity) {
   const refs = Array.isArray(entity?.source_events) ? entity.source_events : [];
@@ -692,7 +766,7 @@ function renderRun(run, { replay = state.replay, imported = state.imported } = {
   const lineage = $('run-lineage'); lineage.replaceChildren(); lineage.classList.remove('hidden');
   const continuous = experimentMode(run) === 'continuous';
   lineage.append(create('span', 'pill ' + (continuous ? 'warning' : 'muted'), continuous ? '连续实验 · 继承运行前状态' : run.config?.experimentMode ? '独立实验 · 标准基线' : '独立实验 · 旧记录默认'));
-  lineage.append(create('small', '', '金额校验：' + (run.config?.amountValidation === 'fixed_task' ? '固定任务金额（提交前）' : run.config?.amountValidation === 'schema_only' ? '仅格式校验 · 错误金额研究模式' : '旧记录未声明')));
+  lineage.append(create('small', '', '金额校验：' + (run.config?.amountValidation === 'fixed_task' ? (run.config?.taskParameters ? '本次任务目标金额（提交前）' : '固定任务金额（旧记录）') : run.config?.amountValidation === 'schema_only' ? '仅格式校验 · 错误金额研究模式' : '旧记录未声明')));
   if (run.config?.session_id) lineage.append(create('small', '', '会话：' + run.config.session_id));
   if (run.config?.previous_run_id) lineage.append(create('small', '', '前次运行：' + run.config.previous_run_id));
   const result = runVerdict(run);
@@ -722,26 +796,76 @@ async function refreshCurrentRun() {
   }
 }
 
-function historyId(run) { return run.runId || run.run_id || run.id; }
+function historyId(run) { return run.runId || run.run_id || run.id || run.config?.run_id; }
+const taskTitles = { balance: '查询余额', transfer: '转账', approve: '代币授权', swap: '兑换', swap_deposit: '兑换后存入' };
+const chainOutcomeLabels = { query_only: '纯查询 · 无交易', not_submitted: '未提交交易', success: '交易成功', reverted: '交易回滚 / 失败', pending: '交易等待确认', unknown: '交易结果未知', mixed: '交易结果不一致' };
+function historyTask(run) { return run.taskId || run.task_id || run.config?.taskId || ''; }
+function historyTaskTitle(run) { return run.taskTitle || run.task?.title || run.config?.task?.title || state.tasks.find(task => task.id === historyTask(run))?.title || taskTitles[historyTask(run)] || historyTask(run) || '任务未记录'; }
+function historyTaskStatus(run) {
+  const status = run.taskStatus || resultStatus(runVerdict(run)) || run.outcome || run.status || 'unknown';
+  return ['succeeded', 'success'].includes(status) ? 'success' : ['failed', 'failure', 'error'].includes(status) ? 'failure' : status === 'pending' ? 'pending' : 'unknown';
+}
+function historyChainStatus(run) {
+  const explicit = run.chainExecutionStatus || run.result?.diagnostics?.chainExecutionStatus;
+  if (explicit) return /^(failure|failed)$/.test(explicit) ? 'reverted' : explicit;
+  const result = runVerdict(run), txs = transactionsOf(result || {});
+  if (!txs.length) return historyTask(run) === 'balance' && result ? 'query_only' : result ? 'not_submitted' : 'unknown';
+  const statuses = txs.map(transactionStatus);
+  return statuses.some(value => !/^(success|reverted|failed|failure|pending)$/.test(value)) ? 'unknown' : statuses.includes('pending') ? 'pending' : statuses.every(value => value === 'success') ? 'success' : statuses.every(value => /revert|fail/.test(value)) ? 'reverted' : 'mixed';
+}
+function modelSummary(run) {
+  const config = run.config || run; const scripted = config.mode === 'scripted';
+  const requested = run.modelSummary?.requested || config.model?.model || null;
+  const fromEvents = (run.events || []).filter(event => eventType(event) === 'model.response').map(event => eventPayload(event)?.response?.model).filter(value => typeof value === 'string' && value);
+  const reported = [...new Set([...(Array.isArray(run.modelSummary?.reported) ? run.modelSummary.reported : []), ...fromEvents])];
+  return { requested, reported, description: scripted ? '脚本基线 · 未调用模型' : '请求：' + (requested || '未记录（旧数据）') + '；服务端报告：' + (reported.length ? reported.join('、') : '未提供 / 未记录') };
+}
+function redactConfiguration(value, key = '') {
+  if (/api.?key|authorization|private.?key|mnemonic|password|secret|access.?token|refresh.?token/i.test(key)) return '[REDACTED]';
+  if (Array.isArray(value)) return value.map(item => redactConfiguration(item));
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([name, item]) => [name, redactConfiguration(item, name)]));
+  if (typeof value === 'string' && /url|endpoint/i.test(key)) { try { const url = new URL(value); if (url.username || url.password) { url.username = 'REDACTED'; url.password = 'REDACTED'; } for (const name of url.searchParams.keys()) if (/key|token|secret|password|auth/i.test(name)) url.searchParams.set(name, 'REDACTED'); return url.toString(); } catch { return value; } }
+  return value;
+}
+function showArchiveDetails(run) {
+  const config = run.config || run; $('archive-detail').classList.remove('hidden');
+  text($('archive-detail-title'), '任务输入与配置 · ' + historyTaskTitle(run) + ' · ' + historyId(run)); text($('archive-detail-model'), modelSummary(run).description + '。服务端 model 字段为接口自报，未证明底层权重版本。');
+  text($('archive-detail-input'), config.taskInput ?? config.task?.input ?? '未记录（旧数据缺失，未用当前默认任务补写）');
+  text($('archive-detail-config'), json(redactConfiguration(config))); $('archive-detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function historyMatches(run) {
+  const task = $('history-task').value, taskResult = $('history-task-result').value, chainResult = $('history-chain-result').value;
+  if (task && task !== historyTask(run) || taskResult && taskResult !== historyTaskStatus(run)) return false;
+  const chain = historyChainStatus(run); if (chainResult && chainResult !== chain && !(chainResult === 'not_submitted' && chain === 'query_only')) return false;
+  const config = run.config || run; const summary = modelSummary(run);
+  const searchable = [historyId(run), historyTask(run), historyTaskTitle(run), labels[historyTaskStatus(run)], historyTaskStatus(run), chainOutcomeLabels[chain], chain, summary.description, config.taskInput, experimentMode(run) === 'continuous' ? '连续实验 continuous' : '独立实验 independent', config.mode === 'llm' ? 'LLM Agent' : '脚本基线 scripted'].join(' ').toLowerCase();
+  return $('history-filter').value.trim().toLowerCase().split(/\s+/).filter(Boolean).every(word => searchable.includes(word));
+}
 function renderHistory() {
-  const filter = $('history-filter').value.trim().toLowerCase();
-  text($('history-count'), state.runs.length); $('history-list').replaceChildren();
-  const filtered = state.runs.filter(r => !filter || json(r).toLowerCase().includes(filter));
+  const signature = json([state.runs, state.tasks, $('history-filter').value, $('history-task').value, $('history-task-result').value, $('history-chain-result').value]);
+  if (signature === state.historySignature) return; state.historySignature = signature;
+  const selectedTask = $('history-task').value; $('history-task').replaceChildren(); const all = create('option', '', '全部任务'); all.value = ''; $('history-task').append(all);
+  const taskIds = [...new Set([...state.tasks.map(task => task.id), ...state.runs.map(historyTask)].filter(Boolean))];
+  for (const id of taskIds) { const option = create('option', '', historyTaskTitle({ taskId: id }) + ' · ' + id); option.value = id; $('history-task').append(option); } $('history-task').value = selectedTask;
+  $('history-list').replaceChildren(); const filtered = state.runs.filter(historyMatches);
+  text($('history-count'), filtered.length + ' / ' + state.runs.length);
   $('history-empty').classList.toggle('hidden', filtered.length > 0);
   for (const run of filtered) {
     const id = historyId(run); const row = document.createElement('tr'); const identity = document.createElement('td'); identity.append(create('code', '', id), create('small', '', date(run.createdAt || run.startedAt || run.startTime || run.timestamp || run.config?.createdAt)));
-    row.append(identity, create('td', '', run.taskTitle || run.taskId || run.task_id || run.config?.taskId || '—'));
+    row.dataset.runId = id; row.append(identity, create('td', '', historyTaskTitle(run) + ' · ' + historyTask(run)));
     const protocolFixture = isProtocolFixture(run);
     const runMode = run.mode || run.config?.mode;
     const mode = create('td'); mode.append(create('span', 'pill ' + (!protocolFixture && runMode === 'llm' ? 'success' : 'muted'), protocolFixture ? '接口模拟测试（非LLM）' : labels[runMode] || runMode || '—'), create('small', '', experimentMode(run) === 'continuous' ? '连续实验 · 继承状态' : '独立实验 · 标准基线')); row.append(mode);
-    const result = create('td'); const tag = create('span'); const verdict = resultStatus(run.result) || run.outcome || run.verdict || run.status || run.recordingStatus || run.recording_status;
-    badge(tag, typeof verdict === 'object' ? resultStatus(verdict) : verdict, '未检查'); result.append(tag); row.append(result);
+    const model = create('td', 'history-model'); const summary = modelSummary(run); model.append(create('span', '', runMode === 'scripted' ? '脚本基线 · 无模型' : '请求：' + (summary.requested || '未记录（旧数据）')), create('small', '', runMode === 'scripted' ? '未调用模型' : '服务端：' + (summary.reported.length ? summary.reported.join('、') : '未提供 / 未记录'))); row.append(model);
+    const result = create('td'); const tag = create('span'); badge(tag, historyTaskStatus(run), '未检查'); result.append(tag); row.append(result);
+    const chain = create('td'), chainTag = create('span'); const chainStatus = historyChainStatus(run); chainTag.className = 'pill ' + (chainStatus === 'reverted' ? 'danger' : badgeClass(chainStatus)); text(chainTag, chainOutcomeLabels[chainStatus] || chainStatus); chain.append(chainTag); row.append(chain);
     const options = create('td'); const group = create('div', 'button-row');
     const replay = create('button', 'button secondary small', '轨迹回放'); replay.addEventListener('click', () => action(replay, '读取中…', async () => { await loadRun(id, true); tab('experiment'); notify('正在回放已保存记录：不会调用模型，也不会向链提交交易。'); }));
     const exportBtn = create('button', 'text-button', '导出 ↓');
     exportBtn.disabled = (run.recordingStatus || run.recording_status || run.manifest?.recording_status) !== 'complete';
     if (exportBtn.disabled) exportBtn.title = '记录尚未完整封存，请先查看实验详情。';
-    exportBtn.addEventListener('click', () => exportRun(id)); group.append(replay, exportBtn); options.append(group); row.append(options); $('history-list').append(row);
+    const details = create('button', 'button secondary small', '输入与配置'); details.addEventListener('click', () => showArchiveDetails(run));
+    exportBtn.addEventListener('click', () => exportRun(id)); group.append(details, replay, exportBtn); options.append(group); row.append(options); $('history-list').append(row);
   }
 }
 async function refreshHistory() { const data = await api('/api/runs'); state.runs = Array.isArray(data) ? data : data.runs || []; renderHistory(); }
@@ -805,6 +929,10 @@ document.querySelectorAll('[data-tab]').forEach(button => button.addEventListene
 document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
 document.querySelector('.brand').addEventListener('click', e => { e.preventDefault(); tab('experiment'); });
 $('task-id').addEventListener('change', taskChanged);
+$('task-input').addEventListener('input', () => { state.taskEditSource = 'input'; state.taskResolution = null; text($('task-resolution-note'), '任务输入已改变，开始前会重新解析；可先点击「从任务输入解析目标」。'); });
+for (const name of ['amount', 'amountIn', 'minAmountOut']) $('parameter-' + name).addEventListener('input', () => { state.taskEditSource = 'structured'; state.taskResolution = null; text($('task-resolution-note'), '参数已改变；同步后会重建标准任务输入，并更新本次检查目标。'); });
+$('apply-task-parameters').addEventListener('click', () => action($('apply-task-parameters'), '同步中…', () => resolveTaskForm('structured')));
+$('resolve-task-input').addEventListener('click', () => action($('resolve-task-input'), '解析中…', () => resolveTaskForm('input')));
 $('experiment-mode').addEventListener('change', renderModePreview);
 $('show-raw-units').addEventListener('change', () => renderStateComparison());
 $('notification-close').addEventListener('click', () => $('notification').classList.add('hidden'));
@@ -815,15 +943,16 @@ $('reset-environment').addEventListener('click', () => action($('reset-environme
 $('stop-environment').addEventListener('click', () => action($('stop-environment'), '停止中…', async () => { await api('/api/environment/stop', { method: 'POST', body: {} }); await refreshStatus(); notify('实验链已停止。仍可在实验档案中离线回放已有记录。'); }));
 $('save-snapshot').addEventListener('click', () => action($('save-snapshot'), '保存中…', async () => { const value = await api('/api/environment/snapshot', { method: 'POST', body: {} }); $('snapshot-id').value = value.id || value.snapshotId || value.snapshot_id || ''; notify('快照已保存：' + $('snapshot-id').value); }));
 $('restore-snapshot').addEventListener('click', () => action($('restore-snapshot'), '恢复中…', async () => { const id = $('snapshot-id').value.trim(); if (!id) throw new Error('请先保存快照，或填写有效的快照 ID。'); await api('/api/environment/restore', { method: 'POST', body: { id } }); await refreshStatus(); notify('快照已恢复。需要再次恢复时，请重新保存一个快照。'); }));
-$('mine-block').addEventListener('click', () => action($('mine-block'), '出块中…', async () => { await api('/api/environment/mine', { method: 'POST', body: { blocks: Number($('mine-blocks').value), seconds: Number($('mine-seconds').value) } }); await refreshStatus(); await refreshCurrentRun(); notify('已完成手动出块。等待确认的实验可点击「更新链上结论」采集新证据；「独立检查」只检查已有证据。'); }));
+$('mine-block').addEventListener('click', () => action($('mine-block'), '出块中…', async () => { const value = await api('/api/environment/mine', { method: 'POST', body: { blocks: Number($('mine-blocks').value), seconds: Number($('mine-seconds').value) } }); if (value.mining) { const m = value.mining; text($('mining-feedback'), `实际出块 ${m.actualBlocks}；时间戳 ${m.before?.timestamp} → ${m.after?.timestamp}，推进 ${m.actualDeltaSeconds} 秒。请求：${m.blocks} 块 × 每块 ${m.secondsPerBlock} 秒。`); } await refreshStatus(); await refreshCurrentRun(); notify('已完成手动出块。更新链上结论只运行检查器；出块并继续 Agent 会创建子运行并让 Agent 观察新状态、继续决策。'); }));
 $('automine').addEventListener('change', () => { const enabled = $('automine').checked; action(null, '', async () => { try { await api('/api/environment/automine', { method: 'POST', body: { enabled } }); await refreshStatus(); notify(enabled ? '已启用自动出块。' : '已关闭自动出块，交易需要手动确认。'); } catch (error) { $('automine').checked = !enabled; throw error; } }); });
-$('run-form').addEventListener('submit', (event) => { event.preventDefault(); action($('start-run'), '启动实验…', async () => { const configuration = getConfiguration(); const response = await api('/api/runs', { method: 'POST', body: configuration }); const id = response.runId || response.run_id || response.id; if (!id) throw new Error('服务没有返回实验编号，请查看实验档案。'); await loadRun(id, false); await refreshStatus(); notify(configuration.mode === 'scripted' ? '脚本基线已启动。本次记录会明确标注为确定性基线。' : 'LLM Agent 实验已启动，可实时查看工具与交易轨迹。'); }); });
+$('run-form').addEventListener('submit', (event) => { event.preventDefault(); action($('start-run'), '启动实验…', async () => { await resolveTaskForm(); const configuration = getConfiguration(); const response = await api('/api/runs', { method: 'POST', body: configuration }); const id = response.runId || response.run_id || response.id; if (!id) throw new Error('服务没有返回实验编号，请查看实验档案。'); await loadRun(id, false); await refreshStatus(); notify(configuration.mode === 'scripted' ? '脚本基线已启动。本次记录会明确标注为确定性基线。' : 'LLM Agent 实验已启动，可实时查看工具与交易轨迹。'); }); });
 async function control(actionName, button) { await action(button, actionName === 'resume' ? '继续中…' : '停止中…', async () => { await api('/api/control', { method: 'POST', body: { action: actionName } }); await refreshStatus(); await refreshCurrentRun(); notify(actionName === 'resume' ? '已继续执行。' : '已请求取消。已提交的交易仍可能被确认，请检查记录与链上状态。'); }); }
 $('resume-run').addEventListener('click', () => control('resume', $('resume-run')));
 $('cancel-pause').addEventListener('click', () => control('cancel', $('cancel-pause')));
 $('stop-run').addEventListener('click', () => control('cancel', $('stop-run')));
 $('check-run').addEventListener('click', () => action($('check-run'), '检查中…', async () => { const result = await api('/api/runs/' + encodeURIComponent(state.runId) + '/check', { method: 'POST', body: {} }); const data = await api('/api/runs/' + encodeURIComponent(state.runId)); renderRun(data); if (!runVerdict(data) && result) renderVerdict(result.result || result); notify('离线复检已完成：仅使用原始运行证据，不采用追认的新状态；结果可能与当前链追认不同。检查结果已作为派生记录保存。'); }));
 $('live-check-run').addEventListener('click', () => action($('live-check-run'), '采集新证据…', async () => { const result = await api('/api/runs/' + encodeURIComponent(state.runId) + '/check', { method: 'POST', body: { mode: 'live' } }); const data = await api('/api/runs/' + encodeURIComponent(state.runId)); renderRun(data); if (!runVerdict(data) && result) renderVerdict(result.result || result); notify('已读取当前链状态并保存新的派生检查结果，原始运行证据保持不变。'); }));
+$('continue-agent-run').addEventListener('click', () => action($('continue-agent-run'), '出块并恢复 Agent…', async () => { if (state.imported || !state.run?.continuation?.allowed) throw new Error('此运行不满足 Agent 恢复条件，请查看按钮下方说明。'); const parent = state.runId; const value = await api('/api/runs/' + encodeURIComponent(parent) + '/continue-agent', { method: 'POST', body: { blocks: Number($('mine-blocks').value), seconds: Number($('mine-seconds').value), model: { apiKey: $('api-key').value } } }); if (!value.runId) throw new Error('服务未返回子运行编号。'); await loadRun(value.runId, false); await refreshStatus(); notify('已从 ' + parent + ' 创建 Agent 继续运行：采集新链状态并恢复对话，原始父运行证据保留。新运行可能继续提交交易。'); }));
 $('rerun-run').addEventListener('click', () => action($('rerun-run'), '恢复并重跑…', async () => { if (experimentMode(state.run) === 'continuous') throw new Error('连续历史实验暂不支持原样重跑；请在表单中新建运行，继承当前状态不等于恢复历史初态。'); const oldId = state.runId; const value = await api('/api/runs/' + encodeURIComponent(oldId) + '/rerun', { method: 'POST', body: { model: { apiKey: $('api-key').value } } }); const id = value.runId || value.run_id || value.id; if (!id) throw new Error('服务没有返回新的实验编号。'); await loadRun(id, false); await refreshStatus(); notify('已从保存的初始状态开始一次新运行，旧实验记录保持不变。重新调用模型可能产生不同结果。'); }));
 $('export-run').addEventListener('click', () => exportRun());
 $('export-execution-trace').addEventListener('click', () => action($('export-execution-trace'), '导出轨迹…', () => exportExecutionTrace()));
@@ -831,6 +960,22 @@ $('export-graph-json').addEventListener('click', () => action($('export-graph-js
 $('export-graphml').addEventListener('click', () => action($('export-graphml'), '导出图…', () => exportExecutionGraph('graphml')));
 $('event-filter').addEventListener('input', () => renderEvents(true));
 $('history-filter').addEventListener('input', renderHistory);
+for (const id of ['history-task', 'history-task-result', 'history-chain-result']) $(id).addEventListener('change', renderHistory);
+$('history-clear').addEventListener('click', () => { for (const id of ['history-filter', 'history-task', 'history-task-result', 'history-chain-result']) $(id).value = ''; renderHistory(); });
+$('archive-detail-close').addEventListener('click', () => $('archive-detail').classList.add('hidden'));
+$('graph-types-all').addEventListener('click', () => graphFilter('all'));
+$('graph-types-none').addEventListener('click', () => graphFilter('none'));
+$('graph-types-follows').addEventListener('click', () => graphFilter('follows'));
+$('graph-clear-selection').addEventListener('click', () => { state.graphView.selected = null; $('execution-graph-detail').classList.add('hidden'); if (state.run?.execution_graph) highlightGraph(state.run.execution_graph); });
+$('graph-zoom-in').addEventListener('click', () => graphZoom(state.graphView.zoom * 1.25));
+$('graph-zoom-out').addEventListener('click', () => graphZoom(state.graphView.zoom / 1.25));
+$('graph-fit').addEventListener('click', () => { if (!state.graphWidth) return; graphZoom((($('execution-graph-preview').clientWidth || 820) - 16) / state.graphWidth); $('execution-graph-preview').scrollLeft = 0; $('execution-graph-preview').scrollTop = 0; });
+$('graph-more').addEventListener('click', () => { state.graphView.limit = Math.min(2000, state.graphView.limit * 2); renderExecutionGraph(state.run, true); });
+$('graph-expand').addEventListener('click', () => { state.graphView.expanded = !state.graphView.expanded; $('execution-graph-panel').classList.toggle('expanded', state.graphView.expanded); text($('graph-expand'), state.graphView.expanded ? '关闭大视图' : '展开大视图'); });
+$('execution-graph-preview').addEventListener('pointerdown', event => { if (event.button !== 0 && event.pointerType !== 'touch') return; state.graphDragMoved = false; state.graphDrag = { x: event.clientX, y: event.clientY, left: $('execution-graph-preview').scrollLeft, top: $('execution-graph-preview').scrollTop, pointerId: event.pointerId }; });
+$('execution-graph-preview').addEventListener('pointermove', event => { const drag = state.graphDrag; if (!drag) return; const dx = event.clientX - drag.x, dy = event.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 5) { state.graphDragMoved = true; $('execution-graph-preview').setPointerCapture?.(drag.pointerId); $('execution-graph-preview').scrollLeft = drag.left - dx; $('execution-graph-preview').scrollTop = drag.top - dy; event.preventDefault(); } });
+for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) $('execution-graph-preview').addEventListener(name, () => { state.graphDrag = null; window.setTimeout(() => { state.graphDragMoved = false; }, 0); });
+$('execution-graph-panel').addEventListener('keydown', event => { if (event.key === 'Escape') { state.graphView.expanded = false; $('execution-graph-panel').classList.remove('expanded'); text($('graph-expand'), '展开大视图'); } });
 $('close-event-detail').addEventListener('click', () => { $('event-detail').classList.add('hidden'); state.selectedEvent = null; renderEvents(true); });
 $('copy-run-id').addEventListener('click', async () => { try { await navigator.clipboard.writeText(state.runId); notify('实验编号已复制。'); } catch { notify('浏览器未允许复制，请选中实验编号手动复制。'); } });
 $('refresh-history').addEventListener('click', () => action($('refresh-history'), '读取中…', refreshHistory));

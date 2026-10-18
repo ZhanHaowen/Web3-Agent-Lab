@@ -33,7 +33,7 @@ test('real Anvil: five tasks, independent negative cases, snapshots, pending and
       const after=await lab.state();
       const checked=await lab.check(id,before,after,lab.transactions,final,continuous);
       assert.equal(checked.status,'success',JSON.stringify(checked));
-      assert.equal(checked.checkerVersion,'2.1.0');
+      assert.equal(checked.checkerVersion,'2.2.0');
       assert.equal(checkTask(id,before,after,checked.evidence.transactions,final,checked.evidence.observations,checked.evidence.options).status,'success');
       return {before,after,checked};
     };

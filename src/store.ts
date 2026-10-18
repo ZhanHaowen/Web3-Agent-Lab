@@ -4,6 +4,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import type { FileHandle } from 'node:fs/promises';
 import { buildExecutionTrace, renderExecutionTraceMarkdown } from './trace.js';
 import { buildProvenanceGraph, renderGraphML } from './graph.js';
+import { buildDiagnostics } from './diagnostics.js';
 
 export const json = (value: unknown) => JSON.stringify(value, (_k, v) => typeof v === 'bigint' ? v.toString() : v, 2);
 export const sha256 = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
@@ -159,6 +160,11 @@ export async function readRun(dataDir: string, runId: string) {
     manifest: await readJSON(join(folder, 'manifest.json'), null)
   };
 }
+type RunMetadata={reported:string[];queriedBalance:boolean};
+const runMetadataCache=new Map<string,{signature:string;metadata:RunMetadata}>();
+function eventMetadata(events:any[]):RunMetadata {
+  return {reported:[...new Set<string>(events.filter(event=>event.type==='model.response'&&typeof event.payload?.response?.model==='string').map(event=>event.payload.response.model))],queriedBalance:events.some(event=>event.type==='tool.result'&&event.payload?.name==='get_balance'&&!event.payload?.error)};
+}
 export async function listRuns(dataDir: string) {
   const ids = await readdir(join(dataDir, 'runs')).catch(() => []);
   const rows = await Promise.all(ids.filter(id => /^[0-9a-f-]{36}$/i.test(id)).map(async runId => {
@@ -166,9 +172,26 @@ export async function listRuns(dataDir: string) {
     const config = await readJSON(join(folder, 'config.json'), {});
     const result = await readJSON(join(dataDir, 'derived', runId, 'latest.json'), null);
     const manifest = await readJSON(join(folder, 'manifest.json'), null);
-    return { runId, ...config, taskId: config.taskId, startedAt: config.createdAt, result, status: result?.status ?? 'unknown', recordingStatus: manifest?.recording_status ?? 'incomplete' };
+    const signature=manifest?.files?.['events.jsonl']?.sha256;
+    const cacheKey=folder;const cached=signature?runMetadataCache.get(cacheKey):undefined;
+    let metadata=cached&&cached.signature===signature?cached.metadata:undefined;
+    let events:any[]=[];
+    if(!metadata) {
+      events=await readEvents(dataDir,runId).catch(()=>[]);metadata=eventMetadata(events);
+      if(signature) {if(runMetadataCache.size>=1000) runMetadataCache.delete(runMetadataCache.keys().next().value!);runMetadataCache.set(cacheKey,{signature,metadata});}
+    }
+    const summary=runSummary(config,result,events,metadata);
+    return { runId, ...config, taskId: config.taskId, taskTitle:config.task?.title, startedAt: config.createdAt, result, status: result?.status ?? 'unknown', recordingStatus: manifest?.recording_status ?? 'incomplete', ...summary };
   }));
   return rows.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+}
+/** Requested routing alias and provider-reported model are distinct evidence. */
+export function runSummary(config:any,result:any,events:any[],metadata=eventMetadata(events)) {
+  const reported=metadata.reported;
+  const diagnostics=result?.diagnostics??buildDiagnostics(result??{},events);
+  const chainStatus=diagnostics.chainExecutionStatus;
+  const queryOnly=chainStatus==='not_submitted'&&config.taskId==='balance'&&metadata.queriedBalance;
+  return {taskStatus:result?.status??'unknown',chainExecutionStatus:queryOnly?'query_only':chainStatus,modelSummary:{requested:config.mode==='llm'?(config.model?.model??null):null,reported,reportedSource:reported.length?'model.response':null}};
 }
 /** Convenience views are derived from immutable redacted evidence, never a second truth source. */
 export function executionTraceFiles(run: any, manifestText: string) {

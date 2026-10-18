@@ -1,0 +1,32 @@
+✔ HTML identifiers are unique and every literal JS reference exists (1.0581ms)
+✔ integer formatting preserves research amounts and does not replace missing evidence with zero (2.4011ms)
+✔ successful transaction and failed task remain separate with Chinese expected/actual and session provenance (4.5759ms)
+✔ old records fall back to state events and imported protocol fixtures never become LLM results (1.9913ms)
+✔ form sends chosen experiment mode and defaults legacy history to independent (1.4528ms)
+✔ failure puts diagnosis first while success puts state first and all assertions start collapsed (1.492ms)
+✔ offline import verifies original bytes and rejects a modified payload (7.0328ms)
+✔ result clearly distinguishes original offline evidence from live reconciliation and labels old records honestly (2.0749ms)
+✔ unsealed export and incompatible environment operations are disabled during execution (1.0224ms)
+✔ HTTP errors and non-bundles never trigger a fake experiment download (1.5235ms)
+✔ a corrupt historical record cannot change selected identity or network connection status (1.759ms)
+✔ a slow refresh cannot overwrite a later run selection (1.3002ms)
+✔ execution trace shows explicit tool-contract-transaction links, separate outputs and literal untrusted text (2.1838ms)
+✔ missing or ambiguous trace relationships remain unassigned and old records still render (2.5746ms)
+✔ trace export validates server response and imported trace downloads without a request (2.1149ms)
+✔ graph preview uses explicit edges and safe SVG text, with node attributes and source navigation (2.222ms)
+✔ large graph preview is bounded and clearly partial while exports retain the full graph (5.5444ms)
+✔ graph JSON and GraphML export reject errors and download imported files without network (2.9276ms)
+✔ archive combines Chinese/English task search with separate task and chain outcomes and retains filters across refresh (1.2967ms)
+✔ archive model report is taken from response evidence, does not invent old model or task input, and re-redacts configuration (1.2606ms)
+✔ graph relation filtering and edge/node selection keep complete offline graph and highlight only explicit neighbors (2.1242ms)
+✔ resolved form synchronizes supported task input, structured parameters and checker target without silent fallback (1.1565ms)
+✔ continuation controls distinguish checker-only reconciliation from resuming an eligible current Agent (1.6397ms)
+✔ protocol fixtures can continue a server-approved Agent driver while retaining explicit simulated-model labels (1.9941ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.8419

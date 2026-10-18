@@ -1,0 +1,422 @@
+{
+  "suite": "V0.13 example export, raw integrity and derived graph validation",
+  "testedAt": "2026-10-18T16:55:55.337200+00:00",
+  "passed": true,
+  "totalBundles": 46,
+  "legacyBundles": 38,
+  "newBundles": 8,
+  "currentSourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+  "legacyFilesByteIdenticalToGitHEAD": [
+    {
+      "file": "examples/01-balance-normal.json",
+      "sha256": "a9e7caec0e5fbeca856101e91b1327f41c4a6d99479aec2af764d0a5342ffb9b",
+      "git_head_sha256": "a9e7caec0e5fbeca856101e91b1327f41c4a6d99479aec2af764d0a5342ffb9b",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/02-balance-normal.json",
+      "sha256": "ba799354f99c310d761f559708d5b12bcc465c202bfe6c5bddab2b49cc0488cf",
+      "git_head_sha256": "ba799354f99c310d761f559708d5b12bcc465c202bfe6c5bddab2b49cc0488cf",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/03-balance-normal.json",
+      "sha256": "362409eeed4fdccf794e858c655a97208200cc23968e2db01ada095aaceb51fa",
+      "git_head_sha256": "362409eeed4fdccf794e858c655a97208200cc23968e2db01ada095aaceb51fa",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/04-transfer-normal.json",
+      "sha256": "39630bf7697e608226f096e48884a214b2c447df686f92a65d3fda1914925011",
+      "git_head_sha256": "39630bf7697e608226f096e48884a214b2c447df686f92a65d3fda1914925011",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/05-transfer-normal.json",
+      "sha256": "13d0ba84097bdcdc34add4d305a1e1c582e8e37dc61e0b458f1be5752253ec78",
+      "git_head_sha256": "13d0ba84097bdcdc34add4d305a1e1c582e8e37dc61e0b458f1be5752253ec78",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/06-transfer-normal.json",
+      "sha256": "2276563b5b1db67a8810345a7ffed80cc1ed27b905e0607e97473db6a6e8836e",
+      "git_head_sha256": "2276563b5b1db67a8810345a7ffed80cc1ed27b905e0607e97473db6a6e8836e",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/07-approve-normal.json",
+      "sha256": "6f6a265e0827fd4f46f83728350968be3f85175c63800a89f82ddb600275fc47",
+      "git_head_sha256": "6f6a265e0827fd4f46f83728350968be3f85175c63800a89f82ddb600275fc47",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/08-approve-normal.json",
+      "sha256": "45ebbc263779c79d767bbf8740dfda0164fbf9e1cdc4c8b894f565cc43f3348f",
+      "git_head_sha256": "45ebbc263779c79d767bbf8740dfda0164fbf9e1cdc4c8b894f565cc43f3348f",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/09-approve-normal.json",
+      "sha256": "581a0946a8b7b26f7194bafb678c9f0f153dd2c7e3341f92c93a32ae86cef2ac",
+      "git_head_sha256": "581a0946a8b7b26f7194bafb678c9f0f153dd2c7e3341f92c93a32ae86cef2ac",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/10-swap-normal.json",
+      "sha256": "5b5e2e43eab4ad12192a8294b03156258ca3de352f8459abf3cd356e459154cc",
+      "git_head_sha256": "5b5e2e43eab4ad12192a8294b03156258ca3de352f8459abf3cd356e459154cc",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/11-swap-normal.json",
+      "sha256": "34927a08302bdc0c6ae5c9261974de160ba999a00fd12ec14746f43a40eb828f",
+      "git_head_sha256": "34927a08302bdc0c6ae5c9261974de160ba999a00fd12ec14746f43a40eb828f",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/12-swap-normal.json",
+      "sha256": "1bd7a3df41486275943dc64a0ae136e32dd19d02b19633f3f9b6f6983bd95fbf",
+      "git_head_sha256": "1bd7a3df41486275943dc64a0ae136e32dd19d02b19633f3f9b6f6983bd95fbf",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/13-swap_deposit-normal.json",
+      "sha256": "24685b42dd41f3b9ddd8f4ac3b2c0c5beeb935e6fed4cac513e5671fe4c07e51",
+      "git_head_sha256": "24685b42dd41f3b9ddd8f4ac3b2c0c5beeb935e6fed4cac513e5671fe4c07e51",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/14-swap_deposit-normal.json",
+      "sha256": "3923dda6f79df5d555ac2c169dc6e8aa20d010f3fb5e0ee9dfc90b434d0ac7f2",
+      "git_head_sha256": "3923dda6f79df5d555ac2c169dc6e8aa20d010f3fb5e0ee9dfc90b434d0ac7f2",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/15-swap_deposit-normal.json",
+      "sha256": "0931b888ebe86d3bf1e27c87ff45ec4e16a9665ed768aff9a83f15c5785ff6ee",
+      "git_head_sha256": "0931b888ebe86d3bf1e27c87ff45ec4e16a9665ed768aff9a83f15c5785ff6ee",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/16-transfer-transfer_revert.json",
+      "sha256": "bdc10923db1f3e6f9e692454c1495965c86c6c79b6b21d0ba5a118565ccc891a",
+      "git_head_sha256": "bdc10923db1f3e6f9e692454c1495965c86c6c79b6b21d0ba5a118565ccc891a",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/17-transfer-transfer_revert.json",
+      "sha256": "e14583386983cd01c28875e0d5ad0c18598800781f7da4836611740d59062ff3",
+      "git_head_sha256": "e14583386983cd01c28875e0d5ad0c18598800781f7da4836611740d59062ff3",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/18-transfer-transfer_revert.json",
+      "sha256": "16072852da5a50048fd88f07cd232675127bd0dbd00ce8773f4f754081fb8512",
+      "git_head_sha256": "16072852da5a50048fd88f07cd232675127bd0dbd00ce8773f4f754081fb8512",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/19-transfer-wrong_recipient.json",
+      "sha256": "daeacc3b74ef1d02aa2bb2d27df809416359378929ac23f079916e2fe772d683",
+      "git_head_sha256": "daeacc3b74ef1d02aa2bb2d27df809416359378929ac23f079916e2fe772d683",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/20-transfer-wrong_recipient.json",
+      "sha256": "37bc98207ada30f5541316ba858283db01c3dc57bab232ff36575f4b8871891c",
+      "git_head_sha256": "37bc98207ada30f5541316ba858283db01c3dc57bab232ff36575f4b8871891c",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/21-transfer-wrong_recipient.json",
+      "sha256": "e71d2202dbc1ff6638ffb3c2cd7ae00e48eaa369f748aeb41dbb91eb9ef3c638",
+      "git_head_sha256": "e71d2202dbc1ff6638ffb3c2cd7ae00e48eaa369f748aeb41dbb91eb9ef3c638",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/22-balance-altered_tool_return.json",
+      "sha256": "f4c47b00093ac0742e8c452902d2e3d6aecb5b9f2c8cb7115c12a6fee96536ba",
+      "git_head_sha256": "f4c47b00093ac0742e8c452902d2e3d6aecb5b9f2c8cb7115c12a6fee96536ba",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/23-balance-altered_tool_return.json",
+      "sha256": "c1269a6e59da098fffbafa7d802bda35cb4c20917207bfcc1aac9674474cce3b",
+      "git_head_sha256": "c1269a6e59da098fffbafa7d802bda35cb4c20917207bfcc1aac9674474cce3b",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/24-balance-altered_tool_return.json",
+      "sha256": "0ad322f47b52011e69a5c03da7cecbccc80acb37d45af2091214f3df6bdbc1ae",
+      "git_head_sha256": "0ad322f47b52011e69a5c03da7cecbccc80acb37d45af2091214f3df6bdbc1ae",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/25-transfer-manual_pending.json",
+      "sha256": "9d3acbfa20c61a19bcd910fb96fd57a3d40a5ee343b2fa74f43421ae08556482",
+      "git_head_sha256": "9d3acbfa20c61a19bcd910fb96fd57a3d40a5ee343b2fa74f43421ae08556482",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/26-transfer-manual_pending.json",
+      "sha256": "4e1607aa58b5fd323145a05186d82b4268d228ab723d838afc89267001416c73",
+      "git_head_sha256": "4e1607aa58b5fd323145a05186d82b4268d228ab723d838afc89267001416c73",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/27-transfer-manual_pending.json",
+      "sha256": "28b395124164cc810db0ea4412e94f336525f6e0d0f7ceda40aca26354e58627",
+      "git_head_sha256": "28b395124164cc810db0ea4412e94f336525f6e0d0f7ceda40aca26354e58627",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/28-transfer-missing_transfer_tool.json",
+      "sha256": "1a65e213d134406e3a1064fce738e0a1ceb6be6201bb7cf0d7ab39b674eae29a",
+      "git_head_sha256": "1a65e213d134406e3a1064fce738e0a1ceb6be6201bb7cf0d7ab39b674eae29a",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/29-transfer-missing_transfer_tool.json",
+      "sha256": "e8dce02b51d43f0cd24acf8e4b783bb623029b26c472f780253991c475b4f30c",
+      "git_head_sha256": "e8dce02b51d43f0cd24acf8e4b783bb623029b26c472f780253991c475b4f30c",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/30-transfer-missing_transfer_tool.json",
+      "sha256": "50fce8ebe29cf567070e6ca175faf318f2f4f0a1c9ebe0a8f5c73ea795a932b5",
+      "git_head_sha256": "50fce8ebe29cf567070e6ca175faf318f2f4f0a1c9ebe0a8f5c73ea795a932b5",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/31-transfer-sequence_start.json",
+      "sha256": "4a7684a369a0853440e17c0ea5b8d054686ae340c7de437cf8d3827d7557ca9a",
+      "git_head_sha256": "4a7684a369a0853440e17c0ea5b8d054686ae340c7de437cf8d3827d7557ca9a",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/32-transfer-continuous.json",
+      "sha256": "bac888d1f70aba6e57ddd61dfab1fd7bac56a7cc830d64a662d6bcd6ad556140",
+      "git_head_sha256": "bac888d1f70aba6e57ddd61dfab1fd7bac56a7cc830d64a662d6bcd6ad556140",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/33-balance-continuous.json",
+      "sha256": "8b443071b6ee8e95832355ebb16f137b690c7213a219f0f70ad3387e2a03c7ff",
+      "git_head_sha256": "8b443071b6ee8e95832355ebb16f137b690c7213a219f0f70ad3387e2a03c7ff",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/34-approve-continuous.json",
+      "sha256": "818764de162bf9a18b61d051ac3325d946aa2d2d6b5c75538e615afa2a177781",
+      "git_head_sha256": "818764de162bf9a18b61d051ac3325d946aa2d2d6b5c75538e615afa2a177781",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/35-swap_deposit-continuous.json",
+      "sha256": "1f3017f4c9fad0034de41bd5c0d52e652c8cb1ca0cf74d1d25f41de6468a1fac",
+      "git_head_sha256": "1f3017f4c9fad0034de41bd5c0d52e652c8cb1ca0cf74d1d25f41de6468a1fac",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/amount-fix/corrected-approval.json",
+      "sha256": "3db0de057ce69e0181646ef33b751eb069c71be837b99332b720a8670e4a6c61",
+      "git_head_sha256": "3db0de057ce69e0181646ef33b751eb069c71be837b99332b720a8670e4a6c61",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/amount-fix/corrected-swap.json",
+      "sha256": "39458ae73384ed8eb58b206e99fd9b161d3fcc4519b58306f9d2496d4e66d477",
+      "git_head_sha256": "39458ae73384ed8eb58b206e99fd9b161d3fcc4519b58306f9d2496d4e66d477",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/amount-fix/index.json",
+      "sha256": "c304faa867e94dba15fe791a42c59f3340c5c636ab091703c8eda95f68b1c79c",
+      "git_head_sha256": "c304faa867e94dba15fe791a42c59f3340c5c636ab091703c8eda95f68b1c79c",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/amount-fix/raw-excessive-approval.json",
+      "sha256": "730d78a4f60f71b5c7d71a2599c0045aee269cc357af9a7104824b29fb07418f",
+      "git_head_sha256": "730d78a4f60f71b5c7d71a2599c0045aee269cc357af9a7104824b29fb07418f",
+      "byte_identical": true
+    },
+    {
+      "file": "examples/index.json",
+      "sha256": "8b8a00e4fccf9aa1ae1401941a1561cb555813fa3d6023d07970b2e51a616ef7",
+      "git_head_sha256": "8b8a00e4fccf9aa1ae1401941a1561cb555813fa3d6023d07970b2e51a616ef7",
+      "byte_identical": true
+    }
+  ],
+  "newExamples": [
+    {
+      "filename": "01-custom-transfer-30.json",
+      "runId": "a2700fe2-eda4-4b3e-b0b8-6493884e0235",
+      "taskId": "transfer",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "scripted_custom_transfer_30_uses_same_checker_goal",
+      "description": "自定义转账30 TokenA，脚本、工具金额与检查器同一目标。"
+    },
+    {
+      "filename": "02-custom-approval-23.125456.json",
+      "runId": "e5b5d3da-6f0c-4322-97d1-5bf4232661be",
+      "taskId": "approve",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "23.125456"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "six_decimal_approval_remains_exact",
+      "description": "授权23.125456 TokenA，保留全部六位小数且只转换一次。"
+    },
+    {
+      "filename": "03-custom-swap-30-minimum-27.json",
+      "runId": "7249d3cb-d0ba-4e60-a2c4-1f06638ff985",
+      "taskId": "swap",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "scripted_custom_swap_30_minimum_27",
+      "description": "兑换30 TokenA，最低27 TokenB；不再使用旧默认10/9判断。"
+    },
+    {
+      "filename": "04-custom-swap-deposit-30-minimum-27.json",
+      "runId": "59791278-17a5-4f64-9f1e-1d9cc177a449",
+      "taskId": "swap_deposit",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "custom_swap_and_deposit_preserves_target_and_output",
+      "description": "自定义兑换后存入，仅存入该任务新获得的TokenB。"
+    },
+    {
+      "filename": "05-protocol-guard-corrects-custom-30.json",
+      "runId": "cf9dc86e-925f-40d8-8675-d80c86105646",
+      "taskId": "swap",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F2-F3-F5",
+      "testName": "llm_guard_rejects_base_units_then_accepts_custom_30",
+      "description": "模型协议替身先提出错误最小单位金额，真实guard拒绝后接受30；保留原提案，非真实LLM能力实验。"
+    },
+    {
+      "filename": "06-manual-pending-parent.json",
+      "runId": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+      "taskId": "transfer",
+      "status": "pending",
+      "expectedOfflineVerdict": "pending",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F4-F6",
+      "testName": "manual_llm_run_preserves_pending_observation",
+      "description": "关闭自动出块的父运行，原始交易与工具观察为pending；续行不改此原始事实。"
+    },
+    {
+      "filename": "07-confirmed-continuation-child.json",
+      "runId": "a0f71b2e-9b75-49fd-b673-72f74e3f468b",
+      "taskId": "transfer",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+      "issues": "F1-F4-F6",
+      "testName": "mine_and_continue_restores_history_and_new_state",
+      "description": "出块17秒后恢复原模型历史并观察新状态，子运行累计检查父交易；无伪造的新转账调用。"
+    },
+    {
+      "filename": "08-chain-success-task-failure.json",
+      "runId": "67a7508c-003d-4d8d-878e-a33389908bd1",
+      "taskId": "transfer",
+      "status": "failure",
+      "expectedOfflineVerdict": "failure",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "10"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F2",
+      "testName": "chain_success_and_task_failure_are_separate",
+      "description": "故意转向错误收款账户：链上成功、任务失败，演示两种状态应独立检索。"
+    }
+  ],
+  "rawManifestAndPayloadHashes": "46/46",
+  "storedDerivedHashesAndGraphML": "46/46",
+  "currentCLIDerivedHashesAndGraphML": "46/46",
+  "graphEndpointsAndSourceRefs": "46/46",
+  "parentRawReferencesVerified": 1,
+  "originNote": "New model-mode examples are synthetic protocol fixtures over real Anvil, not real LLM capability data. New scripted examples retain their actual data_origin. Existing 38 historical bundles were not re-collected or relabeled."
+}

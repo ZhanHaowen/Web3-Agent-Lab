@@ -1,88 +1,88 @@
 {
   "suite": "packaged-http-e2e",
-  "startedAt": "2026-10-14T13:09:01.584Z",
+  "startedAt": "2026-10-18T16:53:36.548Z",
   "platform": "win32",
   "arch": "x64",
   "node": "v24.19.0",
-  "base": "http://127.0.0.1:4437",
+  "base": "http://127.0.0.1:4453",
   "tests": [
     {
       "name": "scripted_balance",
       "passed": true,
-      "durationMs": 342,
+      "durationMs": 357,
       "details": {
-        "runId": "57295155-a40c-45d8-91e6-968d88b49522",
+        "runId": "9b5f782e-70d8-4b54-a0ee-deb26d5730f0",
         "status": "success"
       }
     },
     {
       "name": "scripted_transfer",
       "passed": true,
-      "durationMs": 436,
+      "durationMs": 449,
       "details": {
-        "runId": "4377114d-5527-4656-a1a0-fcfc4c93a390",
+        "runId": "dce81251-7ecf-41f6-ae21-c90de3579d48",
         "status": "success"
       }
     },
     {
       "name": "scripted_approve",
       "passed": true,
-      "durationMs": 483,
+      "durationMs": 444,
       "details": {
-        "runId": "86b3bb52-f1c1-40a1-b394-217cf55bed5f",
+        "runId": "ddba5201-a24d-42a8-8abe-1cc9fed829b1",
         "status": "success"
       }
     },
     {
       "name": "scripted_swap",
       "passed": true,
-      "durationMs": 637,
+      "durationMs": 687,
       "details": {
-        "runId": "8c6d6804-521a-4a27-b565-86dc72c1e3bd",
+        "runId": "e23f176f-42f4-4dde-829e-08c6178dcd56",
         "status": "success"
       }
     },
     {
       "name": "scripted_swap_deposit",
       "passed": true,
-      "durationMs": 1051,
+      "durationMs": 951,
       "details": {
-        "runId": "df221721-6961-4d27-a16c-1297ce7ebcaa",
+        "runId": "18d03e88-7bab-451e-aeba-9a21dab4dffa",
         "status": "success"
       }
     },
     {
       "name": "transfer_revert",
       "passed": true,
-      "durationMs": 421,
+      "durationMs": 434,
       "details": {
-        "runId": "288ec236-59dd-4e0e-9ad5-09744120561d",
+        "runId": "7d254589-77e4-44a6-b2c0-38e5c4d78275",
         "status": "failure"
       }
     },
     {
       "name": "wrong_recipient",
       "passed": true,
-      "durationMs": 457,
+      "durationMs": 421,
       "details": {
-        "runId": "a58a3aed-becd-4d25-b9be-888dd4ae2a10",
+        "runId": "a05ff27a-c9dc-4b85-8037-3f2ae73cb413",
         "status": "failure"
       }
     },
     {
       "name": "tool_override_preserves_raw_and_rejects_wrong_balance",
       "passed": true,
-      "durationMs": 364,
+      "durationMs": 394,
       "details": {
-        "runId": "5a4ecb18-f739-4181-91e1-d539aa12907b"
+        "runId": "281e3b1f-60a9-42de-a43b-9ff6cbb41933"
       }
     },
     {
       "name": "pending_live_reconciliation_offline_replay_and_epoch_guard",
       "passed": true,
-      "durationMs": 898,
+      "durationMs": 920,
       "details": {
-        "runId": "27734ad4-c161-49c6-9a07-d324e900e9b3",
+        "runId": "6c141c7f-4223-47a6-a034-2805928a2354",
         "original": "pending",
         "live": "success",
         "offline": "pending",
@@ -92,9 +92,9 @@
     {
       "name": "pauseBeforeTool",
       "passed": true,
-      "durationMs": 807,
+      "durationMs": 747,
       "details": {
-        "runId": "d0f8a18f-ddba-4298-858e-f769315424f7",
+        "runId": "933533c9-ba8b-4d18-88d7-b813e9dbaf96",
         "phase": "before_tool",
         "nonceBeforeResume": 0
       }
@@ -102,9 +102,9 @@
     {
       "name": "pauseBeforeTransaction",
       "passed": true,
-      "durationMs": 797,
+      "durationMs": 763,
       "details": {
-        "runId": "a581e273-9f39-4e96-ad92-2ce06779fba1",
+        "runId": "c13fe68c-25ad-4346-9642-ae58302b3a12",
         "phase": "before_transaction",
         "nonceBeforeResume": 0
       }
@@ -112,20 +112,20 @@
     {
       "name": "cancel_paused_run_has_no_transaction_side_effect",
       "passed": true,
-      "durationMs": 390,
+      "durationMs": 396,
       "details": {
-        "runId": "f689eb76-50fe-4a93-ac67-3f3bd8a43ed1"
+        "runId": "209b39f2-802a-44d1-bc3c-ec1dfffc10b9"
       }
     },
     {
       "name": "session_token_and_origin_guards",
       "passed": true,
-      "durationMs": 46
+      "durationMs": 47
     },
     {
       "name": "export_all_raw_manifest_hashes_valid",
       "passed": true,
-      "durationMs": 467,
+      "durationMs": 433,
       "details": {
         "runs": 12,
         "verifiedRawFiles": 300
@@ -134,7 +134,7 @@
     {
       "name": "concurrent_reset_and_run_are_mutually_exclusive",
       "passed": true,
-      "durationMs": 133,
+      "durationMs": 98,
       "details": {
         "resetAccepted": true,
         "runAccepted": false
@@ -142,71 +142,74 @@
     }
   ],
   "runIds": [
-    "57295155-a40c-45d8-91e6-968d88b49522",
-    "4377114d-5527-4656-a1a0-fcfc4c93a390",
-    "86b3bb52-f1c1-40a1-b394-217cf55bed5f",
-    "8c6d6804-521a-4a27-b565-86dc72c1e3bd",
-    "df221721-6961-4d27-a16c-1297ce7ebcaa",
-    "288ec236-59dd-4e0e-9ad5-09744120561d",
-    "a58a3aed-becd-4d25-b9be-888dd4ae2a10",
-    "5a4ecb18-f739-4181-91e1-d539aa12907b",
-    "27734ad4-c161-49c6-9a07-d324e900e9b3",
-    "d0f8a18f-ddba-4298-858e-f769315424f7",
-    "a581e273-9f39-4e96-ad92-2ce06779fba1",
-    "f689eb76-50fe-4a93-ac67-3f3bd8a43ed1"
+    "9b5f782e-70d8-4b54-a0ee-deb26d5730f0",
+    "dce81251-7ecf-41f6-ae21-c90de3579d48",
+    "ddba5201-a24d-42a8-8abe-1cc9fed829b1",
+    "e23f176f-42f4-4dde-829e-08c6178dcd56",
+    "18d03e88-7bab-451e-aeba-9a21dab4dffa",
+    "7d254589-77e4-44a6-b2c0-38e5c4d78275",
+    "a05ff27a-c9dc-4b85-8037-3f2ae73cb413",
+    "281e3b1f-60a9-42de-a43b-9ff6cbb41933",
+    "6c141c7f-4223-47a6-a034-2805928a2354",
+    "933533c9-ba8b-4d18-88d7-b813e9dbaf96",
+    "c13fe68c-25ad-4346-9642-ae58302b3a12",
+    "209b39f2-802a-44d1-bc3c-ec1dfffc10b9"
   ],
   "build": {
-    "version": "0.1.1",
-    "displayVersion": "V.011",
-    "releaseRevision": "trace-2",
-    "releaseLabel": "V.011-Trace-Fix1",
-    "builtAt": "2026-10-14T13:08:04.415Z",
+    "version": "0.1.3",
+    "displayVersion": "V0.13",
+    "releaseRevision": "beta-1",
+    "releaseLabel": "V0.13",
+    "builtAt": "2026-10-18T16:53:12.302Z",
     "node": "v24.19.0",
-    "sourceHash": "60ed75b2ee634186ce6111138af4dbdc2a96216f8e130ec13995dfd0f3c3eb26",
+    "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
     "files": {
-      "src/agent.ts": "a18600a973b08592313638446d1251ee8a5a4aeb01eebb723345760e405cf06d",
-      "src/chain.ts": "218ec490203b8e280d18dad6eb389e564d29593edf0cac732062d970db729aa1",
-      "src/checker.ts": "b87f72990c16f76a3215107e41318c546bb6e5ac0be22ee5795cd51c59bb0ae9",
-      "src/cli.ts": "bb67973d164beae4a74f8d82a662aaffcfe85ead1aa0a799dd080ce10181ce78",
+      "src/agent.ts": "4fd4495e8dfa77411ee9089f3dff43aa9e608b10321087a18716d51ce4dddf40",
+      "src/chain.ts": "2dd74f0bc7f57d2fe73a4dbdf99bf0fb7378c9ea2abd4d993bbfd0ae0400f92f",
+      "src/checker.ts": "3418391f8360c65e634268844d64b9b9e24ca7d784d88253bb88a82ad82abb1c",
+      "src/cli.ts": "a1165e8a5085df6ee262acc29287889ce3c406fcd0e7a2f3b1110887d28ed06d",
+      "src/continuation.ts": "186a03d07fd57b475f2af649421c1d5ecb39ad5e5b0430eb9d4f3f6562504a19",
       "src/diagnostics.ts": "bd8e85d06276a65956bbfc9207f4459999266306b72c0f5f407a14e8e59a0146",
-      "src/graph.ts": "12fca23def93524d6a355090955aa9ae60834366545a3513fbdb45973946cd79",
-      "src/server.ts": "90421df5590419716a25313c01c2afc48981b512ab2665c377306aa6458996cf",
-      "src/store.ts": "a70dea226de7bb1ee1b6d85c205e2dd521eabedb98bc293316998c340810c3f5",
-      "src/tasks.ts": "cdee0b9911b1649b5ed97696e7d4813ebee9827b4cf3b2591cbb8e762afd923c",
-      "src/trace.ts": "a07d007db7d9120a80ba2b6d9f4a764867157edfc97ca293e9aa9302211256c0",
+      "src/graph.ts": "5e34fd028040e15851312b35179bbe518dbdb4ba99dc280fd62962bd4c711467",
+      "src/server.ts": "6aa72abf435f299e370e96c4874b4e99a9e54f382ee6ef0fa627ecbc060d69cc",
+      "src/store.ts": "40f51183c53bc1973f90526997a32d5adf045020b270adc6805ba7853b9e075f",
+      "src/tasks.ts": "25911d6625290f576665128e17da58f49cc445af30d07d247aaa2df44bd9190a",
+      "src/trace.ts": "3e875c963927b0bb0536b7bf86e944b2e6e4ffcc45e7be4420ed4552d975ed16",
       "src/units.ts": "8df93c136d84a0c6ad9e682deb06f9a25a25e3ad148c62226e96e483f11955ee",
-      "public/app.js": "a6755f494823a48cae94d21ae9dd1797c95200ccc194c941029b2ccf8715bcca",
-      "public/index.html": "f801b408f9be836eec83395f2314f95fecd55ef91c92ec0514d34dc6eb633f41",
-      "public/style.css": "ca027a20260b6323bc2274ca2dde20ab545483a76c276cfe84851658e60e78f9",
+      "public/app.js": "5677a7c2af8a14541d5f85e74c4505d1dd784b04656d8ce922b7233aeddfa0d7",
+      "public/index.html": "cb19e72dbd91ae653668bf745821537967986db2773eaff55c1931b65981f373",
+      "public/style.css": "70d0fa2c0142279146441743630e239fabf7d9384bb6cf2a9ec6594351902501",
       "contracts/artifacts/LabAMM.json": "a654bfa137de18eacf0d2b7a7ca986fce5c31f4b8735bde17da72bad44b5c18a",
       "contracts/artifacts/LabToken.json": "0d52cdb470244c0a7607d85731be4bde6bd4b8479b995da71512b2d73de4d5d8",
       "contracts/artifacts/LabVault.json": "43e7884a9d2733147417ced4f04f1811c4796dc54f3e2e2eea4a22b86d1041a8",
       "contracts/LabContracts.sol": "b8823ab0ae4ec564e1f6c2ad848ee23b4317bda2814ecf035c72ca2071015346",
-      "scripts/amount-e2e.mjs": "3a28c1d2440c84fac8a71d1610016c55be5d5c08b1ef027114b48fa81ca803f8",
+      "scripts/amount-e2e.mjs": "16e1320ba00da566bc214817b68163e74a869b15924e7923812684dbddcf6a06",
       "scripts/build.mjs": "c10ed0d1154718c48a3674429f68407a13c652ef1251f4b5e4ccd6cfd92bbeb8",
       "scripts/compile-contracts.mjs": "43730f8c2c8f42d46567eee5e26d0d25814c6e917f30d1aee28c7483fc8c0b96",
       "scripts/e2e.mjs": "59f5aba145a3379f8bd518cfd77ac0b165869a940ae83b8a3163eed3f2d27d42",
       "scripts/examples.mjs": "462b7f071c7a06fce2cf0dc981b867ebdb47109c615c2f6a98a13d4511fe80c5",
-      "scripts/feedback-e2e.mjs": "d88993e12fa85d0d855f250cf9b03267b492ac442a0fe7769b4605efd5e62d04",
-      "scripts/licenses.mjs": "93a470111ecbd5aace2a7509f2e2da225febe9eb1ff2de5587d5883d34629521",
+      "scripts/feedback-e2e.mjs": "8a51abc8094f2eacc2a754d65312caf9d69e5bf36a545834e128bfb0a0be1912",
+      "scripts/licenses.mjs": "c8f99a5bf45780f3a2b1003583f63fa5e73aedaab0399c3c155416c535e618cd",
       "scripts/model-e2e.mjs": "11819dcd5ff5e093a7ab0bec63bf0a15f6bd8e364c78c68779a319027b03c788",
       "scripts/package-release.py": "36d802e80b6a012659c514b0e3c3b68915c0beb3d7ac92bed060735dfe96a2dd",
+      "scripts/register-agentkit.mjs": "e0a37ce3bd287d25dc3ec725c1da355069f90159e4bff233ca8f5c2b673cdd2a",
       "scripts/setup-runtime.mjs": "c3916d9ea2afb5e9c0e46efc7977dbe89c1c558b901ac4cf9f9cd0c3c854aebe",
-      "scripts/start-windows.ps1": "e8050ff49dff753210cd7db8ef82ad6e3a3078ea0720d2653e518f6d1f88f8ac",
+      "scripts/start-windows.ps1": "17a0c16604f6e6204b8432eca6cd395fed300632257252ba07842873579c184f",
       "scripts/stop-windows.ps1": "2ad439b2cf7018e631c0151405cb8a302cb3c2642535a0c5244895ee31f21414",
-      "scripts/trace-e2e.mjs": "af799bc7386859db98d8540333a47a4607337911563f4985da840f1706ae69f6",
+      "scripts/trace-e2e.mjs": "3b07677fd561fac781b2c9ec84b8c400b12f6284c3ac6d49a717e07c67959c16",
+      "scripts/v013-e2e.mjs": "f621ef0ad0693ba119941b53d1c94e6710fef0da666739c83f26deb72172bba3",
       "scripts/validate-graph.py": "dbc18d8e94f5c48e26699c25f203b6723d5acc3ab168b320c752fddf5c22a68b",
-      "package.json": "4c69790cd669e5107edd6fc52b35dab4854d66d7a44aeeb82936bc7268facfd6",
+      "package.json": "14b97083dbfeae48b1ce662fa0d49da44122d3bfc81c7f80d5faf33956a469ee",
       "pnpm-lock.yaml": "7253b6fb8c7438beb838cd775a0188ab7c469882af6c2f6559a2f7d6a9f0dab7",
       "pnpm-workspace.yaml": "9479ba74262a9264a1966c1d8517090a1f31ebd4d1601bb7e1a9cece4fd3286c",
-      "Start.command": "1e0f6f7157bb3e08b35e8d3f9a642c190830933b84ce22e9fb6097f03159b37f",
+      "Start.command": "ce509d56d17f274bb091cc1299849be0fd8036d82cbd38eb765f2e5ae63cb938",
       "Stop.command": "e10cb79a1ce9d37fd55a1f2a5405324a12747c13edbf03dabf22141696787fc0",
       "start.cmd": "6668ccdd2edc288448fcfc3eb3df358629eba886bc3e1b8c2aee8b1c59874c8d",
       "stop.cmd": "7f2c738ade73218ed2920414b83d9dd9e161afd3b3d975aa93bdba3329e9f6e4"
     },
     "agentkitEntry": "@coinbase/agentkit@0.10.4/dist/action-providers/actionProvider.js"
   },
-  "finishedAt": "2026-10-14T13:09:09.357Z",
+  "finishedAt": "2026-10-18T16:53:44.144Z",
   "passed": 15,
   "failed": 0
 }

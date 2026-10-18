@@ -4,12 +4,13 @@ import { ActionProvider, type Action, type Network } from "@coinbase/agentkit";
 import { z } from "zod";
 import type { ChainState } from "./chain.js";
 import { formatTokenState } from "./units.js";
+import { defaultTaskParameters, resolveTask, type TaskId, type TaskParameters } from "./tasks.js";
 
 export interface ToolDefinition {
   type: "function";
   function: { name: string; description?: string; parameters: Record<string, unknown> };
 }
-export interface AgentTask { id: string; input: string; allowedTools: string[]; [key: string]: unknown }
+export interface AgentTask { id: string; input: string; allowedTools: string[]; taskParameters?: TaskParameters }
 export interface AgentModel {
   baseUrl: string;
   model: string;
@@ -35,6 +36,8 @@ export interface AgentOptions {
   experimentMode?: "independent" | "continuous";
   /** Fixed benchmark amounts are validated before execution; schema_only records unguarded experiments. */
   amountValidation?: "fixed_task" | "schema_only";
+  taskParameters?: TaskParameters;
+  continuation?: AgentContinuation;
 }
 export interface AgentResult {
   final: string;
@@ -44,8 +47,19 @@ export interface AgentResult {
   error?: string;
 }
 type Call = { id: string; type: "function"; function: { name: string; arguments: string }; modelCallId?: string };
-type Message = { role: string; content: unknown; tool_calls?: Omit<Call, "modelCallId">[]; tool_call_id?: string };
-type ToolObservation = { name: string; raw: unknown; visible: unknown; error?: string };
+export type Message = { role: string; content: unknown; tool_calls?: Omit<Call, "modelCallId">[]; tool_call_id?: string; [key: string]: unknown };
+export type ToolObservation = { name: string; raw: unknown; visible: unknown; error?: string };
+export interface AgentContinuation {
+  messages: Message[];
+  observations?: ToolObservation[];
+  state: unknown;
+  parentRunId: string;
+  transactions?: Array<{ hash?: string; txHash?: string; status: string; amountOut?: string; decoded?: {functionName: string; args: unknown[]} }>;
+}
+function parametersFor(options: AgentOptions): TaskParameters {
+  const supplied=options.taskParameters??options.task.taskParameters as TaskParameters|undefined;
+  return supplied ? resolveTask(options.task.id as TaskId,{taskParameters:supplied}).taskParameters : defaultTaskParameters(options.task.id);
+}
 
 function serialize(value: unknown): string {
   return JSON.stringify(value, (_key, item) => typeof item === "bigint" ? item.toString() : item) ?? "null";
@@ -133,10 +147,22 @@ function humanBaseUnits(value: unknown): bigint | undefined {
   const [whole, fraction = ""] = value.split(".");
   return BigInt(whole) * 1_000_000n + BigInt(fraction.padEnd(6, "0"));
 }
-function acquiredFromRaw(observations: ToolObservation[], initialState?: Partial<ChainState>, experimentMode = "independent"): bigint | undefined {
+function acquiredFromRaw(observations: ToolObservation[], initialState?: Partial<ChainState>, experimentMode = "independent", continuation?: AgentContinuation): bigint | undefined {
   // A return override is a model-visible intervention, never authoritative chain evidence.
   const reverseIndex = [...observations].reverse().findIndex(value => value.name === "swap" && !value.error && (value.raw as any)?.status === "success");
-  if (reverseIndex < 0) return undefined;
+  if (reverseIndex < 0) {
+    // Keep the old pending tool response unchanged. Confirmation is separate
+    // block-bound evidence, never a fabricated tool/model message.
+    const pendingSwap=[...observations].reverse().find(value=>value.name==='swap'&&!value.error&&(value.raw as any)?.status==='pending');
+    const pendingHash=(pendingSwap?.raw as any)?.hash??(pendingSwap?.raw as any)?.txHash;
+    const confirmed=continuation?.transactions?.find(tx=>pendingHash&&(tx.hash??tx.txHash)?.toLowerCase()===String(pendingHash).toLowerCase()&&tx.status==='success'&&tx.decoded?.functionName==='swap');
+    if(!confirmed) return undefined;
+    if(/^\d+$/.test(String(confirmed.amountOut))) return BigInt(confirmed.amountOut!);
+    const state=continuation?.state as Partial<ChainState>|undefined;
+    if(!state?.balances||state.chainInstanceId!==initialState?.chainInstanceId||!/^\d+$/.test(String(state.balances.agentB))||initialState?.balances?.agentB===undefined) return undefined;
+    const acquired=BigInt(state.balances.agentB)-BigInt(initialState.balances.agentB);
+    return acquired>0n?acquired:undefined;
+  }
   const swapIndex = observations.length - 1 - reverseIndex;
   const swap = observations[swapIndex].raw as any;
   if (/^\d+$/.test(String(swap.amountOut))) return BigInt(swap.amountOut);
@@ -156,14 +182,15 @@ function acquiredFromRaw(observations: ToolObservation[], initialState?: Partial
 function validateTaskAmounts(options: AgentOptions, name: string, args: Record<string, unknown>, observations: ToolObservation[]): void {
   if (options.amountValidation === "schema_only") return;
   const taskId = options.task.id;
+  const parameters=parametersFor(options);
   const expected: Record<string, string | undefined> = {};
-  if (taskId === "transfer" && name === "transfer_token") expected.amount = "10";
-  if (taskId === "approve" && name === "approve_token") expected.amount = "20";
+  if (taskId === "transfer" && name === "transfer_token") expected.amount = parameters.amount;
+  if (taskId === "approve" && name === "approve_token") expected.amount = parameters.amount;
   if (["swap", "swap_deposit"].includes(taskId)) {
-    if (name === "swap") { expected.amountIn = "10"; expected.minAmountOut = "9"; }
-    if (name === "approve_token" && args.token === "A") expected.amount = "10";
+    if (name === "swap") { expected.amountIn = parameters.amountIn; expected.minAmountOut = parameters.minAmountOut; }
+    if (name === "approve_token" && args.token === "A") expected.amount = parameters.amountIn;
     if (taskId === "swap_deposit" && (name === "deposit" || (name === "approve_token" && args.token === "B"))) {
-      const acquired = acquiredFromRaw(observations, options.initialState, options.experimentMode);
+      const acquired = acquiredFromRaw(observations, options.initialState, options.experimentMode, options.continuation);
       expected.amount = acquired !== undefined ? decimalUnits(acquired) : undefined;
     }
   }
@@ -181,26 +208,26 @@ function validateTaskAmounts(options: AgentOptions, name: string, args: Record<s
   }
 }
 
-function taskAmountTargets(taskId: string): Record<string, unknown> {
+function taskAmountTargets(taskId: string, parameters:TaskParameters): Record<string, unknown> {
   switch (taskId) {
-    case "transfer": return { transfer_token: { amount: "10" } };
-    case "approve": return { approve_token: { token: "A", spender: "amm", amount: "20" } };
-    case "swap": return { swap: { amountIn: "10", minAmountOut: "9" }, approve_token_if_needed: { token: "A", spender: "amm", amount: "10" } };
-    case "swap_deposit": return { swap: { amountIn: "10", minAmountOut: "9" }, approve_token_if_needed: { token: "A", spender: "amm", amount: "10" }, tokenB_approval_and_deposit: "Only this run's confirmed newly acquired TokenB, expressed in human-readable token units" };
+    case "transfer": return { transfer_token: { amount: parameters.amount } };
+    case "approve": return { approve_token: { token: "A", spender: "amm", amount: parameters.amount } };
+    case "swap": return { swap: { amountIn: parameters.amountIn, minAmountOut: parameters.minAmountOut }, approve_token_if_needed: { token: "A", spender: "amm", amount: parameters.amountIn } };
+    case "swap_deposit": return { swap: { amountIn: parameters.amountIn, minAmountOut: parameters.minAmountOut }, approve_token_if_needed: { token: "A", spender: "amm", amount: parameters.amountIn }, tokenB_approval_and_deposit: "Only this run's confirmed newly acquired TokenB, expressed in human-readable token units" };
     default: return {};
   }
 }
-function scriptedCalls(taskId: string, observations: ToolObservation[], initialState?: Partial<ChainState>, experimentMode = "independent"): { name: string; args: Record<string, unknown> }[] {
-  const inputA = { token: "A", spender: "amm", amount: "10" };
+function scriptedCalls(taskId: string, observations: ToolObservation[], initialState?: Partial<ChainState>, experimentMode = "independent", parameters:TaskParameters=defaultTaskParameters(taskId)): { name: string; args: Record<string, unknown> }[] {
+  const inputA = { token: "A", spender: "amm", amount: parameters.amountIn! };
   const ammAllowance = BigInt(initialState?.allowances?.ammA ?? "0");
-  const approveA = ammAllowance >= 10_000_000n ? [] : [{ name: "approve_token", args: inputA }];
+  const approveA = ammAllowance >= humanBaseUnits(parameters.amountIn??'10')! ? [] : [{ name: "approve_token", args: inputA }];
   switch (taskId) {
     case "balance": return [{ name: "get_balance", args: { token: "A", account: "agent" } }];
-    case "transfer": return [{ name: "transfer_token", args: { token: "A", recipient: "recipient", amount: "10" } }];
-    case "approve": return initialState?.allowances?.ammA === "20000000" ? [] : [{ name: "approve_token", args: { token: "A", spender: "amm", amount: "20" } }];
+    case "transfer": return [{ name: "transfer_token", args: { token: "A", recipient: "recipient", amount: parameters.amount! } }];
+    case "approve": return initialState?.allowances?.ammA === String(humanBaseUnits(parameters.amount)) ? [] : [{ name: "approve_token", args: { token: "A", spender: "amm", amount: parameters.amount! } }];
     case "swap": return [
       ...approveA,
-      { name: "swap", args: { amountIn: "10", minAmountOut: "9" } },
+      { name: "swap", args: { amountIn: parameters.amountIn!, minAmountOut: parameters.minAmountOut! } },
     ];
     case "swap_deposit": {
       if (experimentMode === "continuous" && initialState?.balances?.agentB === undefined) throw new Error("INITIAL_TOKEN_B_BALANCE_REQUIRED");
@@ -215,7 +242,7 @@ function scriptedCalls(taskId: string, observations: ToolObservation[], initialS
       const approveB = acquired > 0n && BigInt(initialState?.allowances?.vaultB ?? "0") >= acquired ? [] : [{ name: "approve_token", args: { token: "B", spender: "vault", amount } }];
       return [
         ...approveA,
-        { name: "swap", args: { amountIn: "10", minAmountOut: "9" } },
+        { name: "swap", args: { amountIn: parameters.amountIn!, minAmountOut: parameters.minAmountOut! } },
         { name: "get_balance", args: { token: "B", account: "agent" } },
         ...approveB,
         { name: "deposit", args: { amount } },
@@ -234,6 +261,29 @@ function endpoint(baseUrl: string): string {
   return url.toString();
 }
 
+function continuationMessages(value:AgentContinuation):Message[] {
+  if(!value.parentRunId||!Array.isArray(value.messages)||!value.messages.length||!value.state||typeof value.state!=='object') throw new Error('AGENT_CONTINUATION_EVIDENCE_REQUIRED');
+  const pending=new Set<string>();
+  const ids=new Set<string>();
+  for(const message of value.messages) {
+    if(!message||typeof message!=='object'||!['system','user','assistant','tool','developer'].includes(message.role)) throw new Error('AGENT_CONTINUATION_INVALID_HISTORY');
+    if(message.role==='tool') {
+      if(typeof message.tool_call_id!=='string'||!pending.delete(message.tool_call_id)) throw new Error('AGENT_CONTINUATION_UNMATCHED_TOOL_RESULT');
+    } else {
+      if(pending.size) throw new Error('AGENT_CONTINUATION_UNRESOLVED_TOOL_CALLS');
+      if(message.tool_calls!==undefined) {
+        if(message.role!=='assistant'||!Array.isArray(message.tool_calls)) throw new Error('AGENT_CONTINUATION_INVALID_HISTORY');
+        for(const call of message.tool_calls) {
+          if(!call?.id||ids.has(call.id)||call.type!=='function'||typeof call.function?.name!=='string'||typeof call.function.arguments!=='string') throw new Error('AGENT_CONTINUATION_INVALID_TOOL_CALL');
+          ids.add(call.id);pending.add(call.id);
+        }
+      }
+    }
+  }
+  if(pending.size) throw new Error('AGENT_CONTINUATION_UNRESOLVED_TOOL_CALLS');
+  return structuredClone(value.messages);
+}
+
 export async function runAgent(options: AgentOptions): Promise<AgentResult> {
   const result: AgentResult = {
     final: "", modelCalls: 0, toolCalls: 0,
@@ -242,7 +292,7 @@ export async function runAgent(options: AgentOptions): Promise<AgentResult> {
   const maxSteps = Math.min(100, Math.max(1, Math.floor(options.model.maxSteps || 12)));
   const allowed = new Set(options.task.allowedTools);
   const definitions = structuredClone(options.toolDefinitions.filter(item => allowed.has(item.function.name)));
-  const observations: ToolObservation[] = [];
+  const observations: ToolObservation[] = structuredClone(options.continuation?.observations??[]);
   const usageReports = { promptTokens: 0, completionTokens: 0, totalTokens: 0 };
   const seenCallIds = new Set<string>();
   const input = options.taskInput ?? options.task.input;
@@ -261,7 +311,7 @@ export async function runAgent(options: AgentOptions): Promise<AgentResult> {
         // A known pending/reverted/unknown transaction cannot be treated as a
         // successful prerequisite for the next deterministic action.
         const transactionStopped = ["pending", "reverted", "unknown"].includes(lastStatus);
-        const plan = transactionStopped ? [] : scriptedCalls(options.task.id, observations, options.initialState, options.experimentMode);
+        const plan = transactionStopped ? [] : scriptedCalls(options.task.id, observations, options.initialState, options.experimentMode,parametersFor(options));
         const step = plan[state.steps];
         if (!step || observations.at(-1)?.error) {
           const balance = observations.at(-1)?.visible as Record<string, unknown> | undefined;
@@ -412,6 +462,7 @@ export async function runAgent(options: AgentOptions): Promise<AgentResult> {
       maxSteps, tools: definitions,
       experimentMode: options.experimentMode ?? "independent",
       amountValidation: options.amountValidation ?? "fixed_task",
+      taskParameters:parametersFor(options), tokenDecimals:6,
       ...(options.mode === "scripted" ? { modelUsed: false, inputInterpretation: "fixed-task-plan" } : {}),
     });
     const contextMessage = {
@@ -422,18 +473,28 @@ export async function runAgent(options: AgentOptions): Promise<AgentResult> {
         amountValidation: options.amountValidation ?? "fixed_task",
         units: "所有写入工具的amount、amountIn、minAmountOut只接受人类可读的十进制代币数量字符串；不要乘代币精度，也不要直接填入链状态中的整数。转换只由钱包适配器执行一次。优先读取formatted中的代币数量，原始balances、allowances、shares和get_balance.balance保留整数最小单位供核验。",
         examples: [{ requested: "20 TokenA", toolArgument: { amount: "20" } }, { requested: "0.5 TokenB", toolArgument: { amount: "0.5" } }],
-        fixedTaskTargetsInTokens: taskAmountTargets(options.task.id),
-        targetPolicy: "任务模板的验收金额固定；修改任务输入不会修改独立检查器的验收目标。fixed_task策略在执行前校验这些金额，错误返回后可用新工具调用纠正；schema_only策略仅校验格式，用于有意研究错误行为。",
+        taskParameters:parametersFor(options),
+        fixedTaskTargetsInTokens: taskAmountTargets(options.task.id,parametersFor(options)),
+        targetPolicy: "本次任务规格由记录的taskParameters确定；工具金额校验、脚本基线与独立检查器使用同一规格。fixed_task策略在执行前校验这些目标金额；schema_only仅校验格式，用于研究错误行为。TokenA/TokenB及收款账户保持所选实验模板。",
         ...(options.initialState ? { initialStateFormatted: formatTokenState(options.initialState), initialState: options.initialState } : {}),
         scope: "本次目标相对本次initialState判定。兑换后存入仅存本次兑换新增的TokenB，保留本次运行前已有的TokenB及份额。",
       })}`,
     };
-    await options.emit("agent.context", { message: contextMessage, source: options.initialState ? "run_initial_state_and_unit_contract" : "unit_contract", userInputUnchanged: true });
-    await graph.invoke({ messages: [
+    if(!options.continuation) await options.emit("agent.context", { message: contextMessage, source: options.initialState ? "run_initial_state_and_unit_contract" : "unit_contract", userInputUnchanged: true });
+    let initialMessages:Message[]=[
       { role: "system", content: options.model.systemPrompt ?? "You operate a local Web3 experiment. Use only the supplied tools. Inspect tool results, use the requested amounts and recipient, and report observations accurately. A separate checker judges chain state. Do not claim success without evidence." },
       { role: "user", content: input },
       contextMessage,
-    ] }, { recursionLimit: maxSteps * 2 + 5 });
+    ];
+    if(options.continuation) {
+      if(options.mode!=='llm') throw new Error('AGENT_CONTINUATION_LLM_ONLY');
+      initialMessages=continuationMessages(options.continuation);
+      for(const message of initialMessages) for(const call of message.tool_calls??[]) seenCallIds.add(call.id);
+      const observation:Message={role:'user',content:`平台提供的续行观察（并非先前工具返回或模型输出）：父实验${options.continuation.parentRunId}已执行手动出块，以下为最新链状态及独立核验的交易确认信息。保留原任务initialState和目标；检查已成功、等待中或失败的交易，基于最新状态决定继续等待、查询或完成剩余步骤，避免重复提交已经成功的操作。\n${serialize({parentRunId:options.continuation.parentRunId,taskParameters:parametersFor(options),state:options.continuation.state,transactions:options.continuation.transactions??[]})}`};
+      await options.emit('agent.continuation',{parentRunId:options.continuation.parentRunId,message:observation,state:options.continuation.state,transactions:options.continuation.transactions??[],historyMessages:initialMessages.length,originalInitialState:options.initialState});
+      initialMessages.push(observation);
+    }
+    await graph.invoke({ messages: initialMessages }, { recursionLimit: maxSteps * 2 + 5 });
   } catch (error) {
     result.error = errorText(error);
     if (!result.final) result.final = "Agent stopped before a final response. See recorded error and independent checker.";

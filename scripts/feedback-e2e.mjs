@@ -42,7 +42,7 @@ modelFixture.listen(0, '127.0.0.1'); await once(modelFixture, 'listening');
 const model = { baseUrl: `http://127.0.0.1:${modelFixture.address().port}/v1`, model: 'protocol-fixture-not-real-llm', maxSteps: 4 };
 try {
   const health = await api('/api/health'); token = health.csrfToken; report.build = health.version;
-  assert.equal(health.version.displayVersion, 'V0.12');
+  assert.equal(health.version.displayVersion, 'V0.13');
   if (!(await api('/api/status')).ready) await api('/api/environment/init', {});
   await api('/api/environment/automine', { enabled: true });
 
@@ -134,5 +134,5 @@ finally {
   modelFixture.close();
   report.finishedAt = new Date().toISOString(); report.passed = report.tests.filter(t => t.passed).length; report.failed = report.tests.filter(t => !t.passed).length;
   await mkdir(path.join(root, 'docs'), { recursive: true }); await writeFile(path.join(root, 'docs/feedback-e2e-results.json'), JSON.stringify(report, null, 2) + '\n');
-  console.log(`V0.12 feedback E2E: ${report.passed} passed, ${report.failed} failed`); process.exitCode = report.failed ? 1 : 0;
+  console.log(`V0.13 feedback E2E: ${report.passed} passed, ${report.failed} failed`); process.exitCode = report.failed ? 1 : 0;
 }

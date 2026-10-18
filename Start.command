@@ -22,7 +22,7 @@ if curl -sf "$LAB_URL/api/health" | grep -q 'web3-agent-lab'; then
   LAB_RUNNING_HASH="$(curl -sf "$LAB_URL/api/health" | "$LAB_NODE" -e 'let s="";for await(const c of process.stdin)s+=c;console.log(JSON.parse(s).version?.sourceHash||"")' --input-type=module)"
   LAB_EXPECTED_HASH="$("$LAB_NODE" -e 'console.log(JSON.parse(require("fs").readFileSync("build-info.json","utf8")).sourceHash)')"
   if [ "$LAB_RUNNING_HASH" != "$LAB_EXPECTED_HASH" ]; then
-    echo 'Another Web3 Agent Lab build is using this port. Stop the old version with its Stop.command before starting V0.12, or use different LAB_PORT and LAB_CHAIN_PORT.'
+    echo 'Another Web3 Agent Lab build is using this port. Stop the old version with its Stop.command before starting V0.13, or use different LAB_PORT and LAB_CHAIN_PORT.'
     exit 1
   fi
   open "$LAB_URL"

@@ -24,7 +24,7 @@ test('real Anvil: approval units, continuous allowance replay, and task policy s
       const before=await lab.state();await approve('A','amm','20');const after=await lab.state();
       assert.equal(after.allowances.ammA,'20000000');
       const result=await lab.check('approve',before,after,lab.transactions,'',continuous);
-      assert.equal(result.status,'success');assert.equal(result.checkerVersion,'2.1.0');
+      assert.equal(result.status,'success');assert.equal(result.checkerVersion,'2.2.0');
       assert.deepEqual(result.evidence.transactions[0].decoded?.args.map(value=>String(value).toLowerCase()),[before.addresses.amm.toLowerCase(),'20000000']);
     });
     await t.test('unrestricted wrong 20000000 human token proposal remains an actual task failure',async()=>{

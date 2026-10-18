@@ -62,3 +62,20 @@ test('missing raw evidence stays missing and never creates an invented endpoint'
   const graph=buildProvenanceGraph({run_id:'old',task:{node_id:'task:old'},provenance:{},edges:[{id:'bad',from:'task:old',to:'missing',relation:'executes'}],warnings:[]});
   assert.equal(graph.nodes.length,1);assert.equal(graph.edges.length,0);assert.ok(graph.warnings.some(w=>w.code==='UNRESOLVED_GRAPH_ENDPOINT'));
 });
+
+test('continuation shows verified external references without inventing parent tool executions',()=>{
+  const parent={event_id:'child-parent-event',seq:2,type:'continuation.parent',payload:{parentRunId:'parent',parentManifestSha256:'a'.repeat(64),parentToolReferences:[{toolCallId:'original-tool',run_id:'parent',event_id:'upstream-event',seq:31,payload_ref:{path:'blobs/source.json',sha256:'b'.repeat(64)}}]}};
+  const request={event_id:'child-model-event',seq:4,type:'model.request',payload:{request:{messages:[{role:'tool',tool_call_id:'original-tool',content:'pending'}]}}};
+  const trace:any={run_id:'child',task:{node_id:'task:child',task_parameters:{amount:'30'}},provenance:{},model_calls:[{id:'model:child',source_events:[{event_id:'child-model-event'}]}],tool_calls:[],contract_calls:[],transactions:[],call_frames:[],edges:[],warnings:[]};
+  const graph=buildProvenanceGraph(trace,{continuation_of:'parent'},[parent,{seq:3,event_id:'observed',type:'state.continuation',payload:{blockNumber:'8'}},request]);
+  assert.equal(graph.nodes.filter(n=>n.type==='tool_call').length,0);
+  assert.equal(graph.nodes.filter(n=>n.type==='external_tool_result').length,1);
+  const reference=graph.nodes.find(n=>n.type==='external_tool_result')!;
+  assert.equal(reference.attributes.event_id,'upstream-event');
+  assert.equal(reference.attributes.loaded,false);
+  assert.equal(reference.source_events[0].event_id,'child-parent-event','clickable local source is the continuation event, not the upstream seq');
+  assert.ok(graph.edges.some(e=>e.type==='continues_agent'));
+  assert.ok(graph.edges.some(e=>e.type==='provides_parent_result'&&e.target==='model:child'));
+  assert.ok(graph.edges.some(e=>e.type==='observes_after_mining'));
+  assert.ok(renderGraphML(graph).includes('external_tool_result'));
+});

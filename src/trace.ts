@@ -103,10 +103,14 @@ export function buildExecutionTrace(configInput: unknown, eventsInput: unknown, 
   const runStart = object(events.find(({ event }) => event.type === 'run.started')?.event.payload);
   const trace: ExecutionTrace = {
     schema_version: '1.0', run_id: runId,
-    provenance: { kind: 'derived', source: 'original_events', builder_version: '1.1', manifest_present: Boolean(manifestInput), recording_status: manifest.recording_status ?? 'unsealed', sealed_at: manifest.sealed_at ?? null, event_count: events.length, events_sha256: object(object(manifest.files)['events.jsonl']).sha256 ?? null, integrity: 'not_verified_by_builder' },
+    provenance: { kind: 'derived', source: 'original_events', builder_version: '1.2', manifest_present: Boolean(manifestInput), recording_status: manifest.recording_status ?? 'unsealed', sealed_at: manifest.sealed_at ?? null, event_count: events.length, events_sha256: object(object(manifest.files)['events.jsonl']).sha256 ?? null, integrity: 'not_verified_by_builder' },
     task: { node_id: entityId('task', runId ?? 'unknown-run'), id: startPayload.taskId ?? config.taskId ?? configuredTask.id ?? null, input: startPayload.input ?? config.taskInput ?? configuredTask.input ?? null, mode: startPayload.mode ?? config.mode ?? null, experiment_mode: startPayload.experimentMode ?? config.experimentMode ?? 'independent', amount_validation: config.amountValidation ?? startPayload.amountValidation ?? 'legacy_unspecified', data_origin: config.data_origin ?? runStart.data_origin ?? null, allowed_tools: copy(config.allowedTools ?? configuredTask.allowedTools ?? []), source_events: agentStart ? [source(agentStart)] : [] },
     model_calls: [], tool_calls: [], contract_calls: [], transactions: [], call_frames: [], edges: [], summary: {}, warnings: [],
   };
+  trace.task.task_parameters = copy(config.taskParameters ?? configuredTask.taskParameters ?? null);
+  trace.task.parameter_source = config.taskSpec?.parameterSource ?? configuredTask.parameterSource ?? null;
+  trace.task.continuation_of = config.continuation_of ?? null;
+  const parentToolIds = new Set(events.flatMap(({ event }) => event.type === 'continuation.parent' ? rows(object(event.payload).parentToolReferences).map(ref => text(ref.toolCallId)).filter(Boolean) : []));
   const warn = (code: string, message: string, event?: Row) => {
     if (!trace.warnings.some(item => item.code === code && (!event || item.source_events.some(ref => ref.event_id === event.event_id && ref.seq === number(event.seq))))) trace.warnings.push({ code, message, source_events: event ? [source(event)] : [] });
   };
@@ -266,6 +270,7 @@ export function buildExecutionTrace(configInput: unknown, eventsInput: unknown, 
         if (message.role !== 'tool' || !text(message.tool_call_id)) continue;
         const tool = toolMap.get(message.tool_call_id);
         if (tool && tool.source_events.some(ref => ref.type === 'tool.result' && ref.seq !== null && number(event.seq) !== null && ref.seq < event.seq)) link(tool.id, model.id, 'provides_result', event);
+        else if (parentToolIds.has(message.tool_call_id)) warn('EXTERNAL_PARENT_TOOL_RESULT', '模型请求引用父运行中已有的工具结果；本运行保留外部原始事件引用，不把父动作伪装成本轮新调用。', event);
         else warn('MISSING_TOOL_RESULT_SOURCE', '模型请求引用了一个未能在原始工具事件中定位的tool_call_id。', event);
       }
     }

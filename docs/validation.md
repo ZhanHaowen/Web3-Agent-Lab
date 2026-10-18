@@ -1,58 +1,47 @@
-# V0.12 发布验证与既有验证记录
+# V0.13 Beta 发布验证
 
-## V0.12 版本升级
+记录日期：2026-10-19（Asia/Shanghai）。程序0.1.3，展示/发布标识V0.13，修订beta-1，检查器2.2.0。最终构建源码摘要为 `3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3`；逐文件摘要见build-info.json。
 
-记录日期：2026 年 10 月 14 日。显示及发布包版本 `V0.12`，程序版本 `0.1.2`，修订 `beta-1`，检查器仍为 `2.1.0`。本次整合 V.011 金额修复版的既有功能，统一程序、GUI、CLI 与启动脚本的版本标识；依赖锁和检查器算法不因版本升级而改变。
+## 反馈逐项验收
 
-版本标识更新后已实际执行 TypeScript 静态检查、修改脚本的 JavaScript 语法检查和 diff 空白检查，均通过。随后重新编译合约及应用，并对最终构建执行下表中的测试。构建源码摘要为 `a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e`，与 `build-info.json`、38 个重新采集的示例包及相关接口报告一致。
-
-| V0.12 本次检查 | 结果 | 证据 |
+| 编号 | 用户问题 | 实际验收 |
 |---|---|---|
-| 固定版本合约和应用构建 | 通过 | build-info.json |
-| 单元与真实 Anvil 测试 | 119/119 通过，含子测试 | docs/unit-tests.txt |
-| GUI 结构及状态测试 | 18/18 通过 | docs/ui-smoke.txt |
-| 原使用反馈接口回归 | 9/9 通过 | docs/feedback-e2e-results.json，build 为 V0.12 |
-| 金额修复专项接口 | 8/8 通过 | docs/amount-validation.json |
-| 轨迹与图接口回归 | 10/10 通过 | docs/trace-e2e-results.json |
-| 35 个脚本基线重新采集 | 全部达到各自预期状态 | examples/index.json |
-| 3 个金额协议样例重新采集 | 2 个纠正成功、1 个保留超额授权失败 | examples/amount-fix/index.json |
-| 38 个示例离线校验和独立检查 | 全部通过；派生文件哈希、图关系端点、构建摘要一致 | docs/offline-validation.json、docs/example-validation.json |
+| F1 | 图混乱，不能筛选/放大/高亮 | 关系多选、颜色、节点/边点击、邻接高亮、缩放/拖动/大视图/展开、完整下载和离线回放；在生产相同CSP与实际服务下验证真实颜色和下载内容。 |
+| F2 | 任务/状态筛选失效，含义不清 | 中文/英文关键词与3个下拉条件AND组合，刷新保留；错误收款人可同时显示交易成功、任务失败；纯查询明确无交易。 |
+| F3 | 模型、输入和配置难查 | 请求别名与响应model分列；直接打开本次输入/参数/脱敏配置；缺失数据不补写；接口自报不证明底层权重版本。 |
+| F4 | 推进100秒只增1秒 | 1块×100秒、3块×7秒、非法数值拒绝及真实GUI区块时间差全部通过。 |
+| F5 | 自定义30/27仍按10/9判定 | taskParameters统一驱动脚本、guard、checker和离线复检；四种自定义写入任务、六位小数、解析及歧义拒绝通过。 |
+| F6 | 出块后Agent未继续决策 | 仅检查器不调用模型；续行真实历史+新链状态进入关联子运行；多轮累计原目标、交易去重、父raw不变、密钥脱敏及非法续行拒绝通过。 |
 
-本次接口验收共 27 项。测试服务使用隔离端口 `4437/18577` 和 `data/qa-v012`，完成后已通过关闭接口停止。未修改既有用户研究数据。报告中的 `V.011-user-feedback` 是历史回归用例组名称；其本次 `build` 字段标识实际测试版本 V0.12。
+## 本机执行结果
 
-本次未重新执行旧有 HTTP 综合用例 15 项、独立模型接口用例 6 项、Edge 浏览器操作及 NetworkX 互操作验收；下节保留此前金额修复版的验证范围，不将这些旧报告计入 V0.12 新执行数量。GUI 结构测试不等同于真实浏览器或 macOS 真机测试。
-
-公开仓库提交 `42a7fdf2d30b19b5e0fedfef250bca814b31bb5c` 已通过 GitHub Actions 的 Windows、macOS Apple Silicon 和 Intel 三个平台的固定依赖安装、构建、类型检查和测试。[远程运行记录](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517)及 `docs/ci-validation.json` 保存对应提交和结果；后续发行提交仅补充文档与验证报告，应用源码及上述构建摘要不变。托管 CI 测试不等同于 Mac 桌面安装与 GUI 实机验收。
-
-解压后的 Windows V0.12 部署包已使用其自带 Node 与编译程序实际运行：授权 20、连续兑换 10 均成功，授权余量从 20 降为 10；包内 CLI 的完整性验证、独立检查和图生成通过。Windows/macOS ZIP 的文件完整性、源码摘要及无用户数据检查通过，macOS 启动脚本 LF 与执行权限正确。对应证据见 `docs/package-validation.json`；文档更新后的重新打包仅复查文件与哈希，不重复计入一次应用执行测试。
-
-模型测试仍使用明确标记的本地协议模拟器，不代表真实 LLM 能力；macOS 运行文件的打包与完整性验证不等同于桌面实机执行。
-
-## 既有 V.011 金额修复版验证
-
-验证日期：2026年10月14日。显示版本V.011，程序版本0.1.1，发行V.011-Trace-Fix1，修订trace-2，检查器2.1.0。此节描述当时验证范围；上表已重跑项目的同名报告文件已更新为 V0.12，不再作为旧构建的独立证据。保留的历史报告以其中的 build/sourceHash 为准，当前根目录 build-info.json 不用于代替历史版本身份。依赖锁未升级。
-
-| 检查 | 结果 | 证据 |
+| 检查 | 结果 | 报告或复跑入口 |
 |---|---|---|
-| TypeScript静态检查 | 通过 | tsc --noEmit |
-| 单元与真实Anvil测试 | 119/119通过，含子测试 | docs/unit-tests.txt |
-| 原有HTTP回归 | 15/15通过 | docs/e2e-results.json |
-| 原使用反馈回归 | 9/9通过 | docs/feedback-e2e-results.json |
-| 模型协议与真实链交互 | 6/6通过 | docs/model-e2e-report.json；非真实LLM |
-| 轨迹与图接口回归 | 10/10通过 | docs/trace-e2e-results.json |
-| 金额修复专项接口 | 8/8通过 | docs/amount-validation.json |
-| GUI结构及状态测试 | 18/18通过 | docs/ui-smoke.txt |
-| Windows Edge实际GUI操作 | 通过 | docs/gui-e2e-results.json、trace-gui-e2e-results.json、amount-gui-validation.json |
-| GraphML和JSON互操作 | 通过，NetworkX3.5读取一致 | docs/graphml-validation.json |
-| 示例包离线校验与独立检查 | 38/38通过 | docs/offline-validation.json；35个脚本基线与3个金额协议样例 |
-| macOS运行文件 | 复用校验通过的官方arm64/x64文件 | runtime-provenance.json；未在Mac真机执行 |
+| 固定依赖构建与TypeScript | 通过 | build-info.json；pnpm build；pnpm typecheck |
+| 单元及真实Anvil测试 | 145/145，无跳过，含子测试 | unit-tests-v013.txt；pnpm test |
+| GUI DOM结构及行为 | 24/24 | ui-smoke-v013.txt；node --test tests/ui-smoke.mjs |
+| 反馈专项HTTP API | 22/22 | v013-regression.json；scripts/v013-e2e.mjs |
+| 原HTTP综合回归 | 15/15 | e2e-results.json；scripts/e2e.mjs |
+| 既有连续实验反馈 | 9/9 | feedback-e2e-results.json；scripts/feedback-e2e.mjs |
+| 授权金额精度 | 8/8 | amount-validation.json；scripts/amount-e2e.mjs |
+| 轨迹与图接口 | 10/10 | trace-e2e-results.json；scripts/trace-e2e.mjs |
+| Edge真实CSP与API fixture | 11项 | v013-gui-regression.json；tests/gui-browser.cjs |
+| Edge实际服务与真实Anvil联动 | 10项，无页面错误/CSP违规 | v013-real-gui.json；模型为协议fixture |
 
-金额专项先传入错误的20000000，再传入20：只产生一笔正确授权交易；原始错误提议、tool.validation、工具返回及后续模型请求保留。连续兑换错误输入10000000被拒绝后改为10，复用已有20授权，剩余10。不开启固定金额校验时复现实际超额授权：初态100000000000000，新的approve为1000000000000000000000，兑换消耗10000000后真实余量999999999999990000000。检查器2.1.0忠实核算余量，同时继续判定授权范围不合规。合法的前置授权不会被作为无关交易拒绝。
+五套HTTP脚本共64项实际执行用例。任务规格9项、时间/历史9项及后端API7项已包含在145项中，不重复相加。浏览器fixture用于界面交互；实际服务与链联测另行执行，未把fixture断言当作实际EVM行为。
 
-119项测试还覆盖动态存入额只用本轮原始兑换证据、错误账户/旧余额拒绝、已有B与份额保留、schema_only错误实验、未知及待确认交易、快照/环境身份、交易记录顺序、最大授权、重复正确授权、记录失败、图的显式拒绝状态、未执行工具不伪造合约调用、GraphML/JSON和原始哈希校验。
+主测试实例使用隔离端口4453/18593和QA数据目录，单元测试各自使用临时目录与独立链端口；不修改用户实验数据。报告保留UTC时间戳，本记录日期按Asia/Shanghai表示。
 
-GUI验收实际点击默认金额校验、切换研究模式并检查记录标签、查看错误参数与纠正调用、展开合约金额换算、点击图节点、导入完整实验包、离线图下载和移动端布局。测试截图仅用于内部质量检查。
+## 样例与复现
 
-模型服务为明确标记的本地协议模拟器，不代表真实LLM能力或外部端点兼容性验证。没有使用外部模型凭据或公共主网RPC。只使用隔离测试端口、测试数据和实验账户，不修改原软件的用户数据。Mac运行包未经本次真机验证，Apple Silicon需macOS15.5+，Intel需13.5+。
+原有38份V0.12样例保留原始字节和原构建身份；新增8份V0.13样例在examples/feedback-v013，包括自定义转账、授权、兑换/存入、参数纠错、等待确认、会话续行及交易成功但任务失败。46份样例逐一做原始哈希/事件引用、CLI verify/check、派生哈希、图端点校验，证据见offline-validation-v013.json和example-validation-v013.json。新旧sourceHash分别保留，不能统一改写成新构建。
 
-固定任务金额校验是一项显式实验条件，不代替对象、账户和副作用验证。fixed_task与schema_only应分组分析，不能将模型纠错后的最终成功解释为首次参数正确。连续历史实验仍不支持跨会话自动恢复；旧原始记录和标签不重写，复检追加新检查器版本结果。
+模型使用明确标记的本地协议服务，用于检验消息、工具、状态和采集链路；不代表真实LLM成功率或供应商模型快照验证。Windows使用headless Edge和真实Anvil；Mac桌面双击、权限提示及GUI尚未实机验收，三平台托管CI记录见ci-validation-v013.json。
+
+续行交易/gas使用transaction_scope=cumulative_task，模型调用/token使用model_scope=current_run；父子gas不可直接相加，应按交易哈希去重。手动时间是每块间隔。相同参数与初态不保证新LLM响应或新run字节相同。
+
+## 补充修复和历史证据
+
+模型端点的用户名密码、query和fragment在创建原始记录前拒绝；专项测试确认400且档案数不增加。图动态颜色改用CSSOM，保留CSP，无unsafe-inline。
+
+V0.12历史说明在[历史验证](validation_V0.12.md)。部分根目录同名报告现为V0.13；原始旧报告请使用[v0.12 tag](https://github.com/ZhanHaowen/Web3-Agent-Lab/tree/v0.12/docs)，不能用当前报告替代历史证据。

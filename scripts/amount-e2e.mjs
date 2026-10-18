@@ -45,7 +45,7 @@ try{
     const conversion=r.execution_trace.contract_calls.find(c=>c.kind==='transaction').amountConversions[0];
     assert.equal(conversion.input,'20');assert.equal(conversion.baseUnits,'20000000');
     assert.ok(requests.slice(1).some(q=>q.messages.some(m=>m.role==='tool'&&m.content.includes('TOOL_AMOUNT_MISMATCH'))));
-    assert.equal(r.result.checkerVersion,'2.1.0');
+    assert.equal(r.result.checkerVersion,'2.2.0');
     return{runId:r.config.run_id,transactions:1,rejectedAttempts:1};
   });
   await test('continuous_swap_rejects_base_units_and_reuses_prior_approval',async()=>{
