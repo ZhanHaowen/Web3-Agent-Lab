@@ -1,0 +1,83 @@
+[
+  {
+    "file": "01-scripted-filled.json",
+    "verification": {
+      "verified": true,
+      "files": 82,
+      "events": 75,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "02-no-deal.json",
+    "verification": {
+      "verified": true,
+      "files": 35,
+      "events": 24,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "03-continuous.json",
+    "verification": {
+      "verified": true,
+      "files": 82,
+      "events": 75,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "04-manual-mining.json",
+    "verification": {
+      "verified": true,
+      "files": 86,
+      "events": 79,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "05-export.json",
+    "verification": {
+      "verified": true,
+      "files": 82,
+      "events": 75,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "06-two-model-protocol-fixture.json",
+    "verification": {
+      "verified": true,
+      "files": 109,
+      "events": 100,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "07-response-loss-reconciled.json",
+    "verification": {
+      "verified": true,
+      "files": 82,
+      "events": 75,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "08-stop-before-signing.json",
+    "verification": {
+      "verified": true,
+      "files": 41,
+      "events": 30,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  },
+  {
+    "file": "09-counterquote-protocol-fixture.json",
+    "verification": {
+      "verified": true,
+      "files": 120,
+      "events": 112,
+      "note": "Internal integrity only; not publisher authentication."
+    }
+  }
+]

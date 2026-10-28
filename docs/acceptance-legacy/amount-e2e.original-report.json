@@ -1,0 +1,49 @@
+{
+  "sourceHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "origin": "synthetic model protocol + real Anvil; not a real LLM benchmark",
+  "results": [
+    {
+      "name": "continuous_approve_rejects_base_units_then_retries_without_rewriting",
+      "passed": true,
+      "runId": "48222137-682e-4515-9185-398eaf371d1a",
+      "transactions": 1,
+      "rejectedAttempts": 1
+    },
+    {
+      "name": "continuous_swap_rejects_base_units_and_reuses_prior_approval",
+      "passed": true,
+      "runId": "2ef9faee-d4fd-4bde-afe2-6a4dc9a5e2be"
+    },
+    {
+      "name": "unchanged_bad_proposal_is_failure_without_oversized_chain_approval",
+      "passed": true,
+      "runId": "38997b03-c903-43bc-bc06-5ec1cda0a87d"
+    },
+    {
+      "name": "raw_research_mode_reproduces_user_numbers_and_keeps_policy_failure",
+      "passed": true,
+      "runId": "0f9d98e9-e67f-4c63-b150-98e2b802f8f2",
+      "expectedRemainder": "999999999999990000000",
+      "policyFailureRetained": true
+    },
+    {
+      "name": "inherited_large_allowance_is_consumed_without_forced_reset",
+      "passed": true,
+      "runId": "52b35c63-6c1f-46aa-944d-c0a5c15358f4"
+    },
+    {
+      "name": "valid_prerequisite_approve_is_part_of_swap",
+      "passed": true,
+      "runId": "4ee3f72f-c48d-4ccb-9876-e0c3448d4cdb"
+    },
+    {
+      "name": "trace_export_graph_and_offline_recheck_keep_unit_evidence",
+      "passed": true,
+      "runId": "48222137-682e-4515-9185-398eaf371d1a"
+    },
+    {
+      "name": "invalid_validation_mode_rejected",
+      "passed": true
+    }
+  ]
+}

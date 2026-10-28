@@ -1,0 +1,26 @@
+✔ transient Windows rename lock retries without removing committed journal (111.6889ms)
+✔ permanent journal error rejects and preserves previous committed data (45.87ms)
+✔ human token units convert once and never accept floating/scientific values (1.8256ms)
+✔ role goals use exact integer comparisons and remain separate (0.9326ms)
+✔ tool sets and provider IDs are namespaced per runtime (0.4502ms)
+✔ message actor comes from runtime; duplicate delivery and consumption are idempotent (1.0036ms)
+✔ no acceptable quote is a business result with explicit expected outcome (0.6357ms)
+✔ remote HTTP models and unsupported scene parameters fail closed (0.2456ms)
+✔ model cannot select signer identity or invoke another role settlement tool (1.1283ms)
+✔ empty message bodies are optional; quotes still require explicit amounts (0.9517ms)
+✔ phase guidance does not authorize a premature order or disclose the peer private goal (0.4004ms)
+✔ elapsed time uses monotonic duration and freezes at completion (1.4245ms)
+✔ service is escrow-only and caller cannot override signer or role permissions (1.7624ms)
+✔ invalid local service terms are rejected before initialization (0.4904ms)
+✔ report quality binds exact block hash account token schema balance and decimals (1.5034ms)
+✔ matching bytes hash alone does not establish correctness (0.2072ms)
+✔ missing report and missing chain reference do not pass (0.134ms)
+✔ message accept can omit payload but model cannot supply arbitrary transaction args (0.2846ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 270.1142

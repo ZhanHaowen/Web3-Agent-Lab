@@ -1,0 +1,97 @@
+{
+  "suite": "frozen-definition-stop-and-graceful-recovery",
+  "platform": "win32",
+  "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+  "controlPort": 19667,
+  "rpcPort": 19707,
+  "dataDirectory": "C:\\Users\\86137\\Documents\\Codex\\2026-10-20\\referenced-chatgpt-conversation-this-is-an-2\\work\\v0151\\Web3-Agent-Lab-V0.15.1-Windows-x64\\data-acceptance-shutdown-1f97ed5c-b140-48fd-8311-de1e5860f2a5",
+  "records": [
+    {
+      "caseId": "AT-03",
+      "label": "frozen-definition-executed",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "150d5f2da5ec1c4505f59e6b0a84763d90b12cbf79ad10c5889752f0ebb1106d",
+      "startedAt": "2026-10-27T10:36:27.863Z",
+      "executionIds": [
+        "dca32f08-b931-47f3-8abf-936afa7e7c09"
+      ],
+      "evidenceFiles": [
+        "frozen-definition-dca32f08-b931-47f3-8abf-936afa7e7c09.json",
+        "AT03-manifests-and-conflict.json"
+      ],
+      "expected": "Old Job runs against original definition after new version is installed; archived prompts/schema/checker remain frozen.",
+      "actual": {
+        "checker": "peer-2.0",
+        "definitionHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5",
+        "originalPrompts": {
+          "maker": "Use only Maker tools and your private sell goal. Do not invent acceptance or payment.",
+          "taker": "Use only Taker tools and your own budget. Accept a real received quoteId and inspect the chain order."
+        },
+        "originalSchema": {
+          "sellAmount": "decimal",
+          "buyAmount": "decimal",
+          "deadlineSeconds": "integer"
+        },
+        "checkerVersion": "2.0.0"
+      },
+      "subchecks": "PASS",
+      "coverageReason": "",
+      "status": "PASS",
+      "endedAt": "2026-10-27T10:36:39.546Z"
+    },
+    {
+      "caseId": "AT-12",
+      "label": "stop-before-order",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "acf59406a6ba7daf175231d8edd507bc034c104919d05b288e7c5ec5a9793763",
+      "startedAt": "2026-10-27T10:36:39.547Z",
+      "executionIds": [
+        "734683e7-42ec-4662-9a24-0e2bbecdc71d"
+      ],
+      "evidenceFiles": [
+        "stop-before-order-734683e7-42ec-4662-9a24-0e2bbecdc71d.json"
+      ],
+      "expected": "Stop before order has no token/allowance/escrow movement and releases lock.",
+      "actual": {
+        "state": "stopped",
+        "assetsUnchanged": true,
+        "environmentLock": false,
+        "transactions": 0
+      },
+      "subchecks": "PASS",
+      "coverageReason": "",
+      "status": "PASS",
+      "endedAt": "2026-10-27T10:36:41.007Z"
+    },
+    {
+      "caseId": "AT-12",
+      "label": "shutdown-open-order-attach-refund",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "4b0b648f4df8eaf0ab9732b9b5d886b8c72512e2716c02800bda6cd904188d7c",
+      "startedAt": "2026-10-27T10:36:41.008Z",
+      "executionIds": [],
+      "evidenceFiles": [],
+      "status": "FAIL",
+      "subchecks": "FAIL",
+      "coverageReason": "",
+      "actual": "Error: EXECUTION_TIMEOUT e36342d0-c395-4e3c-980c-30e8d7f3299e\n    at wait (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/tests/v2-shutdown-recovery.mjs:25:251)\n    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/tests/v2-shutdown-recovery.mjs:38:245\n    at async caseRun (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/tests/v2-shutdown-recovery.mjs:32:347)\n    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/tests/v2-shutdown-recovery.mjs:38:2",
+      "endedAt": "2026-10-27T10:38:34.739Z"
+    }
+  ],
+  "shutdown": {
+    "requested": true,
+    "confirmed": true,
+    "exitCode": 0
+  },
+  "acceptanceStatus": "NOT_FULLY_ACCEPTED",
+  "note": "Supplemental API evidence only. AT-11 still lacks pending-confirmation/resume-once coverage and screen recording. Never interpret subchecks PASS as all AT-01..AT-36 accepted."
+}

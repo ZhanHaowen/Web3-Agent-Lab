@@ -1,0 +1,204 @@
+{
+  "suite": "V0.13 real user feedback API regression",
+  "build": {
+    "version": "0.1.3",
+    "displayVersion": "V0.13",
+    "releaseRevision": "beta-1",
+    "releaseLabel": "V0.13",
+    "builtAt": "2026-10-18T16:53:12.302Z",
+    "node": "v24.19.0",
+    "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+    "files": {
+      "src/agent.ts": "4fd4495e8dfa77411ee9089f3dff43aa9e608b10321087a18716d51ce4dddf40",
+      "src/chain.ts": "2dd74f0bc7f57d2fe73a4dbdf99bf0fb7378c9ea2abd4d993bbfd0ae0400f92f",
+      "src/checker.ts": "3418391f8360c65e634268844d64b9b9e24ca7d784d88253bb88a82ad82abb1c",
+      "src/cli.ts": "a1165e8a5085df6ee262acc29287889ce3c406fcd0e7a2f3b1110887d28ed06d",
+      "src/continuation.ts": "186a03d07fd57b475f2af649421c1d5ecb39ad5e5b0430eb9d4f3f6562504a19",
+      "src/diagnostics.ts": "bd8e85d06276a65956bbfc9207f4459999266306b72c0f5f407a14e8e59a0146",
+      "src/graph.ts": "5e34fd028040e15851312b35179bbe518dbdb4ba99dc280fd62962bd4c711467",
+      "src/server.ts": "6aa72abf435f299e370e96c4874b4e99a9e54f382ee6ef0fa627ecbc060d69cc",
+      "src/store.ts": "40f51183c53bc1973f90526997a32d5adf045020b270adc6805ba7853b9e075f",
+      "src/tasks.ts": "25911d6625290f576665128e17da58f49cc445af30d07d247aaa2df44bd9190a",
+      "src/trace.ts": "3e875c963927b0bb0536b7bf86e944b2e6e4ffcc45e7be4420ed4552d975ed16",
+      "src/units.ts": "8df93c136d84a0c6ad9e682deb06f9a25a25e3ad148c62226e96e483f11955ee",
+      "public/app.js": "5677a7c2af8a14541d5f85e74c4505d1dd784b04656d8ce922b7233aeddfa0d7",
+      "public/index.html": "cb19e72dbd91ae653668bf745821537967986db2773eaff55c1931b65981f373",
+      "public/style.css": "70d0fa2c0142279146441743630e239fabf7d9384bb6cf2a9ec6594351902501",
+      "contracts/artifacts/LabAMM.json": "a654bfa137de18eacf0d2b7a7ca986fce5c31f4b8735bde17da72bad44b5c18a",
+      "contracts/artifacts/LabToken.json": "0d52cdb470244c0a7607d85731be4bde6bd4b8479b995da71512b2d73de4d5d8",
+      "contracts/artifacts/LabVault.json": "43e7884a9d2733147417ced4f04f1811c4796dc54f3e2e2eea4a22b86d1041a8",
+      "contracts/LabContracts.sol": "b8823ab0ae4ec564e1f6c2ad848ee23b4317bda2814ecf035c72ca2071015346",
+      "scripts/amount-e2e.mjs": "16e1320ba00da566bc214817b68163e74a869b15924e7923812684dbddcf6a06",
+      "scripts/build.mjs": "c10ed0d1154718c48a3674429f68407a13c652ef1251f4b5e4ccd6cfd92bbeb8",
+      "scripts/compile-contracts.mjs": "43730f8c2c8f42d46567eee5e26d0d25814c6e917f30d1aee28c7483fc8c0b96",
+      "scripts/e2e.mjs": "59f5aba145a3379f8bd518cfd77ac0b165869a940ae83b8a3163eed3f2d27d42",
+      "scripts/examples.mjs": "462b7f071c7a06fce2cf0dc981b867ebdb47109c615c2f6a98a13d4511fe80c5",
+      "scripts/feedback-e2e.mjs": "8a51abc8094f2eacc2a754d65312caf9d69e5bf36a545834e128bfb0a0be1912",
+      "scripts/licenses.mjs": "c8f99a5bf45780f3a2b1003583f63fa5e73aedaab0399c3c155416c535e618cd",
+      "scripts/model-e2e.mjs": "11819dcd5ff5e093a7ab0bec63bf0a15f6bd8e364c78c68779a319027b03c788",
+      "scripts/package-release.py": "36d802e80b6a012659c514b0e3c3b68915c0beb3d7ac92bed060735dfe96a2dd",
+      "scripts/register-agentkit.mjs": "e0a37ce3bd287d25dc3ec725c1da355069f90159e4bff233ca8f5c2b673cdd2a",
+      "scripts/setup-runtime.mjs": "c3916d9ea2afb5e9c0e46efc7977dbe89c1c558b901ac4cf9f9cd0c3c854aebe",
+      "scripts/start-windows.ps1": "17a0c16604f6e6204b8432eca6cd395fed300632257252ba07842873579c184f",
+      "scripts/stop-windows.ps1": "2ad439b2cf7018e631c0151405cb8a302cb3c2642535a0c5244895ee31f21414",
+      "scripts/trace-e2e.mjs": "3b07677fd561fac781b2c9ec84b8c400b12f6284c3ac6d49a717e07c67959c16",
+      "scripts/v013-e2e.mjs": "f621ef0ad0693ba119941b53d1c94e6710fef0da666739c83f26deb72172bba3",
+      "scripts/validate-graph.py": "dbc18d8e94f5c48e26699c25f203b6723d5acc3ab168b320c752fddf5c22a68b",
+      "package.json": "14b97083dbfeae48b1ce662fa0d49da44122d3bfc81c7f80d5faf33956a469ee",
+      "pnpm-lock.yaml": "7253b6fb8c7438beb838cd775a0188ab7c469882af6c2f6559a2f7d6a9f0dab7",
+      "pnpm-workspace.yaml": "9479ba74262a9264a1966c1d8517090a1f31ebd4d1601bb7e1a9cece4fd3286c",
+      "Start.command": "ce509d56d17f274bb091cc1299849be0fd8036d82cbd38eb765f2e5ae63cb938",
+      "Stop.command": "e10cb79a1ce9d37fd55a1f2a5405324a12747c13edbf03dabf22141696787fc0",
+      "start.cmd": "6668ccdd2edc288448fcfc3eb3df358629eba886bc3e1b8c2aee8b1c59874c8d",
+      "stop.cmd": "7f2c738ade73218ed2920414b83d9dd9e161afd3b3d975aa93bdba3329e9f6e4"
+    },
+    "agentkitEntry": "@coinbase/agentkit@0.10.4/dist/action-providers/actionProvider.js"
+  },
+  "origin": "synthetic protocol fixture + real Anvil; not a model capability benchmark",
+  "realModelTested": false,
+  "testedAt": "2026-10-18T16:53:36.499Z",
+  "passed": true,
+  "tests": [
+    {
+      "issue": "data-integrity",
+      "name": "endpoint_query_secrets_are_rejected_before_recording",
+      "passed": true
+    },
+    {
+      "issue": "F5",
+      "name": "custom_text_resolves_exact_30_and_27",
+      "passed": true,
+      "parameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      }
+    },
+    {
+      "issue": "F5",
+      "name": "conflicting_or_ambiguous_goals_never_fall_back",
+      "passed": true
+    },
+    {
+      "issue": "F5",
+      "name": "scripted_custom_transfer_30_uses_same_checker_goal",
+      "passed": true,
+      "runId": "a2700fe2-eda4-4b3e-b0b8-6493884e0235"
+    },
+    {
+      "issue": "F5",
+      "name": "six_decimal_approval_remains_exact",
+      "passed": true,
+      "runId": "e5b5d3da-6f0c-4322-97d1-5bf4232661be"
+    },
+    {
+      "issue": "F5",
+      "name": "scripted_custom_swap_30_minimum_27",
+      "passed": true,
+      "runId": "7249d3cb-d0ba-4e60-a2c4-1f06638ff985"
+    },
+    {
+      "issue": "F5",
+      "name": "custom_swap_and_deposit_preserves_target_and_output",
+      "passed": true,
+      "runId": "59791278-17a5-4f64-9f1e-1d9cc177a449"
+    },
+    {
+      "issue": "F5",
+      "name": "llm_guard_rejects_base_units_then_accepts_custom_30",
+      "passed": true,
+      "runId": "cf9dc86e-925f-40d8-8675-d80c86105646",
+      "rejectedProposalPreserved": true
+    },
+    {
+      "issue": "F2-F3",
+      "name": "archive_exposes_distinct_statuses_models_and_exact_input",
+      "passed": true,
+      "runId": "cf9dc86e-925f-40d8-8675-d80c86105646"
+    },
+    {
+      "issue": "F2",
+      "name": "chain_success_and_task_failure_are_separate",
+      "passed": true,
+      "runId": "67a7508c-003d-4d8d-878e-a33389908bd1"
+    },
+    {
+      "issue": "F2-F3",
+      "name": "query_only_and_unreported_model_are_explicit",
+      "passed": true,
+      "runId": "fdc4ea4b-0c7d-40fa-980b-ae5d929971fe"
+    },
+    {
+      "issue": "F4",
+      "name": "one_block_advances_exactly_100_seconds",
+      "passed": true,
+      "mining": {
+        "before": {
+          "blockNumber": "7",
+          "timestamp": "1700000007"
+        },
+        "after": {
+          "blockNumber": "8",
+          "timestamp": "1700000107"
+        },
+        "blocks": 1,
+        "secondsPerBlock": 100,
+        "actualBlocks": 1,
+        "actualDeltaSeconds": 100
+      }
+    },
+    {
+      "issue": "F4",
+      "name": "three_blocks_advance_three_intervals",
+      "passed": true
+    },
+    {
+      "issue": "F4",
+      "name": "invalid_mining_values_are_rejected_without_mining",
+      "passed": true
+    },
+    {
+      "issue": "F6",
+      "name": "manual_llm_run_preserves_pending_observation",
+      "passed": true,
+      "runId": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b"
+    },
+    {
+      "issue": "F6",
+      "name": "live_reconciliation_never_calls_model",
+      "passed": true
+    },
+    {
+      "issue": "F6",
+      "name": "mine_and_continue_restores_history_and_new_state",
+      "passed": true,
+      "parentRunId": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+      "runId": "a0f71b2e-9b75-49fd-b673-72f74e3f468b",
+      "originalGoalInitialStatePreserved": true
+    },
+    {
+      "issue": "F1-F6",
+      "name": "continuation_graph_references_parent_without_fake_calls",
+      "passed": true
+    },
+    {
+      "issue": "F6",
+      "name": "sealed_parent_is_byte_identical_after_continuation",
+      "passed": true
+    },
+    {
+      "issue": "F6",
+      "name": "continuation_cannot_change_model_or_survive_reset",
+      "passed": true
+    },
+    {
+      "issue": "F5-F6",
+      "name": "custom_offline_check_uses_persisted_parameters",
+      "passed": true
+    },
+    {
+      "issue": "F6",
+      "name": "scripted_runs_cannot_claim_model_continuation",
+      "passed": true
+    }
+  ]
+}

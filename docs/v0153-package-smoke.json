@@ -1,0 +1,14 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "passed": true,
+  "extractedPathContainsChineseAndSpaces": true,
+  "checks": {
+    "sourceManifestHashes": 533,
+    "actualBatchLauncherChecksPassed": 3,
+    "doctorServiceProtectedFilesUnchanged": 11,
+    "customSplitOfflineCheckExit": 2,
+    "customUnifiedOfflineCheckExit": 0
+  },
+  "scope": "Full candidate extraction; actual start.cmd/stop.cmd with NoBrowser for automated startup, main-origin experiment, owned process cleanup, bundled runtime and offline checks. Final ZIP differs only in added verification documents."
+}

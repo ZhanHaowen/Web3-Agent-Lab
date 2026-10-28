@@ -1,0 +1,18 @@
+✔ human token units convert once and never accept floating/scientific values (0.9672ms)
+✔ role goals use exact integer comparisons and remain separate (0.7104ms)
+✔ tool sets and provider IDs are namespaced per runtime (0.3913ms)
+✔ message actor comes from runtime; duplicate delivery and consumption are idempotent (0.9255ms)
+✔ no acceptable quote is a business result with explicit expected outcome (0.5324ms)
+✔ remote HTTP models and unsupported scene parameters fail closed (0.2319ms)
+✔ model cannot select signer identity or invoke another role settlement tool (0.9964ms)
+✔ empty message bodies are optional; quotes still require explicit amounts (0.9108ms)
+✔ phase guidance does not authorize a premature order or disclose the peer private goal (0.3702ms)
+✔ elapsed time uses monotonic duration and freezes at completion (0.8043ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.0275

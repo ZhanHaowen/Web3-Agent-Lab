@@ -1,0 +1,10 @@
+{
+  "layout": "left-input-right-results",
+  "controls": [
+    "amountIn",
+    "minAmountOut"
+  ],
+  "roles": [
+    "agent"
+  ]
+}

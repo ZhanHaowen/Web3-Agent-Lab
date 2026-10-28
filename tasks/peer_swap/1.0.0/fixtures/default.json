@@ -1,0 +1,9 @@
+{
+  "taskType": "peer_swap",
+  "version": "1.0.0",
+  "input": {
+    "sellAmount": "10",
+    "buyAmount": "20",
+    "deadlineSeconds": 300
+  }
+}

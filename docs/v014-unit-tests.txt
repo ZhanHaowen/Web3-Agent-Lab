@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: human token units convert once and never accept floating/scientific values
+ok 1 - human token units convert once and never accept floating/scientific values
+  ---
+  duration_ms: 0.9722
+  type: 'test'
+  ...
+# Subtest: role goals use exact integer comparisons and remain separate
+ok 2 - role goals use exact integer comparisons and remain separate
+  ---
+  duration_ms: 0.6008
+  type: 'test'
+  ...
+# Subtest: tool sets and provider IDs are namespaced per runtime
+ok 3 - tool sets and provider IDs are namespaced per runtime
+  ---
+  duration_ms: 0.4266
+  type: 'test'
+  ...
+# Subtest: message actor comes from runtime; duplicate delivery and consumption are idempotent
+ok 4 - message actor comes from runtime; duplicate delivery and consumption are idempotent
+  ---
+  duration_ms: 1.0028
+  type: 'test'
+  ...
+# Subtest: no acceptable quote is a business result with explicit expected outcome
+ok 5 - no acceptable quote is a business result with explicit expected outcome
+  ---
+  duration_ms: 0.5837
+  type: 'test'
+  ...
+# Subtest: remote HTTP models and unsupported scene parameters fail closed
+ok 6 - remote HTTP models and unsupported scene parameters fail closed
+  ---
+  duration_ms: 0.2543
+  type: 'test'
+  ...
+# Subtest: model cannot select signer identity or invoke another role settlement tool
+ok 7 - model cannot select signer identity or invoke another role settlement tool
+  ---
+  duration_ms: 0.9585
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 115.6363

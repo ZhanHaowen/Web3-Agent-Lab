@@ -1,0 +1,32 @@
+{
+  "taskType": "peer_swap",
+  "version": "1.0.0",
+  "roles": [
+    "maker",
+    "taker"
+  ],
+  "checkerId": "peer-2.0",
+  "checkerVersion": "2.0.0",
+  "requiredTools": [
+    "send_message",
+    "inspect_order",
+    "approve_sell",
+    "create_order",
+    "approve_buy",
+    "fill_order",
+    "cancel_order",
+    "expire_order",
+    "wait",
+    "finish"
+  ],
+  "schema": {
+    "sellAmount": "decimal",
+    "buyAmount": "decimal",
+    "deadlineSeconds": "integer"
+  },
+  "prompts": {
+    "maker": "Use only Maker tools and your private sell goal. Do not invent acceptance or payment.",
+    "taker": "Use only Taker tools and your own budget. Accept a real received quoteId and inspect the chain order."
+  },
+  "definitionHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5"
+}

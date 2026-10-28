@@ -1,0 +1,17 @@
+{
+  "version": "V0.15.2",
+  "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863",
+  "extractedDirectory": "Chinese-and-space path",
+  "passed": true,
+  "checks": {
+    "sourceManifestHashes": 527,
+    "doctorServiceProtectedFiles": 11,
+    "doctorServiceUnchanged": true,
+    "offlineOverspendCheckExit": 2,
+    "offlineUnifiedCheckExit": 0,
+    "freshHttpChecksPassed": 8,
+    "powershellLauncherSyntaxFiles": 2,
+    "usesBundledNodeAndAnvil": true
+  },
+  "scope": "Runtime and HTTP tests executed after full extraction; launcher PowerShell files syntax-checked. Native browser download remains BLOCKED as separately recorded."
+}

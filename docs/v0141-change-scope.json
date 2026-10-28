@@ -1,0 +1,16 @@
+{
+  "displayVersion": "V0.14.1",
+  "programVersion": "0.1.4-1",
+  "change": "UI configure-left observe-right layout and version metadata",
+  "unchangedScenarioModules": [
+    "agent-runtime.mjs",
+    "checker.mjs",
+    "core.mjs",
+    "graph.mjs",
+    "service.mjs",
+    "wallet-registry.mjs"
+  ],
+  "contractAndArtifactUnchanged": true,
+  "baselineVendorUnchanged": true,
+  "baselineTests": "V0.14 reports preserved; not relabelled as rerun"
+}

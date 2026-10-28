@@ -1,7 +1,20 @@
 node_modules/
-data/
 runtime/
-build/
-dist/
+data*/
+/build/
+/artifacts/
 .env
+.env.*
+!.env.example
 *.log
+*.zip
+*.sqlite*
+**/wallet-secret.json
+**/model-secret.json
+**/identity.token
+**/control-admin.token
+# Only the compatibility entry points are tracked.
+dist/*
+!dist/server.mjs
+!dist/cli.mjs
+!dist/agent-worker.mjs

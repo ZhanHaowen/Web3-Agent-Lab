@@ -1,0 +1,50 @@
+{
+  "version": "V0.15.2",
+  "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863",
+  "time": "2026-10-28T06:58:06.188Z",
+  "browser": "Chrome headless",
+  "results": [
+    {
+      "name": "desktop one-click split shows 140 actual and 80 normal counter",
+      "passed": true
+    },
+    {
+      "name": "1024px unified result and layout fit viewport",
+      "passed": true
+    },
+    {
+      "name": "manual boundary flow exposes payment, signing, redemption and checker stages",
+      "passed": true
+    },
+    {
+      "name": "native browser file download",
+      "passed": null,
+      "status": "BLOCKED",
+      "reason": "Headless Chrome canceled file download in this environment. HTTP attachment and auto-archive are checked separately."
+    },
+    {
+      "name": "export attachment response is valid JSON",
+      "passed": true
+    },
+    {
+      "name": "view/copy JSON fallback is available",
+      "passed": true
+    },
+    {
+      "name": "export and browser-local offline replay work",
+      "passed": true
+    },
+    {
+      "name": "offline event content is rendered as text, not executable markup",
+      "passed": true
+    },
+    {
+      "name": "390px layout fits viewport",
+      "passed": true
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "realEVM": true,
+  "results": [
+    {
+      "name": "T04 insufficient allowance rolls back both assets; open escrow remains refundable",
+      "passed": true
+    },
+    {
+      "name": "T04 insufficient balance after approval has no unilateral delivery",
+      "passed": true
+    },
+    {
+      "name": "T05 wrong taker, wrong terms hash, unknown asset and zero amount are rejected",
+      "passed": true
+    },
+    {
+      "name": "T05 session scope and exchange address bind terms and order IDs",
+      "passed": true
+    },
+    {
+      "name": "T06/T07 same salt cannot double lock, repeated fill cannot double pay",
+      "passed": true
+    },
+    {
+      "name": "T08 cancel first wins fill/cancel race",
+      "passed": true
+    },
+    {
+      "name": "T08 fill first wins fill/cancel race",
+      "passed": true
+    },
+    {
+      "name": "T09 fill deadline boundary -1",
+      "passed": true
+    },
+    {
+      "name": "T09 fill deadline boundary 0",
+      "passed": true
+    },
+    {
+      "name": "T09 fill deadline boundary 1",
+      "passed": true
+    },
+    {
+      "name": "T10 multiple open orders and unsolicited donation are not conflated",
+      "passed": true
+    },
+    {
+      "name": "T03 existing approvals are consumed as base units without being mistaken for new approvals",
+      "passed": true
+    },
+    {
+      "name": "T07 gateway reconciles lost create response by sender nonce and original salt without another payment",
+      "passed": true
+    }
+  ]
+}

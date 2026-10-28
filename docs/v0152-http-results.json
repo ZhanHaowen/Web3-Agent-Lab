@@ -1,0 +1,39 @@
+{
+  "version": "V0.15.2",
+  "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863",
+  "time": "2026-10-28T06:57:59.052Z",
+  "results": [
+    {
+      "name": "HTTP origin and token required",
+      "passed": true
+    },
+    {
+      "name": "unknown configuration is rejected",
+      "passed": true
+    },
+    {
+      "name": "stale execution cannot advance another experiment",
+      "passed": true
+    },
+    {
+      "name": "overlapping clicks do not duplicate a payment",
+      "passed": true
+    },
+    {
+      "name": "manual unified flow blocks permit and seals evidence",
+      "passed": true
+    },
+    {
+      "name": "one-click split run reproduces actual 140",
+      "passed": true
+    },
+    {
+      "name": "export contains evidence without reusable signature",
+      "passed": true
+    },
+    {
+      "name": "completed earlier execution cannot act in later execution",
+      "passed": true
+    }
+  ]
+}

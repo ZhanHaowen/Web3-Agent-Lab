@@ -1,0 +1,174 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "time": "2026-10-28T08:12:18.730Z",
+  "status": "passed",
+  "plannedCases": 9,
+  "executedCases": 9,
+  "realEVM": true,
+  "officialPermit2": true,
+  "results": [
+    {
+      "name": "large arbitrary amounts reproduce cross-path overspend",
+      "passed": true,
+      "config": {
+        "mode": "split",
+        "initial": "1000",
+        "budget": "300",
+        "payment": "175",
+        "permit": "180",
+        "secondPath": "permit"
+      },
+      "actualSpent": "355000000",
+      "normalTransactionCounter": "175000000",
+      "finalBalance": "645000000",
+      "overspend": "55000000",
+      "checkerStatus": "failed",
+      "elapsedMs": 1782
+    },
+    {
+      "name": "same arbitrary amounts are blocked by unified budget",
+      "passed": true,
+      "config": {
+        "mode": "unified",
+        "initial": "1000",
+        "budget": "300",
+        "payment": "175",
+        "permit": "180",
+        "secondPath": "permit"
+      },
+      "actualSpent": "175000000",
+      "normalTransactionCounter": "175000000",
+      "finalBalance": "825000000",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1674
+    },
+    {
+      "name": "fractional split amounts reproduce exact decimal overspend",
+      "passed": true,
+      "config": {
+        "mode": "split",
+        "initial": "2",
+        "budget": "0.75",
+        "payment": "0.4",
+        "permit": "0.5",
+        "secondPath": "permit"
+      },
+      "actualSpent": "900000",
+      "normalTransactionCounter": "400000",
+      "finalBalance": "1100000",
+      "overspend": "150000",
+      "checkerStatus": "failed",
+      "elapsedMs": 1636
+    },
+    {
+      "name": "fractional unified budget rejects amount above remainder",
+      "passed": true,
+      "config": {
+        "mode": "unified",
+        "initial": "2",
+        "budget": "0.75",
+        "payment": "0.4",
+        "permit": "0.5",
+        "secondPath": "permit"
+      },
+      "actualSpent": "400000",
+      "normalTransactionCounter": "400000",
+      "finalBalance": "1600000",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1525
+    },
+    {
+      "name": "six-decimal exact boundary is accepted",
+      "passed": true,
+      "config": {
+        "mode": "unified",
+        "initial": "0.00002",
+        "budget": "0.000005",
+        "payment": "0.000003",
+        "permit": "0.000002",
+        "secondPath": "permit"
+      },
+      "actualSpent": "5",
+      "normalTransactionCounter": "3",
+      "finalBalance": "15",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1736
+    },
+    {
+      "name": "one minimal unit above remaining budget is rejected",
+      "passed": true,
+      "config": {
+        "mode": "unified",
+        "initial": "0.00002",
+        "budget": "0.000005",
+        "payment": "0.000003",
+        "permit": "0.000003",
+        "secondPath": "permit"
+      },
+      "actualSpent": "3",
+      "normalTransactionCounter": "3",
+      "finalBalance": "17",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1484
+    },
+    {
+      "name": "transaction-only arbitrary amounts share normal entry limit",
+      "passed": true,
+      "config": {
+        "mode": "split",
+        "initial": "1000",
+        "budget": "300",
+        "payment": "175",
+        "permit": "180",
+        "secondPath": "transaction"
+      },
+      "actualSpent": "175000000",
+      "normalTransactionCounter": "175000000",
+      "finalBalance": "825000000",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1463
+    },
+    {
+      "name": "raising only task budget permits the same two payments",
+      "passed": true,
+      "config": {
+        "mode": "unified",
+        "initial": "1000",
+        "budget": "400",
+        "payment": "175",
+        "permit": "180",
+        "secondPath": "permit"
+      },
+      "actualSpent": "355000000",
+      "normalTransactionCounter": "175000000",
+      "finalBalance": "645000000",
+      "overspend": "0",
+      "checkerStatus": "success",
+      "elapsedMs": 1707
+    },
+    {
+      "name": "raising only wallet balance does not change task budget",
+      "passed": true,
+      "config": {
+        "mode": "split",
+        "initial": "5000",
+        "budget": "300",
+        "payment": "175",
+        "permit": "180",
+        "secondPath": "permit"
+      },
+      "actualSpent": "355000000",
+      "normalTransactionCounter": "175000000",
+      "finalBalance": "4645000000",
+      "overspend": "55000000",
+      "checkerStatus": "failed",
+      "elapsedMs": 1586
+    }
+  ]
+}

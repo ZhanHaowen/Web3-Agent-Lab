@@ -1,3 +1,4 @@
+import {artifactPath} from '../tests/helpers/artifacts.mjs';
 /** Integration acceptance suite. Start the packaged server first. Uses Node built-ins only.
  * Creates new, labeled runs but never deletes existing experiment data.
  * LAB_PORT=4317 node scripts/e2e.mjs
@@ -142,7 +143,7 @@ try {
 } catch(error) {results.push({name:'suite_setup',passed:false,error:error.message});console.error(error.message);}
 finally {
   report.finishedAt=new Date().toISOString();report.passed=results.filter(item=>item.passed).length;report.failed=results.filter(item=>!item.passed).length;
-  await mkdir(path.join(root,'docs'),{recursive:true});await writeFile(path.join(root,'docs','e2e-results.json'),JSON.stringify(report,null,2)+'\n');
-  console.log(`E2E ${report.passed} passed / ${report.failed} failed; docs/e2e-results.json`);
+  await writeFile(artifactPath('e2e-results.json'),JSON.stringify(report,null,2)+'\n');
+  console.log(`E2E ${report.passed} passed / ${report.failed} failed; ${artifactPath('e2e-results.json')}`);
   process.exitCode=report.failed?1:0;
 }

@@ -1,0 +1,37 @@
+{
+  "format": "installed-local-task",
+  "taskType": "swap",
+  "version": "1.0.0",
+  "definitionHash": "7fa37bd01ea62f9ab5331c314f56bf17a3b49e64d4095697c80fd6e055ff4055",
+  "roles": [
+    "agent"
+  ],
+  "requiredTools": [
+    "approve_token",
+    "swap"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "files": {
+    "task-definition.json": {
+      "sha256": "91b00e9cc8e1ae6c60afc8137f86b42495cbd40c9e68fcea1699f501a669a732",
+      "bytes": 472
+    },
+    "input.schema.json": {
+      "sha256": "e0d9c54523c87d9ae57ad77a92a5a9af9dbafdfb48d365817882c75f6b2c5e97",
+      "bytes": 271
+    },
+    "ui.schema.json": {
+      "sha256": "b992fc5b731cde830c26f25e5f02ddd80772fffd1a27edc94302bfb673504c9c",
+      "bytes": 128
+    },
+    "fixtures/default.json": {
+      "sha256": "bfd9d68b602be0bf34359e8f86ceb8e3f3d1331f9aa9a3001ec535e9780497f6",
+      "bytes": 61
+    },
+    "prompts/agent.txt": {
+      "sha256": "2c28a58a04a8927a91a07673d153585e20165a03b2d0062f4e2c20ef2e665ac8",
+      "bytes": 80
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run_id": "bd6ff24a-0a4c-4175-a3be-2df38caac800",
+  "nodes": 13,
+  "edges": 17,
+  "xml_and_json_equivalent": true,
+  "networkx_tested": true,
+  "networkx_version": "3.5"
+}

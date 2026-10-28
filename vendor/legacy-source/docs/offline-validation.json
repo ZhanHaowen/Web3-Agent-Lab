@@ -1,0 +1,312 @@
+{
+  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+  "version": "V0.12",
+  "testedAt": "2026-10-14T13:27:18.360Z",
+  "passed": 38,
+  "checks": [
+    {
+      "file": "examples/01-balance-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/02-balance-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/03-balance-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/04-transfer-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/05-transfer-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/06-transfer-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/07-approve-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/08-approve-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/09-approve-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/10-swap-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 19,
+      "edges": 30
+    },
+    {
+      "file": "examples/11-swap-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 19,
+      "edges": 30
+    },
+    {
+      "file": "examples/12-swap-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 19,
+      "edges": 30
+    },
+    {
+      "file": "examples/13-swap_deposit-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 31,
+      "edges": 55
+    },
+    {
+      "file": "examples/14-swap_deposit-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 31,
+      "edges": 55
+    },
+    {
+      "file": "examples/15-swap_deposit-normal.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 31,
+      "edges": 55
+    },
+    {
+      "file": "examples/16-transfer-transfer_revert.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/17-transfer-transfer_revert.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/18-transfer-transfer_revert.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/19-transfer-wrong_recipient.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/20-transfer-wrong_recipient.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/21-transfer-wrong_recipient.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/22-balance-altered_tool_return.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/23-balance-altered_tool_return.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/24-balance-altered_tool_return.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 6,
+      "edges": 5
+    },
+    {
+      "file": "examples/25-transfer-manual_pending.json",
+      "status": "pending",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 8,
+      "edges": 10
+    },
+    {
+      "file": "examples/26-transfer-manual_pending.json",
+      "status": "pending",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 8,
+      "edges": 10
+    },
+    {
+      "file": "examples/27-transfer-manual_pending.json",
+      "status": "pending",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 8,
+      "edges": 10
+    },
+    {
+      "file": "examples/28-transfer-missing_transfer_tool.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 4,
+      "edges": 3
+    },
+    {
+      "file": "examples/29-transfer-missing_transfer_tool.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 4,
+      "edges": 3
+    },
+    {
+      "file": "examples/30-transfer-missing_transfer_tool.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 4,
+      "edges": 3
+    },
+    {
+      "file": "examples/31-transfer-sequence_start.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 9,
+      "edges": 12
+    },
+    {
+      "file": "examples/32-transfer-continuous.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 10,
+      "edges": 13
+    },
+    {
+      "file": "examples/33-balance-continuous.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 7,
+      "edges": 6
+    },
+    {
+      "file": "examples/34-approve-continuous.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 10,
+      "edges": 13
+    },
+    {
+      "file": "examples/35-swap_deposit-continuous.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 28,
+      "edges": 46
+    },
+    {
+      "file": "examples/amount-fix/corrected-approval.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 13,
+      "edges": 17
+    },
+    {
+      "file": "examples/amount-fix/corrected-swap.json",
+      "status": "success",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 20,
+      "edges": 26
+    },
+    {
+      "file": "examples/amount-fix/raw-excessive-approval.json",
+      "status": "failure",
+      "verified": true,
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+      "nodes": 23,
+      "edges": 35
+    }
+  ]
+}

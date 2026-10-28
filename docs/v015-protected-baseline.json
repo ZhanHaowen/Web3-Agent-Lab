@@ -1,0 +1,13 @@
+{
+  "src/scenario/service-core.mjs": "abbc5f86da797f5978c964cb983b81ad7f56bc8ce37dfee78128830e8f8766e9",
+  "src/scenario/service-purchase.mjs": "9cca882028b4f454d819f4de341d38b9eebbe3b110488905349f5126e9f3318c",
+  "src/scenario/service-registry.mjs": "e1c969122da35a12249e60dd1d4c464a9c142a15afb792aaa07fc9b4ef7ae440",
+  "src/scenario/service.mjs": "cfcbbdd730836ed819ee34e6ca53f5073d33b277a6069c96b42c0d561e73d9e1",
+  "src/scenario/agent-runtime.mjs": "5d20f2fd5faa163b17d23de2756808767da482f01db08478c78ba22c7db69310",
+  "src/scenario/core.mjs": "9b729ddd7823ec090ca5d80baf9bc75644f7f77cabb39533604254e9682926d0",
+  "src/scenario/wallet-registry.mjs": "16ec2c6d2175ab201009ba034c1cfa597f5593ba5bdd1200b08b2a7e0b6fe800",
+  "public/services.html": "9c0504d961360fe2ff1ff138edc55bb65f7589212ec986d7244228d0c10235b5",
+  "public/service-ui.js": "8c7a0fe4842dc0eff7ecca2f94725e705436bab2031fee1225e991d4aa335bae",
+  "contracts/LabServiceEscrow.sol": "b9afc1211dcb5fa89edb260f64992e5c74c949c9c9cd7a448345f6fe0441a1ea",
+  "contracts/artifacts/LabServiceEscrow.json": "08f46baf3ec098769a4caeb7a10bf1ff084fe4bd57c6c1268c6fbcef787e51a1"
+}

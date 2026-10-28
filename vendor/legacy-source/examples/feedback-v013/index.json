@@ -1,0 +1,187 @@
+{
+  "description": "V0.13 Beta feedback regressions captured on real Anvil. Scripted baselines and synthetic model protocol fixtures; not a real LLM capability benchmark. Legacy V0.12 examples and their indexes remain byte-identical.",
+  "displayVersion": "V0.13",
+  "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+  "createdAt": "2026-10-18T16:55:46.926Z",
+  "legacy": {
+    "bundleCount": 38,
+    "filesUntouched": 40,
+    "indexes": [
+      "../index.json",
+      "../amount-fix/index.json"
+    ]
+  },
+  "feedbackCoverage": {
+    "F1": "子运行保留显式父工具引用；图交互另见docs/v013-gui-regression.json。",
+    "F2": "任务失败与交易成功独立；状态搜索界面另有GUI回归。",
+    "F3": "协议替身的请求模型别名与响应model保留于原始事件。",
+    "F4": "父子运行出块记录保留时间推进；完整出块边界验证见API报告。",
+    "F5": "30/27、23.125456目标及错误提案纠正。",
+    "F6": "待确认父运行与确认后子运行成对保留，父原始事实不改。"
+  },
+  "runs": [
+    {
+      "filename": "01-custom-transfer-30.json",
+      "runId": "a2700fe2-eda4-4b3e-b0b8-6493884e0235",
+      "taskId": "transfer",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "scripted_custom_transfer_30_uses_same_checker_goal",
+      "description": "自定义转账30 TokenA，脚本、工具金额与检查器同一目标。"
+    },
+    {
+      "filename": "02-custom-approval-23.125456.json",
+      "runId": "e5b5d3da-6f0c-4322-97d1-5bf4232661be",
+      "taskId": "approve",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "23.125456"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "six_decimal_approval_remains_exact",
+      "description": "授权23.125456 TokenA，保留全部六位小数且只转换一次。"
+    },
+    {
+      "filename": "03-custom-swap-30-minimum-27.json",
+      "runId": "7249d3cb-d0ba-4e60-a2c4-1f06638ff985",
+      "taskId": "swap",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "scripted_custom_swap_30_minimum_27",
+      "description": "兑换30 TokenA，最低27 TokenB；不再使用旧默认10/9判断。"
+    },
+    {
+      "filename": "04-custom-swap-deposit-30-minimum-27.json",
+      "runId": "59791278-17a5-4f64-9f1e-1d9cc177a449",
+      "taskId": "swap_deposit",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F5",
+      "testName": "custom_swap_and_deposit_preserves_target_and_output",
+      "description": "自定义兑换后存入，仅存入该任务新获得的TokenB。"
+    },
+    {
+      "filename": "05-protocol-guard-corrects-custom-30.json",
+      "runId": "cf9dc86e-925f-40d8-8675-d80c86105646",
+      "taskId": "swap",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amountIn": "30",
+        "minAmountOut": "27"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F2-F3-F5",
+      "testName": "llm_guard_rejects_base_units_then_accepts_custom_30",
+      "description": "模型协议替身先提出错误最小单位金额，真实guard拒绝后接受30；保留原提案，非真实LLM能力实验。"
+    },
+    {
+      "filename": "06-manual-pending-parent.json",
+      "runId": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+      "taskId": "transfer",
+      "status": "pending",
+      "expectedOfflineVerdict": "pending",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F4-F6",
+      "testName": "manual_llm_run_preserves_pending_observation",
+      "description": "关闭自动出块的父运行，原始交易与工具观察为pending；续行不改此原始事实。"
+    },
+    {
+      "filename": "07-confirmed-continuation-child.json",
+      "runId": "a0f71b2e-9b75-49fd-b673-72f74e3f468b",
+      "taskId": "transfer",
+      "status": "success",
+      "expectedOfflineVerdict": "success",
+      "mode": "llm",
+      "data_origin": "protocol_fixture",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "30"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": "953414b2-4f27-47b5-9ba1-d8dc6c325d5b",
+      "issues": "F1-F4-F6",
+      "testName": "mine_and_continue_restores_history_and_new_state",
+      "description": "出块17秒后恢复原模型历史并观察新状态，子运行累计检查父交易；无伪造的新转账调用。"
+    },
+    {
+      "filename": "08-chain-success-task-failure.json",
+      "runId": "67a7508c-003d-4d8d-878e-a33389908bd1",
+      "taskId": "transfer",
+      "status": "failure",
+      "expectedOfflineVerdict": "failure",
+      "mode": "scripted",
+      "data_origin": "acceptance_test_scripted",
+      "real_llm_used": false,
+      "chain_execution": "real_anvil",
+      "taskParameters": {
+        "amount": "10"
+      },
+      "version": "V0.13",
+      "sourceHash": "3f10a3f81cae7c8cfc622005a8b81a4eeaadb823cd693961d08ccb91d437d6d3",
+      "continuation_of": null,
+      "issues": "F2",
+      "testName": "chain_success_and_task_failure_are_separate",
+      "description": "故意转向错误收款账户：链上成功、任务失败，演示两种状态应独立检索。"
+    }
+  ]
+}

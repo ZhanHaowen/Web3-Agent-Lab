@@ -1,0 +1,1261 @@
+{
+  "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+  "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+  "dataDirectory": "C:\\Users\\86137\\Documents\\Codex\\2026-10-20\\referenced-chatgpt-conversation-this-is-an-2\\work\\v0151\\Web3-Agent-Lab-V0.15.1-Windows-x64\\data-acceptance-shutdown-1f97ed5c-b140-48fd-8311-de1e5860f2a5",
+  "events": [
+    {
+      "event": {
+        "schemaVersion": "2.0",
+        "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "eventId": "29dc4ffb-c764-4715-9a84-7844078c727a",
+        "logicalClock": 25,
+        "streamId": "e36342d0-c395-4e3c-980c-30e8d7f3299e:control",
+        "seq": 25,
+        "timestamp": "2026-10-27T10:36:43.277Z",
+        "type": "tx.intent",
+        "agentId": "agent-a",
+        "roleId": "maker",
+        "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+        "leaseEpoch": 1,
+        "causalEventIds": [
+          "d66a83b6-52f5-4bad-9fb7-e9d3cc5cc4ad"
+        ],
+        "causedBy": [
+          "d66a83b6-52f5-4bad-9fb7-e9d3cc5cc4ad"
+        ],
+        "payloadRef": {
+          "path": "raw/blobs/0688d1d6f191eaeead6cc9ba852ef609e1edc20fa2058e5efa69f55fad835b00.json",
+          "sha256": "0688d1d6f191eaeead6cc9ba852ef609e1edc20fa2058e5efa69f55fad835b00",
+          "bytes": 1029
+        },
+        "payload_ref": {
+          "path": "raw/blobs/0688d1d6f191eaeead6cc9ba852ef609e1edc20fa2058e5efa69f55fad835b00.json",
+          "sha256": "0688d1d6f191eaeead6cc9ba852ef609e1edc20fa2058e5efa69f55fad835b00",
+          "bytes": 1029
+        }
+      },
+      "payload": {
+        "key": "e36342d0-c395-4e3c-980c-30e8d7f3299e:b8849d3b-401f-4038-a2da-64b876876212:2e9ac6b4-0574-42c0-90bc-b854e1b64672:approve",
+        "intentId": "d6d35ec2-9aab-4e6b-87f1-f1cf0d24f29a",
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "actorId": "maker",
+        "agentId": "agent-a",
+        "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+        "leaseEpoch": 1,
+        "from": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+        "to": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+        "chainId": 31337,
+        "nonce": 0,
+        "functionName": "approve",
+        "args": [
+          "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+          "10000000"
+        ],
+        "calldataHash": "0xdbe129d5ad95ee05e59b468ddb359a3784f52a2ea57462a54dd10c40ed02e5e3",
+        "gas": "800000",
+        "value": "0",
+        "unsigned": {
+          "chainId": 31337,
+          "type": "eip1559",
+          "to": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          "data": "0x095ea7b3000000000000000000000000a513e6e4b8f2a923d98304ec87f64353c4d5c8530000000000000000000000000000000000000000000000000000000000989680",
+          "value": "0",
+          "nonce": 0,
+          "gas": "800000",
+          "maxFeePerGas": "1100149837",
+          "maxPriorityFeePerGas": "1000000000"
+        },
+        "state": "reserved"
+      }
+    },
+    {
+      "event": {
+        "schemaVersion": "2.0",
+        "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "eventId": "38194186-4522-429c-85b9-476f85957b59",
+        "logicalClock": 26,
+        "streamId": "e36342d0-c395-4e3c-980c-30e8d7f3299e:control",
+        "seq": 26,
+        "timestamp": "2026-10-27T10:36:43.292Z",
+        "type": "control.paused",
+        "agentId": "agent-a",
+        "roleId": "maker",
+        "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+        "leaseEpoch": 1,
+        "causalEventIds": [],
+        "causedBy": [],
+        "payloadRef": {
+          "path": "raw/blobs/bbc88a6c92d9388151f09adb938daa42dd87d3326ca28a7d3bc83068f09c6553.json",
+          "sha256": "bbc88a6c92d9388151f09adb938daa42dd87d3326ca28a7d3bc83068f09c6553",
+          "bytes": 1124
+        },
+        "payload_ref": {
+          "path": "raw/blobs/bbc88a6c92d9388151f09adb938daa42dd87d3326ca28a7d3bc83068f09c6553.json",
+          "sha256": "bbc88a6c92d9388151f09adb938daa42dd87d3326ca28a7d3bc83068f09c6553",
+          "bytes": 1124
+        }
+      },
+      "payload": {
+        "phase": "before_transaction",
+        "detail": {
+          "key": "e36342d0-c395-4e3c-980c-30e8d7f3299e:b8849d3b-401f-4038-a2da-64b876876212:2e9ac6b4-0574-42c0-90bc-b854e1b64672:approve",
+          "intentId": "d6d35ec2-9aab-4e6b-87f1-f1cf0d24f29a",
+          "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "actorId": "maker",
+          "agentId": "agent-a",
+          "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+          "leaseEpoch": 1,
+          "from": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+          "to": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          "chainId": 31337,
+          "nonce": 0,
+          "functionName": "approve",
+          "args": [
+            "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "10000000"
+          ],
+          "calldataHash": "0xdbe129d5ad95ee05e59b468ddb359a3784f52a2ea57462a54dd10c40ed02e5e3",
+          "gas": "800000",
+          "value": "0",
+          "unsigned": {
+            "chainId": 31337,
+            "type": "eip1559",
+            "to": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+            "data": "0x095ea7b3000000000000000000000000a513e6e4b8f2a923d98304ec87f64353c4d5c8530000000000000000000000000000000000000000000000000000000000989680",
+            "value": "0",
+            "nonce": 0,
+            "gas": "800000",
+            "maxFeePerGas": "1100149837",
+            "maxPriorityFeePerGas": "1000000000"
+          },
+          "state": "reserved",
+          "intentEventId": "29dc4ffb-c764-4715-9a84-7844078c727a"
+        }
+      }
+    },
+    {
+      "event": {
+        "schemaVersion": "2.0",
+        "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "eventId": "b738fd87-b547-4177-8e36-afe8b0391c5b",
+        "logicalClock": 29,
+        "streamId": "e36342d0-c395-4e3c-980c-30e8d7f3299e:control",
+        "seq": 29,
+        "timestamp": "2026-10-27T10:38:34.983Z",
+        "type": "scenario.finished",
+        "agentId": null,
+        "roleId": null,
+        "agentRunId": null,
+        "leaseEpoch": null,
+        "causalEventIds": [],
+        "causedBy": [],
+        "payloadRef": {
+          "path": "raw/blobs/e09284bfba1ed2c4664e311b187a0a38e90d0940332f3703e35236bf23ade515.json",
+          "sha256": "e09284bfba1ed2c4664e311b187a0a38e90d0940332f3703e35236bf23ade515",
+          "bytes": 133
+        },
+        "payload_ref": {
+          "path": "raw/blobs/e09284bfba1ed2c4664e311b187a0a38e90d0940332f3703e35236bf23ade515.json",
+          "sha256": "e09284bfba1ed2c4664e311b187a0a38e90d0940332f3703e35236bf23ade515",
+          "bytes": 133
+        }
+      },
+      "payload": {
+        "reason": "stopped",
+        "state": "stopped",
+        "elapsedMs": 113576,
+        "startedAt": "2026-10-27T10:36:41.406Z",
+        "endedAt": "2026-10-27T10:38:34.982Z"
+      }
+    }
+  ],
+  "controlAcks": [
+    {
+      "controlId": "9b2ab98d-1544-4897-9a71-0de420b16d0f",
+      "action": "stop",
+      "state": "stopped",
+      "ack": true,
+      "acknowledgedAt": "2026-10-27T10:36:40.975Z"
+    },
+    {
+      "controlId": "a269dc15-220d-4679-8f1e-048426f3eaa1",
+      "action": "resume",
+      "state": "running",
+      "ack": true,
+      "acknowledgedAt": "2026-10-27T10:36:43.326Z"
+    }
+  ],
+  "finalExecution": {
+    "id": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+    "jobId": "dbbcd516-38df-4b58-9fe9-4e6756ffd7fa",
+    "definitionId": "peer_swap@1.0.0",
+    "definitionHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5",
+    "state": "stopped",
+    "attempt": 1,
+    "bindings": {
+      "maker": {
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "agentId": "agent-a",
+        "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+        "profileVersion": 1,
+        "role": "maker",
+        "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+        "epoch": 1
+      },
+      "taker": {
+        "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+        "agentId": "agent-b",
+        "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5",
+        "profileVersion": 1,
+        "role": "taker",
+        "agentRunId": "09dad699-015d-4833-bd35-1a1cf8a36423",
+        "epoch": 1
+      }
+    },
+    "reservationExpires": 1793097431048,
+    "autoStart": true,
+    "ready": true,
+    "scene": {
+      "id": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+      "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+      "state": "stopped",
+      "steps": 5,
+      "cursor": 5,
+      "spec": {
+        "schemaVersion": 2,
+        "template": "peer_swap",
+        "mode": "scripted",
+        "experimentMode": "independent",
+        "expectedOutcome": "filled",
+        "maxSteps": 60,
+        "maxMessages": 100,
+        "ttl": 300,
+        "manual": false,
+        "pauseBeforeTool": false,
+        "pauseBeforeTransaction": true,
+        "automine": true,
+        "parentScenarioRunId": null,
+        "agents": [
+          {
+            "agentId": "maker",
+            "walletId": "maker",
+            "role": "maker",
+            "initialA": "100",
+            "initialB": "0",
+            "goal": {
+              "sellAmount": "10",
+              "minBuy": "20"
+            },
+            "model": {
+              "baseUrl": "",
+              "model": "",
+              "apiKey": "[REDACTED]",
+              "systemPrompt": "Use only Maker tools and your private sell goal. Do not invent acceptance or payment.",
+              "temperature": 0,
+              "requestTimeoutMs": 120000
+            },
+            "maxModelCalls": 20,
+            "maxTokens": 100000,
+            "maxGasWei": "100000000000000000",
+            "tools": [
+              "send_message",
+              "inspect_order",
+              "approve_sell",
+              "create_order",
+              "cancel_order",
+              "expire_order",
+              "wait",
+              "finish"
+            ]
+          },
+          {
+            "agentId": "taker",
+            "walletId": "taker",
+            "role": "taker",
+            "initialA": "0",
+            "initialB": "100",
+            "goal": {
+              "minReceive": "10",
+              "maxPay": "20"
+            },
+            "model": {
+              "baseUrl": "",
+              "model": "",
+              "apiKey": "[REDACTED]",
+              "systemPrompt": "Use only Taker tools and your own budget. Accept a real received quoteId and inspect the chain order.",
+              "temperature": 0,
+              "requestTimeoutMs": 120000
+            },
+            "maxModelCalls": 20,
+            "maxTokens": 100000,
+            "maxGasWei": "100000000000000000",
+            "tools": [
+              "send_message",
+              "inspect_order",
+              "approve_buy",
+              "fill_order",
+              "expire_order",
+              "wait",
+              "finish"
+            ]
+          }
+        ]
+      },
+      "quote": {
+        "sellAmount": "10",
+        "buyAmount": "20",
+        "proposer": "maker",
+        "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+        "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+        "deadline": "1700000310",
+        "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+      },
+      "accepted": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+      "orderId": null,
+      "order": null,
+      "check": {
+        "checkerVersion": "peer-2.0",
+        "status": "failure",
+        "settlement_status": "none",
+        "business_outcome": "incomplete",
+        "agent_goal_results": {
+          "maker": "unknown",
+          "taker": "unknown"
+        },
+        "artifact_quality": "not_applicable",
+        "evidence_completeness": "recorded",
+        "assertions": [
+          {
+            "id": "same_chain_epoch",
+            "expected": "9b3cc342-9487-4b44-8945-142cbbd41642",
+            "actual": "9b3cc342-9487-4b44-8945-142cbbd41642",
+            "passed": true
+          },
+          {
+            "id": "same_scope",
+            "expected": "0xe42efd20ce3906e04de1480b2871238ca5dcc4172820fb842bd59e543de982ae",
+            "actual": "0xe42efd20ce3906e04de1480b2871238ca5dcc4172820fb842bd59e543de982ae",
+            "passed": true
+          },
+          {
+            "id": "same_exchange",
+            "expected": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "actual": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "passed": true
+          },
+          {
+            "id": "supply_A",
+            "expected": "10200000000",
+            "actual": "10200000000",
+            "passed": true
+          },
+          {
+            "id": "tracked_asset_conservation_A",
+            "expected": "100000000",
+            "actual": "100000000",
+            "passed": true
+          },
+          {
+            "id": "supply_B",
+            "expected": "10100000000",
+            "actual": "10100000000",
+            "passed": true
+          },
+          {
+            "id": "tracked_asset_conservation_B",
+            "expected": "100000000",
+            "actual": "100000000",
+            "passed": true
+          },
+          {
+            "id": "chain_scan_has_no_unrecorded_wallet_transactions",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "transactionCounts": {
+          "confirmed": 0,
+          "reverted": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "reason": "Expected outcome not reached",
+        "chainScan": {
+          "transactions": [],
+          "unrecorded": [],
+          "ordering": "blockNumber,transactionIndex,logIndex; nonce only within sender"
+        }
+      },
+      "before": {
+        "chainInstanceId": "9b3cc342-9487-4b44-8945-142cbbd41642",
+        "chainId": 31337,
+        "blockNumber": "10",
+        "blockHash": "0xa5b8caef09a4591131976df448515ba76e991e7711d8e82c4a8ad7013af1013e",
+        "timestamp": "1700000010",
+        "sessionScope": "0xe42efd20ce3906e04de1480b2871238ca5dcc4172820fb842bd59e543de982ae",
+        "exchange": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+        "tokens": {
+          "tokenA": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          "tokenB": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+          "amm": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+          "vault": "0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9"
+        },
+        "assets": {
+          "maker": {
+            "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+            "A": "100000000",
+            "B": "0",
+            "allowanceA": "0",
+            "allowanceB": "0",
+            "native": "10000000000000000000",
+            "nonce": 0
+          },
+          "taker": {
+            "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5",
+            "A": "0",
+            "B": "100000000",
+            "allowanceA": "0",
+            "allowanceB": "0",
+            "native": "10000000000000000000",
+            "nonce": 0
+          }
+        },
+        "escrow": {
+          "A": "0",
+          "B": "0"
+        },
+        "supply": {
+          "A": "10200000000",
+          "B": "10100000000"
+        }
+      },
+      "after": {
+        "chainInstanceId": "9b3cc342-9487-4b44-8945-142cbbd41642",
+        "chainId": 31337,
+        "blockNumber": "10",
+        "blockHash": "0xa5b8caef09a4591131976df448515ba76e991e7711d8e82c4a8ad7013af1013e",
+        "timestamp": "1700000010",
+        "sessionScope": "0xe42efd20ce3906e04de1480b2871238ca5dcc4172820fb842bd59e543de982ae",
+        "exchange": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+        "tokens": {
+          "tokenA": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          "tokenB": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+          "amm": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+          "vault": "0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9"
+        },
+        "assets": {
+          "maker": {
+            "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+            "A": "100000000",
+            "B": "0",
+            "allowanceA": "0",
+            "allowanceB": "0",
+            "native": "10000000000000000000",
+            "nonce": 0
+          },
+          "taker": {
+            "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5",
+            "A": "0",
+            "B": "100000000",
+            "allowanceA": "0",
+            "allowanceB": "0",
+            "native": "10000000000000000000",
+            "nonce": 0
+          }
+        },
+        "escrow": {
+          "A": "0",
+          "B": "0"
+        },
+        "supply": {
+          "A": "10200000000",
+          "B": "10100000000"
+        }
+      },
+      "transactions": [],
+      "paused": null,
+      "pausedAgents": [],
+      "error": "SCENARIO_STOPPED",
+      "startedAt": "2026-10-27T10:36:41.406Z",
+      "endedAt": "2026-10-27T10:38:34.982Z",
+      "elapsedMs": 113576,
+      "progress": {
+        "maker": {
+          "stage": "maker_prepare_order",
+          "mutualAcceptance": true,
+          "quote": {
+            "sellAmount": "10",
+            "buyAmount": "20",
+            "proposer": "maker",
+            "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+            "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+            "deadline": "1700000310",
+            "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+          },
+          "orderId": null,
+          "pendingTransactions": [],
+          "allowedActions": [
+            "send_message",
+            "approve_sell",
+            "create_order",
+            "wait",
+            "finish"
+          ],
+          "nextActionHint": "Mutual acceptance is recorded. Call approve_sell, then create_order.",
+          "lastToolError": null
+        },
+        "taker": {
+          "stage": "awaiting_order",
+          "mutualAcceptance": true,
+          "quote": {
+            "sellAmount": "10",
+            "buyAmount": "20",
+            "proposer": "maker",
+            "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+            "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+            "deadline": "1700000310",
+            "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+          },
+          "orderId": null,
+          "pendingTransactions": [],
+          "allowedActions": [
+            "send_message",
+            "wait",
+            "finish"
+          ],
+          "nextActionHint": "Acceptance is recorded. Wait for the maker order_ref; do not inspect a nonexistent order.",
+          "lastToolError": null
+        }
+      },
+      "stepInProgress": true,
+      "agents": [
+        {
+          "agentId": "maker",
+          "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+          "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+          "costs": {
+            "modelCalls": 0,
+            "toolCalls": 2,
+            "promptTokens": 0,
+            "completionTokens": 0,
+            "totalTokens": 0,
+            "usageComplete": true
+          },
+          "gasUsedWei": "0",
+          "finished": false,
+          "inspected": null,
+          "history": [
+            {
+              "schemaVersion": 2,
+              "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "messageId": "95dd4bf9-a2bb-4865-a654-f240789da946",
+              "senderAgentId": "taker",
+              "recipientAgentId": "maker",
+              "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "replyTo": null,
+              "kind": "inquiry",
+              "requestId": null,
+              "quoteId": null,
+              "orderRef": null,
+              "payload": {
+                "request": "Quote TokenA for TokenB"
+              },
+              "causalEventIds": [
+                "346d0e0c-5c4e-4126-b5c3-9c4c707e7456"
+              ],
+              "payloadHash": "833a82e207d6a9e7c274a3795a72cf9214249324339f862f750ba2f1dd38cc4e",
+              "visiblePayload": {
+                "request": "Quote TokenA for TokenB"
+              },
+              "visiblePayloadHash": "833a82e207d6a9e7c274a3795a72cf9214249324339f862f750ba2f1dd38cc4e",
+              "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "fromAgentId": "agent-b",
+              "sentEventId": "0b6f4adf-a023-4620-a5b3-a0aca8a1f6b4",
+              "deliveredEventId": "18447925-6ce2-4982-89b3-64ae710f9765",
+              "consumedBy": "62276db1-e3a4-40bb-b46e-483b6fb6e4d6",
+              "consumedEventId": "635478f2-91ee-4ca7-92f0-4949f83bfaef"
+            },
+            {
+              "schemaVersion": 2,
+              "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "messageId": "553d7294-95a9-4462-9086-ff6e1cc4a4c5",
+              "senderAgentId": "taker",
+              "recipientAgentId": "maker",
+              "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "replyTo": "09e1e483-a5db-4c82-8d06-bb7d9f9edc3c",
+              "kind": "accept",
+              "requestId": null,
+              "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+              "orderRef": null,
+              "payload": {
+                "reason": "within_private_goal"
+              },
+              "causalEventIds": [
+                "6a8b1b46-bd35-4410-ba48-dcb11abee9fb"
+              ],
+              "payloadHash": "a0755efde42e4f820cefdba660ba771ac1987d312c8f4adf9c8ea7b14dbcc272",
+              "visiblePayload": {
+                "reason": "within_private_goal"
+              },
+              "visiblePayloadHash": "a0755efde42e4f820cefdba660ba771ac1987d312c8f4adf9c8ea7b14dbcc272",
+              "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "fromAgentId": "agent-b",
+              "sentEventId": "2b269ead-56bd-4f29-8d2e-a882e094b941",
+              "deliveredEventId": "c33127be-9e45-4ba1-b0b2-03345b371030",
+              "consumedBy": "2e9ac6b4-0574-42c0-90bc-b854e1b64672",
+              "consumedEventId": "42697eda-8900-418b-8430-448679527f0d"
+            }
+          ]
+        },
+        {
+          "agentId": "taker",
+          "agentRunId": "09dad699-015d-4833-bd35-1a1cf8a36423",
+          "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5",
+          "costs": {
+            "modelCalls": 0,
+            "toolCalls": 2,
+            "promptTokens": 0,
+            "completionTokens": 0,
+            "totalTokens": 0,
+            "usageComplete": true
+          },
+          "gasUsedWei": "0",
+          "finished": false,
+          "inspected": null,
+          "history": [
+            {
+              "schemaVersion": 2,
+              "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "messageId": "09e1e483-a5db-4c82-8d06-bb7d9f9edc3c",
+              "senderAgentId": "maker",
+              "recipientAgentId": "taker",
+              "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "replyTo": "95dd4bf9-a2bb-4865-a654-f240789da946",
+              "kind": "quote",
+              "requestId": null,
+              "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+              "orderRef": null,
+              "payload": {
+                "sellAmount": "10",
+                "buyAmount": "20",
+                "proposer": "maker",
+                "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+                "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+                "deadline": "1700000310",
+                "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+              },
+              "causalEventIds": [
+                "9251f187-e864-49ba-92e0-25ae771c3c57"
+              ],
+              "payloadHash": "9f02e3a8775cb07c81334579c0c40e1edfe4cd8daa6d9edb921a2eb72eef0e31",
+              "visiblePayload": {
+                "sellAmount": "10",
+                "buyAmount": "20",
+                "proposer": "maker",
+                "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+                "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+                "deadline": "1700000310",
+                "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+              },
+              "visiblePayloadHash": "9f02e3a8775cb07c81334579c0c40e1edfe4cd8daa6d9edb921a2eb72eef0e31",
+              "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+              "fromAgentId": "agent-a",
+              "sentEventId": "8bce2f0b-1e22-45ca-822f-c6f2d4cf320a",
+              "deliveredEventId": "50477fbb-95a8-48ae-99c1-dccfbccd0880",
+              "consumedBy": "88098a35-24eb-4944-8273-6fdf35ba5bf6",
+              "consumedEventId": "76a1b83e-8949-4105-84ee-f9b4690b6d72"
+            }
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "schemaVersion": 2,
+          "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "messageId": "95dd4bf9-a2bb-4865-a654-f240789da946",
+          "senderAgentId": "taker",
+          "recipientAgentId": "maker",
+          "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "replyTo": null,
+          "kind": "inquiry",
+          "requestId": null,
+          "quoteId": null,
+          "orderRef": null,
+          "payload": {
+            "request": "Quote TokenA for TokenB"
+          },
+          "causalEventIds": [
+            "346d0e0c-5c4e-4126-b5c3-9c4c707e7456"
+          ],
+          "payloadHash": "833a82e207d6a9e7c274a3795a72cf9214249324339f862f750ba2f1dd38cc4e",
+          "visiblePayload": {
+            "request": "Quote TokenA for TokenB"
+          },
+          "visiblePayloadHash": "833a82e207d6a9e7c274a3795a72cf9214249324339f862f750ba2f1dd38cc4e",
+          "sentEventId": "0b6f4adf-a023-4620-a5b3-a0aca8a1f6b4",
+          "deliveredEventId": "18447925-6ce2-4982-89b3-64ae710f9765"
+        },
+        {
+          "schemaVersion": 2,
+          "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "messageId": "09e1e483-a5db-4c82-8d06-bb7d9f9edc3c",
+          "senderAgentId": "maker",
+          "recipientAgentId": "taker",
+          "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "replyTo": "95dd4bf9-a2bb-4865-a654-f240789da946",
+          "kind": "quote",
+          "requestId": null,
+          "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+          "orderRef": null,
+          "payload": {
+            "sellAmount": "10",
+            "buyAmount": "20",
+            "proposer": "maker",
+            "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+            "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+            "deadline": "1700000310",
+            "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+          },
+          "causalEventIds": [
+            "9251f187-e864-49ba-92e0-25ae771c3c57"
+          ],
+          "payloadHash": "9f02e3a8775cb07c81334579c0c40e1edfe4cd8daa6d9edb921a2eb72eef0e31",
+          "visiblePayload": {
+            "sellAmount": "10",
+            "buyAmount": "20",
+            "proposer": "maker",
+            "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+            "salt": "0xcb14cae0e42d8fe8563061140777c2e67e3b887f07b79447f6fbab7ce8a07aa6",
+            "deadline": "1700000310",
+            "termsHash": "0x1301bb081040df4751671a171850e3138221bcc739e748c1fc8e0f7d6265e4bb"
+          },
+          "visiblePayloadHash": "9f02e3a8775cb07c81334579c0c40e1edfe4cd8daa6d9edb921a2eb72eef0e31",
+          "sentEventId": "8bce2f0b-1e22-45ca-822f-c6f2d4cf320a",
+          "deliveredEventId": "50477fbb-95a8-48ae-99c1-dccfbccd0880"
+        },
+        {
+          "schemaVersion": 2,
+          "scenarioId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "episodeId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "messageId": "553d7294-95a9-4462-9086-ff6e1cc4a4c5",
+          "senderAgentId": "taker",
+          "recipientAgentId": "maker",
+          "conversationId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "replyTo": "09e1e483-a5db-4c82-8d06-bb7d9f9edc3c",
+          "kind": "accept",
+          "requestId": null,
+          "quoteId": "085dfa0c-c9fe-4ed0-8d51-1460f5ccd68f",
+          "orderRef": null,
+          "payload": {
+            "reason": "within_private_goal"
+          },
+          "causalEventIds": [
+            "6a8b1b46-bd35-4410-ba48-dcb11abee9fb"
+          ],
+          "payloadHash": "a0755efde42e4f820cefdba660ba771ac1987d312c8f4adf9c8ea7b14dbcc272",
+          "visiblePayload": {
+            "reason": "within_private_goal"
+          },
+          "visiblePayloadHash": "a0755efde42e4f820cefdba660ba771ac1987d312c8f4adf9c8ea7b14dbcc272",
+          "sentEventId": "2b269ead-56bd-4f29-8d2e-a882e094b941",
+          "deliveredEventId": "c33127be-9e45-4ba1-b0b2-03345b371030"
+        }
+      ],
+      "eventCount": 29,
+      "locked": false,
+      "proposedOrderId": null,
+      "rejected": false,
+      "recordingFailure": null,
+      "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+      "jobId": "dbbcd516-38df-4b58-9fe9-4e6756ffd7fa",
+      "bindings": {
+        "maker": {
+          "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "agentId": "agent-a",
+          "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3",
+          "profileVersion": 1,
+          "role": "maker",
+          "agentRunId": "b8849d3b-401f-4038-a2da-64b876876212",
+          "epoch": 1
+        },
+        "taker": {
+          "executionId": "e36342d0-c395-4e3c-980c-30e8d7f3299e",
+          "agentId": "agent-b",
+          "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5",
+          "profileVersion": 1,
+          "role": "taker",
+          "agentRunId": "09dad699-015d-4833-bd35-1a1cf8a36423",
+          "epoch": 1
+        }
+      },
+      "controlVersion": 2,
+      "sourceStreams": "identity-bound",
+      "environmentLock": false
+    },
+    "realm": {
+      "epoch": "9b3cc342-9487-4b44-8945-142cbbd41642",
+      "exchange": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+      "scope": "0xe42efd20ce3906e04de1480b2871238ca5dcc4172820fb842bd59e543de982ae",
+      "accounts": {
+        "maker": {
+          "address": "0x54dd742591279d27e1B011B2Fb45d2b625C00bA3"
+        },
+        "taker": {
+          "address": "0x95FE52Dd9cDFE4DF84dF131BB4Cf3d5Fd972a4C5"
+        }
+      },
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "a",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "b",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "scope",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "orderId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            }
+          ],
+          "name": "OrderCancelled",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "orderId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "taker",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "termsHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "OrderCreated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "orderId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            }
+          ],
+          "name": "OrderExpired",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "orderId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "taker",
+              "type": "address"
+            }
+          ],
+          "name": "OrderFilled",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "id",
+              "type": "bytes32"
+            }
+          ],
+          "name": "cancelOrder",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "taker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "sellToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sellAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "buyToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "buyAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "termsHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "createOrder",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "id",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "id",
+              "type": "bytes32"
+            }
+          ],
+          "name": "expireOrder",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "id",
+              "type": "bytes32"
+            }
+          ],
+          "name": "fillOrder",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "id",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getOrder",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "maker",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "taker",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "sellToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "sellAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "buyToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "buyAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "deadline",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "salt",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "termsHash",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "enum LabPeerExchange.State",
+                  "name": "state",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct LabPeerExchange.Order",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "taker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "sellToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sellAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "buyToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "buyAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            }
+          ],
+          "name": "hashTerms",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            }
+          ],
+          "name": "orderIdFor",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "outstanding",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "sessionScope",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenA",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenB",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ],
+      "contractCodeHash": "0xe7458959a7c5f96288512140866e7fe14d27668fcdb9994aa79c9e3f166f05b7",
+      "deployment": {
+        "type": "eip1559",
+        "status": "success",
+        "cumulativeGasUsed": "994288",
+        "logs": [],
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "transactionHash": "0x549018de21339c85b8cc93e9aeecd67b283a3aa416f95ad48207e0bad261e536",
+        "transactionIndex": 0,
+        "blockHash": "0xf8bbb3153e9ccfc8fe0424ff9648f881cf600e893ca0394926a816173f3c8b65",
+        "blockNumber": "8",
+        "gasUsed": "994288",
+        "effectiveGasPrice": "1107931467",
+        "blobGasPrice": "1",
+        "from": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+        "to": null,
+        "contractAddress": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+        "blockTimestamp": 1700000008
+      }
+    },
+    "sealed": true,
+    "business": "failed",
+    "funds": "none"
+  },
+  "finding": "control.paused externally visible before releaseGate exists; resume ACK state running but no control.resumed; unsigned intent never broadcasts."
+}

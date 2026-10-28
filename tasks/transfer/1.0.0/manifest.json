@@ -1,0 +1,36 @@
+{
+  "format": "installed-local-task",
+  "taskType": "transfer",
+  "version": "1.0.0",
+  "definitionHash": "a8c3e4b2af1ce1981c57a0ced78ebc39e930ac0ed5568c8a38cc81c09e57226f",
+  "roles": [
+    "agent"
+  ],
+  "requiredTools": [
+    "transfer_token"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "files": {
+    "task-definition.json": {
+      "sha256": "2d2175006267d4fa4cc4d6dde5093e835816e6d14aab1dd4e63aba838c8296c4",
+      "bytes": 432
+    },
+    "input.schema.json": {
+      "sha256": "7eb27bf85f3c3dc2f7ce5eb8d784f62f36eef50d2e9f7fdac401ec86ce9af946",
+      "bytes": 170
+    },
+    "ui.schema.json": {
+      "sha256": "26ccc65e6a9823d93c1c7f1d1cefd0083139e545292e7ffe7407ba379322c63a",
+      "bytes": 106
+    },
+    "fixtures/default.json": {
+      "sha256": "0287869f4ff1c00cb7bc627111414467f627b3a3fbe16837402267ec02d8f810",
+      "bytes": 65
+    },
+    "prompts/agent.txt": {
+      "sha256": "2c28a58a04a8927a91a07673d153585e20165a03b2d0062f4e2c20ef2e665ac8",
+      "bytes": 80
+    }
+  }
+}

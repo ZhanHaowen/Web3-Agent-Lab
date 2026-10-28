@@ -1,28 +1,71 @@
-name: Cross platform smoke tests
+name: Windows V0.15.3 verification
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'codex/**'
   pull_request:
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
-  test:
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, macos-latest, macos-15-intel]
-    runs-on: ${{ matrix.os }}
+  windows-verification:
+    name: Windows x64 compatibility and integration tests
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CI: 'true'
+      LAB_TEST_ARTIFACT_DIR: artifacts/test-results/current
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Keep official actions on the v4 major pins used by the existing workflow.
+      - name: Check out source without retaining push credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install pinned Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24.19.0
-      - run: npm install -g pnpm@11.19.0
-      - run: pnpm install --frozen-lockfile
-      - run: node scripts/setup-runtime.mjs
-      - run: pnpm build
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: node --test tests/ui-smoke.mjs
+          architecture: x64
+
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@11.19.0
+
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Prepare verified local Anvil and the Windows launcher runtime
+        run: |
+          node scripts/setup-runtime.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Anvil setup failed.' }
+          $ciNodeExecutable = (node -p "process.execPath").Trim()
+          if ($LASTEXITCODE -ne 0) { throw 'Unable to locate setup-node runtime.' }
+          Copy-Item -LiteralPath $ciNodeExecutable -Destination runtime/node.exe
+          if (-not (Test-Path -LiteralPath runtime/anvil.exe -PathType Leaf)) {
+            throw 'Expected Windows Anvil was not installed.'
+          }
+
+      - name: Build and verify the Windows compatibility runtime
+        run: ./scripts/ci-windows.ps1
+
+      - name: Upload current CI logs and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-v0153-validation
+          overwrite: true
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            artifacts/test-results/ci/
+            artifacts/test-results/current/*.json
+
+      # GUI browser checks and macOS runs are not performed by this job.
+      # Historical release reports remain historical evidence, not CI results.

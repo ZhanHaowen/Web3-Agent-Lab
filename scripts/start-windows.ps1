@@ -1,3 +1,4 @@
+param([switch]$NoBrowser)
 $ErrorActionPreference = 'Stop'
 $labRoot = Split-Path -Parent $PSScriptRoot
 $labPort = if ($env:LAB_PORT) { $env:LAB_PORT } else { '4317' }
@@ -9,9 +10,9 @@ try {
 if ($health.app -eq 'web3-agent-lab') {
     $expectedBuild = Get-Content -LiteralPath (Join-Path $labRoot 'build-info.json') -Raw | ConvertFrom-Json
     if ($health.version.sourceHash -ne $expectedBuild.sourceHash) {
-        throw 'Another Web3 Agent Lab build is using this port. Stop the old version with its stop.cmd before starting V0.13, or select another LAB_PORT and LAB_CHAIN_PORT.'
+        throw 'Another Web3 Agent Lab build is using this port. Stop the old version with its stop.cmd before starting V0.15.3, or select another LAB_PORT and LAB_CHAIN_PORT.'
     }
-    Start-Process $labUrl
+    if (-not $NoBrowser) { & (Join-Path $PSScriptRoot 'open-task-center.ps1') }
     exit 0
 }
 $labNode = Join-Path $labRoot 'runtime\node.exe'
@@ -24,7 +25,7 @@ for ($attempt = 0; $attempt -lt 60; $attempt++) {
     if ($process.HasExited) { throw "Server exited. See data\server.stderr.log. Port $labPort may be occupied." }
     try {
         $health = Invoke-RestMethod -Uri "$labUrl/api/health" -TimeoutSec 1
-        if ($health.app -eq 'web3-agent-lab') { Start-Process $labUrl; Write-Host "Web3 Agent Lab: $labUrl"; exit 0 }
+        if ($health.app -eq 'web3-agent-lab') { if (-not $NoBrowser) { & (Join-Path $PSScriptRoot 'open-task-center.ps1') }; Write-Host "Web3 Agent Lab: $labUrl"; exit 0 }
     } catch { }
     Start-Sleep -Milliseconds 250
 }

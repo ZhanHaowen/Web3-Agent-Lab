@@ -1,0 +1,26 @@
+{
+  "version": "V0.14.1",
+  "uniqueInputAndOutputIds": 53,
+  "browserViewportWidth": 1280,
+  "layout": {
+    "configurationLeft": true,
+    "resultsRight": true,
+    "sameTop": true,
+    "leftWidth": 376.7,
+    "rightWidth": 574.96
+  },
+  "browserRun": {
+    "scenarioId": "33b23048-4183-437a-8123-94f313a8fc85",
+    "status": "success",
+    "business": "filled",
+    "maker": [
+      "90 A",
+      "20 B"
+    ],
+    "taker": [
+      "10 A",
+      "80 B"
+    ]
+  },
+  "scope": "Layout patch; V0.14 scenario and contract bytes preserved"
+}

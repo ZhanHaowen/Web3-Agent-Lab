@@ -1,0 +1,19 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "time": "2026-10-28T08:18:15.265Z",
+  "results": [
+    {
+      "name": "start.cmd starts main and budget module together without a second launcher",
+      "passed": true
+    },
+    {
+      "name": "batch-started main executes nondefault parameter experiment",
+      "passed": true
+    },
+    {
+      "name": "stop.cmd shuts down main and owned budget chain",
+      "passed": true
+    }
+  ]
+}

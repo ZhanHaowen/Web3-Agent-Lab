@@ -1,0 +1,44 @@
+{
+  "testedSourceHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "candidateArchiveSha256": "6216fc15880b79477addf8ef882807ad9fe0f5f0e04e7ca40798c626ada1b1e4",
+  "platform": "Windows x64",
+  "packageExtracted": true,
+  "allReleaseFileHashesVerified": true,
+  "results": [
+    "Bundled Node starts server with V0.15.1 build identity",
+    "Extracted package executes real-chain atomic peer swap with expected balances",
+    "Bundled runtime offline checker verifies packaged scene example",
+    "Original V0.13 CLI verifies legacy example",
+    "Extracted package purchases pinned-block report with independent evaluator and exact escrow payout",
+    "Bundled offline service checker passes correct/refund examples and rejects paid bad artifact",
+    "Extracted new task center executes atomic swap in two separate Agent processes with local signatures",
+    "New complete execution verifies replays and checks with server Agents and chain stopped",
+    "Restarted server keeps archive read-only and creates a fresh rerun episode"
+  ],
+  "graph": {
+    "nodes": 111,
+    "edges": 189
+  },
+  "doctor": {
+    "version": "V0.15.1",
+    "buildHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+    "node": "v24.19.0",
+    "sqlite": "3.53.3",
+    "serviceV015Unchanged": true,
+    "protectedFiles": {
+      "src/scenario/service-core.mjs": true,
+      "src/scenario/service-purchase.mjs": true,
+      "src/scenario/service-registry.mjs": true,
+      "src/scenario/service.mjs": true,
+      "src/scenario/agent-runtime.mjs": true,
+      "src/scenario/core.mjs": true,
+      "src/scenario/wallet-registry.mjs": true,
+      "public/services.html": true,
+      "public/service-ui.js": true,
+      "contracts/LabServiceEscrow.sol": true,
+      "contracts/artifacts/LabServiceEscrow.json": true
+    },
+    "network": "not accessed"
+  },
+  "passed": true
+}

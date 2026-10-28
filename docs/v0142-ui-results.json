@@ -1,0 +1,23 @@
+{
+  "version": "V0.14.2",
+  "browser": "in-app browser, Windows",
+  "observed": {
+    "initialization": {
+      "ariaBusy": true,
+      "disabled": true,
+      "label": "正在初始化实验链…"
+    },
+    "start": {
+      "ariaBusy": true,
+      "disabled": true,
+      "background": "rgb(4, 94, 85)",
+      "label": "正在初始化并启动…"
+    },
+    "elapsedAdvancedWhilePaused": true,
+    "elapsedAtStopped": "3 分 35 秒",
+    "duplicateStartDisabledDuringRun": true,
+    "stopClearedButtonBusy": true,
+    "elapsedStillFrozenOnLaterCheck": true
+  },
+  "cloudModelTested": false
+}

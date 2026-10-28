@@ -1,0 +1,21 @@
+{
+  "testedSourceHash": "9716317c852691d104c05f66a5fdf96f67af5e8b3df6273a6eb075fa34f3fe0d",
+  "candidateArchiveSha256": "6b6938a4d8149e614d5d68ae510f673d57b47d3b51bdb62b3ee2265eb1f02dbe",
+  "platform": "Windows x64",
+  "packageExtracted": true,
+  "allReleaseFileHashesVerified": true,
+  "results": [
+    "Bundled Node starts server with V0.15 build identity",
+    "Extracted package executes real-chain atomic peer swap with expected balances",
+    "Bundled runtime offline checker verifies packaged scene example",
+    "Original V0.13 CLI verifies legacy example",
+    "Extracted package purchases pinned-block report with independent evaluator and exact escrow payout",
+    "Bundled offline service checker passes correct/refund examples and rejects paid bad artifact",
+    "Restarted server keeps archive read-only and creates a fresh rerun episode"
+  ],
+  "graph": {
+    "nodes": 111,
+    "edges": 189
+  },
+  "passed": true
+}

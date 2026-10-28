@@ -1,0 +1,50 @@
+{
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "realEVM": true,
+  "results": [
+    {
+      "name": "C01 exact expectedBudget and sufficient allowance are required",
+      "passed": true
+    },
+    {
+      "name": "C02 role impersonation is rejected",
+      "passed": true
+    },
+    {
+      "name": "C03 duplicate create/fund/submit/evaluate cannot double charge",
+      "passed": true
+    },
+    {
+      "name": "C04 changed artifact commitment cannot be approved",
+      "passed": true
+    },
+    {
+      "name": "C05 rejection refunds exactly once",
+      "passed": true
+    },
+    {
+      "name": "C06 evaluation deadline boundary -1",
+      "passed": true
+    },
+    {
+      "name": "C06 evaluation deadline boundary 0",
+      "passed": true
+    },
+    {
+      "name": "C06 evaluation deadline boundary 1",
+      "passed": true
+    },
+    {
+      "name": "C07 before-deadline refund rejected; funded timeout refundable once",
+      "passed": true
+    },
+    {
+      "name": "C08 cancellation only by buyer before funding",
+      "passed": true
+    },
+    {
+      "name": "C09 scope/address prevents cross-contract replay",
+      "passed": true
+    }
+  ]
+}

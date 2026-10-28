@@ -1,0 +1,27 @@
+{
+  "description": "Synthetic model protocol + real Anvil. Corrected proposal and deliberately unrestricted failure; NOT real LLM capability data.",
+  "createdAt": "2026-10-14T13:27:13.971Z",
+  "runs": [
+    {
+      "filename": "corrected-approval.json",
+      "runId": "970f694e-ed95-485d-b7c1-9c54b3c9c317",
+      "status": "success",
+      "data_origin": "protocol_fixture",
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e"
+    },
+    {
+      "filename": "corrected-swap.json",
+      "runId": "aa090ac9-0741-4804-b33f-873b04b13912",
+      "status": "success",
+      "data_origin": "protocol_fixture",
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e"
+    },
+    {
+      "filename": "raw-excessive-approval.json",
+      "runId": "0b6ebae5-3cde-4727-93a2-1bbfdfedbcbc",
+      "status": "failure",
+      "data_origin": "protocol_fixture",
+      "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e"
+    }
+  ]
+}

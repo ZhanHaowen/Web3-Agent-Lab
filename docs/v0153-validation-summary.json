@@ -1,0 +1,61 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "newBehavior": [
+    "Category names instead of fixed numerical question",
+    "Presets derived from editable budget/payment/delta",
+    "Same-origin main service and unified start.cmd/stop.cmd"
+  ],
+  "reports": {
+    "budget": {
+      "passed": 16,
+      "blocked": 0,
+      "failed": 0
+    },
+    "parameter": {
+      "passed": 9,
+      "blocked": 0,
+      "failed": 0
+    },
+    "main": {
+      "passed": 9,
+      "blocked": 0,
+      "failed": 0
+    },
+    "launcher": {
+      "passed": 3,
+      "blocked": 0,
+      "failed": 0
+    },
+    "http": {
+      "passed": 8,
+      "blocked": 0,
+      "failed": 0
+    },
+    "gui": {
+      "passed": 11,
+      "blocked": 1,
+      "failed": 0
+    }
+  },
+  "unitTestsPassed": 76,
+  "inheritedRegression": {
+    "independentPeerAndLegacyTemplatesPassed": 6,
+    "serviceRegressionPassed": 16
+  },
+  "serviceProtectedFiles": {
+    "src/scenario/service-core.mjs": true,
+    "src/scenario/service-purchase.mjs": true,
+    "src/scenario/service-registry.mjs": true,
+    "src/scenario/service.mjs": true,
+    "src/scenario/agent-runtime.mjs": true,
+    "src/scenario/core.mjs": true,
+    "src/scenario/wallet-registry.mjs": true,
+    "public/services.html": true,
+    "public/service-ui.js": true,
+    "contracts/LabServiceEscrow.sol": true,
+    "contracts/artifacts/LabServiceEscrow.json": true
+  },
+  "fullAcceptance": "NOT_FULLY_ACCEPTED",
+  "nativeBrowserDownload": "BLOCKED in headless Chrome; archive, HTTP attachment and copy fallback tested."
+}

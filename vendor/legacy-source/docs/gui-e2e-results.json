@@ -1,0 +1,20 @@
+{
+  "version": "V.011",
+  "browser": "155.0.4283.45",
+  "headless": true,
+  "testedAt": "2026-10-14T13:10:36.490Z",
+  "checks": [
+    "independent transfer",
+    "continuous transfer 90 to 80",
+    "linked predecessor",
+    "state units and raw values",
+    "separate transaction success and task failure",
+    "concrete approval diagnostic",
+    "export and local import",
+    "mobile overflow",
+    "no page errors"
+  ],
+  "first": "53124db9-e11a-4471-a429-ebbc27004b3f",
+  "second": "0763b416-5039-4eaa-9b57-2326ca9ebb20",
+  "passed": true
+}

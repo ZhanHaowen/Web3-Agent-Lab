@@ -223,3 +223,11 @@ Node.js 24.19.0: licenses/NODE-LICENSE.txt. Anvil 1.7.1: licenses/FOUNDRY-LICENS
 The server bundle includes unmodified `rpc-websockets` 9.3.9, Copyright (c) Elpheria j.d.o.o., under LGPL-3.0-only. Its original notice is retained in `licenses/rpc-websockets@9.3.9-LICENSE`; full LGPLv3 and GPLv3 texts are supplied in `licenses/LGPL-3.0.txt` and `licenses/GPL-3.0.txt`. The platform's MIT license applies to original platform code and does not replace these terms.
 
 The exact npm archive, upstream source at npm's recorded `gitHead`, and verified download hashes are supplied in `licenses/sources/`. See [third-party sources and rebuilding](docs/third-party-rebuild.md) for modifying the library and rebuilding the combined application. Retain these source materials and notices when redistributing the bundled software.
+
+## V0.15.2 budget experiment additions
+
+Official Uniswap Permit2 commit cc56ad0f3439c502c246fc5cfcc3db92bb8b7219, MIT. Source and LICENSE: contracts/upstream/permit2/.
+
+Pinned Solmate dependency commit 8d910d876f51c3b2585c9109409d601f600e68e1: ERC20.sol and SafeTransferLib.sol, AGPL-3.0-only. Unmodified corresponding sources and full license: contracts/upstream/solmate/.
+
+Solidity soljson compiler 0.8.17+commit.8df45f5f, GPL-3.0. Full GPL text: licenses/GPL-3.0.txt. Compiler origin, checksum and source reference: tools/solc-0.8.17/. Permit2 build can be reproduced offline with scripts/compile-budget.mjs. Other artifacts and runtimes retain their existing notices.

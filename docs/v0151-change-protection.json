@@ -1,0 +1,22 @@
+{
+  "version": "V0.15.1",
+  "buildHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "standardDocument": "V0.14_增量实现方案与验收标准.docx",
+  "standardDocumentSha256": "f207c9ce25f47b29fe3990c5e99f6477434f201737b5285f88ac8f8022ff6071",
+  "v015ProtectedFileCount": 11,
+  "allProtectedFilesUnchanged": true,
+  "protectedFiles": {
+    "src/scenario/service-core.mjs": true,
+    "src/scenario/service-purchase.mjs": true,
+    "src/scenario/service-registry.mjs": true,
+    "src/scenario/service.mjs": true,
+    "src/scenario/agent-runtime.mjs": true,
+    "src/scenario/core.mjs": true,
+    "src/scenario/wallet-registry.mjs": true,
+    "public/services.html": true,
+    "public/service-ui.js": true,
+    "contracts/LabServiceEscrow.sol": true,
+    "contracts/artifacts/LabServiceEscrow.json": true
+  },
+  "scope": "Changes are in V0.14 task/peer execution control, its new UI and packaging. The V0.15 protected service purchase implementation is byte-identical."
+}

@@ -1,0 +1,3907 @@
+{
+  "resources": [
+    {
+      "i": 0,
+      "runnerRss": 70270976,
+      "processes": {
+        "control": {
+          "rss": 222707712,
+          "heapTotal": 127430656,
+          "heapUsed": 66168232,
+          "external": 45190186,
+          "arrayBuffers": 1247790
+        },
+        "controlCpu": {
+          "user": 3125000,
+          "system": 953000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 188010496,
+            "cpu": {
+              "user": 1734000,
+              "system": 390000
+            },
+            "heartbeat": 1793097794248
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 187674624,
+            "cpu": {
+              "user": 1671000,
+              "system": 421000
+            },
+            "heartbeat": 1793097795822
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:16.058Z"
+    },
+    {
+      "i": 1,
+      "runnerRss": 75767808,
+      "processes": {
+        "control": {
+          "rss": 220889088,
+          "heapTotal": 129548288,
+          "heapUsed": 58657840,
+          "external": 44362452,
+          "arrayBuffers": 420016
+        },
+        "controlCpu": {
+          "user": 4390000,
+          "system": 1515000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 148889600,
+            "cpu": {
+              "user": 2046000,
+              "system": 468000
+            },
+            "heartbeat": 1793097802280
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 145199104,
+            "cpu": {
+              "user": 2000000,
+              "system": 468000
+            },
+            "heartbeat": 1793097801847
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:23.086Z"
+    },
+    {
+      "i": 2,
+      "runnerRss": 82800640,
+      "processes": {
+        "control": {
+          "rss": 230567936,
+          "heapTotal": 199520256,
+          "heapUsed": 66739664,
+          "external": 45065633,
+          "arrayBuffers": 1123197
+        },
+        "controlCpu": {
+          "user": 6234000,
+          "system": 2203000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 150323200,
+            "cpu": {
+              "user": 2218000,
+              "system": 578000
+            },
+            "heartbeat": 1793097810302
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 146980864,
+            "cpu": {
+              "user": 2156000,
+              "system": 546000
+            },
+            "heartbeat": 1793097809876
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:30.771Z"
+    },
+    {
+      "i": 3,
+      "runnerRss": 84049920,
+      "processes": {
+        "control": {
+          "rss": 292028416,
+          "heapTotal": 206045184,
+          "heapUsed": 121295520,
+          "external": 46417307,
+          "arrayBuffers": 2474871
+        },
+        "controlCpu": {
+          "user": 8250000,
+          "system": 2968000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 152002560,
+            "cpu": {
+              "user": 2453000,
+              "system": 656000
+            },
+            "heartbeat": 1793097818315
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 148725760,
+            "cpu": {
+              "user": 2390000,
+              "system": 656000
+            },
+            "heartbeat": 1793097817913
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:38.616Z"
+    },
+    {
+      "i": 4,
+      "runnerRss": 85905408,
+      "processes": {
+        "control": {
+          "rss": 298090496,
+          "heapTotal": 212598784,
+          "heapUsed": 111371344,
+          "external": 46326378,
+          "arrayBuffers": 2383942
+        },
+        "controlCpu": {
+          "user": 10218000,
+          "system": 3609000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 153223168,
+            "cpu": {
+              "user": 2515000,
+              "system": 718000
+            },
+            "heartbeat": 1793097826319
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 150319104,
+            "cpu": {
+              "user": 2609000,
+              "system": 765000
+            },
+            "heartbeat": 1793097825941
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:46.420Z"
+    },
+    {
+      "i": 5,
+      "runnerRss": 85475328,
+      "processes": {
+        "control": {
+          "rss": 308899840,
+          "heapTotal": 218628096,
+          "heapUsed": 116640360,
+          "external": 46562255,
+          "arrayBuffers": 2619819
+        },
+        "controlCpu": {
+          "user": 11796000,
+          "system": 4468000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154550272,
+            "cpu": {
+              "user": 2546000,
+              "system": 734000
+            },
+            "heartbeat": 1793097832355
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 151744512,
+            "cpu": {
+              "user": 2703000,
+              "system": 828000
+            },
+            "heartbeat": 1793097833969
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:43:54.057Z"
+    },
+    {
+      "i": 6,
+      "runnerRss": 88838144,
+      "processes": {
+        "control": {
+          "rss": 316538880,
+          "heapTotal": 225443840,
+          "heapUsed": 126611320,
+          "external": 46797893,
+          "arrayBuffers": 2855457
+        },
+        "controlCpu": {
+          "user": 13671000,
+          "system": 5156000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154968064,
+            "cpu": {
+              "user": 2828000,
+              "system": 796000
+            },
+            "heartbeat": 1793097840365
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 152948736,
+            "cpu": {
+              "user": 2968000,
+              "system": 921000
+            },
+            "heartbeat": 1793097841985
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:02.030Z"
+    },
+    {
+      "i": 7,
+      "runnerRss": 83083264,
+      "processes": {
+        "control": {
+          "rss": 332603392,
+          "heapTotal": 231473152,
+          "heapUsed": 145217976,
+          "external": 47106456,
+          "arrayBuffers": 3164020
+        },
+        "controlCpu": {
+          "user": 15328000,
+          "system": 5937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155361280,
+            "cpu": {
+              "user": 2937000,
+              "system": 890000
+            },
+            "heartbeat": 1793097848408
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153350144,
+            "cpu": {
+              "user": 3078000,
+              "system": 953000
+            },
+            "heartbeat": 1793097848008
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:09.975Z"
+    },
+    {
+      "i": 8,
+      "runnerRss": 82726912,
+      "processes": {
+        "control": {
+          "rss": 335409152,
+          "heapTotal": 235958272,
+          "heapUsed": 99493576,
+          "external": 46343613,
+          "arrayBuffers": 2401177
+        },
+        "controlCpu": {
+          "user": 17375000,
+          "system": 6625000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155320320,
+            "cpu": {
+              "user": 3046000,
+              "system": 953000
+            },
+            "heartbeat": 1793097856424
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154206208,
+            "cpu": {
+              "user": 3250000,
+              "system": 1000000
+            },
+            "heartbeat": 1793097858037
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:18.081Z"
+    },
+    {
+      "i": 9,
+      "runnerRss": 88641536,
+      "processes": {
+        "control": {
+          "rss": 343523328,
+          "heapTotal": 243036160,
+          "heapUsed": 124661176,
+          "external": 46711406,
+          "arrayBuffers": 2768970
+        },
+        "controlCpu": {
+          "user": 19781000,
+          "system": 7781000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155836416,
+            "cpu": {
+              "user": 3218000,
+              "system": 1015000
+            },
+            "heartbeat": 1793097864459
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154349568,
+            "cpu": {
+              "user": 3343000,
+              "system": 1140000
+            },
+            "heartbeat": 1793097866058
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:26.174Z"
+    },
+    {
+      "i": 10,
+      "runnerRss": 83005440,
+      "processes": {
+        "control": {
+          "rss": 349433856,
+          "heapTotal": 246861824,
+          "heapUsed": 71434280,
+          "external": 44424097,
+          "arrayBuffers": 487123
+        },
+        "controlCpu": {
+          "user": 22937000,
+          "system": 8718000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155807744,
+            "cpu": {
+              "user": 3390000,
+              "system": 1125000
+            },
+            "heartbeat": 1793097874479
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 3468000,
+              "system": 1218000
+            },
+            "heartbeat": 1793097874082
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:35.679Z"
+    },
+    {
+      "i": 11,
+      "runnerRss": 83656704,
+      "processes": {
+        "control": {
+          "rss": 347471872,
+          "heapTotal": 207278080,
+          "heapUsed": 74092816,
+          "external": 44427239,
+          "arrayBuffers": 490265
+        },
+        "controlCpu": {
+          "user": 26328000,
+          "system": 9890000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155258880,
+            "cpu": {
+              "user": 3515000,
+              "system": 1265000
+            },
+            "heartbeat": 1793097884509
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153931776,
+            "cpu": {
+              "user": 3703000,
+              "system": 1296000
+            },
+            "heartbeat": 1793097884127
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:44.750Z"
+    },
+    {
+      "i": 12,
+      "runnerRss": 82837504,
+      "processes": {
+        "control": {
+          "rss": 347721728,
+          "heapTotal": 199938048,
+          "heapUsed": 81741216,
+          "external": 44492598,
+          "arrayBuffers": 557029
+        },
+        "controlCpu": {
+          "user": 29578000,
+          "system": 10937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155578368,
+            "cpu": {
+              "user": 3687000,
+              "system": 1359000
+            },
+            "heartbeat": 1793097892547
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154206208,
+            "cpu": {
+              "user": 3890000,
+              "system": 1406000
+            },
+            "heartbeat": 1793097892149
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:44:53.860Z"
+    },
+    {
+      "i": 13,
+      "runnerRss": 87748608,
+      "processes": {
+        "control": {
+          "rss": 347934720,
+          "heapTotal": 202297344,
+          "heapUsed": 81316208,
+          "external": 44486900,
+          "arrayBuffers": 551331
+        },
+        "controlCpu": {
+          "user": 32875000,
+          "system": 11812000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155975680,
+            "cpu": {
+              "user": 3828000,
+              "system": 1468000
+            },
+            "heartbeat": 1793097902562
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154378240,
+            "cpu": {
+              "user": 4187000,
+              "system": 1515000
+            },
+            "heartbeat": 1793097902180
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:02.865Z"
+    },
+    {
+      "i": 14,
+      "runnerRss": 90939392,
+      "processes": {
+        "control": {
+          "rss": 347725824,
+          "heapTotal": 199413760,
+          "heapUsed": 56836264,
+          "external": 44490989,
+          "arrayBuffers": 555420
+        },
+        "controlCpu": {
+          "user": 35984000,
+          "system": 12843000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155885568,
+            "cpu": {
+              "user": 3906000,
+              "system": 1515000
+            },
+            "heartbeat": 1793097910604
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154206208,
+            "cpu": {
+              "user": 4250000,
+              "system": 1593000
+            },
+            "heartbeat": 1793097910223
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:12.070Z"
+    },
+    {
+      "i": 15,
+      "runnerRss": 87023616,
+      "processes": {
+        "control": {
+          "rss": 348340224,
+          "heapTotal": 206094336,
+          "heapUsed": 90966368,
+          "external": 44632106,
+          "arrayBuffers": 696537
+        },
+        "controlCpu": {
+          "user": 39109000,
+          "system": 13625000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156348416,
+            "cpu": {
+              "user": 4046000,
+              "system": 1578000
+            },
+            "heartbeat": 1793097920599
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154058752,
+            "cpu": {
+              "user": 4437000,
+              "system": 1718000
+            },
+            "heartbeat": 1793097920257
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:20.998Z"
+    },
+    {
+      "i": 16,
+      "runnerRss": 84725760,
+      "processes": {
+        "control": {
+          "rss": 349270016,
+          "heapTotal": 201375744,
+          "heapUsed": 83874344,
+          "external": 44632937,
+          "arrayBuffers": 697368
+        },
+        "controlCpu": {
+          "user": 42906000,
+          "system": 14640000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156557312,
+            "cpu": {
+              "user": 4203000,
+              "system": 1625000
+            },
+            "heartbeat": 1793097928633
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154697728,
+            "cpu": {
+              "user": 4546000,
+              "system": 1796000
+            },
+            "heartbeat": 1793097930341
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:30.646Z"
+    },
+    {
+      "i": 17,
+      "runnerRss": 83611648,
+      "processes": {
+        "control": {
+          "rss": 347512832,
+          "heapTotal": 205832192,
+          "heapUsed": 64475208,
+          "external": 44630785,
+          "arrayBuffers": 695216
+        },
+        "controlCpu": {
+          "user": 45953000,
+          "system": 15812000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156291072,
+            "cpu": {
+              "user": 4375000,
+              "system": 1703000
+            },
+            "heartbeat": 1793097938682
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154800128,
+            "cpu": {
+              "user": 4609000,
+              "system": 1828000
+            },
+            "heartbeat": 1793097938326
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:40.229Z"
+    },
+    {
+      "i": 18,
+      "runnerRss": 92942336,
+      "processes": {
+        "control": {
+          "rss": 347672576,
+          "heapTotal": 202948608,
+          "heapUsed": 80845296,
+          "external": 44422450,
+          "arrayBuffers": 486881
+        },
+        "controlCpu": {
+          "user": 49093000,
+          "system": 16718000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156717056,
+            "cpu": {
+              "user": 4484000,
+              "system": 1734000
+            },
+            "heartbeat": 1793097948719
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 155566080,
+            "cpu": {
+              "user": 4843000,
+              "system": 1906000
+            },
+            "heartbeat": 1793097948374
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:49.577Z"
+    },
+    {
+      "i": 19,
+      "runnerRss": 88678400,
+      "processes": {
+        "control": {
+          "rss": 349069312,
+          "heapTotal": 202665984,
+          "heapUsed": 59474608,
+          "external": 44489144,
+          "arrayBuffers": 553575
+        },
+        "controlCpu": {
+          "user": 52359000,
+          "system": 17843000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156536832,
+            "cpu": {
+              "user": 4531000,
+              "system": 1812000
+            },
+            "heartbeat": 1793097958759
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 155926528,
+            "cpu": {
+              "user": 4906000,
+              "system": 1984000
+            },
+            "heartbeat": 1793097958400
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:45:59.205Z"
+    },
+    {
+      "i": 20,
+      "runnerRss": 88518656,
+      "processes": {
+        "control": {
+          "rss": 349679616,
+          "heapTotal": 200589312,
+          "heapUsed": 72667848,
+          "external": 44570375,
+          "arrayBuffers": 634806
+        },
+        "controlCpu": {
+          "user": 55437000,
+          "system": 19281000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156897280,
+            "cpu": {
+              "user": 4687000,
+              "system": 1906000
+            },
+            "heartbeat": 1793097968833
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 155729920,
+            "cpu": {
+              "user": 5015000,
+              "system": 2062000
+            },
+            "heartbeat": 1793097968460
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:09.183Z"
+    },
+    {
+      "i": 21,
+      "runnerRss": 90222592,
+      "processes": {
+        "control": {
+          "rss": 349470720,
+          "heapTotal": 207929344,
+          "heapUsed": 114311176,
+          "external": 44425402,
+          "arrayBuffers": 489833
+        },
+        "controlCpu": {
+          "user": 58406000,
+          "system": 20515000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 157319168,
+            "cpu": {
+              "user": 4734000,
+              "system": 1937000
+            },
+            "heartbeat": 1793097976820
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153645056,
+            "cpu": {
+              "user": 5203000,
+              "system": 2093000
+            },
+            "heartbeat": 1793097976484
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:18.323Z"
+    },
+    {
+      "i": 22,
+      "runnerRss": 89866240,
+      "processes": {
+        "control": {
+          "rss": 349601792,
+          "heapTotal": 210792448,
+          "heapUsed": 72922960,
+          "external": 44603638,
+          "arrayBuffers": 668069
+        },
+        "controlCpu": {
+          "user": 62062000,
+          "system": 21703000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154857472,
+            "cpu": {
+              "user": 5000000,
+              "system": 2031000
+            },
+            "heartbeat": 1793097986866
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153817088,
+            "cpu": {
+              "user": 5375000,
+              "system": 2171000
+            },
+            "heartbeat": 1793097986522
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:27.683Z"
+    },
+    {
+      "i": 23,
+      "runnerRss": 90607616,
+      "processes": {
+        "control": {
+          "rss": 347725824,
+          "heapTotal": 201900032,
+          "heapUsed": 68624968,
+          "external": 44422298,
+          "arrayBuffers": 486729
+        },
+        "controlCpu": {
+          "user": 65828000,
+          "system": 22796000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154415104,
+            "cpu": {
+              "user": 5203000,
+              "system": 2140000
+            },
+            "heartbeat": 1793097996929
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154484736,
+            "cpu": {
+              "user": 5484000,
+              "system": 2250000
+            },
+            "heartbeat": 1793097996550
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:37.296Z"
+    },
+    {
+      "i": 24,
+      "runnerRss": 89366528,
+      "processes": {
+        "control": {
+          "rss": 349749248,
+          "heapTotal": 206356480,
+          "heapUsed": 96601304,
+          "external": 44563317,
+          "arrayBuffers": 627748
+        },
+        "controlCpu": {
+          "user": 69609000,
+          "system": 23937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154910720,
+            "cpu": {
+              "user": 5437000,
+              "system": 2218000
+            },
+            "heartbeat": 1793098004950
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154292224,
+            "cpu": {
+              "user": 5625000,
+              "system": 2453000
+            },
+            "heartbeat": 1793098006579
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:46.754Z"
+    },
+    {
+      "i": 25,
+      "runnerRss": 88133632,
+      "processes": {
+        "control": {
+          "rss": 350724096,
+          "heapTotal": 209743872,
+          "heapUsed": 101162912,
+          "external": 45058590,
+          "arrayBuffers": 1123021
+        },
+        "controlCpu": {
+          "user": 73812000,
+          "system": 25171000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155111424,
+            "cpu": {
+              "user": 5531000,
+              "system": 2234000
+            },
+            "heartbeat": 1793098014979
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154574848,
+            "cpu": {
+              "user": 5671000,
+              "system": 2500000
+            },
+            "heartbeat": 1793098016710
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:46:56.827Z"
+    },
+    {
+      "i": 26,
+      "runnerRss": 87425024,
+      "processes": {
+        "control": {
+          "rss": 352366592,
+          "heapTotal": 222064640,
+          "heapUsed": 136746112,
+          "external": 45565329,
+          "arrayBuffers": 1629760
+        },
+        "controlCpu": {
+          "user": 77609000,
+          "system": 26640000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155471872,
+            "cpu": {
+              "user": 5640000,
+              "system": 2328000
+            },
+            "heartbeat": 1793098025040
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153694208,
+            "cpu": {
+              "user": 5812000,
+              "system": 2625000
+            },
+            "heartbeat": 1793098026678
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:06.873Z"
+    },
+    {
+      "i": 27,
+      "runnerRss": 83574784,
+      "processes": {
+        "control": {
+          "rss": 351600640,
+          "heapTotal": 229404672,
+          "heapUsed": 94849272,
+          "external": 44380473,
+          "arrayBuffers": 444904
+        },
+        "controlCpu": {
+          "user": 80750000,
+          "system": 28109000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155029504,
+            "cpu": {
+              "user": 5859000,
+              "system": 2437000
+            },
+            "heartbeat": 1793098035057
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154071040,
+            "cpu": {
+              "user": 6015000,
+              "system": 2656000
+            },
+            "heartbeat": 1793098036748
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:16.841Z"
+    },
+    {
+      "i": 28,
+      "runnerRss": 89141248,
+      "processes": {
+        "control": {
+          "rss": 349954048,
+          "heapTotal": 203735040,
+          "heapUsed": 71901320,
+          "external": 44312872,
+          "arrayBuffers": 377303
+        },
+        "controlCpu": {
+          "user": 84468000,
+          "system": 29937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 154943488,
+            "cpu": {
+              "user": 5968000,
+              "system": 2500000
+            },
+            "heartbeat": 1793098045112
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154099712,
+            "cpu": {
+              "user": 6031000,
+              "system": 2687000
+            },
+            "heartbeat": 1793098044745
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:26.682Z"
+    },
+    {
+      "i": 29,
+      "runnerRss": 82354176,
+      "processes": {
+        "control": {
+          "rss": 349843456,
+          "heapTotal": 203997184,
+          "heapUsed": 116038288,
+          "external": 44495760,
+          "arrayBuffers": 560191
+        },
+        "controlCpu": {
+          "user": 88250000,
+          "system": 31640000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155099136,
+            "cpu": {
+              "user": 6000000,
+              "system": 2546000
+            },
+            "heartbeat": 1793098055158
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154087424,
+            "cpu": {
+              "user": 6109000,
+              "system": 2734000
+            },
+            "heartbeat": 1793098054792
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:36.397Z"
+    },
+    {
+      "i": 30,
+      "runnerRss": 83574784,
+      "processes": {
+        "control": {
+          "rss": 349175808,
+          "heapTotal": 207667200,
+          "heapUsed": 61433784,
+          "external": 44284404,
+          "arrayBuffers": 348835
+        },
+        "controlCpu": {
+          "user": 88687000,
+          "system": 31843000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155103232,
+            "cpu": {
+              "user": 6000000,
+              "system": 2562000
+            },
+            "heartbeat": 1793098057163
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154177536,
+            "cpu": {
+              "user": 6109000,
+              "system": 2734000
+            },
+            "heartbeat": 1793098056792
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:37.949Z"
+    },
+    {
+      "i": 31,
+      "runnerRss": 84750336,
+      "processes": {
+        "control": {
+          "rss": 350126080,
+          "heapTotal": 208080896,
+          "heapUsed": 95208784,
+          "external": 44710080,
+          "arrayBuffers": 774511
+        },
+        "controlCpu": {
+          "user": 89421000,
+          "system": 32250000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155111424,
+            "cpu": {
+              "user": 6015000,
+              "system": 2562000
+            },
+            "heartbeat": 1793098059161
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154062848,
+            "cpu": {
+              "user": 6125000,
+              "system": 2734000
+            },
+            "heartbeat": 1793098058798
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:40.631Z"
+    },
+    {
+      "i": 32,
+      "runnerRss": 84619264,
+      "processes": {
+        "control": {
+          "rss": 349736960,
+          "heapTotal": 205307904,
+          "heapUsed": 83126024,
+          "external": 44354910,
+          "arrayBuffers": 419341
+        },
+        "controlCpu": {
+          "user": 90093000,
+          "system": 32781000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155127808,
+            "cpu": {
+              "user": 6031000,
+              "system": 2562000
+            },
+            "heartbeat": 1793098061169
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154066944,
+            "cpu": {
+              "user": 6140000,
+              "system": 2765000
+            },
+            "heartbeat": 1793098062830
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:42.964Z"
+    },
+    {
+      "i": 33,
+      "runnerRss": 87052288,
+      "processes": {
+        "control": {
+          "rss": 350900224,
+          "heapTotal": 206086144,
+          "heapUsed": 117000264,
+          "external": 44967146,
+          "arrayBuffers": 1031577
+        },
+        "controlCpu": {
+          "user": 91312000,
+          "system": 33312000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155418624,
+            "cpu": {
+              "user": 6109000,
+              "system": 2593000
+            },
+            "heartbeat": 1793098065184
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154247168,
+            "cpu": {
+              "user": 6140000,
+              "system": 2765000
+            },
+            "heartbeat": 1793098064828
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:46.659Z"
+    },
+    {
+      "i": 34,
+      "runnerRss": 88518656,
+      "processes": {
+        "control": {
+          "rss": 348401664,
+          "heapTotal": 219201536,
+          "heapUsed": 79049248,
+          "external": 44210783,
+          "arrayBuffers": 275214
+        },
+        "controlCpu": {
+          "user": 94718000,
+          "system": 34484000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155475968,
+            "cpu": {
+              "user": 6171000,
+              "system": 2718000
+            },
+            "heartbeat": 1793098073199
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154267648,
+            "cpu": {
+              "user": 6250000,
+              "system": 2828000
+            },
+            "heartbeat": 1793098072852
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:54.260Z"
+    },
+    {
+      "i": 35,
+      "runnerRss": 89178112,
+      "processes": {
+        "control": {
+          "rss": 350031872,
+          "heapTotal": 219201536,
+          "heapUsed": 75138544,
+          "external": 44295019,
+          "arrayBuffers": 359450
+        },
+        "controlCpu": {
+          "user": 95125000,
+          "system": 34796000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155172864,
+            "cpu": {
+              "user": 6171000,
+              "system": 2718000
+            },
+            "heartbeat": 1793098075218
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154267648,
+            "cpu": {
+              "user": 6265000,
+              "system": 2828000
+            },
+            "heartbeat": 1793098074861
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:55.918Z"
+    },
+    {
+      "i": 36,
+      "runnerRss": 82698240,
+      "processes": {
+        "control": {
+          "rss": 350396416,
+          "heapTotal": 219201536,
+          "heapUsed": 97129864,
+          "external": 44512919,
+          "arrayBuffers": 577350
+        },
+        "controlCpu": {
+          "user": 95734000,
+          "system": 35328000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155348992,
+            "cpu": {
+              "user": 6187000,
+              "system": 2718000
+            },
+            "heartbeat": 1793098077230
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154284032,
+            "cpu": {
+              "user": 6281000,
+              "system": 2828000
+            },
+            "heartbeat": 1793098076879
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:47:58.382Z"
+    },
+    {
+      "i": 37,
+      "runnerRss": 82518016,
+      "processes": {
+        "control": {
+          "rss": 349929472,
+          "heapTotal": 206094336,
+          "heapUsed": 62108544,
+          "external": 44362645,
+          "arrayBuffers": 427076
+        },
+        "controlCpu": {
+          "user": 96484000,
+          "system": 35671000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155369472,
+            "cpu": {
+              "user": 6187000,
+              "system": 2718000
+            },
+            "heartbeat": 1793098079219
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154284032,
+            "cpu": {
+              "user": 6281000,
+              "system": 2828000
+            },
+            "heartbeat": 1793098078873
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:00.818Z"
+    },
+    {
+      "i": 38,
+      "runnerRss": 86294528,
+      "processes": {
+        "control": {
+          "rss": 350363648,
+          "heapTotal": 205570048,
+          "heapUsed": 60654408,
+          "external": 44359481,
+          "arrayBuffers": 423912
+        },
+        "controlCpu": {
+          "user": 97859000,
+          "system": 36593000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155541504,
+            "cpu": {
+              "user": 6203000,
+              "system": 2718000
+            },
+            "heartbeat": 1793098083230
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154288128,
+            "cpu": {
+              "user": 6328000,
+              "system": 2875000
+            },
+            "heartbeat": 1793098084904
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:04.924Z"
+    },
+    {
+      "i": 39,
+      "runnerRss": 84865024,
+      "processes": {
+        "control": {
+          "rss": 350244864,
+          "heapTotal": 206278656,
+          "heapUsed": 69644136,
+          "external": 44359375,
+          "arrayBuffers": 423806
+        },
+        "controlCpu": {
+          "user": 100640000,
+          "system": 38140000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155840512,
+            "cpu": {
+              "user": 6406000,
+              "system": 2843000
+            },
+            "heartbeat": 1793098091265
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154423296,
+            "cpu": {
+              "user": 6390000,
+              "system": 2890000
+            },
+            "heartbeat": 1793098090907
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:12.753Z"
+    },
+    {
+      "i": 40,
+      "runnerRss": 85327872,
+      "processes": {
+        "control": {
+          "rss": 350248960,
+          "heapTotal": 206667776,
+          "heapUsed": 90337984,
+          "external": 44509179,
+          "arrayBuffers": 573610
+        },
+        "controlCpu": {
+          "user": 101046000,
+          "system": 38437000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155852800,
+            "cpu": {
+              "user": 6406000,
+              "system": 2875000
+            },
+            "heartbeat": 1793098093277
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154013696,
+            "cpu": {
+              "user": 6468000,
+              "system": 2906000
+            },
+            "heartbeat": 1793098092919
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:14.434Z"
+    },
+    {
+      "i": 41,
+      "runnerRss": 86220800,
+      "processes": {
+        "control": {
+          "rss": 349958144,
+          "heapTotal": 207142912,
+          "heapUsed": 76716304,
+          "external": 44386239,
+          "arrayBuffers": 450670
+        },
+        "controlCpu": {
+          "user": 102062000,
+          "system": 38953000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155852800,
+            "cpu": {
+              "user": 6453000,
+              "system": 2937000
+            },
+            "heartbeat": 1793098095290
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154013696,
+            "cpu": {
+              "user": 6531000,
+              "system": 2953000
+            },
+            "heartbeat": 1793098094930
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:16.776Z"
+    },
+    {
+      "i": 42,
+      "runnerRss": 81309696,
+      "processes": {
+        "control": {
+          "rss": 350597120,
+          "heapTotal": 208343040,
+          "heapUsed": 101716608,
+          "external": 44877672,
+          "arrayBuffers": 942103
+        },
+        "controlCpu": {
+          "user": 102718000,
+          "system": 39453000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155869184,
+            "cpu": {
+              "user": 6500000,
+              "system": 2953000
+            },
+            "heartbeat": 1793098097299
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154103808,
+            "cpu": {
+              "user": 6562000,
+              "system": 2984000
+            },
+            "heartbeat": 1793098098964
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:19.120Z"
+    },
+    {
+      "i": 43,
+      "runnerRss": 86724608,
+      "processes": {
+        "control": {
+          "rss": 351428608,
+          "heapTotal": 209494016,
+          "heapUsed": 111704008,
+          "external": 44887980,
+          "arrayBuffers": 952411
+        },
+        "controlCpu": {
+          "user": 103921000,
+          "system": 40109000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155275264,
+            "cpu": {
+              "user": 6500000,
+              "system": 2953000
+            },
+            "heartbeat": 1793098101299
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154112000,
+            "cpu": {
+              "user": 6562000,
+              "system": 2984000
+            },
+            "heartbeat": 1793098100953
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:22.800Z"
+    },
+    {
+      "i": 44,
+      "runnerRss": 89755648,
+      "processes": {
+        "control": {
+          "rss": 352055296,
+          "heapTotal": 212668416,
+          "heapUsed": 121351232,
+          "external": 44509587,
+          "arrayBuffers": 574018
+        },
+        "controlCpu": {
+          "user": 107109000,
+          "system": 41500000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155406336,
+            "cpu": {
+              "user": 6656000,
+              "system": 2984000
+            },
+            "heartbeat": 1793098109336
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6625000,
+              "system": 3031000
+            },
+            "heartbeat": 1793098108979
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:30.607Z"
+    },
+    {
+      "i": 45,
+      "runnerRss": 90726400,
+      "processes": {
+        "control": {
+          "rss": 349585408,
+          "heapTotal": 211075072,
+          "heapUsed": 76417072,
+          "external": 44352392,
+          "arrayBuffers": 416823
+        },
+        "controlCpu": {
+          "user": 107765000,
+          "system": 41828000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155426816,
+            "cpu": {
+              "user": 6765000,
+              "system": 3031000
+            },
+            "heartbeat": 1793098111340
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6656000,
+              "system": 3093000
+            },
+            "heartbeat": 1793098111001
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:32.349Z"
+    },
+    {
+      "i": 46,
+      "runnerRss": 92712960,
+      "processes": {
+        "control": {
+          "rss": 351150080,
+          "heapTotal": 211918848,
+          "heapUsed": 107577040,
+          "external": 44845652,
+          "arrayBuffers": 910083
+        },
+        "controlCpu": {
+          "user": 108328000,
+          "system": 42375000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155488256,
+            "cpu": {
+              "user": 6765000,
+              "system": 3031000
+            },
+            "heartbeat": 1793098113340
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6671000,
+              "system": 3093000
+            },
+            "heartbeat": 1793098112998
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:34.868Z"
+    },
+    {
+      "i": 47,
+      "runnerRss": 84803584,
+      "processes": {
+        "control": {
+          "rss": 349978624,
+          "heapTotal": 208191488,
+          "heapUsed": 73693496,
+          "external": 44369349,
+          "arrayBuffers": 433780
+        },
+        "controlCpu": {
+          "user": 109390000,
+          "system": 42921000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155508736,
+            "cpu": {
+              "user": 6796000,
+              "system": 3078000
+            },
+            "heartbeat": 1793098117370
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6687000,
+              "system": 3109000
+            },
+            "heartbeat": 1793098117020
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:37.681Z"
+    },
+    {
+      "i": 48,
+      "runnerRss": 88776704,
+      "processes": {
+        "control": {
+          "rss": 350773248,
+          "heapTotal": 208453632,
+          "heapUsed": 84742192,
+          "external": 44659127,
+          "arrayBuffers": 723558
+        },
+        "controlCpu": {
+          "user": 110609000,
+          "system": 43718000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155566080,
+            "cpu": {
+              "user": 6843000,
+              "system": 3125000
+            },
+            "heartbeat": 1793098121374
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6750000,
+              "system": 3125000
+            },
+            "heartbeat": 1793098121031
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:41.495Z"
+    },
+    {
+      "i": 49,
+      "runnerRss": 89997312,
+      "processes": {
+        "control": {
+          "rss": 349855744,
+          "heapTotal": 211927040,
+          "heapUsed": 99474584,
+          "external": 44421692,
+          "arrayBuffers": 486123
+        },
+        "controlCpu": {
+          "user": 113453000,
+          "system": 45359000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155664384,
+            "cpu": {
+              "user": 6890000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098129467
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6781000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098129060
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:49.655Z"
+    },
+    {
+      "i": 50,
+      "runnerRss": 90607616,
+      "processes": {
+        "control": {
+          "rss": 351301632,
+          "heapTotal": 210075648,
+          "heapUsed": 62176872,
+          "external": 44284404,
+          "arrayBuffers": 348835
+        },
+        "controlCpu": {
+          "user": 114140000,
+          "system": 45765000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155664384,
+            "cpu": {
+              "user": 6890000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098129467
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6796000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098131103
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:51.432Z"
+    },
+    {
+      "i": 51,
+      "runnerRss": 88727552,
+      "processes": {
+        "control": {
+          "rss": 351825920,
+          "heapTotal": 210489344,
+          "heapUsed": 99355752,
+          "external": 44776186,
+          "arrayBuffers": 840617
+        },
+        "controlCpu": {
+          "user": 114625000,
+          "system": 46359000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155807744,
+            "cpu": {
+              "user": 6937000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098133446
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6796000,
+              "system": 3140000
+            },
+            "heartbeat": 1793098133103
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:53.972Z"
+    },
+    {
+      "i": 52,
+      "runnerRss": 86228992,
+      "processes": {
+        "control": {
+          "rss": 350904320,
+          "heapTotal": 209764352,
+          "heapUsed": 78271888,
+          "external": 44354251,
+          "arrayBuffers": 418682
+        },
+        "controlCpu": {
+          "user": 115453000,
+          "system": 47015000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155815936,
+            "cpu": {
+              "user": 6953000,
+              "system": 3156000
+            },
+            "heartbeat": 1793098135441
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153583616,
+            "cpu": {
+              "user": 6828000,
+              "system": 3156000
+            },
+            "heartbeat": 1793098135104
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:48:56.553Z"
+    },
+    {
+      "i": 53,
+      "runnerRss": 88563712,
+      "processes": {
+        "control": {
+          "rss": 350965760,
+          "heapTotal": 211337216,
+          "heapUsed": 107225672,
+          "external": 44343135,
+          "arrayBuffers": 407566
+        },
+        "controlCpu": {
+          "user": 116625000,
+          "system": 47812000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155607040,
+            "cpu": {
+              "user": 7031000,
+              "system": 3156000
+            },
+            "heartbeat": 1793098139486
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153604096,
+            "cpu": {
+              "user": 6828000,
+              "system": 3156000
+            },
+            "heartbeat": 1793098139122
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:00.505Z"
+    },
+    {
+      "i": 54,
+      "runnerRss": 91938816,
+      "processes": {
+        "control": {
+          "rss": 352927744,
+          "heapTotal": 220557312,
+          "heapUsed": 95752688,
+          "external": 44328492,
+          "arrayBuffers": 392923
+        },
+        "controlCpu": {
+          "user": 119500000,
+          "system": 49218000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155529216,
+            "cpu": {
+              "user": 7125000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098147488
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153735168,
+            "cpu": {
+              "user": 6937000,
+              "system": 3187000
+            },
+            "heartbeat": 1793098147185
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:08.757Z"
+    },
+    {
+      "i": 55,
+      "runnerRss": 88924160,
+      "processes": {
+        "control": {
+          "rss": 349851648,
+          "heapTotal": 219144192,
+          "heapUsed": 120612136,
+          "external": 44585742,
+          "arrayBuffers": 650173
+        },
+        "controlCpu": {
+          "user": 119968000,
+          "system": 49468000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155537408,
+            "cpu": {
+              "user": 7140000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098149506
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153735168,
+            "cpu": {
+              "user": 6953000,
+              "system": 3187000
+            },
+            "heartbeat": 1793098149173
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:10.413Z"
+    },
+    {
+      "i": 56,
+      "runnerRss": 89772032,
+      "processes": {
+        "control": {
+          "rss": 350625792,
+          "heapTotal": 219463680,
+          "heapUsed": 79283272,
+          "external": 44392562,
+          "arrayBuffers": 456993
+        },
+        "controlCpu": {
+          "user": 120781000,
+          "system": 50015000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155537408,
+            "cpu": {
+              "user": 7140000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098151516
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153735168,
+            "cpu": {
+              "user": 6953000,
+              "system": 3187000
+            },
+            "heartbeat": 1793098151198
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:12.872Z"
+    },
+    {
+      "i": 57,
+      "runnerRss": 89194496,
+      "processes": {
+        "control": {
+          "rss": 350511104,
+          "heapTotal": 219463680,
+          "heapUsed": 90873600,
+          "external": 44610272,
+          "arrayBuffers": 674703
+        },
+        "controlCpu": {
+          "user": 121437000,
+          "system": 50531000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155676672,
+            "cpu": {
+              "user": 7187000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098153518
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153899008,
+            "cpu": {
+              "user": 6984000,
+              "system": 3203000
+            },
+            "heartbeat": 1793098155199
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:15.298Z"
+    },
+    {
+      "i": 58,
+      "runnerRss": 90804224,
+      "processes": {
+        "control": {
+          "rss": 351199232,
+          "heapTotal": 215007232,
+          "heapUsed": 78196512,
+          "external": 44530136,
+          "arrayBuffers": 594567
+        },
+        "controlCpu": {
+          "user": 123093000,
+          "system": 51406000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155676672,
+            "cpu": {
+              "user": 7250000,
+              "system": 3265000
+            },
+            "heartbeat": 1793098157521
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153899008,
+            "cpu": {
+              "user": 7000000,
+              "system": 3218000
+            },
+            "heartbeat": 1793098159235
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:19.473Z"
+    },
+    {
+      "i": 59,
+      "runnerRss": 98611200,
+      "processes": {
+        "control": {
+          "rss": 352174080,
+          "heapTotal": 214859776,
+          "heapUsed": 74553128,
+          "external": 44251250,
+          "arrayBuffers": 315681
+        },
+        "controlCpu": {
+          "user": 126296000,
+          "system": 53062000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156094464,
+            "cpu": {
+              "user": 7328000,
+              "system": 3406000
+            },
+            "heartbeat": 1793098167622
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153493504,
+            "cpu": {
+              "user": 7093000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098167277
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:27.655Z"
+    },
+    {
+      "i": 60,
+      "runnerRss": 99348480,
+      "processes": {
+        "control": {
+          "rss": 351158272,
+          "heapTotal": 214880256,
+          "heapUsed": 114662152,
+          "external": 44509382,
+          "arrayBuffers": 573813
+        },
+        "controlCpu": {
+          "user": 126718000,
+          "system": 53390000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156094464,
+            "cpu": {
+              "user": 7328000,
+              "system": 3406000
+            },
+            "heartbeat": 1793098167622
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153493504,
+            "cpu": {
+              "user": 7093000,
+              "system": 3234000
+            },
+            "heartbeat": 1793098167277
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:29.265Z"
+    },
+    {
+      "i": 61,
+      "runnerRss": 90144768,
+      "processes": {
+        "control": {
+          "rss": 351133696,
+          "heapTotal": 210550784,
+          "heapUsed": 82348272,
+          "external": 44285763,
+          "arrayBuffers": 350194
+        },
+        "controlCpu": {
+          "user": 127609000,
+          "system": 54125000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156094464,
+            "cpu": {
+              "user": 7343000,
+              "system": 3421000
+            },
+            "heartbeat": 1793098171582
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7109000,
+              "system": 3250000
+            },
+            "heartbeat": 1793098171257
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:31.993Z"
+    },
+    {
+      "i": 62,
+      "runnerRss": 92131328,
+      "processes": {
+        "control": {
+          "rss": 352108544,
+          "heapTotal": 211410944,
+          "heapUsed": 101871656,
+          "external": 44503631,
+          "arrayBuffers": 568062
+        },
+        "controlCpu": {
+          "user": 128312000,
+          "system": 54687000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155541504,
+            "cpu": {
+              "user": 7343000,
+              "system": 3421000
+            },
+            "heartbeat": 1793098173596
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7109000,
+              "system": 3250000
+            },
+            "heartbeat": 1793098173264
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:34.801Z"
+    },
+    {
+      "i": 63,
+      "runnerRss": 97603584,
+      "processes": {
+        "control": {
+          "rss": 351289344,
+          "heapTotal": 216842240,
+          "heapUsed": 108620840,
+          "external": 44500887,
+          "arrayBuffers": 565318
+        },
+        "controlCpu": {
+          "user": 129906000,
+          "system": 55484000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155688960,
+            "cpu": {
+              "user": 7343000,
+              "system": 3437000
+            },
+            "heartbeat": 1793098177615
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7140000,
+              "system": 3250000
+            },
+            "heartbeat": 1793098177277
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:38.769Z"
+    },
+    {
+      "i": 64,
+      "runnerRss": 97161216,
+      "processes": {
+        "control": {
+          "rss": 353607680,
+          "heapTotal": 226537472,
+          "heapUsed": 92869224,
+          "external": 44999071,
+          "arrayBuffers": 1063502
+        },
+        "controlCpu": {
+          "user": 132828000,
+          "system": 57390000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155258880,
+            "cpu": {
+              "user": 7500000,
+              "system": 3578000
+            },
+            "heartbeat": 1793098185667
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153518080,
+            "cpu": {
+              "user": 7281000,
+              "system": 3359000
+            },
+            "heartbeat": 1793098185305
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:46.722Z"
+    },
+    {
+      "i": 65,
+      "runnerRss": 98107392,
+      "processes": {
+        "control": {
+          "rss": 352522240,
+          "heapTotal": 230907904,
+          "heapUsed": 102156296,
+          "external": 44276559,
+          "arrayBuffers": 340990
+        },
+        "controlCpu": {
+          "user": 133515000,
+          "system": 57671000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155234304,
+            "cpu": {
+              "user": 7500000,
+              "system": 3578000
+            },
+            "heartbeat": 1793098187656
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153518080,
+            "cpu": {
+              "user": 7281000,
+              "system": 3359000
+            },
+            "heartbeat": 1793098187327
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:48.637Z"
+    },
+    {
+      "i": 66,
+      "runnerRss": 99889152,
+      "processes": {
+        "control": {
+          "rss": 352657408,
+          "heapTotal": 229904384,
+          "heapUsed": 77014144,
+          "external": 44494133,
+          "arrayBuffers": 558564
+        },
+        "controlCpu": {
+          "user": 134328000,
+          "system": 58171000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155262976,
+            "cpu": {
+              "user": 7515000,
+              "system": 3593000
+            },
+            "heartbeat": 1793098189628
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153255936,
+            "cpu": {
+              "user": 7296000,
+              "system": 3359000
+            },
+            "heartbeat": 1793098189312
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:51.342Z"
+    },
+    {
+      "i": 67,
+      "runnerRss": 90476544,
+      "processes": {
+        "control": {
+          "rss": 351756288,
+          "heapTotal": 211337216,
+          "heapUsed": 75596664,
+          "external": 44418526,
+          "arrayBuffers": 482957
+        },
+        "controlCpu": {
+          "user": 135171000,
+          "system": 58734000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155262976,
+            "cpu": {
+              "user": 7531000,
+              "system": 3593000
+            },
+            "heartbeat": 1793098193642
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153432064,
+            "cpu": {
+              "user": 7296000,
+              "system": 3359000
+            },
+            "heartbeat": 1793098193326
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:54.058Z"
+    },
+    {
+      "i": 68,
+      "runnerRss": 95563776,
+      "processes": {
+        "control": {
+          "rss": 352124928,
+          "heapTotal": 212385792,
+          "heapUsed": 92522760,
+          "external": 44772852,
+          "arrayBuffers": 837283
+        },
+        "controlCpu": {
+          "user": 136453000,
+          "system": 59703000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155348992,
+            "cpu": {
+              "user": 7562000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098197678
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153436160,
+            "cpu": {
+              "user": 7328000,
+              "system": 3375000
+            },
+            "heartbeat": 1793098197335
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:49:58.216Z"
+    },
+    {
+      "i": 69,
+      "runnerRss": 98091008,
+      "processes": {
+        "control": {
+          "rss": 349913088,
+          "heapTotal": 214745088,
+          "heapUsed": 66586688,
+          "external": 44288388,
+          "arrayBuffers": 352819
+        },
+        "controlCpu": {
+          "user": 139781000,
+          "system": 61593000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156033024,
+            "cpu": {
+              "user": 7625000,
+              "system": 3640000
+            },
+            "heartbeat": 1793098205724
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153436160,
+            "cpu": {
+              "user": 7375000,
+              "system": 3406000
+            },
+            "heartbeat": 1793098205401
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:06.963Z"
+    },
+    {
+      "i": 70,
+      "runnerRss": 96145408,
+      "processes": {
+        "control": {
+          "rss": 354283520,
+          "heapTotal": 217243648,
+          "heapUsed": 121286456,
+          "external": 44608000,
+          "arrayBuffers": 672431
+        },
+        "controlCpu": {
+          "user": 140343000,
+          "system": 61906000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156033024,
+            "cpu": {
+              "user": 7625000,
+              "system": 3640000
+            },
+            "heartbeat": 1793098207712
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153436160,
+            "cpu": {
+              "user": 7390000,
+              "system": 3406000
+            },
+            "heartbeat": 1793098207372
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:08.778Z"
+    },
+    {
+      "i": 71,
+      "runnerRss": 98889728,
+      "processes": {
+        "control": {
+          "rss": 351264768,
+          "heapTotal": 212647936,
+          "heapUsed": 69029664,
+          "external": 44353436,
+          "arrayBuffers": 417867
+        },
+        "controlCpu": {
+          "user": 141328000,
+          "system": 62359000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155602944,
+            "cpu": {
+              "user": 7671000,
+              "system": 3656000
+            },
+            "heartbeat": 1793098209722
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153440256,
+            "cpu": {
+              "user": 7406000,
+              "system": 3421000
+            },
+            "heartbeat": 1793098211405
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:11.659Z"
+    },
+    {
+      "i": 72,
+      "runnerRss": 90341376,
+      "processes": {
+        "control": {
+          "rss": 353046528,
+          "heapTotal": 215465984,
+          "heapUsed": 100478688,
+          "external": 44276975,
+          "arrayBuffers": 341406
+        },
+        "controlCpu": {
+          "user": 142265000,
+          "system": 62921000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155537408,
+            "cpu": {
+              "user": 7718000,
+              "system": 3671000
+            },
+            "heartbeat": 1793098213741
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153440256,
+            "cpu": {
+              "user": 7406000,
+              "system": 3437000
+            },
+            "heartbeat": 1793098213412
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:14.757Z"
+    },
+    {
+      "i": 73,
+      "runnerRss": 95006720,
+      "processes": {
+        "control": {
+          "rss": 355000320,
+          "heapTotal": 219389952,
+          "heapUsed": 121634368,
+          "external": 44600975,
+          "arrayBuffers": 665406
+        },
+        "controlCpu": {
+          "user": 143734000,
+          "system": 63828000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155611136,
+            "cpu": {
+              "user": 7734000,
+              "system": 3687000
+            },
+            "heartbeat": 1793098217737
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153468928,
+            "cpu": {
+              "user": 7437000,
+              "system": 3437000
+            },
+            "heartbeat": 1793098217424
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:19.135Z"
+    },
+    {
+      "i": 74,
+      "runnerRss": 99045376,
+      "processes": {
+        "control": {
+          "rss": 350773248,
+          "heapTotal": 230658048,
+          "heapUsed": 89900512,
+          "external": 44357007,
+          "arrayBuffers": 421438
+        },
+        "controlCpu": {
+          "user": 147046000,
+          "system": 65687000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155725824,
+            "cpu": {
+              "user": 7890000,
+              "system": 3781000
+            },
+            "heartbeat": 1793098225758
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153473024,
+            "cpu": {
+              "user": 7500000,
+              "system": 3500000
+            },
+            "heartbeat": 1793098225489
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:27.310Z"
+    },
+    {
+      "i": 75,
+      "runnerRss": 96112640,
+      "processes": {
+        "control": {
+          "rss": 351191040,
+          "heapTotal": 214425600,
+          "heapUsed": 107838632,
+          "external": 44392341,
+          "arrayBuffers": 456772
+        },
+        "controlCpu": {
+          "user": 147781000,
+          "system": 66078000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155746304,
+            "cpu": {
+              "user": 7906000,
+              "system": 3828000
+            },
+            "heartbeat": 1793098227834
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153473024,
+            "cpu": {
+              "user": 7515000,
+              "system": 3531000
+            },
+            "heartbeat": 1793098229486
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:29.569Z"
+    },
+    {
+      "i": 76,
+      "runnerRss": 97091584,
+      "processes": {
+        "control": {
+          "rss": 354844672,
+          "heapTotal": 219312128,
+          "heapUsed": 130243352,
+          "external": 44714233,
+          "arrayBuffers": 778664
+        },
+        "controlCpu": {
+          "user": 148750000,
+          "system": 66609000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155811840,
+            "cpu": {
+              "user": 7921000,
+              "system": 3828000
+            },
+            "heartbeat": 1793098231790
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7515000,
+              "system": 3531000
+            },
+            "heartbeat": 1793098231503
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:32.506Z"
+    },
+    {
+      "i": 77,
+      "runnerRss": 91746304,
+      "processes": {
+        "control": {
+          "rss": 351907840,
+          "heapTotal": 218566656,
+          "heapUsed": 95674040,
+          "external": 44628732,
+          "arrayBuffers": 693163
+        },
+        "controlCpu": {
+          "user": 149890000,
+          "system": 67031000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155820032,
+            "cpu": {
+              "user": 7937000,
+              "system": 3843000
+            },
+            "heartbeat": 1793098233790
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7515000,
+              "system": 3531000
+            },
+            "heartbeat": 1793098233512
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:35.304Z"
+    },
+    {
+      "i": 78,
+      "runnerRss": 94457856,
+      "processes": {
+        "control": {
+          "rss": 352366592,
+          "heapTotal": 216580096,
+          "heapUsed": 92731024,
+          "external": 44357513,
+          "arrayBuffers": 421944
+        },
+        "controlCpu": {
+          "user": 151718000,
+          "system": 67890000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155447296,
+            "cpu": {
+              "user": 8093000,
+              "system": 3937000
+            },
+            "heartbeat": 1793098239799
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153550848,
+            "cpu": {
+              "user": 7531000,
+              "system": 3578000
+            },
+            "heartbeat": 1793098239540
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:40.001Z"
+    },
+    {
+      "i": 79,
+      "runnerRss": 100892672,
+      "processes": {
+        "control": {
+          "rss": 353054720,
+          "heapTotal": 218624000,
+          "heapUsed": 112748624,
+          "external": 44856244,
+          "arrayBuffers": 920675
+        },
+        "controlCpu": {
+          "user": 155281000,
+          "system": 69359000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156151808,
+            "cpu": {
+              "user": 8109000,
+              "system": 3953000
+            },
+            "heartbeat": 1793098247844
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7578000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098247578
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:48.373Z"
+    },
+    {
+      "i": 80,
+      "runnerRss": 102813696,
+      "processes": {
+        "control": {
+          "rss": 351629312,
+          "heapTotal": 220454912,
+          "heapUsed": 103797408,
+          "external": 44392689,
+          "arrayBuffers": 457120
+        },
+        "controlCpu": {
+          "user": 156109000,
+          "system": 69609000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156160000,
+            "cpu": {
+              "user": 8125000,
+              "system": 3968000
+            },
+            "heartbeat": 1793098249841
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7578000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098249579
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:50.433Z"
+    },
+    {
+      "i": 81,
+      "runnerRss": 98058240,
+      "processes": {
+        "control": {
+          "rss": 352096256,
+          "heapTotal": 220250112,
+          "heapUsed": 73440528,
+          "external": 44568980,
+          "arrayBuffers": 633411
+        },
+        "controlCpu": {
+          "user": 157109000,
+          "system": 70000000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156168192,
+            "cpu": {
+              "user": 8171000,
+              "system": 3968000
+            },
+            "heartbeat": 1793098251859
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7578000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098251595
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:53.097Z"
+    },
+    {
+      "i": 82,
+      "runnerRss": 99045376,
+      "processes": {
+        "control": {
+          "rss": 355618816,
+          "heapTotal": 228773888,
+          "heapUsed": 127915528,
+          "external": 44558839,
+          "arrayBuffers": 623270
+        },
+        "controlCpu": {
+          "user": 158343000,
+          "system": 70390000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156209152,
+            "cpu": {
+              "user": 8187000,
+              "system": 3984000
+            },
+            "heartbeat": 1793098253886
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7609000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098255624
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:50:55.765Z"
+    },
+    {
+      "i": 83,
+      "runnerRss": 100679680,
+      "processes": {
+        "control": {
+          "rss": 354705408,
+          "heapTotal": 215908352,
+          "heapUsed": 119936376,
+          "external": 44878567,
+          "arrayBuffers": 942998
+        },
+        "controlCpu": {
+          "user": 160093000,
+          "system": 71156000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156295168,
+            "cpu": {
+              "user": 8203000,
+              "system": 4000000
+            },
+            "heartbeat": 1793098259918
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7625000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098259645
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:00.040Z"
+    },
+    {
+      "i": 84,
+      "runnerRss": 103571456,
+      "processes": {
+        "control": {
+          "rss": 354336768,
+          "heapTotal": 219205632,
+          "heapUsed": 80826224,
+          "external": 44258144,
+          "arrayBuffers": 322575
+        },
+        "controlCpu": {
+          "user": 164000000,
+          "system": 72859000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156323840,
+            "cpu": {
+              "user": 8265000,
+              "system": 4015000
+            },
+            "heartbeat": 1793098267926
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153554944,
+            "cpu": {
+              "user": 7703000,
+              "system": 3609000
+            },
+            "heartbeat": 1793098267653
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:08.753Z"
+    },
+    {
+      "i": 85,
+      "runnerRss": 104218624,
+      "processes": {
+        "control": {
+          "rss": 352468992,
+          "heapTotal": 219545600,
+          "heapUsed": 73232816,
+          "external": 44408262,
+          "arrayBuffers": 472693
+        },
+        "controlCpu": {
+          "user": 164671000,
+          "system": 73125000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156323840,
+            "cpu": {
+              "user": 8265000,
+              "system": 4031000
+            },
+            "heartbeat": 1793098269936
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153559040,
+            "cpu": {
+              "user": 7703000,
+              "system": 3625000
+            },
+            "heartbeat": 1793098269661
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:10.592Z"
+    },
+    {
+      "i": 86,
+      "runnerRss": 99545088,
+      "processes": {
+        "control": {
+          "rss": 352129024,
+          "heapTotal": 215158784,
+          "heapUsed": 114558720,
+          "external": 44696711,
+          "arrayBuffers": 761142
+        },
+        "controlCpu": {
+          "user": 165953000,
+          "system": 73515000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156323840,
+            "cpu": {
+              "user": 8328000,
+              "system": 4031000
+            },
+            "heartbeat": 1793098271934
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153559040,
+            "cpu": {
+              "user": 7703000,
+              "system": 3625000
+            },
+            "heartbeat": 1793098271668
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:13.424Z"
+    },
+    {
+      "i": 87,
+      "runnerRss": 100556800,
+      "processes": {
+        "control": {
+          "rss": 354885632,
+          "heapTotal": 219471872,
+          "heapUsed": 109835920,
+          "external": 44277391,
+          "arrayBuffers": 341822
+        },
+        "controlCpu": {
+          "user": 167062000,
+          "system": 74062000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156327936,
+            "cpu": {
+              "user": 8359000,
+              "system": 4031000
+            },
+            "heartbeat": 1793098275961
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153559040,
+            "cpu": {
+              "user": 7750000,
+              "system": 3640000
+            },
+            "heartbeat": 1793098275666
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:16.371Z"
+    },
+    {
+      "i": 88,
+      "runnerRss": 94969856,
+      "processes": {
+        "control": {
+          "rss": 353402880,
+          "heapTotal": 222601216,
+          "heapUsed": 115953032,
+          "external": 44741922,
+          "arrayBuffers": 806353
+        },
+        "controlCpu": {
+          "user": 168671000,
+          "system": 74937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 156327936,
+            "cpu": {
+              "user": 8421000,
+              "system": 4046000
+            },
+            "heartbeat": 1793098280015
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153513984,
+            "cpu": {
+              "user": 7859000,
+              "system": 3718000
+            },
+            "heartbeat": 1793098279691
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:20.944Z"
+    },
+    {
+      "i": 89,
+      "runnerRss": 103100416,
+      "processes": {
+        "control": {
+          "rss": 352231424,
+          "heapTotal": 218759168,
+          "heapUsed": 79527920,
+          "external": 44282378,
+          "arrayBuffers": 346809
+        },
+        "controlCpu": {
+          "user": 172875000,
+          "system": 76312000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155152384,
+            "cpu": {
+              "user": 8609000,
+              "system": 4046000
+            },
+            "heartbeat": 1793098288017
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153567232,
+            "cpu": {
+              "user": 7921000,
+              "system": 3718000
+            },
+            "heartbeat": 1793098287732
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:29.749Z"
+    },
+    {
+      "i": 90,
+      "runnerRss": 98267136,
+      "processes": {
+        "control": {
+          "rss": 353353728,
+          "heapTotal": 222396416,
+          "heapUsed": 102287656,
+          "external": 44601241,
+          "arrayBuffers": 665672
+        },
+        "controlCpu": {
+          "user": 173468000,
+          "system": 76562000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155160576,
+            "cpu": {
+              "user": 8609000,
+              "system": 4046000
+            },
+            "heartbeat": 1793098290082
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153567232,
+            "cpu": {
+              "user": 7968000,
+              "system": 3718000
+            },
+            "heartbeat": 1793098291753
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:31.868Z"
+    },
+    {
+      "i": 91,
+      "runnerRss": 99147776,
+      "processes": {
+        "control": {
+          "rss": 357912576,
+          "heapTotal": 230817792,
+          "heapUsed": 130942008,
+          "external": 44781308,
+          "arrayBuffers": 845739
+        },
+        "controlCpu": {
+          "user": 174484000,
+          "system": 77093000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155492352,
+            "cpu": {
+              "user": 8671000,
+              "system": 4062000
+            },
+            "heartbeat": 1793098294017
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153567232,
+            "cpu": {
+              "user": 7968000,
+              "system": 3718000
+            },
+            "heartbeat": 1793098293760
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:34.769Z"
+    },
+    {
+      "i": 92,
+      "runnerRss": 94633984,
+      "processes": {
+        "control": {
+          "rss": 352280576,
+          "heapTotal": 231149568,
+          "heapUsed": 101045176,
+          "external": 44485004,
+          "arrayBuffers": 549435
+        },
+        "controlCpu": {
+          "user": 175703000,
+          "system": 77906000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155492352,
+            "cpu": {
+              "user": 8687000,
+              "system": 4078000
+            },
+            "heartbeat": 1793098296041
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153567232,
+            "cpu": {
+              "user": 8015000,
+              "system": 3734000
+            },
+            "heartbeat": 1793098295761
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:37.743Z"
+    },
+    {
+      "i": 93,
+      "runnerRss": 96337920,
+      "processes": {
+        "control": {
+          "rss": 352829440,
+          "heapTotal": 222085120,
+          "heapUsed": 105504728,
+          "external": 44276943,
+          "arrayBuffers": 341374
+        },
+        "controlCpu": {
+          "user": 177500000,
+          "system": 78875000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155717632,
+            "cpu": {
+              "user": 8734000,
+              "system": 4093000
+            },
+            "heartbeat": 1793098302037
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153849856,
+            "cpu": {
+              "user": 8062000,
+              "system": 3734000
+            },
+            "heartbeat": 1793098301782
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:42.297Z"
+    },
+    {
+      "i": 94,
+      "runnerRss": 102158336,
+      "processes": {
+        "control": {
+          "rss": 359583744,
+          "heapTotal": 231223296,
+          "heapUsed": 127737576,
+          "external": 44631055,
+          "arrayBuffers": 695486
+        },
+        "controlCpu": {
+          "user": 181328000,
+          "system": 80578000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155742208,
+            "cpu": {
+              "user": 8765000,
+              "system": 4109000
+            },
+            "heartbeat": 1793098310064
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 153497600,
+            "cpu": {
+              "user": 8093000,
+              "system": 3765000
+            },
+            "heartbeat": 1793098309826
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:51.029Z"
+    },
+    {
+      "i": 95,
+      "runnerRss": 102690816,
+      "processes": {
+        "control": {
+          "rss": 355688448,
+          "heapTotal": 227168256,
+          "heapUsed": 82882528,
+          "external": 44781141,
+          "arrayBuffers": 845572
+        },
+        "controlCpu": {
+          "user": 182140000,
+          "system": 80828000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155750400,
+            "cpu": {
+              "user": 8765000,
+              "system": 4125000
+            },
+            "heartbeat": 1793098312059
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154132480,
+            "cpu": {
+              "user": 8093000,
+              "system": 3781000
+            },
+            "heartbeat": 1793098311828
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:53.102Z"
+    },
+    {
+      "i": 96,
+      "runnerRss": 98664448,
+      "processes": {
+        "control": {
+          "rss": 355844096,
+          "heapTotal": 228433920,
+          "heapUsed": 111112456,
+          "external": 44276559,
+          "arrayBuffers": 340990
+        },
+        "controlCpu": {
+          "user": 183453000,
+          "system": 81234000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155758592,
+            "cpu": {
+              "user": 8765000,
+              "system": 4156000
+            },
+            "heartbeat": 1793098314074
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154144768,
+            "cpu": {
+              "user": 8125000,
+              "system": 3796000
+            },
+            "heartbeat": 1793098313893
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:55.750Z"
+    },
+    {
+      "i": 97,
+      "runnerRss": 98664448,
+      "processes": {
+        "control": {
+          "rss": 352706560,
+          "heapTotal": 224706560,
+          "heapUsed": 73974304,
+          "external": 44560557,
+          "arrayBuffers": 624988
+        },
+        "controlCpu": {
+          "user": 184515000,
+          "system": 81875000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155918336,
+            "cpu": {
+              "user": 8812000,
+              "system": 4203000
+            },
+            "heartbeat": 1793098318092
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154144768,
+            "cpu": {
+              "user": 8140000,
+              "system": 3859000
+            },
+            "heartbeat": 1793098317861
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:51:58.717Z"
+    },
+    {
+      "i": 98,
+      "runnerRss": 99500032,
+      "processes": {
+        "control": {
+          "rss": 354799616,
+          "heapTotal": 217657344,
+          "heapUsed": 94410720,
+          "external": 44553135,
+          "arrayBuffers": 617566
+        },
+        "controlCpu": {
+          "user": 186468000,
+          "system": 82937000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155426816,
+            "cpu": {
+              "user": 8875000,
+              "system": 4234000
+            },
+            "heartbeat": 1793098322105
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154144768,
+            "cpu": {
+              "user": 8156000,
+              "system": 3875000
+            },
+            "heartbeat": 1793098321867
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:52:03.459Z"
+    },
+    {
+      "i": 99,
+      "runnerRss": 103161856,
+      "processes": {
+        "control": {
+          "rss": 357126144,
+          "heapTotal": 229191680,
+          "heapUsed": 146242528,
+          "external": 44266859,
+          "arrayBuffers": 331290
+        },
+        "controlCpu": {
+          "user": 190578000,
+          "system": 84671000
+        },
+        "workers": [
+          {
+            "agentId": "agent-a",
+            "rss": 155611136,
+            "cpu": {
+              "user": 8937000,
+              "system": 4296000
+            },
+            "heartbeat": 1793098332147
+          },
+          {
+            "agentId": "agent-b",
+            "rss": 154144768,
+            "cpu": {
+              "user": 8156000,
+              "system": 3953000
+            },
+            "heartbeat": 1793098331902
+          }
+        ]
+      },
+      "timestamp": "2026-10-27T10:52:12.582Z"
+    }
+  ],
+  "latencies": [
+    1.2294000000110827,
+    1.3236000000033528,
+    1.3376000000280328,
+    1.351699999999255,
+    1.3656999999657273,
+    1.4266999999526888,
+    1.447199999995064,
+    1.4925999999977648,
+    1.4932999999728054,
+    1.5117000000027474,
+    1.5213000000221655,
+    1.5359000000171363,
+    1.5852000000304542,
+    1.598299999954179,
+    1.6285999999963678,
+    1.6324999999487773,
+    1.6493999999947846,
+    1.6828999999852385,
+    1.6932999999989988,
+    1.739099999947939,
+    1.7899999999790452,
+    1.8289000000077067,
+    1.8334000000031665,
+    1.8522999999695458,
+    1.8693999999959487,
+    1.9177999999956228,
+    1.9219000000157394,
+    1.9585000000079162,
+    2.07929999998305,
+    2.2201999999961117,
+    2.3357000000032713,
+    2.4430000000284053,
+    2.6098000000347383,
+    2.650000000001455,
+    2.737599999996746,
+    2.8766000000032363,
+    2.930899999992107,
+    2.963999999999942,
+    3.0574999999953434,
+    3.06150000001071,
+    3.0974999999743886,
+    3.162499999976717,
+    3.2160999999614432,
+    3.262400000006892,
+    3.305500000016764,
+    3.4743000000016764,
+    3.48689999999624,
+    3.6080000000074506,
+    3.653200000000652,
+    4.013999999966472,
+    4.076500000001033,
+    4.115700000023935,
+    4.165000000037253,
+    4.277300000016112,
+    4.5614000000059605,
+    4.578600000008009,
+    4.7317000000039116,
+    4.846699999994598,
+    5.463199999998324,
+    5.796300000001793,
+    5.968600000021979,
+    6.168299999961164,
+    6.23489999998128,
+    6.415799999987939,
+    6.632299999997485,
+    6.678099999960978,
+    7.000900000042748,
+    7.510000000009313,
+    7.590899999981048,
+    7.79570000001695,
+    7.981199999994715,
+    8.166300000011688,
+    8.319400000036694,
+    8.871600000013132,
+    11.079700000002049,
+    11.12789999996312,
+    11.20250000001397,
+    11.691600000005565,
+    12.053300000028685,
+    12.464399999997113,
+    12.57740000000922,
+    13.20130000001518,
+    13.337200000009034,
+    13.376700000022538,
+    13.73200000001816,
+    13.854400000011083,
+    14.975399999995716,
+    15.324199999973644,
+    15.811599999957252,
+    16.129500000039116,
+    16.381499999959487,
+    17.229599999962375,
+    17.384699999995064,
+    22.181199999991804,
+    23.851699999999255,
+    27.76559999998426,
+    29.3466999999946,
+    30.711000000010245,
+    31.536600000050385,
+    32.65880000003381
+  ],
+  "scope": "runner RSS, control RSS/CPU and worker heartbeat RSS/CPU; one light diagnostics latency sample after each task"
+}

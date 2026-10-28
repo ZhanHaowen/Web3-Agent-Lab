@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>Web3 Agent Lab V0.13 · 实验工作台</title>
+  <title>Web3 Agent Lab V0.15 · 实验工作台</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
@@ -13,18 +13,18 @@
     <aside class="sidebar">
       <a class="brand" href="#experiment" aria-label="Web3 Agent Lab 首页"><span class="brand-icon">W<span>3</span></span><span>Agent Lab<small>WEB3 RESEARCH WORKSPACE</small></span></a>
       <div class="sidebar-label">实验工作台</div>
-      <nav aria-label="主导航">
+      <nav aria-label="主导航"><a class="nav-item" href="/tasks.html">任务与 Agent 中心 <span class="nav-end">NEW</span></a>
         <button class="nav-item active" data-tab="experiment"><span class="nav-icon">◈</span>运行实验<span class="nav-end">01</span></button>
         <button class="nav-item" data-tab="environment"><span class="nav-icon">▦</span>链与环境<span class="nav-end">02</span></button>
         <button class="nav-item" data-tab="archive"><span class="nav-icon">▤</span>实验档案<span class="nav-end">03</span></button>
         <button class="nav-item" data-tab="help"><span class="nav-icon">?</span>使用指南<span class="nav-end">04</span></button>
-      </nav>
+      <a class="nav-item" href="/services.html">购买 Agent 服务 <span class="nav-end">NEW</span></a><a class="nav-item" href="/budget.html">跨路径资产授权与预算控制</a></nav>
       <div class="sidebar-note"><span class="eyebrow">LOCAL FIRST</span><p>观察每一步行为，<br>以链上事实验真。</p><span>原始记录 · 独立检查 · 可重复运行</span></div>
       <div class="connection"><span class="status-dot" id="connection-dot"></span><div id="connection-text">正在连接本地服务<small id="version-text">localhost · 4317</small></div></div>
     </aside>
 
     <main class="main">
-      <header class="topbar"><div><span class="breadcrumb">实验基础设施</span><span class="breadcrumb-separator">/</span><span id="current-tab-label">运行实验</span></div><div class="topbar-meta"><span class="pill muted">V0.13 · Beta</span><span class="pill muted">本地实验资产</span><button class="text-button" id="refresh-all">刷新状态 ↻</button></div></header>
+      <header class="topbar"><div><span class="breadcrumb">实验基础设施</span><span class="breadcrumb-separator">/</span><span id="current-tab-label">运行实验</span></div><div class="topbar-meta"><span class="pill muted">V0.15 · Beta</span><span class="pill muted">本地实验资产</span><button class="text-button" id="refresh-all">刷新状态 ↻</button></div></header>
       <div class="page-content">
         <div class="page-title"><div><p class="eyebrow">WEB3 AGENT EXPERIMENTS</p><h1 id="page-title">从任务到证据，一次完整实验。</h1><p id="page-subtitle">配置 Agent，执行链上任务，保留可检查的完整轨迹。</p></div><div class="chain-badge"><span class="status-dot" id="chain-dot"></span><div id="chain-label">链环境未初始化<small id="chain-subtitle">先在「链与环境」启动实验链</small></div></div></div>
         <div id="notification" class="notification hidden" role="status"><span id="notification-text"></span><button aria-label="关闭提示" id="notification-close">×</button></div>
@@ -61,7 +61,7 @@
         <section id="tab-archive" class="tab-panel hidden"><div class="card"><div class="card-heading"><div><span class="eyebrow">EXPERIMENT ARCHIVE</span><h2>历史实验 <span id="history-count" class="count">0</span></h2></div><button class="button secondary small" id="refresh-history">刷新档案</button></div><div class="info-box">任务结果依据独立检查器；链上执行结果仅描述交易执行，两者分别筛选。轨迹回放不调用模型。筛选条件同时生效，自动刷新会保留选择。</div><div class="history-toolbar"><label class="field history-search">搜索<input id="history-filter" type="search" placeholder="实验编号、中文 / 英文任务、模型、输入…"></label><label class="field">任务<select id="history-task"><option value="">全部任务</option></select></label><label class="field">任务完成结果<select id="history-task-result"><option value="">全部任务结果</option><option value="success">成功</option><option value="failure">失败</option><option value="pending">等待确认</option><option value="unknown">结果未知 / 未检查</option></select></label><label class="field">链上执行结果<select id="history-chain-result"><option value="">全部链上结果</option><option value="success">交易成功</option><option value="reverted">交易回滚 / 失败</option><option value="pending">交易等待确认</option><option value="mixed">交易结果不一致</option><option value="unknown">交易结果未知</option><option value="not_submitted">未提交交易</option></select></label><button class="button secondary small" id="history-clear">清空筛选</button><label class="button secondary small import-label">打开导出包<input id="import-bundle" type="file" accept=".json,application/json" hidden></label></div><div class="table-scroll"><table class="history-table"><thead><tr><th>实验 / 时间</th><th>任务</th><th>模式</th><th>模型版本</th><th>任务完成结果</th><th>链上执行结果</th><th>操作</th></tr></thead><tbody id="history-list"></tbody></table></div><div id="history-empty" class="empty-state"><div class="empty-icon">▤</div><h3>没有符合当前筛选的实验</h3><p>可清空筛选，或完成一次实验后刷新档案。</p></div><section id="archive-detail" class="archive-detail hidden"><div class="card-heading"><h3 id="archive-detail-title">任务输入与配置</h3><button class="text-button" id="archive-detail-close">收起 ×</button></div><p id="archive-detail-model" class="field-note"></p><h3>实际任务输入</h3><pre id="archive-detail-input" class="raw-json"></pre><h3>保存的脱敏配置</h3><p class="field-note">缺失字段标记为未记录；不会用当前表单补写历史数据。配置中的敏感字段会再次遮蔽。</p><pre id="archive-detail-config" class="raw-json"></pre></section></div></section>
 
         <section id="tab-help" class="tab-panel hidden"><div class="two-column"><div class="card"><div class="card-heading"><div><span class="eyebrow">QUICK START</span><h2>第一次使用</h2></div></div><ol class="help-steps"><li><strong>初始化链环境</strong><p>在「链与环境」点击初始化，等待合约与账户准备完成。先使用默认本地链。</p></li><li><strong>完成一条脚本基线</strong><p>选择转账任务，使用「脚本基线」运行。基线用于核验软件，不代表 LLM 的能力。</p></li><li><strong>检查事实是否完整</strong><p>查看行为轨迹与独立检查结果，展开事件了解提交参数、交易回执与状态变化。</p></li><li><strong>配置真正的 LLM Agent</strong><p>重置环境，切换 LLM Agent，填入兼容端点、模型与密钥。模型需支持工具调用。</p></li><li><strong>导出与复现</strong><p>导出实验包留存原始证据。在档案中回放记录；独立重跑产生新编号，连续实验按当前状态继续。</p></li></ol></div><div class="workspace-column"><div class="card"><div class="card-heading"><h2>读懂实验结果</h2></div><dl class="status-guide"><dt><span class="pill success">成功</span></dt><dd>链上证据满足任务断言，未发现未解决的必要交易。</dd><dt><span class="pill danger">失败</span></dt><dd>存在足够证据证明目标未达成或执行违反任务条件。</dd><dt><span class="pill warning">等待确认</span></dt><dd>已知交易尚未确认；可手动出块后再次检查。</dd><dt><span class="pill muted">结果未知</span></dt><dd>缺少必要证据或 RPC 查询失败，不能据此断言成功。</dd></dl><p class="field-note">取消运行不等于撤销交易：已提交的交易可能仍会被确认。请检查链上状态。</p></div><div class="card"><div class="card-heading"><h2>数据与实验边界</h2></div><ul class="help-notes"><li>独立实验每次恢复标准基线；连续实验继承当前状态。当前余额预览不是锁定初态，实际起点以 state.before 为准。</li><li>连续历史实验不能原样重跑。会话和前次运行关系保存在各自配置中，手动恢复快照后新建运行仍是新实验。</li><li>状态表默认以人类单位显示运行前、后和变化量，可勾选查看原始整数。交易执行成功与任务成功分开判定。</li><li>数据保存在本机，原始事件与后续检查标签分开保存。</li><li>界面只展示接口实际返回的模型内容，不采集模型内部思维。</li><li>模型重新调用可能产生不同输出，即使初始链状态一致。</li><li>本地 AMM 与 Vault 用于受控实验；真实协议研究需另行适配任务和检查器。</li><li>不向实验环境导入真实资产、个人钱包或生产私钥。</li></ul></div><div class="card"><div class="card-heading"><h2>常见操作</h2></div><p class="card-description">交易停在等待确认：先检查自动出块开关，或手动出块。环境无法启动：查看启动终端中的 Anvil、端口和依赖错误。模型无响应：核对端点、模型工具调用能力和密钥。</p><p class="field-note">详细部署步骤、数据格式及技术选型见软件包内的操作手册与 docs 目录。</p></div></div></div></section>
-      </div><footer class="page-footer"><span>Web3 Agent Lab <span class="footer-dot">·</span> 可检查、可重置、可复现</span><span>V0.13 · 单机科研实验平台</span></footer>
+      </div><footer class="page-footer"><span>Web3 Agent Lab <span class="footer-dot">·</span> 可检查、可重置、可复现</span><span>V0.15 · 单机科研实验平台</span></footer>
     </main>
   </div>
 </body>

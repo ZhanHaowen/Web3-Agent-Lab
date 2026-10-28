@@ -1,0 +1,13 @@
+{
+  "sourceHash": "a9259402915b5c6d535ac16857a3050f90367cb232c55df859cb63febcf1d15e",
+  "version": "V0.12",
+  "testedAt": "2026-10-14T13:27:18.360Z",
+  "scripted": 35,
+  "protocol_fixture": 3,
+  "total": 38,
+  "allSourceHashesMatch": true,
+  "allOriginalManifestsVerified": true,
+  "allDerivedManifestsVerified": true,
+  "allGraphEndpointsValid": true,
+  "realModelTested": false
+}

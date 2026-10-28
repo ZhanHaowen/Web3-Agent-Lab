@@ -1,0 +1,37 @@
+﻿caseId,status,subchecks,coverageReason,evidenceReports
+AT-01,BLOCKED,,"""Full frozen dependency installation and TypeScript build chain have not yet been independently validated. New executable modules are ESM; original pinned TypeScript sources included.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-02,BLOCKED,PASS,"""Task-center UI publication and before/after chain nonce evidence are not captured by this API-only case.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-03,PASS,PASS,[],docs/acceptance-final-recovery-r3/supplement/summary.json
+AT-04,BLOCKED,PASS,"""Rejected responses are asserted, but before/after intent counts and wallet nonces are not recorded here.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-05,BLOCKED,PASS,"""Duplicate IDs and conflict are asserted; explicit database lease and event evidence is not exported here.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-06,BLOCKED,PASS,"""This case covers the fifteen adapter baselines. Original API/CLI, amount, continuation, manual mining and graph regressions must also be linked from docs/acceptance-legacy/summary.json.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-07,BLOCKED,PASS,"""Process and agentRunId separation are asserted, but retained session, inbox and cost isolation are not all explicitly compared.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-08,BLOCKED,PASS,"""Sender and definition identity are asserted, but both complete execution configurations are not exported here.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-09,BLOCKED,,"""Full reservation expiry and late identity adversary suite not yet run.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-10,BLOCKED,,"""Persistent message deduplication implemented; full triple-delivery late-message fixture pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-11,BLOCKED,PASS,"""The pending-transaction confirmation branch and exact resume-once evidence are not exercised here; required screen recording is absent.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-12,PASS,PASS,[],docs/acceptance-final-recovery-r3/supplement/summary.json
+AT-13,PASS,PASS,"""All subconditions exercised by this case.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-14,PASS,PASS,"""All subconditions exercised by this case.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-15,BLOCKED,PASS,"""Negotiation step-budget exhaustion is not exercised here.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-16,BLOCKED,,"""Original amount guard preserved; requested continuous model correction fixture pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-17,BLOCKED,,"""Original allowance checker preserved; all requested continuous initial-state cases pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-18,BLOCKED,,"""Chain scan implemented; hidden-extra-transaction fixture pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-19,BLOCKED,,"""Existing contract regressions need current build execution.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-20,BLOCKED,,"""Existing deadline and repeated refund fixtures need current build execution.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-21,BLOCKED,PASS,"""Three crash recoveries pass, but explicit same-intent resubmission nonce comparison and the unconfirmable unknown branch are not covered.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-22,BLOCKED,,"""All three Agent crash injection points not fully run.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-23,BLOCKED,,"""Both archive/ACK crash points not fully run.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-24,BLOCKED,,"""Chain identity and record failure guards implemented; full injected suite pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-25,BLOCKED,,"""Real dual-model evidence unavailable.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-26,BLOCKED,PASS,"""The explicit full model/tool/message/quote/order/EVM-frame path and required node-detail screenshot are not completely checked here.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-27,BLOCKED,,"""Old and tampered fixture comparison pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-28,BLOCKED,PASS,"""CLI offline commands are checked; the local archive-page flow, downloaded graph files and independent network observation are absent.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-29,BLOCKED,PASS,"""Only child Job creation and continuous retry refusal are checked; an actual independent rerun with configuration/initial-state comparison and retained LLM variation is absent.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-30,BLOCKED,,"""Full private-information and cross-role scans pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-31,BLOCKED,,"""BLOCKED: Computer Use stopped because it could not confidently determine the current browser URL. Required two window sizes, XSS fixture and repeated-click UI run were not performed.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-32,BLOCKED,,"""No real model credentials supplied; fixtures cannot replace 10 real attempts.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-33,PASS,PASS,"""All subconditions exercised by this case.""",docs/acceptance-final-stability-r3/acceptance-summary.json
+AT-34,BLOCKED,,"""Packaged clean-user Windows GUI/port proof pending.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-35,BLOCKED,,"""No Apple Silicon macOS host available.""",docs/acceptance-final-core-r3/acceptance-summary.json
+AT-36,BLOCKED,,"""Requires independent human verifier and signature.""",docs/acceptance-final-core-r3/acceptance-summary.json

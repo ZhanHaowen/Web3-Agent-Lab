@@ -1,0 +1,22 @@
+{
+  "taskType": "swap_deposit",
+  "version": "1.0.0",
+  "roles": [
+    "agent"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "requiredTools": [
+    "approve_token",
+    "swap",
+    "deposit"
+  ],
+  "schema": {
+    "amountIn": "decimal",
+    "minAmountOut": "decimal"
+  },
+  "prompts": {
+    "agent": "Execute the installed task using its declared amounts and original amount guard."
+  },
+  "definitionHash": "384c75ec3411c8449bda4e635b3a8defbccd92831c45704b14d38771c1fd1448"
+}

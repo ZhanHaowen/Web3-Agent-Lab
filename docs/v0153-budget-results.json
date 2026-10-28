@@ -1,0 +1,90 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "time": "2026-10-28T08:12:24.819Z",
+  "realEVM": true,
+  "officialPermit2": true,
+  "cloudModelTested": false,
+  "results": [
+    {
+      "name": "01 split policy reproduces 140 actual / 80 normal counter",
+      "passed": true,
+      "elapsedMs": 1795
+    },
+    {
+      "name": "02 unified budget rejects permit 60 after payment 80",
+      "passed": true,
+      "elapsedMs": 1733
+    },
+    {
+      "name": "03 unified 80 + permit 20 reaches exact budget",
+      "passed": true,
+      "elapsedMs": 1726
+    },
+    {
+      "name": "04 unified 80 + permit 21 is rejected",
+      "passed": true,
+      "elapsedMs": 1540
+    },
+    {
+      "name": "05 permit-only positive control transfers 60",
+      "passed": true,
+      "elapsedMs": 1523
+    },
+    {
+      "name": "06 split transaction-only 80 + 60 is rejected",
+      "passed": true,
+      "elapsedMs": 1476
+    },
+    {
+      "name": "07 reused signature nonce cannot transfer twice",
+      "passed": true,
+      "elapsedMs": 1707
+    },
+    {
+      "name": "08 a different spender cannot redeem the signed permit",
+      "passed": true,
+      "elapsedMs": 1820
+    },
+    {
+      "name": "09 wrong session and transaction destination override are rejected",
+      "passed": true,
+      "elapsedMs": 1313
+    },
+    {
+      "name": "10 concurrent permits share one reservation ledger",
+      "passed": true,
+      "elapsedMs": 1697
+    },
+    {
+      "name": "11 permit reservation also limits a later normal transaction",
+      "passed": true,
+      "elapsedMs": 1492
+    },
+    {
+      "name": "12 config rejects negative, excess precision, scientific and unknown fields",
+      "passed": true,
+      "elapsedMs": 0
+    },
+    {
+      "name": "13 export integrity and raw log checker detect tampering",
+      "passed": true,
+      "elapsedMs": 1
+    },
+    {
+      "name": "14 offline CLI distinguishes integrity from budget violation",
+      "passed": true,
+      "elapsedMs": 217
+    },
+    {
+      "name": "15 expired permit cannot be redeemed and causes no token debit",
+      "passed": true,
+      "elapsedMs": 1484
+    },
+    {
+      "name": "16 first payment above budget is rejected without any token debit",
+      "passed": true,
+      "elapsedMs": 1308
+    }
+  ]
+}

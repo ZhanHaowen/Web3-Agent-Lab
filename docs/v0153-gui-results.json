@@ -1,0 +1,58 @@
+{
+  "version": "V0.15.3",
+  "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "time": "2026-10-28T08:13:31.546Z",
+  "browser": "Chrome headless",
+  "results": [
+    {
+      "name": "category heading and template names contain no fixed numeric example",
+      "passed": true
+    },
+    {
+      "name": "selecting category preserves inputs; explicit generation uses current 250 budget and 90 first payment",
+      "passed": true
+    },
+    {
+      "name": "real browser executes generated custom split amounts and reports 275 actual / 90 normal counter",
+      "passed": true
+    },
+    {
+      "name": "same custom values are blocked under unified policy and 1024px layout fits",
+      "passed": true
+    },
+    {
+      "name": "manual exact-boundary template follows current remaining budget of 160",
+      "passed": true
+    },
+    {
+      "name": "native browser file download",
+      "passed": null,
+      "status": "BLOCKED",
+      "reason": "Headless Chrome canceled download in this environment; attachment, auto-save and copy path tested separately."
+    },
+    {
+      "name": "integrated export, copy fallback and offline replay work",
+      "passed": true
+    },
+    {
+      "name": "offline text remains inert",
+      "passed": true
+    },
+    {
+      "name": "390px layout fits viewport",
+      "passed": true
+    },
+    {
+      "name": "manual edits mark custom and recompute preview instead of retaining a stale preset label",
+      "passed": true
+    },
+    {
+      "name": "navigation stays on current main origin",
+      "passed": true
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "passed": true
+    }
+  ]
+}

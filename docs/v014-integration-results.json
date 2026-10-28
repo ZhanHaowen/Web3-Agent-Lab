@@ -1,0 +1,266 @@
+{
+  "testEnvironment": "Windows x64 / local Anvil",
+  "realLLMTested": false,
+  "macOSTested": false,
+  "results": [
+    {
+      "name": "T01 real-chain scripted peer swap: atomic 10A for 20B",
+      "passed": true,
+      "durationMs": 2304,
+      "scenarioId": "27b7b452-a19c-4256-9143-45de5cfca439",
+      "check": {
+        "checkerVersion": "peer-1.0",
+        "status": "success",
+        "settlement_status": "confirmed",
+        "business_outcome": "filled",
+        "agent_goal_results": {
+          "maker": "success",
+          "taker": "success"
+        },
+        "artifact_quality": "not_applicable",
+        "evidence_completeness": "recorded",
+        "assertions": [
+          {
+            "id": "same_chain_epoch",
+            "expected": "7e7cc581-b809-409b-a311-cd378d790c31",
+            "actual": "7e7cc581-b809-409b-a311-cd378d790c31",
+            "passed": true
+          },
+          {
+            "id": "same_scope",
+            "expected": "0xf9ec79fb885ef762cd01d216b514c9b79dc0a0d3dce4d08febe5f1f331c48dcd",
+            "actual": "0xf9ec79fb885ef762cd01d216b514c9b79dc0a0d3dce4d08febe5f1f331c48dcd",
+            "passed": true
+          },
+          {
+            "id": "same_exchange",
+            "expected": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "actual": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "passed": true
+          },
+          {
+            "id": "supply_A",
+            "expected": "10200000000",
+            "actual": "10200000000",
+            "passed": true
+          },
+          {
+            "id": "tracked_asset_conservation_A",
+            "expected": "100000000",
+            "actual": "100000000",
+            "passed": true
+          },
+          {
+            "id": "supply_B",
+            "expected": "10100000000",
+            "actual": "10100000000",
+            "passed": true
+          },
+          {
+            "id": "tracked_asset_conservation_B",
+            "expected": "100000000",
+            "actual": "100000000",
+            "passed": true
+          },
+          {
+            "id": "maker_identity",
+            "expected": "0x15d34aaf54267db7d7c367839aaf71a00a2c6a65",
+            "actual": "0x15d34aaf54267db7d7c367839aaf71a00a2c6a65",
+            "passed": true
+          },
+          {
+            "id": "taker_identity",
+            "expected": "0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc",
+            "actual": "0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc",
+            "passed": true
+          },
+          {
+            "id": "sell_token",
+            "expected": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+            "actual": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+            "passed": true
+          },
+          {
+            "id": "buy_token",
+            "expected": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+            "actual": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+            "passed": true
+          },
+          {
+            "id": "sell_amount",
+            "expected": "10000000",
+            "actual": "10000000",
+            "passed": true
+          },
+          {
+            "id": "buy_amount",
+            "expected": "20000000",
+            "actual": "20000000",
+            "passed": true
+          },
+          {
+            "id": "terms_hash",
+            "expected": "0xf2d378db977daa82a95a582267c362dbef628f6a091b2b96fcf9263770fdd8b4",
+            "actual": "0xf2d378db977daa82a95a582267c362dbef628f6a091b2b96fcf9263770fdd8b4",
+            "passed": true
+          },
+          {
+            "id": "single_fill",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "id": "fill_signer",
+            "expected": "0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc",
+            "actual": "0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc",
+            "passed": true
+          },
+          {
+            "id": "fill_target",
+            "expected": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "actual": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "passed": true
+          },
+          {
+            "id": "maker_A_delta",
+            "expected": "-10000000",
+            "actual": "-10000000",
+            "passed": true
+          },
+          {
+            "id": "maker_B_delta",
+            "expected": "20000000",
+            "actual": "20000000",
+            "passed": true
+          },
+          {
+            "id": "taker_A_delta",
+            "expected": "10000000",
+            "actual": "10000000",
+            "passed": true
+          },
+          {
+            "id": "taker_B_delta",
+            "expected": "-20000000",
+            "actual": "-20000000",
+            "passed": true
+          },
+          {
+            "id": "escrow_A_released",
+            "expected": "0",
+            "actual": "0",
+            "passed": true
+          },
+          {
+            "id": "escrow_B_unchanged",
+            "expected": "0",
+            "actual": "0",
+            "passed": true
+          },
+          {
+            "id": "atomic_sell_transfer",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "id": "atomic_buy_transfer",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "id": "fill_before_deadline",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "id": "maker_goal",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "id": "taker_goal",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          }
+        ],
+        "transactionCounts": {
+          "confirmed": 4,
+          "reverted": 0,
+          "pending": 0,
+          "unknown": 0
+        },
+        "reason": "Expected business outcome verified"
+      }
+    },
+    {
+      "name": "T02 incompatible private goals produce explicit no-deal",
+      "passed": true,
+      "durationMs": 1156,
+      "scenarioId": "3c65d347-3bf6-4220-9510-cf40b62f1665"
+    },
+    {
+      "name": "T03 sequential continuous episode uses current balances and new order salt",
+      "passed": true,
+      "durationMs": 4109,
+      "scenarioId": "3f546792-526b-42df-9fca-bd4fc9514245"
+    },
+    {
+      "name": "T11 manual pending blocks other runs until reconciliation",
+      "passed": true,
+      "durationMs": 2975,
+      "scenarioId": "ec3029f8-275f-4059-ab2c-5605c5e2eb72"
+    },
+    {
+      "name": "T13 scenario exports verify without invoking exported code; old V0.13 API remains usable",
+      "passed": true,
+      "durationMs": 2784,
+      "scene": "627bd05d-8479-40a0-a925-188e1ad8ea75",
+      "legacyRunId": "eaa244f6-351d-4bae-ac87-e4f0b069f576",
+      "manifestEntries": 82
+    },
+    {
+      "name": "transaction pause and stop prevent an unbroadcast authorization; journal remains ordered",
+      "passed": true,
+      "durationMs": 1214,
+      "scenarioId": "ef7c99e0-066b-4fde-b926-5c212c876bc4"
+    },
+    {
+      "name": "global single step and scoped agent pauses do not accidentally run another step",
+      "passed": true,
+      "durationMs": 1076,
+      "scenarioId": "fef00a58-2eb6-472d-8846-a3e32617e1df"
+    },
+    {
+      "name": "T12/T14 two isolated model protocol sessions with duplicate cross-agent provider IDs",
+      "passed": true,
+      "durationMs": 2588,
+      "scenarioId": "dc43efe0-4143-4aed-b43f-9fdc99e589a3",
+      "modelFixture": true,
+      "realLLM": false
+    },
+    {
+      "name": "counterquote is accepted by the other runtime and settles the revised terms",
+      "passed": true,
+      "durationMs": 2864,
+      "scenarioId": "c5fb442f-e80a-4d5d-a3fa-c7bc627df999",
+      "modelFixture": true,
+      "realLLM": false
+    },
+    {
+      "name": "V0142 missing-payload acceptance and premature tool errors recover without text being executed",
+      "passed": true,
+      "durationMs": 2879,
+      "scenarioId": "1ac81392-e38c-4106-b9d7-678640004b7c",
+      "elapsedMs": 2662,
+      "modelFixture": true,
+      "realLLM": false
+    }
+  ],
+  "serverOutput": "(node:33896) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\nWeb3 Agent Lab V0.15 http://127.0.0.1:18417\n"
+}

@@ -1,0 +1,99 @@
+{
+  "buildHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "at21": {
+    "status": "BLOCKED",
+    "subchecks": "PASS",
+    "executionIds": [
+      "fcc2e4ea-a37c-42a6-aefb-8463225425cd",
+      "c030e084-cf81-4a3d-ab2b-353e608114de",
+      "2101c503-b602-4b6c-82cc-fbe127f82e5b"
+    ]
+  },
+  "supplement": [
+    {
+      "caseId": "AT-03",
+      "label": "frozen-definition-executed",
+      "status": "PASS",
+      "subchecks": "PASS",
+      "executionIds": [
+        "dbc2f239-1fb9-403a-b1bd-b7c6577300ca"
+      ],
+      "evidenceFiles": [
+        "frozen-definition-dbc2f239-1fb9-403a-b1bd-b7c6577300ca.json",
+        "AT03-manifests-and-conflict.json"
+      ]
+    },
+    {
+      "caseId": "AT-12",
+      "label": "stop-before-order",
+      "status": "PASS",
+      "subchecks": "PASS",
+      "executionIds": [
+        "7f7e6a8a-0208-4310-82c7-fec87ee696f1"
+      ],
+      "evidenceFiles": [
+        "stop-before-order-7f7e6a8a-0208-4310-82c7-fec87ee696f1.json"
+      ]
+    },
+    {
+      "caseId": "AT-12",
+      "label": "shutdown-open-order-attach-refund",
+      "status": "PASS",
+      "subchecks": "PASS",
+      "executionIds": [
+        "b0d6fd7f-3753-4996-adc7-5b67728540ad"
+      ],
+      "evidenceFiles": [
+        "open-before-shutdown-b0d6fd7f-3753-4996-adc7-5b67728540ad.json",
+        "open-after-attach-b0d6fd7f-3753-4996-adc7-5b67728540ad.json",
+        "refund-after-attach-b0d6fd7f-3753-4996-adc7-5b67728540ad.json"
+      ]
+    },
+    {
+      "caseId": "AT-15",
+      "label": "incompatible-rejection-and-step-budget",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "executionIds": [
+        "80d015b4-08a3-48dd-9e8b-44d1cfaab128",
+        "04c5fbde-0974-4459-a7c5-b16b35ca8dfe"
+      ],
+      "evidenceFiles": [
+        "incompatible-rejected-80d015b4-08a3-48dd-9e8b-44d1cfaab128.json",
+        "negotiation-step-budget-04c5fbde-0974-4459-a7c5-b16b35ca8dfe.json"
+      ]
+    }
+  ],
+  "shutdown": {
+    "requested": true,
+    "confirmed": true,
+    "exitCode": 0
+  },
+  "ports": [
+    {
+      "port": 19517,
+      "listening": false,
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 19557,
+      "listening": false,
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 19667,
+      "listening": false,
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 19707,
+      "listening": false,
+      "code": "ECONNREFUSED"
+    }
+  ],
+  "sourceChanges": [
+    "src/control/scene.mjs: RemoteScene.gate override only",
+    "tests/pause-gate.test.mjs: seven deterministic race/error/abort tests"
+  ],
+  "protectedScenarioGateChanged": false
+}

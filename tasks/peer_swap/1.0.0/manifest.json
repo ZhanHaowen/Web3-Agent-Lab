@@ -1,0 +1,50 @@
+{
+  "format": "installed-local-task",
+  "taskType": "peer_swap",
+  "version": "1.0.0",
+  "definitionHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5",
+  "roles": [
+    "maker",
+    "taker"
+  ],
+  "requiredTools": [
+    "send_message",
+    "inspect_order",
+    "approve_sell",
+    "create_order",
+    "approve_buy",
+    "fill_order",
+    "cancel_order",
+    "expire_order",
+    "wait",
+    "finish"
+  ],
+  "checkerId": "peer-2.0",
+  "checkerVersion": "2.0.0",
+  "files": {
+    "task-definition.json": {
+      "sha256": "e9ddc4797550df7649794d6fcdc19312226e32e781074f18b9678521ba6f4d25",
+      "bytes": 795
+    },
+    "input.schema.json": {
+      "sha256": "36dbecd58d1276768166953726b97d147dfacb284c594c1a07e9f61cfdf78b11",
+      "bytes": 370
+    },
+    "ui.schema.json": {
+      "sha256": "2223280f5bdf480ad60df93a4e4d0d16f6e89231caec9d244d77fdc99fd89fef",
+      "bytes": 163
+    },
+    "fixtures/default.json": {
+      "sha256": "3ea6b4207effc382d73c31a1900d8c6952fc9cbc37c62e6e739cced9b1864cc2",
+      "bytes": 143
+    },
+    "prompts/maker.txt": {
+      "sha256": "1da13ce560c092eb8f79f952a5c6dbe5c3d7c28b83addd646d8c81849ba56662",
+      "bytes": 85
+    },
+    "prompts/taker.txt": {
+      "sha256": "09acd7a1ddb3044096890a06515ec96e54dbc8c6de2cd17f2dfc81a12f58302c",
+      "bytes": 101
+    }
+  }
+}

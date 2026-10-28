@@ -1,0 +1,35 @@
+{
+  "caseId": "AT-15",
+  "label": "incompatible-rejection-and-step-budget",
+  "platform": "win32",
+  "sourceCommit": null,
+  "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+  "buildHash": "d46cf5b09bddbba269fd248864e0eb8d2a88911e341bd1923efb507172e92b39",
+  "fixtureHash": "bd8d21cbafbdb4262c82c2ba76ca7040913b64236d65a10d87ae5e907e148a2c",
+  "startedAt": "2026-10-27T10:28:46.156Z",
+  "executionIds": [
+    "be2d5ef2-ed9d-4b27-a036-d43b81cea906",
+    "6b6bbbcc-2086-4bad-bc03-82e17f7597fa"
+  ],
+  "evidenceFiles": [
+    "incompatible-rejected-be2d5ef2-ed9d-4b27-a036-d43b81cea906.json",
+    "negotiation-step-budget-6b6bbbcc-2086-4bad-bc03-82e17f7597fa.json"
+  ],
+  "expected": "Incompatible goals reject without settlement; exhausted negotiation has an explicit step_budget outcome without funds movement or fulfilled label.",
+  "actual": {
+    "rejectionActors": [
+      "taker"
+    ],
+    "rejectionBusiness": "no_deal",
+    "budgetSteps": 3,
+    "budgetBusiness": "failed",
+    "transactionCounts": [
+      0,
+      0
+    ]
+  },
+  "subchecks": "PASS",
+  "coverageReason": "The scripted scene ends on the first peer rejection, so a separate explicit Maker rejection event required by the strict reading of the standard is not produced. Both no-transfer branches pass; AT-15 remains partial.",
+  "status": "BLOCKED",
+  "endedAt": "2026-10-27T10:28:50.249Z"
+}

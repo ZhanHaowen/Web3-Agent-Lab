@@ -1,0 +1,38 @@
+{
+  "node": "24.19.0",
+  "anvil": "1.7.1",
+  "nodeChecksumsUrl": "https://nodejs.org/dist/v24.19.0/SHASUMS256.txt",
+  "files": {
+    "runtime/anvil.exe": {
+      "sha256": "5c2217d266135a6fbe5faaccccb1e9eb2ddc1d06f8aabeef5fdb16d9846e4880",
+      "bytes": 34456576
+    },
+    "runtime/node.exe": {
+      "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+      "bytes": 92825416
+    }
+  },
+  "macTested": false,
+  "windowsTested": true,
+  "anvilPackages": [
+    {
+      "shasum": "9f2c0b8a84f32296ea73aead69838e2b5c6c46b0",
+      "tarball": "https://registry.npmjs.org/@foundry-rs/anvil-win32-amd64/-/anvil-win32-amd64-1.7.1.tgz",
+      "fileCount": 2,
+      "integrity": "sha512-IeuBcmQ+AQKUxXA77czSVIfpST+KLBdXaL71JlK/h6e0DoP2CYnmVZn8WE/fuQfjAU2zaWw7PDXmq1kedbIUGA==",
+      "signatures": [
+        {
+          "sig": "MEQCIHIfylfby9sKuKETaPJ/SqXukoENhtbt27YAGdQXcD2yAiAmn5OF5izG2B4ynaCie2C+3nuyyNuDAlRBt5pUCTz1hw==",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        }
+      ],
+      "attestations": {
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/@foundry-rs%2fanvil-win32-amd64@1.7.1",
+        "provenance": {
+          "predicateType": "https://slsa.dev/provenance/v1"
+        }
+      },
+      "unpackedSize": 34457262
+    }
+  ]
+}

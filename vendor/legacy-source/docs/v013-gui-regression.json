@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "browser": "155.0.4283.45",
+  "mode": "headless Edge with API protocol fixtures and production CSP; no live model or EVM claims",
+  "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'",
+  "computedColors": {
+    "strokes": [
+      "rgb(8, 127, 114)",
+      "rgb(189, 107, 32)",
+      "rgb(148, 98, 184)",
+      "rgb(35, 120, 189)"
+    ],
+    "dots": [
+      {
+        "background": "rgb(8, 127, 114)",
+        "width": 17,
+        "height": 3
+      },
+      {
+        "background": "rgb(148, 98, 184)",
+        "width": 17,
+        "height": 3
+      },
+      {
+        "background": "rgb(35, 120, 189)",
+        "width": 17,
+        "height": 3
+      },
+      {
+        "background": "rgb(189, 107, 32)",
+        "width": 17,
+        "height": 3
+      }
+    ]
+  },
+  "cspViolations": [],
+  "testedAt": "2026-10-18T16:48:59.746Z",
+  "checks": [
+    "F2 Chinese/English AND filters survive manual and automatic refresh",
+    "F3 actual task input, requested/reported model, redacted configuration",
+    "F1 real-server CSP preserved: computed SVG edge colors differ and legend dots are visible",
+    "F1 multiple relation types can be checked together",
+    "F1 relation filtering, edge/node explicit neighborhood, zoom/fit/expanded view and pointer pan",
+    "F6 continue Agent posts block/time/key config and selects child run",
+    "F5 input and explicit parameters synchronize task target",
+    "F1 offline graph downloads retain all original edges despite view filters, with no graph network request",
+    "Mobile 390 px page has no horizontal overflow",
+    "F1 expanded large graph preview grows beyond the original 120 node bound",
+    "No browser JavaScript errors or CSP console/securitypolicyviolation events"
+  ]
+}

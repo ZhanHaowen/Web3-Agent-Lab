@@ -1,3 +1,4 @@
+import {artifactPath} from '../tests/helpers/artifacts.mjs';
 /** Unit-regression protocol fixtures against real Anvil; not an LLM capability benchmark. */
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -99,5 +100,5 @@ try{
   });
   await test('invalid_validation_mode_rejected',async()=>{await api('/api/runs',{taskId:'approve',mode:'scripted',amountValidation:'automatic-divide'},400);});
   await api('/api/environment/reset',{});
-  await writeFile('docs/amount-validation.json',JSON.stringify({sourceHash:health.version.sourceHash,origin:'synthetic model protocol + real Anvil; not a real LLM benchmark',results},null,2));
+  await writeFile(artifactPath('amount-validation.json'),JSON.stringify({sourceHash:health.version.sourceHash,origin:'synthetic model protocol + real Anvil; not a real LLM benchmark',results},null,2));
 }finally{service.closeAllConnections();await new Promise(resolve=>service.close(resolve));}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>V0.15.3 · 跨路径资产授权与预算控制</title><link rel="stylesheet" href="/budget.css"><script src="/budget.js" type="module"></script></head>
+<body><aside><a class="brand" href="/">W₃ Agent Lab</a><p>V0.15.3 · 本地研究版</p><a href="/tasks.html">任务与 Agent 中心</a><a href="/services.html">购买 Agent 服务</a><a class="selected" href="/budget.html">跨路径资产授权与预算控制</a><p class="aside-note">同一 Agent · 同一任务<br>交易支付 + 签名兑现</p></aside>
+<main><header><p class="eyebrow">CROSS-PATH AUTHORIZATION LAB</p><h1>跨路径资产授权与预算控制</h1><p>比较交易支付与签名兑现如何共同落实任务授权。自定义金额，观察组合支出、预算边界与限制效果。</p><span id="health" class="badge">连接中</span></header>
+<div id="notice" role="status">填写金额直接运行，或选择实验分类后按当前参数生成对照。</div>
+<div class="workspace"><section class="config card"><p class="eyebrow">CONFIGURE</p><h2>实验设置</h2>
+<label>实验分类<select id="preset"><option value="custom">自定义组合</option><option value="split-over">跨路径超额 · 分离计数</option><option value="unified-over">跨路径超额 · 统一预算</option><option value="within">预算内组合 · 统一预算</option><option value="boundary">恰好用尽预算 · 统一预算</option><option value="permit-only">单一路径 · 签名兑现</option><option value="transaction-only">单一路径 · 交易支付</option></select></label>
+<p id="case-help" class="hint">选择分类不会覆盖金额；点击生成按钮才应用相应规则。</p>
+<div class="generation-row"><label>对照偏移量<input id="delta" value="1" inputmode="decimal"></label><button id="apply-preset" class="secondary" disabled>按当前参数生成</button></div>
+<p id="generation-status" class="hint" aria-live="polite">初始余额、任务预算与首笔支出均由你设置。</p>
+<h3>金额与支付路径</h3>
+<div class="row"><label>初始钱包余额<input id="initial" value="200" inputmode="decimal"></label><label>任务总预算<input id="budget" value="100" inputmode="decimal"></label></div>
+<div class="row"><label>首笔交易金额<input id="payment" value="80" inputmode="decimal"></label><label>第二笔请求金额<input id="permit" value="60" inputmode="decimal"></label></div>
+<label>预算策略<select id="mode"><option value="split">分离计数</option><option value="unified">统一预算（含未兑现承诺）</option></select></label>
+<label>第二条支付路径<select id="secondPath"><option value="permit">签署许可 → 第三方兑现</option><option value="transaction">正常交易入口再次支付</option></select></label>
+<div class="preview" aria-live="polite"><strong id="preview-class">自定义组合</strong><p id="preview-amounts"></p><p id="preview-behavior"></p></div>
+<p class="hint">金额支持六位小数。分类按当前剩余预算与偏移量生成，不重置为固定示例。你可以继续修改任意金额；修改后按自定义组合判断。</p>
+<div class="actions"><button id="run">一键运行</button><button id="start" class="secondary">初始化并逐步观察</button></div>
+<details class="scope"><summary>实验范围与实现说明</summary><p>使用本地测试代币、真实 EVM 与官方 Permit2。前置授权不计为支出。脚本执行，不需要模型 Key。分离计数为故意设置的研究对照，不代表原版存在同一漏洞；受限主体为软件签名进程。</p><p>本实验使用平台管理的专用临时链，不重置任务中心的链。停止平台会销毁该临时环境，不支持中途恢复。</p></details>
+</section><div class="results"><section class="card"><div class="heading"><h2>当前执行</h2><span id="stage" class="badge">尚未创建</span></div><p id="execution-config" class="hint"></p><p id="identity" class="mono"></p><p id="phase">等待初始化</p><div class="actions"><button id="step" disabled>执行下一步</button><button id="export" class="secondary" disabled>导出完整证据包</button><button id="copy" class="secondary" disabled>查看 / 复制 JSON</button><button id="open" class="secondary">离线打开证据包</button><input type="file" id="file" accept=".json" hidden></div><div id="json-view" hidden><p class="hint">完整证据包已自动保存到平台数据目录的 budget 子目录。也可选择下方文本并复制保存。</p><textarea id="json-text" rows="10" readonly aria-label="完整证据 JSON"></textarea></div><p class="hint">预览用于解释配置，执行结论以链上回执、资产日志和独立检查为准。</p></section>
+<section class="card"><p class="eyebrow">ASSET EFFECTS</p><h2>资产与授权对照</h2><div id="metrics" class="metrics"></div><p id="verdict">尚未检查</p><div id="assertions"></div></section>
+<section class="card"><h2>同一主体与签名范围</h2><div id="addresses" class="mono"></div><details><summary>查看结构化许可与签名检查</summary><pre id="permit-detail">尚未签名</pre></details></section>
+<section class="card"><h2>执行时间线</h2><div id="events"></div></section>
+<section class="card"><h2>链上交易与回执</h2><p class="hint">兑现交易由第三方发送，资产仍从 Agent 钱包转出。点击交易查看回执日志。</p><div id="transactions"></div><pre id="detail"></pre></section>
+</div></div><footer>本地测试资产 · 同一任务中的跨路径授权 · 离线回放不重新查询链</footer></main></body></html>

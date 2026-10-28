@@ -1,0 +1,10 @@
+{
+  "os": "win32",
+  "release": "10.0.26200",
+  "arch": "x64",
+  "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+  "cores": 20,
+  "memory": 16828862464,
+  "node": "v24.19.0",
+  "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442"
+}

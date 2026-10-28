@@ -1,0 +1,136 @@
+{
+  "schema": "web3-agent-lab-repository-sync-validation-v1",
+  "version": "V0.15.3",
+  "runKind": "local-windows-x64",
+  "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+  "sourceHash": "961e73c533da4b5ec4364b93325d0b018c00307f958116563f3092a98bd7d377",
+  "startedAt": "2026-10-28T12:10:30.7322606Z",
+  "endedAt": "2026-10-28T12:13:47.6110321Z",
+  "environment": {
+    "node": "v24.19.0",
+    "pnpm": "11.19.0",
+    "dependencyLockUnchanged": true,
+    "localDependencyLayout": "hoisted/copied; default dependency links are denied by this host tool environment",
+    "localPnpmAutoReinstall": "disabled after successful frozen installation to retain the local layout"
+  },
+  "pipelineSteps": [
+    {
+      "name": "01-offline-permit2-build",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "02-compatibility-build",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "03-release-protection-doctor",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "04-interface-typecheck",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "05-mjs-unit-tests",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "06-budget-core",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "07-budget-parameter-matrix",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "08-budget-main-integration",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "09-budget-http",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "10-unified-windows-launcher",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "11-original-peer-and-task-integration",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "12-service-integration",
+      "passed": true,
+      "exitCode": 0
+    }
+  ],
+  "suites": [
+    {
+      "name": "mjs-unit",
+      "passed": 76,
+      "failed": 0
+    },
+    {
+      "name": "budget-core",
+      "passed": 16,
+      "failed": 0
+    },
+    {
+      "name": "budget-parameter-matrix",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "name": "budget-main-integration",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "name": "budget-http",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "windows-launcher",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "v2-peer-and-five-original-tasks",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "name": "service-integration",
+      "passed": 16,
+      "failed": 0
+    }
+  ],
+  "integrity": {
+    "protectedServiceFiles": 11,
+    "protectedMismatches": 0,
+    "sourceManifestFiles": 536,
+    "stagedSourceMismatches": 0,
+    "currentDocumentationRelativeLinks": 75
+  },
+  "publishedPortableSourceHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+  "notRun": [
+    "GitHub-hosted Actions",
+    "real external model",
+    "browser GUI in this run",
+    "macOS",
+    "complete TypeScript runtime migration / vendor-free full rebuild"
+  ],
+  "scope": "Compatibility build and local regression only. Expected research budget violations are successful reproduction assertions, not failed test cases."
+}

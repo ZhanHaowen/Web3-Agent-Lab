@@ -1,102 +1,37 @@
-# V0.13 执行轨迹与溯源图数据格式
+# V0.15.3 证据、执行轨迹与离线读取
 
-本版把 Agent 的实际执行过程转为可核对的轨迹与通用溯源图。显示及发布包版本为 `V0.13`，程序版本为 `0.1.3`，修订标识为 `beta-1`；轨迹和图的 `schema_version` 仍为 `1.0`。本版新增可选的任务参数和父运行引用，轨迹构建器版本为 `1.2`、图构建器版本为 `1.1`；旧包缺失字段保持缺失，不改写历史证据。使用者已选择通用格式；本实现不声称符合某个特定 PGG 论文协议或 W3C PROV 规范。
+平台保留三类证据，不能将不同模块的 JSON 当成同一 schema。包内完整性与业务合规是两种检查；通过哈希校验不代表任务成功，也不认证采集者身份。保留原始构建、版本及失败状态，不用新版默认值补写历史记录。
 
-## 如何取得文件
+## 读取入口
 
-运行结束后，便利文件自动保存在 `data/derived/<run_id>/`，完整实验包也包含这些文件。GUI 可查看执行轨迹与可点击的图节点，并分别下载执行轨迹 JSON、图 JSON、GraphML。原“导出实验包”入口继续保留全部原始记录。
+| 证据类型 | 标识与结构 | CLI |
+| --- | --- | --- |
+| 原单 Agent 实验包 | 保留原 manifest、`events.jsonl`、内容寻址 blobs 与派生轨迹；原轨迹/图 schema 为 `1.0` | `node dist/cli.mjs verify/check <bundle.json>`，分派到固定兼容读取器 |
+| 多 Agent / 任务中心场景包 | `format: web3-agent-scenario`，`version: 2`，`files` 含 `manifest.json`、`raw/events.jsonl` 和负载 | `node dist/cli.mjs verify/replay/check <bundle.json>` |
+| 跨路径预算包 | `format: web3-agent-budget-experiment`，`version: 1`，包含 `evidence.json` 与完整性清单 | `node src/budget/cli.mjs verify/check <bundle.json>` |
 
-| 文件 | 用途 |
-|---|---|
-| execution-trace.json | 模型、工具、合约调用、交易、内部调用帧和显式关系 |
-| execution-trace.md | 可直接阅读的步骤关系及详细参数、返回值、回执 |
-| provenance-graph.json | 统一 nodes/edges 有向多重图 |
-| provenance-graph.graphml | GraphML 图文件，用于支持该格式的图分析工具 |
-| nodes.csv | 节点表；复杂属性在 attributes_json 列 |
-| relations.csv | 边表及原始事件序号 |
-| trace-events.jsonl | 展开 payload 的原始事件便利副本，无需逐个打开 blobs |
-| execution-trace-manifest.json | 上述派生文件哈希和原始 manifest 哈希 |
+便携包将 `node` 换成 `runtime\node.exe`。参数中的斜杠表示可选命令，实际执行时只能选一个，例如 `node dist/cli.mjs verify examples/v2/peer-normal.json`。离线命令不继续任务、不调用模型或链。预算 CLI：退出 0 为成功，`check` 退出 2 为预算等业务断言未通过，退出 1 为格式或完整性错误。
 
-这些都是派生视图。原始 `events.jsonl`、`blobs/`、`manifest.json` 保持不变，导出时根据通过校验的原始记录重新生成视图。文件哈希校验不等同于数据来源真实性证明。CSV 对公式起始字符进行转义；需要精确原值时使用 JSON。
+## 单 Agent 历史轨迹
 
-已有实验包可在不启动模型或链的情况下重新生成文件，Windows 示例：
+原始事件保留 `run_id`、`event_id`、`seq`、时间和 `payload_ref`；`links.modelCallId`、`toolCallId`、`contractCallId` 关联模型、工具、合约请求及交易。原始 `events.jsonl`、`blobs/` 和 `manifest.json` 是证据基础，轨迹和溯源图是可重建的派生视图。
 
-```powershell
-.\runtime\node.exe .\dist\cli.mjs trace-files .\experiment.json .\trace-output
-```
+保留的派生文件包括 `execution-trace.json/.md`、`provenance-graph.json/.graphml`、`nodes.csv`、`relations.csv`、`trace-events.jsonl` 及派生哈希清单。JSON 保存精确原值；CSV 可能为显示和公式安全做转义。一般有向多重图并不宣称符合特定论文协议或 W3C PROV 标准。
 
-`trace-output` 应为新的空目录；同名文件已存在时拒绝覆盖。也可用 `trace <bundle.json>` 或 `graph <bundle.json>` 输出 JSON。Mac 使用本机架构对应的 `runtime/darwin-arm64/node` 或 `runtime/darwin-x64/node`。旧包不能凭空补齐以前没有采集的只读合约调用或内部调用轨迹。
+历史单 Agent 的 `trace`、`graph`、`trace-files` 等专用命令可直接通过 `node vendor/v013-cli.mjs` 使用。`trace-files` 要求新的空输出目录；旧证据不能凭空补齐当时未采集的内部调用或只读信息。具体字段与续行去重规则见[原格式说明](archive/v0.13/trace-schema.md)。
 
-## 原始关联字段
+## 场景记录
 
-模型请求和响应使用 `links.modelCallId`；工具的 call、started、result 使用 `links.toolCallId`，由模型触发时同时保留 modelCallId。合约调用新增 `links.contractCallId`，相同编号写入相关交易准备、广播、状态、回执和调用轨迹事件。每个事件还有 run_id、event_id、seq、时间和内容寻址 payload_ref。
+场景包以同一 `scenarioId` / `episodeId` 汇总多个主体的事件。全局 `logicalClock` 表示记录顺序；独立 `streamId` 与 `seq` 表示流内顺序；`causalEventIds` 指向已记录的因果来源。`payloadRef` 与 manifest 校验每份负载。记录顺序不是链上共识或严格的分布式时间证明。
 
-`contract.call` 包含 callId、kind（read 或 transaction）、tool、chainId、contract.address/label、function.name/signature/selector/args、request。`contract.result` 包含状态、结果或错误、耗时，以及可取得时的交易哈希和区块。函数参数使用实际 ABI 编码前的值；交易 calldata 保留真实字节。只读调用固定区块，记录真实返回值，不伪造交易哈希。
+`verify` 核对内部文件、事件序列、引用与负载哈希；`replay` 展示记录顺序；`check` 从封存的检查证据重新计算任务结论。服务购买与旧任务封存证据按相应检查器分派，不执行包内代码。格式实现位于 `src/control/offline.mjs`、`src/scenario/`。
 
-后台初始化、独立检查器状态采集与 Agent 主动调用区分开。只有工具实际请求 `get_state` 时，其合约读取才记为该工具的子调用。参数未通过校验时不会伪造合约调用；提交前取消与广播后未知结果也分别保留。
+## 跨路径预算证据
 
-## 通用图结构
+`evidence.json` 记录实际配置、执行与会话 ID、owner/spender/recipient、代币及 Permit2 地址、初末余额与区块、入口账本、许可结构、签名哈希、第三方兑现交易、原始回执及日志、签名器审计和检查结论。金额配置为十进制字符串，链上金额和计数使用六位最小单位的整数字符串。
 
-V0.13 的 `task.task_parameters` 来自采集时保存的 `config.taskParameters`，与脚本、工具金额校验和检查器使用同一目标。旧包不把当前默认参数补写成历史采集值。
+Checker 从指定代币原始 `Transfer` 日志提取 owner 的转出，按交易哈希与日志索引核对，并与余额减少额及账本比较。前置 ERC-20 `approve` 只是额度，不作为测试代币已支出。分离模式的正常交易计数可能小于实际累计流出；统一模式还需要核对未兑现预算预留。
 
-续行创建新的运行编号。`continuation.parent` 保存父运行编号、父封存清单哈希、原始事件引用及继承交易；`state.continuation` 保存本轮出块后的真实观察。`continues_agent` 表示显式会话恢复，`observes_after_mining` 指向新观察。父工具结果用 `external_tool_result` 节点、`references_parent_tool_result` 和 `provides_parent_result` 连线表示，节点属性保留真实上游 `run_id`、事件编号及负载引用，`loaded:false` 明确上游全文未内联。本轮可点击来源指向本轮的父引用事件，不会把父事件序号错当成本轮序号。
+“复现超支”与“预算检查未通过”可以同时成立：前者说明观察到了目标现象，后者说明业务行为违反预算。分离计数对照的统一承诺检查为不适用，不能据此宣称全部检查通过。包中不导出私钥、模型 Key 或可再次兑现的原始签名。
 
-原运行里记录为 pending 的工具结果保持原值；刷新后的回执属于新的观察和检查证据，不改成旧工具当时已知的信息。重复出现的父交易按哈希去重，不能把会话恢复推断为重新调用工具或重新提交交易。子运行交易/gas 为 `transaction_scope=cumulative_task`，模型调用/token 为 `model_scope=current_run`；汇总父子成本时需按交易哈希去重。
-
-```json
-{
-  "schema_version": "1.0",
-  "format": "web3-agent-provenance-graph",
-  "run_id": "实际实验编号",
-  "directed": true,
-  "multigraph": true,
-  "nodes": [{"id":"工具实体ID","type":"tool_call","label":"工具 swap","attributes":{},"source_events":[]}],
-  "edges": [],
-  "provenance": {},
-  "summary": {},
-  "warnings": []
-}
-```
-
-节点类型：task、model_call、tool_call、contract_call、transaction、evm_call、contract、address、state、run_reference。contract_call 是一次活动，contract 是可被多次调用的合约地址资源，两者不同。节点 ID 和边 ID 在单次运行图内唯一；不将裸地址视为跨不同链环境的同一对象。
-
-| 关系 | 方向及依据 |
-|---|---|
-| supplies_task_input | 任务 → 首次包含该任务输入的模型请求 |
-| scripted_task_step | 任务 → 实際脚本步骤引用的工具 |
-| requests_tool | 模型调用 → 以显式 modelCallId 关联的工具调用 |
-| provides_result | 工具 → 后续模型请求中实际出现的 tool_call_id 引用 |
-| invokes_contract | 工具 → 以显式编号关联的合约调用 |
-| prepares_transaction | 合约调用或工具 → 仅准备、尚无提交证据的交易对象 |
-| attempts_submission | 合约调用或工具 → 已尝试发送但没有哈希的未知结果 |
-| submits_transaction | 合约调用或工具 → 有广播或链上证据的交易 |
-| references_transaction | 已有关联记录，但提交证据不足，不声称已广播 |
-| evm_trace_root、evm_child_call | 交易 → EVM 根调用；父调用 → 子调用，依据 callTracer |
-| invokes_address、sends_to、originates_from、evm_calls_address | 活动与实际目标/来源地址的关系，方向以边字段为准 |
-| has_initial_state、has_final_state | 任务 → 该轮前后状态快照，不推断某个工具独自产生了全部变化 |
-| follows_run | 上一轮引用 → 当前任务，只表示已记录的会话顺序 |
-
-每个节点和边的 source_events 可定位原始 seq、event_id 和 payload_ref。没有显式关系时保留缺失提示，不能依靠事件相邻就断言因果。provides_result 只表明结果进入后续请求，不证明模型实际使用了它。重复调用和重试保留为独立实体，多条不同关系可以连接同一对节点。
-
-模型响应中的工具提议不等于实际执行。模型消息只记录接口实际输出，内部 EVM 调用帧也不是模型内部思维。余额读取成功、交易执行成功与任务检查通过分别判断。
-
-## 内部调用与 GraphML
-
-能取得 Anvil `callTracer` 时，保留完整原树，并展开 CALL、STATICCALL 等调用帧及父子关系，包括地址、输入、输出、value、gas、gasUsed、错误。缺少 trace 时标记缺失，不生成假子调用。未知合约 ABI 只保留地址、selector 和 calldata，不猜测函数名或参数含义。
-
-GraphML 输出平面的有向图，允许多重边；应用属性和事件引用分别写入 `attributes_json`、`source_events_json` 字符串。XML 的 id 编码后保证可用，原图 ID 保存在 `original_id`。GraphML 和 JSON 图的节点、边、属性可相互核对。[NetworkX 的官方 GraphML 文档](https://networkx.org/documentation/stable/reference/readwrite/graphml.html)提供相应读取接口；本项目的 `scripts/validate-graph.py` 可先核对 XML 与 JSON，安装 NetworkX 时还验证实际导入。
-
-GUI 大图预览会明确限制显示数量，JSON 和 GraphML 下载保持全量。离线复检与后续链上追认不会改写原运行图；pending 运行出块后，原图依然表示当时的证据，后续追认结果在独立派生检查记录中。
-
-## API
-
-本地 GET `/api/runs/<id>/trace` 返回轨迹 JSON，`?format=markdown` 或 `jsonl` 返回对应文件；`/api/runs/<id>/graph` 返回图 JSON，`?format=graphml` 或 `csv` 返回图文件或边表。专用导出要求原始记录已封存且通过校验。运行详情的 execution_trace 和 execution_graph 允许显示正在采集的部分记录，不应将其误作完整封存数据。
-
-
-## trace-2 金额校验与换算证据
-
-本次仍使用兼容的schema_version 1.0；执行轨迹builder_version为1.1。task.amount_validation记录fixed_task、schema_only或legacy_unspecified。原始tool.call保存模型原提议，tool.validation记录签名前拒绝及期望的普通代币数量；对应工具派生状态为rejected，execution_started=false、submitted=false。显式拒绝时缺少tool.started不算漏采，且不生成合约或交易节点。
-
-contract.call和交易描述新增amountConversions数组，每项为parameter、token、unit（token）、decimals（6）、input（原始工具数量字符串）与baseUnits（已编码的真实整数）。它从实际ABI参数取值，不再次解析或转换。get_state与初终态添加formatted便利视图，原始balances、allowances等字段仍为最小单位字符串。未知或旧字段不会由新版补造。
-
-校验策略不更改原始模型提议；被拒绝的调用和纠正后的新调用拥有各自toolCallId。原始结果与模型可见替换结果继续分别保存。图源引用包含tool.validation，可检查拒绝来自工具执行前约束，而非链上回滚。
+页面可离线打开旧 V0.15.2 与当前格式，但不会恢复运行目录或重放签名。预算样例见 [examples/budget-v0153](../examples/README.md)，操作与边界见 [V0.15.3 手册](操作手册_V0.15.3.md)。

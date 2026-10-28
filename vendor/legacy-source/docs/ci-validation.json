@@ -1,0 +1,57 @@
+{
+  "run_id": 38572309517,
+  "tested_commit": "42a7fdf2d30b19b5e0fedfef250bca814b31bb5c",
+  "url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517",
+  "status": "completed",
+  "conclusion": "success",
+  "platforms": [
+    {
+      "name": "macos-15-intel",
+      "status": "completed",
+      "conclusion": "success",
+      "job_url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517/job/115880401247",
+      "completed_at": "2026-10-14T13:32:31Z",
+      "steps": {
+        "pnpm install --frozen-lockfile": "success",
+        "node scripts/setup-runtime.mjs": "success",
+        "pnpm build": "success",
+        "pnpm typecheck": "success",
+        "pnpm test": "success"
+      },
+      "test_count": null
+    },
+    {
+      "name": "macos-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "job_url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517/job/115880401622",
+      "completed_at": "2026-10-14T13:32:22Z",
+      "steps": {
+        "pnpm install --frozen-lockfile": "success",
+        "node scripts/setup-runtime.mjs": "success",
+        "pnpm build": "success",
+        "pnpm typecheck": "success",
+        "pnpm test": "success"
+      },
+      "test_count": null
+    },
+    {
+      "name": "windows-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "job_url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/38572309517/job/115880402171",
+      "completed_at": "2026-10-14T13:32:22Z",
+      "steps": {
+        "pnpm install --frozen-lockfile": "success",
+        "node scripts/setup-runtime.mjs": "success",
+        "pnpm build": "success",
+        "pnpm typecheck": "success",
+        "pnpm test": "success"
+      },
+      "test_count": null
+    }
+  ],
+  "evidence_source": "GitHub Actions API via gh run view --json status,conclusion,jobs,url,headSha",
+  "test_count_note": "The individual CI test count was not extracted. Local 119-test validation is reported separately and is not used as an observed CI count.",
+  "scope": "GitHub-hosted source build, TypeScript checks and automated unit/real-Anvil tests. This does not verify desktop GUI, double-click launchers, signed installers or physical Mac behavior."
+}

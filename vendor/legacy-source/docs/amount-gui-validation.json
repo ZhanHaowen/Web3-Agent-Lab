@@ -1,0 +1,22 @@
+{
+  "sourceHash": "60ed75b2ee634186ce6111138af4dbdc2a96216f8e130ec13995dfd0f3c3eb26",
+  "releaseRevision": "trace-2",
+  "browser": "155.0.4283.45",
+  "headless": true,
+  "passed": true,
+  "checks": [
+    "default guarded mode",
+    "toggle research mode and persist actual selected mode",
+    "guard rejection and correction trace",
+    "exact amount conversion in contract details",
+    "graph policy attributes",
+    "export/import raw preservation",
+    "mobile overflow",
+    "no page errors"
+  ],
+  "runs": [
+    "5df3ae51-0958-4c58-ab22-534242945c67",
+    "99f625b5-5547-48d5-b313-f606ecf13cde",
+    "bd6ff24a-0a4c-4175-a3be-2df38caac800"
+  ]
+}

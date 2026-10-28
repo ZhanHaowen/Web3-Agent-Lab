@@ -1,0 +1,17 @@
+{
+  "taskType": "balance",
+  "version": "1.0.0",
+  "roles": [
+    "agent"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "requiredTools": [
+    "read_balance"
+  ],
+  "schema": {},
+  "prompts": {
+    "agent": "Execute the installed task using its declared amounts and original amount guard."
+  },
+  "definitionHash": "36ef9b9a7f5506a34996e08a4124260fc6f17ef05cf60410ec8f7669cf322d77"
+}

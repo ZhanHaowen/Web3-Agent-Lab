@@ -1,0 +1,920 @@
+{
+  "version": "V0.15.1",
+  "plan": "V0.14 revision 2",
+  "acceptanceStatus": "NOT_FULLY_ACCEPTED",
+  "dataDirectory": "C:\\Users\\86137\\Documents\\Codex\\2026-10-20\\referenced-chatgpt-conversation-this-is-an-2\\work\\v0151\\Web3-Agent-Lab-V0.15.1-Windows-x64\\data-acceptance-d85cad48-a6d2-46ff-bcc7-4ab814da7593",
+  "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+  "results": [
+    {
+      "caseId": "AT-01",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Full frozen dependency installation and TypeScript build chain have not yet been independently validated. New executable modules are ESM; original pinned TypeScript sources included.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-02",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Task-center UI publication and before/after chain nonce evidence are not captured by this API-only case.",
+      "expected": "Offline publication persists through control restart without launching Agent or chain",
+      "actual": {
+        "jobId": "61699832-45fe-40ef-ab3d-571f65176f7c",
+        "state": "published"
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "c748cf18be1a7108baf0b526e2fe99c3f18ccacbeb0cb738d8fbec9367f276b0",
+      "executionIds": [],
+      "startedAt": "2026-10-27T10:35:42.322Z",
+      "endedAt": "2026-10-27T10:35:44.344Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-03",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "The old Job is not executed after publication of 1.0.1; archived prompts, schema and checker-version preservation are not asserted here.",
+      "expected": "Task versions reject replacement and jobs retain original definition hash",
+      "actual": {
+        "oldHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5",
+        "newHash": "f882519d8a72661fe3f6880973310708b2d8fac40b5ff0605c6fb3a90437e34a"
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "408871d281eeb9f3a436759d5350ffbe89ba02aa409af5bc22790eb90936ba6e",
+      "executionIds": [],
+      "startedAt": "2026-10-27T10:35:44.344Z",
+      "endedAt": "2026-10-27T10:35:44.436Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-04",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Rejected responses are asserted, but before/after intent counts and wallet nonces are not recorded here.",
+      "expected": "Six invalid schema/tool/checker inputs are rejected before assignment",
+      "actual": {
+        "errors": [
+          {
+            "error": "FIELD_amount_DECIMAL"
+          },
+          {
+            "error": "FIELD_amount_DECIMAL"
+          },
+          {
+            "error": "FIELD_amount_DECIMAL"
+          },
+          {
+            "error": "TASK_PARAMETER_CONFLICT: text amount=20 conflicts with structured value 10"
+          },
+          {
+            "error": "CHECKER_NOT_INSTALLED"
+          },
+          {
+            "error": "TOOL_NOT_INSTALLED"
+          }
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "845c932904cf8285f65831887bb2b550eafca3305c8871cfdf9d4d2b04f18b63",
+      "executionIds": [],
+      "startedAt": "2026-10-27T10:35:44.437Z",
+      "endedAt": "2026-10-27T10:35:44.536Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-05",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Duplicate IDs and conflict are asserted; explicit database lease and event evidence is not exported here.",
+      "expected": "Publication and assignment are idempotent; conflicting content rejects",
+      "actual": {
+        "jobId": "d71f79c5-d57e-4b86-a20f-b671233ebd4d",
+        "executionId": "e47dbedc-378e-4fce-a2c9-3f4f2f47af44"
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "ef5a90450abf6a869fdb6c72ad544a6fa59b8bf7d9921989408eecbfdbc6c6d4",
+      "executionIds": [
+        "e47dbedc-378e-4fce-a2c9-3f4f2f47af44"
+      ],
+      "startedAt": "2026-10-27T10:35:44.536Z",
+      "endedAt": "2026-10-27T10:35:56.465Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-06",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "This case covers the fifteen adapter baselines. Original API/CLI, amount, continuation, manual mining and graph regressions must also be linked from docs/acceptance-legacy/summary.json.",
+      "expected": "Five LegacyTaskAdapter baselines each succeed three times and keep original checker",
+      "actual": {
+        "runs": [
+          {
+            "type": "balance",
+            "executionId": "40c96254-623c-4453-812c-2ef2114aed8e",
+            "checker": "2.2.0",
+            "evidence": "balance-0-40c96254-623c-4453-812c-2ef2114aed8e.json"
+          },
+          {
+            "type": "balance",
+            "executionId": "5debde91-f604-4991-b4bb-a676a3dfcf96",
+            "checker": "2.2.0",
+            "evidence": "balance-1-5debde91-f604-4991-b4bb-a676a3dfcf96.json"
+          },
+          {
+            "type": "balance",
+            "executionId": "ef64daf7-b8e7-4f93-8e0b-9c3554450c36",
+            "checker": "2.2.0",
+            "evidence": "balance-2-ef64daf7-b8e7-4f93-8e0b-9c3554450c36.json"
+          },
+          {
+            "type": "transfer",
+            "executionId": "574563ea-5d87-4dcc-b4d4-734d826d68d9",
+            "checker": "2.2.0",
+            "evidence": "transfer-0-574563ea-5d87-4dcc-b4d4-734d826d68d9.json"
+          },
+          {
+            "type": "transfer",
+            "executionId": "180b864d-1379-4c34-bf22-05f4795a5274",
+            "checker": "2.2.0",
+            "evidence": "transfer-1-180b864d-1379-4c34-bf22-05f4795a5274.json"
+          },
+          {
+            "type": "transfer",
+            "executionId": "078b6fce-37b1-4889-9136-468cfc9a1114",
+            "checker": "2.2.0",
+            "evidence": "transfer-2-078b6fce-37b1-4889-9136-468cfc9a1114.json"
+          },
+          {
+            "type": "approve",
+            "executionId": "c511f931-c2c5-48a5-991e-15f7e7d08b24",
+            "checker": "2.2.0",
+            "evidence": "approve-0-c511f931-c2c5-48a5-991e-15f7e7d08b24.json"
+          },
+          {
+            "type": "approve",
+            "executionId": "480daba6-818c-493a-8fa4-c940aa0c2582",
+            "checker": "2.2.0",
+            "evidence": "approve-1-480daba6-818c-493a-8fa4-c940aa0c2582.json"
+          },
+          {
+            "type": "approve",
+            "executionId": "40ecf7d8-f2bb-4591-bd07-445270181ab2",
+            "checker": "2.2.0",
+            "evidence": "approve-2-40ecf7d8-f2bb-4591-bd07-445270181ab2.json"
+          },
+          {
+            "type": "swap",
+            "executionId": "9537a48a-f140-49fb-ab39-8a328506795e",
+            "checker": "2.2.0",
+            "evidence": "swap-0-9537a48a-f140-49fb-ab39-8a328506795e.json"
+          },
+          {
+            "type": "swap",
+            "executionId": "7d62b7f5-2a0f-4db4-88db-65ba0435ce55",
+            "checker": "2.2.0",
+            "evidence": "swap-1-7d62b7f5-2a0f-4db4-88db-65ba0435ce55.json"
+          },
+          {
+            "type": "swap",
+            "executionId": "764ff8b8-20f1-4759-b78e-f84ea31aa006",
+            "checker": "2.2.0",
+            "evidence": "swap-2-764ff8b8-20f1-4759-b78e-f84ea31aa006.json"
+          },
+          {
+            "type": "swap_deposit",
+            "executionId": "aa289a39-a76c-40ae-95ca-25da9ad43f73",
+            "checker": "2.2.0",
+            "evidence": "swap_deposit-0-aa289a39-a76c-40ae-95ca-25da9ad43f73.json"
+          },
+          {
+            "type": "swap_deposit",
+            "executionId": "a44c8fad-e2ea-4c91-aa73-4d27d3a935ca",
+            "checker": "2.2.0",
+            "evidence": "swap_deposit-1-a44c8fad-e2ea-4c91-aa73-4d27d3a935ca.json"
+          },
+          {
+            "type": "swap_deposit",
+            "executionId": "0034d732-4f71-4833-9162-aadb163a577d",
+            "checker": "2.2.0",
+            "evidence": "swap_deposit-2-0034d732-4f71-4833-9162-aadb163a577d.json"
+          }
+        ],
+        "evidenceFiles": [
+          "balance-0-40c96254-623c-4453-812c-2ef2114aed8e.json",
+          "balance-1-5debde91-f604-4991-b4bb-a676a3dfcf96.json",
+          "balance-2-ef64daf7-b8e7-4f93-8e0b-9c3554450c36.json",
+          "transfer-0-574563ea-5d87-4dcc-b4d4-734d826d68d9.json",
+          "transfer-1-180b864d-1379-4c34-bf22-05f4795a5274.json",
+          "transfer-2-078b6fce-37b1-4889-9136-468cfc9a1114.json",
+          "approve-0-c511f931-c2c5-48a5-991e-15f7e7d08b24.json",
+          "approve-1-480daba6-818c-493a-8fa4-c940aa0c2582.json",
+          "approve-2-40ecf7d8-f2bb-4591-bd07-445270181ab2.json",
+          "swap-0-9537a48a-f140-49fb-ab39-8a328506795e.json",
+          "swap-1-7d62b7f5-2a0f-4db4-88db-65ba0435ce55.json",
+          "swap-2-764ff8b8-20f1-4759-b78e-f84ea31aa006.json",
+          "swap_deposit-0-aa289a39-a76c-40ae-95ca-25da9ad43f73.json",
+          "swap_deposit-1-a44c8fad-e2ea-4c91-aa73-4d27d3a935ca.json",
+          "swap_deposit-2-0034d732-4f71-4833-9162-aadb163a577d.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "6d3f6bd2bd6acb8cde4793d30654574a618e7c03896b964d18ffdbb3d781ef7c",
+      "executionIds": [
+        "40c96254-623c-4453-812c-2ef2114aed8e",
+        "5debde91-f604-4991-b4bb-a676a3dfcf96",
+        "ef64daf7-b8e7-4f93-8e0b-9c3554450c36",
+        "574563ea-5d87-4dcc-b4d4-734d826d68d9",
+        "180b864d-1379-4c34-bf22-05f4795a5274",
+        "078b6fce-37b1-4889-9136-468cfc9a1114",
+        "c511f931-c2c5-48a5-991e-15f7e7d08b24",
+        "480daba6-818c-493a-8fa4-c940aa0c2582",
+        "40ecf7d8-f2bb-4591-bd07-445270181ab2",
+        "9537a48a-f140-49fb-ab39-8a328506795e",
+        "7d62b7f5-2a0f-4db4-88db-65ba0435ce55",
+        "764ff8b8-20f1-4759-b78e-f84ea31aa006",
+        "aa289a39-a76c-40ae-95ca-25da9ad43f73",
+        "a44c8fad-e2ea-4c91-aa73-4d27d3a935ca",
+        "0034d732-4f71-4833-9162-aadb163a577d"
+      ],
+      "startedAt": "2026-10-27T10:35:56.465Z",
+      "endedAt": "2026-10-27T10:36:37.003Z",
+      "evidenceFiles": [
+        "balance-0-40c96254-623c-4453-812c-2ef2114aed8e.json",
+        "balance-1-5debde91-f604-4991-b4bb-a676a3dfcf96.json",
+        "balance-2-ef64daf7-b8e7-4f93-8e0b-9c3554450c36.json",
+        "transfer-0-574563ea-5d87-4dcc-b4d4-734d826d68d9.json",
+        "transfer-1-180b864d-1379-4c34-bf22-05f4795a5274.json",
+        "transfer-2-078b6fce-37b1-4889-9136-468cfc9a1114.json",
+        "approve-0-c511f931-c2c5-48a5-991e-15f7e7d08b24.json",
+        "approve-1-480daba6-818c-493a-8fa4-c940aa0c2582.json",
+        "approve-2-40ecf7d8-f2bb-4591-bd07-445270181ab2.json",
+        "swap-0-9537a48a-f140-49fb-ab39-8a328506795e.json",
+        "swap-1-7d62b7f5-2a0f-4db4-88db-65ba0435ce55.json",
+        "swap-2-764ff8b8-20f1-4759-b78e-f84ea31aa006.json",
+        "swap_deposit-0-aa289a39-a76c-40ae-95ca-25da9ad43f73.json",
+        "swap_deposit-1-a44c8fad-e2ea-4c91-aa73-4d27d3a935ca.json",
+        "swap_deposit-2-0034d732-4f71-4833-9162-aadb163a577d.json"
+      ]
+    },
+    {
+      "caseId": "AT-07",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Process and agentRunId separation are asserted, but retained session, inbox and cost isolation are not all explicitly compared.",
+      "expected": "One independent Agent process reused across isolated sessions",
+      "actual": {
+        "controlPid": 20580,
+        "agentPid": 11904,
+        "agentRunIds": [
+          "c22ee3fe-cb47-45bb-96c6-26e755fe763b",
+          "0d111c07-ef15-4ce1-8ce1-3184a82cfc8c"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "466a54420c2296777ac751c1e3f8d7b1933357ce4a1ecb663c3409496aa3947a",
+      "executionIds": [
+        "ccbc5f7e-af66-40ad-8930-74762f47263f",
+        "8ae5f080-8c2d-4f20-a548-efeb12f4d742"
+      ],
+      "startedAt": "2026-10-27T10:36:37.003Z",
+      "endedAt": "2026-10-27T10:36:40.294Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-08",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Sender and definition identity are asserted, but both complete execution configurations are not exported here.",
+      "expected": "Same task version runs with different registered wallets",
+      "actual": {
+        "runs": [
+          {
+            "definition": "a8c3e4b2af1ce1981c57a0ced78ebc39e930ac0ed5568c8a38cc81c09e57226f",
+            "wallet": "0xa2E656011019CB4CB80E43810582F2af561a686E"
+          },
+          {
+            "definition": "a8c3e4b2af1ce1981c57a0ced78ebc39e930ac0ed5568c8a38cc81c09e57226f",
+            "wallet": "0x641092675e64849a95D43316057e98B31D918348"
+          }
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "87f4cf8fb788422288e48bc776225e3fa3db7e311424068904afdf69ef18a646",
+      "executionIds": [
+        "4e5ee755-5d9a-4053-92ef-8701c9324aeb",
+        "839cb544-b934-4399-832b-5c411d5df57b"
+      ],
+      "startedAt": "2026-10-27T10:36:40.294Z",
+      "endedAt": "2026-10-27T10:36:44.220Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-09",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Full reservation expiry and late identity adversary suite not yet run.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-10",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Persistent message deduplication implemented; full triple-delivery late-message fixture pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-11",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "The pending-transaction confirmation branch and exact resume-once evidence are not exercised here; required screen recording is absent.",
+      "expected": "Acknowledged pause stops new tool actions; single step runs at most one tool",
+      "actual": {
+        "oneStepTools": 1,
+        "observedMs": 5100,
+        "evidenceFiles": [
+          "pause-step-5dc7e869-1bad-46b5-9e37-a6408aca9abd.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "abbae63e728a2d575a9acdb14c9137e9f410e9d1e49cea152bfdf2bfca0af7a8",
+      "executionIds": [
+        "5dc7e869-1bad-46b5-9e37-a6408aca9abd"
+      ],
+      "startedAt": "2026-10-27T10:36:44.220Z",
+      "endedAt": "2026-10-27T10:36:59.589Z",
+      "evidenceFiles": [
+        "pause-step-5dc7e869-1bad-46b5-9e37-a6408aca9abd.json"
+      ]
+    },
+    {
+      "caseId": "AT-12",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Only stop-after-escrow is exercised here; stop-before-order with unchanged assets is not tested.",
+      "expected": "Stop with escrow retains lock until explicit refund receipt",
+      "actual": {
+        "state": "completed",
+        "evidenceFiles": [
+          "stop-refund-1af7537d-cfb3-4715-9bee-4fab079a6f15.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "e90ea854844586047d690eabe813bcbade5cfe6d44eddcb7d0fb8129d261942c",
+      "executionIds": [
+        "1af7537d-cfb3-4715-9bee-4fab079a6f15"
+      ],
+      "startedAt": "2026-10-27T10:36:59.589Z",
+      "endedAt": "2026-10-27T10:37:10.012Z",
+      "evidenceFiles": [
+        "stop-refund-1af7537d-cfb3-4715-9bee-4fab079a6f15.json"
+      ]
+    },
+    {
+      "caseId": "AT-13",
+      "platform": "win32",
+      "status": "PASS",
+      "subchecks": "PASS",
+      "coverageReason": "All subconditions exercised by this case.",
+      "expected": "Independent model workers distinguish prose, wrong quote and actual accepted tool call",
+      "actual": {
+        "modelOrigin": "protocol_fixture_not_real_cloud",
+        "requestCount": 18,
+        "evidenceFiles": [
+          "model-acceptance-997bc736-62ed-41af-a6ac-e32b0c40df69.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "ba07dc5cc148f3ea6498da62a34c2fff1c8eb66745a4ffb1d275295b10d86072",
+      "executionIds": [
+        "997bc736-62ed-41af-a6ac-e32b0c40df69"
+      ],
+      "startedAt": "2026-10-27T10:37:10.012Z",
+      "endedAt": "2026-10-27T10:37:25.862Z",
+      "evidenceFiles": [
+        "model-acceptance-997bc736-62ed-41af-a6ac-e32b0c40df69.json"
+      ]
+    },
+    {
+      "caseId": "AT-14",
+      "platform": "win32",
+      "status": "PASS",
+      "subchecks": "PASS",
+      "coverageReason": "All subconditions exercised by this case.",
+      "expected": "Three independently signed standard swaps meet exact balances and allowances",
+      "actual": {
+        "runs": [
+          {
+            "id": "fdd247a8-5e89-48b9-9f72-f7f2e0dc2f5f",
+            "package": "AT14-fdd247a8-5e89-48b9-9f72-f7f2e0dc2f5f.json"
+          },
+          {
+            "id": "d3532149-71ff-43ed-aaf2-f2746534f234",
+            "package": "AT14-d3532149-71ff-43ed-aaf2-f2746534f234.json"
+          },
+          {
+            "id": "6080e5d1-ed1d-479f-9f4c-c5dd6508a6c0",
+            "package": "AT14-6080e5d1-ed1d-479f-9f4c-c5dd6508a6c0.json"
+          }
+        ],
+        "evidenceFiles": [
+          "AT14-fdd247a8-5e89-48b9-9f72-f7f2e0dc2f5f.json",
+          "AT14-d3532149-71ff-43ed-aaf2-f2746534f234.json",
+          "AT14-6080e5d1-ed1d-479f-9f4c-c5dd6508a6c0.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "b1167746ca245cafe4aa5d293ef074a306442d9d87c0e55ec43cd36289b117fb",
+      "executionIds": [
+        "fdd247a8-5e89-48b9-9f72-f7f2e0dc2f5f",
+        "d3532149-71ff-43ed-aaf2-f2746534f234",
+        "6080e5d1-ed1d-479f-9f4c-c5dd6508a6c0"
+      ],
+      "startedAt": "2026-10-27T10:37:25.863Z",
+      "endedAt": "2026-10-27T10:37:50.555Z",
+      "evidenceFiles": [
+        "AT14-fdd247a8-5e89-48b9-9f72-f7f2e0dc2f5f.json",
+        "AT14-d3532149-71ff-43ed-aaf2-f2746534f234.json",
+        "AT14-6080e5d1-ed1d-479f-9f4c-c5dd6508a6c0.json"
+      ]
+    },
+    {
+      "caseId": "AT-15",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Negotiation step-budget exhaustion is not exercised here.",
+      "expected": "Incompatible goals yield no forced settlement",
+      "actual": {
+        "state": "completed",
+        "transactions": 0,
+        "evidenceFiles": [
+          "no-deal-fd948de8-ad5c-4df6-af96-2e8558ce53a9.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "5b56b84e4d0b7f8cb976ed315c65d9bce4a28d78a8a8a35e083c26304b75a273",
+      "executionIds": [
+        "fd948de8-ad5c-4df6-af96-2e8558ce53a9"
+      ],
+      "startedAt": "2026-10-27T10:37:50.555Z",
+      "endedAt": "2026-10-27T10:37:53.628Z",
+      "evidenceFiles": [
+        "no-deal-fd948de8-ad5c-4df6-af96-2e8558ce53a9.json"
+      ]
+    },
+    {
+      "caseId": "AT-16",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Original amount guard preserved; requested continuous model correction fixture pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-17",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Original allowance checker preserved; all requested continuous initial-state cases pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-18",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Chain scan implemented; hidden-extra-transaction fixture pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-19",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Existing contract regressions need current build execution.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-20",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Existing deadline and repeated refund fixtures need current build execution.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-21",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Three crash recoveries pass, but explicit same-intent resubmission nonce comparison and the unconfirmable unknown branch are not covered.",
+      "expected": "Broadcast response loss reuses durable hash and does not repay in three runs",
+      "actual": {
+        "runs": [
+          {
+            "id": "95984772-43d8-4f8b-8c43-08d7ef650591",
+            "hashes": [
+              "0x0c71604454c279ddfdbf97741e574082807f24ce44cc58d3a142c5e8b40a013c",
+              "0xda249aef2dbc0873b2408aab4dbc0d50242bd48d823796c54fb670b182c0021e",
+              "0xa75a4560e4536162a234201b5ccac796e12b249990b1727cdc6846504b5bbc71",
+              "0x224868fdf3938340f79994ff8ecb28b556f9f0c9c8396e0d73ed74b84dcae4eb"
+            ],
+            "package": "lost-response-95984772-43d8-4f8b-8c43-08d7ef650591.json"
+          },
+          {
+            "id": "35479e68-78e4-4350-ab52-d0641d51d4c8",
+            "hashes": [
+              "0x498a496951a39971edf285f1db9e1b7d38da7402b17b4297e75cf604819383b3",
+              "0x88aaac74cf1459d29b8a3db5b1eb0a3b8a87bd9fb625d326f56eb798da0a3b2a",
+              "0xb33bf23d93f362e31206652ab9453c6c8e083fcd05cca2af814dd81c35e7a90d",
+              "0x18295b5613a433ecf32c193615863cb2d6accf77424894453facc21b22cb2314"
+            ],
+            "package": "lost-response-35479e68-78e4-4350-ab52-d0641d51d4c8.json"
+          },
+          {
+            "id": "792d30fd-c313-4a7c-b2ad-a23845809d5b",
+            "hashes": [
+              "0x1f2c6d2fce02960ceb6598d2b141984340b17a58f73100258a2bafa0aafdc54d",
+              "0x18d72fdbfb8a9f1406d9250766ad9d85105cf5a4c30ce2f92270e9e3d22a0cf4",
+              "0x46dfbd23383a7f32fd0eccbec77a5f7e86c824164582b37a6cae5a317210977c",
+              "0x1bfb73a3b72e52a6f2d04758502d26e51cd59c739a33dd4661e51d8d84cf8999"
+            ],
+            "package": "lost-response-792d30fd-c313-4a7c-b2ad-a23845809d5b.json"
+          }
+        ],
+        "evidenceFiles": [
+          "lost-response-95984772-43d8-4f8b-8c43-08d7ef650591.json",
+          "lost-response-35479e68-78e4-4350-ab52-d0641d51d4c8.json",
+          "lost-response-792d30fd-c313-4a7c-b2ad-a23845809d5b.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "1459f167e24620166874d7344a3f4b721404acb410f36915a7ce8ad6ab70c175",
+      "executionIds": [
+        "95984772-43d8-4f8b-8c43-08d7ef650591",
+        "35479e68-78e4-4350-ab52-d0641d51d4c8",
+        "792d30fd-c313-4a7c-b2ad-a23845809d5b"
+      ],
+      "startedAt": "2026-10-27T10:37:53.628Z",
+      "endedAt": "2026-10-27T10:38:21.034Z",
+      "evidenceFiles": [
+        "lost-response-95984772-43d8-4f8b-8c43-08d7ef650591.json",
+        "lost-response-35479e68-78e4-4350-ab52-d0641d51d4c8.json",
+        "lost-response-792d30fd-c313-4a7c-b2ad-a23845809d5b.json"
+      ]
+    },
+    {
+      "caseId": "AT-22",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "All three Agent crash injection points not fully run.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-23",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Both archive/ACK crash points not fully run.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-24",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Chain identity and record failure guards implemented; full injected suite pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-25",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Real dual-model evidence unavailable.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-26",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "The explicit full model/tool/message/quote/order/EVM-frame path and required node-detail screenshot are not completely checked here.",
+      "expected": "Graph endpoints and JSON GraphML CSV counts agree with explicit event refs",
+      "actual": {
+        "nodes": 113,
+        "edges": 192,
+        "evidenceFiles": [
+          "graph-8ff23b73-d91d-443c-b61c-7cd306c2ea0a.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "1c93980d131d3afecde1e0e7118c2aaecb9ffc5005316cfb1921326626a3f41a",
+      "executionIds": [
+        "8ff23b73-d91d-443c-b61c-7cd306c2ea0a"
+      ],
+      "startedAt": "2026-10-27T10:38:21.034Z",
+      "endedAt": "2026-10-27T10:38:28.976Z",
+      "evidenceFiles": [
+        "graph-8ff23b73-d91d-443c-b61c-7cd306c2ea0a.json"
+      ]
+    },
+    {
+      "caseId": "AT-27",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Old and tampered fixture comparison pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-28",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "CLI offline commands are checked; the local archive-page flow, downloaded graph files and independent network observation are absent.",
+      "expected": "Offline verify replay check work with all runtime processes stopped",
+      "actual": {
+        "outputs": {
+          "verify": "{\n  \"verified\": true,\n  \"eventCount\": 75,\n  \"files\": 86,\n  \"recordingStatus\": \"complete\",\n  \"liveRecheck\": false,\n  \"note\": \"Internal integrity only; no chain/model access and no collector authentication.\"\n}\n",
+          "replay": "1\tcontrol\tscenario.created\tfd9a4f4c-c66d-475e-abeb-be3b09d8f9a9\n2\tcontrol\tenvironment.initial\tf910a5a2-c7f4-4811-8cb9-b2bb398a4587\n3\tagent-a\tscheduler.step\t873411e8-54ac-4cd7-8251-edf7ebcf89bf\n4\tagent-a\tagent.wait\t66ad8fb6-b347-4969-bce5-6f382362ae9d\n5\tagent-b\tscheduler.step\tfea64d6b-d730-43be-ba77-",
+          "check": "{\n  \"checkerVersion\": \"peer-2.0\",\n  \"status\": \"success\",\n  \"settlement_status\": \"confirmed\",\n  \"business_outcome\": \"filled\",\n  \"agent_goal_results\": {\n    \"maker\": \"success\",\n    \"taker\": \"success\"\n  },\n  \"artifact_quality\": \"not_applicable\",\n  \"evidence_completeness\": \"recorded\",\n  \"assertions\": [\n"
+        },
+        "evidenceFiles": [
+          "offline-3b508394-abd2-41d9-9905-51b3df9c9cef.json"
+        ]
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "4a28daeca784b61b8c75d82135abf3e88d50f2cf1ab50e04ea449259d45dad59",
+      "executionIds": [
+        "3b508394-abd2-41d9-9905-51b3df9c9cef"
+      ],
+      "startedAt": "2026-10-27T10:38:28.976Z",
+      "endedAt": "2026-10-27T10:38:42.337Z",
+      "evidenceFiles": [
+        "offline-3b508394-abd2-41d9-9905-51b3df9c9cef.json"
+      ]
+    },
+    {
+      "caseId": "AT-29",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "coverageReason": "Only child Job creation and continuous retry refusal are checked; an actual independent rerun with configuration/initial-state comparison and retained LLM variation is absent.",
+      "expected": "Independent retry links parent; continuous exact rerun is refused",
+      "actual": {
+        "parent": "93c949c3-f707-4be1-95be-c5cd2a77c7ba",
+        "newJob": "60c36dd0-dddb-45b8-86a1-493117359f06"
+      },
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": "43be819df741b5d86a3ffc6f55ac1eff635d5183bced341aea0fdb7c4623b95a",
+      "executionIds": [
+        "93c949c3-f707-4be1-95be-c5cd2a77c7ba"
+      ],
+      "startedAt": "2026-10-27T10:38:42.337Z",
+      "endedAt": "2026-10-27T10:38:52.642Z",
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-30",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Full private-information and cross-role scans pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-31",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Both required GUI dimensions and XSS run pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-32",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "No real model credentials supplied; fixtures cannot replace 10 real attempts.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-33",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Run --suite full or --case AT-33 for the 100-task stability run.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-34",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Packaged clean-user Windows GUI/port proof pending.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-35",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "No Apple Silicon macOS host available.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    },
+    {
+      "caseId": "AT-36",
+      "platform": "win32",
+      "status": "BLOCKED",
+      "expected": "All stated subconditions must be measured",
+      "actual": "Requires independent human verifier and signature.",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "aa6b46b14a7631fe2f0f50bb3a118f7735e7d5afb87d5861ad793c8e3223f442",
+      "fixtureHash": null,
+      "executionIds": [],
+      "startedAt": null,
+      "endedAt": null,
+      "evidenceFiles": []
+    }
+  ]
+}

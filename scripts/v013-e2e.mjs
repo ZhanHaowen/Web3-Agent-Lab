@@ -1,3 +1,4 @@
+import {artifactPath} from '../tests/helpers/artifacts.mjs';
 /** Feedback regressions: synthetic model protocol + real local Anvil, never an LLM benchmark.
  * Run only on a dedicated instance: LAB_PORT=4437 node scripts/v013-e2e.mjs.
  */
@@ -43,7 +44,7 @@ const namedPlan = plan => request => {
   const action = plan[index]; return action ? call('v013-call-' + index, action[0], action[1]) : end('Protocol fixture finished; independent checker decides.');
 };
 try {
-  assert.equal(health.version.displayVersion, 'V0.13');
+  assert.equal(health.version.displayVersion, process.env.EXPECTED_LAB_VERSION ?? 'V0.13');
   if (!(await api('/api/status')).ready) await api('/api/environment/init', {});
   await api('/api/environment/automine', { enabled: true });
   await api('/api/environment/reset', {});
@@ -177,6 +178,5 @@ try {
   await api('/api/environment/automine', { enabled: true }).catch(() => {});
   await api('/api/environment/reset', {}).catch(() => {});
   fixture.closeAllConnections(); await new Promise(resolve => fixture.close(resolve));
-  await mkdir('docs', { recursive: true });
-  await writeFile('docs/v013-regression.json', JSON.stringify({ suite: 'V0.13 real user feedback API regression', build: health.version, origin: 'synthetic protocol fixture + real Anvil; not a model capability benchmark', realModelTested: false, testedAt: new Date().toISOString(), passed: results.length > 0 && results.every(row => row.passed), tests: results }, null, 2));
+  await writeFile(artifactPath('v013-regression.json'), JSON.stringify({ suite: 'V0.13 real user feedback API regression', build: health.version, origin: 'synthetic protocol fixture + real Anvil; not a model capability benchmark', realModelTested: false, testedAt: new Date().toISOString(), passed: results.length > 0 && results.every(row => row.passed), tests: results }, null, 2));
 }

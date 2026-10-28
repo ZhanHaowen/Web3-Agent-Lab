@@ -1,0 +1,107 @@
+{
+  "caseId": "AT-12",
+  "label": "shutdown-open-order-attach-refund",
+  "platform": "win32",
+  "sourceCommit": null,
+  "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+  "buildHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "fixtureHash": "4b0b648f4df8eaf0ab9732b9b5d886b8c72512e2716c02800bda6cd904188d7c",
+  "startedAt": "2026-10-27T10:43:27.660Z",
+  "executionIds": [
+    "b0d6fd7f-3753-4996-adc7-5b67728540ad"
+  ],
+  "evidenceFiles": [
+    "open-before-shutdown-b0d6fd7f-3753-4996-adc7-5b67728540ad.json",
+    "open-after-attach-b0d6fd7f-3753-4996-adc7-5b67728540ad.json",
+    "refund-after-attach-b0d6fd7f-3753-4996-adc7-5b67728540ad.json"
+  ],
+  "expected": "Open escrow survives real graceful shutdown; restart attaches same chain, retains lock, and unlocks only after one explicit refund receipt.",
+  "actual": {
+    "controlShutdown": {
+      "requested": true,
+      "confirmed": true,
+      "exitCode": 0
+    },
+    "chainInstanceId": "c41374e0-fbcf-4857-9554-18a7aff54698",
+    "blockHashPreserved": "0x8a10ceab1aaa0966d40a6e90c9741364cc605d4c8f77f97e04a27fd9aa5e02f6",
+    "resetRejected": {
+      "error": "BUSY: 当前实验尚未结束"
+    },
+    "orderState": 3,
+    "refundHash": "0xf7ea7ae066fffc255b6900be9b40bb44b1c3aa8cc0a778750a71310788bb285a",
+    "refundReceipt": {
+      "type": "eip1559",
+      "status": "success",
+      "cumulativeGasUsed": "51940",
+      "logs": [
+        {
+          "address": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x000000000000000000000000a513e6e4b8f2a923d98304ec87f64353c4d5c853",
+            "0x0000000000000000000000007947a2a9097abfe74bc719e8d5a1bfe18f9b032d"
+          ],
+          "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+          "blockHash": "0xe1dc8597b7f7f8bb7e030d7f64548975c937ee5bb33063a267f9944f040eb5b4",
+          "blockNumber": "13",
+          "blockTimestamp": "0x6553f10d",
+          "transactionHash": "0xf7ea7ae066fffc255b6900be9b40bb44b1c3aa8cc0a778750a71310788bb285a",
+          "transactionIndex": 0,
+          "logIndex": 0,
+          "removed": false
+        },
+        {
+          "address": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+          "topics": [
+            "0xa6eb7cdc219e1518ced964e9a34e61d68a94e4f1569db3e84256ba981ba52753",
+            "0x6b8281fe4230cf038a7afa56b88e76951dca1a68114514627b576871ef4f3a39",
+            "0x0000000000000000000000007947a2a9097abfe74bc719e8d5a1bfe18f9b032d"
+          ],
+          "data": "0x",
+          "blockHash": "0xe1dc8597b7f7f8bb7e030d7f64548975c937ee5bb33063a267f9944f040eb5b4",
+          "blockNumber": "13",
+          "blockTimestamp": "0x6553f10d",
+          "transactionHash": "0xf7ea7ae066fffc255b6900be9b40bb44b1c3aa8cc0a778750a71310788bb285a",
+          "transactionIndex": 0,
+          "logIndex": 1,
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000000000000000000000000400000000000000000000000000000000000010000000000000000000000002000000000000000000000000000000000000000000000000000000000000008000000000080000010000000010000000000000000000040000000000000000000000000001000000000000000000010008000000000000000000800000000000000000000000000000000000000000200000000000040000000000000000000820000020000000000000000000000000100000000000042000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000",
+      "transactionHash": "0xf7ea7ae066fffc255b6900be9b40bb44b1c3aa8cc0a778750a71310788bb285a",
+      "transactionIndex": 0,
+      "blockHash": "0xe1dc8597b7f7f8bb7e030d7f64548975c937ee5bb33063a267f9944f040eb5b4",
+      "blockNumber": "13",
+      "gasUsed": "51940",
+      "effectiveGasPrice": "1056128161",
+      "blobGasPrice": "1",
+      "from": "0x7947a2a9097abfe74bc719e8d5a1bfe18f9b032d",
+      "to": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+      "contractAddress": null,
+      "blockTimestamp": 1700000013
+    },
+    "assets": {
+      "maker": {
+        "A": "100000000",
+        "B": "0",
+        "allowanceA": "0",
+        "allowanceB": "0"
+      },
+      "taker": {
+        "A": "0",
+        "B": "100000000",
+        "allowanceA": "0",
+        "allowanceB": "0"
+      },
+      "escrow": {
+        "A": "0",
+        "B": "0"
+      }
+    },
+    "environmentLock": false
+  },
+  "subchecks": "PASS",
+  "coverageReason": "",
+  "status": "PASS",
+  "endedAt": "2026-10-27T10:43:46.098Z"
+}

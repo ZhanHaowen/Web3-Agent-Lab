@@ -1,0 +1,17 @@
+{
+  "platform": "Windows x64",
+  "packageExtracted": true,
+  "allReleaseFileHashesVerified": true,
+  "results": [
+    "Bundled Node starts server with V0.14 build identity",
+    "Extracted package executes real-chain atomic peer swap with expected balances",
+    "Bundled runtime offline checker verifies packaged scene example",
+    "Original V0.13 CLI verifies legacy example",
+    "Restarted server keeps archive read-only and creates a fresh rerun episode"
+  ],
+  "graph": {
+    "nodes": 111,
+    "edges": 189
+  },
+  "passed": true
+}

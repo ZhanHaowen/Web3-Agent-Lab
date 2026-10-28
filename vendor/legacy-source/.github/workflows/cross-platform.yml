@@ -1,0 +1,28 @@
+name: Cross platform smoke tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+      - run: npm install -g pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/setup-runtime.mjs
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: node --test tests/ui-smoke.mjs

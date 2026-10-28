@@ -1,0 +1,43 @@
+caseId,status,actual
+"AT-01","BLOCKED","Full frozen dependency installation and TypeScript build chain have not yet been independently validated. New executable modules are ESM; original pinned TypeScript sources included."
+"AT-02","BLOCKED","Not run in this invocation"
+"AT-03","BLOCKED","Not run in this invocation"
+"AT-04","BLOCKED","Not run in this invocation"
+"AT-05","BLOCKED","Not run in this invocation"
+"AT-06","BLOCKED","Not run in this invocation"
+"AT-07","BLOCKED","Not run in this invocation"
+"AT-08","BLOCKED","Not run in this invocation"
+"AT-09","BLOCKED","Full reservation expiry and late identity adversary suite not yet run."
+"AT-10","BLOCKED","Persistent message deduplication implemented; full triple-delivery late-message fixture pending."
+"AT-11","BLOCKED","Manual fixture not completed."
+"AT-12","BLOCKED","Not run in this invocation"
+"AT-13","BLOCKED","Independent worker model protocol acceptance fixture pending."
+"AT-14","BLOCKED","Not run in this invocation"
+"AT-15","BLOCKED","Not run in this invocation"
+"AT-16","BLOCKED","Original amount guard preserved; requested continuous model correction fixture pending."
+"AT-17","BLOCKED","Original allowance checker preserved; all requested continuous initial-state cases pending."
+"AT-18","BLOCKED","Chain scan implemented; hidden-extra-transaction fixture pending."
+"AT-19","BLOCKED","Existing contract regressions need current build execution."
+"AT-20","BLOCKED","Existing deadline and repeated refund fixtures need current build execution."
+"AT-21","BLOCKED","Not run in this invocation"
+"AT-22","BLOCKED","All three Agent crash injection points not fully run."
+"AT-23","BLOCKED","Both archive/ACK crash points not fully run."
+"AT-24","BLOCKED","Chain identity and record failure guards implemented; full injected suite pending."
+"AT-25","BLOCKED","Real dual-model evidence unavailable."
+"AT-26","BLOCKED","Not run in this invocation"
+"AT-27","BLOCKED","Old and tampered fixture comparison pending."
+"AT-28","BLOCKED","Not run in this invocation"
+"AT-29","BLOCKED","Not run in this invocation"
+"AT-30","BLOCKED","Full private-information and cross-role scans pending."
+"AT-31","BLOCKED","Both required GUI dimensions and XSS run pending."
+"AT-32","BLOCKED","No real model credentials supplied; fixtures cannot replace 10 real attempts."
+"AT-33","FAIL","Error: /api/v2/jobs/2d5e4b5f-e067-49a0-ab2d-16302577f373/assign {""error"":""WALLET_RESERVED""}
+    at api (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:52:458)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:57:135)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:81:215
+    at async test (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:60:215)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:81:40"
+"AT-34","BLOCKED","Packaged clean-user Windows GUI/port proof pending."
+"AT-35","BLOCKED","No Apple Silicon macOS host available."
+"AT-36","BLOCKED","Requires independent human verifier and signature."

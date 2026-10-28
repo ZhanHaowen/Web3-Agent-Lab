@@ -1,0 +1,6 @@
+{
+  "permit2": {"repository":"https://github.com/Uniswap/permit2","commit":"cc56ad0f3439c502c246fc5cfcc3db92bb8b7219","license":"MIT","source":"contracts/upstream/permit2/src","modified":false},
+  "solmate": {"repository":"https://github.com/transmissions11/solmate","commit":"8d910d876f51c3b2585c9109409d601f600e68e1","source":"contracts/upstream/solmate/src","modified":false},
+  "compiler": {"version":"0.8.17+commit.8df45f5f","source":"https://binaries.soliditylang.org/wasm/soljson-v0.8.17+commit.8df45f5f.js","path":"tools/solc-0.8.17/soljson.cjs"},
+  "notice":"Local deployment of official source; address differs from canonical mainnet address. Task budget is implemented in the research signer, not in Permit2."
+}

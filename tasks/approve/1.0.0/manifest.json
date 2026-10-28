@@ -1,0 +1,36 @@
+{
+  "format": "installed-local-task",
+  "taskType": "approve",
+  "version": "1.0.0",
+  "definitionHash": "751549a1d3553050fd187dee705e652654223d9a1e64edc331d47d9571570d5b",
+  "roles": [
+    "agent"
+  ],
+  "requiredTools": [
+    "approve_token"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "files": {
+    "task-definition.json": {
+      "sha256": "ce8a4ada04c2aa8ef2edde84bcf12bcb34c3b1822fdd7d525973aad92b5e5d76",
+      "bytes": 430
+    },
+    "input.schema.json": {
+      "sha256": "7eb27bf85f3c3dc2f7ce5eb8d784f62f36eef50d2e9f7fdac401ec86ce9af946",
+      "bytes": 170
+    },
+    "ui.schema.json": {
+      "sha256": "26ccc65e6a9823d93c1c7f1d1cefd0083139e545292e7ffe7407ba379322c63a",
+      "bytes": 106
+    },
+    "fixtures/default.json": {
+      "sha256": "c65c4c5e9fcbc86a78cd289f6cc24a8cf48742f49c7de1ae975552b257a8279c",
+      "bytes": 64
+    },
+    "prompts/agent.txt": {
+      "sha256": "2c28a58a04a8927a91a07673d153585e20165a03b2d0062f4e2c20ef2e665ac8",
+      "bytes": 80
+    }
+  }
+}

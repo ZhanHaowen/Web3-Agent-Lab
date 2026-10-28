@@ -1,0 +1,40 @@
+{
+  "version": "V0.15",
+  "programVersion": "0.1.5",
+  "platform": "Windows x64",
+  "date": "2026-10-26",
+  "settlementMode": "service_escrow",
+  "unitTests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "reports": {
+    "v015-service-results.json": {
+      "passed": 16,
+      "failed": 0
+    },
+    "v015-contract-results.json": {
+      "passed": 11,
+      "failed": 0
+    },
+    "v014-integration-results.json": {
+      "passed": 10,
+      "failed": 0
+    }
+  },
+  "browserPurchaseAndWrongApprovalVerified": true,
+  "cloudModelTested": false,
+  "modelProtocolFixtureVerified": true,
+  "macOSTested": false,
+  "externalA2A_x402_AP2": false,
+  "erc8183CompatibilityClaim": false,
+  "packagedExampleFolder": "examples/service-v015",
+  "notes": [
+    "Evaluator is a trusted deterministic role with an independent wallet; Checker is read-only.",
+    "Paid bad artifacts remain checker failure even when fault injection is expected.",
+    "Original V0.13 bundle preserved; original missing TypeScript sources not reconstructed.",
+    "Transient Windows journal rename locks use bounded retries before any side effects."
+  ],
+  "sourceHash": "9716317c852691d104c05f66a5fdf96f67af5e8b3df6273a6eb075fa34f3fe0d",
+  "extractedPackageSmokePassed": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "sellAmount": {
+      "type": "string",
+      "pattern": "^[0-9]+(?:\\.[0-9]{1,6})?$"
+    },
+    "buyAmount": {
+      "type": "string",
+      "pattern": "^[0-9]+(?:\\.[0-9]{1,6})?$"
+    },
+    "deadlineSeconds": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 86400
+    }
+  },
+  "additionalProperties": false
+}

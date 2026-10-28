@@ -1,0 +1,21 @@
+{
+  "taskType": "swap",
+  "version": "1.0.0",
+  "roles": [
+    "agent"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "requiredTools": [
+    "approve_token",
+    "swap"
+  ],
+  "schema": {
+    "amountIn": "decimal",
+    "minAmountOut": "decimal"
+  },
+  "prompts": {
+    "agent": "Execute the installed task using its declared amounts and original amount guard."
+  },
+  "definitionHash": "7fa37bd01ea62f9ab5331c314f56bf17a3b49e64d4095697c80fd6e055ff4055"
+}

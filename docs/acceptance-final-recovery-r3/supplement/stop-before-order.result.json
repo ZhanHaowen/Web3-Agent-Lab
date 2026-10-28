@@ -1,0 +1,27 @@
+{
+  "caseId": "AT-12",
+  "label": "stop-before-order",
+  "platform": "win32",
+  "sourceCommit": null,
+  "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+  "buildHash": "d9c756d5f20414f4785a73a2e6cdfc45dd7460abf1b1bff58dfa4d3b570ffc78",
+  "fixtureHash": "acf59406a6ba7daf175231d8edd507bc034c104919d05b288e7c5ec5a9793763",
+  "startedAt": "2026-10-27T10:43:26.353Z",
+  "executionIds": [
+    "7f7e6a8a-0208-4310-82c7-fec87ee696f1"
+  ],
+  "evidenceFiles": [
+    "stop-before-order-7f7e6a8a-0208-4310-82c7-fec87ee696f1.json"
+  ],
+  "expected": "Stop before order has no token/allowance/escrow movement and releases lock.",
+  "actual": {
+    "state": "stopped",
+    "assetsUnchanged": true,
+    "environmentLock": false,
+    "transactions": 0
+  },
+  "subchecks": "PASS",
+  "coverageReason": "",
+  "status": "PASS",
+  "endedAt": "2026-10-27T10:43:27.658Z"
+}

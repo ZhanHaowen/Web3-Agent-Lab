@@ -1,2 +1,4 @@
+# Preserve released evidence and mixed line endings byte-for-byte.
+* -text
 *.command text eol=lf
 *.sh text eol=lf

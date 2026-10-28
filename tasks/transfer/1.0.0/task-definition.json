@@ -1,0 +1,19 @@
+{
+  "taskType": "transfer",
+  "version": "1.0.0",
+  "roles": [
+    "agent"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "requiredTools": [
+    "transfer_token"
+  ],
+  "schema": {
+    "amount": "decimal"
+  },
+  "prompts": {
+    "agent": "Execute the installed task using its declared amounts and original amount guard."
+  },
+  "definitionHash": "a8c3e4b2af1ce1981c57a0ced78ebc39e930ac0ed5568c8a38cc81c09e57226f"
+}

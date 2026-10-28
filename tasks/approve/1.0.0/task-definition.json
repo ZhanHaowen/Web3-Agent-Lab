@@ -1,0 +1,19 @@
+{
+  "taskType": "approve",
+  "version": "1.0.0",
+  "roles": [
+    "agent"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "requiredTools": [
+    "approve_token"
+  ],
+  "schema": {
+    "amount": "decimal"
+  },
+  "prompts": {
+    "agent": "Execute the installed task using its declared amounts and original amount guard."
+  },
+  "definitionHash": "751549a1d3553050fd187dee705e652654223d9a1e64edc331d47d9571570d5b"
+}

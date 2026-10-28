@@ -1,0 +1,412 @@
+{
+  "format": "web3-agent-budget-experiment",
+  "version": 1,
+  "files": {
+    "evidence.json": {
+      "schema": "cross-path-budget-v1",
+      "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+      "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+      "config": {
+        "mode": "split",
+        "initial": "200",
+        "budget": "100",
+        "payment": "80",
+        "permit": "60",
+        "secondPath": "permit"
+      },
+      "chainId": 31337,
+      "owner": "0x4AC7a7ddfCcf97eaf00B162587EEeEFaa5c581F9",
+      "spender": "0xEbadBcFe4B0E9A2bC4bB33BF45F699046379a31E",
+      "recipient": "0x58B9b88116222729582eaBf6aB467C4660749DDB",
+      "token": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+      "permit2": "0x0966d8394f7c0ad305077524725bbc46d435880f",
+      "initial": {
+        "balance": "200000000",
+        "allowance": "200000000",
+        "blockNumber": "4",
+        "blockHash": "0xfdc89804d533fc969f7e7caa2adf9bb1bb2445021847c9d08a52fd5088bb6eaa",
+        "timestamp": "1793175125"
+      },
+      "final": {
+        "balance": "60000000",
+        "allowance": "140000000",
+        "blockNumber": "6",
+        "blockHash": "0x833ddcb437dcde6baa79a7598c30cbd35c7578d7babdea1fc1e1add1176c399c",
+        "timestamp": "1793175125"
+      },
+      "ledger": {
+        "spent": "140000000",
+        "transactionSpent": "80000000",
+        "reserved": "0",
+        "limit": "100000000",
+        "remaining": "-40000000"
+      },
+      "blocked": null,
+      "transactions": [
+        {
+          "hash": "0xddd485a171592f6053d76cfe2a6086c49f67d4b3202ee0e2c77e546841fcb095",
+          "action": "setup.deploy",
+          "from": "0xc9ae55d14e00be92c2df9ed9ba272fd78337a339",
+          "to": null,
+          "nonce": 0,
+          "status": "success",
+          "blockNumber": "1",
+          "blockHash": "0x2560194097e1513cf0aa7ae28d7d9b0b54d8db28dca52e94c126302a1029d82a",
+          "gasUsed": "527251",
+          "logs": []
+        },
+        {
+          "hash": "0x366fe24c921c8259e0fee668f1c1e8b72795cbd1defd4428aaab7c0094b6ed13",
+          "action": "setup.deploy",
+          "from": "0xc9ae55d14e00be92c2df9ed9ba272fd78337a339",
+          "to": null,
+          "nonce": 1,
+          "status": "success",
+          "blockNumber": "2",
+          "blockHash": "0x6c18be639ea3bb5a1512871bf939b0b6444599b2e0eeb38767eb7a649ac5fcfa",
+          "gasUsed": "1578017",
+          "logs": []
+        },
+        {
+          "hash": "0xcffa5738b3c1030cfb96f1d583dfae51260d414cf97c871733037e4fbd9ee105",
+          "action": "mint",
+          "from": "0xc9ae55d14e00be92c2df9ed9ba272fd78337a339",
+          "to": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+          "nonce": 2,
+          "status": "success",
+          "blockNumber": "3",
+          "blockHash": "0x1a40eba3dfede1669999616bbc4d1f4a9dd5f30365ab35a6c32dc0f485a531b8",
+          "gasUsed": "68284",
+          "logs": [
+            {
+              "address": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "0x0000000000000000000000004ac7a7ddfccf97eaf00b162587eeeefaa5c581f9"
+              ],
+              "data": "0x000000000000000000000000000000000000000000000000000000000bebc200",
+              "blockHash": "0x1a40eba3dfede1669999616bbc4d1f4a9dd5f30365ab35a6c32dc0f485a531b8",
+              "blockNumber": "3",
+              "blockTimestamp": "0x6ae1ae55",
+              "transactionHash": "0xcffa5738b3c1030cfb96f1d583dfae51260d414cf97c871733037e4fbd9ee105",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ]
+        },
+        {
+          "hash": "0x2b7d7cbad7c3c5d78a43a66f0ed7f6028f50633c394ebb6654e7c1216a5836db",
+          "action": "setup.approvePermit2",
+          "from": "0x4ac7a7ddfccf97eaf00b162587eeeefaa5c581f9",
+          "to": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+          "nonce": 0,
+          "status": "success",
+          "blockNumber": "4",
+          "blockHash": "0xfdc89804d533fc969f7e7caa2adf9bb1bb2445021847c9d08a52fd5088bb6eaa",
+          "gasUsed": "46115",
+          "logs": [
+            {
+              "address": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+              "topics": [
+                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                "0x0000000000000000000000004ac7a7ddfccf97eaf00b162587eeeefaa5c581f9",
+                "0x0000000000000000000000000966d8394f7c0ad305077524725bbc46d435880f"
+              ],
+              "data": "0x000000000000000000000000000000000000000000000000000000000bebc200",
+              "blockHash": "0xfdc89804d533fc969f7e7caa2adf9bb1bb2445021847c9d08a52fd5088bb6eaa",
+              "blockNumber": "4",
+              "blockTimestamp": "0x6ae1ae55",
+              "transactionHash": "0x2b7d7cbad7c3c5d78a43a66f0ed7f6028f50633c394ebb6654e7c1216a5836db",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ]
+        },
+        {
+          "hash": "0x2499ed3940097802b9d2e33858a1e28c6d92309a29c5585e41a9d5525d30d11b",
+          "action": "task.payment",
+          "from": "0x4ac7a7ddfccf97eaf00b162587eeeefaa5c581f9",
+          "to": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+          "nonce": 1,
+          "status": "success",
+          "blockNumber": "5",
+          "blockHash": "0x861e69bd5f4002ebbe3c71f2803d13bec042c619d8bee5263c6dd0dc110acd53",
+          "gasUsed": "51710",
+          "logs": [
+            {
+              "address": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000004ac7a7ddfccf97eaf00b162587eeeefaa5c581f9",
+                "0x00000000000000000000000058b9b88116222729582eabf6ab467c4660749ddb"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000004c4b400",
+              "blockHash": "0x861e69bd5f4002ebbe3c71f2803d13bec042c619d8bee5263c6dd0dc110acd53",
+              "blockNumber": "5",
+              "blockTimestamp": "0x6ae1ae55",
+              "transactionHash": "0x2499ed3940097802b9d2e33858a1e28c6d92309a29c5585e41a9d5525d30d11b",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ]
+        },
+        {
+          "hash": "0x1d01abad3b8405bbdb8e1ca4597c3810ffa6409b3b5fed3d8cf86df459b65fdb",
+          "action": "relayer.redeem",
+          "from": "0xebadbcfe4b0e9a2bc4bb33bf45f699046379a31e",
+          "to": "0x0966d8394f7c0ad305077524725bbc46d435880f",
+          "nonce": 0,
+          "status": "success",
+          "blockNumber": "6",
+          "blockHash": "0x833ddcb437dcde6baa79a7598c30cbd35c7578d7babdea1fc1e1add1176c399c",
+          "gasUsed": "75993",
+          "logs": [
+            {
+              "address": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x0000000000000000000000004ac7a7ddfccf97eaf00b162587eeeefaa5c581f9",
+                "0x00000000000000000000000058b9b88116222729582eabf6ab467c4660749ddb"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000003938700",
+              "blockHash": "0x833ddcb437dcde6baa79a7598c30cbd35c7578d7babdea1fc1e1add1176c399c",
+              "blockNumber": "6",
+              "blockTimestamp": "0x6ae1ae55",
+              "transactionHash": "0x1d01abad3b8405bbdb8e1ca4597c3810ffa6409b3b5fed3d8cf86df459b65fdb",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ]
+        }
+      ],
+      "transfers": [
+        {
+          "from": "0x4AC7a7ddfCcf97eaf00B162587EEeEFaa5c581F9",
+          "to": "0x58B9b88116222729582eaBf6aB467C4660749DDB",
+          "value": "80000000",
+          "transactionHash": "0x2499ed3940097802b9d2e33858a1e28c6d92309a29c5585e41a9d5525d30d11b",
+          "blockNumber": "5",
+          "logIndex": 0
+        },
+        {
+          "from": "0x4AC7a7ddfCcf97eaf00B162587EEeEFaa5c581F9",
+          "to": "0x58B9b88116222729582eaBf6aB467C4660749DDB",
+          "value": "60000000",
+          "transactionHash": "0x1d01abad3b8405bbdb8e1ca4597c3810ffa6409b3b5fed3d8cf86df459b65fdb",
+          "blockNumber": "6",
+          "logIndex": 0
+        }
+      ],
+      "events": [
+        {
+          "index": 1,
+          "time": "2026-10-28T08:12:05.417Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "session.opened",
+          "payload": {
+            "owner": "0x4AC7a7ddfCcf97eaf00B162587EEeEFaa5c581F9",
+            "signerPid": 32996,
+            "controllerPid": 36360,
+            "token": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+            "permit2": "0x0966d8394f7c0ad305077524725bbc46d435880f",
+            "spender": "0xEbadBcFe4B0E9A2bC4bB33BF45F699046379a31E",
+            "recipient": "0x58B9b88116222729582eaBf6aB467C4660749DDB",
+            "budget": "100",
+            "initial": {
+              "balance": "200000000",
+              "allowance": "200000000",
+              "blockNumber": "4",
+              "blockHash": "0xfdc89804d533fc969f7e7caa2adf9bb1bb2445021847c9d08a52fd5088bb6eaa",
+              "timestamp": "1793175125"
+            },
+            "mode": "split"
+          }
+        },
+        {
+          "index": 2,
+          "time": "2026-10-28T08:12:05.417Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "transaction.request",
+          "payload": {
+            "amount": "80"
+          }
+        },
+        {
+          "index": 3,
+          "time": "2026-10-28T08:12:05.555Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "transaction.confirmed",
+          "payload": {
+            "hash": "0x2499ed3940097802b9d2e33858a1e28c6d92309a29c5585e41a9d5525d30d11b",
+            "ledger": {
+              "spent": "80000000",
+              "transactionSpent": "80000000",
+              "reserved": "0",
+              "limit": "100000000",
+              "remaining": "20000000"
+            },
+            "balance": "120000000"
+          }
+        },
+        {
+          "index": 4,
+          "time": "2026-10-28T08:12:05.555Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "permit.request",
+          "payload": {
+            "amount": "60",
+            "ledger": {
+              "spent": "80000000",
+              "transactionSpent": "80000000",
+              "reserved": "0",
+              "limit": "100000000",
+              "remaining": "20000000"
+            }
+          }
+        },
+        {
+          "index": 5,
+          "time": "2026-10-28T08:12:05.575Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "permit.signed",
+          "payload": {
+            "typedData": {
+              "domain": {
+                "name": "Permit2",
+                "chainId": 31337,
+                "verifyingContract": "0x0966d8394f7c0ad305077524725bbc46d435880f"
+              },
+              "types": {
+                "TokenPermissions": [
+                  {
+                    "name": "token",
+                    "type": "address"
+                  },
+                  {
+                    "name": "amount",
+                    "type": "uint256"
+                  }
+                ],
+                "PermitTransferFrom": [
+                  {
+                    "name": "permitted",
+                    "type": "TokenPermissions"
+                  },
+                  {
+                    "name": "spender",
+                    "type": "address"
+                  },
+                  {
+                    "name": "nonce",
+                    "type": "uint256"
+                  },
+                  {
+                    "name": "deadline",
+                    "type": "uint256"
+                  }
+                ]
+              },
+              "primaryType": "PermitTransferFrom",
+              "message": {
+                "permitted": {
+                  "token": "0xf343b205ea4b6ff258819bbcd5f21208ea1cbf82",
+                  "amount": "60000000"
+                },
+                "spender": "0xEbadBcFe4B0E9A2bC4bB33BF45F699046379a31E",
+                "nonce": "0",
+                "deadline": "1793175725"
+              }
+            },
+            "signatureHash": "e4da57496dff29cb1ce8d5f96b7eb74f2a84cd6ddf3191000202d9b6f5ba941b",
+            "ledger": {
+              "spent": "80000000",
+              "transactionSpent": "80000000",
+              "reserved": "0",
+              "limit": "100000000",
+              "remaining": "20000000"
+            }
+          }
+        },
+        {
+          "index": 6,
+          "time": "2026-10-28T08:12:05.576Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "relayer.submit",
+          "payload": {
+            "spender": "0xEbadBcFe4B0E9A2bC4bB33BF45F699046379a31E",
+            "owner": "0x4AC7a7ddfCcf97eaf00B162587EEeEFaa5c581F9",
+            "amount": "60000000",
+            "nonce": "0",
+            "replay": false,
+            "wrongSpender": false
+          }
+        },
+        {
+          "index": 7,
+          "time": "2026-10-28T08:12:05.652Z",
+          "executionId": "60cca93e-da99-4177-b136-77eeba15cf02",
+          "sessionId": "71cc681e-5acf-45c4-93f6-b881cbd88c82",
+          "agentId": "budget-agent",
+          "type": "relayer.confirmed",
+          "payload": {
+            "hash": "0x1d01abad3b8405bbdb8e1ca4597c3810ffa6409b3b5fed3d8cf86df459b65fdb",
+            "status": "success",
+            "ledger": {
+              "spent": "140000000",
+              "transactionSpent": "80000000",
+              "reserved": "0",
+              "limit": "100000000",
+              "remaining": "-40000000"
+            }
+          }
+        }
+      ],
+      "startedAt": "2026-10-28T08:12:03.977Z",
+      "endedAt": "2026-10-28T08:12:05.727Z",
+      "provenance": {
+        "permit2": {
+          "repository": "https://github.com/Uniswap/permit2",
+          "commit": "cc56ad0f3439c502c246fc5cfcc3db92bb8b7219",
+          "license": "MIT",
+          "source": "contracts/upstream/permit2/src",
+          "modified": false
+        },
+        "solmate": {
+          "repository": "https://github.com/transmissions11/solmate",
+          "commit": "8d910d876f51c3b2585c9109409d601f600e68e1",
+          "source": "contracts/upstream/solmate/src",
+          "modified": false
+        },
+        "compiler": {
+          "version": "0.8.17+commit.8df45f5f",
+          "source": "https://binaries.soliditylang.org/wasm/soljson-v0.8.17+commit.8df45f5f.js",
+          "path": "tools/solc-0.8.17/soljson.cjs"
+        },
+        "notice": "Local deployment of official source; address differs from canonical mainnet address. Task budget is implemented in the research signer, not in Permit2."
+      },
+      "buildHash": "599ca446019431ceda967fc8a474d86a0dc160b2347c4b021391e642f3b65a88",
+      "permit2CodeHash": "0xf2ddabaa9f2bfd481193b15d495bca068989680d8e45edf57a7b7c7280d72e7c",
+      "scope": "Added research adapter with a software-restricted EOA signer. Split policy is intentional. Not a V0.15.1 vulnerability or a smart-account session-key demonstration."
+    }
+  },
+  "manifest": {
+    "evidence.json": "63da9fd92c99027e663d3e2ec6ea78f2b97d1ed15d566ed610b4231a519a513b"
+  }
+}

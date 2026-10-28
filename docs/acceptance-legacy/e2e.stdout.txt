@@ -1,0 +1,16 @@
+PASS scripted_balance
+PASS scripted_transfer
+PASS scripted_approve
+PASS scripted_swap
+PASS scripted_swap_deposit
+PASS transfer_revert
+PASS wrong_recipient
+PASS tool_override_preserves_raw_and_rejects_wrong_balance
+PASS pending_live_reconciliation_offline_replay_and_epoch_guard
+PASS pauseBeforeTool
+PASS pauseBeforeTransaction
+PASS cancel_paused_run_has_no_transaction_side_effect
+PASS session_token_and_origin_guards
+PASS export_all_raw_manifest_hashes_valid
+PASS concurrent_reset_and_run_are_mutually_exclusive
+E2E 15 passed / 0 failed; docs/e2e-results.json

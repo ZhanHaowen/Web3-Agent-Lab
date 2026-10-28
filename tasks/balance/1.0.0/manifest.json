@@ -1,0 +1,36 @@
+{
+  "format": "installed-local-task",
+  "taskType": "balance",
+  "version": "1.0.0",
+  "definitionHash": "36ef9b9a7f5506a34996e08a4124260fc6f17ef05cf60410ec8f7669cf322d77",
+  "roles": [
+    "agent"
+  ],
+  "requiredTools": [
+    "read_balance"
+  ],
+  "checkerId": "legacy-2.2",
+  "checkerVersion": "2.2.0",
+  "files": {
+    "task-definition.json": {
+      "sha256": "1860ee0bfef1fae6f6376ace7f621539acb2b7cda8902eab0893c6cdf38894df",
+      "bytes": 402
+    },
+    "input.schema.json": {
+      "sha256": "da7adbf7c72f0bfebee3e3e00bfde7d93c368cbea4b5d757d08a315c5ab0060c",
+      "bytes": 75
+    },
+    "ui.schema.json": {
+      "sha256": "4203d9a0d856c31501ee015258aea0d08cf8aacdf08066d0e21607e634723693",
+      "bytes": 90
+    },
+    "fixtures/default.json": {
+      "sha256": "0397d8000168e8e3206129d6354a36030375cc842f5f666959b0df6de7e9d57f",
+      "bytes": 64
+    },
+    "prompts/agent.txt": {
+      "sha256": "2c28a58a04a8927a91a07673d153585e20165a03b2d0062f4e2c20ef2e665ac8",
+      "bytes": 80
+    }
+  }
+}

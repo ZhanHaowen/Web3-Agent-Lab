@@ -1,0 +1,32 @@
+{
+  "version": "V0.15.2",
+  "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863",
+  "newTests": {
+    "budget": {
+      "passed": 16,
+      "blocked": 0,
+      "failed": 0,
+      "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863"
+    },
+    "http": {
+      "passed": 8,
+      "blocked": 0,
+      "failed": 0,
+      "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863"
+    },
+    "gui": {
+      "passed": 9,
+      "blocked": 1,
+      "failed": 0,
+      "buildHash": "7bb2292ce5a8188286c86ccb7ce2091a98393631b4adbd93445c67add266d863"
+    }
+  },
+  "inheritedRegression": {
+    "unitTestsPassed": 66,
+    "v2IndependentPeerAndLegacyTemplatesPassed": 6,
+    "serviceTestsPassed": 16,
+    "scope": "Inherited control/scenario source files unchanged; regressions ran in this working release."
+  },
+  "fullAcceptance": "NOT_FULLY_ACCEPTED",
+  "nativeBrowserDownload": "BLOCKED in headless Chrome; HTTP attachment, JSON view/copy, auto-archive and offline replay verified."
+}

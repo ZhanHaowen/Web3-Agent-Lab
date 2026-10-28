@@ -1,0 +1,13 @@
+{
+  "version": "V0.14.2",
+  "windowsX64": true,
+  "unitTests": 10,
+  "integrationScenarios": 10,
+  "contractAndGatewayCases": 13,
+  "browserFeedbackVerified": true,
+  "pausedElapsedAdvances": true,
+  "endedElapsedFrozen": true,
+  "extractedPackageSmokePassed": true,
+  "cloudModelTested": false,
+  "modelRegression": "Local protocol fixture reproduces premature tool errors, natural-language acceptance and real acceptance without payload; actual local-chain swap succeeds."
+}

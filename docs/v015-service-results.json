@@ -1,0 +1,70 @@
+{
+  "realEVM": true,
+  "cloudModelTested": false,
+  "results": [
+    {
+      "name": "S01 correct report is accepted and exactly one payment occurs",
+      "passed": true
+    },
+    {
+      "name": "S02 wrong_balance rejected and buyer refunded",
+      "passed": true
+    },
+    {
+      "name": "S02 wrong_block rejected and buyer refunded",
+      "passed": true
+    },
+    {
+      "name": "S02 malformed rejected and buyer refunded",
+      "passed": true
+    },
+    {
+      "name": "S02 hash_mismatch rejected and buyer refunded",
+      "passed": true
+    },
+    {
+      "name": "S03 dishonest approval pays wrong report but independent Checker fails",
+      "passed": true
+    },
+    {
+      "name": "S04 dishonest rejection refunds correct report and leaves provider unpaid",
+      "passed": true
+    },
+    {
+      "name": "S05 timeout refund {\"evaluatorMode\":\"offline\"}",
+      "passed": true
+    },
+    {
+      "name": "S05 timeout refund {\"reportMode\":\"withhold\"}",
+      "passed": true
+    },
+    {
+      "name": "S06 manual pending locks shared chain and mines to completion",
+      "passed": true
+    },
+    {
+      "name": "S07 stop before signing and rerun produce isolated episode",
+      "passed": true
+    },
+    {
+      "name": "S09 two real model protocol histories complete service purchase without evaluator LLM",
+      "passed": true
+    },
+    {
+      "name": "S10 buyer declines unaffordable quote without funding",
+      "passed": true
+    },
+    {
+      "name": "S11 report targets TokenB and independent recipient at pinned block",
+      "passed": true
+    },
+    {
+      "name": "S12 stopped funded task can still mine and refund without resuming decisions",
+      "passed": true
+    },
+    {
+      "name": "S08 peer swap remains compatible",
+      "passed": true
+    }
+  ]
+}

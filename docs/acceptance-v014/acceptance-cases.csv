@@ -1,0 +1,64 @@
+caseId,status,actual
+"AT-01","BLOCKED","Full frozen dependency installation and TypeScript build chain have not yet been independently validated. New executable modules are ESM; original pinned TypeScript sources included."
+"AT-02","PASS","{""jobId"":""b6afc838-588a-4a1c-8d74-d0c953933759"",""state"":""published""}"
+"AT-03","PASS","{""oldHash"":""fb26dae0d40ab2be53983fc580da11bd6ba86796967fd12791f432e45a5e0204"",""newHash"":""3ec4201a3a78a015fafbff56c54cbcf1890b3013d9408cc7c3b9ff09029e92e6""}"
+"AT-04","PASS","{""errors"":[{""error"":""FIELD_amount_DECIMAL""},{""error"":""FIELD_amount_DECIMAL""},{""error"":""FIELD_amount_DECIMAL""},{""error"":""TASK_PARAMETER_CONFLICT: text amount=20 conflicts with structured value 10""},{""error"":""CHECKER_NOT_INSTALLED""},{""error"":""TOOL_NOT_INSTALLED""}]}"
+"AT-05","PASS","{""jobId"":""1cd1d6bc-4325-494a-99e0-4eda79dbbe19"",""executionId"":""a1fe9567-f70d-4e8c-8577-e17c2e6af76f""}"
+"AT-06","PASS","{""runs"":[{""type"":""balance"",""executionId"":""f208e41e-500f-46c6-ad75-5e1ac82aed4f"",""checker"":""2.2.0"",""evidence"":""balance-0-f208e41e-500f-46c6-ad75-5e1ac82aed4f.json""},{""type"":""balance"",""executionId"":""4f5f2b42-caca-4181-9e54-f0d79c96f61e"",""checker"":""2.2.0"",""evidence"":""balance-1-4f5f2b42-caca-4181-9e54-f0d79c96f61e.json""},{""type"":""balance"",""executionId"":""67f55a84-cfe5-4898-8532-ac1b1da67585"",""checker"":""2.2.0"",""evidence"":""balance-2-67f55a84-cfe5-4898-8532-ac1b1da67585.json""},{""type"":""transfer"",""executionId"":""fdb9cf54-814a-448f-b08b-cd2a75112725"",""checker"":""2.2.0"",""evidence"":""transfer-0-fdb9cf54-814a-448f-b08b-cd2a75112725.json""},{""type"":""transfer"",""executionId"":""811fecfc-b344-4cea-9dc5-c77ef6e8d492"",""checker"":""2.2.0"",""evidence"":""transfer-1-811fecfc-b344-4cea-9dc5-c77ef6e8d492.json""},{""type"":""transfer"",""executionId"":""801f549d-a7c8-4d2a-a193-4561b8f66c6d"",""checker"":""2.2.0"",""evidence"":""transfer-2-801f549d-a7c8-4d2a-a193-4561b8f66c6d.json""},{""type"":""approve"",""executionId"":""3589ab0f-8ff5-4355-a836-4afed8ac4c09"",""checker"":""2.2.0"",""evidence"":""approve-0-3589ab0f-8ff5-4355-a836-4afed8ac4c09.json""},{""type"":""approve"",""executionId"":""4e8a66dc-d2c5-4ea7-9f46-d57372a3aa85"",""checker"":""2.2.0"",""evidence"":""approve-1-4e8a66dc-d2c5-4ea7-9f46-d57372a3aa85.json""},{""type"":""approve"",""executionId"":""ffb1ec09-1efd-40d2-aff2-4502e46113e2"",""checker"":""2.2.0"",""evidence"":""approve-2-ffb1ec09-1efd-40d2-aff2-4502e46113e2.json""},{""type"":""swap"",""executionId"":""a9fb7800-a69a-4073-a710-fc94ae4d5fe0"",""checker"":""2.2.0"",""evidence"":""swap-0-a9fb7800-a69a-4073-a710-fc94ae4d5fe0.json""},{""type"":""swap"",""executionId"":""98978979-89c4-40f9-bf99-70a1749348c6"",""checker"":""2.2.0"",""evidence"":""swap-1-98978979-89c4-40f9-bf99-70a1749348c6.json""},{""type"":""swap"",""executionId"":""c5703744-447f-43a4-93bd-2549d759f799"",""checker"":""2.2.0"",""evidence"":""swap-2-c5703744-447f-43a4-93bd-2549d759f799.json""},{""type"":""swap_deposit"",""executionId"":""96859d4c-f400-4c54-b49e-6595f7f89de4"",""checker"":""2.2.0"",""evidence"":""swap_deposit-0-96859d4c-f400-4c54-b49e-6595f7f89de4.json""},{""type"":""swap_deposit"",""executionId"":""0651b31c-3733-4a9c-a9e3-bb24df4274f0"",""checker"":""2.2.0"",""evidence"":""swap_deposit-1-0651b31c-3733-4a9c-a9e3-bb24df4274f0.json""},{""type"":""swap_deposit"",""executionId"":""c5a896f0-1bcd-456d-aa05-0c2e0df16212"",""checker"":""2.2.0"",""evidence"":""swap_deposit-2-c5a896f0-1bcd-456d-aa05-0c2e0df16212.json""}],""evidenceFiles"":[""balance-0-f208e41e-500f-46c6-ad75-5e1ac82aed4f.json"",""balance-1-4f5f2b42-caca-4181-9e54-f0d79c96f61e.json"",""balance-2-67f55a84-cfe5-4898-8532-ac1b1da67585.json"",""transfer-0-fdb9cf54-814a-448f-b08b-cd2a75112725.json"",""transfer-1-811fecfc-b344-4cea-9dc5-c77ef6e8d492.json"",""transfer-2-801f549d-a7c8-4d2a-a193-4561b8f66c6d.json"",""approve-0-3589ab0f-8ff5-4355-a836-4afed8ac4c09.json"",""approve-1-4e8a66dc-d2c5-4ea7-9f46-d57372a3aa85.json"",""approve-2-ffb1ec09-1efd-40d2-aff2-4502e46113e2.json"",""swap-0-a9fb7800-a69a-4073-a710-fc94ae4d5fe0.json"",""swap-1-98978979-89c4-40f9-bf99-70a1749348c6.json"",""swap-2-c5703744-447f-43a4-93bd-2549d759f799.json"",""swap_deposit-0-96859d4c-f400-4c54-b49e-6595f7f89de4.json"",""swap_deposit-1-0651b31c-3733-4a9c-a9e3-bb24df4274f0.json"",""swap_deposit-2-c5a896f0-1bcd-456d-aa05-0c2e0df16212.json""]}"
+"AT-07","PASS","{""controlPid"":30852,""agentPid"":36092,""agentRunIds"":[""99344c56-c220-42ed-89c7-6b8de2f18cbc"",""ad130b1c-134f-47ed-aa3b-940784366c3a""]}"
+"AT-08","PASS","{""runs"":[{""definition"":""69a41e567cd04032e8ce8035fa819420e28dbe64debcf17fa72056ad159f61aa"",""wallet"":""0xcc3A630Da969F07564EbaD51b8630EF4F8EaA67e""},{""definition"":""69a41e567cd04032e8ce8035fa819420e28dbe64debcf17fa72056ad159f61aa"",""wallet"":""0x8Cd570e5Bb3761450124F31E94Feb43f2ac19D81""}]}"
+"AT-09","BLOCKED","Full reservation expiry and late identity adversary suite not yet run."
+"AT-10","BLOCKED","Persistent message deduplication implemented; full triple-delivery late-message fixture pending."
+"AT-11","PASS","{""oneStepTools"":1,""observedMs"":5100,""evidenceFiles"":[""pause-step-eea8d0f5-55ae-45c6-9280-c5649b55cb7d.json""]}"
+"AT-12","PASS","{""state"":""completed"",""evidenceFiles"":[""stop-refund-a89ea60c-a173-47ec-aec9-0c2f9dc58d1a.json""]}"
+"AT-13","BLOCKED","Independent worker model protocol acceptance fixture pending."
+"AT-14","PASS","{""runs"":[{""id"":""eca2c78b-6ad4-4ff9-accf-9282fbaa628a"",""package"":""AT14-eca2c78b-6ad4-4ff9-accf-9282fbaa628a.json""},{""id"":""e4586150-f618-43ed-ba16-19c7101c81cb"",""package"":""AT14-e4586150-f618-43ed-ba16-19c7101c81cb.json""},{""id"":""a5c5b580-6179-4429-9fbb-2e3467897ad5"",""package"":""AT14-a5c5b580-6179-4429-9fbb-2e3467897ad5.json""}],""evidenceFiles"":[""AT14-eca2c78b-6ad4-4ff9-accf-9282fbaa628a.json"",""AT14-e4586150-f618-43ed-ba16-19c7101c81cb.json"",""AT14-a5c5b580-6179-4429-9fbb-2e3467897ad5.json""]}"
+"AT-15","PASS","{""state"":""completed"",""transactions"":0,""evidenceFiles"":[""no-deal-409274e8-276a-412f-bf2b-47f734fc75a7.json""]}"
+"AT-16","BLOCKED","Original amount guard preserved; requested continuous model correction fixture pending."
+"AT-17","BLOCKED","Original allowance checker preserved; all requested continuous initial-state cases pending."
+"AT-18","BLOCKED","Chain scan implemented; hidden-extra-transaction fixture pending."
+"AT-19","BLOCKED","Existing contract regressions need current build execution."
+"AT-20","BLOCKED","Existing deadline and repeated refund fixtures need current build execution."
+"AT-21","FAIL","Error: /api/v2/executions/53c8ee21-bb51-4165-89f1-2bdd751ed1ac {""error"":""this.elapsedMs is not a function""}
+    at api (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:5:434)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async waitExec (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:8:127)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:26:447
+    at async test (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:13:129)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:26:2"
+"AT-22","BLOCKED","All three Agent crash injection points not fully run."
+"AT-23","BLOCKED","Both archive/ACK crash points not fully run."
+"AT-24","BLOCKED","Chain identity and record failure guards implemented; full injected suite pending."
+"AT-25","BLOCKED","Real dual-model evidence unavailable."
+"AT-26","FAIL","Error: /api/v2/agents {""error"":""this.elapsedMs is not a function""}
+    at api (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:5:434)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async profiles (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:9:42)
+    at async run (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:10:49)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:27:116
+    at async test (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:13:129)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:27:2"
+"AT-27","BLOCKED","Old and tampered fixture comparison pending."
+"AT-28","FAIL","Error: /api/v2/agents {""error"":""this.elapsedMs is not a function""}
+    at api (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:5:434)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async profiles (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:9:42)
+    at async run (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:10:49)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:28:109
+    at async test (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:13:129)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:28:2"
+"AT-29","FAIL","Error: /api/v2/agents {""error"":""this.elapsedMs is not a function""}
+    at api (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:5:434)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async profiles (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:9:42)
+    at async run (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:10:49)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:29:107
+    at async test (file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:13:129)
+    at async file:///C:/Users/86137/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an-2/work/v0151/Web3-Agent-Lab-V0.15.1-Windows-x64/scripts/acceptance-v014.mjs:29:2"
+"AT-30","BLOCKED","Full private-information and cross-role scans pending."
+"AT-31","BLOCKED","Both required GUI dimensions and XSS run pending."
+"AT-32","BLOCKED","No real model credentials supplied; fixtures cannot replace 10 real attempts."
+"AT-33","BLOCKED","Run --suite full or --case AT-33 for the 100-task stability run."
+"AT-34","BLOCKED","Packaged clean-user Windows GUI/port proof pending."
+"AT-35","BLOCKED","No Apple Silicon macOS host available."
+"AT-36","BLOCKED","Requires independent human verifier and signature."

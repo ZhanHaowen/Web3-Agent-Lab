@@ -1,0 +1,12 @@
+{
+  "layout": "left-input-right-results",
+  "controls": [
+    "sellAmount",
+    "buyAmount",
+    "deadlineSeconds"
+  ],
+  "roles": [
+    "maker",
+    "taker"
+  ]
+}
