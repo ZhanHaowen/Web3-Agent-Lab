@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "qwen3-4b-instruct-2507-q8",
+  "displayName": "Qwen3 4B Instruct 2507 · Q8_0",
+  "file": "qwen3-4b-instruct-2507-q8_0.gguf",
+  "bytes": 4280404960,
+  "sha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+  "source": "https://ollama.com/library/qwen3:4b-instruct-2507-q8_0",
+  "revision": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374",
+  "downloadUrl": "https://registry.ollama.ai/v2/library/qwen3/blobs/sha256:af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+  "license": "Apache-2.0",
+  "upstreamModel": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
+  "runtime": {
+    "project": "https://github.com/ggml-org/llama.cpp",
+    "testedRelease": "b12019",
+    "releaseUrl": "https://github.com/ggml-org/llama.cpp/releases/tag/b12019",
+    "testedPlatform": "win32-x64-vulkan",
+    "testedExecutableSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+    "license": "MIT"
+  }
+}

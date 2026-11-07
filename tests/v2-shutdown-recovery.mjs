@@ -8,8 +8,8 @@ import {randomUUID,createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const port=19667,rpcPort=19707,url='http://127.0.0.1:'+port,rpcUrl='http://127.0.0.1:'+rpcPort;
-const data=join(root,'data-acceptance-shutdown-'+randomUUID()),report=artifactDirectory('acceptance-final-recovery/supplement');
+const port=Number(process.env.LAB_TEST_PORT??19667),rpcPort=Number(process.env.LAB_TEST_CHAIN_PORT??19707),url='http://127.0.0.1:'+port,rpcUrl='http://127.0.0.1:'+rpcPort;
+const data=process.env.LAB_TEST_DATA_DIR??join(root,'data-acceptance-shutdown-'+randomUUID()),report=artifactDirectory('acceptance-final-recovery/supplement');
 const build=JSON.parse(await readFile(join(root,'build-info.json'),'utf8'));
 const env={...process.env,LAB_ROOT:root,LAB_DATA_DIR:data,LAB_PORT:String(port),LAB_CHAIN_PORT:String(rpcPort),LAB_ACCEPTANCE:'1'};
 delete env.LAB_LIBRARY_ONLY;delete env.LAB_AGENT_WORKER;

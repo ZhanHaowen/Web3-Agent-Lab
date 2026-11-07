@@ -1,3 +1,4 @@
+import { LocalModelService } from "../src/local-model/service.mjs";
 import { BudgetService } from "../src/budget/service.mjs";
 import { LabControl } from "../src/control/control.mjs";
 import { ScenarioService } from "../src/scenario/service.mjs";
@@ -18778,11 +18779,11 @@ var require_stringify = __commonJS({
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.stringify = void 0;
-    var stringify9 = (value, replacer, space) => JSON.stringify(value, (key, value_) => {
+    var stringify10 = (value, replacer, space) => JSON.stringify(value, (key, value_) => {
       const value2 = typeof value_ === "bigint" ? value_.toString() : value_;
       return typeof replacer === "function" ? replacer(key, value2) : value2;
     }, space);
-    exports.stringify = stringify9;
+    exports.stringify = stringify10;
   }
 });
 
@@ -44597,7 +44598,7 @@ var require_Json = __commonJS({
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parse = parse10;
-    exports.stringify = stringify9;
+    exports.stringify = stringify10;
     var bigIntSuffix2 = "#__bigint";
     function parse10(string5, reviver2) {
       return JSON.parse(string5, (key, value_) => {
@@ -44607,7 +44608,7 @@ var require_Json = __commonJS({
         return typeof reviver2 === "function" ? reviver2(key, value) : value;
       });
     }
-    function stringify9(value, replacer, space) {
+    function stringify10(value, replacer, space) {
       return JSON.stringify(value, (key, value2) => {
         if (typeof replacer === "function")
           return replacer(key, value2);
@@ -53739,7 +53740,7 @@ var require_websocket = __commonJS({
     var http2 = __require("http");
     var net = __require("net");
     var tls = __require("tls");
-    var { randomBytes: randomBytes3, createHash: createHash4 } = __require("crypto");
+    var { randomBytes: randomBytes3, createHash: createHash5 } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
     var { URL: URL6 } = __require("url");
     var PerMessageDeflate = require_permessage_deflate();
@@ -54396,7 +54397,7 @@ var require_websocket = __commonJS({
           abortHandshake(websocket, socket, "Invalid Upgrade header");
           return;
         }
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         if (res.headers["sec-websocket-accept"] !== digest2) {
           abortHandshake(websocket, socket, "Invalid Sec-WebSocket-Accept header");
           return;
@@ -54763,7 +54764,7 @@ var require_websocket_server = __commonJS({
     var EventEmitter = __require("events");
     var http2 = __require("http");
     var { Duplex } = __require("stream");
-    var { createHash: createHash4 } = __require("crypto");
+    var { createHash: createHash5 } = __require("crypto");
     var extension = require_extension();
     var PerMessageDeflate = require_permessage_deflate();
     var subprotocol = require_subprotocol();
@@ -55060,7 +55061,7 @@ var require_websocket_server = __commonJS({
           );
         }
         if (this._state > RUNNING) return abortHandshake(socket, 503);
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         const headers = [
           "HTTP/1.1 101 Switching Protocols",
           "Upgrade: websocket",
@@ -112925,20 +112926,20 @@ var require_crypto_node = __commonJS({
     }
     var nodeCrypto__default = /* @__PURE__ */ _interopDefaultCompat(nodeCrypto);
     var subtle = nodeCrypto__default.webcrypto?.subtle || {};
-    var randomUUID5 = () => {
+    var randomUUID6 = () => {
       return nodeCrypto__default.randomUUID();
     };
     var getRandomValues = (array3) => {
       return nodeCrypto__default.webcrypto.getRandomValues(array3);
     };
     var _crypto = {
-      randomUUID: randomUUID5,
+      randomUUID: randomUUID6,
       getRandomValues,
       subtle
     };
     exports.default = _crypto;
     exports.getRandomValues = getRandomValues;
-    exports.randomUUID = randomUUID5;
+    exports.randomUUID = randomUUID6;
     exports.subtle = subtle;
   }
 });
@@ -119418,11 +119419,11 @@ var require_stringify2 = __commonJS({
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.stringify = void 0;
-    var stringify9 = (value, replacer, space) => JSON.stringify(value, (key, value_) => {
+    var stringify10 = (value, replacer, space) => JSON.stringify(value, (key, value_) => {
       const value2 = typeof value_ === "bigint" ? value_.toString() : value_;
       return typeof replacer === "function" ? replacer(key, value2) : value2;
     }, space);
-    exports.stringify = stringify9;
+    exports.stringify = stringify10;
   }
 });
 
@@ -123663,7 +123664,7 @@ var require_Json2 = __commonJS({
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.canonicalize = canonicalize;
     exports.parse = parse10;
-    exports.stringify = stringify9;
+    exports.stringify = stringify10;
     var bigIntSuffix2 = "#__bigint";
     function canonicalize(value) {
       if (value === null || typeof value === "boolean" || typeof value === "string")
@@ -123696,7 +123697,7 @@ var require_Json2 = __commonJS({
         return typeof reviver2 === "function" ? reviver2(key, value) : value;
       });
     }
-    function stringify9(value, replacer, space) {
+    function stringify10(value, replacer, space) {
       return JSON.stringify(value, (key, value2) => {
         if (typeof replacer === "function")
           return replacer(key, value2);
@@ -133658,7 +133659,7 @@ var require_websocket2 = __commonJS({
     var http2 = __require("http");
     var net = __require("net");
     var tls = __require("tls");
-    var { randomBytes: randomBytes3, createHash: createHash4 } = __require("crypto");
+    var { randomBytes: randomBytes3, createHash: createHash5 } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
     var { URL: URL6 } = __require("url");
     var PerMessageDeflate = require_permessage_deflate2();
@@ -134326,7 +134327,7 @@ var require_websocket2 = __commonJS({
           abortHandshake(websocket, socket, "Invalid Upgrade header");
           return;
         }
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         if (res.headers["sec-websocket-accept"] !== digest2) {
           abortHandshake(websocket, socket, "Invalid Sec-WebSocket-Accept header");
           return;
@@ -134695,7 +134696,7 @@ var require_websocket_server2 = __commonJS({
     var EventEmitter = __require("events");
     var http2 = __require("http");
     var { Duplex } = __require("stream");
-    var { createHash: createHash4 } = __require("crypto");
+    var { createHash: createHash5 } = __require("crypto");
     var extension = require_extension2();
     var PerMessageDeflate = require_permessage_deflate2();
     var subprotocol = require_subprotocol2();
@@ -135002,7 +135003,7 @@ var require_websocket_server2 = __commonJS({
           );
         }
         if (this._state > RUNNING) return abortHandshake(socket, 503);
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         const headers = [
           "HTTP/1.1 101 Switching Protocols",
           "Upgrade: websocket",
@@ -211024,7 +211025,7 @@ var require_index_node27 = __commonJS({
       }
       return keys;
     };
-    function stringify9(val, isArrayProp) {
+    function stringify10(val, isArrayProp) {
       let i, max, str, keys, key, propVal, toStr;
       if (val === true) {
         return "true";
@@ -211037,17 +211038,17 @@ var require_index_node27 = __commonJS({
           if (val === null) {
             return null;
           } else if ("toJSON" in val && typeof val.toJSON === "function") {
-            return stringify9(val.toJSON(), isArrayProp);
+            return stringify10(val.toJSON(), isArrayProp);
           } else {
             toStr = objToString.call(val);
             if (toStr === "[object Array]") {
               str = "[";
               max = val.length - 1;
               for (i = 0; i < max; i++) {
-                str += stringify9(val[i], true) + ",";
+                str += stringify10(val[i], true) + ",";
               }
               if (max > -1) {
-                str += stringify9(val[i], true);
+                str += stringify10(val[i], true);
               }
               return str + "]";
             } else if (toStr === "[object Object]") {
@@ -211057,7 +211058,7 @@ var require_index_node27 = __commonJS({
               i = 0;
               while (i < max) {
                 key = keys[i];
-                propVal = stringify9(val[key], false);
+                propVal = stringify10(val[key], false);
                 if (propVal !== void 0) {
                   if (str) {
                     str += ",";
@@ -211083,7 +211084,7 @@ var require_index_node27 = __commonJS({
       }
     }
     function index_default(val) {
-      const returnVal = stringify9(val, false);
+      const returnVal = stringify10(val, false);
       if (returnVal !== void 0) {
         return "" + returnVal;
       }
@@ -214202,7 +214203,7 @@ var require_websocket3 = __commonJS({
     var http2 = __require("http");
     var net = __require("net");
     var tls = __require("tls");
-    var { randomBytes: randomBytes3, createHash: createHash4 } = __require("crypto");
+    var { randomBytes: randomBytes3, createHash: createHash5 } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
     var { URL: URL6 } = __require("url");
     var PerMessageDeflate = require_permessage_deflate3();
@@ -214870,7 +214871,7 @@ var require_websocket3 = __commonJS({
           abortHandshake(websocket, socket, "Invalid Upgrade header");
           return;
         }
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         if (res.headers["sec-websocket-accept"] !== digest2) {
           abortHandshake(websocket, socket, "Invalid Sec-WebSocket-Accept header");
           return;
@@ -215239,7 +215240,7 @@ var require_websocket_server3 = __commonJS({
     var EventEmitter = __require("events");
     var http2 = __require("http");
     var { Duplex } = __require("stream");
-    var { createHash: createHash4 } = __require("crypto");
+    var { createHash: createHash5 } = __require("crypto");
     var extension = require_extension3();
     var PerMessageDeflate = require_permessage_deflate3();
     var subprotocol = require_subprotocol3();
@@ -215546,7 +215547,7 @@ var require_websocket_server3 = __commonJS({
           );
         }
         if (this._state > RUNNING) return abortHandshake(socket, 503);
-        const digest2 = createHash4("sha1").update(key + GUID).digest("base64");
+        const digest2 = createHash5("sha1").update(key + GUID).digest("base64");
         const headers = [
           "HTTP/1.1 101 Switching Protocols",
           "Upgrade: websocket",
@@ -227269,7 +227270,7 @@ var require_index_node57 = __commonJS({
       }
       return keys;
     };
-    function stringify9(val, isArrayProp) {
+    function stringify10(val, isArrayProp) {
       let i, max, str, keys, key, propVal, toStr;
       if (val === true) {
         return "true";
@@ -227282,17 +227283,17 @@ var require_index_node57 = __commonJS({
           if (val === null) {
             return null;
           } else if ("toJSON" in val && typeof val.toJSON === "function") {
-            return stringify9(val.toJSON(), isArrayProp);
+            return stringify10(val.toJSON(), isArrayProp);
           } else {
             toStr = objToString.call(val);
             if (toStr === "[object Array]") {
               str = "[";
               max = val.length - 1;
               for (i = 0; i < max; i++) {
-                str += stringify9(val[i], true) + ",";
+                str += stringify10(val[i], true) + ",";
               }
               if (max > -1) {
-                str += stringify9(val[i], true);
+                str += stringify10(val[i], true);
               }
               return str + "]";
             } else if (toStr === "[object Object]") {
@@ -227302,7 +227303,7 @@ var require_index_node57 = __commonJS({
               i = 0;
               while (i < max) {
                 key = keys[i];
-                propVal = stringify9(val[key], false);
+                propVal = stringify10(val[key], false);
                 if (propVal !== void 0) {
                   if (str) {
                     str += ",";
@@ -227328,7 +227329,7 @@ var require_index_node57 = __commonJS({
       }
     }
     function index_default(val) {
-      const returnVal = stringify9(val, false);
+      const returnVal = stringify10(val, false);
       if (returnVal !== void 0) {
         return "" + returnVal;
       }
@@ -265176,24 +265177,24 @@ var require_edwards = __commonJS({
         const scalar = modN_LE(head);
         return { head, prefix, scalar };
       }
-      function getExtendedPublicKey(secretKey) {
-        const { head, prefix, scalar } = getPrivateScalar(secretKey);
+      function getExtendedPublicKey(secretKey2) {
+        const { head, prefix, scalar } = getPrivateScalar(secretKey2);
         const point = BASE.multiply(scalar);
         const pointBytes = point.toBytes();
         return { head, prefix, scalar, point, pointBytes };
       }
-      function getPublicKey(secretKey) {
-        return getExtendedPublicKey(secretKey).pointBytes;
+      function getPublicKey(secretKey2) {
+        return getExtendedPublicKey(secretKey2).pointBytes;
       }
       function hashDomainToScalar(context2 = Uint8Array.of(), ...msgs) {
         const msg = (0, utils_ts_1.concatBytes)(...msgs);
         return modN_LE(cHash(domain2(msg, (0, utils_ts_1.ensureBytes)("context", context2), !!prehash)));
       }
-      function sign2(msg, secretKey, options = {}) {
+      function sign2(msg, secretKey2, options = {}) {
         msg = (0, utils_ts_1.ensureBytes)("message", msg);
         if (prehash)
           msg = prehash(msg);
-        const { prefix, scalar, pointBytes } = getExtendedPublicKey(secretKey);
+        const { prefix, scalar, pointBytes } = getExtendedPublicKey(secretKey2);
         const r = hashDomainToScalar(options.context, prefix, msg);
         const R = BASE.multiply(r).toBytes();
         const k = hashDomainToScalar(options.context, R, pointBytes, msg);
@@ -265242,8 +265243,8 @@ var require_edwards = __commonJS({
         return (0, utils_ts_1._abytes2)(seed, lengths.seed, "seed");
       }
       function keygen(seed) {
-        const secretKey = utils.randomSecretKey(seed);
-        return { secretKey, publicKey: getPublicKey(secretKey) };
+        const secretKey2 = utils.randomSecretKey(seed);
+        return { secretKey: secretKey2, publicKey: getPublicKey(secretKey2) };
       }
       function isValidSecretKey(key) {
         return (0, utils_ts_1.isBytes)(key) && key.length === Fn.BYTES;
@@ -265278,10 +265279,10 @@ var require_edwards = __commonJS({
           const u = is25519 ? Fp.div(_1n7 + y, _1n7 - y) : Fp.div(y - _1n7, y + _1n7);
           return Fp.toBytes(u);
         },
-        toMontgomerySecret(secretKey) {
+        toMontgomerySecret(secretKey2) {
           const size5 = lengths.secretKey;
-          (0, utils_ts_1._abytes2)(secretKey, size5);
-          const hashed = cHash(secretKey.subarray(0, size5));
+          (0, utils_ts_1._abytes2)(secretKey2, size5);
+          const hashed = cHash(secretKey2.subarray(0, size5));
           return adjustScalarBytes(hashed).subarray(0, size5);
         },
         /** @deprecated */
@@ -265625,8 +265626,8 @@ var require_montgomery = __commonJS({
         return seed;
       };
       function keygen(seed) {
-        const secretKey = randomSecretKey(seed);
-        return { secretKey, publicKey: scalarMultBase(secretKey) };
+        const secretKey2 = randomSecretKey(seed);
+        return { secretKey: secretKey2, publicKey: scalarMultBase(secretKey2) };
       }
       const utils = {
         randomSecretKey,
@@ -265634,8 +265635,8 @@ var require_montgomery = __commonJS({
       };
       return {
         keygen,
-        getSharedSecret: (secretKey, publicKey) => scalarMult(secretKey, publicKey),
-        getPublicKey: (secretKey) => scalarMultBase(secretKey),
+        getSharedSecret: (secretKey2, publicKey) => scalarMult(secretKey2, publicKey),
+        getPublicKey: (secretKey2) => scalarMultBase(secretKey2),
         scalarMult,
         scalarMultBase,
         utils,
@@ -277917,9 +277918,9 @@ var require_weierstrass2 = __commonJS({
       const { Fn } = Point3;
       const randomBytes_ = ecdhOpts.randomBytes || utils_ts_1.randomBytes;
       const lengths = Object.assign(getWLengths(Point3.Fp, Fn), { seed: (0, modular_ts_1.getMinHashLength)(Fn.ORDER) });
-      function isValidSecretKey(secretKey) {
+      function isValidSecretKey(secretKey2) {
         try {
-          return !!_normFnElement(Fn, secretKey);
+          return !!_normFnElement(Fn, secretKey2);
         } catch (error40) {
           return false;
         }
@@ -277940,20 +277941,20 @@ var require_weierstrass2 = __commonJS({
       function randomSecretKey(seed = randomBytes_(lengths.seed)) {
         return (0, modular_ts_1.mapHashToField)((0, utils_ts_1._abytes2)(seed, lengths.seed, "seed"), Fn.ORDER);
       }
-      function getPublicKey(secretKey, isCompressed = true) {
-        return Point3.BASE.multiply(_normFnElement(Fn, secretKey)).toBytes(isCompressed);
+      function getPublicKey(secretKey2, isCompressed = true) {
+        return Point3.BASE.multiply(_normFnElement(Fn, secretKey2)).toBytes(isCompressed);
       }
       function keygen(seed) {
-        const secretKey = randomSecretKey(seed);
-        return { secretKey, publicKey: getPublicKey(secretKey) };
+        const secretKey2 = randomSecretKey(seed);
+        return { secretKey: secretKey2, publicKey: getPublicKey(secretKey2) };
       }
       function isProbPub(item) {
         if (typeof item === "bigint")
           return false;
         if (item instanceof Point3)
           return true;
-        const { secretKey, publicKey, publicKeyUncompressed } = lengths;
-        if (Fn.allowedLengths || secretKey === publicKey)
+        const { secretKey: secretKey2, publicKey, publicKeyUncompressed } = lengths;
+        if (Fn.allowedLengths || secretKey2 === publicKey)
           return void 0;
         const l = (0, utils_ts_1.ensureBytes)("key", item).length;
         return l === publicKey || l === publicKeyUncompressed;
@@ -278172,9 +278173,9 @@ var require_weierstrass2 = __commonJS({
         }
         return { seed, k2sig };
       }
-      function sign2(message2, secretKey, opts = {}) {
+      function sign2(message2, secretKey2, opts = {}) {
         message2 = (0, utils_ts_1.ensureBytes)("message", message2);
-        const { seed, k2sig } = prepSig(message2, secretKey, opts);
+        const { seed, k2sig } = prepSig(message2, secretKey2, opts);
         const drbg = (0, utils_ts_1.createHmacDrbg)(hash5.outputLen, Fn.BYTES, hmac3);
         const sig2 = drbg(seed, k2sig);
         return sig2;
@@ -278447,13 +278448,13 @@ var require_secp256k12 = __commonJS({
     function challenge2(...args) {
       return Pointk1.Fn.create(num2(taggedHash2("BIP0340/challenge", ...args)));
     }
-    function schnorrGetPublicKey2(secretKey) {
-      return schnorrGetExtPubKey2(secretKey).bytes;
+    function schnorrGetPublicKey2(secretKey2) {
+      return schnorrGetExtPubKey2(secretKey2).bytes;
     }
-    function schnorrSign2(message2, secretKey, auxRand = (0, utils_js_1.randomBytes)(32)) {
+    function schnorrSign2(message2, secretKey2, auxRand = (0, utils_js_1.randomBytes)(32)) {
       const { Fn } = Pointk1;
       const m = (0, utils_ts_1.ensureBytes)("message", message2);
-      const { bytes: px, scalar: d } = schnorrGetExtPubKey2(secretKey);
+      const { bytes: px, scalar: d } = schnorrGetExtPubKey2(secretKey2);
       const a = (0, utils_ts_1.ensureBytes)("auxRand", auxRand, 32);
       const t = Fn.toBytes(d ^ num2(taggedHash2("BIP0340/aux", a)));
       const rand = taggedHash2("BIP0340/nonce", t, px, m);
@@ -278497,8 +278498,8 @@ var require_secp256k12 = __commonJS({
       };
       exports.secp256k1.utils.randomSecretKey;
       function keygen(seed) {
-        const secretKey = randomSecretKey(seed);
-        return { secretKey, publicKey: schnorrGetPublicKey2(secretKey) };
+        const secretKey2 = randomSecretKey(seed);
+        return { secretKey: secretKey2, publicKey: schnorrGetPublicKey2(secretKey2) };
       }
       return {
         keygen,
@@ -278634,12 +278635,12 @@ var require_index_cjs = __commonJS({
     var generateKeypair = () => {
       const privateScalar = ed25519.ed25519.utils.randomPrivateKey();
       const publicKey2 = getPublicKey(privateScalar);
-      const secretKey = new Uint8Array(64);
-      secretKey.set(privateScalar);
-      secretKey.set(publicKey2, 32);
+      const secretKey2 = new Uint8Array(64);
+      secretKey2.set(privateScalar);
+      secretKey2.set(publicKey2, 32);
       return {
         publicKey: publicKey2,
-        secretKey
+        secretKey: secretKey2
       };
     };
     var getPublicKey = ed25519.ed25519.getPublicKey;
@@ -278651,7 +278652,7 @@ var require_index_cjs = __commonJS({
         return false;
       }
     }
-    var sign2 = (message2, secretKey) => ed25519.ed25519.sign(message2, secretKey.slice(0, 32));
+    var sign2 = (message2, secretKey2) => ed25519.ed25519.sign(message2, secretKey2.slice(0, 32));
     var verify = ed25519.ed25519.verify;
     var toBuffer = (arr3) => {
       if (buffer2.Buffer.isBuffer(arr3)) {
@@ -278873,12 +278874,12 @@ var require_index_cjs = __commonJS({
        *
        * @param secretKey Secret key for the account
        */
-      constructor(secretKey) {
+      constructor(secretKey2) {
         this._publicKey = void 0;
         this._secretKey = void 0;
-        if (secretKey) {
-          const secretKeyBuffer = toBuffer(secretKey);
-          if (secretKey.length !== 64) {
+        if (secretKey2) {
+          const secretKeyBuffer = toBuffer(secretKey2);
+          if (secretKey2.length !== 64) {
             throw new Error("bad secret key size");
           }
           this._publicKey = secretKeyBuffer.slice(32, 64);
@@ -282152,7 +282153,7 @@ Message: ${transactionMessage}.
         }
         return keys;
       };
-      function stringify9(val, isArrayProp) {
+      function stringify10(val, isArrayProp) {
         var i, max, str, keys, key, propVal, toStr;
         if (val === true) {
           return "true";
@@ -282165,17 +282166,17 @@ Message: ${transactionMessage}.
             if (val === null) {
               return null;
             } else if (val.toJSON && typeof val.toJSON === "function") {
-              return stringify9(val.toJSON(), isArrayProp);
+              return stringify10(val.toJSON(), isArrayProp);
             } else {
               toStr = objToString.call(val);
               if (toStr === "[object Array]") {
                 str = "[";
                 max = val.length - 1;
                 for (i = 0; i < max; i++) {
-                  str += stringify9(val[i], true) + ",";
+                  str += stringify10(val[i], true) + ",";
                 }
                 if (max > -1) {
-                  str += stringify9(val[i], true);
+                  str += stringify10(val[i], true);
                 }
                 return str + "]";
               } else if (toStr === "[object Object]") {
@@ -282185,7 +282186,7 @@ Message: ${transactionMessage}.
                 i = 0;
                 while (i < max) {
                   key = keys[i];
-                  propVal = stringify9(val[key], false);
+                  propVal = stringify10(val[key], false);
                   if (propVal !== void 0) {
                     if (str) {
                       str += ",";
@@ -282209,7 +282210,7 @@ Message: ${transactionMessage}.
         }
       }
       fastStableStringify$1 = function(val) {
-        var returnVal = stringify9(val, false);
+        var returnVal = stringify10(val, false);
         if (returnVal !== void 0) {
           return "" + returnVal;
         }
@@ -285918,13 +285919,13 @@ Message: ${transactionMessage}.
        *
        * @returns {Keypair} Keypair
        */
-      static fromSecretKey(secretKey, options) {
-        if (secretKey.byteLength !== 64) {
+      static fromSecretKey(secretKey2, options) {
+        if (secretKey2.byteLength !== 64) {
           throw new Error("bad secret key size");
         }
-        const publicKey2 = secretKey.slice(32, 64);
+        const publicKey2 = secretKey2.slice(32, 64);
         if (!options || !options.skipValidation) {
-          const privateScalar = secretKey.slice(0, 32);
+          const privateScalar = secretKey2.slice(0, 32);
           const computedPublicKey = getPublicKey(privateScalar);
           for (let ii = 0; ii < 32; ii++) {
             if (publicKey2[ii] !== computedPublicKey[ii]) {
@@ -285934,7 +285935,7 @@ Message: ${transactionMessage}.
         }
         return new _Keypair({
           publicKey: publicKey2,
-          secretKey
+          secretKey: secretKey2
         });
       }
       /**
@@ -285946,12 +285947,12 @@ Message: ${transactionMessage}.
        */
       static fromSeed(seed) {
         const publicKey2 = getPublicKey(seed);
-        const secretKey = new Uint8Array(64);
-        secretKey.set(seed);
-        secretKey.set(publicKey2, 32);
+        const secretKey2 = new Uint8Array(64);
+        secretKey2.set(seed);
+        secretKey2.set(publicKey2, 32);
         return new _Keypair({
           publicKey: publicKey2,
-          secretKey
+          secretKey: secretKey2
         });
       }
       /**
@@ -303314,7 +303315,7 @@ var require_errors16 = __commonJS({
     exports.assertPrivate = exports.assertNormalize = exports.assertArgumentCount = exports.assertArgument = exports.assert = exports.makeError = exports.isCallException = exports.isError = void 0;
     var _version_js_1 = require_version9();
     var properties_js_1 = require_properties();
-    function stringify9(value, seen) {
+    function stringify10(value, seen) {
       if (value == null) {
         return "null";
       }
@@ -303328,7 +303329,7 @@ var require_errors16 = __commonJS({
         seen.add(value);
       }
       if (Array.isArray(value)) {
-        return "[ " + value.map((v) => stringify9(v, seen)).join(", ") + " ]";
+        return "[ " + value.map((v) => stringify10(v, seen)).join(", ") + " ]";
       }
       if (value instanceof Uint8Array) {
         const HEX = "0123456789abcdef";
@@ -303340,7 +303341,7 @@ var require_errors16 = __commonJS({
         return result;
       }
       if (typeof value === "object" && typeof value.toJSON === "function") {
-        return stringify9(value.toJSON(), seen);
+        return stringify10(value.toJSON(), seen);
       }
       switch (typeof value) {
         case "boolean":
@@ -303354,7 +303355,7 @@ var require_errors16 = __commonJS({
         case "object": {
           const keys = Object.keys(value);
           keys.sort();
-          return "{ " + keys.map((k) => `${stringify9(k, seen)}: ${stringify9(value[k], seen)}`).join(", ") + " }";
+          return "{ " + keys.map((k) => `${stringify10(k, seen)}: ${stringify10(value[k], seen)}`).join(", ") + " }";
         }
       }
       return `[ COULD NOT SERIALIZE ]`;
@@ -303373,14 +303374,14 @@ var require_errors16 = __commonJS({
         const details = [];
         if (info) {
           if ("message" in info || "code" in info || "name" in info) {
-            throw new Error(`value will overwrite populated values: ${stringify9(info)}`);
+            throw new Error(`value will overwrite populated values: ${stringify10(info)}`);
           }
           for (const key in info) {
             if (key === "shortMessage") {
               continue;
             }
             const value = info[key];
-            details.push(key + "=" + stringify9(value));
+            details.push(key + "=" + stringify10(value));
           }
         }
         details.push(`code=${code}`);
@@ -325967,7 +325968,7 @@ var require_provider_fallback = __commonJS({
     function getTime() {
       return (/* @__PURE__ */ new Date()).getTime();
     }
-    function stringify9(value) {
+    function stringify10(value) {
       return JSON.stringify(value, (key, value2) => {
         if (typeof value2 === "bigint") {
           return { type: "bigint", value: value2.toString() };
@@ -326392,7 +326393,7 @@ var require_provider_fallback = __commonJS({
             return getAnyResult(this.quorum, results);
         }
         (0, index_js_1.assert)(false, "unsupported method", "UNSUPPORTED_OPERATION", {
-          operation: `_perform(${stringify9(req.method)})`
+          operation: `_perform(${stringify10(req.method)})`
         });
       }
       async #waitForQuorum(running, req) {
@@ -326427,7 +326428,7 @@ var require_provider_fallback = __commonJS({
         }
         (0, index_js_1.assert)(interesting.length > 0, "quorum not met", "SERVER_ERROR", {
           request: "%sub-requests",
-          info: { request: req, results: Array.from(running).map((r) => stringify9(r.result)) }
+          info: { request: req, results: Array.from(running).map((r) => stringify10(r.result)) }
         });
         await Promise.race(interesting);
         return await this.#waitForQuorum(running, req);
@@ -326463,7 +326464,7 @@ var require_provider_fallback = __commonJS({
           const result2 = getAnyResult(this.quorum, results);
           (0, index_js_1.assert)(result2 !== void 0, "problem multi-broadcasting", "SERVER_ERROR", {
             request: "%sub-requests",
-            info: { request: req, results: results.map(stringify9) }
+            info: { request: req, results: results.map(stringify10) }
           });
           if (result2 instanceof Error) {
             throw result2;
@@ -335066,20 +335067,20 @@ var require_nacl_fast = __commonJS({
       };
       nacl.scalarMult.scalarLength = crypto_scalarmult_SCALARBYTES;
       nacl.scalarMult.groupElementLength = crypto_scalarmult_BYTES;
-      nacl.box = function(msg, nonce, publicKey, secretKey) {
-        var k = nacl.box.before(publicKey, secretKey);
+      nacl.box = function(msg, nonce, publicKey, secretKey2) {
+        var k = nacl.box.before(publicKey, secretKey2);
         return nacl.secretbox(msg, nonce, k);
       };
-      nacl.box.before = function(publicKey, secretKey) {
-        checkArrayTypes(publicKey, secretKey);
-        checkBoxLengths(publicKey, secretKey);
+      nacl.box.before = function(publicKey, secretKey2) {
+        checkArrayTypes(publicKey, secretKey2);
+        checkBoxLengths(publicKey, secretKey2);
         var k = new Uint8Array(crypto_box_BEFORENMBYTES);
-        crypto_box_beforenm(k, publicKey, secretKey);
+        crypto_box_beforenm(k, publicKey, secretKey2);
         return k;
       };
       nacl.box.after = nacl.secretbox;
-      nacl.box.open = function(msg, nonce, publicKey, secretKey) {
-        var k = nacl.box.before(publicKey, secretKey);
+      nacl.box.open = function(msg, nonce, publicKey, secretKey2) {
+        var k = nacl.box.before(publicKey, secretKey2);
         return nacl.secretbox.open(msg, nonce, k);
       };
       nacl.box.open.after = nacl.secretbox.open;
@@ -335089,25 +335090,25 @@ var require_nacl_fast = __commonJS({
         crypto_box_keypair(pk, sk);
         return { publicKey: pk, secretKey: sk };
       };
-      nacl.box.keyPair.fromSecretKey = function(secretKey) {
-        checkArrayTypes(secretKey);
-        if (secretKey.length !== crypto_box_SECRETKEYBYTES)
+      nacl.box.keyPair.fromSecretKey = function(secretKey2) {
+        checkArrayTypes(secretKey2);
+        if (secretKey2.length !== crypto_box_SECRETKEYBYTES)
           throw new Error("bad secret key size");
         var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
-        crypto_scalarmult_base(pk, secretKey);
-        return { publicKey: pk, secretKey: new Uint8Array(secretKey) };
+        crypto_scalarmult_base(pk, secretKey2);
+        return { publicKey: pk, secretKey: new Uint8Array(secretKey2) };
       };
       nacl.box.publicKeyLength = crypto_box_PUBLICKEYBYTES;
       nacl.box.secretKeyLength = crypto_box_SECRETKEYBYTES;
       nacl.box.sharedKeyLength = crypto_box_BEFORENMBYTES;
       nacl.box.nonceLength = crypto_box_NONCEBYTES;
       nacl.box.overheadLength = nacl.secretbox.overheadLength;
-      nacl.sign = function(msg, secretKey) {
-        checkArrayTypes(msg, secretKey);
-        if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+      nacl.sign = function(msg, secretKey2) {
+        checkArrayTypes(msg, secretKey2);
+        if (secretKey2.length !== crypto_sign_SECRETKEYBYTES)
           throw new Error("bad secret key size");
         var signedMsg = new Uint8Array(crypto_sign_BYTES + msg.length);
-        crypto_sign(signedMsg, msg, msg.length, secretKey);
+        crypto_sign(signedMsg, msg, msg.length, secretKey2);
         return signedMsg;
       };
       nacl.sign.open = function(signedMsg, publicKey) {
@@ -335121,8 +335122,8 @@ var require_nacl_fast = __commonJS({
         for (var i = 0; i < m.length; i++) m[i] = tmp[i];
         return m;
       };
-      nacl.sign.detached = function(msg, secretKey) {
-        var signedMsg = nacl.sign(msg, secretKey);
+      nacl.sign.detached = function(msg, secretKey2) {
+        var signedMsg = nacl.sign(msg, secretKey2);
         var sig2 = new Uint8Array(crypto_sign_BYTES);
         for (var i = 0; i < sig2.length; i++) sig2[i] = signedMsg[i];
         return sig2;
@@ -335146,13 +335147,13 @@ var require_nacl_fast = __commonJS({
         crypto_sign_keypair(pk, sk);
         return { publicKey: pk, secretKey: sk };
       };
-      nacl.sign.keyPair.fromSecretKey = function(secretKey) {
-        checkArrayTypes(secretKey);
-        if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+      nacl.sign.keyPair.fromSecretKey = function(secretKey2) {
+        checkArrayTypes(secretKey2);
+        if (secretKey2.length !== crypto_sign_SECRETKEYBYTES)
           throw new Error("bad secret key size");
         var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
-        for (var i = 0; i < pk.length; i++) pk[i] = secretKey[32 + i];
-        return { publicKey: pk, secretKey: new Uint8Array(secretKey) };
+        for (var i = 0; i < pk.length; i++) pk[i] = secretKey2[32 + i];
+        return { publicKey: pk, secretKey: new Uint8Array(secretKey2) };
       };
       nacl.sign.keyPair.fromSeed = function(seed) {
         checkArrayTypes(seed);
@@ -421224,13 +421225,13 @@ var require_actionProvider = __commonJS({
   }
 });
 
-// src/server.ts
+// vendor/legacy-source/src/server.ts
 import { createServer } from "node:http";
 import { readFile as readFile2, mkdir as mkdir4 } from "node:fs/promises";
 import { join as join3, resolve as resolve2 } from "node:path";
-import { randomBytes as randomBytes2, randomUUID as randomUUID4 } from "node:crypto";
+import { randomBytes as randomBytes2, randomUUID as randomUUID5 } from "node:crypto";
 
-// src/chain.ts
+// vendor/legacy-source/src/chain.ts
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import fs from "node:fs/promises";
@@ -430391,7 +430392,7 @@ function mnemonicToAccount(mnemonic, opts = {}) {
   return hdKeyToAccount(HDKey.fromMasterSeed(seed), opts);
 }
 
-// src/tasks.ts
+// vendor/legacy-source/src/tasks.ts
 function taskAmountBaseUnits(value, allowZero = false) {
   if (typeof value !== "string" || !/^\d+(?:\.\d{1,6})?$/.test(value)) throw new Error("TASK_PARAMETER_INVALID: use a decimal token string with at most 6 fractional digits");
   const [whole, fraction = ""] = value.split(".");
@@ -430482,7 +430483,7 @@ var toolDefinitions = [
   fn("deposit", "\u628Aagent\u7684TokenB\u5B58\u5165\u5B9E\u9A8Cvault\uFF0C\u4EFD\u989D\u5F52agent\uFF1B\u987B\u5148\u6388\u6743TokenB\u3002\u91D1\u989D\u6765\u81EA\u5151\u6362\u8F93\u51FA\u65F6\u4F18\u5148\u4F7F\u7528amountOutFormatted\u3002", { amount: amount("TokenB\u5B58\u5165\u6570\u91CF") }, ["amount"])
 ];
 
-// src/checker.ts
+// vendor/legacy-source/src/checker.ts
 var CHECKER_VERSION = "2.2.0";
 var lower = (value) => String(value ?? "").toLowerCase();
 var big = (value) => BigInt(String(value));
@@ -430705,7 +430706,7 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
   return result;
 }
 
-// src/units.ts
+// vendor/legacy-source/src/units.ts
 function formatTokenState(state) {
   const fields = (values = {}, native = false) => Object.fromEntries(
     Object.entries(values).filter(([, value]) => typeof value === "string" && /^\d+$/.test(value)).map(([key, value]) => [key, formatUnits(BigInt(value), native && key === "native" ? 18 : 6)])
@@ -430722,7 +430723,7 @@ function formatTokenState(state) {
   };
 }
 
-// src/chain.ts
+// vendor/legacy-source/src/chain.ts
 var ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 var DEV_MNEMONIC = "test test test test test test test test test test test junk";
 var FIXED_TIMESTAMP = 17e8;
@@ -431176,8 +431177,8 @@ var ChainLab = class {
   }
 };
 
-// src/agent.ts
-import { randomUUID as randomUUID2 } from "node:crypto";
+// vendor/legacy-source/src/agent.ts
+import { randomUUID as randomUUID3 } from "node:crypto";
 
 // ../web3-agent-lab/node_modules/.pnpm/@langchain+core@1.2.12_ws@8_67bbb14ea6cadff52d08010d4ace12aa/node_modules/@langchain/core/dist/_virtual/_rolldown/runtime.js
 var __defProp2 = Object.defineProperty;
@@ -492116,8 +492117,210 @@ var MessagesZodState = external_exports.object({ messages: withLangGraph(externa
 // ../web3-agent-lab/node_modules/.pnpm/@langchain+langgraph@1.4.18_24c9b19a3ae5a37a1d61b74d5fa2c816/node_modules/@langchain/langgraph/dist/index.js
 initializeAsyncLocalStorageSingleton();
 
-// src/agent.ts
+// vendor/legacy-source/src/agent.ts
 var import_agentkit = __toESM(require_actionProvider(), 1);
+
+// src/model/capture.mjs
+import { createHash as createHash3, randomUUID as randomUUID2 } from "node:crypto";
+import { performance as performance2 } from "node:perf_hooks";
+var secretKey = /^(?:api[_-]?key|authorization|proxy[_-]?authorization|cookie|set[_-]?cookie|password|private[_-]?key|mnemonic|seed[_-]?phrase|identity[_-]?token|access[_-]?token|refresh[_-]?token)$/i;
+var stringify9 = (value) => JSON.stringify(value, (_key, item) => typeof item === "bigint" ? String(item) : item);
+var sha = (text3) => createHash3("sha256").update(text3).digest("hex");
+function finalizeModelCapture(payload, clean2 = (value) => value) {
+  const value = clean2(payload);
+  if (value?.capture && typeof value.body === "string") {
+    value.capture = { ...value.capture, redacted: Boolean(value.capture.redacted || value.body !== payload.body), recordedBodySha256: sha(value.body) };
+  }
+  return value;
+}
+function modelRecordRedactor(model = {}) {
+  const secrets = /* @__PURE__ */ new Set();
+  const collect = (value, depth = 0) => {
+    if (depth > 12) return;
+    if (typeof value === "string" && /^[\s]*[\[{]/.test(value)) {
+      try {
+        collect(JSON.parse(value), depth + 1);
+      } catch {
+      }
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    for (const [key, item] of Object.entries(value)) {
+      if (secretKey.test(key) && typeof item === "string" && item) secrets.add(item);
+      else collect(item, depth + 1);
+    }
+  };
+  let forms = [];
+  const add2 = (value) => {
+    collect(value);
+    forms = [...new Set([...secrets].flatMap((value2) => {
+      const out = [value2];
+      for (let n3 = 0; n3 < 3; n3++) out.push(JSON.stringify(out.at(-1)).slice(1, -1));
+      return out;
+    }))].sort((a, b) => b.length - a.length);
+  };
+  add2(model);
+  const text3 = (value) => {
+    for (const secret of forms) value = value.replaceAll(secret, "[REDACTED]");
+    return value.replace(/("(?:api[_-]?key|authorization|proxy[_-]?authorization|cookie|set[_-]?cookie|password|private[_-]?key|mnemonic|seed[_-]?phrase|identity[_-]?token|access[_-]?token|refresh[_-]?token)"\s*:\s*)"(?:\\.|[^"\\])*"/gi, '$1"[REDACTED]"').replace(/\bBearer\s+[A-Za-z0-9._~+\/-]+=*/gi, "Bearer [REDACTED]").replace(/((?:api[_-]?key|private[_-]?key|mnemonic|password|access[_-]?token)\s*[=:]\s*)([^\s,;]+)/gi, "$1[REDACTED]");
+  };
+  const clean2 = (value) => {
+    if (typeof value === "string") return text3(value);
+    if (typeof value === "bigint") return String(value);
+    if (Array.isArray(value)) return value.map(clean2);
+    if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, secretKey.test(key) ? "[REDACTED]" : clean2(item)]));
+    return value;
+  };
+  return { clean: clean2, text: text3, add: add2 };
+}
+function normalizeModelMetadata(model = {}) {
+  const provider = model.provider ?? "api";
+  if (!["api", "local"].includes(provider)) throw new Error("MODEL_PROVIDER");
+  return modelRecordRedactor(model).clean({
+    provider,
+    model: model.model ?? "",
+    metadataSource: model.provider ? "explicit_configuration" : "legacy_default_api_unverified",
+    localRuntime: provider === "local" ? model.localRuntime ?? null : null,
+    localRuntimeManifestPresent: provider === "local" && Boolean(model.localRuntime?.modelSha256 && model.localRuntime?.runtimeSha256)
+  });
+}
+function modelSamplingParameters(model = {}) {
+  const fields = [
+    ["temperature", "temperature", 0, 2, false],
+    ["maxOutputTokens", "max_tokens", 1, 262144, true],
+    ["topP", "top_p", 0, 1, false],
+    ["topK", "top_k", 0, 1e6, true],
+    ["repeatPenalty", "repeat_penalty", 0, 10, false],
+    ["seed", "seed", -1, 2147483647, true]
+  ];
+  const out = {};
+  for (const [key, wire, min, max, integer2] of fields) {
+    if (model[key] === void 0) continue;
+    const n3 = model[key];
+    if (typeof n3 !== "number" || !Number.isFinite(n3) || n3 < min || n3 > max || integer2 && !Number.isSafeInteger(n3)) throw new Error("MODEL_PARAMETER_" + key);
+    out[wire] = n3;
+  }
+  return out;
+}
+function modelUsage(data, usable = true) {
+  const source2 = data?.usage;
+  const counts = {};
+  for (const [key, raw] of [["promptTokens", "prompt_tokens"], ["completionTokens", "completion_tokens"], ["totalTokens", "total_tokens"]]) {
+    const value = source2?.[raw];
+    counts[key] = usable && Number.isSafeInteger(value) && value >= 0 ? value : null;
+  }
+  const known = Object.values(counts).filter((value) => value !== null).length;
+  return { status: !usable ? "unavailable" : known === 3 ? "reported" : known ? "partial" : "unknown", counts, source: "provider_response", estimated: false };
+}
+function endpoint(baseUrl) {
+  const url2 = new URL(baseUrl);
+  if (!["http:", "https:"].includes(url2.protocol) || url2.username || url2.password || url2.search || url2.hash) throw new Error("MODEL_ENDPOINT");
+  if (url2.protocol === "http:" && !["127.0.0.1", "localhost", "[::1]"].includes(url2.hostname)) throw new Error("REMOTE_MODEL_REQUIRES_HTTPS");
+  url2.pathname = url2.pathname.replace(/\/$/, "").replace(/\/chat\/completions$/, "") + "/chat/completions";
+  return url2.toString();
+}
+async function capturedChatCompletion({ model, request, signal, emit, onAttempt = () => {
+}, onUsage = () => {
+}, modelCallId = randomUUID2(), attempt = 1 }) {
+  const backend = normalizeModelMetadata(model);
+  const redact = modelRecordRedactor(model);
+  const url2 = endpoint(model.baseUrl);
+  if (backend.provider === "local" && !["127.0.0.1", "localhost", "[::1]"].includes(new URL(url2).hostname)) throw new Error("LOCAL_MODEL_LOOPBACK_REQUIRED");
+  const timeoutMs = model.requestTimeoutMs ?? 12e4;
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 864e5) throw new Error("MODEL_REQUEST_TIMEOUT_RANGE");
+  if (signal?.aborted) throw new Error("AGENT_CANCELLED");
+  const body = stringify9(request);
+  redact.add(request);
+  const recordedRequest = redact.text(body);
+  const startedAt = (/* @__PURE__ */ new Date()).toISOString();
+  const common = { schemaVersion: "1.0", modelCallId, clientRequestId: modelCallId, attempt, provider: backend.provider, backend };
+  const links = { modelCallId, attempt };
+  const requestEvent = await emit("model.request", {
+    ...common,
+    endpoint: url2,
+    request: redact.clean(request),
+    body: recordedRequest,
+    bodyComplete: true,
+    headers: { "content-type": "application/json" },
+    capture: { representation: "utf8-json-request", redacted: recordedRequest !== body, recordedBodySha256: sha(recordedRequest), bytesSent: Buffer.byteLength(body) },
+    timing: { startedAt, requestTimeoutMs: timeoutMs }
+  }, links);
+  if (signal?.aborted) {
+    await emit("model.error", { ...common, code: "AGENT_CANCELLED", error: "AGENT_CANCELLED", cancelled: true, timedOut: false, transportAttempted: false, timing: { startedAt, endedAt: (/* @__PURE__ */ new Date()).toISOString(), durationMs: 0 }, usage: modelUsage(null, false) }, links, requestEvent);
+    throw new Error("AGENT_CANCELLED");
+  }
+  onAttempt();
+  const start = performance2.now();
+  const timeout = AbortSignal.timeout(timeoutMs);
+  const activeSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
+  let response, responseText = "", receivedBytes = 0, firstByteMs = null;
+  const timing = () => ({ startedAt, endedAt: (/* @__PURE__ */ new Date()).toISOString(), durationMs: Math.round((performance2.now() - start) * 1e3) / 1e3, firstByteMs });
+  const read = async () => {
+    response = await fetch(url2, { method: "POST", headers: { "Content-Type": "application/json", ...model.apiKey ? { Authorization: `Bearer ${model.apiKey}` } : {} }, body, signal: activeSignal, redirect: "error" });
+    const decoder3 = new TextDecoder();
+    if (response.body) {
+      const reader = response.body.getReader();
+      try {
+        for (; ; ) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (firstByteMs === null) firstByteMs = Math.round((performance2.now() - start) * 1e3) / 1e3;
+          receivedBytes += value.byteLength;
+          responseText += decoder3.decode(value, { stream: true });
+        }
+      } finally {
+        responseText += decoder3.decode();
+        reader.releaseLock();
+      }
+    }
+  };
+  const responsePayload = (data2, complete, parseError2, usage2) => {
+    const cleanText = redact.text(responseText);
+    const id = response.headers.get("x-request-id") ?? response.headers.get("request-id");
+    return {
+      ...common,
+      status: response.status,
+      requestId: id,
+      providerRequestId: id,
+      ...data2 === void 0 ? {} : { response: redact.clean(data2) },
+      body: cleanText,
+      bodyComplete: complete,
+      parseError: parseError2,
+      headers: redact.clean({ "content-type": response.headers.get("content-type"), "x-request-id": id }),
+      capture: { representation: "utf8-decoded-http-entity", redacted: cleanText !== responseText, recordedBodySha256: sha(cleanText), bytesReceived: receivedBytes },
+      timing: timing(),
+      usage: usage2
+    };
+  };
+  try {
+    await read();
+  } catch (error40) {
+    const usage2 = modelUsage(null, false);
+    onUsage(usage2);
+    if (response) await emit("model.response", responsePayload(void 0, false, true, usage2), links, requestEvent);
+    const code = signal?.aborted ? "AGENT_CANCELLED" : timeout.aborted ? "MODEL_TIMEOUT" : "MODEL_TRANSPORT_ERROR";
+    await emit("model.error", { ...common, code, error: redact.text(error40 instanceof Error ? error40.message : String(error40)), cancelled: Boolean(signal?.aborted), timedOut: timeout.aborted, timing: timing(), usage: usage2, responseReceived: Boolean(response), bodyComplete: false }, links, requestEvent);
+    throw new Error(code);
+  }
+  let data, parseError = false;
+  try {
+    data = JSON.parse(responseText);
+  } catch {
+    parseError = true;
+  }
+  if (!parseError) redact.add(data);
+  const usage = modelUsage(data, response.ok && !parseError);
+  onUsage(usage);
+  const responseEvent = await emit("model.response", responsePayload(data, true, parseError, usage), links, requestEvent);
+  if (!response.ok || parseError) {
+    const code = !response.ok ? `MODEL_HTTP_${response.status}` : `MODEL_INVALID_JSON_HTTP_${response.status}`;
+    await emit("model.error", { ...common, code, error: code, cancelled: false, timedOut: false, timing: timing(), usage, responseReceived: true, bodyComplete: true }, links, responseEvent ?? requestEvent);
+    throw new Error(code);
+  }
+  return { data, modelCallId, requestEvent, responseEvent, usage };
+}
+
+// vendor/legacy-source/src/agent.ts
 function parametersFor(options) {
   const supplied = options.taskParameters ?? options.task.taskParameters;
   return supplied ? resolveTask(options.task.id, { taskParameters: supplied }).taskParameters : defaultTaskParameters(options.task.id);
@@ -492324,14 +492527,6 @@ function scriptedCalls(taskId, observations, initialState, experimentMode = "ind
       throw new Error(`No scripted baseline for task ${taskId}`);
   }
 }
-function endpoint(baseUrl) {
-  const url2 = new URL(baseUrl);
-  if (!["http:", "https:"].includes(url2.protocol) || url2.username || url2.password || url2.search || url2.hash) {
-    throw new Error("Model base URL must use http(s), with no embedded credentials, query or fragment");
-  }
-  url2.pathname = `${url2.pathname.replace(/\/$/, "").replace(/\/chat\/completions$/, "")}/chat/completions`;
-  return url2.toString();
-}
 function continuationMessages(value) {
   if (!value.parentRunId || !Array.isArray(value.messages) || !value.messages.length || !value.state || typeof value.state !== "object") throw new Error("AGENT_CONTINUATION_EVIDENCE_REQUIRED");
   const pending = /* @__PURE__ */ new Set();
@@ -492393,63 +492588,40 @@ async function runAgent(options) {
         return { done: true, pending: [] };
       }
       if (state.steps >= maxSteps) throw new Error("MAX_STEPS_EXCEEDED");
-      const call4 = { id: `scripted_${randomUUID2()}`, type: "function", function: { name: step.name, arguments: serialize2(step.args) } };
+      const call4 = { id: `scripted_${randomUUID3()}`, type: "function", function: { name: step.name, arguments: serialize2(step.args) } };
       await options.emit("scripted.step", { step: state.steps + 1, call: call4, inputInterpretation: "fixed-task-plan" });
       return { pending: [call4], steps: state.steps + 1 };
     }
     if (state.steps >= maxSteps) throw new Error("MAX_STEPS_EXCEEDED");
     if (!options.model.model.trim()) throw new Error("MODEL_ID_REQUIRED");
-    const modelCallId = randomUUID2();
+    const modelCallId = randomUUID3();
     const request = {
       model: options.model.model,
       messages: state.messages,
       tools: definitions,
       tool_choice: "auto",
       stream: false,
-      ...options.model.temperature === void 0 ? {} : { temperature: options.model.temperature }
+      ...modelSamplingParameters(options.model)
     };
-    const body = serialize2(request);
-    const url2 = endpoint(options.model.baseUrl);
-    const links = { modelCallId, attempt: 1 };
-    await options.emit("model.request", { endpoint: url2, request: JSON.parse(body), body, attempt: 1 }, links);
-    checkAbort(options.signal);
-    result.modelCalls++;
-    const timeout = AbortSignal.timeout(options.model.requestTimeoutMs ?? 12e4);
-    const requestSignal = AbortSignal.any([options.signal, timeout]);
-    let response;
-    let responseText;
-    try {
-      response = await fetch(url2, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...options.model.apiKey ? { Authorization: `Bearer ${options.model.apiKey}` } : {}
-        },
-        body,
-        signal: requestSignal,
-        redirect: "error"
-      });
-      responseText = await response.text();
-    } catch (error40) {
-      await options.emit("model.error", { error: errorText(error40), cancelled: options.signal.aborted, timedOut: timeout.aborted, attempt: 1 }, links);
-      throw error40;
-    }
-    let data;
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      await options.emit("model.response", { status: response.status, body: responseText, parseError: true, requestId: response.headers.get("x-request-id") }, links);
-      throw new Error(`MODEL_INVALID_JSON_HTTP_${response.status}`);
-    }
-    await options.emit("model.response", { status: response.status, response: data, body: responseText, requestId: response.headers.get("x-request-id") }, links);
-    for (const [outputKey, sourceKey2] of [["promptTokens", "prompt_tokens"], ["completionTokens", "completion_tokens"], ["totalTokens", "total_tokens"]]) {
-      const count = data?.usage?.[sourceKey2];
-      if (typeof count === "number" && Number.isFinite(count) && count >= 0) {
-        result.usage[outputKey] = (result.usage[outputKey] ?? 0) + count;
-        usageReports[outputKey]++;
+    const { data } = await capturedChatCompletion({
+      model: options.model,
+      request,
+      signal: options.signal,
+      modelCallId,
+      emit: options.emit,
+      onAttempt: () => {
+        result.modelCalls++;
+      },
+      onUsage: (usage) => {
+        for (const key of ["promptTokens", "completionTokens", "totalTokens"]) {
+          const count = usage.counts[key];
+          if (count !== null) {
+            result.usage[key] = (result.usage[key] ?? 0) + count;
+            usageReports[key]++;
+          }
+        }
       }
-    }
-    if (!response.ok) throw new Error(`MODEL_HTTP_${response.status}`);
+    });
     const message2 = data?.choices?.[0]?.message;
     if (!message2 || typeof message2 !== "object" || message2.role !== "assistant") throw new Error("MODEL_ASSISTANT_MESSAGE_MISSING");
     const calls = [];
@@ -492579,7 +492751,7 @@ ${serialize2({ parentRunId: options.continuation.parentRunId, taskParameters: pa
   return result;
 }
 
-// src/diagnostics.ts
+// vendor/legacy-source/src/diagnostics.ts
 var check3 = (title, explanation, suggestion, unit) => ({ title, explanation, suggestion, unit });
 var ASSERTION_TEXT = {
   "same-chain": check3("\u94FE\u7F16\u53F7\u4E00\u81F4\u6027", "\u524D\u540E\u8BC1\u636E\u5FC5\u987B\u5C5E\u4E8E\u540C\u4E00\u6761\u5B9E\u9A8C\u94FE\u3002", "\u6838\u5BF9\u5B9E\u9A8C\u73AF\u5883\u4E0E\u8FD0\u884C\u8BB0\u5F55\uFF0C\u5207\u6362\u73AF\u5883\u540E\u91CD\u65B0\u8FD0\u884C\u3002"),
@@ -492871,7 +493043,7 @@ function buildDiagnostics(resultInput, eventInput = []) {
   return { stage: first?.layer ?? (result.status === "success" ? "complete" : "data"), title: result.status === "success" ? "\u4EFB\u52A1\u68C0\u67E5\u901A\u8FC7" : first?.title ?? "\u9700\u8981\u66F4\u591A\u8BC1\u636E", summary, items, transactions, chainExecutionStatus };
 }
 
-// src/trace.ts
+// vendor/legacy-source/src/trace.ts
 var object3 = (value) => value && typeof value === "object" && !Array.isArray(value) ? value : {};
 var rows2 = (value) => Array.isArray(value) ? value.filter((item) => item && typeof item === "object") : [];
 var text = (value) => typeof value === "string" && value.length > 0 ? value : null;
@@ -493252,7 +493424,7 @@ function renderExecutionTraceMarkdown(trace) {
   return lines.join("\n") + "\n";
 }
 
-// src/graph.ts
+// vendor/legacy-source/src/graph.ts
 var array2 = (value) => Array.isArray(value) ? value : [];
 var text2 = (value) => value == null ? "" : String(value);
 var addressPattern = /^0x[a-f0-9]{40}$/i;
@@ -493418,14 +493590,14 @@ function renderGraphML(graph) {
   return lines.join("\n");
 }
 
-// src/store.ts
+// vendor/legacy-source/src/store.ts
 import { mkdir as mkdir3, readFile, writeFile as writeFile2, rename as rename2, readdir as readdir3, open } from "node:fs/promises";
 import { join as join2 } from "node:path";
-import { createHash as createHash3, randomUUID as randomUUID3 } from "node:crypto";
+import { createHash as createHash4, randomUUID as randomUUID4 } from "node:crypto";
 var json3 = (value) => JSON.stringify(value, (_k, v) => typeof v === "bigint" ? v.toString() : v, 2);
-var sha2565 = (value) => createHash3("sha256").update(value).digest("hex");
+var sha2565 = (value) => createHash4("sha256").update(value).digest("hex");
 async function atomic(path4, content) {
-  const tmp = path4 + "." + randomUUID3() + ".tmp";
+  const tmp = path4 + "." + randomUUID4() + ".tmp";
   await writeFile2(tmp, content, { mode: 384 });
   await rename2(tmp, path4);
 }
@@ -493460,7 +493632,7 @@ var Recorder = class {
     this.redactor = redactor2;
   }
   dataDir;
-  runId = randomUUID3();
+  runId = randomUUID4();
   folder;
   redactor;
   handle;
@@ -493480,14 +493652,14 @@ var Recorder = class {
     const operation = this.queue.then(async () => {
       if (this.failure) throw this.failure;
       if (!this.handle) throw new Error("RECORDING_NOT_OPEN");
-      const body = json3(this.redactor.clean(payload));
+      const body = json3(finalizeModelCapture(payload, (value) => this.redactor.clean(value)));
       const hash5 = sha2565(body);
       const blobPath = join2(this.folder, "blobs", hash5 + ".json");
       await atomic(blobPath, body);
       const event = {
         schema_version: "1.0",
         run_id: this.runId,
-        event_id: randomUUID3(),
+        event_id: randomUUID4(),
         seq: ++this.count,
         timestamp: (/* @__PURE__ */ new Date()).toISOString(),
         monotonic_ms: performance.now() - this.started,
@@ -493583,7 +493755,7 @@ async function saveResult(dataDir, runId, result) {
   safeRun(dataDir, runId);
   const dir = join2(dataDir, "derived", runId);
   await mkdir3(dir, { recursive: true });
-  const stamp = (/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-") + "-" + randomUUID3().slice(0, 6);
+  const stamp = (/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-") + "-" + randomUUID4().slice(0, 6);
   await atomic(join2(dir, stamp + ".json"), json3(result));
   await atomic(join2(dir, "latest.json"), json3(result));
 }
@@ -493687,7 +493859,7 @@ async function exportRun(dataDir, runId) {
   return { format: "web3-agent-lab-bundle", version: "1.0", run_id: runId, files, verification, note: "Raw files are immutable; derived/ contains versioned checks and regenerable execution trace JSON, Markdown, relations CSV and expanded JSONL. Hashes detect accidental changes, not adversarial forgery." };
 }
 
-// src/continuation.ts
+// vendor/legacy-source/src/continuation.ts
 function continuationHistory(events) {
   let requestIndex = -1;
   events.forEach((event, index3) => {
@@ -493745,7 +493917,7 @@ function mergeTransactions(...groups) {
   return [...byHash.values(), ...withoutHash].sort((a, b) => (a.nonce ?? Number.MAX_SAFE_INTEGER) - (b.nonce ?? Number.MAX_SAFE_INTEGER));
 }
 
-// src/server.ts
+// vendor/legacy-source/src/server.ts
 var ROOT3 = resolve2(process.env.LAB_ROOT || process.cwd());
 var DATA = resolve2(process.env.LAB_DATA_DIR || join3(ROOT3, "data"));
 var PORT = Number(process.env.LAB_PORT || 4317);
@@ -493766,11 +493938,19 @@ var shuttingDown = false;
 var sessionId = null;
 var sessionEpoch = null;
 var previousRunId = null;
+var modelResolver = async (model) => model;
+function setModelResolver(resolver) {
+  modelResolver = resolver;
+}
+var runtimeEvidenceHooks = null;
+function setRuntimeEvidenceHooks(hooks) {
+  runtimeEvidenceHooks = hooks;
+}
 function syncSession() {
   const epoch2 = ready ? chain2.env()?.chainInstanceId : null;
   if (epoch2 !== sessionEpoch) {
     sessionEpoch = epoch2;
-    sessionId = epoch2 ? randomUUID4() : null;
+    sessionId = epoch2 ? randomUUID5() : null;
     previousRunId = null;
   }
 }
@@ -493877,6 +494057,13 @@ async function prepareContinuation(id, body) {
 async function beginRun(body, parentRunId, continuation) {
   requireIdle();
   requireReady();
+  const submittedModel = body.model || {};
+  if (body.mode === "llm") {
+    redactor.add(submittedModel.apiKey);
+    body = { ...body, model: await modelResolver(submittedModel) };
+    requireIdle();
+    requireReady();
+  }
   const task2 = validateRun(body);
   const experimentMode = body.experimentMode || "independent";
   const amountValidation = body.amountValidation ?? "fixed_task";
@@ -493915,6 +494102,7 @@ async function beginRun(body, parentRunId, continuation) {
     const config2 = {
       ...body,
       model: { ...body.model || {}, apiKey: body.model?.apiKey ? "[REDACTED]" : null },
+      modelSubmitted: redactor.clean(submittedModel),
       task: { ...task2, input: body.taskInput || task2.input, allowedTools: body.allowedTools || task2.allowedTools },
       taskParameters: task2.taskParameters,
       taskSpec: task2,
@@ -493938,6 +494126,7 @@ async function beginRun(body, parentRunId, continuation) {
       redaction: { policy: "known-secrets-and-sensitive-fields-v1", text_may_be_redacted: true }
     };
     await recorder.start(config2);
+    const runtimeEvidenceCursor = body.mode === "llm" && body.model?.provider === "local" ? await runtimeEvidenceHooks?.cursor() : null;
     activeRecorder = recorder;
     await recorder.emit("state.before", before);
     if (continuation) {
@@ -494025,8 +494214,13 @@ async function beginRun(body, parentRunId, continuation) {
         gas_complete: Array.isArray(verdict?.evidence?.transactions) && !verdict.evidence.transactions.some((tx) => !tx.receipt),
         missing_usage_reason: body.mode === "scripted" ? "no_model_used" : agentResult?.usage?.totalTokens == null ? "provider_usage_incomplete" : null
       };
-      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config2.previous_run_id, continuation_of: config2.continuation_of, checker_version: verdict?.checkerVersion || "2.2.0", check_id: randomUUID4(), evidence_source: "original_run", checked_at: (/* @__PURE__ */ new Date()).toISOString(), check_mode: "live", agent: agentResult, run_error: runError || agentResult?.error || null, costs: { ...costs, transaction_scope: continuation ? "cumulative_task" : "current_run", model_scope: "current_run" }, cancelled: localController.signal.aborted });
+      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config2.previous_run_id, continuation_of: config2.continuation_of, checker_version: verdict?.checkerVersion || "2.2.0", check_id: randomUUID5(), evidence_source: "original_run", checked_at: (/* @__PURE__ */ new Date()).toISOString(), check_mode: "live", agent: agentResult, run_error: runError || agentResult?.error || null, costs: { ...costs, transaction_scope: continuation ? "cumulative_task" : "current_run", model_scope: "current_run" }, cancelled: localController.signal.aborted });
       try {
+        if (body.mode === "llm" && body.model?.provider === "local") {
+          const runtimeEvidence = await runtimeEvidenceHooks?.capture(body.model, runtimeEvidenceCursor);
+          if (!runtimeEvidence) throw new Error("LOCAL_RUNTIME_EVIDENCE_UNAVAILABLE");
+          await emit("model.runtime_evidence", runtimeEvidence);
+        }
         await emit("run.finished", { duration_ms: costs.duration_ms, cancelled: localController.signal.aborted });
         await recorder.seal(recordingStatus);
       } catch (error40) {
@@ -494070,16 +494264,30 @@ function send(res, code, data) {
   res.end(json3(data));
 }
 
+var localModelService = (process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new LocalModelService({dataDir:DATA,beforeChange:()=>{
+  requireIdle();
+  if (labControl?.store.list('agents').some(a=>a.provider==='local'&&(Date.now()-(a.heartbeat??0)<6000||((p)=>p&&p.exitCode===null&&!p.killed)(labControl.workers.get(a.agentId))))) throw Error('LOCAL_MODEL_WORKERS_ONLINE: stop local Agent workers before changing or stopping inference');
+}});
+async function resolveModelConfiguration(model) {
+  if (!localModelService) return model;
+  return localModelService.resolveModel(model ?? {});
+}
+setModelResolver(resolveModelConfiguration);
+async function captureLocalRuntimeEvidence(models,cursor=null) {
+  const model=(models??[]).find(m=>m?.provider==='local');
+  return model&&localModelService?localModelService.captureEvidence(model,cursor,value=>redactor.clean(value)):null;
+}
+setRuntimeEvidenceHooks({cursor:()=>localModelService?.evidenceCursor()??null,capture:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor)});
 var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
   createWalletClient, mnemonicToAccount, localChain, http, encodeFunctionData, keccak256,
   clean:value=>redactor.clean(value), addSecret:value=>redactor.add(value), send,
-  requireReady, lock:()=>{requireIdle();requireReady();busy=true;},
+  requireReady, resolveModel:resolveModelConfiguration,captureRuntimeEvidence:captureLocalRuntimeEvidence,assertLocalModel:model=>localModelService?.assertModel(model), lock:()=>{requireIdle();requireReady();busy=true;},
   unlock:()=>{busy=false;refresh().catch(()=>{});}
 });
 var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
 var labControl=process.env.LAB_AGENT_WORKER?null:new LabControl({root:ROOT3,data:DATA,chain:chain2,url:'http://127.0.0.1:'+PORT,
  createWalletClient,mnemonicToAccount,localChain,http,encodeFunctionData,keccak256,recoverAddress,serializeTransaction,resolveTask,checkTask,scriptedCalls,validateTaskAmounts,decodeFunctionData,
- clean:value=>redactor.clean(value),addSecret:value=>redactor.add(value),send,admin:req=>!req.headers.authorization&&req.headers['x-lab-token']===TOKEN,
+ clean:value=>redactor.clean(value),addSecret:value=>redactor.add(value),send,resolveModel:resolveModelConfiguration,captureRuntimeEvidence:captureLocalRuntimeEvidence,assertLocalModel:model=>localModelService?.assertModel(model),admin:req=>!req.headers.authorization&&req.headers['x-lab-token']===TOKEN,
  lock:()=>{requireIdle();requireReady();busy=true;},hold:()=>{busy=true;},unlock:()=>{busy=false;},isIdle:()=>!busy,
  markReady:()=>{ready=true;},ensureReady:async()=>{if(!ready){requireIdle();chain2.preserveChain=true;await chain2.start();ready=true;}return chain2.env();}
 });
@@ -494097,6 +494305,7 @@ var server = createServer(async (req, res) => {
     if (req.method === "GET" && path4 === "/api/health") return send(res, 200, { app: "web3-agent-lab", ok: true, csrfToken: TOKEN, version: version9 });
     if (req.method !== "GET" && !(path4.startsWith("/api/v2/agent/") || path4.startsWith("/api/v2/tx-intents") || path4 === "/api/v2/agents/register" || path4 === "/api/v2/agents/heartbeat") && req.headers["x-lab-token"] !== TOKEN) return send(res, 403, { error: "SESSION_TOKEN_REQUIRED" });
     const body = req.method === "POST" ? await bodyJSON(req,path4.startsWith("/api/v2/agent/")?8*1024*1024:1024*1024) : {};
+    if (await localModelService?.handle(req,res,path4,body)) return;
     if (await labControl?.handle(req,res,path4,body)) return;
     if (await scenarioService.handle(req,res,path4,body)) return;
     if (path4 === "/api/status") return send(res, 200, status());
@@ -494232,7 +494441,7 @@ var server = createServer(async (req, res) => {
             return chain2.check(run.config.taskId, evidence.before, current, evidence.transactions, evidence.agentFinal, { experimentMode: run.config.experimentMode || "independent", taskParameters: run.config.taskParameters ?? run.config.taskSpec?.taskParameters });
           });
         } else checked = checkTask(run.config.taskId, evidence.before, evidence.after, evidence.transactions, evidence.agentFinal, evidence.observations, { experimentMode: run.config.experimentMode || "independent", taskParameters: run.config.taskParameters ?? run.config.taskSpec?.taskParameters });
-        const result = { ...checked, run_id: id, experimentMode: run.config.experimentMode || "independent", checker_version: checked.checkerVersion, check_id: randomUUID4(), evidence_source: body.mode === "live" ? "live_chain" : "original_run", check_mode: body.mode === "live" ? "live_reconciliation" : "offline", checked_at: (/* @__PURE__ */ new Date()).toISOString(), costs: { ...run.result?.costs, transaction_attempts: checked.costs.transactionAttempts, gas_used: checked.costs.gasUsed, gas_cost_wei: checked.costs.gasCostWei, gas_complete: !checked.evidence.transactions.some((tx) => !tx.receipt) }, agent: run.result?.agent, run_error: run.result?.run_error, cancelled: run.result?.cancelled, recording_error: run.result?.recording_error, integrity: v };
+        const result = { ...checked, run_id: id, experimentMode: run.config.experimentMode || "independent", checker_version: checked.checkerVersion, check_id: randomUUID5(), evidence_source: body.mode === "live" ? "live_chain" : "original_run", check_mode: body.mode === "live" ? "live_reconciliation" : "offline", checked_at: (/* @__PURE__ */ new Date()).toISOString(), costs: { ...run.result?.costs, transaction_attempts: checked.costs.transactionAttempts, gas_used: checked.costs.gasUsed, gas_cost_wei: checked.costs.gasCostWei, gas_complete: !checked.evidence.transactions.some((tx) => !tx.receipt) }, agent: run.result?.agent, run_error: run.result?.run_error, cancelled: run.result?.cancelled, recording_error: run.result?.recording_error, integrity: v };
         result.diagnostics = buildDiagnostics(result, run.events);
         await saveResult(DATA, id, result);
         return send(res, 200, result);
@@ -494259,7 +494468,7 @@ var server = createServer(async (req, res) => {
       void shutdown();
       return;
     }
-    if (req.method === "GET" && ["/", "/index.html", "/app.js", "/style.css"].includes(path4)) {
+    if (req.method === "GET" && ["/", "/index.html", "/app.js", "/style.css", "/local-model.html", "/local-model.js", "/local-model.css", "/model-backend.js", "/model-evidence.js"].includes(path4)) {
       const file2 = path4 === "/" ? "index.html" : path4.slice(1);
       const content = await readFile2(join3(ROOT3, "public", file2));
       res.writeHead(200, { "Content-Type": file2.endsWith(".js") ? "text/javascript; charset=utf-8" : file2.endsWith(".css") ? "text/css; charset=utf-8" : "text/html; charset=utf-8" });
@@ -494277,6 +494486,7 @@ async function shutdown() {
   await budgetService?.shutdown();
   await labControl?.shutdown();
   for (const s of scenarioService.scenes.values()) s.abort.abort();
+  await localModelService?.shutdown();
   const deadline = Date.now() + 6e3;
   while (busy && Date.now() < deadline) await new Promise((r) => setTimeout(r, 100));
   if (!labControl?.preserveOnExit) await chain2.stop().catch(() => {
@@ -494286,13 +494496,17 @@ async function shutdown() {
 }
 await mkdir4(DATA, { recursive: true });
 await budgetService?.init();
-if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.15.3 http://127.0.0.1:${PORT}`));
+if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.16.0 http://127.0.0.1:${PORT}`));
 server.on("error", (e) => {
   console.error(e.message);
   process.exit(1);
 });
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
+export {
+  setModelResolver,
+  setRuntimeEvidenceHooks
+};
 /*! Bundled license information:
 
 @noble/hashes/esm/utils.js:
@@ -494597,6 +494811,5 @@ mustache/mustache.mjs:
    * http://github.com/janl/mustache.js
    *)
 */
-//# sourceMappingURL=server.mjs.map
 
 export {createWalletClient,createPublicClient,mnemonicToAccount,localChain,http,encodeFunctionData,decodeEventLog,decodeFunctionData,keccak256,parseAbi,ChainLab,checkTask,scenarioService,labControl,privateKeyToAccount,recoverAddress,serializeTransaction,resolveTask,scriptedCalls,validateTaskAmounts};

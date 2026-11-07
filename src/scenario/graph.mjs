@@ -13,6 +13,7 @@ export function deriveGraph(events,files,scene){
     if(e.type==='model.request'){const id=`model:${e.agentRunId}:${p.modelCallId}`;node(id,'model_call',`${e.agentId} model`,e.agentId,e.eventId);edge(e.eventId,id,'records_request',e.eventId);}
     if(e.type==='model.response'){const id=`model:${e.agentRunId}:${p.modelCallId}`;edge(id,e.eventId,'returned',e.eventId);
       for(const call of p.response?.choices?.[0]?.message?.tool_calls??[])providerCalls.set(`${e.agentRunId}:${call.id}`,id);}
+    if(e.type==='model.error')edge(`model:${e.agentRunId}:${p.modelCallId}`,e.eventId,'failed',e.eventId);
     if(e.type==='tool.call'){const id=`tool:${p.toolCallKey}`;node(id,'tool_call',`${e.agentId} ${p.name}`,e.agentId,e.eventId);edge(e.eventId,id,'records_tool',e.eventId);
       edge(providerCalls.get(`${e.agentRunId}:${p.providerToolCallId}`),id,'proposed',e.eventId);}
     if(e.type.startsWith('message.')){const m=p,id='message:'+m.messageId;

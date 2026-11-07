@@ -130,7 +130,13 @@ test('actual peer graph has valid endpoints event references and consistent expo
  assert.equal(b.files['derived/nodes.csv'].trim().split('\n').length-1,g.nodes.length);assert.equal(b.files['derived/edges.csv'].trim().split('\n').length-1,g.edges.length);
 });
 
-test('all V0.15 protected implementation and UI files keep their delivered hashes',async()=>{
- const expected=JSON.parse(await readFile(join(root,'docs/v015-protected-baseline.json'),'utf8'));
- for(const [file,wanted]of Object.entries(expected)){const bytes=await readFile(join(root,file)),actual=createHash('sha256').update(bytes).digest('hex');assert.equal(actual,wanted,file);}
+test('V0.16 source and output integrity matches the current build; historical contracts remain byte-identical',async()=>{
+ const build=JSON.parse(await readFile(join(root,'build-info.json'),'utf8'));
+ assert.equal(build.version,'0.16.0');
+ assert.equal(sha(JSON.stringify(build.files)),build.sourceHash);
+ for(const required of ['src/model/capture.mjs','src/local-model/service.mjs','public/model-backend.js','vendor/legacy-source/src/agent.ts'])assert.ok(build.files[required],required);
+ for(const required of ['dist/server.mjs','dist/legacy-cli.mjs'])assert.ok(build.outputs[required],required);
+ for(const [file,wanted]of Object.entries({...build.files,...build.outputs}))assert.equal(sha(await readFile(join(root,file))),wanted,file);
+ const historical=JSON.parse(await readFile(join(root,'docs/v015-protected-baseline.json'),'utf8'));
+ for(const [file,wanted]of Object.entries(historical).filter(([file])=>file.startsWith('contracts/')))assert.equal(sha(await readFile(join(root,file))),wanted,file);
 });

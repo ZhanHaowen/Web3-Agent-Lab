@@ -137,7 +137,7 @@ try {
     [ordered]@{
         schema = 'web3-agent-lab-windows-ci-v1'
         status = if ($ciComplete) { 'passed' } else { 'failed' }
-        version = 'V0.15.3'
+        version = (Get-Content -LiteralPath 'package.json' -Raw | ConvertFrom-Json).displayVersion
         commit = $env:GITHUB_SHA
         startedAt = $ciStarted.ToString('o')
         endedAt = [DateTime]::UtcNow.ToString('o')

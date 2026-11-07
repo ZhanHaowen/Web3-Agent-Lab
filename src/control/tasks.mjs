@@ -17,6 +17,10 @@ export function jobSpec(body,def,resolveTask){
   n.mode=input.mode??'scripted';if(!['scripted','llm'].includes(n.mode))throw Error('MODE');
   return {input:{sellToken:'A',buyToken:'B',sellAmount:input.sellAmount??'10',buyAmount:input.buyAmount??'20',deadlineSeconds:n.ttl,...input},environment,privateGoals:{maker:n.agents[0].goal,taker:n.agents[1].goal},runtimeSpec:n};
  }
+ // These task-center adapters execute an installed deterministic plan. Never
+ // accept an LLM label and silently collect scripted behavior under that label.
+ if(body.mode==='llm')throw Error('UNSUPPORTED_LEGACY_LLM_MODE');
+ if(body.mode!==undefined&&body.mode!=='scripted')throw Error('INVALID_LEGACY_MODE');
  const fields=legacy[def.taskType];if(Object.keys(input).some(k=>!Object.hasOwn(fields,k)))throw Error('UNKNOWN_INPUT_FIELD');for(const [k,v]of Object.entries({...fields,...input}))try{if(k==='minAmountOut'&&typeof v==='string'&&/^0(?:\.0{1,6})?$/.test(v)){}else units(v);}catch{throw Error('FIELD_'+k+'_DECIMAL');}
  const resolved=resolveTask(def.taskType,{taskParameters:{...fields,...input},taskInput:body.taskInput});
  return {input:{...fields,...input},environment,privateGoals:goals,runtimeSpec:{taskType:def.taskType,mode:body.mode??'scripted',task:resolved,automine:true,manual:!!body.manual}};

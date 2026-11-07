@@ -5,6 +5,7 @@ import type { FileHandle } from 'node:fs/promises';
 import { buildExecutionTrace, renderExecutionTraceMarkdown } from './trace.js';
 import { buildProvenanceGraph, renderGraphML } from './graph.js';
 import { buildDiagnostics } from './diagnostics.js';
+import { finalizeModelCapture } from '../../../src/model/capture.mjs';
 
 export const json = (value: unknown) => JSON.stringify(value, (_k, v) => typeof v === 'bigint' ? v.toString() : v, 2);
 export const sha256 = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
@@ -63,7 +64,7 @@ export class Recorder {
     const operation = this.queue.then(async () => {
       if (this.failure) throw this.failure;
       if (!this.handle) throw new Error('RECORDING_NOT_OPEN');
-      const body = json(this.redactor.clean(payload));
+      const body = json(finalizeModelCapture(payload, value => this.redactor.clean(value)));
       const hash = sha256(body);
       const blobPath = join(this.folder, 'blobs', hash + '.json');
       await atomic(blobPath, body);

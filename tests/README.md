@@ -1,4 +1,17 @@
-# V0.15.3 测试集合
+# V0.16.0 测试集合
+
+本版新结果见 [V0.16.0 回归报告](../docs/V0.16.0回归测试报告.md)。以下旧数量保留为历史集合说明，不当作当前通过数。默认单元集合包含本地服务生命周期/身份/证据完整性、双后端界面、HTTP 原文/错误采集、worker 失败持久化与 GraphML 元数据。
+
+真实模型测试须先在运行中的平台导入固定 Qwen3 4B 并启动本地服务，再设置 `LAB_TEST_BASE_URL`（默认 `http://127.0.0.1:4531`）与独立的 `LAB_TEST_ARTIFACT_DIR`：
+
+```powershell
+node tests/v016-local-real.mjs
+node tests/v016-local-workers.mjs --help
+```
+
+前者执行三轮五任务默认提示词、一轮显式流程提示词、独立重跑与连续五任务；后者验证真实独立 worker，以及本地模型与 API 协议夹具混合模式。两脚本共用平台时必须顺序执行。它们不下载权重、不使用云端 Key，不把脚本或协议夹具算作真实商业模型。模型任务失败与平台证据检查失败分别报告。
+
+`v016-maker-rejection.mjs` 用明确标注的 API 协议夹具、两个独立 worker 与真实 Anvil 补测 Maker 主动拒绝，不替代语言模型能力测试。CLI `check` 的历史与新版入口退出码不同，自动化应解析检查结果的 `status`，不要只看进程成功退出。
 
 当前自动化针对 Windows x64、本地测试资产与真实 Anvil。先按[构建说明](../docs/third-party-rebuild.md)安装固定依赖，准备 Anvil，执行 `pnpm build:budget`、`pnpm build`。默认测试不要求真实模型 Key；脚本或协议夹具不证明真实模型能力。
 

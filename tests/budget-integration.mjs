@@ -6,8 +6,8 @@ import {spawnSync} from 'node:child_process';
 import {LabChain,BudgetExperiment} from '../src/budget/engine.mjs';
 import {ROOT,clone,stringify,config,sha} from '../src/budget/common.mjs';
 import {verify,seal} from '../src/budget/checker.mjs';
-process.env.LAB_DATA_DIR=join(ROOT,'data-budget-tests/compatibility');
-const chain=await new LabChain().start(),results=[];
+process.env.LAB_DATA_DIR=process.env.LAB_TEST_DATA_DIR??join(ROOT,'data-budget-tests/compatibility');
+const chain=await new LabChain().start(process.env.LAB_TEST_CHAIN_PORT?Number(process.env.LAB_TEST_CHAIN_PORT):undefined),results=[];
 await mkdir(artifactDirectory('fixtures/budget'),{recursive:true});
 async function test(name,fn){
  const start=Date.now();try{await fn();results.push({name,passed:true,elapsedMs:Date.now()-start});console.log('PASS',name);}
@@ -94,5 +94,5 @@ try{
  }));
 }finally{
  await chain.stop();
- await writeFile(artifactPath('v0153-budget-results.json'),JSON.stringify({version:'V0.15.3',buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),realEVM:true,officialPermit2:true,cloudModelTested:false,results},null,2));
+ await writeFile(artifactPath('v0153-budget-results.json'),JSON.stringify({version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),realEVM:true,officialPermit2:true,cloudModelTested:false,results},null,2));
 }

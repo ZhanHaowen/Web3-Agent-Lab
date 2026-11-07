@@ -32,6 +32,10 @@ let shuttingDown = false;
 let sessionId: string | null = null;
 let sessionEpoch: string | null = null;
 let previousRunId: string | null = null;
+let modelResolver = async (model: any) => model;
+export function setModelResolver(resolver: (model: any) => Promise<any>) { modelResolver = resolver; }
+let runtimeEvidenceHooks: any = null;
+export function setRuntimeEvidenceHooks(hooks: any) { runtimeEvidenceHooks = hooks; }
 
 function syncSession() {
   const epoch = ready ? chain.env()?.chainInstanceId : null;
@@ -110,6 +114,13 @@ async function prepareContinuation(id:string,body:any) {
 }
 async function beginRun(body: any, parentRunId?: string, continuation?:any) {
   requireIdle(); requireReady();
+  const submittedModel = body.model || {};
+  if (body.mode === 'llm') {
+    redactor.add(submittedModel.apiKey);
+    body = { ...body, model: await modelResolver(submittedModel) };
+    // Model startup yields; acquire the experiment guard only after rechecking.
+    requireIdle(); requireReady();
+  }
   const task = validateRun(body);
   const experimentMode = body.experimentMode || 'independent';
   const amountValidation = body.amountValidation ?? 'fixed_task';
@@ -142,6 +153,7 @@ async function beginRun(body: any, parentRunId?: string, continuation?:any) {
     const before = continuation?continuation.evidence.before:current;
     const config = {
       ...body, model: { ...(body.model || {}), apiKey: body.model?.apiKey ? '[REDACTED]' : null },
+      modelSubmitted: redactor.clean(submittedModel),
       task: { ...task, input: body.taskInput || task.input, allowedTools: body.allowedTools || task.allowedTools },
       taskParameters:task.taskParameters,taskSpec:task,taskParameterSource:task.parameterSource,
       framework: { agentkit: '0.10.4', langgraph: '1.4.18', viem: '2.38.3', anvil: '1.7.1' },
@@ -156,6 +168,7 @@ async function beginRun(body: any, parentRunId?: string, continuation?:any) {
       redaction: { policy: 'known-secrets-and-sensitive-fields-v1', text_may_be_redacted: true }
     };
     await recorder.start(config);
+    const runtimeEvidenceCursor = body.mode === 'llm' && body.model?.provider === 'local' ? await runtimeEvidenceHooks?.cursor() : null;
     activeRecorder = recorder;
     await recorder.emit('state.before', before);
     if(continuation) {
@@ -234,6 +247,11 @@ async function beginRun(body: any, parentRunId?: string, continuation?:any) {
       };
       const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config.previous_run_id, continuation_of:config.continuation_of, checker_version: verdict?.checkerVersion || '2.2.0', check_id: randomUUID(), evidence_source: 'original_run', checked_at: new Date().toISOString(), check_mode: 'live', agent: agentResult, run_error: runError || agentResult?.error || null, costs:{...costs,transaction_scope:continuation?'cumulative_task':'current_run',model_scope:'current_run'}, cancelled: localController.signal.aborted });
       try {
+        if (body.mode === 'llm' && body.model?.provider === 'local') {
+          const runtimeEvidence = await runtimeEvidenceHooks?.capture(body.model, runtimeEvidenceCursor);
+          if (!runtimeEvidence) throw new Error('LOCAL_RUNTIME_EVIDENCE_UNAVAILABLE');
+          await emit('model.runtime_evidence', runtimeEvidence);
+        }
         await emit('run.finished', { duration_ms: costs.duration_ms, cancelled: localController.signal.aborted });
         await recorder.seal(recordingStatus);
       } catch (error: any) { result.recording_error = redactor.clean(error.message); result.status = 'unknown'; }
@@ -376,7 +394,7 @@ const server = createServer(async (req, res) => {
       }
     }
     if (path === '/api/shutdown' && req.method === 'POST') { send(res, 200, { ok: true }); void shutdown(); return; }
-    if (req.method === 'GET' && ['/', '/index.html', '/app.js', '/style.css'].includes(path)) {
+    if (req.method === 'GET' && ['/', '/index.html', '/app.js', '/style.css', '/local-model.html', '/local-model.js', '/local-model.css', '/model-backend.js', '/model-evidence.js'].includes(path)) {
       const file = path === '/' ? 'index.html' : path.slice(1);
       const content = await readFile(join(ROOT, 'public', file));
       res.writeHead(200, { 'Content-Type': file.endsWith('.js') ? 'text/javascript; charset=utf-8' : file.endsWith('.css') ? 'text/css; charset=utf-8' : 'text/html; charset=utf-8' });

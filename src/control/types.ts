@@ -319,9 +319,23 @@ export interface WorkerEventIdentity extends NoSecretMaterial {
   readonly timestamp: IsoTimestamp;
   readonly causes: readonly EventId[];
 }
+export interface NativeModelCapture {
+  readonly modelCallId: ModelCallId;
+  readonly clientRequestId?: string;
+  readonly attempt?: NonNegativeInteger;
+  readonly provider?: 'api' | 'local';
+  readonly backend?: RedactedJsonObject;
+  /** UTF-8 HTTP entity text, with identified credentials redacted; never hidden model internals. */
+  readonly body?: string;
+  readonly bodyComplete?: boolean;
+  readonly capture?: RedactedJsonObject;
+  readonly timing?: RedactedJsonObject;
+  readonly usage?: RedactedJsonObject;
+}
 export type WorkerEvent = WorkerEventIdentity & (
-  | Readonly<{ type: 'model.request'; payload: Readonly<{ modelCallId: ModelCallId; endpoint: string; request: RedactedJsonObject }> }>
-  | Readonly<{ type: 'model.response'; payload: Readonly<{ modelCallId: ModelCallId; status: NonNegativeInteger; response: RedactedJsonObject }> }>
+  | Readonly<{ type: 'model.request'; payload: NativeModelCapture & Readonly<{ endpoint: string; request: RedactedJsonObject }> }>
+  | Readonly<{ type: 'model.response'; payload: NativeModelCapture & Readonly<{ status: NonNegativeInteger; response?: JsonValue; parseError?: boolean; providerRequestId?: string | null }> }>
+  | Readonly<{ type: 'model.error'; payload: NativeModelCapture & Readonly<{ code: string; error: string; cancelled: boolean; timedOut: boolean }> }>
   | Readonly<{ type: 'agent.progress'; payload: Readonly<{ message: RedactedJsonObject; progress: RedactedJsonObject }> }>
   | Readonly<{ type: 'agent.error'; payload: Readonly<{ code: string; message: string; recoverable: boolean; submitted: boolean }> }>
   | Readonly<{ type: 'agent.wait'; payload: Readonly<{ reason: 'message_or_chain' | 'yield_scheduler' | 'reconciliation_required' }> }>

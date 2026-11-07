@@ -4,7 +4,8 @@ const txt=(node,value)=>node.textContent=value==null?'—':String(value);
 function el(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)txt(n,text);if(cls)n.className=cls;return n;}
 function notify(message){txt($('notice'),message);}
 async function api(path,body){const r=await fetch(path,{method:body===undefined?'GET':'POST',headers:{'Content-Type':'application/json','X-Lab-Token':csrf},...(body===undefined?{}:{body:JSON.stringify(body)})});const j=await r.json();if(!r.ok)throw Error(j.error||`HTTP ${r.status}`);return j;}
-function model(role){return{baseUrl:$(role+'-url').value.trim(),model:$(role+'-model').value.trim(),apiKey:$(role+'-key').value,systemPrompt:$(role+'-prompt').value,temperature:0};}
+const modelBackends = Object.fromEntries(['maker','taker'].map(role => [role, window.LabModelUI.bind({ id: role, anchor: $(role+'-url').closest('article'), modelInput: $(role+'-model'), urlInput: $(role+'-url'), keyInput: $(role+'-key') })]));
+function model(role){return modelBackends[role].read({systemPrompt:$(role+'-prompt').value,temperature:0});}
 function spec(){return{template:'service_purchase',mode:$('mode').value,experimentMode:'independent',payment:$('maker-sell').value,reportToken:$('report-token').value,reportAccount:$('report-account').value,reportMode:$('report-mode').value,evaluatorMode:$('evaluator-mode').value,expectedOutcome:$('expected').value,ttl:Number($('ttl').value),maxSteps:Number($('max-steps').value),manual:$('manual').checked,automine:$('automine').checked,pauseBeforeTool:$('pause-tool').checked,pauseBeforeTransaction:$('pause-tx').checked,agents:[{goal:{maxPay:$('maker-min').value},model:model('maker')},{goal:{minPrice:$('taker-min').value},model:model('taker')}]};}
 async function action(fn,button=null,pendingLabel='处理中…'){
   if(button?.dataset.busy==='true')return;
@@ -51,7 +52,8 @@ function render(){if(!scene)return;txt($('state'),states[scene.state]||scene.sta
   txt($('order'),JSON.stringify({quote:scene.quote,jobId:scene.jobId,job:scene.job,request:scene.request,deadline:scene.deadline},null,2));txt($('artifact'),JSON.stringify(scene.artifact??null,null,2));txt($('quality'),JSON.stringify({evaluation:scene.evaluation,independentChecker:scene.check?.quality},null,2));$('transactions').replaceChildren();for(const t of scene.transactions??[]){const box=el('div',`${t.actorId} · ${t.functionName} · ${t.state}\n${t.hash??'哈希未知，先对账'}`,'tx mono');box.onclick=()=>showDetail(t);$('transactions').append(box);}
   if(scene.state==='completed'&&graphScene!==scene.id){graphScene=scene.id;action(drawGraph);}
 }
-async function load(id){scene=await api('/api/scenarios/'+id);offline=false;bundle=null;render();}
+async function load(id){nativeEvidence.clear();scene=await api('/api/scenarios/'+id);offline=false;bundle=null;render();}
+const nativeEvidence = window.LabModelEvidence.mount({host:$('model-native-evidence'),getSource:async()=>({bundle:await currentBundle(),runId:scene?.id})});
 async function currentBundle(){if(bundle)return bundle;if(!scene)throw Error('请先打开一个场景');bundle=await api(`/api/scenarios/${scene.id}/export`);return bundle;}
 function download(name,data){const url=URL.createObjectURL(new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function svgEl(tag,attrs){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,String(v));return e;}
@@ -72,7 +74,7 @@ bind('resume','正在继续…',()=>control('resume',{manual:$('manual').checked
 bind('mine','正在出块并对账…',()=>control('mine',{blocks:Number($('blocks').value),seconds:Number($('seconds').value)}));
 document.querySelectorAll('.pause-agent').forEach(b=>b.onclick=()=>action(()=>control('pause',{agentId:b.dataset.agent}),b,'正在暂停…'));
 document.querySelectorAll('.resume-agent').forEach(b=>b.onclick=()=>action(()=>control('resume',{agentId:b.dataset.agent}),b,'正在恢复…'));
-bind('rerun','正在创建新实验…',async()=>{await control('rerun',{agents:[{model:{apiKey:$('maker-key').value}},{model:{apiKey:$('taker-key').value}}]});scene=await api(`/api/scenarios/${scene.id}/start`,{});render();notify('已从共同初态启动新实验。');});
+bind('rerun','正在创建新实验…',async()=>{await control('rerun',{agents:[{model:modelBackends.maker.credentials(scene?.spec?.agents?.[0]?.model)},{model:modelBackends.taker.credentials(scene?.spec?.agents?.[1]?.model)}]});scene=await api(`/api/scenarios/${scene.id}/start`,{});render();notify('已从共同初态启动新实验。');});
 bind('export','正在导出场景包…',async()=>{if(!scene)throw Error('请先打开场景');download(`web3-scenario-${scene.id}.json`,await currentBundle());});
 bind('graph-export','正在导出完整图…',async()=>{const b=await currentBundle();download(`web3-scenario-graph-${scene.id}.json`,b.files['derived/graph.json']);});
 $('filter').onchange=()=>action(drawGraph);

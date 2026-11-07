@@ -2,9 +2,15 @@
 
 **面向 Web3 Agent 行为、协作、授权与资产效果研究的本地实验平台。**
 
-当前版本：**V0.15.3 · Windows x64 研究预览版**
+当前版本：**V0.16.0 · 本地 Qwen3 4B / API 双后端研究版**
 
-[下载运行包](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.15.3) · [操作指南](docs/操作手册.md) · [文档索引](docs/README.md) · [测试集合](tests/README.md) · [样例集合](examples/README.md)
+[V0.16.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.16.0) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md) · [版本说明](docs/V0.16.0更新说明.md) · [数据格式](docs/V0.16.0原生模型数据.md) · [回归报告](docs/V0.16.0回归测试报告.md) · [原操作指南](docs/操作手册.md)
+
+V0.16.0 在原有 Agent、交易工具和检查器上增加受平台管理的本地推理后端。单 Agent、双 Agent、服务购买及独立 worker 的模型配置可选择 API 或本地 Qwen3 4B；双方可采用不同后端。这里的 Qwen3 是 Agent 使用的语言模型，Agent 的编排、钱包和工具仍由平台提供。
+
+本地推理使用固定 Qwen3-4B-Instruct-2507 Q8_0 GGUF（4,280,404,960 字节），由 llama.cpp 执行；权重单独导入或显式下载，不进入 Git。准备好文件后，本地 Anvil 和本地模型实验无需云端 Key。平台不自动下载、不静默转用云端。Windows x64 的本次实测范围见回归报告；macOS 保留原生启动适配，尚不宣称本次完成真机验收。
+
+模型请求与响应的原始 HTTP 正文、解析结果、失败响应、成本、模型与运行时 SHA、实际模板和运行日志进入实验包。已知凭据脱敏会明确标记，无法取得的指标记为未知；图与检查结论继续作为派生数据保存。
 
 ## 平台介绍
 

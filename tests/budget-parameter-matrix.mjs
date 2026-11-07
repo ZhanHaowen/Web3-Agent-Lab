@@ -5,7 +5,7 @@ import {join} from 'node:path';
 import {LabChain,BudgetExperiment} from '../src/budget/engine.mjs';
 import {ROOT,units} from '../src/budget/common.mjs';
 
-process.env.LAB_DATA_DIR=join(ROOT,'data-v0153-parameter-test/compatibility');
+process.env.LAB_DATA_DIR=process.env.LAB_TEST_DATA_DIR??join(ROOT,'data-v0153-parameter-test/compatibility');
 const results=[];
 const build=JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8'));
 const cases=[
@@ -51,5 +51,5 @@ try{
  }
 }finally{
  await chain?.stop();
- await writeFile(artifactPath('v0153-parameter-results.json'),JSON.stringify({version:'V0.15.3',buildHash:build.sourceHash,time:new Date().toISOString(),status:results.length===cases.length&&results.every(r=>r.passed)?'passed':results.length===0?'blocked':'failed',plannedCases:cases.length,executedCases:results.length,realEVM:results.length>0,officialPermit2:results.length>0,results},null,2)+'\n');
+ await writeFile(artifactPath('v0153-parameter-results.json'),JSON.stringify({version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,buildHash:build.sourceHash,time:new Date().toISOString(),status:results.length===cases.length&&results.every(r=>r.passed)?'passed':results.length===0?'blocked':'failed',plannedCases:cases.length,executedCases:results.length,realEVM:results.length>0,officialPermit2:results.length>0,results},null,2)+'\n');
 }

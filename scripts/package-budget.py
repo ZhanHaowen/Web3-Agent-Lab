@@ -29,7 +29,7 @@ def allowed_relative(relative):
     if not parts:
         return False
     directories = parts[:-1]
-    if directories and directories[0] in {"artifacts", "build"}:
+    if directories and directories[0] in {"artifacts", "build", "models"}:
         return False
     if any(part.startswith("data") or part in EXCLUDED_DIRS for part in directories):
         return False
@@ -41,7 +41,7 @@ def allowed_relative(relative):
         or name == ".env"
         or name.startswith(".env.")
         or name.endswith(PRIVATE_SUFFIXES)
-        or name.endswith((".log", ".log.gz", ".pyc", ".zip"))
+        or name.endswith((".log", ".log.gz", ".pyc", ".zip", ".gguf", ".gguf.partial", ".gguf.part"))
         or DATABASE_NAME.search(name)
     )
 
@@ -101,7 +101,8 @@ def main():
             )
     output = Path(args.output).resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
-    label = "Web3-Agent-Lab-V0.15.3-Windows-x64"
+    version = json.loads((root / "package.json").read_text(encoding="utf-8-sig"))["version"]
+    label = "Web3-Agent-Lab-V" + version + "-Windows-x64"
     files = release_files(root, output)
     selected = {path.relative_to(root).as_posix() for path in files}
     if not set(required_files).issubset(selected):

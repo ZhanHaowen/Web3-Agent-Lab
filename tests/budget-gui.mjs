@@ -8,9 +8,9 @@ import {ROOT,sha} from '../src/budget/common.mjs';
 import {freePort,sleep} from '../src/budget/engine.mjs';
 if(!process.env.BUDGET_PLAYWRIGHT_MODULE)throw Error('Set BUDGET_PLAYWRIGHT_MODULE for optional browser QA.');
 const {chromium}=createRequire(import.meta.url)(process.env.BUDGET_PLAYWRIGHT_MODULE);
-const port=await freePort(),origin='http://127.0.0.1:'+port,data=join(ROOT,'data-v0153-ui');
-await mkdir(data,{recursive:true});await mkdir(artifactDirectory('screenshots/budget-v0153'),{recursive:true});
-const p=spawn(process.execPath,[join(ROOT,'dist/server.mjs')],{cwd:ROOT,env:{...process.env,LAB_PORT:String(port),LAB_DATA_DIR:data,LAB_CHAIN_PORT:String(await freePort()),LAB_LIBRARY_ONLY:'',LAB_AGENT_WORKER:''},windowsHide:true,stdio:['ignore','pipe','pipe']});
+const port=process.env.LAB_TEST_PORT?Number(process.env.LAB_TEST_PORT):await freePort(),origin='http://127.0.0.1:'+port,data=process.env.LAB_TEST_DATA_DIR??join(ROOT,'data-v016-ui');
+await mkdir(data,{recursive:true});await mkdir(artifactDirectory('screenshots/budget-current'),{recursive:true});
+const p=spawn(process.execPath,[join(ROOT,'dist/server.mjs')],{cwd:ROOT,env:{...process.env,LAB_PORT:String(port),LAB_DATA_DIR:data,LAB_CHAIN_PORT:String(process.env.LAB_TEST_CHAIN_PORT??await freePort()),LAB_LIBRARY_ONLY:'',LAB_AGENT_WORKER:''},windowsHide:true,stdio:['ignore','pipe','pipe']});
 let log='',mainToken='',browser;const results=[];p.stdout.on('data',b=>log+=b);p.stderr.on('data',b=>log+=b);
 const pass=name=>{results.push({name,passed:true});console.log('PASS',name);};
 try{
@@ -30,12 +30,12 @@ try{
  await page.locator('#run').click();await page.waitForFunction(()=>document.querySelector('#verdict').textContent.includes('已复现超支'));
  const metric=label=>page.locator('#metrics .metric').filter({hasText:label}).locator('strong').innerText();
  assert.equal(await metric('链上实际累计支出'),'275.0');assert.equal(await metric('正常入口计数'),'90.0');
- await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-v0153/01-custom-1440.png'),fullPage:true});pass('real browser executes generated custom split amounts and reports 275 actual / 90 normal counter');
+ await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-current/01-custom-1440.png'),fullPage:true});pass('real browser executes generated custom split amounts and reports 275 actual / 90 normal counter');
  await page.waitForFunction(()=>!document.querySelector('#run').disabled);
  await page.locator('#preset').selectOption('unified-over');await page.locator('#apply-preset').click();await page.locator('#run').click();
  await page.waitForFunction(()=>document.querySelector('#verdict').textContent.includes('已阻止超额请求'));
  assert.equal(await metric('链上实际累计支出'),'90.0');assert.equal(await metric('当前 / 最终余额'),'610.0');
- await page.setViewportSize({width:1024,height:900});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-v0153/02-unified-1024.png'),fullPage:true});
+ await page.setViewportSize({width:1024,height:900});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-current/02-unified-1024.png'),fullPage:true});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);pass('same custom values are blocked under unified policy and 1024px layout fits');
  await page.waitForFunction(()=>!document.querySelector('#start').disabled);
  await page.locator('#preset').selectOption('boundary');await page.locator('#apply-preset').click();
@@ -60,7 +60,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('#events').textContent.includes('<img'));
  assert.equal(await page.evaluate(()=>window.__unsafe),undefined);assert.equal(await page.locator('img').count(),0);pass('offline text remains inert');
  await page.locator('#file').setInputFiles(file);
- await page.setViewportSize({width:390,height:844});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-v0153/03-mobile-390.png'),fullPage:true});
+ await page.setViewportSize({width:390,height:844});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:artifactPath('screenshots/budget-current/03-mobile-390.png'),fullPage:true});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);pass('390px layout fits viewport');
  await page.locator('#payment').fill('100');assert.equal(await page.locator('#preset').inputValue(),'custom');
  assert.ok((await page.locator('#preview-amounts').innerText()).includes('260'));pass('manual edits mark custom and recompute preview instead of retaining a stale preset label');
@@ -72,5 +72,5 @@ finally{
  await browser?.close();
  try{await fetch(origin+'/api/shutdown',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','X-Lab-Token':mainToken},body:'{}'});}catch{}
  await Promise.race([new Promise(r=>p.once('exit',r)),sleep(15000)]);if(p.exitCode===null)p.kill();
- await writeFile(artifactPath('v0153-gui-results.json'),JSON.stringify({version:'V0.15.3',buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),browser:'Chrome headless',results},null,2)+'\n');
+ await writeFile(artifactPath('budget-gui-results.json'),JSON.stringify({version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),browser:'Chrome headless',results},null,2)+'\n');
 }

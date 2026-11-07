@@ -2,6 +2,13 @@
 
 This distribution contains bundled JavaScript, official Node.js and Foundry Anvil runtimes. Individual components retain their original licenses.
 
+V0.16.0 optionally uses Qwen3-4B-Instruct-2507 (Apache-2.0) through llama.cpp (MIT).
+Pinned model provenance, size and SHA-256, and the tested b12019 runtime are in
+`src/local-model/assets.json`. Model weights are not committed or included in the
+standard platform ZIP. Import/download is explicit. Native runtime packages retain
+their upstream licenses and dependencies; the project's MIT license does not replace
+those terms. The historical notices below remain for retained components/bundles.
+
 | Package | Version | Declared license |
 |---|---|---|
 | @adraffy/ens-normalize | 1.11.1 | MIT |

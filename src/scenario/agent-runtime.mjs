@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { copy,json,checkQuote } from './core.mjs';
+import { capturedChatCompletion, modelSamplingParameters, recordUsage } from '../model/capture.mjs';
 const properties={recipient:{type:'string',enum:['maker','taker']},kind:{type:'string',enum:['inquiry','quote','accept','reject','order_ref']},
   payload:{type:'object',additionalProperties:true},quoteId:{type:'string'},replyTo:{type:'string'},orderId:{type:'string'},reason:{type:'string'}};
 export function definitions(spec){return spec.tools.map(name=>({type:'function',function:{name,
@@ -47,29 +48,24 @@ export class AgentRuntime {
     this.deferredInbox=[...(this.deferredInbox??[]),...inbox];
     if(this.pendingCalls.length)return this.pendingCalls.shift();
     if(this.deferredInbox.length){const observed=this.deferredInbox;this.deferredInbox=[];this.messages.push({role:'user',content:json({source:'inbox',messages:observed.map(m=>({messageId:m.messageId,quoteId:m.quoteId,kind:m.kind,sender:m.senderAgentId,payload:m.visiblePayload})),causalEventIds:observed.map(m=>m.consumedEventId)})});}
-    const m=this.spec.model,u=new URL(m.baseUrl);u.pathname=u.pathname.replace(/\/$/,'').replace(/\/chat\/completions$/,'')+'/chat/completions';
+    const m=this.spec.model;
     const progress=s.progress(this);
     const context={role:'user',content:json({source:'platform_verified_progress',...progress,
       instruction:'Only successful tool results change the platform state. An error means the action did not succeed. Use a real tool_call; JSON or promises in assistant text do not execute. If waiting for the peer, call wait. The platform does not choose your price or acceptance.'})};
     this.messages.push(context);
     const contextEvent=await s.emit('agent.progress',{message:context,progress},this,inbox.map(m=>m.consumedEventId));
-    const request={model:m.model,messages:copy(this.messages),tools:this.definitions().filter(d=>progress.allowedActions.includes(d.function.name)),tool_choice:'auto',stream:false,temperature:m.temperature};
-    const requestId=randomUUID();const e=await s.emit('model.request',{modelCallId:requestId,endpoint:u.toString(),request},this,[contextEvent.eventId]);
-    const response=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json',...(m.apiKey?{Authorization:`Bearer ${m.apiKey}`}:{})},
-      body:JSON.stringify(request),signal:AbortSignal.any([s.abort.signal,AbortSignal.timeout(m.requestTimeoutMs)]),redirect:'error'});
-    this.costs.modelCalls++;const body=await response.text();if(body.length>2000000)throw Error('MODEL_RESPONSE_TOO_LARGE');let data;
-    try{data=JSON.parse(body);}catch{throw Error('MODEL_INVALID_JSON');}
-    await s.emit('model.response',{modelCallId:requestId,status:response.status,response:data},this,[e.eventId]);
-    if(!response.ok)throw Error(`MODEL_HTTP_${response.status}`);
+    const request={model:m.model,messages:copy(this.messages),tools:this.definitions().filter(d=>progress.allowedActions.includes(d.function.name)),tool_choice:'auto',stream:false,...modelSamplingParameters(m)};
+    const requestId=randomUUID();
+    const {data,requestEvent:e,responseEvent}=await capturedChatCompletion({model:m,request,signal:s.abort.signal,modelCallId:requestId,
+      onAttempt:()=>{this.costs.modelCalls++;},onUsage:usage=>recordUsage(this.costs,usage),
+      emit:(type,payload,_links,cause)=>s.emit(type,payload,this,[cause?.eventId??contextEvent.eventId])});
     const msg=data.choices?.[0]?.message;if(msg?.role!=='assistant')throw Error('MODEL_ASSISTANT_REQUIRED');
-    for(const [key,source] of [['promptTokens','prompt_tokens'],['completionTokens','completion_tokens'],['totalTokens','total_tokens']]){
-      const n=data.usage?.[source];if(Number.isSafeInteger(n)&&n>=0)this.costs[key]+=n;else this.costs.usageComplete=false;}
     if(msg.tool_calls&&!Array.isArray(msg.tool_calls))throw Error('MODEL_TOOL_CALLS');
     if((msg.tool_calls?.length??0)>16)throw Error('MODEL_TOOL_CALL_LIMIT');
     this.messages.push(copy(msg));
     for(const call of msg.tool_calls??[]){if(!call.id||this.ownToolIds.has(call.id)||call.type!=='function')throw Error('MODEL_TOOL_ID');
       this.ownToolIds.add(call.id);let args;try{args=JSON.parse(call.function.arguments);}catch{args=null;}
-      this.pendingCalls.push({name:call.function.name,args,providerToolCallId:call.id,modelCallId:requestId,causes:[e.eventId]});}
+      this.pendingCalls.push({name:call.function.name,args,providerToolCallId:call.id,modelCallId:requestId,causes:[responseEvent?.eventId??e.eventId]});}
     if(!this.pendingCalls.length){this.messages.push({role:'user',content:'刚才只有文字，没有实际执行操作。即使文字写着“已接受”，平台也未收到 accept。请依据 platform_verified_progress 调用一个允许的工具；等待时调用 wait，不要重复输出工具 JSON 代码块。'});return {wait:true};}
     return this.pendingCalls.shift();
   }

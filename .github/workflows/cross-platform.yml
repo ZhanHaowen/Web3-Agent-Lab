@@ -1,4 +1,4 @@
-name: Windows V0.15.3 verification
+name: Windows V0.16.0 verification
 
 on:
   push:
@@ -59,7 +59,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: windows-v0153-validation
+          name: windows-v0160-validation
           overwrite: true
           if-no-files-found: warn
           retention-days: 14

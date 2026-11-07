@@ -185,7 +185,7 @@ try{
   }
  }
  await writeFile(artifactPath('v0153-main-results.json'),JSON.stringify({
-  version:'V0.15.3',time:new Date().toISOString(),
+  version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,time:new Date().toISOString(),
   buildHash:buildHash??JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,
   results
  },null,2)+'\n');

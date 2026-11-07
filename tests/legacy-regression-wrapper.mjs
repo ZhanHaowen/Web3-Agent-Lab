@@ -8,8 +8,8 @@ import {randomUUID,createHash} from 'node:crypto';
 import os from 'node:os';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const port=19317,chainPort=19357,url=`http://127.0.0.1:${port}`;
-const dataDirectory=join(root,'data-acceptance-legacy-'+randomUUID());
+const port=Number(process.env.LAB_TEST_PORT??19317),chainPort=Number(process.env.LAB_TEST_CHAIN_PORT??19357),url=`http://127.0.0.1:${port}`;
+const dataDirectory=process.env.LAB_TEST_DATA_DIR??join(root,'data-acceptance-legacy-'+randomUUID());
 const reportDirectory=artifactDirectory('acceptance-legacy');
 const build=JSON.parse(await readFile(join(root,'build-info.json'),'utf8'));
 const suites=[

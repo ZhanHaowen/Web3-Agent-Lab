@@ -18,3 +18,8 @@ dist/*
 !dist/server.mjs
 !dist/cli.mjs
 !dist/agent-worker.mjs
+!dist/legacy-cli.mjs
+*.gguf
+*.gguf.part
+*.gguf.partial
+/models/

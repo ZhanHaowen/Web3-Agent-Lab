@@ -6,9 +6,9 @@ import {randomUUID} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {ROOT} from '../src/budget/common.mjs';
 import {freePort,sleep} from '../src/budget/engine.mjs';
-const port=await freePort(),origin='http://127.0.0.1:'+port,data=join(ROOT,'data-v0153-launcher-'+randomUUID());
+const port=process.env.LAB_TEST_PORT?Number(process.env.LAB_TEST_PORT):await freePort(),origin='http://127.0.0.1:'+port,data=process.env.LAB_TEST_DATA_DIR??join(ROOT,'data-v016-launcher-'+randomUUID());
 await mkdir(data,{recursive:true});
-const env={...process.env,LAB_PORT:String(port),LAB_CHAIN_PORT:String(await freePort()),LAB_DATA_DIR:data,LAB_LIBRARY_ONLY:'',LAB_AGENT_WORKER:''};
+const env={...process.env,LAB_PORT:String(port),LAB_CHAIN_PORT:String(process.env.LAB_TEST_CHAIN_PORT??await freePort()),LAB_DATA_DIR:data,LAB_LIBRARY_ONLY:'',LAB_AGENT_WORKER:''};
 const results=[];let mainPid,chainPid,started=false;
 const alive=pid=>{try{process.kill(pid,0);return true;}catch{return false;}};
 function command(name,args=[]){
@@ -36,5 +36,5 @@ try{
 }catch(e){results.push({name:'launcher smoke',passed:false,error:e.message});console.error(e.stack);process.exitCode=1;}
 finally{
  if(started){try{await command('stop.cmd');}catch{}}
- await writeFile(artifactPath('v0153-launcher-results.json'),JSON.stringify({version:'V0.15.3',buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),results},null,2)+'\n');
+ await writeFile(artifactPath('v0153-launcher-results.json'),JSON.stringify({version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),results},null,2)+'\n');
 }

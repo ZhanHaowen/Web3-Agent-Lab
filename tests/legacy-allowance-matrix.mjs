@@ -9,8 +9,8 @@ import {randomUUID,createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const port=19417,chainPort=19457,url=`http://127.0.0.1:${port}`;
-const dataDirectory=join(root,'data-acceptance-allowance-'+randomUUID());
+const port=Number(process.env.LAB_TEST_PORT??19417),chainPort=Number(process.env.LAB_TEST_CHAIN_PORT??19457),url=`http://127.0.0.1:${port}`;
+const dataDirectory=process.env.LAB_TEST_DATA_DIR??join(root,'data-acceptance-allowance-'+randomUUID());
 const reportDirectory=artifactDirectory('acceptance-allowance');
 const build=JSON.parse(await readFile(join(root,'build-info.json'),'utf8'));
 const env={...process.env,LAB_ROOT:root,LAB_DATA_DIR:dataDirectory,LAB_PORT:String(port),LAB_CHAIN_PORT:String(chainPort)};

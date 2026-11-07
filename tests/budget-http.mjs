@@ -5,8 +5,8 @@ import {join} from 'node:path';
 import assert from 'node:assert/strict';
 import {ROOT} from '../src/budget/common.mjs';
 import {freePort,sleep} from '../src/budget/engine.mjs';
-const port=await freePort(),origin='http://127.0.0.1:'+port;
-const p=spawn(process.execPath,[join(ROOT,'src/budget/server.mjs')],{cwd:ROOT,env:{...process.env,BUDGET_PORT:String(port),BUDGET_DATA_DIR:join(ROOT,'data-budget-http')},windowsHide:true,stdio:['ignore','pipe','pipe']});
+const port=process.env.LAB_TEST_PORT?Number(process.env.LAB_TEST_PORT):await freePort(),origin='http://127.0.0.1:'+port;
+const p=spawn(process.execPath,[join(ROOT,'src/budget/server.mjs')],{cwd:ROOT,env:{...process.env,BUDGET_PORT:String(port),BUDGET_DATA_DIR:process.env.LAB_TEST_DATA_DIR??join(ROOT,'data-budget-http')},windowsHide:true,stdio:['ignore','pipe','pipe']});
 let log='',token='';p.stdout.on('data',b=>log+=b);p.stderr.on('data',b=>log+=b);
 const results=[];
 async function call(path,b,headers={}){
@@ -31,5 +31,5 @@ try{
 }catch(e){results.push({name:'HTTP suite',passed:false,error:e.message});console.error(e.stack,log.slice(-2000));process.exitCode=1;}
 finally{
  try{await call('/api/shutdown',{});}catch{}await Promise.race([new Promise(r=>p.once('exit',r)),sleep(4000)]);if(p.exitCode===null)p.kill();
- await writeFile(artifactPath('v0153-http-results.json'),JSON.stringify({version:'V0.15.3',buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),results},null,2));
+ await writeFile(artifactPath('v0153-http-results.json'),JSON.stringify({version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,buildHash:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,time:new Date().toISOString(),results},null,2));
 }

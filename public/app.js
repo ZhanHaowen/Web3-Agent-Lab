@@ -118,7 +118,7 @@ function renderStatus(value) {
 function setConnection(connected) {
   state.connected = connected; $('connection-dot').className = 'status-dot ' + (connected ? 'connected' : 'failed');
   const version = typeof state.status?.version === 'object' ? state.status.version.version : state.status?.version;
-  $('connection-text').replaceChildren(document.createTextNode(connected ? '本地服务已连接' : '本地服务未连接'), create('small', '', version === '0.1.3' ? 'V0.13 · ' + (state.status?.version?.releaseRevision || 'beta-1') : version ? 'V0.13 界面 · 服务 ' + version : 'V0.13 · localhost:4317'));
+  $('connection-text').replaceChildren(document.createTextNode(connected ? '本地服务已连接' : '本地服务未连接'), create('small', '', state.status?.version?.displayVersion || (version ? '服务 ' + version : 'V0.16.0 · localhost:4317')));
 }
 function exactUnits(value, decimals = 6, signed = false) {
   if (value === null || value === undefined || !/^-?\d+$/.test(String(value))) return '未采集';
@@ -177,6 +177,7 @@ function setMode(mode) {
   text($('mode-note'), mode === 'llm' ? '通过模型工具调用决定行动；输出受模型服务与采样参数影响。' : '确定性工具调用，用于验证基础设施；不属于大模型实验。');
   updateFaultField();
 }
+const modelBackend = window.LabModelUI.bind({ id: 'single', anchor: $('model-settings'), modelInput: $('model-name'), urlInput: $('base-url'), keyInput: $('api-key') });
 function getConfiguration() {
   let overrides; try { overrides = JSON.parse($('tool-overrides').value || '{}'); } catch { throw new Error('工具返回替换必须是合法 JSON 对象，例如 {}。'); }
   if (!overrides || typeof overrides !== 'object' || Array.isArray(overrides)) throw new Error('工具返回替换必须是 JSON 对象。');
@@ -186,7 +187,7 @@ function getConfiguration() {
   const allowedTools = [...$('allowed-tools').querySelectorAll('input:checked')].map(input => input.value);
   if (!allowedTools.length) throw new Error('请至少允许一种工具。');
   return { taskId: $('task-id').value, mode, experimentMode: $('experiment-mode').value, amountValidation: $('validate-task-amounts').checked ? 'fixed_task' : 'schema_only', taskInput: $('task-input').value, ...(state.taskResolution ? { taskParameters: state.taskResolution.taskParameters } : {}), allowedTools,
-    model: { baseUrl: $('base-url').value.trim(), model: modelName, apiKey: $('api-key').value, temperature: Number($('temperature').value), maxSteps: Number($('max-steps').value), ...($('system-prompt').value.trim() ? { systemPrompt: $('system-prompt').value } : {}) },
+    model: modelBackend.read({ temperature: Number($('temperature').value), maxSteps: Number($('max-steps').value), ...($('system-prompt').value.trim() ? { systemPrompt: $('system-prompt').value } : {}) }),
     pauseBeforeTool: $('pause-before-tool').checked, pauseBeforeTransaction: $('pause-before-transaction').checked,
     toolOverrides: overrides, faultMode: $('fault-mode').value };
 }
@@ -750,10 +751,16 @@ async function openBundle(bundle) {
     catch { execution_graph_error = '派生关系图无法解析；原始事件仍可查看。'; }
   }
   const execution_graphml = typeof files['derived/provenance-graph.graphml'] === 'string' ? files['derived/provenance-graph.graphml'] : undefined;
-  return { run: { config, events, manifest, result, execution_trace, execution_trace_error, execution_graph, execution_graph_error, execution_graphml }, verified: true };
+  return { run: { nativeBundle: bundle, config, events, manifest, result, execution_trace, execution_trace_error, execution_graph, execution_graph_error, execution_graphml }, verified: true };
 }
+const nativeEvidence = window.LabModelEvidence.mount({ host: $('model-native-evidence'), getSource: async () => {
+  if (!state.runId) throw new Error('请先选择一次实验。');
+  if (state.imported) return { bundle: state.run?.nativeBundle, events: state.events, runId: state.runId };
+  if (!state.run?.manifest?.files) return { events: state.events, runId: state.runId };
+  return { bundle: await api('/api/runs/' + encodeURIComponent(state.runId) + '/export'), runId: state.runId };
+} });
 function renderRun(run, { replay = state.replay, imported = state.imported } = {}) {
-  run = normalizeRun(run); state.run = run; state.replay = replay; state.imported = imported;
+  run = normalizeRun(run); if (state.runId !== (run.runId || run.run_id || run.config?.run_id)) nativeEvidence.clear(); state.run = run; state.replay = replay; state.imported = imported;
   state.events = Array.isArray(run.events) ? run.events : [];
   const id = run.runId || run.run_id || run.config?.runId || run.config?.run_id || run.manifest?.runId || run.manifest?.run_id || state.runId || '已导入实验';
   state.runId = id; text($('run-id'), id); $('copy-run-id').classList.remove('hidden');
@@ -952,8 +959,8 @@ $('cancel-pause').addEventListener('click', () => control('cancel', $('cancel-pa
 $('stop-run').addEventListener('click', () => control('cancel', $('stop-run')));
 $('check-run').addEventListener('click', () => action($('check-run'), '检查中…', async () => { const result = await api('/api/runs/' + encodeURIComponent(state.runId) + '/check', { method: 'POST', body: {} }); const data = await api('/api/runs/' + encodeURIComponent(state.runId)); renderRun(data); if (!runVerdict(data) && result) renderVerdict(result.result || result); notify('离线复检已完成：仅使用原始运行证据，不采用追认的新状态；结果可能与当前链追认不同。检查结果已作为派生记录保存。'); }));
 $('live-check-run').addEventListener('click', () => action($('live-check-run'), '采集新证据…', async () => { const result = await api('/api/runs/' + encodeURIComponent(state.runId) + '/check', { method: 'POST', body: { mode: 'live' } }); const data = await api('/api/runs/' + encodeURIComponent(state.runId)); renderRun(data); if (!runVerdict(data) && result) renderVerdict(result.result || result); notify('已读取当前链状态并保存新的派生检查结果，原始运行证据保持不变。'); }));
-$('continue-agent-run').addEventListener('click', () => action($('continue-agent-run'), '出块并恢复 Agent…', async () => { if (state.imported || !state.run?.continuation?.allowed) throw new Error('此运行不满足 Agent 恢复条件，请查看按钮下方说明。'); const parent = state.runId; const value = await api('/api/runs/' + encodeURIComponent(parent) + '/continue-agent', { method: 'POST', body: { blocks: Number($('mine-blocks').value), seconds: Number($('mine-seconds').value), model: { apiKey: $('api-key').value } } }); if (!value.runId) throw new Error('服务未返回子运行编号。'); await loadRun(value.runId, false); await refreshStatus(); notify('已从 ' + parent + ' 创建 Agent 继续运行：采集新链状态并恢复对话，原始父运行证据保留。新运行可能继续提交交易。'); }));
-$('rerun-run').addEventListener('click', () => action($('rerun-run'), '恢复并重跑…', async () => { if (experimentMode(state.run) === 'continuous') throw new Error('连续历史实验暂不支持原样重跑；请在表单中新建运行，继承当前状态不等于恢复历史初态。'); const oldId = state.runId; const value = await api('/api/runs/' + encodeURIComponent(oldId) + '/rerun', { method: 'POST', body: { model: { apiKey: $('api-key').value } } }); const id = value.runId || value.run_id || value.id; if (!id) throw new Error('服务没有返回新的实验编号。'); await loadRun(id, false); await refreshStatus(); notify('已从保存的初始状态开始一次新运行，旧实验记录保持不变。重新调用模型可能产生不同结果。'); }));
+$('continue-agent-run').addEventListener('click', () => action($('continue-agent-run'), '出块并恢复 Agent…', async () => { if (state.imported || !state.run?.continuation?.allowed) throw new Error('此运行不满足 Agent 恢复条件，请查看按钮下方说明。'); const parent = state.runId; const value = await api('/api/runs/' + encodeURIComponent(parent) + '/continue-agent', { method: 'POST', body: { blocks: Number($('mine-blocks').value), seconds: Number($('mine-seconds').value), model: modelBackend.credentials(state.run?.config?.model) } }); if (!value.runId) throw new Error('服务未返回子运行编号。'); await loadRun(value.runId, false); await refreshStatus(); notify('已从 ' + parent + ' 创建 Agent 继续运行：采集新链状态并恢复对话，原始父运行证据保留。新运行可能继续提交交易。'); }));
+$('rerun-run').addEventListener('click', () => action($('rerun-run'), '恢复并重跑…', async () => { if (experimentMode(state.run) === 'continuous') throw new Error('连续历史实验暂不支持原样重跑；请在表单中新建运行，继承当前状态不等于恢复历史初态。'); const oldId = state.runId; const value = await api('/api/runs/' + encodeURIComponent(oldId) + '/rerun', { method: 'POST', body: { model: modelBackend.credentials(state.run?.config?.model) } }); const id = value.runId || value.run_id || value.id; if (!id) throw new Error('服务没有返回新的实验编号。'); await loadRun(id, false); await refreshStatus(); notify('已从保存的初始状态开始一次新运行，旧实验记录保持不变。重新调用模型可能产生不同结果。'); }));
 $('export-run').addEventListener('click', () => exportRun());
 $('export-execution-trace').addEventListener('click', () => action($('export-execution-trace'), '导出轨迹…', () => exportExecutionTrace()));
 $('export-graph-json').addEventListener('click', () => action($('export-graph-json'), '导出图…', () => exportExecutionGraph('json')));

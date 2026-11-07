@@ -5,6 +5,7 @@ import { z } from "zod";
 import type { ChainState } from "./chain.js";
 import { formatTokenState } from "./units.js";
 import { defaultTaskParameters, resolveTask, type TaskId, type TaskParameters } from "./tasks.js";
+import { capturedChatCompletion, modelSamplingParameters } from '../../../src/model/capture.mjs';
 
 export interface ToolDefinition {
   type: "function";
@@ -12,6 +13,8 @@ export interface ToolDefinition {
 }
 export interface AgentTask { id: string; input: string; allowedTools: string[]; taskParameters?: TaskParameters }
 export interface AgentModel {
+  provider?: 'api' | 'local';
+  localRuntime?: Record<string, unknown>;
   baseUrl: string;
   model: string;
   apiKey?: string;
@@ -19,6 +22,11 @@ export interface AgentModel {
   maxSteps: number;
   systemPrompt?: string;
   requestTimeoutMs?: number;
+  maxOutputTokens?: number;
+  topP?: number;
+  topK?: number;
+  repeatPenalty?: number;
+  seed?: number;
 }
 export interface ToolContext { toolCallId: string; modelCallId?: string; attempt: number; signal: AbortSignal }
 export interface AgentOptions {
@@ -252,15 +260,6 @@ function scriptedCalls(taskId: string, observations: ToolObservation[], initialS
   }
 }
 
-function endpoint(baseUrl: string): string {
-  const url = new URL(baseUrl);
-  if (!["http:", "https:"].includes(url.protocol) || url.username || url.password || url.search || url.hash) {
-    throw new Error("Model base URL must use http(s), with no embedded credentials, query or fragment");
-  }
-  url.pathname = `${url.pathname.replace(/\/$/, "").replace(/\/chat\/completions$/, "")}/chat/completions`;
-  return url.toString();
-}
-
 function continuationMessages(value:AgentContinuation):Message[] {
   if(!value.parentRunId||!Array.isArray(value.messages)||!value.messages.length||!value.state||typeof value.state!=='object') throw new Error('AGENT_CONTINUATION_EVIDENCE_REQUIRED');
   const pending=new Set<string>();
@@ -333,47 +332,17 @@ export async function runAgent(options: AgentOptions): Promise<AgentResult> {
       const request = {
         model: options.model.model, messages: state.messages,
         tools: definitions, tool_choice: "auto", stream: false,
-        ...(options.model.temperature === undefined ? {} : { temperature: options.model.temperature }),
+        ...modelSamplingParameters(options.model),
       };
-      const body = serialize(request);
-      const url = endpoint(options.model.baseUrl);
-      const links = { modelCallId, attempt: 1 };
-      // The body logged here is byte-for-byte the JSON body sent below. Headers
-      // are deliberately excluded; the recorder additionally redacts secrets.
-      await options.emit("model.request", { endpoint: url, request: JSON.parse(body), body, attempt: 1 }, links);
-      checkAbort(options.signal);
-      result.modelCalls++;
-      const timeout = AbortSignal.timeout(options.model.requestTimeoutMs ?? 120_000);
-      const requestSignal = AbortSignal.any([options.signal, timeout]);
-      let response: Response;
-      let responseText: string;
-      try {
-        response = await fetch(url, {
-          method: "POST", headers: {
-            "Content-Type": "application/json",
-            ...(options.model.apiKey ? { Authorization: `Bearer ${options.model.apiKey}` } : {}),
-          }, body, signal: requestSignal, redirect: "error",
-        });
-        responseText = await response.text();
-      } catch (error) {
-        await options.emit("model.error", { error: errorText(error), cancelled: options.signal.aborted, timedOut: timeout.aborted, attempt: 1 }, links);
-        throw error;
-      }
-      let data: any;
-      try { data = JSON.parse(responseText); }
-      catch {
-        await options.emit("model.response", { status: response.status, body: responseText, parseError: true, requestId: response.headers.get("x-request-id") }, links);
-        throw new Error(`MODEL_INVALID_JSON_HTTP_${response.status}`);
-      }
-      await options.emit("model.response", { status: response.status, response: data, body: responseText, requestId: response.headers.get("x-request-id") }, links);
-      for (const [outputKey, sourceKey] of [["promptTokens", "prompt_tokens"], ["completionTokens", "completion_tokens"], ["totalTokens", "total_tokens"]] as const) {
-        const count = data?.usage?.[sourceKey];
-        if (typeof count === "number" && Number.isFinite(count) && count >= 0) {
-          result.usage[outputKey] = (result.usage[outputKey] ?? 0) + count;
-          usageReports[outputKey]++;
-        }
-      }
-      if (!response.ok) throw new Error(`MODEL_HTTP_${response.status}`);
+      const { data } = await capturedChatCompletion({ model: options.model, request, signal: options.signal, modelCallId,
+        emit: options.emit, onAttempt: () => { result.modelCalls++; },
+        onUsage: usage => {
+          for (const key of ['promptTokens', 'completionTokens', 'totalTokens'] as const) {
+            const count = usage.counts[key];
+            if (count !== null) { result.usage[key] = (result.usage[key] ?? 0) + count; usageReports[key]++; }
+          }
+        },
+      });
       const message = data?.choices?.[0]?.message;
       if (!message || typeof message !== "object" || message.role !== "assistant") throw new Error("MODEL_ASSISTANT_MESSAGE_MISSING");
       const calls: Call[] = [];

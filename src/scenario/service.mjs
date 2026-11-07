@@ -8,7 +8,9 @@ import { checkEvidence } from './checker.mjs';
 import { serviceScenarioClass } from './service-purchase.mjs';
 import { ServiceRegistry } from './service-registry.mjs';
 import { deriveGraph } from './graph.mjs';
+import { graphML } from './graphml.mjs';
 import {atomicWrite as atomic} from './durable.mjs';
+import {finalizeModelCapture} from '../model/capture.mjs';
 const idPattern=/^[a-f0-9-]{36}$/i;
 const lower=v=>String(v).toLowerCase();
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -35,12 +37,16 @@ export class Scenario {
   }
   clean(v){return this.service.b.clean(v);}
   async emit(type,payload,actor=null,causes=[]){
+    if(type==='scenario.finished'&&this.spec.mode==='llm'&&this.service.b.captureRuntimeEvidence){
+      const localModels=this.agents.map(a=>a.spec.model).filter(m=>m?.provider==='local');
+      if(localModels.length){const evidence=await this.service.b.captureRuntimeEvidence(localModels);if(!evidence)throw Error('LOCAL_RUNTIME_EVIDENCE_UNAVAILABLE');await this.emit('model.runtime_evidence',evidence,null,causes);}
+    }
     const operation=this.emitQueue.then(()=>this.appendEvent(type,payload,actor,causes));
     this.emitQueue=operation.catch(error=>{this.recordingFailure=error;});return operation;
   }
   async appendEvent(type,payload,actor=null,causes=[]){
     if(this.recordingFailure)throw this.recordingFailure;
-    const clean=this.clean(payload),text=json(clean),digest=hash(text),key=`raw/blobs/${digest}.json`;
+    const clean=finalizeModelCapture(payload,value=>this.clean(value)),text=json(clean),digest=hash(text),key=`raw/blobs/${digest}.json`;
     const e={schemaVersion:2,scenarioId:this.id,episodeId:this.episodeId,eventId:randomUUID(),logicalClock:this.events.length+1,
       timestamp:new Date().toISOString(),type,agentId:actor?.agentId??null,agentRunId:actor?.agentRunId??null,
       causalEventIds:causes.filter(Boolean),payloadRef:{path:key,sha256:digest,bytes:Buffer.byteLength(text)}};
@@ -219,7 +225,7 @@ export class Scenario {
       [this.spec.template==='service_purchase'?'labels/checker-service-1.0.json':'labels/checker-peer-1.0.json']:json(this.check??{status:'unknown'})};
     const graph=deriveGraph(this.events,this.files,this),{nodes,edges}=graph;files['derived/graph.json']=json(graph);
     const xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
-    files['derived/graph.graphml']=`<?xml version="1.0" encoding="UTF-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns"><key id="label" for="node" attr.name="label" attr.type="string"/><graph edgedefault="directed">${nodes.map(n=>`<node id="${n.id}"><data key="label">${xml(n.label)}</data></node>`).join('')}${edges.map(e=>`<edge source="${e.from}" target="${e.to}"/>`).join('')}</graph></graphml>`;
+    files['derived/graph.graphml']=graphML({nodes,edges});
     const csv=v=>'"'+String(v??'').replaceAll('"','""')+'"';files['derived/nodes.csv']='id,kind,agentId,eventRef\n'+nodes.map(n=>[n.id,n.kind,n.agentId,n.eventRef].map(csv).join(',')).join('\n');
     files['derived/edges.csv']='from,to,kind,eventRef\n'+edges.map(e=>[e.from,e.to,e.kind,e.eventRef].map(csv).join(',')).join('\n');
     files['derived/execution-trace.json']=json({schemaVersion:2,scenarioId:this.id,episodeId:this.episodeId,timing:{startedAt:this.startedAt??null,endedAt:this.endedAt??null,elapsedMs:this.elapsedMs()},events:this.events,transactions:this.transactions,messages:this.bus.outbox,graph,check:this.check});
@@ -230,6 +236,11 @@ export class Scenario {
 const PurchaseScenario=serviceScenarioClass(Scenario);
 export class ScenarioService {
   constructor(bridge){this.b=bridge;this.registry=new WalletRegistry(bridge);this.purchaseRegistry=new ServiceRegistry(bridge);this.scenes=new Map();this.current=null;}
+  async resolveModels(spec){
+    if(spec.mode!=='llm'||!this.b.resolveModel)return spec;
+    const agents=[];for(const agent of spec.agents??[])agents.push({...agent,model:await this.b.resolveModel(agent.model??{})});
+    return {...spec,agents};
+  }
   release(s){if(this.current===s.id){this.current=null;this.b.unlock();}}
   async handle(req,res,path,body){
     const send=(code,data)=>this.b.send(res,code,data);
@@ -237,7 +248,7 @@ export class ScenarioService {
       const name=path.slice(1),content=await readFile(join(this.b.root,'public',name));res.writeHead(200,{'Content-Type':name.endsWith('.js')?'text/javascript; charset=utf-8':name.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8'});res.end(content);return true;}
     if(!path.startsWith('/api/scenarios'))return false;
     if(path==='/api/scenarios'){
-      if(req.method==='POST'){this.b.requireReady();const s=new (body.template==='service_purchase'?PurchaseScenario:Scenario)(this,body);this.scenes.set(s.id,s);await s.persist();send(201,s.snapshot());}
+      if(req.method==='POST'){this.b.requireReady();body=await this.resolveModels(body);const s=new (body.template==='service_purchase'?PurchaseScenario:Scenario)(this,body);this.scenes.set(s.id,s);await s.persist();send(201,s.snapshot());}
       else{const folder=join(this.b.data,'scenarios');await mkdir(folder,{recursive:true});const list=[];
         for(const id of await readdir(folder)){if(!idPattern.test(id))continue;try{const s=JSON.parse(await readFile(join(folder,id,'summary.json'),'utf8'));if(!this.scenes.has(id)&&['running','pending','paused','initializing'].includes(s.state))s.state='interrupted';list.push(s);}catch{}}
         send(200,list.map(s=>({id:s.id,template:s.spec?.template,state:s.state,check:s.check,steps:s.steps})));}return true;
@@ -248,7 +259,7 @@ export class ScenarioService {
       if(req.method==='POST'&&action==='rerun'){
         this.b.requireReady();const spec=JSON.parse(await readFile(join(this.b.data,'scenarios',id,'bundle.json'),'utf8'));
         const stored=JSON.parse(spec.files['scenario.json']);for(const [i,a]of stored.agents.entries())a.model.apiKey=body.agents?.[i]?.model?.apiKey??'';
-        const n=new (stored.template==='service_purchase'?PurchaseScenario:Scenario)(this,{...stored,experimentMode:'independent',parentScenarioRunId:id});this.scenes.set(n.id,n);await n.persist();send(201,n.snapshot());return true;
+        const n=new (stored.template==='service_purchase'?PurchaseScenario:Scenario)(this,await this.resolveModels({...stored,experimentMode:'independent',parentScenarioRunId:id}));this.scenes.set(n.id,n);await n.persist();send(201,n.snapshot());return true;
       }
       if(req.method!=='GET')throw Error('ARCHIVED_SCENARIO_READ_ONLY');
       const f=action==='export'?'bundle.json':action==='events'?'raw/events.jsonl':'summary.json';const text=await readFile(join(this.b.data,'scenarios',id,f),'utf8');
@@ -256,7 +267,7 @@ export class ScenarioService {
       if(!action){value.archived=true;if(['running','pending','paused','initializing'].includes(value.state))value.state='interrupted';}
       send(200,value);return true;}
     if(req.method==='GET'){send(200,action==='events'?s.events:action==='export'?await s.bundle():s.snapshot());return true;}
-    if(action==='start'){await s.start();s.pump();send(202,s.snapshot());}
+    if(action==='start'){const resolved=await this.resolveModels(s.spec);s.spec=resolved;for(const [i,a]of s.agents.entries())a.spec=resolved.agents[i];await s.start();s.pump();send(202,s.snapshot());}
     else if(action==='step'){if(s.pumping)throw Error('STEP_IN_PROGRESS');s.pumping=true;s.queue=s.queue.then(()=>s.step()).catch(async e=>{s.error=e.message;await s.finish('error');}).finally(()=>s.pumping=false);send(202,s.snapshot());}
     else if(action==='pause'){if(body.agentId){if(!s.agents.some(a=>a.agentId===body.agentId))throw Error('AGENT_ID');s.pausedAgents.add(body.agentId);await s.emit('control.agent_pause',{agentId:body.agentId});}
       else{if(!['running','pending'].includes(s.state))throw Error('NOT_RUNNING');s.globalPauseRequested=true;s.spec.manual=true;await s.queue;if(!['completed','error'].includes(s.state))s.state='paused';await s.emit('control.global_pause',{});}send(200,s.snapshot());}
@@ -276,7 +287,7 @@ export class ScenarioService {
     else if(action==='stop'){s.abort.abort();await s.emit('control.stop',{note:'Already broadcast transactions may still confirm.'});await s.queue;
       if(this.current===id)await s.finish('stopped');send(200,s.snapshot());}
     else if(action==='rerun'){const spec=copy(s.spec);for(const [i,a]of spec.agents.entries())a.model.apiKey=body.agents?.[i]?.model?.apiKey??'';
-      const n=new (spec.template==='service_purchase'?PurchaseScenario:Scenario)(this,{...spec,experimentMode:'independent',parentScenarioRunId:id});this.scenes.set(n.id,n);await n.persist();send(201,n.snapshot());}
+      const n=new (spec.template==='service_purchase'?PurchaseScenario:Scenario)(this,await this.resolveModels({...spec,experimentMode:'independent',parentScenarioRunId:id}));this.scenes.set(n.id,n);await n.persist();send(201,n.snapshot());}
     else if(s.spec.template==='service_purchase'&&['refund','evaluate','cancel'].includes(action)){
       if(s.pumping||s.pending.length)throw Error('RECONCILE_FIRST');if(this.current&&this.current!==id)throw Error('BUSY');
       if(!this.current){this.b.lock();this.current=id;}s.abort=new AbortController();s.state='running';

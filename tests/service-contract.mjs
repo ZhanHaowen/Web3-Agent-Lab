@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import {randomBytes} from 'node:crypto';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');process.env.LAB_ROOT=root;process.env.LAB_LIBRARY_ONLY='1';
 const {ChainLab,createWalletClient,localChain,http,mnemonicToAccount}=await import('../dist/server.mjs');
-const chain=new ChainLab({rpcUrl:'http://127.0.0.1:18787',anvilPath:join(root,'runtime/anvil.exe'),dataDir:join(root,'data-service-contract')});
+const chain=new ChainLab({rpcUrl:'http://127.0.0.1:'+(process.env.LAB_TEST_CHAIN_PORT??18787),anvilPath:join(root,'runtime/anvil.exe'),dataDir:process.env.LAB_TEST_DATA_DIR??join(root,'data-service-contract')});
 const art=JSON.parse(await readFile(join(root,'contracts/artifacts/LabServiceEscrow.json'),'utf8'));const accounts=[7,8,9,10].map(addressIndex=>mnemonicToAccount('test test test test test test test test test test test junk',{addressIndex}));const [buyer,provider,evaluator,outsider]=accounts;let c;const results=[];
 const random=()=>'0x'+randomBytes(32).toString('hex'),wallet=a=>createWalletClient({account:a,chain:localChain,transport:http(chain.rpcUrl,{retryCount:0})});
 const read=(address,abi,fn,args=[])=>chain.publicClient.readContract({address,abi,functionName:fn,args});

@@ -1,4 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
+import { modelSamplingParameters, normalizeModelMetadata } from '../model/capture.mjs';
 export const json = value => JSON.stringify(value, (_k,v)=>typeof v==='bigint'?v.toString():v,2);
 export const copy = value => JSON.parse(json(value));
 export const hash = value => createHash('sha256').update(typeof value==='string'?value:json(value)).digest('hex');
@@ -21,7 +22,9 @@ export function normalize(input={}) {
       return {agentId:role,walletId:role,role,initialA:i===0?'100':'0',initialB:i===0?'0':'100',
         goal:i===0?{sellAmount:x.goal?.sellAmount??'10',minBuy:x.goal?.minBuy??'20'}:
           {minReceive:x.goal?.minReceive??'10',maxPay:x.goal?.maxPay??'20'},
-        model:{baseUrl:x.model?.baseUrl??'',model:x.model?.model??'',apiKey:x.model?.apiKey??'',
+        model:{baseUrl:x.model?.baseUrl??'',model:x.model?.model??'',apiKey:x.model?.apiKey??'',provider:x.model?.provider??'api',
+          ...(x.model?.localRuntime?{localRuntime:copy(x.model.localRuntime)}:{}),
+          ...Object.fromEntries(['maxOutputTokens','topP','topK','repeatPenalty','seed'].filter(k=>x.model?.[k]!==undefined).map(k=>[k,x.model[k]])),
           systemPrompt:x.model?.systemPrompt??'',temperature:x.model?.temperature??0,
           requestTimeoutMs:Math.min(180000,Math.max(1000,x.model?.requestTimeoutMs??120000))},
         maxModelCalls:Math.min(100,Math.max(1,x.maxModelCalls??20)),maxTokens:Math.min(1000000,Math.max(1,x.maxTokens??100000)),
@@ -34,7 +37,7 @@ export function normalize(input={}) {
   if(!Number.isSafeInteger(spec.ttl)||spec.ttl<2||spec.ttl>86400) throw Error('TTL_RANGE');
   if(!Number.isSafeInteger(spec.maxMessages)||spec.maxMessages<1||spec.maxMessages>1000) throw Error('MESSAGE_BUDGET');
   for(const a of spec.agents){Object.values(a.goal).forEach(units); if(!/^\d+$/.test(a.maxGasWei))throw Error('GAS_BUDGET');
-    if(spec.mode==='llm'){const u=new URL(a.model.baseUrl);if(!['http:','https:'].includes(u.protocol)||u.username||u.password||u.search||u.hash)throw Error('MODEL_ENDPOINT');if(u.protocol==='http:'&&!['127.0.0.1','localhost','[::1]'].includes(u.hostname))throw Error('REMOTE_MODEL_REQUIRES_HTTPS');if(!a.model.model.trim())throw Error('MODEL_ID_REQUIRED');}}
+    if(spec.mode==='llm'){normalizeModelMetadata(a.model);modelSamplingParameters(a.model);const u=new URL(a.model.baseUrl);if(!['http:','https:'].includes(u.protocol)||u.username||u.password||u.search||u.hash)throw Error('MODEL_ENDPOINT');if(u.protocol==='http:'&&!['127.0.0.1','localhost','[::1]'].includes(u.hostname))throw Error('REMOTE_MODEL_REQUIRES_HTTPS');if(a.model.provider==='local'&&!['127.0.0.1','localhost','[::1]'].includes(u.hostname))throw Error('LOCAL_MODEL_LOOPBACK_REQUIRED');if(!a.model.model.trim())throw Error('MODEL_ID_REQUIRED');}}
   return spec;
 }
 export function checkQuote(actor,quote) {

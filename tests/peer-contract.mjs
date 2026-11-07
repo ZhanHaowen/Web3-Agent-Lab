@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import {randomBytes} from 'node:crypto';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');process.env.LAB_ROOT=root;process.env.LAB_LIBRARY_ONLY='1';
 const lib=await import('../dist/server.mjs');const {ChainLab,createWalletClient,localChain,http,mnemonicToAccount}=lib;
-const chain=new ChainLab({rpcUrl:'http://127.0.0.1:18587',anvilPath:join(root,'runtime/anvil.exe'),dataDir:join(root,'data-contract-test')});
+const chain=new ChainLab({rpcUrl:'http://127.0.0.1:'+(process.env.LAB_TEST_CHAIN_PORT??18587),anvilPath:join(root,'runtime/anvil.exe'),dataDir:process.env.LAB_TEST_DATA_DIR??join(root,'data-contract-test')});
 const artifact=JSON.parse(await readFile(join(root,'contracts/artifacts/LabPeerExchange.json'),'utf8'));
 const seed='test test test test test test test test test test test junk';const accounts=[4,5,6].map(addressIndex=>mnemonicToAccount(seed,{addressIndex}));
 const [maker,taker,outsider]=accounts;const results=[];let c;
