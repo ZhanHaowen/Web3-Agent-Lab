@@ -1,0 +1,12 @@
+PASS native MPP charge is settled on real EVM
+PASS actual HTTP service result is delivered
+PASS official MPP Payment-auth challenge captured
+PASS official MPP receipt captured
+PASS application retry cannot double-charge
+PASS conflicting replay rejected
+PASS HTTP 503 preserves confirmed charge
+PASS independent chain balances equal charged total
+PASS payer pays exact two charges
+PASS EVM internal call trace captured or explicitly unavailable
+PASS reusable MPP credential excluded from raw HTTP capture
+SUMMARY 11 passed; <workspace>\artifacts\research-payments-mpp\1794377624908

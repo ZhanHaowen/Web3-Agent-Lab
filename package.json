@@ -1,18 +1,22 @@
 {
   "name": "web3-agent-lab",
-  "version": "0.16.0",
-  "displayVersion": "V0.16.0",
-  "releaseRevision": "local-and-api-backends",
-  "releaseLabel": "V0.16.0",
+  "version": "0.17.0-beta.1",
+  "displayVersion": "V0.17.0 Research Beta",
+  "releaseRevision": "payment-trace-research-beta",
+  "releaseLabel": "V0.17.0 Research Beta",
   "private": true,
   "type": "module",
-  "description": "Local reproducible single and dual-agent Web3 experiments with atomic peer settlement",
+  "description": "Reproducible Web3 Agent experiments, local/API models, payment traces and private-ground-truth inference evaluation",
   "engines": {
     "node": "24.19.0"
   },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
-    "build": "node scripts/compile-peer.mjs && node scripts/build-legacy.mjs && node scripts/build-v014.mjs",
+    "build": "node scripts/bundle-research-deps.mjs && node scripts/compile-peer.mjs && node scripts/compile-research-payments.mjs && node scripts/compile-research-job.mjs && node scripts/build-legacy.mjs && node scripts/build-v014.mjs",
+    "setup:research": "pnpm --dir packages/payment-adapters install --frozen-lockfile --ignore-workspace",
+    "research": "node scripts/research-cli.mjs",
+    "test:research": "node --test tests/research-*.test.mjs",
+    "test:research:chain": "node tests/research-payments.mjs && node tests/research-payments-mpp.mjs && node tests/research-payments-adversarial.mjs && node tests/research-escrow.mjs && node tests/research-integration.mjs",
     "build:legacy": "node scripts/build-legacy.mjs",
     "setup:local-model": "node scripts/setup-local-model.mjs",
     "start": "node dist/server.mjs",

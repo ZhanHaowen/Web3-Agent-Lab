@@ -1,0 +1,1 @@
+Bundled pinned x402 and MPP HTTP runtime dependencies.

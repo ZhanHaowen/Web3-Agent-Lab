@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "replicates": 6,
+  "base": {"mode": "scripted", "strategy": "adaptive", "budgetBase": "150000", "initialBalanceBase": "1000000", "maxSteps": 12, "payment": {"scheme": "exact", "authorization": "none"}},
+  "factors": {"family": ["evidence_review", "risk_analysis", "trend_analysis"]}
+}

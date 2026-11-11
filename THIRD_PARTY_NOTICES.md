@@ -238,3 +238,11 @@ Official Uniswap Permit2 commit cc56ad0f3439c502c246fc5cfcc3db92bb8b7219, MIT. S
 Pinned Solmate dependency commit 8d910d876f51c3b2585c9109409d601f600e68e1: ERC20.sol and SafeTransferLib.sol, AGPL-3.0-only. Unmodified corresponding sources and full license: contracts/upstream/solmate/.
 
 Solidity soljson compiler 0.8.17+commit.8df45f5f, GPL-3.0. Full GPL text: licenses/GPL-3.0.txt. Compiler origin, checksum and source reference: tools/solc-0.8.17/. Permit2 build can be reproduced offline with scripts/compile-budget.mjs. Other artifacts and runtimes retain their existing notices.
+
+## V0.17.0 payment research additions
+
+The isolated payment SDK lockfile is `packages/payment-adapters/pnpm-lock.yaml`. It pins x402 core/evm/fetch 2.30.0 (Apache-2.0), mppx 0.18.0 (MIT), viem 2.57.4 (MIT), and OpenZeppelin Contracts 5.6.1 (MIT). These dependencies do not replace the original AgentKit dependency graph.
+
+Full license and notice files for the 20 packages actually included in the payment runtime bundles are retained in `licenses/research/`; `licenses/research/manifest.json` records versions and file hashes. Generated bundles retain their linked `runtime.mjs.LEGAL.txt` and `mpp-runtime.mjs.LEGAL.txt` notices. `packages/payment-adapters/runtime-build.json` records source inputs and bundle hashes. Rebuild using `pnpm run setup:research` followed by `node scripts/bundle-research-deps.mjs`.
+
+Vendored x402 contracts and their license are in `packages/payment-adapters/vendor/x402/`; AP2's upstream license is in `packages/payment-adapters/vendor/ap2/`; Multicall3's original source and MIT license are in `packages/payment-adapters/vendor/multicall3/`. OpenZeppelin's full MIT license is retained as `licenses/research/OpenZeppelin-Contracts-5.6.1-LICENSE`. Contract artifacts preserve compiler/source hashes and the explicitly documented Multicall3 pragma transformation. AP2 support is a local research subset, not an endorsement or certification by the upstream authors.

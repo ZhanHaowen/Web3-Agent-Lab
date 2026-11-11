@@ -10,7 +10,7 @@ try {
 if ($health.app -eq 'web3-agent-lab') {
     $expectedBuild = Get-Content -LiteralPath (Join-Path $labRoot 'build-info.json') -Raw | ConvertFrom-Json
     if ($health.version.sourceHash -ne $expectedBuild.sourceHash) {
-        throw 'Another Web3 Agent Lab build is using this port. Stop the old version with its stop.cmd before starting V0.15.3, or select another LAB_PORT and LAB_CHAIN_PORT.'
+        throw 'Another Web3 Agent Lab build is using this port. Stop the old version with its stop.cmd before starting this release, or select another LAB_PORT and LAB_CHAIN_PORT.'
     }
     if (-not $NoBrowser) { & (Join-Path $PSScriptRoot 'open-task-center.ps1') }
     exit 0

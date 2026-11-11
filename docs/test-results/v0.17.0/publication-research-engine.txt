@@ -1,0 +1,11 @@
+{"case":"exact-quality","status":"passed","checks":12,"failed":[]}
+{"case":"batch-adaptive","status":"passed","checks":12,"failed":[]}
+{"case":"ap2-exact-quality","status":"passed","checks":10,"failed":[]}
+{"case":"exact-http-failure-keeps-charge","status":"passed","checks":11,"failed":[]}
+{"case":"batch-http-failure-keeps-charge","status":"passed","checks":13,"failed":[]}
+{"case":"erc8183-quality","status":"passed","checks":9,"failed":[]}
+{"case":"erc8183-reject-refund","status":"passed","checks":10,"failed":[]}
+{"case":"erc8183-expiry-refund","status":"passed","checks":10,"failed":[]}
+{"case":"mpp-quality","status":"passed","checks":10,"failed":[]}
+{"case":"mpp-http-failure-keeps-charge","status":"passed","checks":11,"failed":[]}
+{"passed":true,"report":"<workspace>\\artifacts\\test-results\\v017-publication\\research-engine\\report.json"}

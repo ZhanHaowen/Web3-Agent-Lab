@@ -96,6 +96,14 @@ try {
     Invoke-CiCommand -Name '11-original-peer-and-task-integration' -Executable $ciNode -CommandArguments @('tests/v2-integration.mjs')
     Invoke-CiCommand -Name '12-service-integration' -Executable $ciNode -CommandArguments @('tests/service-integration.mjs')
 
+    # Real local HTTP payment protocols and EVM execution; no cloud model or keys.
+    Invoke-CiCommand -Name '13-research-x402-ap2' -Executable $ciNode -CommandArguments @('tests/research-payments.mjs')
+    Invoke-CiCommand -Name '14-research-mpp' -Executable $ciNode -CommandArguments @('tests/research-payments-mpp.mjs')
+    Invoke-CiCommand -Name '15-research-payment-adversarial' -Executable $ciNode -CommandArguments @('tests/research-payments-adversarial.mjs')
+    Invoke-CiCommand -Name '16-research-escrow' -Executable $ciNode -CommandArguments @('tests/research-escrow.mjs')
+    $env:LAB_RESEARCH_TEST_OUT = Join-Path $ciResultRoot 'research-engine'
+    Invoke-CiCommand -Name '17-research-engine' -Executable $ciNode -CommandArguments @('tests/research-integration.mjs')
+
     foreach ($ciReportName in @(
         'v0153-budget-results.json',
         'v0153-parameter-results.json',

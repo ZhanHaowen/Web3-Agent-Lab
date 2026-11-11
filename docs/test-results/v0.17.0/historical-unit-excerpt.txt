@@ -1,0 +1,9 @@
+✔ Current source and output integrity matches the build; historical contracts remain byte-identical (246.5575ms)
+ℹ tests 182
+ℹ suites 0
+ℹ pass 182
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9104.2348

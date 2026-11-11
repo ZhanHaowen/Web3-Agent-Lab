@@ -1,0 +1,237 @@
+{
+  "purpose": "Licenses of dependencies actually included in the isolated payment runtime bundles.",
+  "packages": [
+    {
+      "name": "@adraffy/ens-normalize",
+      "version": "1.11.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@adraffy__ens-normalize@1.11.1-LICENSE",
+          "sha256": "3b458813ab3316b16bf004c4201d4a0583cf615514422dabf4d7c025988d613d"
+        }
+      ]
+    },
+    {
+      "name": "@noble/ciphers",
+      "version": "1.3.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@noble__ciphers@1.3.0-LICENSE",
+          "sha256": "f36671a5487c9c5050efacb58011c37c24c55a889803cb036cf9d9a6347c1e2d"
+        }
+      ]
+    },
+    {
+      "name": "@noble/curves",
+      "version": "1.9.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@noble__curves@1.9.1-LICENSE",
+          "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+        }
+      ]
+    },
+    {
+      "name": "@noble/hashes",
+      "version": "1.8.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@noble__hashes@1.8.0-LICENSE",
+          "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+        }
+      ]
+    },
+    {
+      "name": "@scure/base",
+      "version": "1.2.6",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@scure__base@1.2.6-LICENSE",
+          "sha256": "3239e134eb6e6d64538ca76498c7fcb08a395249dd9d4af9927bf6d0169ee429"
+        }
+      ]
+    },
+    {
+      "name": "@scure/bip32",
+      "version": "1.7.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@scure__bip32@1.7.0-LICENSE",
+          "sha256": "1565efd0ec4580bfaa96c7eeaaa9af3791baa1cc562c3bde62d0a055910b9ec7"
+        }
+      ]
+    },
+    {
+      "name": "@scure/bip39",
+      "version": "1.6.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "@scure__bip39@1.6.0-LICENSE",
+          "sha256": "1565efd0ec4580bfaa96c7eeaaa9af3791baa1cc562c3bde62d0a055910b9ec7"
+        }
+      ]
+    },
+    {
+      "name": "@x402/core",
+      "version": "2.30.0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "file": "@x402__core@2.30.0-LICENSE",
+          "sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a"
+        },
+        {
+          "file": "@x402__core@2.30.0-NOTICE",
+          "sha256": "0b8a03260dc87d976ea6f24d7ff1fb3f8f361cff317f9dd0da0b8d96936eabf6"
+        }
+      ]
+    },
+    {
+      "name": "@x402/evm",
+      "version": "2.30.0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "file": "@x402__evm@2.30.0-LICENSE",
+          "sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a"
+        },
+        {
+          "file": "@x402__evm@2.30.0-NOTICE",
+          "sha256": "152802c63ba452f56391f2ed3637cbb7022623a2119837c3f4753478fe24149b"
+        }
+      ]
+    },
+    {
+      "name": "@x402/fetch",
+      "version": "2.30.0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "file": "@x402__fetch@2.30.0-LICENSE",
+          "sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a"
+        },
+        {
+          "file": "@x402__fetch@2.30.0-NOTICE",
+          "sha256": "0b8a03260dc87d976ea6f24d7ff1fb3f8f361cff317f9dd0da0b8d96936eabf6"
+        }
+      ]
+    },
+    {
+      "name": "abitype",
+      "version": "1.2.3",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "abitype@1.2.3-LICENSE",
+          "sha256": "e7f5360a60628940fee8653802d7221d2b9575e26268be2a3a2fdbc04aa84321"
+        }
+      ]
+    },
+    {
+      "name": "eventemitter3",
+      "version": "5.0.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "eventemitter3@5.0.1-LICENSE",
+          "sha256": "3aecc12b1cb28832b5f65ab64291de96568c3f236a74d646281b4491f7bcadbf"
+        }
+      ]
+    },
+    {
+      "name": "isows",
+      "version": "1.0.7",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "isows@1.0.7-LICENSE",
+          "sha256": "091d17ae5f625ffeb381e7109daaf6c492dd32502d612d8ecd24e2ddf6d16b74"
+        }
+      ]
+    },
+    {
+      "name": "mppx",
+      "version": "0.18.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "mppx@0.18.0-LICENSE",
+          "sha256": "e32b666174e4d420a9d129ab0d0e23dfd6e2765ecf299ba7a7c70bbb8fb26c1a"
+        }
+      ]
+    },
+    {
+      "name": "ox",
+      "version": "0.14.45",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "ox@0.14.45-LICENSE",
+          "sha256": "84ecb61c470de66e88a79c7d0ee8ce068e743693a4c249017545b4c8d4f9984d"
+        }
+      ]
+    },
+    {
+      "name": "ox",
+      "version": "0.14.54",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "ox@0.14.54-LICENSE",
+          "sha256": "84ecb61c470de66e88a79c7d0ee8ce068e743693a4c249017545b4c8d4f9984d"
+        }
+      ]
+    },
+    {
+      "name": "structured-headers",
+      "version": "2.1.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "structured-headers@2.1.0-LICENSE",
+          "sha256": "b4856b2985b51886b4eb6d8ebbeb06e9bd80e9ce7ca7cd6016383e98dd576f97"
+        }
+      ]
+    },
+    {
+      "name": "viem",
+      "version": "2.57.4",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "viem@2.57.4-LICENSE",
+          "sha256": "091d17ae5f625ffeb381e7109daaf6c492dd32502d612d8ecd24e2ddf6d16b74"
+        }
+      ]
+    },
+    {
+      "name": "ws",
+      "version": "8.21.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "ws@8.21.0-LICENSE",
+          "sha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef"
+        }
+      ]
+    },
+    {
+      "name": "zod",
+      "version": "4.6.7",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "zod@4.6.7-LICENSE",
+          "sha256": "3f1189b28e3866e0d979968d466b78f813f76827cfdca1fbb124cc0a5c8841f8"
+        }
+      ]
+    }
+  ]
+}

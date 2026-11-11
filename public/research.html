@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>采购与支付隐私实验 · Web3 Agent Lab</title><link rel="stylesheet" href="/research.css"></head><body>
+<header><a href="/">W₃ Agent Lab</a><nav><a href="/tasks.html">任务与 Agent</a><a href="/local-model.html">本地模型</a><a href="/research-observer.html" target="_blank" rel="noopener">离线攻击者视图</a></nav><span>V0.17.0 · 本地研究预览</span></header>
+<main><div class="intro"><p class="eyebrow">PAYMENT TRACE RESEARCH</p><h1>从真实采购，到可核验的支付轨迹</h1><p>共享服务目录 · 私有预算 · 独立链上观察 · 分组推断评估</p></div><p id="status" role="status">正在连接本地实验服务…</p>
+<div class="layout"><section><h2>创建采购实验</h2><form id="run-form"><div class="fields">
+<label>结算与授权部署<select id="profile"></select></label>
+<label>任务<select id="family"><option value="evidence_review">证据综述</option><option value="risk_analysis">风险分析</option><option value="trend_analysis">趋势分析</option></select></label>
+<label>任务实例<input id="instance" value="instance-001" required maxlength="80"></label>
+<label>随机种子<input id="seed" type="number" value="42" min="0" max="2147483647"></label>
+<label>策略<select id="strategy"><option value="adaptive">按服务反馈调整</option><option value="cost">成本优先</option><option value="quality">质量优先</option></select></label>
+<label>决策方式<select id="mode"><option value="scripted">规则策略对照</option><option value="llm">真实模型调用</option></select></label>
+<label>私有总预算（最小单位）<input id="budget" inputmode="numeric" value="150000" pattern="[0-9]+"></label>
+<label>公开初始余额（最小单位）<input id="balance" inputmode="numeric" value="1000000" pattern="[0-9]+"></label>
+<label>任务难度<select id="difficulty"><option>1</option><option>2</option><option selected>3</option></select></label>
+<label>最多决策步数<input id="steps" type="number" value="12" min="1" max="40"></label>
+<label>交错背景交易<select id="background"><option value="0">无背景</option><option value="1">每次采购前 1 笔</option><option value="3">每次采购前 3 笔</option></select></label><label>服务干预<select id="fault"><option value="none">正常</option><option value="low_quality">第一笔服务降低质量</option><option value="withheld">第一笔付款后不交付</option><option value="http_failure">第一笔服务 HTTP 失败</option></select></label>
+</div><p class="note">测试代币为 6 位精度：10000 = 0.01 Token。所有任务共享相同服务与价格；公开余额与私有授权预算分别设置。</p>
+<div id="model-fields" hidden><label>模型 ID<input id="model" placeholder="服务商模型标识"></label><label>兼容 API 地址<input id="base-url" value="https://api.openai.com/v1"></label><label>API Key<input id="api-key" type="password" autocomplete="off"></label></div>
+<div class="actions"><button id="start">运行实验</button><button type="button" id="cancel" class="secondary" disabled>取消执行</button></div></form></section>
+<section><h2>运行记录</h2><p class="note">每次实验使用独立本地链。失败、取消和结果未知也保留；轨迹回放不会再次调用模型。</p><div id="runs" class="run-list"></div><div class="actions"><button id="refresh" class="secondary">刷新</button><button id="evaluate" class="secondary">评估已选实验</button></div><p class="note">勾选至少 5 个不同实例，按实例分组切分训练 / 验证 / 测试。小规模示例指标不构成研究结论。</p></section></div>
+<section><h2>运行详情与原始证据</h2><div class="actions"><button id="export-public" disabled>下载攻击者视图</button><button id="export-private" class="secondary" disabled>下载私有完整实验包</button></div><p class="note">攻击者包由 RPC 区块、交易、回执和日志独立生成，不包含任务提示、私有预算或模型消息。私有包仅供课题组内部核验。</p><pre id="detail">选择一条运行查看详情。</pre></section>
+<section><h2>协议兼容范围</h2><p class="note">仅列出的执行部署可用于运行；“列入清单”不表示已完成适配。AP2 本地授权子集不等同于完整凭证生态互操作。</p><div id="protocols" class="protocol-list"></div></section>
+<section><h2>推断评估</h2><p class="note">攻击子进程仅接收许可的训练 / 验证标签及测试特征；私有测试真值由父进程计算指标。输入隔离不等于操作系统沙箱。当前使用已知实验时间窗。</p><pre id="evaluation">尚未评估。</pre></section></main>
+<script src="/model-backend.js"></script><script src="/research.js"></script></body></html>
+

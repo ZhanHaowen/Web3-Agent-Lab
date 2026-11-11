@@ -1,0 +1,382 @@
+{
+  "schema": "web3-lab-public-evidence-index-v1",
+  "notice": "Source paths are repository-relative locations in the private local validation workspace. Raw sources are not published by this index. SHA-256 permits later comparison; not a substitute for an independent rerun.",
+  "evidence": [
+    {
+      "id": "historic-unit",
+      "repositoryRelativeSource": "artifacts/research-final-unit.log",
+      "sha256": "e801f8d1cca4347f4972459dc9b21976c4f9a9dece26169c19021ec951a6c6fc",
+      "publishedRaw": false,
+      "note": "Historical terminal unit log; stripped result lines are published separately."
+    },
+    {
+      "id": "x402-ap2",
+      "repositoryRelativeSource": "artifacts/research-payments/1794330744653/summary.json",
+      "sha256": "bd8a73c18e9acc847ceede45e815da26f1c64963c3dd914bed155535dcf3ad2d",
+      "publishedRaw": false,
+      "note": "Aggregate only; protocol transcripts and signed payloads are not copied."
+    },
+    {
+      "id": "mpp",
+      "repositoryRelativeSource": "artifacts/research-payments-mpp/1794330744671/summary.json",
+      "sha256": "20040246c7ede60c39e5eb6aba9a5d7e9311e311a6f7db5f6dca08c201b87bdd",
+      "publishedRaw": false,
+      "note": "Aggregate only; protocol transcripts and signed payloads are not copied."
+    },
+    {
+      "id": "adversarial",
+      "repositoryRelativeSource": "artifacts/research-payments-adversarial/1794330703402/summary.json",
+      "sha256": "57186747eb7fc3fe26ac054171121b6d833021f04b92f8c649d87143cdef507a",
+      "publishedRaw": false,
+      "note": "Aggregate only; protocol transcripts and signed payloads are not copied."
+    },
+    {
+      "id": "engine",
+      "repositoryRelativeSource": "artifacts/test-results/research-engine-2026-11-10T17-11-17-672Z/report.json",
+      "sha256": "a88666c959191d71777f23eece812923a1134445eeda7d5a2cb62eea58ad8e05",
+      "publishedRaw": false,
+      "note": "Only test names, verdicts, counts and timestamps are published."
+    },
+    {
+      "id": "portable",
+      "repositoryRelativeSource": "artifacts/research-portable-final/report.json",
+      "sha256": "35e64c46223fffc06831e02414d841cc26d2f486e91c94ad239d77342fa5f24a",
+      "publishedRaw": false,
+      "note": "No node_modules; only six profile results published, not full run packages."
+    },
+    {
+      "id": "constructed-dataset",
+      "repositoryRelativeSource": "artifacts/research-dataset/2026-11-10T17-10-17-259Z/smoke-report.json",
+      "sha256": "33e918a3c981cc9bbe4d49743cf3b08f33e3e2a0ab0b1e3a69640b53ece4230c",
+      "publishedRaw": false,
+      "note": "Only aggregate counts, split sizes and scope; no sample-to-truth mapping."
+    },
+    {
+      "id": "local-qwen",
+      "repositoryRelativeSource": "artifacts/test-results/research-local-2026-11-11T05-51-27-020Z/report.json",
+      "sha256": "cea0cc339cee483a1dc3f937d263d4bea6db8f5c1babecf0904decaee8b97e39",
+      "publishedRaw": false,
+      "note": "Only model identity, hashes, capture outcomes and generic failure reasons; no prompts, responses, ground truth or file paths."
+    },
+    {
+      "id": "legacy-peer",
+      "repositoryRelativeSource": "artifacts/research-legacy-peer.log",
+      "sha256": "3c1715cfc5977adbf6afce442de062ad427bcb88b6e99ea2dd358ae7bb444ac7",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-peer-report",
+      "repositoryRelativeSource": "artifacts/test-results/v014-integration-results.json",
+      "sha256": "da0866c33103342c830a5b32ec20b75c94a85faa5ba2c1a72d474878341f71ab",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-contract",
+      "repositoryRelativeSource": "artifacts/research-legacy-contract.log",
+      "sha256": "21a443f8e1a5f882849cda760f49bfa4f64adf6988ac46520837c72fc18e073d",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-contract-report",
+      "repositoryRelativeSource": "artifacts/test-results/v014-contract-results.json",
+      "sha256": "328e9209c3fe13a6aa0dbb1ec431d51cd0d9e6afb32f307452a4192b72ef19a7",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-service",
+      "repositoryRelativeSource": "artifacts/research-legacy-service.log",
+      "sha256": "25dee49af53d089cf9b29601b721044e21ba56b3baf776400614e8b3f10cbffc",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-service-report",
+      "repositoryRelativeSource": "artifacts/test-results/v015-service-results.json",
+      "sha256": "574c3009b11dea34ce4c6f1fe85e31c9439840500b1d791d3fb428f724c89c89",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-budget-core",
+      "repositoryRelativeSource": "artifacts/research-legacy-budget-integration.log",
+      "sha256": "55776d26dfe19e2cc6e4aee35c14d0f5952408497699e93f1d96107f84ae3e33",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-budget-core-report",
+      "repositoryRelativeSource": "artifacts/test-results/v0153-budget-results.json",
+      "sha256": "67d5eab78ea0b6a577ccd048ca126ed9ab0ff6ff098da0a1d725c457ad383a38",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-budget-http",
+      "repositoryRelativeSource": "artifacts/research-legacy-budget-http.log",
+      "sha256": "12ea3d69d238ce74ffcfb3db67408cf6eca446ee35d34a5ae91d3c2e28194ce8",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-budget-http-report",
+      "repositoryRelativeSource": "artifacts/test-results/v0153-http-results.json",
+      "sha256": "cc9a0b8b8ef4340f67dfe463638f011c1a081d2a243745ccf72ca15a7884edbd",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-budget-main",
+      "repositoryRelativeSource": "artifacts/research-legacy-budget-main-integration.log",
+      "sha256": "4fee96bfca0aa040a166ee26a565fe254631dd4f42a8fb1aaad1dd8fec1fdac6",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-budget-main-report",
+      "repositoryRelativeSource": "artifacts/test-results/v0153-main-results.json",
+      "sha256": "88adb17837479ecb444f2d87d5700c5b168c43d57439e0364518292ec12ff36f",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-budget-launcher",
+      "repositoryRelativeSource": "artifacts/research-legacy-budget-launcher.log",
+      "sha256": "8db2d0511421a0172cdd22635d6b38d07d6f1ab9557fb019096f772a05ec473d",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-budget-launcher-report",
+      "repositoryRelativeSource": "artifacts/test-results/v0153-launcher-results.json",
+      "sha256": "72aa0f37c5eea2aa189e152face5e571da613419043d88fa33423ac87ba70075",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-budget-parameters",
+      "repositoryRelativeSource": "artifacts/research-legacy-budget.log",
+      "sha256": "4b00d0e9483b67f74e83b253c9b729e6c84acc339921e720e91e900b71240bb1",
+      "publishedRaw": false,
+      "note": "Sanitized PASS-only excerpt is published."
+    },
+    {
+      "id": "legacy-budget-parameters-report",
+      "repositoryRelativeSource": "artifacts/test-results/v0153-parameter-results.json",
+      "sha256": "4f6cab6516a17b27c3af8aca31217351e7f3938db01cba111b87fe5ef9d0b0e8",
+      "publishedRaw": false,
+      "note": "Only case names/verdicts and provenance fields used."
+    },
+    {
+      "id": "legacy-independent-v2",
+      "repositoryRelativeSource": "artifacts/research-legacy-v2.log",
+      "sha256": "bd55502858af75013d819cb11064790f6b10f85c770e26bc5872f8a1afec7fde",
+      "publishedRaw": false,
+      "note": "Only PASS and named Legacy task success lines published."
+    },
+    {
+      "id": "escrow-observer",
+      "repositoryRelativeSource": "artifacts/test-results/research-escrow-2026-11-10T17-12-12-554Z/observer.json",
+      "sha256": "72872b8c702d139e51e757d7144c0f01d60e3508a7dd0d23cc9b503c2e7dc113",
+      "publishedRaw": false,
+      "note": "Hash only; historical retained final chain observation, no standalone TAP verdict retained."
+    },
+    {
+      "id": "publication-bundle-payments",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/bundle-payments.log",
+      "sha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-bundle-payments.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-compile-peer",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/compile-peer.log",
+      "sha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-compile-peer.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-compile-payments",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/compile-payments.log",
+      "sha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-compile-payments.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-compile-job",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/compile-job.log",
+      "sha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-compile-job.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-build-legacy",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/build-legacy.log",
+      "sha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-build-legacy.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-build-platform",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/build-platform.log",
+      "sha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-build-platform.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-typecheck",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-typecheck.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-doctor",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/doctor.log",
+      "sha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-doctor.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-unit",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/unit.log",
+      "sha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-unit.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-x402-ap2",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/x402-ap2.log",
+      "sha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-x402-ap2.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-mpp",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/mpp.log",
+      "sha256": "37e469d4020051f192e24261e6826d35361778ac14c577176af973b4383da6b0",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-mpp.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-payment-adversarial",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/payment-adversarial.log",
+      "sha256": "4099eb020ccece7cbe3da09b07ca376c8978861cf06788c1ff9cd90f8d0e139f",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-payment-adversarial.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-erc8183",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/erc8183.log",
+      "sha256": "59950de0f4b9258d4c6921775e06e756bc16c2421f06c46d00952dc0f2523052",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-erc8183.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-research-engine",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/research-engine.log",
+      "sha256": "50fcd7143623847e4d00781f0a9d3459429c80a36a08e7df8120a5501b27eaea",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-research-engine.txt",
+      "note": "Actual gate output; local workspace path replaced by <workspace>. No private experimental dataset copied."
+    },
+    {
+      "id": "publication-gate",
+      "repositoryRelativeSource": "artifacts/test-results/v017-publication/gate.json",
+      "sha256": "b43bb79c0b67c7474985914501473a6b5aec8b9b6a8734bd7ccfb6de9b6f932a",
+      "publishedRaw": false,
+      "publicSanitizedFile": "publication-gate.json",
+      "note": "Whitelist projection; historical evidence hash values are not overwritten."
+    }
+  ],
+  "publicFiles": [
+    {
+      "file": "historical-legacy-excerpt.txt",
+      "sha256": "01d94b497967f798b7199aa1368cfd61521c4acea0b50c08495057b060b45c4a"
+    },
+    {
+      "file": "historical-unit-excerpt.txt",
+      "sha256": "8f60e4286aa82296bc4572b047ad8791d06e6449a459adfdab464c82bb49e007"
+    },
+    {
+      "file": "publication-build-legacy.txt",
+      "sha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f"
+    },
+    {
+      "file": "publication-build-platform.txt",
+      "sha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650"
+    },
+    {
+      "file": "publication-bundle-payments.txt",
+      "sha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e"
+    },
+    {
+      "file": "publication-compile-job.txt",
+      "sha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7"
+    },
+    {
+      "file": "publication-compile-payments.txt",
+      "sha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00"
+    },
+    {
+      "file": "publication-compile-peer.txt",
+      "sha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9"
+    },
+    {
+      "file": "publication-doctor.txt",
+      "sha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6"
+    },
+    {
+      "file": "publication-erc8183.txt",
+      "sha256": "3dadf95896033863c26418440e48e18d663aa729c0a91bc56272c24fa97b314e"
+    },
+    {
+      "file": "publication-gate.json",
+      "sha256": "5979e62e73f603033ac860a5767b148ad55b3bd1b7f17700831bfc7264101678"
+    },
+    {
+      "file": "publication-mpp.txt",
+      "sha256": "6c4a5faa815decbff3c18d03f86c76214b9fef6147e74e81332f2f9b8d4f96a7"
+    },
+    {
+      "file": "publication-payment-adversarial.txt",
+      "sha256": "b1585488c3d1920b91f740ce85ef913a90b9933381072995096f1e666d02336d"
+    },
+    {
+      "file": "publication-research-engine.txt",
+      "sha256": "5ca21a477d92709d6ecdf7c5e6080954735907b27504b75fee8ccc397d4c2ced"
+    },
+    {
+      "file": "publication-typecheck.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "publication-unit.txt",
+      "sha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506"
+    },
+    {
+      "file": "publication-x402-ap2.txt",
+      "sha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "3cb6d90bd4e01a6264b385671446d046e904c41bb954ae85f86089188c429cc3"
+    }
+  ]
+}

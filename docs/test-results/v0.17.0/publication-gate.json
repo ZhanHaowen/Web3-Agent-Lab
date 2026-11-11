@@ -1,0 +1,283 @@
+{
+  "schema": "web3-lab-publication-gate-summary-v1",
+  "status": "passed",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "sourceHash": "05082ca38cd1fdaea16a1f1918f96b5186bac11d69cb3477e8cf78860c5220e1",
+  "start": {
+    "utc": "2026-11-11T06:13:19.558Z",
+    "beijing": "2026-11-11T14:13:19.558+08:00"
+  },
+  "end": {
+    "utc": "2026-11-11T06:14:46.921Z",
+    "beijing": "2026-11-11T14:14:46.921+08:00"
+  },
+  "stepCount": 14,
+  "steps": [
+    {
+      "name": "bundle-payments",
+      "command": "node scripts/bundle-research-deps.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:19.558Z",
+        "beijing": "2026-11-11T14:13:19.558+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:20.509Z",
+        "beijing": "2026-11-11T14:13:20.509+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-bundle-payments.txt",
+      "sourceLogSha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e",
+      "publicLogSha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e"
+    },
+    {
+      "name": "compile-peer",
+      "command": "node scripts/compile-peer.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:20.510Z",
+        "beijing": "2026-11-11T14:13:20.510+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:22.785Z",
+        "beijing": "2026-11-11T14:13:22.785+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-compile-peer.txt",
+      "sourceLogSha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9",
+      "publicLogSha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9"
+    },
+    {
+      "name": "compile-payments",
+      "command": "node scripts/compile-research-payments.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:22.785Z",
+        "beijing": "2026-11-11T14:13:22.785+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:27.388Z",
+        "beijing": "2026-11-11T14:13:27.388+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-compile-payments.txt",
+      "sourceLogSha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00",
+      "publicLogSha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00"
+    },
+    {
+      "name": "compile-job",
+      "command": "node scripts/compile-research-job.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:27.388Z",
+        "beijing": "2026-11-11T14:13:27.388+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:28.266Z",
+        "beijing": "2026-11-11T14:13:28.266+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-compile-job.txt",
+      "sourceLogSha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7",
+      "publicLogSha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7"
+    },
+    {
+      "name": "build-legacy",
+      "command": "node scripts/build-legacy.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:28.266Z",
+        "beijing": "2026-11-11T14:13:28.266+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:29.255Z",
+        "beijing": "2026-11-11T14:13:29.255+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-build-legacy.txt",
+      "sourceLogSha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f",
+      "publicLogSha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f"
+    },
+    {
+      "name": "build-platform",
+      "command": "node scripts/build-v014.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:29.256Z",
+        "beijing": "2026-11-11T14:13:29.256+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:30.955Z",
+        "beijing": "2026-11-11T14:13:30.955+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-build-platform.txt",
+      "sourceLogSha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650",
+      "publicLogSha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650"
+    },
+    {
+      "name": "typecheck",
+      "command": "node node_modules/typescript/bin/tsc -p tsconfig.control.json --noEmit",
+      "start": {
+        "utc": "2026-11-11T06:13:30.956Z",
+        "beijing": "2026-11-11T14:13:30.956+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:31.302Z",
+        "beijing": "2026-11-11T14:13:31.302+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-typecheck.txt",
+      "sourceLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publicLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "doctor",
+      "command": "node dist/cli.mjs doctor",
+      "start": {
+        "utc": "2026-11-11T06:13:31.303Z",
+        "beijing": "2026-11-11T14:13:31.303+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:31.494Z",
+        "beijing": "2026-11-11T14:13:31.494+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-doctor.txt",
+      "sourceLogSha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6",
+      "publicLogSha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6"
+    },
+    {
+      "name": "unit",
+      "command": "node --test tests/*.test.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:31.495Z",
+        "beijing": "2026-11-11T14:13:31.495+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:36.457Z",
+        "beijing": "2026-11-11T14:13:36.457+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-unit.txt",
+      "sourceLogSha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506",
+      "publicLogSha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506"
+    },
+    {
+      "name": "x402-ap2",
+      "command": "node tests/research-payments.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:36.458Z",
+        "beijing": "2026-11-11T14:13:36.458+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:44.789Z",
+        "beijing": "2026-11-11T14:13:44.789+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-x402-ap2.txt",
+      "sourceLogSha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6",
+      "publicLogSha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6"
+    },
+    {
+      "name": "mpp",
+      "command": "node tests/research-payments-mpp.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:44.790Z",
+        "beijing": "2026-11-11T14:13:44.790+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:50.699Z",
+        "beijing": "2026-11-11T14:13:50.699+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-mpp.txt",
+      "sourceLogSha256": "37e469d4020051f192e24261e6826d35361778ac14c577176af973b4383da6b0",
+      "publicLogSha256": "6c4a5faa815decbff3c18d03f86c76214b9fef6147e74e81332f2f9b8d4f96a7"
+    },
+    {
+      "name": "payment-adversarial",
+      "command": "node tests/research-payments-adversarial.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:50.700Z",
+        "beijing": "2026-11-11T14:13:50.700+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:13:58.365Z",
+        "beijing": "2026-11-11T14:13:58.365+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-payment-adversarial.txt",
+      "sourceLogSha256": "4099eb020ccece7cbe3da09b07ca376c8978861cf06788c1ff9cd90f8d0e139f",
+      "publicLogSha256": "b1585488c3d1920b91f740ce85ef913a90b9933381072995096f1e666d02336d"
+    },
+    {
+      "name": "erc8183",
+      "command": "node tests/research-escrow.mjs",
+      "start": {
+        "utc": "2026-11-11T06:13:58.366Z",
+        "beijing": "2026-11-11T14:13:58.366+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:14:10.830Z",
+        "beijing": "2026-11-11T14:14:10.830+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-erc8183.txt",
+      "sourceLogSha256": "59950de0f4b9258d4c6921775e06e756bc16c2421f06c46d00952dc0f2523052",
+      "publicLogSha256": "3dadf95896033863c26418440e48e18d663aa729c0a91bc56272c24fa97b314e"
+    },
+    {
+      "name": "research-engine",
+      "command": "node tests/research-integration.mjs",
+      "start": {
+        "utc": "2026-11-11T06:14:10.830Z",
+        "beijing": "2026-11-11T14:14:10.830+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T06:14:46.921Z",
+        "beijing": "2026-11-11T14:14:46.921+08:00"
+      },
+      "exitCode": 0,
+      "publicLog": "publication-research-engine.txt",
+      "sourceLogSha256": "50fcd7143623847e4d00781f0a9d3459429c80a36a08e7df8120a5501b27eaea",
+      "publicLogSha256": "5ca21a477d92709d6ecdf7c5e6080954735907b27504b75fee8ccc397d4c2ced"
+    }
+  ],
+  "unit": {
+    "tests": 182,
+    "pass": 182,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "paymentIntegration": {
+    "x402Ap2": 24,
+    "mpp": 11,
+    "adversarial": 10,
+    "total": 45,
+    "failed": 0
+  },
+  "erc8183": {
+    "childTests": 9,
+    "parentTests": 1,
+    "nodeReportedTotal": 10,
+    "nodeReportedPass": 10,
+    "failed": 0,
+    "terminalTranscriptRetained": true
+  },
+  "engine": {
+    "scenarios": 10,
+    "assertions": 108,
+    "failedAssertions": 0,
+    "passed": true
+  },
+  "notRerun": [
+    "historical real Qwen trials",
+    "historical 36-sample matrix",
+    "Mac host",
+    "commercial model API",
+    "GitHub-hosted CI"
+  ],
+  "notes": [
+    "Node test runner counts the ERC parent in its total; reported nine cases excludes that parent.",
+    "MPP timeout warning is expected in the deliberate unconfirmed-transaction test; subsequent reconciliation passed.",
+    "This is a local Windows gate. It is not a report that GitHub-hosted CI has already run."
+  ]
+}

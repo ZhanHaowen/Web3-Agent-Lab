@@ -1,0 +1,20 @@
+▶ ERC-8183 local core: real Anvil lifecycle, isolation, race and uncertain retry controls
+  ✔ concurrent same-key payment settles once; changed binding is rejected (483.0564ms)
+  ✔ failed delivery uses evaluator rejection and refunds exact principal (384.82ms)
+  ✔ deadline timeout allows refund once and cannot pay provider afterward (502.6984ms)
+  ✔ zero-provider Open job requires client assignment exactly once (478.2161ms)
+  ✔ provider budget change before funding cannot bypass expectedBudget (388.9052ms)
+  ✔ roles, early completion/refund and terminal repeats are enforced (796.6791ms)
+  ✔ zero budget, unsupported hooks, invalid evaluator and expiry are rejected (355.6801ms)
+  ✔ post-fund failure retains prior attempt and never funds fresh job on retry (359.0829ms)
+  ✔ salted on-chain deliverables do not expose unsalted result fingerprints; delivered invalid result is not task success (822.5191ms)
+EVIDENCE_DIRECTORY <workspace>\artifacts\test-results\research-escrow-2026-11-11T06-13-58-480Z
+✔ ERC-8183 local core: real Anvil lifecycle, isolation, race and uncertain retry controls (7316.2902ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12324.7076

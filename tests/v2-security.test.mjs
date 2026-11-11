@@ -130,9 +130,9 @@ test('actual peer graph has valid endpoints event references and consistent expo
  assert.equal(b.files['derived/nodes.csv'].trim().split('\n').length-1,g.nodes.length);assert.equal(b.files['derived/edges.csv'].trim().split('\n').length-1,g.edges.length);
 });
 
-test('V0.16 source and output integrity matches the current build; historical contracts remain byte-identical',async()=>{
+test('Current source and output integrity matches the build; historical contracts remain byte-identical',async()=>{
  const build=JSON.parse(await readFile(join(root,'build-info.json'),'utf8'));
- assert.equal(build.version,'0.16.0');
+ assert.equal(build.version,JSON.parse(await readFile(join(root,'package.json'),'utf8')).version);
  assert.equal(sha(JSON.stringify(build.files)),build.sourceHash);
  for(const required of ['src/model/capture.mjs','src/local-model/service.mjs','public/model-backend.js','vendor/legacy-source/src/agent.ts'])assert.ok(build.files[required],required);
  for(const required of ['dist/server.mjs','dist/legacy-cli.mjs'])assert.ok(build.outputs[required],required);

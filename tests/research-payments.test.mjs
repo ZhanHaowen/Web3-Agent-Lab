@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createAP2Authorizer} from '../src/payments/ap2.mjs';
+const input={requestId:'request-1',providerId:'shared',amountBase:'10000',resource:'http://127.0.0.1/service'};
+const settings={chainId:31337,token:'0x1111111111111111111111111111111111111111',providers:[{id:'shared',address:'0x2222222222222222222222222222222222222222'}],budgetBase:'20000'};
+test('AP2 local overlay verifies linked merchant checkout and controller payment mandate',()=>{const auth=createAP2Authorizer(settings),m=auth.issue(input);assert.equal(auth.verify(m,input).verified,true);assert.throws(()=>auth.verify(m,input),{code:'AP2_REPLAY'});});
+test('AP2 rejects signed amount and resource/request binding substitution',()=>{for(const change of [{amountBase:'20000'},{resource:'http://127.0.0.1/other'},{requestId:'other'}]){const auth=createAP2Authorizer(settings),m=auth.issue(input);assert.throws(()=>auth.verify(m,{...input,...change}),e=>['AP2_AMOUNT_OR_PAYEE','AP2_WEB3_BINDING'].includes(e.code));}});
+test('AP2 rejects modified JWT body and unknown authority',()=>{const auth=createAP2Authorizer(settings),m=auth.issue(input),parts=m.paymentMandate.split('.');const body=JSON.parse(Buffer.from(parts[1],'base64url'));body.payment_amount.amount=2;parts[1]=Buffer.from(JSON.stringify(body)).toString('base64url');assert.throws(()=>auth.verify({...m,paymentMandate:parts.join('.')},input),{code:'AP2_BAD_SIGNATURE'});assert.throws(()=>createAP2Authorizer(settings).verify(m,input),{code:'AP2_BAD_SIGNATURE'});});
+test('AP2 rejects expired mandates without accepting effects',()=>{let now=100;const auth=createAP2Authorizer({...settings,clock:()=>now,ttlSeconds:10}),m=auth.issue(input);now=111;assert.throws(()=>auth.verify(m,input),{code:'AP2_EXPIRED'});});
+test('AP2 reserves cumulative authorization before payment and refuses budget amplification',()=>{const auth=createAP2Authorizer({...settings,budgetBase:'10000'}),m1=auth.issue(input),i2={...input,requestId:'request-2'},m2=auth.issue(i2);auth.verify(m1,input);assert.throws(()=>auth.verify(m2,i2),{code:'AP2_BUDGET_DENIED'});});
+test('AP2 explicitly rejects sub-cent token amounts rather than changing ISO units',()=>{const auth=createAP2Authorizer(settings);assert.throws(()=>auth.issue({...input,amountBase:'1000'}),{code:'AP2_MINOR_UNIT_UNSUPPORTED'});});

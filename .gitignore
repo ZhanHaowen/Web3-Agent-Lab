@@ -23,3 +23,5 @@ dist/*
 *.gguf.part
 *.gguf.partial
 /models/
+# Portable-package inventory includes machine-specific runtime files; regenerated per archive.
+/release-manifest.json

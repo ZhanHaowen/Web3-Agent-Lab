@@ -1,0 +1,1299 @@
+{
+  "schema": "web3-lab-public-test-summary-v1",
+  "release": "V0.17.0 Research Beta",
+  "history": {
+    "environment": {
+      "os": "Windows x64",
+      "node": "v24.19.0",
+      "chain": "local Anvil",
+      "realAssets": false,
+      "commercialModelTested": false,
+      "macOSTested": false
+    },
+    "reviewBuild": {
+      "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+      "built": {
+        "utc": "2026-11-11T05:47:08.028Z",
+        "beijing": "2026-11-11T13:47:08.028+08:00"
+      },
+      "hashIsGitCommit": false
+    },
+    "unit": {
+      "tests": 182,
+      "pass": 182,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "paymentIntegration": {
+      "total": 45,
+      "suites": [
+        {
+          "id": "x402-ap2",
+          "passed": 24,
+          "failed": 0,
+          "evidence": "x402-ap2",
+          "sourceHash": null,
+          "sourceHashReason": "Original aggregate report does not bind an overall source hash."
+        },
+        {
+          "id": "mpp",
+          "passed": 11,
+          "failed": 0,
+          "evidence": "mpp",
+          "sourceHash": null,
+          "sourceHashReason": "Original aggregate report does not bind an overall source hash."
+        },
+        {
+          "id": "adversarial",
+          "passed": 10,
+          "failed": 0,
+          "evidence": "adversarial",
+          "sourceHash": null,
+          "sourceHashReason": "Original aggregate report does not bind an overall source hash."
+        }
+      ],
+      "extraPaymentUnitTests": 6,
+      "extraPaymentUnitsAlreadyIncludedInUnitTotal": true
+    },
+    "escrow": {
+      "subtests": 9,
+      "parentExcluded": true,
+      "terminalTapRetained": false,
+      "claim": "Historical execution retained chain evidence; publication gate will add terminal transcript."
+    },
+    "engine": {
+      "start": {
+        "utc": "2026-11-10T17:11:17.673Z",
+        "beijing": "2026-11-11T01:11:17.673+08:00"
+      },
+      "end": {
+        "utc": "2026-11-10T17:11:44.631Z",
+        "beijing": "2026-11-11T01:11:44.631+08:00"
+      },
+      "modelMode": "scripted",
+      "passed": true,
+      "scenarioCount": 10,
+      "assertionCount": 108,
+      "failedAssertions": 0,
+      "sourceHash": null,
+      "sourceHashReason": "Original run manifests softwareIdentity is null; not relabelled with final build hash.",
+      "cases": [
+        {
+          "name": "exact-quality",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "real background transactions present in full public window",
+              "passed": true
+            },
+            {
+              "name": "background not tagged for attacker",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "batch-adaptive",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "unused channel capital refunded separately",
+              "passed": true
+            },
+            {
+              "name": "actual wallet delta matches settled service expense after channel cleanup",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "ap2-exact-quality",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "exact-http-failure-keeps-charge",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "HTTP failure does not refund settled service charge",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "batch-http-failure-keeps-charge",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "unused channel capital refunded separately",
+              "passed": true
+            },
+            {
+              "name": "actual wallet delta matches settled service expense after channel cleanup",
+              "passed": true
+            },
+            {
+              "name": "HTTP failure does not refund settled service charge",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "erc8183-quality",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "erc8183-reject-refund",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "escrow refunds are confirmed and reduce only own failed-job net charge",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "erc8183-expiry-refund",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "escrow refunds are confirmed and reduce only own failed-job net charge",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "mpp-quality",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        },
+        {
+          "name": "mpp-http-failure-keeps-charge",
+          "status": "passed",
+          "assertions": [
+            {
+              "name": "actual chain evidence complete",
+              "passed": true
+            },
+            {
+              "name": "finished without unresolved liabilities",
+              "passed": true
+            },
+            {
+              "name": "task independently succeeds",
+              "passed": true
+            },
+            {
+              "name": "ledger and RPC projection independently validate",
+              "passed": true
+            },
+            {
+              "name": "model mode labelled scripted",
+              "passed": true
+            },
+            {
+              "name": "window gas derives from all public receipts",
+              "passed": true
+            },
+            {
+              "name": "no private task labels or run identity in observer text",
+              "passed": true
+            },
+            {
+              "name": "recorded purchases match ledger",
+              "passed": true
+            },
+            {
+              "name": "sealed files validate on read-only resume",
+              "passed": true
+            },
+            {
+              "name": "HTTP failure does not refund settled service charge",
+              "passed": true
+            },
+            {
+              "name": "actual HTTP402 challenge present",
+              "passed": true
+            }
+          ],
+          "taskOutcome": "success"
+        }
+      ]
+    },
+    "portable": {
+      "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+      "version": "0.17.0-beta.1",
+      "platform": "win32",
+      "node": "v24.19.0",
+      "noNodeModules": true,
+      "passed": true,
+      "profiles": [
+        {
+          "profile": "x402-exact",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:34.015Z",
+            "beijing": "2026-11-11T13:47:34.015+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:37.795Z",
+            "beijing": "2026-11-11T13:47:37.795+08:00"
+          }
+        },
+        {
+          "profile": "x402-batch",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:37.929Z",
+            "beijing": "2026-11-11T13:47:37.929+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:42.810Z",
+            "beijing": "2026-11-11T13:47:42.810+08:00"
+          }
+        },
+        {
+          "profile": "ap2-x402-exact",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:43.116Z",
+            "beijing": "2026-11-11T13:47:43.116+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:45.189Z",
+            "beijing": "2026-11-11T13:47:45.189+08:00"
+          }
+        },
+        {
+          "profile": "ap2-x402-batch",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:45.484Z",
+            "beijing": "2026-11-11T13:47:45.484+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:50.478Z",
+            "beijing": "2026-11-11T13:47:50.478+08:00"
+          }
+        },
+        {
+          "profile": "erc8183-core",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:50.815Z",
+            "beijing": "2026-11-11T13:47:50.815+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:54.420Z",
+            "beijing": "2026-11-11T13:47:54.420+08:00"
+          }
+        },
+        {
+          "profile": "mpp-evm-charge",
+          "status": "pass",
+          "mode": "scripted",
+          "taskOutcome": "success",
+          "recordingComplete": true,
+          "checkerStatus": "pass",
+          "start": {
+            "utc": "2026-11-11T05:47:54.601Z",
+            "beijing": "2026-11-11T13:47:54.601+08:00"
+          },
+          "end": {
+            "utc": "2026-11-11T05:47:56.371Z",
+            "beijing": "2026-11-11T13:47:56.371+08:00"
+          }
+        }
+      ]
+    },
+    "legacy": [
+      {
+        "id": "peer",
+        "passed": 10,
+        "failed": 0,
+        "logPassLines": 10,
+        "time": null,
+        "sourceHash": null,
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "contract",
+        "passed": 13,
+        "failed": 0,
+        "logPassLines": 13,
+        "time": null,
+        "sourceHash": null,
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "service",
+        "passed": 16,
+        "failed": 0,
+        "logPassLines": 16,
+        "time": null,
+        "sourceHash": null,
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "budget-core",
+        "passed": 16,
+        "failed": 0,
+        "logPassLines": 16,
+        "time": {
+          "utc": "2026-11-11T05:48:29.342Z",
+          "beijing": "2026-11-11T13:48:29.342+08:00"
+        },
+        "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "budget-http",
+        "passed": 8,
+        "failed": 0,
+        "logPassLines": 8,
+        "time": {
+          "utc": "2026-11-11T05:49:08.414Z",
+          "beijing": "2026-11-11T13:49:08.414+08:00"
+        },
+        "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "budget-main",
+        "passed": 9,
+        "failed": 0,
+        "logPassLines": 9,
+        "time": {
+          "utc": "2026-11-11T05:48:55.222Z",
+          "beijing": "2026-11-11T13:48:55.222+08:00"
+        },
+        "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "budget-launcher",
+        "passed": 3,
+        "failed": 0,
+        "logPassLines": 3,
+        "time": {
+          "utc": "2026-11-11T05:49:23.828Z",
+          "beijing": "2026-11-11T13:49:23.828+08:00"
+        },
+        "sourceHash": "2da68dfce8ca2b4d49c1e79d185bd3beaedad3a3f4fecc5ac9aa2ae95362501e",
+        "realLLMTested": false,
+        "macOSTested": false
+      },
+      {
+        "id": "budget-parameters",
+        "passed": 9,
+        "failed": 0,
+        "logPassLines": 9,
+        "time": {
+          "utc": "2026-11-10T17:08:48.007Z",
+          "beijing": "2026-11-11T01:08:48.007+08:00"
+        },
+        "sourceHash": "addc5543597edf42a1168617b1dd6deacd88f582be4c21a18e1b724fcd261a4e",
+        "realLLMTested": false,
+        "macOSTested": false
+      }
+    ],
+    "legacyIndependentTasks": {
+      "balance": "success",
+      "transfer": "success",
+      "approve": "success",
+      "swap": "success",
+      "swap_deposit": "success",
+      "independentPeerTrade": "pass",
+      "modelMode": "scripted"
+    },
+    "constructedDataset": {
+      "start": {
+        "utc": "2026-11-10T17:10:17.259Z",
+        "beijing": "2026-11-11T01:10:17.259+08:00"
+      },
+      "end": {
+        "utc": "2026-11-10T17:11:02.825Z",
+        "beijing": "2026-11-11T01:11:02.825+08:00"
+      },
+      "scope": "36 full-factor constructed scripted-policy samples (3 families x 3 strategies x 2 budgets x 2 replicates), actual official x402 exact + Anvil; validates collection/splits/isolated evaluator only, no scientific inference claim.",
+      "sourceHash": null,
+      "sourceHashReason": "Original softwareIdentity is null.",
+      "pipelinePassed": true,
+      "taskSuccess": 12,
+      "taskFailure": 24,
+      "taskUnknown": 0,
+      "retention": {
+        "inputSamples": 36,
+        "retainedSamples": 36,
+        "failedOrUnknown": 24,
+        "filter": "none"
+      },
+      "splitCounts": {
+        "train": 18,
+        "validation": 6,
+        "test": 12
+      },
+      "testTruthPassed": false,
+      "scientificPrivacyConclusion": false
+    },
+    "localModel": {
+      "start": {
+        "utc": "2026-11-11T05:51:27.030Z",
+        "beijing": "2026-11-11T13:51:27.030+08:00"
+      },
+      "end": {
+        "utc": "2026-11-11T05:53:07.532Z",
+        "beijing": "2026-11-11T13:53:07.532+08:00"
+      },
+      "model": "qwen3-4b-instruct-2507-q8",
+      "modelSha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+      "runtimeSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+      "templateSha256": "40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541",
+      "sourceHashes": {
+        "src/research/engine.mjs": "ac6e90d69970f476acca21fe94fd29f65a0b473640081e1e6df95e2b51bd6908",
+        "src/research/workload.mjs": "8b7c2ed5312e0ea1ad59b2212083fb7a8e3eca120174b034052a6fb8b5522a95",
+        "src/research/catalog.mjs": "3e8c4657aaf6efa9235ba58361f27df073ced013b8c504e3a4af7c3390b87d2d",
+        "src/research/manifest.mjs": "4b2b7881a76cec88c4a018841159b3d07ddb7dafa792f9d59de5cb36a301fb96",
+        "src/research/private-ledger.mjs": "dfd6ac9671acb68c1493d9542bb17f88afe6fd87827a3a45f8054f29c38eb66a",
+        "src/research/journal.mjs": "902670e5ef7c244674ff7150321cd7844157ed38f805b721d3ff9ba1845341ba",
+        "src/research/provenance.mjs": "6d42404e89b2291fcfd8ed7f63708c83d03cb77d1be0a72ce197bc5ef416c608",
+        "src/research/checker.mjs": "c42d28bba2fad77847fe3cc05462a559abfc871d5436586e023ce99a29abcf5b",
+        "src/research/escrow.mjs": "f3169d99b2898f0068bc7d52ac963287b655469820ce517e91ce4f62a1662d88",
+        "src/payments/index.mjs": "de69ba92763cfae0c4ffaf4e95bf877e765ab3aead3f926ff922f88d78a4c07e",
+        "src/payments/ap2.mjs": "cf69c13bccc509ddbfb13e8dd437c61d8bb8ea74faac6b9e8cd6a486c4da0234",
+        "src/observer/index.mjs": "c657f424d0708f793fb515f57d7a5f8660e0efecdcf97dc8c9be64fac1c1e8e9"
+      },
+      "noScriptedFallback": true,
+      "platformPass": true,
+      "ownedModelStopped": true,
+      "taskSuccess": 0,
+      "taskFailure": 3,
+      "cases": [
+        {
+          "family": "evidence_review",
+          "scheme": "exact",
+          "platformPass": true,
+          "taskOutcome": "failure",
+          "finishReason": "error",
+          "modelRequests": 4,
+          "modelResponses": 4,
+          "modelTransportErrors": 0,
+          "requiredRuntimeEvidence": true,
+          "rawBodiesValid": true,
+          "callTerminalCoverage": true,
+          "localOnly": true,
+          "nativeEvidence": [
+            {
+              "role": "manifest",
+              "bytes": 35294,
+              "shaMatches": true
+            },
+            {
+              "role": "props",
+              "bytes": 6838,
+              "shaMatches": true
+            },
+            {
+              "role": "events",
+              "bytes": 0,
+              "shaMatches": true
+            },
+            {
+              "role": "stdout",
+              "unavailable": "not-created-by-runtime"
+            },
+            {
+              "role": "stderr",
+              "bytes": 4682,
+              "shaMatches": true
+            }
+          ],
+          "executionErrors": [
+            {
+              "phase": "execution",
+              "name": "Error",
+              "message": "RESEARCH_MODEL_ONE_TOOL_CALL_REQUIRED"
+            }
+          ],
+          "note": "Returned tool-call format violated one-tool-call contract."
+        },
+        {
+          "family": "risk_analysis",
+          "scheme": "batch",
+          "platformPass": true,
+          "taskOutcome": "failure",
+          "finishReason": "agent_finished",
+          "modelRequests": 4,
+          "modelResponses": 4,
+          "modelTransportErrors": 0,
+          "requiredRuntimeEvidence": true,
+          "rawBodiesValid": true,
+          "callTerminalCoverage": true,
+          "localOnly": true,
+          "nativeEvidence": [
+            {
+              "role": "manifest",
+              "bytes": 35294,
+              "shaMatches": true
+            },
+            {
+              "role": "props",
+              "bytes": 6838,
+              "shaMatches": true
+            },
+            {
+              "role": "events",
+              "bytes": 0,
+              "shaMatches": true
+            },
+            {
+              "role": "stdout",
+              "unavailable": "not-created-by-runtime"
+            },
+            {
+              "role": "stderr",
+              "bytes": 4028,
+              "shaMatches": true
+            }
+          ],
+          "executionErrors": [],
+          "note": "Task checker failed answer/evidence coverage after model finished."
+        },
+        {
+          "family": "trend_analysis",
+          "scheme": "erc8183",
+          "platformPass": true,
+          "taskOutcome": "failure",
+          "finishReason": "error",
+          "modelRequests": 4,
+          "modelResponses": 4,
+          "modelTransportErrors": 0,
+          "requiredRuntimeEvidence": true,
+          "rawBodiesValid": true,
+          "callTerminalCoverage": true,
+          "localOnly": true,
+          "nativeEvidence": [
+            {
+              "role": "manifest",
+              "bytes": 35294,
+              "shaMatches": true
+            },
+            {
+              "role": "props",
+              "bytes": 6838,
+              "shaMatches": true
+            },
+            {
+              "role": "events",
+              "bytes": 0,
+              "shaMatches": true
+            },
+            {
+              "role": "stdout",
+              "unavailable": "not-created-by-runtime"
+            },
+            {
+              "role": "stderr",
+              "bytes": 4898,
+              "shaMatches": true
+            }
+          ],
+          "executionErrors": [
+            {
+              "phase": "execution",
+              "name": "Error",
+              "message": "RESEARCH_MODEL_ONE_TOOL_CALL_REQUIRED"
+            }
+          ],
+          "note": "Returned tool-call format violated one-tool-call contract."
+        }
+      ]
+    }
+  },
+  "publicationGate": {
+    "schema": "web3-lab-publication-gate-summary-v1",
+    "status": "passed",
+    "platform": "win32",
+    "node": "v24.19.0",
+    "sourceHash": "05082ca38cd1fdaea16a1f1918f96b5186bac11d69cb3477e8cf78860c5220e1",
+    "start": {
+      "utc": "2026-11-11T06:13:19.558Z",
+      "beijing": "2026-11-11T14:13:19.558+08:00"
+    },
+    "end": {
+      "utc": "2026-11-11T06:14:46.921Z",
+      "beijing": "2026-11-11T14:14:46.921+08:00"
+    },
+    "stepCount": 14,
+    "steps": [
+      {
+        "name": "bundle-payments",
+        "command": "node scripts/bundle-research-deps.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:19.558Z",
+          "beijing": "2026-11-11T14:13:19.558+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:20.509Z",
+          "beijing": "2026-11-11T14:13:20.509+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-bundle-payments.txt",
+        "sourceLogSha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e",
+        "publicLogSha256": "dc63abb5cb932df133168b5b6364d499ca81728ccb1c8e895c393303dab28c7e"
+      },
+      {
+        "name": "compile-peer",
+        "command": "node scripts/compile-peer.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:20.510Z",
+          "beijing": "2026-11-11T14:13:20.510+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:22.785Z",
+          "beijing": "2026-11-11T14:13:22.785+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-compile-peer.txt",
+        "sourceLogSha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9",
+        "publicLogSha256": "b17b4fe16a4db735fb11e46a4fdad3595a4e23d4012bbbde2a5b907383b98eb9"
+      },
+      {
+        "name": "compile-payments",
+        "command": "node scripts/compile-research-payments.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:22.785Z",
+          "beijing": "2026-11-11T14:13:22.785+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:27.388Z",
+          "beijing": "2026-11-11T14:13:27.388+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-compile-payments.txt",
+        "sourceLogSha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00",
+        "publicLogSha256": "f41b1f2a2c14ce61f84af139677da0bbbb46439e183be5c3ddd03f885fae9a00"
+      },
+      {
+        "name": "compile-job",
+        "command": "node scripts/compile-research-job.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:27.388Z",
+          "beijing": "2026-11-11T14:13:27.388+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:28.266Z",
+          "beijing": "2026-11-11T14:13:28.266+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-compile-job.txt",
+        "sourceLogSha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7",
+        "publicLogSha256": "4f4586fe893b924a87435dd235c02c93f8f49854b5a329752925630fd3dd06d7"
+      },
+      {
+        "name": "build-legacy",
+        "command": "node scripts/build-legacy.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:28.266Z",
+          "beijing": "2026-11-11T14:13:28.266+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:29.255Z",
+          "beijing": "2026-11-11T14:13:29.255+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-build-legacy.txt",
+        "sourceLogSha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f",
+        "publicLogSha256": "c157c35ecc296364a0f7d338e3e4101d55e7d2b8bd6bf36ec7ee59109067e29f"
+      },
+      {
+        "name": "build-platform",
+        "command": "node scripts/build-v014.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:29.256Z",
+          "beijing": "2026-11-11T14:13:29.256+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:30.955Z",
+          "beijing": "2026-11-11T14:13:30.955+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-build-platform.txt",
+        "sourceLogSha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650",
+        "publicLogSha256": "7e3ec3c423120a192a805a988510d4b5c4f82c7e7144cc796dee64cec3ce5650"
+      },
+      {
+        "name": "typecheck",
+        "command": "node node_modules/typescript/bin/tsc -p tsconfig.control.json --noEmit",
+        "start": {
+          "utc": "2026-11-11T06:13:30.956Z",
+          "beijing": "2026-11-11T14:13:30.956+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:31.302Z",
+          "beijing": "2026-11-11T14:13:31.302+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-typecheck.txt",
+        "sourceLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "doctor",
+        "command": "node dist/cli.mjs doctor",
+        "start": {
+          "utc": "2026-11-11T06:13:31.303Z",
+          "beijing": "2026-11-11T14:13:31.303+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:31.494Z",
+          "beijing": "2026-11-11T14:13:31.494+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-doctor.txt",
+        "sourceLogSha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6",
+        "publicLogSha256": "2e40660d9a82da62e3651ddc010b7681fe9a76fa58946fd3cee140f6dbbaa6b6"
+      },
+      {
+        "name": "unit",
+        "command": "node --test tests/*.test.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:31.495Z",
+          "beijing": "2026-11-11T14:13:31.495+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:36.457Z",
+          "beijing": "2026-11-11T14:13:36.457+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-unit.txt",
+        "sourceLogSha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506",
+        "publicLogSha256": "474c12e448576c93136c8c47c65c105e727274884d334b63ef4c5000d59d7506"
+      },
+      {
+        "name": "x402-ap2",
+        "command": "node tests/research-payments.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:36.458Z",
+          "beijing": "2026-11-11T14:13:36.458+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:44.789Z",
+          "beijing": "2026-11-11T14:13:44.789+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-x402-ap2.txt",
+        "sourceLogSha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6",
+        "publicLogSha256": "bbbb7c5168028effd9685e181a2c8087b51381f1da2c7215b6d0134a1612bbc6"
+      },
+      {
+        "name": "mpp",
+        "command": "node tests/research-payments-mpp.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:44.790Z",
+          "beijing": "2026-11-11T14:13:44.790+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:50.699Z",
+          "beijing": "2026-11-11T14:13:50.699+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-mpp.txt",
+        "sourceLogSha256": "37e469d4020051f192e24261e6826d35361778ac14c577176af973b4383da6b0",
+        "publicLogSha256": "6c4a5faa815decbff3c18d03f86c76214b9fef6147e74e81332f2f9b8d4f96a7"
+      },
+      {
+        "name": "payment-adversarial",
+        "command": "node tests/research-payments-adversarial.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:50.700Z",
+          "beijing": "2026-11-11T14:13:50.700+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:13:58.365Z",
+          "beijing": "2026-11-11T14:13:58.365+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-payment-adversarial.txt",
+        "sourceLogSha256": "4099eb020ccece7cbe3da09b07ca376c8978861cf06788c1ff9cd90f8d0e139f",
+        "publicLogSha256": "b1585488c3d1920b91f740ce85ef913a90b9933381072995096f1e666d02336d"
+      },
+      {
+        "name": "erc8183",
+        "command": "node tests/research-escrow.mjs",
+        "start": {
+          "utc": "2026-11-11T06:13:58.366Z",
+          "beijing": "2026-11-11T14:13:58.366+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:14:10.830Z",
+          "beijing": "2026-11-11T14:14:10.830+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-erc8183.txt",
+        "sourceLogSha256": "59950de0f4b9258d4c6921775e06e756bc16c2421f06c46d00952dc0f2523052",
+        "publicLogSha256": "3dadf95896033863c26418440e48e18d663aa729c0a91bc56272c24fa97b314e"
+      },
+      {
+        "name": "research-engine",
+        "command": "node tests/research-integration.mjs",
+        "start": {
+          "utc": "2026-11-11T06:14:10.830Z",
+          "beijing": "2026-11-11T14:14:10.830+08:00"
+        },
+        "end": {
+          "utc": "2026-11-11T06:14:46.921Z",
+          "beijing": "2026-11-11T14:14:46.921+08:00"
+        },
+        "exitCode": 0,
+        "publicLog": "publication-research-engine.txt",
+        "sourceLogSha256": "50fcd7143623847e4d00781f0a9d3459429c80a36a08e7df8120a5501b27eaea",
+        "publicLogSha256": "5ca21a477d92709d6ecdf7c5e6080954735907b27504b75fee8ccc397d4c2ced"
+      }
+    ],
+    "unit": {
+      "tests": 182,
+      "pass": 182,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "paymentIntegration": {
+      "x402Ap2": 24,
+      "mpp": 11,
+      "adversarial": 10,
+      "total": 45,
+      "failed": 0
+    },
+    "erc8183": {
+      "childTests": 9,
+      "parentTests": 1,
+      "nodeReportedTotal": 10,
+      "nodeReportedPass": 10,
+      "failed": 0,
+      "terminalTranscriptRetained": true
+    },
+    "engine": {
+      "scenarios": 10,
+      "assertions": 108,
+      "failedAssertions": 0,
+      "passed": true
+    },
+    "notRerun": [
+      "historical real Qwen trials",
+      "historical 36-sample matrix",
+      "Mac host",
+      "commercial model API",
+      "GitHub-hosted CI"
+    ],
+    "notes": [
+      "Node test runner counts the ERC parent in its total; reported nine cases excludes that parent.",
+      "MPP timeout warning is expected in the deliberate unconfirmed-transaction test; subsequent reconciliation passed.",
+      "This is a local Windows gate. It is not a report that GitHub-hosted CI has already run."
+    ]
+  },
+  "limitations": [
+    "Constructed task/service corpus; no general privacy inference conclusion.",
+    "Known experiment-window assumption; input isolation is not an OS sandbox.",
+    "No real commercial API decision test or Mac host test in this validation.",
+    "Full old-task Qwen regression and historical user-data migration not repeated.",
+    "No guarantee of production protocol interoperability or universal payment correctness."
+  ],
+  "redaction": {
+    "method": "Explicit field allowlist; no wholesale raw artifact copy.",
+    "rawPrivateDataPublished": false,
+    "absoluteLocalPathsPublished": false,
+    "credentialsPublished": false
+  }
+}

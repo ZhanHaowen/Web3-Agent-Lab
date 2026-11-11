@@ -1,4 +1,4 @@
-name: Windows V0.16.0 verification
+name: Windows V0.17.0 verification
 
 on:
   push:
@@ -41,6 +41,9 @@ jobs:
       - name: Install frozen dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install isolated payment SDK dependencies
+        run: pnpm run setup:research
+
       - name: Prepare verified local Anvil and the Windows launcher runtime
         run: |
           node scripts/setup-runtime.mjs
@@ -59,13 +62,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: windows-v0160-validation
+          name: windows-v0170-validation
           overwrite: true
           if-no-files-found: warn
           retention-days: 14
           path: |
             artifacts/test-results/ci/
             artifacts/test-results/current/*.json
+            artifacts/test-results/current/research-engine/report.json
 
       # GUI browser checks and macOS runs are not performed by this job.
       # Historical release reports remain historical evidence, not CI results.

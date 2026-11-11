@@ -1,3 +1,4 @@
+import { ResearchService } from "../src/research/service.mjs";
 import { LocalModelService } from "../src/local-model/service.mjs";
 import { BudgetService } from "../src/budget/service.mjs";
 import { LabControl } from "../src/control/control.mjs";
@@ -494266,6 +494267,7 @@ function send(res, code, data) {
 
 var localModelService = (process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new LocalModelService({dataDir:DATA,beforeChange:()=>{
   requireIdle();
+  if (researchService?.busy) throw Error('RESEARCH_EXPERIMENT_ACTIVE');
   if (labControl?.store.list('agents').some(a=>a.provider==='local'&&(Date.now()-(a.heartbeat??0)<6000||((p)=>p&&p.exitCode===null&&!p.killed)(labControl.workers.get(a.agentId))))) throw Error('LOCAL_MODEL_WORKERS_ONLINE: stop local Agent workers before changing or stopping inference');
 }});
 async function resolveModelConfiguration(model) {
@@ -494285,6 +494287,7 @@ var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
   unlock:()=>{busy=false;refresh().catch(()=>{});}
 });
 var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
+var researchService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new ResearchService({root:ROOT3,data:join3(DATA,"research"),port:PORT,modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null});
 var labControl=process.env.LAB_AGENT_WORKER?null:new LabControl({root:ROOT3,data:DATA,chain:chain2,url:'http://127.0.0.1:'+PORT,
  createWalletClient,mnemonicToAccount,localChain,http,encodeFunctionData,keccak256,recoverAddress,serializeTransaction,resolveTask,checkTask,scriptedCalls,validateTaskAmounts,decodeFunctionData,
  clean:value=>redactor.clean(value),addSecret:value=>redactor.add(value),send,resolveModel:resolveModelConfiguration,captureRuntimeEvidence:captureLocalRuntimeEvidence,assertLocalModel:model=>localModelService?.assertModel(model),admin:req=>!req.headers.authorization&&req.headers['x-lab-token']===TOKEN,
@@ -494301,6 +494304,7 @@ var server = createServer(async (req, res) => {
     if (!validHosts.includes(req.headers.host || "") || req.headers.origin && ![origin, `http://localhost:${PORT}`].includes(req.headers.origin)) return send(res, 403, { error: "LOCAL_ORIGIN_REQUIRED" });
     const url2 = new URL(req.url || "/", origin);
     const path4 = url2.pathname;
+    if (await researchService?.handle(req,res,path4)) return;
     if (await budgetService?.handle(req,res,path4)) return;
     if (req.method === "GET" && path4 === "/api/health") return send(res, 200, { app: "web3-agent-lab", ok: true, csrfToken: TOKEN, version: version9 });
     if (req.method !== "GET" && !(path4.startsWith("/api/v2/agent/") || path4.startsWith("/api/v2/tx-intents") || path4 === "/api/v2/agents/register" || path4 === "/api/v2/agents/heartbeat") && req.headers["x-lab-token"] !== TOKEN) return send(res, 403, { error: "SESSION_TOKEN_REQUIRED" });
@@ -494483,6 +494487,7 @@ async function shutdown() {
   if (shuttingDown) return;
   shuttingDown = true;
   controller?.abort();
+  await researchService?.shutdown();
   await budgetService?.shutdown();
   await labControl?.shutdown();
   for (const s of scenarioService.scenes.values()) s.abort.abort();
@@ -494496,7 +494501,7 @@ async function shutdown() {
 }
 await mkdir4(DATA, { recursive: true });
 await budgetService?.init();
-if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.16.0 http://127.0.0.1:${PORT}`));
+if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.17.0 Research Beta http://127.0.0.1:${PORT}`));
 server.on("error", (e) => {
   console.error(e.message);
   process.exit(1);

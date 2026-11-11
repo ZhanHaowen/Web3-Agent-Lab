@@ -1,0 +1,12 @@
+{
+  "schema": "web3-research-config-v1",
+  "seed": 42,
+  "task": {"family": "evidence_review", "instanceId": "example-001", "difficulty": 2},
+  "mode": "scripted",
+  "strategy": "adaptive",
+  "budgetBase": "150000",
+  "initialBalanceBase": "1000000",
+  "tokenDecimals": 6,
+  "maxSteps": 12,
+  "payment": {"scheme": "exact", "authorization": "none"}
+}

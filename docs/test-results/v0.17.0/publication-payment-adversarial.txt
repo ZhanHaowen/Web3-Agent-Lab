@@ -1,0 +1,23 @@
+PASS x402 unconfirmed broadcast remains unknown and reserved
+PASS x402 late confirmation reconciles against actual token Transfer logs
+PASS x402 resource substitution replay rejected
+PASS x402 token rejects signed authorization replay
+PASS x402 token rejects signed amount substitution
+mppx: internal verification error WaitForTransactionReceiptTimeoutError: Timed out while waiting for transaction with hash "0x40eecb51c0b88b9b65b8240a930637a5fa5f029b0f47b1a613daff6218dd5edc" to be confirmed.
+
+Version: viem@2.57.4
+    at Timeout._onTimeout (file:///<workspace>/packages/payment-adapters/runtime.mjs:49608:12)
+    at listOnTimeout (node:internal/timers:635:17)
+    at process.processTimers (node:internal/timers:571:7) {
+  details: undefined,
+  docsPath: undefined,
+  metaMessages: undefined,
+  shortMessage: 'Timed out while waiting for transaction with hash "0x40eecb51c0b88b9b65b8240a930637a5fa5f029b0f47b1a613daff6218dd5edc" to be confirmed.',
+  version: '2.57.4'
+}
+PASS mpp unconfirmed broadcast remains unknown and reserved
+PASS mpp late confirmation reconciles against actual token Transfer logs
+PASS mpp resource substitution replay rejected
+PASS mpp token rejects signed authorization replay
+PASS mpp token rejects signed amount substitution
+SUMMARY 10 passed; <workspace>\artifacts\research-payments-adversarial\1794377630831

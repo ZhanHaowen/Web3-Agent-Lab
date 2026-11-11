@@ -1,0 +1,109 @@
+Historical regression excerpts. PASS lines only; addresses, identifiers and local paths omitted.
+
+[peer]
+PASS T01 real-chain scripted peer swap: atomic 10A for 20B
+PASS T02 incompatible private goals produce explicit no-deal
+PASS T03 sequential continuous episode uses current balances and new order salt
+PASS T11 manual pending blocks other runs until reconciliation
+PASS T13 scenario exports verify without invoking exported code; old V0.13 API remains usable
+PASS transaction pause and stop prevent an unbroadcast authorization; journal remains ordered
+PASS global single step and scoped agent pauses do not accidentally run another step
+PASS T12/T14 two isolated model protocol sessions with duplicate cross-agent provider IDs
+PASS counterquote is accepted by the other runtime and settles the revised terms
+PASS V0142 missing-payload acceptance and premature tool errors recover without text being executed
+
+[contract]
+PASS T04 insufficient allowance rolls back both assets; open escrow remains refundable
+PASS T04 insufficient balance after approval has no unilateral delivery
+PASS T05 wrong taker, wrong terms hash, unknown asset and zero amount are rejected
+PASS T05 session scope and exchange address bind terms and order IDs
+PASS T06/T07 same salt cannot double lock, repeated fill cannot double pay
+PASS T08 cancel first wins fill/cancel race
+PASS T08 fill first wins fill/cancel race
+PASS T09 fill deadline boundary -1
+PASS T09 fill deadline boundary 0
+PASS T09 fill deadline boundary 1
+PASS T10 multiple open orders and unsolicited donation are not conflated
+PASS T03 existing approvals are consumed as base units without being mistaken for new approvals
+PASS T07 gateway reconciles lost create response by sender nonce and original salt without another payment
+
+[service]
+PASS S01 correct report is accepted and exactly one payment occurs
+PASS S02 wrong_balance rejected and buyer refunded
+PASS S02 wrong_block rejected and buyer refunded
+PASS S02 malformed rejected and buyer refunded
+PASS S02 hash_mismatch rejected and buyer refunded
+PASS S03 dishonest approval pays wrong report but independent Checker fails
+PASS S04 dishonest rejection refunds correct report and leaves provider unpaid
+PASS S05 timeout refund {"evaluatorMode":"offline"}
+PASS S05 timeout refund {"reportMode":"withhold"}
+PASS S06 manual pending locks shared chain and mines to completion
+PASS S07 stop before signing and rerun produce isolated episode
+PASS S09 two real model protocol histories complete service purchase without evaluator LLM
+PASS S10 buyer declines unaffordable quote without funding
+PASS S11 report targets TokenB and independent recipient at pinned block
+PASS S12 stopped funded task can still mine and refund without resuming decisions
+PASS S08 peer swap remains compatible
+
+[budget-core]
+PASS 01 split policy reproduces 140 actual / 80 normal counter
+PASS 02 unified budget rejects permit 60 after payment 80
+PASS 03 unified 80 + permit 20 reaches exact budget
+PASS 04 unified 80 + permit 21 is rejected
+PASS 05 permit-only positive control transfers 60
+PASS 06 split transaction-only 80 + 60 is rejected
+PASS 07 reused signature nonce cannot transfer twice
+PASS 08 a different spender cannot redeem the signed permit
+PASS 09 wrong session and transaction destination override are rejected
+PASS 10 concurrent permits share one reservation ledger
+PASS 11 permit reservation also limits a later normal transaction
+PASS 12 config rejects negative, excess precision, scientific and unknown fields
+PASS 13 export integrity and raw log checker detect tampering
+PASS 14 offline CLI distinguishes integrity from budget violation
+PASS 15 expired permit cannot be redeemed and causes no token debit
+PASS 16 first payment above budget is rejected without any token debit
+
+[budget-http]
+PASS HTTP origin and token required
+PASS unknown configuration is rejected
+PASS stale execution cannot advance another experiment
+PASS overlapping clicks do not duplicate a payment
+PASS manual unified flow blocks permit and seals evidence
+PASS one-click split run reproduces actual 140
+PASS export contains evidence without reusable signature
+PASS completed earlier execution cannot act in later execution
+
+[budget-main]
+PASS main-only startup serves budget category and assets on a custom port
+PASS budget mutations require exact origin and their scoped token
+PASS original main chain initializes independently of the budget module
+PASS custom split values reproduce 355 actual, 175 normal counter and 55 excess
+PASS the same custom values under unified policy reject the second commitment
+PASS fractional values execute exactly without floating-point rounding
+PASS budget execution preserves main data path, chain identity and original contract code
+PASS main shutdown closes a signed but unredeemed budget signer and its dedicated chain
+PASS main shutdown during a new budget initialization leaves its observed Anvil closed
+
+[budget-launcher]
+PASS start.cmd unified startup
+PASS batch-started custom experiment
+PASS stop.cmd unified cleanup
+
+[budget-parameters]
+PASS large arbitrary amounts reproduce cross-path overspend
+PASS same arbitrary amounts are blocked by unified budget
+PASS fractional split amounts reproduce exact decimal overspend
+PASS fractional unified budget rejects amount above remainder
+PASS six-decimal exact boundary is accepted
+PASS one minimal unit above remaining budget is rejected
+PASS transaction-only arbitrary amounts share normal entry limit
+PASS raising only task budget permits the same two payments
+PASS raising only wallet balance does not change task budget
+
+[independent-v2]
+PASS independently signed peer trade
+Legacy balance completed success null
+Legacy transfer completed success null
+Legacy approve completed success null
+Legacy swap completed success null
+Legacy swap_deposit completed success null

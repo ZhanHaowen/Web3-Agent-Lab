@@ -1,0 +1,2 @@
+Compiled LabPeerExchange with 0.8.30+commit.73712a01.Emscripten.clang
+Compiled LabServiceEscrow with 0.8.30+commit.73712a01.Emscripten.clang

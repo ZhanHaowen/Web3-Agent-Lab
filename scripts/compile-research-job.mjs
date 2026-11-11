@@ -1,0 +1,12 @@
+import {createRequire} from 'node:module';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {dirname,resolve,join} from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),require=createRequire(import.meta.url),solc=require('solc');
+if(!solc.version().startsWith('0.8.30+'))throw Error('COMPILER_VERSION');
+const content=readFileSync(join(root,'contracts/AgentResearchJob.sol'),'utf8'),hash=x=>createHash('sha256').update(x).digest('hex'),sourceHashes={'AgentResearchJob.sol':hash(content)};
+const output=JSON.parse(solc.compile(JSON.stringify({language:'Solidity',sources:{'AgentResearchJob.sol':{content}},settings:{optimizer:{enabled:true,runs:200},evmVersion:'cancun',outputSelection:{'*':{'*':['abi','evm.bytecode.object']}}}}),{import:p=>{try{const text=readFileSync(join(root,'packages/payment-adapters/node_modules',p),'utf8');sourceHashes[p]=hash(text);return{contents:text};}catch{return{error:'Missing '+p};}}}));
+const errors=(output.errors??[]).filter(x=>x.severity==='error');if(errors.length)throw Error(errors.map(e=>e.formattedMessage).join('\n'));
+const c=output.contracts['AgentResearchJob.sol'].AgentResearchJob;mkdirSync(join(root,'packages/payment-adapters/artifacts'),{recursive:true});
+writeFileSync(join(root,'packages/payment-adapters/artifacts/AgentResearchJob.json'),JSON.stringify({contractName:'AgentResearchJob',compiler:solc.version(),evmVersion:'cancun',sourceHashes,abi:c.abi,bytecode:'0x'+c.evm.bytecode.object},null,2)+'\n');console.log('Compiled AgentResearchJob');

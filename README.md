@@ -2,11 +2,13 @@
 
 **面向 Web3 Agent 行为、协作、授权与资产效果研究的本地实验平台。**
 
-当前版本：**V0.16.0 · 本地 Qwen3 4B / API 双后端研究版**
+当前版本：**V0.17.0 Research Beta**（package：`0.17.0-beta.1`）
 
-[V0.16.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.16.0) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md) · [版本说明](docs/V0.16.0更新说明.md) · [数据格式](docs/V0.16.0原生模型数据.md) · [回归报告](docs/V0.16.0回归测试报告.md) · [原操作指南](docs/操作手册.md)
+[V0.17.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.17.0) · [本版更新说明](docs/V0.17.0-RELEASE-NOTES.md) · [采购与支付轨迹研究指南](docs/V0.17.0-RESEARCH-GUIDE.md) · [本版测试报告](docs/V0.17.0-TEST-REPORT.md) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md) · [原操作指南](docs/操作手册.md)
 
-V0.16.0 在原有 Agent、交易工具和检查器上增加受平台管理的本地推理后端。单 Agent、双 Agent、服务购买及独立 worker 的模型配置可选择 API 或本地 Qwen3 4B；双方可采用不同后端。这里的 Qwen3 是 Agent 使用的语言模型，Agent 的编排、钱包和工具仍由平台提供。
+V0.17.0 在原有平台上增加采购与支付轨迹研究模块，支持实际付费工具选择、公开链上观察与私有真值分离，以及任务、总授权预算和采购策略标签的推断评估。新增模块通过独立入口和临时链运行，保留原单 Agent、多 Agent、服务购买、跨路径预算和本地/API 双后端功能。已执行 Windows 回归范围内未发现原核心功能退化；旧数据库迁移、Mac 真机与所有真实模型组合并未全面验证。
+
+V0.16.0 引入的受管本地推理后端继续保留。单 Agent、双 Agent、服务购买及独立 worker 的模型配置可选择 API 或本地 Qwen3 4B；双方可采用不同后端。这里的 Qwen3 是 Agent 使用的语言模型，Agent 的编排、钱包和工具仍由平台提供。
 
 本地推理使用固定 Qwen3-4B-Instruct-2507 Q8_0 GGUF（4,280,404,960 字节），由 llama.cpp 执行；权重单独导入或显式下载，不进入 Git。准备好文件后，本地 Anvil 和本地模型实验无需云端 Key。平台不自动下载、不静默转用云端。Windows x64 的本次实测范围见回归报告；macOS 保留原生启动适配，尚不宣称本次完成真机验收。
 
@@ -28,6 +30,19 @@ Web3 Agent Lab 将模型调用、工具操作、钱包签名、合约执行、�
 脚本基线用于建立实验对照；真实模型模式用于采集模型在相同任务条件下的实际行为。模型接口、执行方式和验收范围按模块分别说明。
 
 ## 核心功能
+
+### V0.17.0 采购与支付轨迹研究
+
+本版单独增加四项能力：
+
+1. **可观察支付轨迹**：实际执行本地 HTTP 付费工具请求及 EVM 交易，从公开 RPC 独立采集区块、交易、calldata、回执和日志，导出公开 JSON、GraphML、节点/关系 CSV；研究者原始记录、私有真值和私有溯源图另外保存。
+2. **任务推断评估**：三类构造任务共享同一组六个服务和价格规则，采集任务真实答案与结果；使用公开特征进行分类、未知类拒识与分组评估。已具备评估流程，不代表已证明任务可以稳定识别。
+3. **隐藏预算推断评估**：总授权预算与钱包余额分别配置，按已结算、预留和确认退款维护私有账本；估计总授权预算并报告 MAE、校准区间和常量基线。当前尚未实现剩余预算时间序列或子 Agent 预算分配推断。
+4. **采购策略推断评估**：成本优先、质量优先、根据实际反馈升级三种采购策略；支持规则基线和真实模型决策，比较可观察轨迹对策略标签的区分能力。LLM 的策略标签表示指定策略，尚无独立的策略遵循判别器。
+
+可运行六种本地支付部署：`x402-exact`、`x402-batch`、`ap2-x402-exact`、`ap2-x402-batch`、`mpp-evm-charge`、`erc8183-core`。x402/MPP 使用固定官方 SDK；AP2 是本地签名 mandate 子集；ERC-8183 是本地核心任务托管，不代表完整 AP2 生态或 Virtuals SDK 认证。其余协议仅保留能力清单，不能据名称认定已兼容。
+
+攻击子进程只接收许可的训练/验证标签和匿名测试公开特征，测试真值由评估进程保留。当前采用研究者已知的区块窗口和统计分类基线，输入隔离不是 OS 沙箱；未实现自动任务分段、地址轮换、金额隐藏或通道隐私协议。实现范围及操作见[研究指南](docs/V0.17.0-RESEARCH-GUIDE.md)。
 
 ### 单 Agent 任务实验
 
@@ -157,7 +172,7 @@ Web3 Agent Lab 将模型调用、工具操作、钱包签名、合约执行、�
 
 ```mermaid
 flowchart TB
-    UI["浏览器界面<br/>任务中心、实验工作台、服务购买、预算实验"]
+    UI["浏览器界面<br/>任务中心、实验工作台、服务购买、预算、支付轨迹研究"]
     MAIN["统一本地主服务<br/>dist/server.mjs"]
 
     CONTROL["任务控制模块<br/>src/control"]
@@ -165,9 +180,12 @@ flowchart TB
     SCENARIO["场景模块<br/>src/scenario"]
     LEGACY["原单 Agent 兼容基线<br/>vendor"]
     BUDGET["跨路径预算模块<br/>src/budget"]
+    RESEARCH["采购与隐私研究模块<br/>src/research + src/payments"]
+    OBSERVER["公开链观察与推断基线<br/>src/observer"]
 
     CHAIN["原任务与场景链<br/>Anvil + 实验合约"]
     BCHAIN["预算专用临时链<br/>测试代币 + Permit2"]
+    RCHAIN["研究运行专用临时链<br/>固定支付 SDK + 测试合约"]
     EVIDENCE["运行记录、证据导出<br/>轨迹、图与独立检查"]
 
     UI --> MAIN
@@ -175,20 +193,25 @@ flowchart TB
     MAIN --> SCENARIO
     MAIN --> LEGACY
     MAIN --> BUDGET
+    MAIN --> RESEARCH
 
     CONTROL --> WORKER
     WORKER --> CHAIN
     SCENARIO --> CHAIN
     LEGACY --> CHAIN
     BUDGET --> BCHAIN
+    RESEARCH --> RCHAIN
+    RCHAIN --> OBSERVER
 
     CONTROL --> EVIDENCE
     SCENARIO --> EVIDENCE
     LEGACY --> EVIDENCE
     BUDGET --> EVIDENCE
+    RESEARCH --> EVIDENCE
+    OBSERVER --> EVIDENCE
 ```
 
-各模块通过同一个主服务提供网页和接口。预算实验使用额外的受管临时链，以隔离原任务环境；用户通过同一启动入口和侧栏操作。
+各模块通过同一个主服务提供网页和接口。预算实验和新增采购研究分别使用受管临时链，以隔离原任务环境；用户通过同一启动入口和侧栏操作。公开观察者数据与研究者证据分别导出。
 
 ### 主要组件
 
@@ -214,6 +237,10 @@ src/
   control/               任务、Job、Execution、worker、身份与持久记录
   scenario/              双 Agent 场景、协商、服务购买与场景证据
   budget/                受限签名、Permit2、预算账本及独立检查
+  research/              采购任务、私有预算、真值、评估、研究 GUI/API 与托管适配
+  payments/              x402/AP2/MPP 支付适配及原始协议证据
+  observer/              独立公开 RPC 采集、图、公开特征及推断子进程
+packages/payment-adapters/ 固定支付依赖、锁文件与便携运行桥
 contracts/               实验合约、上游源码与合约产物
 tasks/                   版本化任务定义、参数 schema 与角色提示词
 scripts/                 构建、启动、测试、打包与辅助工具
@@ -239,9 +266,9 @@ dist/                    当前兼容运行入口
 
 ## 快速开始
 
-1. 从 [V0.15.3 Release](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.15.3) 的附件下载完整 Windows x64 ZIP，解压到新的可写目录。
-2. 双击 `start.cmd`，默认平台地址为 `http://127.0.0.1:4317`。
-3. 从侧栏选择任务中心、原实验入口、购买 Agent 服务或跨路径预算实验。
+1. 从 [V0.17.0 Release](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.17.0) 的附件下载完整 Windows x64 ZIP，解压到新的可写目录。
+2. 双击 `start.cmd` 打开平台，或用 `open-research.cmd` 直接进入采购与支付轨迹研究。默认地址为 `http://127.0.0.1:4317`。
+3. 从侧栏选择任务中心、原实验入口、购买 Agent 服务、跨路径预算或支付轨迹研究。
 4. 按对应模块准备任务和环境，先运行脚本基线，再按需要配置真实模型。
 5. 查看检查结果、交易记录和资产变化，导出需要保留的证据。
 6. 使用 `stop.cmd` 关闭平台。
@@ -269,6 +296,7 @@ GitHub 自动生成的 Source code ZIP 和普通源码克隆不包含便携运�
 
 ```powershell
 pnpm install --frozen-lockfile
+pnpm run setup:research
 node scripts/setup-runtime.mjs
 pnpm build:budget
 pnpm build
@@ -279,7 +307,7 @@ pnpm start
 
 `setup-runtime.mjs` 获取并校验 Anvil，需要系统可用的 `tar`。它不安装 Windows 便携启动器所需的 `runtime/node.exe`；源码开发可使用系统 Node，运行启动器测试时另需准备匹配的运行文件。
 
-`pnpm build` 编译换币和服务合约并生成兼容桥；`pnpm build:budget` 使用固定离线编译器构建 Permit2。
+`pnpm run setup:research` 安装隔离的支付依赖；`pnpm build` 打包支付运行桥、编译换币、服务及研究合约并生成兼容桥；`pnpm build:budget` 使用固定离线编译器构建 Permit2。固定支付依赖包括 x402 2.30.0、mppx 0.18.0、viem 2.57.4 和 OpenZeppelin 5.6.1，锁文件位于 `packages/payment-adapters/`。
 
 当前运行时由新增 ESM 模块与固定 vendor 基线组成。完整 TypeScript 运行时迁移及脱离 vendor 的干净全源码构建尚未完成。`typecheck:interfaces` 仅检查指定接口和类型测试文件，不代表全部运行时通过类型检查。
 
@@ -287,27 +315,16 @@ pnpm start
 
 ## 测试与验证
 
-本次 V0.15.3 仓库同步的本地 Windows 验证记录如下：
+V0.17.0 的 Windows 实测、构建身份、原有功能影响和真实模型失败情况统一见[本版测试报告](docs/V0.17.0-TEST-REPORT.md)。测试覆盖公开视图隔离、私有真值评估、支付成功与异常、真实链采购、无 node_modules 便携运行，以及原单 Agent 五类任务、双 Agent 换币、服务购买和预算控制回归。
 
-| 测试集合 | 通过项数 |
-| --- | ---: |
-| 当前单元测试 | 76 |
-| 跨路径预算核心 | 16 |
-| 自定义金额与边界矩阵 | 9 |
-| 预算主平台集成 | 9 |
-| 预算 HTTP 接口 | 8 |
-| 实际 Windows 启动与停止 | 3 |
-| 独立 worker 换币及五类原任务 | 6 |
-| 服务购买回归 | 16 |
-
-兼容构建、接口类型检查和 11 个受保护服务文件的一致性检查也已通过。各集合按自身范围列出，不作为真实模型成功率统计。
-
-详细记录见[本次本地验证](docs/repository-sync-v0153-validation.json)。已发布便携包的原始报告、浏览器记录和历史跨平台记录保留各自的构建身份；GitHub Actions 状态以对应提交的实际运行结果为准。
+基础设施测试通过不等于模型完成任务，也不等于存在可泛化隐私泄露。36 份构造任务轨迹保留成功与失败；少量 Qwen3 4B 真实运行的失败记录也保留。各套件按自身范围报告，不将重叠断言累加成单一通过总数。远端 CI 以对应提交的 Actions 结果为准；历史证据保留原版本身份。
 
 常用测试入口：
 
 ```powershell
 pnpm test
+pnpm test:research
+pnpm test:research:chain
 pnpm test:budget
 pnpm test:budget:matrix
 pnpm test:budget:main
@@ -325,6 +342,10 @@ pnpm test:service
 
 | 内容 | 入口 |
 | --- | --- |
+| V0.17.0 研究能力及兼容边界 | [更新说明](docs/V0.17.0-RELEASE-NOTES.md) |
+| 采购、观察者视图与推断评估 | [研究操作指南](docs/V0.17.0-RESEARCH-GUIDE.md) |
+| 当前回归与原有功能影响 | [V0.17.0 测试报告](docs/V0.17.0-TEST-REPORT.md) |
+| API / 本地 Qwen 双后端 | [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md) |
 | 平台操作与模块选择 | [操作指南](docs/操作手册.md) |
 | 任务与 Agent 中心 | [任务中心手册](docs/操作手册_V0.15.1.md) |
 | 双 Agent 换币 | [双 Agent 操作手册](docs/操作手册_V0.14.1.md) |
@@ -340,13 +361,15 @@ pnpm test:service
 
 ## 数据与当前实现范围
 
-当前版本仍为 **NOT_FULLY_ACCEPTED 研究预览版**，具体未完成项见验证与验收文档。
+当前版本为 **V0.17.0 Research Beta**，适用于受控研究与复查，不承诺生产网络或所有模型后端可用。
 
-- 当前发布与新增验证面向 Windows x64；历史 macOS 记录不能替代 V0.15.3 的桌面验收。
+- 当前发布与新增验证面向 Windows x64；历史 macOS 记录不能替代 V0.17.0 的真机验收。
 - 原始记录保存实际发生的调用与错误。协议模拟模型和脚本测试不代表真实外部模型能力。
 - Agent 的本地运行目录可能包含钱包秘密、模型配置和身份凭据；公开分享应使用经过脱敏的导出包。
 - 预算签名主体是软件限制的 EOA，尚非智能账户 session key。预算链为临时链，不支持中途崩溃后续跑。
 - 原样重跑与崩溃恢复受模块、原链状态和已验证覆盖范围约束，不承诺任意检查点无损恢复。
+- 采购研究的私有完整包含任务、授权预算及策略真值，不应交给攻击程序；使用单独的公开观察者导出。推断评估结果本身也含测试真值，仅供研究者。
+- 目前仅比较已实现结算部署的可见信息，未实现 PrivateX402、A402 或 TACEO 的隐私保护协议。
 
 `build-info.json` 记录构建身份和源码摘要。历史报告只用于它记录的构建；源码重建后应生成新的记录，保留原始证据。
 
