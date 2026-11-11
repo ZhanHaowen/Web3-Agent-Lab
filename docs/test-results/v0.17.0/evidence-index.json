@@ -376,7 +376,26 @@
     },
     {
       "file": "summary.json",
-      "sha256": "3cb6d90bd4e01a6264b385671446d046e904c41bb954ae85f86089188c429cc3"
+      "sha256": "1b0f324ed93482ff35753aa2d0ee5598d5b2ec8bf766be5d9f6fc6841364b292"
+    }
+  ],
+  "publicationExternalCI": {
+    "url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/42971290510",
+    "headSha": "33860d49be395771458e8d165f7c0fee0c0e4aef",
+    "conclusion": "success"
+  },
+  "additionalPublicationReports": [
+    {
+      "file": "publication-portable.json",
+      "sha256": "82ba52252c7beedcac95096ad8e923d854ec5febd358d895b0bdca3709c07b78"
+    },
+    {
+      "file": "github-ci.json",
+      "sha256": "cad08e72be4061ee937be5ee2d7d08bc9377494a66ce6f273cf63a6e2dae4b65"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "1b0f324ed93482ff35753aa2d0ee5598d5b2ec8bf766be5d9f6fc6841364b292"
     }
   ]
 }

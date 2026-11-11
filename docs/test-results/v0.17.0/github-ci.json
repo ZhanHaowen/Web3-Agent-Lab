@@ -1,0 +1,237 @@
+{
+  "schema": "public-github-ci-validation-v1",
+  "runId": 42971290510,
+  "url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/42971290510",
+  "headSha": "33860d49be395771458e8d165f7c0fee0c0e4aef",
+  "workflow": "Windows V0.17.0 verification",
+  "status": "completed",
+  "conclusion": "success",
+  "startedAt": "2026-11-11T06:16:36Z",
+  "updatedAt": "2026-11-11T06:22:36Z",
+  "jobs": [
+    {
+      "name": "Windows x64 compatibility and integration tests",
+      "conclusion": "success",
+      "startedAt": "2026-11-11T06:16:38Z",
+      "completedAt": "2026-11-11T06:22:35Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:16:39Z",
+          "completedAt": "2026-11-11T06:16:40Z"
+        },
+        {
+          "name": "Check out source without retaining push credentials",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:16:40Z",
+          "completedAt": "2026-11-11T06:16:51Z"
+        },
+        {
+          "name": "Install pinned Node.js",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:16:51Z",
+          "completedAt": "2026-11-11T06:16:59Z"
+        },
+        {
+          "name": "Install pinned pnpm",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:16:59Z",
+          "completedAt": "2026-11-11T06:17:13Z"
+        },
+        {
+          "name": "Install frozen dependencies",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:17:13Z",
+          "completedAt": "2026-11-11T06:17:45Z"
+        },
+        {
+          "name": "Install isolated payment SDK dependencies",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:17:45Z",
+          "completedAt": "2026-11-11T06:17:50Z"
+        },
+        {
+          "name": "Prepare verified local Anvil and the Windows launcher runtime",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:17:50Z",
+          "completedAt": "2026-11-11T06:17:52Z"
+        },
+        {
+          "name": "Build and verify the Windows compatibility runtime",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:17:52Z",
+          "completedAt": "2026-11-11T06:22:29Z"
+        },
+        {
+          "name": "Upload current CI logs and reports",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:22:29Z",
+          "completedAt": "2026-11-11T06:22:31Z"
+        },
+        {
+          "name": "Post Install pinned Node.js",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:22:31Z",
+          "completedAt": "2026-11-11T06:22:31Z"
+        },
+        {
+          "name": "Post Check out source without retaining push credentials",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:22:31Z",
+          "completedAt": "2026-11-11T06:22:33Z"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "startedAt": "2026-11-11T06:22:33Z",
+          "completedAt": "2026-11-11T06:22:33Z"
+        }
+      ]
+    }
+  ],
+  "scope": "Fresh Windows x64 runner; pinned dependencies; full build and original/research integration suites. No real LLM, GUI browser or macOS run.",
+  "execution": {
+    "node": "v24.19.0",
+    "pnpm": "11.19.0",
+    "buildHash": "05082ca38cd1fdaea16a1f1918f96b5186bac11d69cb3477e8cf78860c5220e1",
+    "startedAt": "2026-11-11T06:17:52.4983615Z",
+    "endedAt": "2026-11-11T06:22:23.9410351Z",
+    "steps": [
+      {
+        "name": "01-offline-permit2-build",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 11113
+      },
+      {
+        "name": "02-compatibility-build",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 18617
+      },
+      {
+        "name": "03-release-protection-doctor",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 336
+      },
+      {
+        "name": "04-interface-typecheck",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 1795
+      },
+      {
+        "name": "05-mjs-unit-tests",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 10612
+      },
+      {
+        "name": "06-budget-core",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 26235
+      },
+      {
+        "name": "07-budget-parameter-matrix",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 19199
+      },
+      {
+        "name": "08-budget-main-integration",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 16847
+      },
+      {
+        "name": "09-budget-http",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 8821
+      },
+      {
+        "name": "10-unified-windows-launcher",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 12389
+      },
+      {
+        "name": "11-original-peer-and-task-integration",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 21379
+      },
+      {
+        "name": "12-service-integration",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 59351
+      },
+      {
+        "name": "13-research-x402-ap2",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 8280
+      },
+      {
+        "name": "14-research-mpp",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 6105
+      },
+      {
+        "name": "15-research-payment-adversarial",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 7157
+      },
+      {
+        "name": "16-research-escrow",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 11214
+      },
+      {
+        "name": "17-research-engine",
+        "exitCode": 0,
+        "passed": true,
+        "elapsedMs": 31357
+      }
+    ],
+    "reports": [
+      {
+        "file": "v0153-budget-results.json",
+        "passed": 16,
+        "blocked": 0
+      },
+      {
+        "file": "v0153-parameter-results.json",
+        "passed": 9,
+        "blocked": 0
+      },
+      {
+        "file": "v0153-main-results.json",
+        "passed": 9,
+        "blocked": 0
+      },
+      {
+        "file": "v0153-http-results.json",
+        "passed": 8,
+        "blocked": 0
+      },
+      {
+        "file": "v0153-launcher-results.json",
+        "passed": 3,
+        "blocked": 0
+      },
+      {
+        "file": "v015-service-results.json",
+        "passed": 16,
+        "blocked": 0
+      }
+    ]
+  }
+}

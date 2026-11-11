@@ -1,0 +1,53 @@
+{
+  "schema": "public-portable-validation-v1",
+  "sourceHash": "05082ca38cd1fdaea16a1f1918f96b5186bac11d69cb3477e8cf78860c5220e1",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "noNodeModules": true,
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "x402-exact",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    },
+    {
+      "profile": "x402-batch",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    },
+    {
+      "profile": "ap2-x402-exact",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    },
+    {
+      "profile": "ap2-x402-batch",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    },
+    {
+      "profile": "erc8183-core",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    },
+    {
+      "profile": "mpp-evm-charge",
+      "status": "pass",
+      "taskOutcome": "success",
+      "checkerStatus": "pass"
+    }
+  ],
+  "checks": [
+    "Six local deployment profiles",
+    "Public and private exports",
+    "Offline observer CSP",
+    "Inference evaluation API"
+  ],
+  "sourceReportSha256": "31b4c93d14e502290e1a7cbb08481bfe0433c559736f1018264f3935c392c686"
+}
