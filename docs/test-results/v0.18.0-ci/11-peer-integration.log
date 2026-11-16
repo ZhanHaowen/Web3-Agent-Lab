@@ -1,0 +1,10 @@
+PASS T01 real-chain scripted peer swap: atomic 10A for 20B
+PASS T02 incompatible private goals produce explicit no-deal
+PASS T03 sequential continuous episode uses current balances and new order salt
+PASS T11 manual pending blocks other runs until reconciliation
+PASS T13 scenario exports verify without invoking exported code; old V0.13 API remains usable
+PASS transaction pause and stop prevent an unbroadcast authorization; journal remains ordered
+PASS global single step and scoped agent pauses do not accidentally run another step
+PASS T12/T14 two isolated model protocol sessions with duplicate cross-agent provider IDs
+PASS counterquote is accepted by the other runtime and settles the revised terms
+PASS V0142 missing-payload acceptance and premature tool errors recover without text being executed

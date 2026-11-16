@@ -1,0 +1,152 @@
+{
+  "schema": "web3-testnet-service-integration-v1",
+  "startedAt": "2026-11-16T06:37:08.175Z",
+  "completedAt": "2026-11-16T06:37:32.180Z",
+  "scope": "Isolated Anvil chain 84532 behind standard-RPC-only proxy. No public transactions, faucet claims, user keys or commercial model calls.",
+  "passed": 20,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "HTTP isolation, independent token, origin, field and catalog restrictions",
+      "status": "pass",
+      "durationMs": 45.02109999999993
+    },
+    {
+      "name": "Invalid precision and conflicting task parameters rejected before signing",
+      "status": "pass",
+      "durationMs": 27.365899999999783
+    },
+    {
+      "name": "Five-task continuous scripted regression: balance",
+      "status": "pass",
+      "durationMs": 622.1292000000003,
+      "runId": "137bca96-e756-4a9b-8ba4-cb0f016fd7b5",
+      "transactions": 0
+    },
+    {
+      "name": "Five-task continuous scripted regression: transfer",
+      "status": "pass",
+      "durationMs": 990.2541000000001,
+      "runId": "6713aac8-fb12-4b87-8293-b6323763c0ca",
+      "transactions": 1
+    },
+    {
+      "name": "Five-task continuous scripted regression: approve",
+      "status": "pass",
+      "durationMs": 983.8049000000001,
+      "runId": "2a4ddabc-28ff-4b15-8911-eefbfbb23ed6",
+      "transactions": 1
+    },
+    {
+      "name": "Five-task continuous scripted regression: swap",
+      "status": "pass",
+      "durationMs": 866.6386999999995,
+      "runId": "658ddb51-9843-4bbc-9c7e-75ad393200a4",
+      "transactions": 1
+    },
+    {
+      "name": "Five-task continuous scripted regression: swap_deposit",
+      "status": "pass",
+      "durationMs": 1943.6850000000013,
+      "runId": "154e1322-4e19-47d8-982f-3d20f63337cd",
+      "transactions": 3
+    },
+    {
+      "name": "Read-only reconnect, saved manifest attach and query; writes denied",
+      "status": "pass",
+      "durationMs": 2864.0643,
+      "runId": "211ca357-9fc2-4663-b54d-7eec61354ee0"
+    },
+    {
+      "name": "Pause before tool, concurrent experiment rejected, cancellation preserved",
+      "status": "pass",
+      "durationMs": 443.4899999999998,
+      "runId": "ead2176e-33b1-4bc9-b951-c18b504ad95e"
+    },
+    {
+      "name": "Pause before transaction resumes exactly one prepared payment",
+      "status": "pass",
+      "durationMs": 888.8997999999992,
+      "runId": "07c65fe8-18ef-4f78-9bc2-238f7adfe6b4"
+    },
+    {
+      "name": "Cancellation after preparation does not fabricate a broadcast or pending liability",
+      "status": "pass",
+      "durationMs": 780.8297999999995,
+      "runId": "938b0bd0-4b43-485f-bea0-ee55a0169e99"
+    },
+    {
+      "name": "Insufficient test-token funds retain a failed task and raw error without broadcasting",
+      "status": "pass",
+      "durationMs": 600.9585999999999,
+      "runId": "4d5abcb6-d37f-4229-bc71-2c1251ee024c"
+    },
+    {
+      "name": "Pending transaction survives service restart and read-only recheck never resends",
+      "status": "pass",
+      "durationMs": 3531.2153,
+      "runId": "ef5169ec-deca-49c1-8042-181f383be506"
+    },
+    {
+      "name": "Accepted broadcast with lost HTTP response retains hash and only reconciles",
+      "status": "pass",
+      "durationMs": 1247.948199999999,
+      "runId": "a04ee7b3-2d77-43dd-b9eb-92337bb37967"
+    },
+    {
+      "name": "HTTP model transaction fixture links task-model-tool-contract-transaction and marks unavailable trace",
+      "status": "pass",
+      "durationMs": 1281.8388000000014,
+      "runId": "082206c7-ae7f-4395-96e3-d86d317429a1",
+      "modelCalls": 3,
+      "evidence": "Protocol fixture, not model capability evidence"
+    },
+    {
+      "name": "Historical recheck after later transactions does not invent success or overwrite raw evidence",
+      "status": "pass",
+      "durationMs": 640.4132000000027,
+      "runId": "6713aac8-fb12-4b87-8293-b6323763c0ca",
+      "recheckStatus": "failure"
+    },
+    {
+      "name": "Offline task recheck reproduces captured result without any RPC after live state changed",
+      "status": "pass",
+      "durationMs": 67.33490000000165,
+      "runId": "6713aac8-fb12-4b87-8293-b6323763c0ca"
+    },
+    {
+      "name": "Offline recheck retains unknown external evidence: reorged anchor",
+      "status": "pass",
+      "durationMs": 773.5918999999994,
+      "runId": "f326e761-054b-4a46-94ce-0fd903becb3c",
+      "source": "real isolated EVM execution plus deliberately faulted checker RPC"
+    },
+    {
+      "name": "Offline recheck retains unknown external evidence: missing RPC block",
+      "status": "pass",
+      "durationMs": 741.0008000000016,
+      "runId": "8c29845d-bb4f-4f43-98e5-aa0fff9d5cc4",
+      "source": "real isolated EVM execution plus deliberately faulted checker RPC"
+    },
+    {
+      "name": "Service RPC contains no Anvil privileges or unlocked-account transaction requests",
+      "status": "pass",
+      "durationMs": 11.563099999999395,
+      "rpcMethods": [
+        "debug_traceTransaction",
+        "eth_blockNumber",
+        "eth_call",
+        "eth_chainId",
+        "eth_estimateGas",
+        "eth_getBalance",
+        "eth_getBlockByNumber",
+        "eth_getCode",
+        "eth_getTransactionByHash",
+        "eth_getTransactionCount",
+        "eth_getTransactionReceipt",
+        "eth_maxPriorityFeePerGas",
+        "eth_sendRawTransaction"
+      ]
+    }
+  ]
+}

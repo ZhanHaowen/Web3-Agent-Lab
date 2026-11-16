@@ -332,7 +332,9 @@ pnpm start
 
 V0.18.0 的构建身份、当前回归状态及历史验收分别见[本版测试报告](docs/TESTNET-VALIDATION-REPORT.md)与[同步证据](docs/test-results/v0.18.0/)。测试覆盖测试网基础任务、金额校验、暂停/取消、未决交易恢复、只读对账、图关联及离线隔离，并回归原单 Agent、双 Agent、独立 worker、服务购买、预算和支付研究。测试网链操作使用隔离 Anvil 的标准 RPC，不代表真实公网写入验收。
 
-本次 V0.18.0 发布构建本地回归 **26/26 阶段通过**；根目录 227/227、保留 TypeScript 145/145，测试网链/服务/端到端/UI 分别为 19/19、11/11、20/20、10/10，浏览器 15/15、Windows 便携包 6/6。各集合有重叠，不相加为独立用例总数。本地发布 gate 与 GitHub Actions 独立，CI 仍需核对推送后对应提交的实际状态。
+本次 V0.18.0 发布构建本地回归 **26/26 阶段通过**；根目录 227/227、保留 TypeScript 145/145，测试网链/服务/端到端/UI 分别为 19/19、11/11、20/20、10/10，浏览器 15/15、Windows 便携包 6/6。各集合有重叠，不相加为独立用例总数。[GitHub Actions 独立 Windows 回归](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/43817559055)亦为 **26/26 阶段通过**，源码摘要与本地一致；被测代码提交及最终文档补充提交的关系见[CI 证据](docs/test-results/v0.18.0-ci/)和[验证报告](docs/TESTNET-VALIDATION-REPORT.md)。
+
+完整公开日志、报告与轨迹样本另提供 Release 的 `Web3-Agent-Lab-V0.18.0-Test-Evidence.zip`；Windows 运行包按打包规则排除日志及嵌套 ZIP，请分别下载。公开样本保留脱敏说明与文件校验索引。
 
 历史 Testnet Preview 的 final04 为 26/26 阶段通过；真实 Qwen 基础任务完成 4/5，原采购研究任务完成 0/3，失败样本均保留。历史报告及 sourceHash 不作为 V0.18.0 新构建的验收身份；本次发布构建的结果以本版测试报告为准。
 

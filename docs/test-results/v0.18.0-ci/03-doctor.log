@@ -1,0 +1,18 @@
+{
+  "version": "V0.18.0 Testnet Beta",
+  "buildHash": "bb1039fb642b27d9d893158f73e81ad81cceb6c58e9f1ea2f9b45dceb533c5ea",
+  "node": "v24.19.0",
+  "sqlite": "3.53.3",
+  "integrityValid": true,
+  "errors": [],
+  "checkedFiles": 662,
+  "changedFromV015": [
+    "src/scenario/service.mjs",
+    "src/scenario/agent-runtime.mjs",
+    "src/scenario/core.mjs",
+    "public/services.html",
+    "public/service-ui.js"
+  ],
+  "historicalBaselineNote": "Historical hashes are comparison evidence. V0.16 changes are verified against the current build manifest.",
+  "network": "not accessed"
+}

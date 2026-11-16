@@ -1,0 +1,197 @@
+{
+  "schema": "github-ci-publication-scan-v1",
+  "checkedAt": "2026-11-16T06:46:52.055Z",
+  "repository": "ZhanHaowen/Web3-Agent-Lab",
+  "runId": 43817559055,
+  "headSha": "5d00cfc215daa33c3040909edff0948326eb0138",
+  "sourceHash": "bb1039fb642b27d9d893158f73e81ad81cceb6c58e9f1ea2f9b45dceb533c5ea",
+  "artifact": {
+    "name": "windows-v0180-validation",
+    "files": 40,
+    "logs": 26,
+    "json": 14,
+    "bytes": 393459
+  },
+  "scannedFiles": 42,
+  "rules": [
+    "credential-assignment",
+    "github-token",
+    "provider-token",
+    "private-pem",
+    "url-auth",
+    "url-query-credential",
+    "local-user-path",
+    "public-dev-mnemonic",
+    "serialized-signature",
+    "known-anvil-development-private-key (20 default accounts)"
+  ],
+  "findings": [],
+  "passed": true,
+  "scope": "Pattern scan of original CI logs/results and two GitHub evidence metadata files; secret values are never printed. Hashes, contract addresses and transaction hashes are retained. This is not a guarantee against every possible encoding of a secret.",
+  "sourceHashMatchesLocalBuild": true,
+  "publicWriteTransactionsTested": false,
+  "macOSTested": false,
+  "artifactCopiesByteIdentical": true,
+  "originalArtifactFiles": [
+    {
+      "path": "01-budget-build.log",
+      "sha256": "cebdb3c4db2ff602327351ace3032caf92728cb3abac7973dc7917ead610a89c"
+    },
+    {
+      "path": "02-platform-build.log",
+      "sha256": "aab26381cae0ed079580cfdef7c94fc201f8ee22c8ca9d1a00c7e0a08078d12e"
+    },
+    {
+      "path": "03-doctor.log",
+      "sha256": "60f4a978380ad6d3515d61ca0e1c77617eddb9064d976037467384ba7295e481"
+    },
+    {
+      "path": "04-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "05-unit.log",
+      "sha256": "f03c2b224301d18e95259f518cdf2cce993c42217ed35fe568223669463a834c"
+    },
+    {
+      "path": "06-legacy-source.log",
+      "sha256": "daabbb4f0905365b5270568b754ddc942c4c5e70776f4429a3490d9e97a40884"
+    },
+    {
+      "path": "07-testnet-integration.log",
+      "sha256": "e515d710646aac0def57a6f0eb7e52675f9d2496f4c55537e77cc2dcc7ba46ec"
+    },
+    {
+      "path": "08-original-api.log",
+      "sha256": "f7a484f3c753b7977de0bd53fc749a5e5ff822f06c422345ee63062d76400873"
+    },
+    {
+      "path": "09-allowance-matrix.log",
+      "sha256": "cb9bfcee2d2feaeb7cf8a08f9609d49fb7e9d3b9f59925085497ae9155a0b5c6"
+    },
+    {
+      "path": "10-peer-contract.log",
+      "sha256": "385ce7e29769d7df1e376639e6862c85fec05fa7dafc5ae6148a40eab4fc4249"
+    },
+    {
+      "path": "11-peer-integration.log",
+      "sha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c"
+    },
+    {
+      "path": "12-independent-workers.log",
+      "sha256": "22867b732d3e58e37e3715a44edce3e982de252128817240407800497e544a67"
+    },
+    {
+      "path": "13-worker-shutdown-recovery.log",
+      "sha256": "efe9f47995b287723cc7fc26f19ff70c74356f8009f9c857ddd63bbcaea25c25"
+    },
+    {
+      "path": "14-service-contract.log",
+      "sha256": "61a92aac98fb1f54e56584ec7cbb8c989178b97228d106c6f01c41ef6616236b"
+    },
+    {
+      "path": "15-service-integration.log",
+      "sha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd"
+    },
+    {
+      "path": "16-budget-core.log",
+      "sha256": "2f5e520474b4fb41c01719d5c516233b191e45b4fea2c93ce2acd79c2b7ad5cc"
+    },
+    {
+      "path": "17-budget-parameters.log",
+      "sha256": "827429469efd60a016eb29e8f4e3cccf8ce8ab8824d1fb164f84c37095a2efce"
+    },
+    {
+      "path": "18-budget-main.log",
+      "sha256": "a45122327b7ef97fd010d81d6e5b71fd091abd34b5662d60f736006b73561993"
+    },
+    {
+      "path": "19-budget-http.log",
+      "sha256": "5f04ac1606e4a5c284844a79fe57aa21da5370e13be3a656735d6933f914bd4c"
+    },
+    {
+      "path": "20-windows-launcher.log",
+      "sha256": "28e3adbf582220a578581b98f28d81bc03b4a5b5a75a3d85ec0580361745426b"
+    },
+    {
+      "path": "21-x402-ap2.log",
+      "sha256": "591d09fd92621dbdf25d96b738a797c1edc89786637d896a82f942269c5064cf"
+    },
+    {
+      "path": "22-mpp.log",
+      "sha256": "d30738e5307de49eaf218e2048485af7c1a6dbda268caed46be9e26d6363ae29"
+    },
+    {
+      "path": "23-payment-adversarial.log",
+      "sha256": "63cfee820fa428081405244469e90b8e7017075ab86c3da06f715d662d663660"
+    },
+    {
+      "path": "24-research-escrow.log",
+      "sha256": "4748de97a4172b261991c583bea692277567332b428166e855585cf61324a4d0"
+    },
+    {
+      "path": "25-research-engine.log",
+      "sha256": "663378d8b027309a4b2929d8f285e5fa92f1abcdcf42a406634b250d9d259838"
+    },
+    {
+      "path": "26-research-dataset.log",
+      "sha256": "45bd4435c7f36c2db007311bba65bb876d7816e6edd9cf75fef8692638218a92"
+    },
+    {
+      "path": "results/07-testnet-integration/testnet/report.json",
+      "sha256": "896541aff202104403840cf862d8d4d69134f3b35a225d6e91dac580f20e6f2f"
+    },
+    {
+      "path": "results/08-original-api/e2e-results.json",
+      "sha256": "0261bba93d6117b0befcc821e99fe3cf6c4c35616d08f670fdd6357367abf3f7"
+    },
+    {
+      "path": "results/08-original-api/feedback-e2e-results.json",
+      "sha256": "15a6ffca480619ac49f032915bf932750720c215c1888ba5340aca6d13990e88"
+    },
+    {
+      "path": "results/10-peer-contract/v014-contract-results.json",
+      "sha256": "328e9209c3fe13a6aa0dbb1ec431d51cd0d9e6afb32f307452a4192b72ef19a7"
+    },
+    {
+      "path": "results/11-peer-integration/v014-integration-results.json",
+      "sha256": "9da8f7843e525c4d24d6fa17355df8ecaaeb498fc8b579edbcc8be33cec5aaa2"
+    },
+    {
+      "path": "results/14-service-contract/v015-contract-results.json",
+      "sha256": "486a5d92b8cb8a147840cea80aede11d19fc5fa0421a9e3bd2e5476623b3f1de"
+    },
+    {
+      "path": "results/15-service-integration/v015-service-results.json",
+      "sha256": "574c3009b11dea34ce4c6f1fe85e31c9439840500b1d791d3fb428f724c89c89"
+    },
+    {
+      "path": "results/16-budget-core/v0153-budget-results.json",
+      "sha256": "efd5f6d0a96bf35af6316ca7e8740e0c9a5e44124bec4265bb965374cc315989"
+    },
+    {
+      "path": "results/17-budget-parameters/v0153-parameter-results.json",
+      "sha256": "bd5901192fc1dfc14d79200d81891642ccaaa587e2e499436c61521944dc62a8"
+    },
+    {
+      "path": "results/18-budget-main/v0153-main-results.json",
+      "sha256": "6fd99e48a4fd40a58ebda0e686e6d03313de59bf805973b6eacb8c030f8db78b"
+    },
+    {
+      "path": "results/19-budget-http/v0153-http-results.json",
+      "sha256": "7c38bad3d373cee910a799a12ef64972dc2d186c4de850471ec2f5eca5f2ee1a"
+    },
+    {
+      "path": "results/20-windows-launcher/v0153-launcher-results.json",
+      "sha256": "1f78468269a1964a354d6915b851c514c0d771389374af43d979dc05700f169f"
+    },
+    {
+      "path": "results/25-research-engine/research/report.json",
+      "sha256": "d0d0cc97ac159d3ba17c4ebe1862bfb3e1d81a3930cbdcf4467ad8870c7b58a6"
+    },
+    {
+      "path": "summary.json",
+      "sha256": "418e3dace350b8124144aded54b88fd99c6b9b5b0a9ec17561264972e4796fcd"
+    }
+  ]
+}

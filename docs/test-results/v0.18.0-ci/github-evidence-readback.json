@@ -1,0 +1,126 @@
+{
+  "schema": "github-public-evidence-readback-v1",
+  "repository": "https://github.com/ZhanHaowen/Web3-Agent-Lab",
+  "commit": "5d00cfc215daa33c3040909edff0948326eb0138",
+  "checkedAt": "2026-11-16T06:34:54.159627+00:00",
+  "readOnly": true,
+  "source": "public raw.githubusercontent.com at immutable commit",
+  "files": [
+    {
+      "name": "historical-v017-preview-samples.zip",
+      "url": "https://raw.githubusercontent.com/ZhanHaowen/Web3-Agent-Lab/5d00cfc215daa33c3040909edff0948326eb0138/docs/test-results/v0.18.0/historical-v017-preview-samples.zip",
+      "httpStatus": 200,
+      "attempt": 1,
+      "bytes": 2316355,
+      "sha256": "33e4affa6cc09af0f3ec5227b038af65e069450861af698bc352f3be1255fc3f",
+      "localBytes": 2316355,
+      "localSha256": "33e4affa6cc09af0f3ec5227b038af65e069450861af698bc352f3be1255fc3f",
+      "identicalToLocal": true,
+      "etag": "\"28ebf0cb56835d51e444c5e196ba30efa23803bffd7326992cff20ae4c78aba8\"",
+      "contentType": "application/zip",
+      "priorErrors": []
+    },
+    {
+      "name": "release-v018-testnet-samples.zip",
+      "url": "https://raw.githubusercontent.com/ZhanHaowen/Web3-Agent-Lab/5d00cfc215daa33c3040909edff0948326eb0138/docs/test-results/v0.18.0/release-v018-testnet-samples.zip",
+      "httpStatus": 200,
+      "attempt": 1,
+      "bytes": 808263,
+      "sha256": "bffd023ca6a6e867504cf9553f57a5c00a7c7907da62de155a8d76eebd326804",
+      "localBytes": 808263,
+      "localSha256": "bffd023ca6a6e867504cf9553f57a5c00a7c7907da62de155a8d76eebd326804",
+      "identicalToLocal": true,
+      "etag": "\"6efa3fe0828fc465cf937ada2e141471047d747cef6d1384bfd9a85aa8588694\"",
+      "contentType": "application/zip",
+      "priorErrors": []
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "url": "https://raw.githubusercontent.com/ZhanHaowen/Web3-Agent-Lab/5d00cfc215daa33c3040909edff0948326eb0138/docs/test-results/v0.18.0/SHA256SUMS.txt",
+      "httpStatus": 200,
+      "attempt": 1,
+      "bytes": 12935,
+      "sha256": "960d0c1ca8bf6b793ca94fb67bc5617435516bdfd85bf50d0c7a075b2dd6197e",
+      "localBytes": 12935,
+      "localSha256": "960d0c1ca8bf6b793ca94fb67bc5617435516bdfd85bf50d0c7a075b2dd6197e",
+      "identicalToLocal": true,
+      "etag": "\"2a580c18a5bcb72e23ef56187acb7fa75ec5789c0e7fc9b330474c1af16e6896\"",
+      "contentType": "text/plain; charset=utf-8",
+      "priorErrors": []
+    },
+    {
+      "name": "publication-index.json",
+      "url": "https://raw.githubusercontent.com/ZhanHaowen/Web3-Agent-Lab/5d00cfc215daa33c3040909edff0948326eb0138/docs/test-results/v0.18.0/publication-index.json",
+      "httpStatus": 200,
+      "attempt": 1,
+      "bytes": 658984,
+      "sha256": "595ce8f61be1ce9f88ab04d5fae01dd40af83d45d234046c9b73d9d3e94897b9",
+      "localBytes": 658984,
+      "localSha256": "595ce8f61be1ce9f88ab04d5fae01dd40af83d45d234046c9b73d9d3e94897b9",
+      "identicalToLocal": true,
+      "etag": "\"9bd14f9efe466be2d693778e2fb48f8b5ae67dce82a6f9c0d0714318a1779725\"",
+      "contentType": "text/plain; charset=utf-8",
+      "priorErrors": []
+    },
+    {
+      "name": "scan-report.json",
+      "url": "https://raw.githubusercontent.com/ZhanHaowen/Web3-Agent-Lab/5d00cfc215daa33c3040909edff0948326eb0138/docs/test-results/v0.18.0/scan-report.json",
+      "httpStatus": 200,
+      "attempt": 1,
+      "bytes": 1048,
+      "sha256": "3957c052082297c9c988bff060ac171ead8b53a82e2a08cc4949bf79169a6ad5",
+      "localBytes": 1048,
+      "localSha256": "3957c052082297c9c988bff060ac171ead8b53a82e2a08cc4949bf79169a6ad5",
+      "identicalToLocal": true,
+      "etag": "\"9b9ba94b33010019d47817d146dc730bc28a3be311446bac967d2fe2a1a02e17\"",
+      "contentType": "text/plain; charset=utf-8",
+      "priorErrors": []
+    }
+  ],
+  "zipChecks": [
+    {
+      "name": "historical-v017-preview-samples.zip",
+      "crcPassed": true,
+      "entries": 523,
+      "indexedEntriesVerified": 522,
+      "extraPublicationMetadataOnly": true
+    },
+    {
+      "name": "release-v018-testnet-samples.zip",
+      "crcPassed": true,
+      "entries": 261,
+      "indexedEntriesVerified": 260,
+      "extraPublicationMetadataOnly": true
+    }
+  ],
+  "hashManifestChecks": [
+    {
+      "name": "historical-v017-preview-samples.zip",
+      "matchesRemoteManifest": true
+    },
+    {
+      "name": "release-v018-testnet-samples.zip",
+      "matchesRemoteManifest": true
+    },
+    {
+      "name": "publication-index.json",
+      "matchesRemoteManifest": true
+    },
+    {
+      "name": "scan-report.json",
+      "matchesRemoteManifest": true
+    }
+  ],
+  "errors": [],
+  "publishedScanReport": {
+    "remainingCredentialAlerts": 0,
+    "remainingLocalPathOrAccountAlerts": 0,
+    "sourceManifestCompletenessChecks": {
+      "historicalResearchRuns": 3,
+      "releaseGuiRuns": 7,
+      "sealedFileHashesAndLengthsChecked": true
+    }
+  },
+  "verified": true,
+  "completedAt": "2026-11-16T06:34:58.899498+00:00"
+}

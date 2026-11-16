@@ -1,0 +1,68 @@
+{
+  "version": "V0.18.0 Testnet Beta",
+  "time": "2026-11-16T06:42:00.320Z",
+  "buildHash": "bb1039fb642b27d9d893158f73e81ad81cceb6c58e9f1ea2f9b45dceb533c5ea",
+  "results": [
+    {
+      "name": "main-only startup serves budget category and assets on a custom port",
+      "passed": true,
+      "elapsedMs": 36,
+      "detail": {
+        "mainPort": 50107,
+        "heading": "跨路径资产授权与预算控制"
+      }
+    },
+    {
+      "name": "budget mutations require exact origin and their scoped token",
+      "passed": true,
+      "elapsedMs": 23
+    },
+    {
+      "name": "original main chain initializes independently of the budget module",
+      "passed": true,
+      "elapsedMs": 785
+    },
+    {
+      "name": "custom split values reproduce 355 actual, 175 normal counter and 55 excess",
+      "passed": true,
+      "elapsedMs": 1969
+    },
+    {
+      "name": "the same custom values under unified policy reject the second commitment",
+      "passed": true,
+      "elapsedMs": 1717
+    },
+    {
+      "name": "fractional values execute exactly without floating-point rounding",
+      "passed": true,
+      "elapsedMs": 1892
+    },
+    {
+      "name": "budget execution preserves main data path, chain identity and original contract code",
+      "passed": true,
+      "elapsedMs": 31
+    },
+    {
+      "name": "main shutdown closes a signed but unredeemed budget signer and its dedicated chain",
+      "passed": true,
+      "elapsedMs": 5114,
+      "detail": {
+        "ownedChildPids": [
+          7796,
+          3668
+        ]
+      }
+    },
+    {
+      "name": "main shutdown during a new budget initialization leaves its observed Anvil closed",
+      "passed": true,
+      "elapsedMs": 4765,
+      "detail": {
+        "observedStage": "idle",
+        "ownedChildPids": [
+          7984
+        ]
+      }
+    }
+  ]
+}

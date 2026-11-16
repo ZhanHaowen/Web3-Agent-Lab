@@ -1,0 +1,27 @@
+OUTCOME {"scheme":"exact","status":"settled","txHash":"0x9d43e75e10ffd81d556e2636397cd1668e9f63244e02abcdbeb6a376108f5925"}
+PASS exact receives actual HTTP response
+PASS exact cryptographic AP2 overlay
+PASS exact correct financial state
+PASS exact records real 402
+PASS exact idempotent application replay
+PASS exact second purchase delivered
+PASS exact both settled independently checked
+PASS exact recipient received exact total
+PASS exact HTTP failure is not refund
+PASS exact failed service still charged
+PASS exact unused escrow refund preserves spend
+PASS exact no reusable signature in event capture
+OUTCOME {"scheme":"batch-settlement","status":"pending"}
+PASS batch-settlement receives actual HTTP response
+PASS batch-settlement cryptographic AP2 overlay
+PASS batch-settlement correct financial state
+PASS batch-settlement records real 402
+PASS batch-settlement idempotent application replay
+PASS batch-settlement second purchase delivered
+PASS batch-settlement both settled independently checked
+PASS batch-settlement recipient received exact total
+PASS batch-settlement HTTP failure is not refund
+PASS batch-settlement failed service still charged
+PASS batch-settlement unused escrow refund preserves spend
+PASS batch-settlement no reusable signature in event capture
+SUMMARY 24 passed

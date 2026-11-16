@@ -23,7 +23,18 @@ V0.18.0 发布构建已完成本地全量回归：**26/26 阶段通过，所有�
 
 本轮工作输出位置为 `outputs/v0.18.0-release/full-regression`；公开同步的报告、日志及身份清单以[本版测试证据目录](test-results/v0.18.0/)为准。仓库证据的收录范围与完整原始数据区别见该目录索引，不能将缺失原始文件的摘要视为完整实验包。
 
-这里的本地发布 gate 与 GitHub Actions 是独立验证。发布推送后的 CI 必须查看对应提交的实际运行状态，本报告不将本地 26/26 写成 GitHub CI 已通过。
+### GitHub Actions 独立回归
+
+[GitHub Actions run 43817559055](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/43817559055) 已完成，结论为 **success**，Windows job 通过。下载的 CI artifact 已核对：26/26 阶段通过、失败 0，根目录 227/227、保留 TypeScript 145/145。CI 运行于北京时间 2026-11-16 14:34:53–14:44:16（UTC+8，原始日志保留 UTC）。
+
+- 被测代码提交：`5d00cfc215daa33c3040909edff0948326eb0138`。
+- CI 构建版本：`0.18.0`。
+- CI sourceHash：`bb1039fb642b27d9d893158f73e81ad81cceb6c58e9f1ea2f9b45dceb533c5ea`，与本地发布构建一致。
+- CI 报告、日志和身份材料见[本版 CI 证据](test-results/v0.18.0-ci/)。本地浏览器/便携包及历史真实模型结果仍按各自来源记录，不归入 CI 的 26 阶段。
+
+最终 `V0.18.0` 标签包含随后补充的文档与验收材料提交；这些补充不改变产品源码和上述 sourceHash。CI 验证针对明确列出的代码提交，不冒称在随后文档提交上重新执行。
+
+Windows 运行 ZIP 的打包规则排除 `*.log` 和嵌套 `*.zip`，因此它不含全部验收日志或历史样本 ZIP。完整的公开测试证据应从 [Release](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) 的独立 **Test-Evidence** 资产及仓库中的[本地/历史证据](test-results/v0.18.0/)和[CI 证据](test-results/v0.18.0-ci/)获取，按各自索引与校验和核对。
 
 ## 3. 历史 Testnet Preview 的已完成验证
 
