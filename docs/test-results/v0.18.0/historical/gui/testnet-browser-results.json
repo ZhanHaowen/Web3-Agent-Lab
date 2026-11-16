@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-11-16T06:05:51.545Z",
+  "scope": "Headless browser + actual standard-RPC isolated EVM; not live public testnet transactions",
+  "results": [
+    {
+      "name": "six enabled profiles, fourteen catalog-only profiles and original local navigation",
+      "passed": true
+    },
+    {
+      "name": "dedicated test wallet connection and immediate password-field clearing",
+      "passed": true
+    },
+    {
+      "name": "explicit Lab fixture deployment through standard RPC and visible native gas balance",
+      "passed": true
+    },
+    {
+      "name": "real browser scripted balance with on-chain independent success",
+      "passed": true
+    },
+    {
+      "name": "real browser scripted transfer with on-chain independent success",
+      "passed": true
+    },
+    {
+      "name": "real browser scripted approve with on-chain independent success",
+      "passed": true
+    },
+    {
+      "name": "real browser scripted swap with on-chain independent success",
+      "passed": true
+    },
+    {
+      "name": "real browser scripted swap_deposit with on-chain independent success",
+      "passed": true
+    },
+    {
+      "name": "parameter rebuild and real before-tool / before-transaction pause-resume preserve target amount",
+      "passed": true
+    },
+    {
+      "name": "sealed-evidence task recheck uses local service without any RPC or model call",
+      "passed": true
+    },
+    {
+      "name": "raw event detail and explicit provenance graph nodes render from sealed evidence",
+      "passed": true
+    },
+    {
+      "name": "native browser bundle, GraphML and CSV downloads preserve original file bytes without private key",
+      "passed": true
+    },
+    {
+      "name": "offline import, step replay and graph inspection make zero HTTP/RPC requests; mobile layout fits",
+      "passed": true
+    },
+    {
+      "name": "exported manifest reattaches to readonly account; UI prohibits writes and balance query succeeds",
+      "passed": true
+    },
+    {
+      "name": "local/API model selectors remain explicit and no browser JavaScript errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

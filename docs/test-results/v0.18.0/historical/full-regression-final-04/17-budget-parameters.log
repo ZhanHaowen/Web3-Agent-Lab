@@ -1,0 +1,11 @@
+(node:25232) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS large arbitrary amounts reproduce cross-path overspend
+PASS same arbitrary amounts are blocked by unified budget
+PASS fractional split amounts reproduce exact decimal overspend
+PASS fractional unified budget rejects amount above remainder
+PASS six-decimal exact boundary is accepted
+PASS one minimal unit above remaining budget is rejected
+PASS transaction-only arbitrary amounts share normal entry limit
+PASS raising only task budget permits the same two payments
+PASS raising only wallet balance does not change task budget

@@ -4,7 +4,7 @@ import { join, resolve } from 'node:path';
 import { randomBytes, randomUUID } from 'node:crypto';
 import { ChainLab } from './chain.js';
 import { TASKS, toolDefinitions, resolveTask } from './tasks.js';
-import { checkTask } from './checker.js';
+import { checkTask, CHECKER_VERSION } from './checker.js';
 import { runAgent } from './agent.js';
 import { buildDiagnostics } from './diagnostics.js';
 import { buildExecutionTrace } from './trace.js';
@@ -245,7 +245,7 @@ async function beginRun(body: any, parentRunId?: string, continuation?:any) {
         gas_complete: Array.isArray(verdict?.evidence?.transactions) && !verdict.evidence.transactions.some((tx: any) => !tx.receipt),
         missing_usage_reason: body.mode === 'scripted' ? 'no_model_used' : agentResult?.usage?.totalTokens == null ? 'provider_usage_incomplete' : null
       };
-      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config.previous_run_id, continuation_of:config.continuation_of, checker_version: verdict?.checkerVersion || '2.2.0', check_id: randomUUID(), evidence_source: 'original_run', checked_at: new Date().toISOString(), check_mode: 'live', agent: agentResult, run_error: runError || agentResult?.error || null, costs:{...costs,transaction_scope:continuation?'cumulative_task':'current_run',model_scope:'current_run'}, cancelled: localController.signal.aborted });
+      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config.previous_run_id, continuation_of:config.continuation_of, checker_version: verdict?.checkerVersion || CHECKER_VERSION, check_id: randomUUID(), evidence_source: 'original_run', checked_at: new Date().toISOString(), check_mode: 'live', agent: agentResult, run_error: runError || agentResult?.error || null, costs:{...costs,transaction_scope:continuation?'cumulative_task':'current_run',model_scope:'current_run'}, cancelled: localController.signal.aborted });
       try {
         if (body.mode === 'llm' && body.model?.provider === 'local') {
           const runtimeEvidence = await runtimeEvidenceHooks?.capture(body.model, runtimeEvidenceCursor);

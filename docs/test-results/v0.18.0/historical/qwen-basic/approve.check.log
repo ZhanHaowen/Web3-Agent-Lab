@@ -1,0 +1,272 @@
+{
+  "checkerVersion": "2.2.0",
+  "taskId": "approve",
+  "status": "success",
+  "validationStatus": "checked",
+  "reason": "All independent state and transaction assertions passed",
+  "assertions": [
+    {
+      "id": "same-chain",
+      "passed": true,
+      "expected": "84532 / 84532",
+      "actual": "84532 / 84532"
+    },
+    {
+      "id": "same-epoch",
+      "passed": true,
+      "expected": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "actual": "40da94c3-af94-4b35-a9ba-35276095aaa6"
+    },
+    {
+      "id": "same-contracts",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "state-block-order",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "agent-nonce-vs-mined-transactions",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "id": "correct-approval-target-and-amount",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "allowance-exact",
+      "passed": true,
+      "expected": "20000000",
+      "actual": "20000000"
+    },
+    {
+      "id": "token-balances-unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "other-allowance-unchanged",
+      "passed": true,
+      "expected": "0",
+      "actual": "0"
+    },
+    {
+      "id": "pool-unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "shares-unchanged",
+      "passed": true,
+      "expected": "0",
+      "actual": "0"
+    },
+    {
+      "id": "vault-assets-unchanged",
+      "passed": true,
+      "expected": "0",
+      "actual": "0"
+    }
+  ],
+  "evidence": {
+    "before": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "8",
+      "blockHash": "0x75d9e7deaa560a72920bbd911c1359abd4211e08cb4bc19b0d0ac28af341feba",
+      "timestamp": "1794809143",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "90000000",
+        "agentB": "0",
+        "recipientA": "10000000",
+        "recipientB": "0",
+        "native": "99996380059360864682"
+      },
+      "allowances": {
+        "ammA": "0",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10000000000",
+        "B": "10000000000"
+      },
+      "nonce": 8,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "90",
+          "agentB": "0",
+          "recipientA": "10",
+          "recipientB": "0",
+          "native": "99.996380059360864682"
+        },
+        "allowances": {
+          "ammA": "0",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10000",
+          "B": "10000"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "after": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "9",
+      "blockHash": "0xfc56c4a45bb31eef7dacf71be9bab1a6fd26712c55746bd25783eca800665499",
+      "timestamp": "1794809158",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "90000000",
+        "agentB": "0",
+        "recipientA": "10000000",
+        "recipientB": "0",
+        "native": "99996317790527463203"
+      },
+      "allowances": {
+        "ammA": "20000000",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10000000000",
+        "B": "10000000000"
+      },
+      "nonce": 9,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "90",
+          "agentB": "0",
+          "recipientA": "10",
+          "recipientB": "0",
+          "native": "99.996317790527463203"
+        },
+        "allowances": {
+          "ammA": "20",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10000",
+          "B": "10000"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "transactions": [
+      {
+        "hash": "0x02a71fd16f36fc892a4de87b6a24a5f79e4f7bbc4859514914e7ed875ec20dd2",
+        "txHash": "0x02a71fd16f36fc892a4de87b6a24a5f79e4f7bbc4859514914e7ed875ec20dd2",
+        "status": "success",
+        "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+        "to": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "data": "0x095ea7b3000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e0000000000000000000000000000000000000000000000000000000001312d00",
+        "value": "0",
+        "nonce": 8,
+        "chainId": 84532,
+        "gas": "46119",
+        "gasPrice": "1350177441",
+        "maxFeePerGas": "1480006922",
+        "maxPriorityFeePerGas": "1000000000",
+        "type": "eip1559",
+        "receipt": {
+          "type": "eip1559",
+          "status": "success",
+          "cumulativeGasUsed": "46119",
+          "logs": [
+            {
+              "address": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+              "topics": [
+                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+                "0x000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000001312d00",
+              "blockHash": "0xfc56c4a45bb31eef7dacf71be9bab1a6fd26712c55746bd25783eca800665499",
+              "blockNumber": "9",
+              "blockTimestamp": "1794809158",
+              "transactionHash": "0x02a71fd16f36fc892a4de87b6a24a5f79e4f7bbc4859514914e7ed875ec20dd2",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ],
+          "logsBloom": "0x00000000000000000000040000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000240000000000000000000000000000000000000000000000000000000000000000000000000000020000000000200200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000080000010000000000000001000000000000000000000000000000000000000000000",
+          "transactionHash": "0x02a71fd16f36fc892a4de87b6a24a5f79e4f7bbc4859514914e7ed875ec20dd2",
+          "transactionIndex": 0,
+          "blockHash": "0xfc56c4a45bb31eef7dacf71be9bab1a6fd26712c55746bd25783eca800665499",
+          "blockNumber": "9",
+          "gasUsed": "46119",
+          "effectiveGasPrice": "1350177441",
+          "blobGasPrice": "1",
+          "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+          "to": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+          "contractAddress": null,
+          "blockTimestamp": 1794809158
+        },
+        "confirmations": 1,
+        "requiredConfirmations": 1,
+        "decoded": {
+          "functionName": "approve",
+          "args": [
+            "0xbCb720d22eC0DfB13338f0ef7c88D41999fDB66e",
+            "20000000"
+          ]
+        }
+      }
+    ],
+    "agentFinal": "已成功将 agent 的 TokenA 对实验 AMM 的授权设置为恰好 20 TokenA。交易已确认，状态更新如下：\n\n- **allowances.ammA**（formatted）: 20  \n- 交易哈希: `0x02a71fd16f36fc892a4de87b6a24a5f79e4f7bbc4859514914e7ed875ec20dd2`  \n- 执行链: `84532`，区块号: `9`  \n\n该操作符合任务要求，授权数量为精确的 20 TokenA，且未超出或低于目标值。",
+    "observations": [],
+    "options": {
+      "experimentMode": "continuous",
+      "taskParameters": {
+        "amount": "20"
+      },
+      "expectedChainId": 84532,
+      "balanceQueryPolicy": "observed_block",
+      "externalEvidenceVerified": true,
+      "externalEvidenceReason": null
+    }
+  },
+  "costs": {
+    "gasUsed": "46119",
+    "gasCostWei": "62268833401479",
+    "transactionAttempts": 1
+  }
+}

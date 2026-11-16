@@ -166,7 +166,7 @@ try {
     await api(`/api/runs/${child.config.run_id}/continue-agent`, { blocks: 1, seconds: 1 }, 400);
   });
   await test('F5-F6', 'custom_offline_check_uses_persisted_parameters', async () => {
-    const result = await api(`/api/runs/${child.config.run_id}/check`, {}); assert.equal(result.status, 'success'); assert.equal(result.checkerVersion, '2.2.0');
+    const result = await api(`/api/runs/${child.config.run_id}/check`, {}); assert.equal(result.status, 'success'); assert.equal(result.checkerVersion, '2.3.0');
     assert.equal(result.evidence.options.taskParameters.amount, '30');
   });
   await test('F6', 'scripted_runs_cannot_claim_model_continuation', async () => {

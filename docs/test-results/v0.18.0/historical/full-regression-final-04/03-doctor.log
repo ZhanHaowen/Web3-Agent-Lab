@@ -1,0 +1,18 @@
+{
+  "version": "V0.17.0 Research Beta",
+  "buildHash": "8db44894e4113d749779100beedf56279fe8c3b73502f18b7ce05cf2e674bd02",
+  "node": "v24.19.0",
+  "sqlite": "3.53.3",
+  "integrityValid": true,
+  "errors": [],
+  "checkedFiles": 662,
+  "changedFromV015": [
+    "src/scenario/service.mjs",
+    "src/scenario/agent-runtime.mjs",
+    "src/scenario/core.mjs",
+    "public/services.html",
+    "public/service-ui.js"
+  ],
+  "historicalBaselineNote": "Historical hashes are comparison evidence. V0.16 changes are verified against the current build manifest.",
+  "network": "not accessed"
+}

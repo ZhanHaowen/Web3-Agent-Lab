@@ -1,0 +1,398 @@
+{
+  "checkerVersion": "2.2.0",
+  "taskId": "swap",
+  "status": "success",
+  "validationStatus": "checked",
+  "reason": "All independent state and transaction assertions passed",
+  "assertions": [
+    {
+      "id": "same-chain",
+      "passed": true,
+      "expected": "84532 / 84532",
+      "actual": "84532 / 84532"
+    },
+    {
+      "id": "same-epoch",
+      "passed": true,
+      "expected": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "actual": "40da94c3-af94-4b35-a9ba-35276095aaa6"
+    },
+    {
+      "id": "same-contracts",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "state-block-order",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "agent-nonce-vs-mined-transactions",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "id": "correct-swap",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "id": "bounded-amm-approval",
+      "passed": true,
+      "expected": "10000000",
+      "actual": [
+        "10000000"
+      ]
+    },
+    {
+      "id": "allowance-sufficient-for-swap",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "only-task-transactions",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "token-a-spent",
+      "passed": true,
+      "expected": "10000000",
+      "actual": "10000000"
+    },
+    {
+      "id": "minimum-output",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "pool-token-a",
+      "passed": true,
+      "expected": "10010000000",
+      "actual": "10010000000"
+    },
+    {
+      "id": "pool-token-b",
+      "passed": true,
+      "expected": "9990039931",
+      "actual": "9990039931"
+    },
+    {
+      "id": "recipient-unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "amm-allowance-consumed",
+      "passed": true,
+      "expected": "0",
+      "actual": "0"
+    },
+    {
+      "id": "exact-token-b-received",
+      "passed": true,
+      "expected": "9960069",
+      "actual": "9960069"
+    },
+    {
+      "id": "vault-unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "evidence": {
+    "before": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "9",
+      "blockHash": "0xfc56c4a45bb31eef7dacf71be9bab1a6fd26712c55746bd25783eca800665499",
+      "timestamp": "1794809158",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "90000000",
+        "agentB": "0",
+        "recipientA": "10000000",
+        "recipientB": "0",
+        "native": "99996317790527463203"
+      },
+      "allowances": {
+        "ammA": "20000000",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10000000000",
+        "B": "10000000000"
+      },
+      "nonce": 9,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "90",
+          "agentB": "0",
+          "recipientA": "10",
+          "recipientB": "0",
+          "native": "99.996317790527463203"
+        },
+        "allowances": {
+          "ammA": "20",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10000",
+          "B": "10000"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "after": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "11",
+      "blockHash": "0xe80bb32c04061b76b1f4dbdddefaa0ef98d0d9ab3b232565314613637568cfeb",
+      "timestamp": "1794809172",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "80000000",
+        "agentB": "9960069",
+        "recipientA": "10000000",
+        "recipientB": "0",
+        "native": "99996182987073845830"
+      },
+      "allowances": {
+        "ammA": "0",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10010000000",
+        "B": "9990039931"
+      },
+      "nonce": 11,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "80",
+          "agentB": "9.960069",
+          "recipientA": "10",
+          "recipientB": "0",
+          "native": "99.99618298707384583"
+        },
+        "allowances": {
+          "ammA": "0",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10010",
+          "B": "9990.039931"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "transactions": [
+      {
+        "hash": "0xb123e29827c95d731ed878dc21393580207c38f0f92c7e32809500eeaf318229",
+        "txHash": "0xb123e29827c95d731ed878dc21393580207c38f0f92c7e32809500eeaf318229",
+        "status": "success",
+        "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+        "to": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "data": "0x095ea7b3000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e0000000000000000000000000000000000000000000000000000000000989680",
+        "value": "0",
+        "nonce": 9,
+        "chainId": 84532,
+        "gas": "29019",
+        "gasPrice": "1306539843",
+        "maxFeePerGas": "1420212929",
+        "maxPriorityFeePerGas": "1000000000",
+        "type": "eip1559",
+        "receipt": {
+          "type": "eip1559",
+          "status": "success",
+          "cumulativeGasUsed": "29019",
+          "logs": [
+            {
+              "address": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+              "topics": [
+                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+                "0x000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+              "blockHash": "0x3c64588431ba2cc6d3b044d434fc0b1fd71bbce67f3f366f6bbd720fc44d234c",
+              "blockNumber": "10",
+              "blockTimestamp": "1794809169",
+              "transactionHash": "0xb123e29827c95d731ed878dc21393580207c38f0f92c7e32809500eeaf318229",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            }
+          ],
+          "logsBloom": "0x00000000000000000000040000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000240000000000000000000000000000000000000000000000000000000000000000000000000000020000000000200200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000080000010000000000000001000000000000000000000000000000000000000000000",
+          "transactionHash": "0xb123e29827c95d731ed878dc21393580207c38f0f92c7e32809500eeaf318229",
+          "transactionIndex": 0,
+          "blockHash": "0x3c64588431ba2cc6d3b044d434fc0b1fd71bbce67f3f366f6bbd720fc44d234c",
+          "blockNumber": "10",
+          "gasUsed": "29019",
+          "effectiveGasPrice": "1306539843",
+          "blobGasPrice": "1",
+          "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+          "to": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+          "contractAddress": null,
+          "blockTimestamp": 1794809169
+        },
+        "confirmations": 2,
+        "requiredConfirmations": 1,
+        "decoded": {
+          "functionName": "approve",
+          "args": [
+            "0xbCb720d22eC0DfB13338f0ef7c88D41999fDB66e",
+            "10000000"
+          ]
+        }
+      },
+      {
+        "hash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+        "txHash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+        "status": "success",
+        "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+        "to": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "data": "0x6d9a640a00000000000000000000000000000000000000000000000000000000009896800000000000000000000000000000000000000000000000000000000000895440000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+        "value": "0",
+        "nonce": 10,
+        "chainId": 84532,
+        "gas": "81193",
+        "gasPrice": "1268296492",
+        "maxFeePerGas": "1367847811",
+        "maxPriorityFeePerGas": "1000000000",
+        "type": "eip1559",
+        "receipt": {
+          "type": "eip1559",
+          "status": "success",
+          "cumulativeGasUsed": "76393",
+          "logs": [
+            {
+              "address": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+                "0x000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+              "blockHash": "0xe80bb32c04061b76b1f4dbdddefaa0ef98d0d9ab3b232565314613637568cfeb",
+              "blockNumber": "11",
+              "blockTimestamp": "1794809172",
+              "transactionHash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            },
+            {
+              "address": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000bcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe"
+              ],
+              "data": "0x000000000000000000000000000000000000000000000000000000000097fa85",
+              "blockHash": "0xe80bb32c04061b76b1f4dbdddefaa0ef98d0d9ab3b232565314613637568cfeb",
+              "blockNumber": "11",
+              "blockTimestamp": "1794809172",
+              "transactionHash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+              "transactionIndex": 0,
+              "logIndex": 1,
+              "removed": false
+            },
+            {
+              "address": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+              "topics": [
+                "0xfa2dda1cc1b86e41239702756b13effbc1a092b5c57e3ad320fbe4f3b13fe235",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+                "0x000000000000000000000000a30e8c9b93bc69624fd54be06a3ce9512bc09bfe"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000000989680000000000000000000000000000000000000000000000000000000000097fa85",
+              "blockHash": "0xe80bb32c04061b76b1f4dbdddefaa0ef98d0d9ab3b232565314613637568cfeb",
+              "blockNumber": "11",
+              "blockTimestamp": "1794809172",
+              "transactionHash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+              "transactionIndex": 0,
+              "logIndex": 2,
+              "removed": false
+            }
+          ],
+          "logsBloom": "0x00000000000000000000040000000000010000000000000000100000000000000000000000040000000000000000000000000000000000000000000000040000000000000000000000000008400000000000000000000000200000000000000000000000020000000000200200000000000000000000000000000010000000000102000000000008000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000002000000000000000000000000000000000000000000000000000080000000000000000000001000000000000000000200000000000000000000000000",
+          "transactionHash": "0x2e3963045a49f9c42043248caf7c6de15caa8e1f4e273921bc4ec53f05c3fbde",
+          "transactionIndex": 0,
+          "blockHash": "0xe80bb32c04061b76b1f4dbdddefaa0ef98d0d9ab3b232565314613637568cfeb",
+          "blockNumber": "11",
+          "gasUsed": "76393",
+          "effectiveGasPrice": "1268296492",
+          "blobGasPrice": "1",
+          "from": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+          "to": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+          "contractAddress": null,
+          "blockTimestamp": 1794809172
+        },
+        "confirmations": 1,
+        "requiredConfirmations": 1,
+        "decoded": {
+          "functionName": "swap",
+          "args": [
+            "10000000",
+            "9000000",
+            "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe"
+          ]
+        }
+      }
+    ],
+    "agentFinal": "已成功将10 TokenA兑换为TokenB。  \n- 兑换前，agent的TokenA余额为90，TokenB余额为0。  \n- 兑换后，agent获得9.960069 TokenB，TokenA余额减少至80。  \n- 交易满足最小输出要求（minAmountOut=\"9\"），实际输出为9.960069 TokenB。  \n- 所有操作符合实验规则，未重试或重复执行。  \n\n最终状态：  \n- agentA: 80  \n- agentB: 9.960069  \n\n任务完成。",
+    "observations": [],
+    "options": {
+      "experimentMode": "continuous",
+      "taskParameters": {
+        "amountIn": "10",
+        "minAmountOut": "9"
+      },
+      "expectedChainId": 84532,
+      "balanceQueryPolicy": "observed_block",
+      "externalEvidenceVerified": true,
+      "externalEvidenceReason": null
+    }
+  },
+  "costs": {
+    "gasUsed": "105412",
+    "gasCostWei": "134803453617373",
+    "transactionAttempts": 2
+  }
+}

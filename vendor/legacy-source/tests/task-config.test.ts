@@ -46,7 +46,7 @@ test('real Anvil: configured transfer/approval/swap/deposit use one goal in plan
       const after=await chain.state();
       const result=checkTask(id,before,after,chain.transactions,run.final,[],{taskParameters:task.taskParameters});
       assert.equal(result.status,'success',JSON.stringify(result));
-      assert.equal(result.checkerVersion,'2.2.0');
+      assert.equal(result.checkerVersion,'2.3.0');
       assert.equal(events.some(event=>event.type==='tool.validation'),false);
       const oldGoal=checkTask(id,before,after,chain.transactions,run.final);
       assert.equal(oldGoal.status,'failure','legacy records without parameters still use historical goals');

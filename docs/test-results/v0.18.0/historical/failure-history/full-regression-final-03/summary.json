@@ -1,0 +1,684 @@
+{
+  "schema": "testnet-local-review-regression-v1",
+  "startedAt": "2026-11-16T05:56:43.388Z",
+  "baselineCommit": "4f903abc9613f53c4bc1061b3492dcec748de8da",
+  "branch": "local/testnet-preview-20261116",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "out": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03",
+  "scope": "Windows local isolated integration and regression. No real testnet broadcasts, no GitHub update. Actual model and GUI runs reported separately.",
+  "selectedSteps": null,
+  "steps": [
+    {
+      "name": "01-budget-build",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "scripts/compile-budget.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:56:43.454Z",
+      "finishedAt": "2026-11-16T05:56:48.681Z",
+      "elapsedMs": 5227,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\01-budget-build.log",
+      "logSha256": "cebdb3c4db2ff602327351ace3032caf92728cb3abac7973dc7917ead610a89c",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\01-budget-build"
+    },
+    {
+      "name": "02-platform-build",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--run",
+        "build"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:56:48.684Z",
+      "finishedAt": "2026-11-16T05:57:02.236Z",
+      "elapsedMs": 13552,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\02-platform-build.log",
+      "logSha256": "04bd2be117566b7abc697d5308e2f5f6e0e059950f45cf60e59cd5555394bc7b",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\02-platform-build"
+    },
+    {
+      "name": "03-doctor",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "dist/cli.mjs",
+        "doctor"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:57:02.237Z",
+      "finishedAt": "2026-11-16T05:57:02.440Z",
+      "elapsedMs": 203,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\03-doctor.log",
+      "logSha256": "de0113f7bb417a2ca89a33fa9d3dd62c955e89db55966cded206b7f398e69f58",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\03-doctor"
+    },
+    {
+      "name": "04-typecheck",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.control.json",
+        "--noEmit"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:57:02.443Z",
+      "finishedAt": "2026-11-16T05:57:02.842Z",
+      "elapsedMs": 399,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\04-typecheck.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\04-typecheck"
+    },
+    {
+      "name": "05-unit",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--test",
+        "tests/*.test.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:57:02.842Z",
+      "finishedAt": "2026-11-16T05:58:08.338Z",
+      "elapsedMs": 65495,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 223,
+        "pass": 223,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\05-unit.log",
+      "logSha256": "e41fc64775b9aa9ca4b331a4413ef5e7471d2559b0b2bde5e88ed780e6f77577",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\05-unit"
+    },
+    {
+      "name": "06-legacy-source",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--import",
+        "./scripts/register-agentkit.mjs",
+        "--import",
+        "tsx",
+        "--test",
+        "tests/*.test.ts"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab\\vendor\\legacy-source",
+      "startedAt": "2026-11-16T05:58:08.339Z",
+      "finishedAt": "2026-11-16T05:58:28.088Z",
+      "elapsedMs": 19749,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 145,
+        "pass": 145,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\06-legacy-source.log",
+      "logSha256": "5c7b0b4d6024dd228389fdb2ed6ea1791b1a09716d81961646c5d90f1eaf752a",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\06-legacy-source"
+    },
+    {
+      "name": "07-testnet-integration",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/testnet-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:58:28.089Z",
+      "finishedAt": "2026-11-16T05:58:47.845Z",
+      "elapsedMs": 19756,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": false,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\07-testnet-integration.log",
+      "logSha256": "60b91e494bdd5e4185db0e7444c29bb49c0cc6ea37c2d0a7e3e09178f6091493",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\07-testnet-integration"
+    },
+    {
+      "name": "08-original-api",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/legacy-regression-wrapper.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:58:47.847Z",
+      "finishedAt": "2026-11-16T05:59:10.533Z",
+      "elapsedMs": 22686,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\08-original-api.log",
+      "logSha256": "0f329c4849000c40fb0a8e32fd2ac89eccf1baa877fa64eca7bdedb51a1b0091",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\08-original-api"
+    },
+    {
+      "name": "09-allowance-matrix",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/legacy-allowance-matrix.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:59:10.534Z",
+      "finishedAt": "2026-11-16T05:59:14.979Z",
+      "elapsedMs": 4444,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\09-allowance-matrix.log",
+      "logSha256": "8b84afcd8356d236a3131b588af6667b71cf3dbe99097821ff5d4edaf9761fc7",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\09-allowance-matrix"
+    },
+    {
+      "name": "10-peer-contract",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/peer-contract.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:59:14.980Z",
+      "finishedAt": "2026-11-16T05:59:24.044Z",
+      "elapsedMs": 9064,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\10-peer-contract.log",
+      "logSha256": "845b04eeff8e3a0745800e5179c41b5976a9c29173b6620c4960ae50da1af3ea",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\10-peer-contract"
+    },
+    {
+      "name": "11-peer-integration",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/peer-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:59:24.045Z",
+      "finishedAt": "2026-11-16T05:59:37.160Z",
+      "elapsedMs": 13115,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\11-peer-integration.log",
+      "logSha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\11-peer-integration"
+    },
+    {
+      "name": "12-independent-workers",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/v2-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:59:37.161Z",
+      "finishedAt": "2026-11-16T05:59:56.749Z",
+      "elapsedMs": 19588,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\12-independent-workers.log",
+      "logSha256": "96e05d962f8d215082450618e9a1329dedc814ca5d903556b7a02488b33d74d3",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\12-independent-workers"
+    },
+    {
+      "name": "13-worker-shutdown-recovery",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/v2-shutdown-recovery.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T05:59:56.750Z",
+      "finishedAt": "2026-11-16T06:00:27.820Z",
+      "elapsedMs": 31070,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\13-worker-shutdown-recovery.log",
+      "logSha256": "1342d86aa0e5cdf4c3c035d22dc814cde7eac3916ce0a8ac07a698f4a919e6b2",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\13-worker-shutdown-recovery"
+    },
+    {
+      "name": "14-service-contract",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/service-contract.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:00:27.821Z",
+      "finishedAt": "2026-11-16T06:00:35.964Z",
+      "elapsedMs": 8143,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\14-service-contract.log",
+      "logSha256": "2827dad14ef48d725f3384abfcd02101fd23e2a7bca95525e42bb424d0e8a86f",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\14-service-contract"
+    },
+    {
+      "name": "15-service-integration",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/service-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:00:35.965Z",
+      "finishedAt": "2026-11-16T06:01:11.629Z",
+      "elapsedMs": 35664,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\15-service-integration.log",
+      "logSha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\15-service-integration"
+    },
+    {
+      "name": "16-budget-core",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:01:11.630Z",
+      "finishedAt": "2026-11-16T06:01:28.996Z",
+      "elapsedMs": 17366,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\16-budget-core.log",
+      "logSha256": "3d320c94d3243400ede70ad7540f4d978babd6a69d385cb955e78debb3d5b0b4",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\16-budget-core"
+    },
+    {
+      "name": "17-budget-parameters",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-parameter-matrix.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:01:28.997Z",
+      "finishedAt": "2026-11-16T06:01:42.893Z",
+      "elapsedMs": 13896,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\17-budget-parameters.log",
+      "logSha256": "d0f5983161a2bca90f76b075093f55df37744d26e0ce4b3b2b4b8d443e7c4ca2",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\17-budget-parameters"
+    },
+    {
+      "name": "18-budget-main",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-main-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:01:42.895Z",
+      "finishedAt": "2026-11-16T06:01:56.955Z",
+      "elapsedMs": 14060,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\18-budget-main.log",
+      "logSha256": "a45122327b7ef97fd010d81d6e5b71fd091abd34b5662d60f736006b73561993",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\18-budget-main"
+    },
+    {
+      "name": "19-budget-http",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-http.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:01:56.956Z",
+      "finishedAt": "2026-11-16T06:02:04.904Z",
+      "elapsedMs": 7948,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\19-budget-http.log",
+      "logSha256": "5f04ac1606e4a5c284844a79fe57aa21da5370e13be3a656735d6933f914bd4c",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\19-budget-http"
+    },
+    {
+      "name": "20-windows-launcher",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-launcher.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:04.906Z",
+      "finishedAt": "2026-11-16T06:02:13.823Z",
+      "elapsedMs": 8917,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\20-windows-launcher.log",
+      "logSha256": "28e3adbf582220a578581b98f28d81bc03b4a5b5a75a3d85ec0580361745426b",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\20-windows-launcher"
+    },
+    {
+      "name": "21-x402-ap2",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:13.824Z",
+      "finishedAt": "2026-11-16T06:02:21.725Z",
+      "elapsedMs": 7901,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\21-x402-ap2.log",
+      "logSha256": "29eac61bd7462e092f229f1c29ae7f642f9eaf3c326c5760c2042c82ecb6c056",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\21-x402-ap2"
+    },
+    {
+      "name": "22-mpp",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments-mpp.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:21.726Z",
+      "finishedAt": "2026-11-16T06:02:27.567Z",
+      "elapsedMs": 5841,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\22-mpp.log",
+      "logSha256": "7f030c218b1ad3bbec14f6de284af452364d99795a5b938a2e32dc00a3d1e8b4",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\22-mpp"
+    },
+    {
+      "name": "23-payment-adversarial",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments-adversarial.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:27.568Z",
+      "finishedAt": "2026-11-16T06:02:34.883Z",
+      "elapsedMs": 7315,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\23-payment-adversarial.log",
+      "logSha256": "f1f12e4bd932e1cfae56256a17e7e50840316b417bb05529a36078e8dc002f8c",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\23-payment-adversarial"
+    },
+    {
+      "name": "24-research-escrow",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-escrow.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:34.884Z",
+      "finishedAt": "2026-11-16T06:02:45.180Z",
+      "elapsedMs": 10295,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\24-research-escrow.log",
+      "logSha256": "c914a930a57592942eeeedbd83f87ab282fd7adf7f9a3380f78701f9bfcbb4d2",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\24-research-escrow"
+    },
+    {
+      "name": "25-research-engine",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-integration.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:02:45.181Z",
+      "finishedAt": "2026-11-16T06:03:21.235Z",
+      "elapsedMs": 36054,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\25-research-engine.log",
+      "logSha256": "932c9f9f696033ec00afd7a3b221862d11c73423221e38a9888737e0c2fe07a1",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\25-research-engine"
+    },
+    {
+      "name": "26-research-dataset",
+      "command": [
+        "__WORKSPACE__\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-dataset-smoke.mjs"
+      ],
+      "cwd": "__WORKSPACE__\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-16T06:03:21.236Z",
+      "finishedAt": "2026-11-16T06:04:20.435Z",
+      "elapsedMs": 59199,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\26-research-dataset.log",
+      "logSha256": "33e1b1be56d4a98dc1e7e320454e3f9b5ec200a785c443f8ddc2fa0440474638",
+      "artifacts": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-03\\results\\26-research-dataset"
+    }
+  ],
+  "build": {
+    "sourceHash": "bf7ea3ab59db2848e3378441be9cb7200f9dfcc39a90e58835762ce8068fd4fa",
+    "builtAt": "2026-11-16T05:57:01.572Z",
+    "version": "0.17.0-beta.1"
+  },
+  "finishedAt": "2026-11-16T06:04:20.437Z",
+  "passed": false,
+  "passedSteps": 25,
+  "failedSteps": 1
+}

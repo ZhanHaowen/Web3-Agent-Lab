@@ -1,3 +1,4 @@
+import { TestnetService } from "../src/testnet/service.mjs";
 import { ResearchService } from "../src/research/service.mjs";
 import { LocalModelService } from "../src/local-model/service.mjs";
 import { BudgetService } from "../src/budget/service.mjs";
@@ -430485,7 +430486,7 @@ var toolDefinitions = [
 ];
 
 // vendor/legacy-source/src/checker.ts
-var CHECKER_VERSION = "2.2.0";
+var CHECKER_VERSION = "2.3.0";
 var lower = (value) => String(value ?? "").toLowerCase();
 var big = (value) => BigInt(String(value));
 var MAX_ALLOWANCE = 2n ** 256n - 1n;
@@ -430536,7 +430537,17 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
   const unique = /* @__PURE__ */ new Map();
   transactions.forEach((tx, i) => unique.set(tx.hash || tx.txHash || `unbroadcast-${i}`, tx));
   const txs = [...unique.values()];
-  const result = { checkerVersion: CHECKER_VERSION, taskId, status: "unknown", validationStatus: "checked", reason: "", assertions, evidence: { before, after, transactions: txs, agentFinal, observations, options: { experimentMode: mode, ...options.taskParameters ? { taskParameters: options.taskParameters } : {} } }, costs: { gasUsed: "0", gasCostWei: "0", transactionAttempts: txs.length } };
+  const result = { checkerVersion: CHECKER_VERSION, taskId, status: "unknown", validationStatus: "checked", reason: "", assertions, evidence: { before, after, transactions: txs, agentFinal, observations, options: { ...options, experimentMode: mode } }, costs: { gasUsed: "0", gasCostWei: "0", transactionAttempts: txs.length } };
+  if (options.externalEvidenceVerified !== void 0 && typeof options.externalEvidenceVerified !== "boolean") {
+    result.validationStatus = "precondition_error";
+    result.reason = "Invalid external evidence verification flag";
+    return result;
+  }
+  if (options.externalEvidenceVerified === false) {
+    result.validationStatus = "evidence_missing";
+    result.reason = options.externalEvidenceReason || "External chain evidence was not verified; fresh live verification required";
+    return result;
+  }
   let parameters;
   try {
     parameters = resolveTask(taskId, { taskParameters: options.taskParameters }).taskParameters;
@@ -430567,7 +430578,13 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
     result.reason = "Missing or malformed block-bound state evidence";
     return result;
   }
-  add2("same-chain", "31337 / 31337", `${before.chainId} / ${after.chainId}`, before.chainId === 31337 && after.chainId === 31337);
+  const expectedChainId = options.expectedChainId ?? 31337;
+  if (!Number.isSafeInteger(expectedChainId) || expectedChainId <= 0 || !["initial_block", "observed_block"].includes(options.balanceQueryPolicy ?? "initial_block")) {
+    result.validationStatus = "precondition_error";
+    result.reason = "Invalid chain or query policy";
+    return result;
+  }
+  add2("same-chain", `${expectedChainId} / ${expectedChainId}`, `${before.chainId} / ${after.chainId}`, before.chainId === expectedChainId && after.chainId === expectedChainId);
   add2("same-epoch", before.chainInstanceId, after.chainInstanceId);
   add2("same-contracts", true, ADDRESS_KEYS.every((key) => lower(before.addresses[key]) === lower(after.addresses[key])));
   add2("state-block-order", true, big(after.blockNumber) >= big(before.blockNumber) && after.nonce >= before.nonce && (before.blockNumber !== after.blockNumber || lower(before.blockHash) === lower(after.blockHash) && before.nonce === after.nonce));
@@ -430613,18 +430630,19 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
     case "balance": {
       add2("no-submitted-transactions", 0, txs.filter((tx) => tx.hash || tx.txHash).length);
       add2("observed-token-a-balance", before.balances.agentA, after.balances.agentA);
-      const observation = observations.find((item) => item.tool === "get_balance" && item.token === "A" && lower(item.address) === lower(a.agent) && item.balance === before.balances.agentA && lower(item.blockHash) === lower(before.blockHash));
-      add2("actual-query-observation", true, Boolean(observation));
       let answer = null;
       try {
         answer = JSON.parse(agentFinal.trim());
       } catch {
       }
+      const eligible = observations.filter((item) => item.tool === "get_balance" && item.token === "A" && lower(item.address) === lower(a.agent) && item.balance === before.balances.agentA && (options.balanceQueryPolicy === "observed_block" ? /^\d+$/.test(item.blockNumber) && big(item.blockNumber) >= big(before.blockNumber) && big(item.blockNumber) <= big(after.blockNumber) && /^0x[0-9a-f]{64}$/i.test(item.blockHash) : lower(item.blockHash) === lower(before.blockHash)));
+      const observation = (options.balanceQueryPolicy === "observed_block" ? eligible.find((item) => lower(item.blockHash) === lower(answer?.blockHash)) : void 0) ?? eligible[0];
+      add2("actual-query-observation", true, Boolean(observation));
       add2("answer-json-object", true, Boolean(answer && typeof answer === "object" && !Array.isArray(answer)));
       add2("answer-token", "A", answer?.token ?? null);
       add2("answer-account", lower(a.agent), lower(answer?.address));
       add2("answer-base-units", before.balances.agentA, answer?.balanceBaseUnits ?? null);
-      add2("answer-block-hash", lower(before.blockHash), lower(answer?.blockHash));
+      add2("answer-block-hash", lower(options.balanceQueryPolicy === "observed_block" ? observation?.blockHash : before.blockHash), lower(answer?.blockHash));
       break;
     }
     case "transfer":
@@ -493646,7 +493664,7 @@ var Recorder = class {
     await mkdir3(join2(this.folder, "blobs"), { recursive: true });
     await atomic(join2(this.folder, "config.json"), json3(this.redactor.clean({ ...config2, schema_version: "1.0", run_id: this.runId })));
     this.handle = await open(join2(this.folder, "events.jsonl"), "ax", 384);
-    await this.emit("run.started", { started_at: (/* @__PURE__ */ new Date()).toISOString(), data_origin: config2.data_origin || (config2.mode === "llm" ? "llm" : "scripted"), chain_execution: "real_anvil" });
+    await this.emit("run.started", { started_at: (/* @__PURE__ */ new Date()).toISOString(), data_origin: config2.data_origin || (config2.mode === "llm" ? "llm" : "scripted"), chain_execution: config2.chain_execution || "real_anvil" });
   }
   emit(type, payload, links = {}) {
     if (this.sealed) return Promise.reject(new Error("RECORDING_SEALED"));
@@ -493965,6 +493983,7 @@ function status() {
   return { app: "web3-agent-lab", version: version9, ready, busy, environment: ready ? chain2.env() : null, chainState, active, session_id: sessionId, previous_run_id: previousRunId, dataDirectory: DATA };
 }
 function requireIdle() {
+  if (testnetService?.busy) throw new Error("TESTNET_EXPERIMENT_ACTIVE");
   if (busy) throw new Error("BUSY: \u5F53\u524D\u5B9E\u9A8C\u5C1A\u672A\u7ED3\u675F");
 }
 function requireReady() {
@@ -494215,7 +494234,7 @@ async function beginRun(body, parentRunId, continuation) {
         gas_complete: Array.isArray(verdict?.evidence?.transactions) && !verdict.evidence.transactions.some((tx) => !tx.receipt),
         missing_usage_reason: body.mode === "scripted" ? "no_model_used" : agentResult?.usage?.totalTokens == null ? "provider_usage_incomplete" : null
       };
-      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config2.previous_run_id, continuation_of: config2.continuation_of, checker_version: verdict?.checkerVersion || "2.2.0", check_id: randomUUID5(), evidence_source: "original_run", checked_at: (/* @__PURE__ */ new Date()).toISOString(), check_mode: "live", agent: agentResult, run_error: runError || agentResult?.error || null, costs: { ...costs, transaction_scope: continuation ? "cumulative_task" : "current_run", model_scope: "current_run" }, cancelled: localController.signal.aborted });
+      const result = redactor.clean({ ...verdict, run_id: recorder.runId, taskId: body.taskId, experimentMode, session_id: sessionId, previous_run_id: config2.previous_run_id, continuation_of: config2.continuation_of, checker_version: verdict?.checkerVersion || CHECKER_VERSION, check_id: randomUUID5(), evidence_source: "original_run", checked_at: (/* @__PURE__ */ new Date()).toISOString(), check_mode: "live", agent: agentResult, run_error: runError || agentResult?.error || null, costs: { ...costs, transaction_scope: continuation ? "cumulative_task" : "current_run", model_scope: "current_run" }, cancelled: localController.signal.aborted });
       try {
         if (body.mode === "llm" && body.model?.provider === "local") {
           const runtimeEvidence = await runtimeEvidenceHooks?.capture(body.model, runtimeEvidenceCursor);
@@ -494268,6 +494287,7 @@ function send(res, code, data) {
 var localModelService = (process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new LocalModelService({dataDir:DATA,beforeChange:()=>{
   requireIdle();
   if (researchService?.busy) throw Error('RESEARCH_EXPERIMENT_ACTIVE');
+  if (testnetService?.busy) throw Error('TESTNET_EXPERIMENT_ACTIVE');
   if (labControl?.store.list('agents').some(a=>a.provider==='local'&&(Date.now()-(a.heartbeat??0)<6000||((p)=>p&&p.exitCode===null&&!p.killed)(labControl.workers.get(a.agentId))))) throw Error('LOCAL_MODEL_WORKERS_ONLINE: stop local Agent workers before changing or stopping inference');
 }});
 async function resolveModelConfiguration(model) {
@@ -494288,6 +494308,11 @@ var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
 });
 var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
 var researchService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new ResearchService({root:ROOT3,data:join3(DATA,"research"),port:PORT,modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null});
+var testnetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new TestnetService({root:ROOT3,data:DATA,port:PORT,
+ lib:{runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,resolveTask,toolDefinitions,checkTask,privateKeyToAccount,buildDiagnostics,readExecutionTrace,sha256,json,readJSON},
+ modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null,
+ beforeChange:()=>{requireIdle();if(researchService?.busy)throw Error('RESEARCH_EXPERIMENT_ACTIVE');}
+});
 var labControl=process.env.LAB_AGENT_WORKER?null:new LabControl({root:ROOT3,data:DATA,chain:chain2,url:'http://127.0.0.1:'+PORT,
  createWalletClient,mnemonicToAccount,localChain,http,encodeFunctionData,keccak256,recoverAddress,serializeTransaction,resolveTask,checkTask,scriptedCalls,validateTaskAmounts,decodeFunctionData,
  clean:value=>redactor.clean(value),addSecret:value=>redactor.add(value),send,resolveModel:resolveModelConfiguration,captureRuntimeEvidence:captureLocalRuntimeEvidence,assertLocalModel:model=>localModelService?.assertModel(model),admin:req=>!req.headers.authorization&&req.headers['x-lab-token']===TOKEN,
@@ -494304,6 +494329,7 @@ var server = createServer(async (req, res) => {
     if (!validHosts.includes(req.headers.host || "") || req.headers.origin && ![origin, `http://localhost:${PORT}`].includes(req.headers.origin)) return send(res, 403, { error: "LOCAL_ORIGIN_REQUIRED" });
     const url2 = new URL(req.url || "/", origin);
     const path4 = url2.pathname;
+    if (await testnetService?.handle(req,res,path4)) return;
     if (await researchService?.handle(req,res,path4)) return;
     if (await budgetService?.handle(req,res,path4)) return;
     if (req.method === "GET" && path4 === "/api/health") return send(res, 200, { app: "web3-agent-lab", ok: true, csrfToken: TOKEN, version: version9 });
@@ -494487,6 +494513,7 @@ async function shutdown() {
   if (shuttingDown) return;
   shuttingDown = true;
   controller?.abort();
+  await testnetService?.shutdown();
   await researchService?.shutdown();
   await budgetService?.shutdown();
   await labControl?.shutdown();
@@ -494501,7 +494528,7 @@ async function shutdown() {
 }
 await mkdir4(DATA, { recursive: true });
 await budgetService?.init();
-if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.17.0 Research Beta http://127.0.0.1:${PORT}`));
+if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.18.0 Testnet Beta http://127.0.0.1:${PORT}`));
 server.on("error", (e) => {
   console.error(e.message);
   process.exit(1);
@@ -494817,4 +494844,4 @@ mustache/mustache.mjs:
    *)
 */
 
-export {createWalletClient,createPublicClient,mnemonicToAccount,localChain,http,encodeFunctionData,decodeEventLog,decodeFunctionData,keccak256,parseAbi,ChainLab,checkTask,scenarioService,labControl,privateKeyToAccount,recoverAddress,serializeTransaction,resolveTask,scriptedCalls,validateTaskAmounts};
+export {createWalletClient,createPublicClient,mnemonicToAccount,localChain,http,encodeFunctionData,decodeEventLog,decodeFunctionData,keccak256,parseAbi,ChainLab,checkTask,scenarioService,labControl,privateKeyToAccount,recoverAddress,serializeTransaction,resolveTask,scriptedCalls,validateTaskAmounts,runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,toolDefinitions,buildDiagnostics,readExecutionTrace,sha256,json,readJSON};

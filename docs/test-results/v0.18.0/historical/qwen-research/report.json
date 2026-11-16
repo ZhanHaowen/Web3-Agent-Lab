@@ -1,0 +1,1265 @@
+{
+  "schema": "research-real-local-report-v1",
+  "startedAt": "2026-11-16T05:57:03.134Z",
+  "out": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-actual-qwen-final",
+  "data": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final",
+  "sourceHashes": {
+    "src/research/engine.mjs": "ac6e90d69970f476acca21fe94fd29f65a0b473640081e1e6df95e2b51bd6908",
+    "src/research/workload.mjs": "8b7c2ed5312e0ea1ad59b2212083fb7a8e3eca120174b034052a6fb8b5522a95",
+    "src/research/catalog.mjs": "3e8c4657aaf6efa9235ba58361f27df073ced013b8c504e3a4af7c3390b87d2d",
+    "src/research/manifest.mjs": "4b2b7881a76cec88c4a018841159b3d07ddb7dafa792f9d59de5cb36a301fb96",
+    "src/research/private-ledger.mjs": "dfd6ac9671acb68c1493d9542bb17f88afe6fd87827a3a45f8054f29c38eb66a",
+    "src/research/journal.mjs": "eb0295a86620fdd6a595021de4b710062a5b6ec1b1bd119184f07ec3ac373ea1",
+    "src/research/provenance.mjs": "6d42404e89b2291fcfd8ed7f63708c83d03cb77d1be0a72ce197bc5ef416c608",
+    "src/research/checker.mjs": "c42d28bba2fad77847fe3cc05462a559abfc871d5436586e023ce99a29abcf5b",
+    "src/research/escrow.mjs": "f3169d99b2898f0068bc7d52ac963287b655469820ce517e91ce4f62a1662d88",
+    "src/payments/index.mjs": "de69ba92763cfae0c4ffaf4e95bf877e765ab3aead3f926ff922f88d78a4c07e",
+    "src/payments/ap2.mjs": "cf69c13bccc509ddbfb13e8dd437c61d8bb8ea74faac6b9e8cd6a486c4da0234",
+    "src/observer/index.mjs": "c657f424d0708f793fb515f57d7a5f8660e0efecdcf97dc8c9be64fac1c1e8e9"
+  },
+  "noScriptedFallback": true,
+  "modelAbilitySeparateFromPlatform": true,
+  "cases": [
+    {
+      "family": "evidence_review",
+      "scheme": "exact",
+      "startedAt": "2026-11-16T05:57:13.256Z",
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "62abc8a0-5a0f-4004-8474-e2dd5a6c6426",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-actual-qwen-final\\evidence_review-exact",
+        "startedAt": "2026-11-16T05:57:13.260Z",
+        "endedAt": "2026-11-16T05:57:53.366Z",
+        "durationMs": 40106,
+        "status": "error",
+        "finishReason": "error",
+        "taskOutcome": "failure",
+        "completedNormally": false,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "llm",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "50000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "50000",
+          "remainingBudgetBase": "100000",
+          "estimatedSpendableBudgetFromInitial": "950000"
+        },
+        "chainBalances": {
+          "payer": "950000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 4,
+          "promptTokens": 10400,
+          "completionTokens": 928,
+          "totalTokens": 11328,
+          "usageComplete": true,
+          "usageUnknownCalls": 0,
+          "usageAccounting": "complete"
+        },
+        "errors": [
+          {
+            "phase": "execution",
+            "name": "Error",
+            "message": "RESEARCH_MODEL_ONE_TOOL_CALL_REQUIRED"
+          }
+        ],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "5"
+          },
+          "windowGasUsed": "315189",
+          "windowGasCostWei": "543897570455857",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "modelRequests": 4,
+      "modelResponses": 4,
+      "modelErrors": 0,
+      "nativeFiles": [
+        {
+          "role": "manifest",
+          "bytes": 35208,
+          "shaMatches": true
+        },
+        {
+          "role": "props",
+          "bytes": 6838,
+          "shaMatches": true
+        },
+        {
+          "role": "events",
+          "bytes": 0,
+          "shaMatches": true
+        },
+        {
+          "role": "stdout",
+          "unavailable": "not-created-by-runtime"
+        },
+        {
+          "role": "stderr",
+          "bytes": 4788,
+          "shaMatches": true
+        }
+      ],
+      "requiredRuntimeEvidence": true,
+      "rawBodiesValid": true,
+      "callTerminalCoverage": true,
+      "localOnly": true,
+      "platformPass": true,
+      "taskOutcome": "failure",
+      "finishedAt": "2026-11-16T05:57:53.407Z"
+    },
+    {
+      "family": "risk_analysis",
+      "scheme": "batch",
+      "startedAt": "2026-11-16T05:57:53.408Z",
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "496fc3ec-4427-42ab-a77e-fdfc2909df3a",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-actual-qwen-final\\risk_analysis-batch",
+        "startedAt": "2026-11-16T05:57:53.420Z",
+        "endedAt": "2026-11-16T05:58:09.354Z",
+        "durationMs": 15934,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "failure",
+        "completedNormally": true,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "llm",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "50000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "50000",
+          "remainingBudgetBase": "100000",
+          "estimatedSpendableBudgetFromInitial": "950000"
+        },
+        "chainBalances": {
+          "payer": "950000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": {
+          "refundedBase": "100000",
+          "kind": "unused_channel_capital"
+        },
+        "costs": {
+          "modelCalls": 4,
+          "promptTokens": 10779,
+          "completionTokens": 307,
+          "totalTokens": 11086,
+          "usageComplete": true,
+          "usageUnknownCalls": 0,
+          "usageAccounting": "complete"
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "5",
+            "toBlock": "17"
+          },
+          "windowGasUsed": "1263405",
+          "windowGasCostWei": "1725059483196984",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "modelRequests": 4,
+      "modelResponses": 4,
+      "modelErrors": 0,
+      "nativeFiles": [
+        {
+          "role": "manifest",
+          "bytes": 35208,
+          "shaMatches": true
+        },
+        {
+          "role": "props",
+          "bytes": 6838,
+          "shaMatches": true
+        },
+        {
+          "role": "events",
+          "bytes": 0,
+          "shaMatches": true
+        },
+        {
+          "role": "stdout",
+          "unavailable": "not-created-by-runtime"
+        },
+        {
+          "role": "stderr",
+          "bytes": 4028,
+          "shaMatches": true
+        }
+      ],
+      "requiredRuntimeEvidence": true,
+      "rawBodiesValid": true,
+      "callTerminalCoverage": true,
+      "localOnly": true,
+      "platformPass": true,
+      "taskOutcome": "failure",
+      "finishedAt": "2026-11-16T05:58:09.669Z"
+    },
+    {
+      "family": "trend_analysis",
+      "scheme": "erc8183",
+      "startedAt": "2026-11-16T05:58:09.673Z",
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "fca8a825-fdc7-4fe6-91be-3a62a813777e",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-actual-qwen-final\\trend_analysis-erc8183",
+        "startedAt": "2026-11-16T05:58:09.676Z",
+        "endedAt": "2026-11-16T05:58:51.935Z",
+        "durationMs": 42259,
+        "status": "error",
+        "finishReason": "error",
+        "taskOutcome": "failure",
+        "completedNormally": false,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "llm",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "30000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "30000",
+          "remainingBudgetBase": "120000",
+          "estimatedSpendableBudgetFromInitial": "970000"
+        },
+        "chainBalances": {
+          "payer": "970000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "0"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 4,
+          "promptTokens": 9714,
+          "completionTokens": 928,
+          "totalTokens": 10642,
+          "usageComplete": true,
+          "usageUnknownCalls": 0,
+          "usageAccounting": "complete"
+        },
+        "errors": [
+          {
+            "phase": "execution",
+            "name": "Error",
+            "message": "RESEARCH_MODEL_ONE_TOOL_CALL_REQUIRED"
+          }
+        ],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "21"
+          },
+          "windowGasUsed": "2718333",
+          "windowGasCostWei": "4188671734471637",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "modelRequests": 4,
+      "modelResponses": 4,
+      "modelErrors": 0,
+      "nativeFiles": [
+        {
+          "role": "manifest",
+          "bytes": 35208,
+          "shaMatches": true
+        },
+        {
+          "role": "props",
+          "bytes": 6838,
+          "shaMatches": true
+        },
+        {
+          "role": "events",
+          "bytes": 0,
+          "shaMatches": true
+        },
+        {
+          "role": "stdout",
+          "unavailable": "not-created-by-runtime"
+        },
+        {
+          "role": "stderr",
+          "bytes": 5005,
+          "shaMatches": true
+        }
+      ],
+      "requiredRuntimeEvidence": true,
+      "rawBodiesValid": true,
+      "callTerminalCoverage": true,
+      "localOnly": true,
+      "platformPass": true,
+      "taskOutcome": "failure",
+      "finishedAt": "2026-11-16T05:58:51.986Z"
+    }
+  ],
+  "runtime": {
+    "provider": "local",
+    "state": "ready",
+    "configured": true,
+    "running": true,
+    "ready": true,
+    "error": null,
+    "logError": null,
+    "model": "qwen3-4b-instruct-2507-q8",
+    "validation": {
+      "at": "2026-11-16T05:57:07.491Z",
+      "complete": true,
+      "files": [
+        {
+          "role": "model",
+          "path": "__WORKSPACE__\\outputs\\Local-Models-Comparison-20261106\\Ollama--qwen3-4b-instruct-2507-q8_0\\qwen3-4b-instruct-2507-q8_0.gguf",
+          "expected": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+          "bytes": 4280404960,
+          "actualSha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+          "match": true
+        },
+        {
+          "role": "runtime",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server.exe",
+          "expected": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+          "bytes": 9728,
+          "actualSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-base.dll",
+          "expected": "e04acc632f4daae98ff1984dd0df8d2521f40901b5f13bc26f54963033b08ee5",
+          "bytes": 827904,
+          "actualSha256": "e04acc632f4daae98ff1984dd0df8d2521f40901b5f13bc26f54963033b08ee5",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-alderlake.dll",
+          "expected": "1bb61caa5e8c86866af4678bb110404900a777bc70bdd2e0b287ada7446d93ce",
+          "bytes": 1442816,
+          "actualSha256": "1bb61caa5e8c86866af4678bb110404900a777bc70bdd2e0b287ada7446d93ce",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cannonlake.dll",
+          "expected": "cf1cb52561395fb5ad82acd542ae7dc3b228a90c8cf51f666b668a5871302889",
+          "bytes": 1637888,
+          "actualSha256": "cf1cb52561395fb5ad82acd542ae7dc3b228a90c8cf51f666b668a5871302889",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cascadelake.dll",
+          "expected": "6279da559dc1672c18c3d275be88ea9c6f2ddebfa0f31863fe6aafee076f15b0",
+          "bytes": 1611776,
+          "actualSha256": "6279da559dc1672c18c3d275be88ea9c6f2ddebfa0f31863fe6aafee076f15b0",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cooperlake.dll",
+          "expected": "381d8b12e7fc8dea646785f156130c999b330dac297986e4836c7a871a800860",
+          "bytes": 1620992,
+          "actualSha256": "381d8b12e7fc8dea646785f156130c999b330dac297986e4836c7a871a800860",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-haswell.dll",
+          "expected": "090a21bb7a8904a660af046d222ccfad95612972c9939d7126e2532867ba7dc1",
+          "bytes": 1447424,
+          "actualSha256": "090a21bb7a8904a660af046d222ccfad95612972c9939d7126e2532867ba7dc1",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-icelake.dll",
+          "expected": "92dd7e21f3db8fd34825f2297b3e48c9b464e1547f027be4e13d4f0eb1ed6cbe",
+          "bytes": 1617920,
+          "actualSha256": "92dd7e21f3db8fd34825f2297b3e48c9b464e1547f027be4e13d4f0eb1ed6cbe",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-ivybridge.dll",
+          "expected": "ce11fe1d6388aa1bf01a8ad8c84dae64f91c5aeaa50686514fcf3d4e3d7d1537",
+          "bytes": 1328640,
+          "actualSha256": "ce11fe1d6388aa1bf01a8ad8c84dae64f91c5aeaa50686514fcf3d4e3d7d1537",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-piledriver.dll",
+          "expected": "8e1bdabc676371cb6d4f61c5de5d62f8019cda046eb80777af93eeb36f5b17d4",
+          "bytes": 1321472,
+          "actualSha256": "8e1bdabc676371cb6d4f61c5de5d62f8019cda046eb80777af93eeb36f5b17d4",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sandybridge.dll",
+          "expected": "a69cfa0ffc66fc67870250d8c5688ec86e39b24918e38f611bb250c184a49d99",
+          "bytes": 1319424,
+          "actualSha256": "a69cfa0ffc66fc67870250d8c5688ec86e39b24918e38f611bb250c184a49d99",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sapphirerapids.dll",
+          "expected": "48cba9a15d0d6082901a44ab3e74fa53971d4714dd070e6b8c0afd6fe6fa905c",
+          "bytes": 1897472,
+          "actualSha256": "48cba9a15d0d6082901a44ab3e74fa53971d4714dd070e6b8c0afd6fe6fa905c",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-skylakex.dll",
+          "expected": "4a5e456ad406acbb0678b4ef3db7a7507fd4a90e7511c508d6f029550d31cd16",
+          "bytes": 1631744,
+          "actualSha256": "4a5e456ad406acbb0678b4ef3db7a7507fd4a90e7511c508d6f029550d31cd16",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sse42.dll",
+          "expected": "f11bf11cf3e0d8d475473a2ac8a2c7afe1a1e77d7c474d55b71ed18554be32e8",
+          "bytes": 944128,
+          "actualSha256": "f11bf11cf3e0d8d475473a2ac8a2c7afe1a1e77d7c474d55b71ed18554be32e8",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-x64.dll",
+          "expected": "964892971f5c0664b745c2cd2e83a643014de7de7e404efdde397ca1d73cab3a",
+          "bytes": 935936,
+          "actualSha256": "964892971f5c0664b745c2cd2e83a643014de7de7e404efdde397ca1d73cab3a",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-zen4.dll",
+          "expected": "ee8d72a90cb702cfa0d9bbc798b127781fadf75dcb4aa9f14192489f5add4d4d",
+          "bytes": 1627648,
+          "actualSha256": "ee8d72a90cb702cfa0d9bbc798b127781fadf75dcb4aa9f14192489f5add4d4d",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-rpc.dll",
+          "expected": "aaed43f771d0bf7b2dac319757dd46886836a059af691788c93dd677ee987076",
+          "bytes": 231424,
+          "actualSha256": "aaed43f771d0bf7b2dac319757dd46886836a059af691788c93dd677ee987076",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-vulkan.dll",
+          "expected": "5da52e071b39cbc8abc99eae0d94984c56bbac730f44f9ae00957a2c0dce3f7f",
+          "bytes": 41985024,
+          "actualSha256": "5da52e071b39cbc8abc99eae0d94984c56bbac730f44f9ae00957a2c0dce3f7f",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml.dll",
+          "expected": "29a59e7af6b26555ffd28a29fcc18d2814f6293d8d1ddd44084ff62bc53801fa",
+          "bytes": 78848,
+          "actualSha256": "29a59e7af6b26555ffd28a29fcc18d2814f6293d8d1ddd44084ff62bc53801fa",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\libomp.dll",
+          "expected": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c",
+          "bytes": 768000,
+          "actualSha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-batched-bench-impl.dll",
+          "expected": "8e01a95c0ccbea7d7159e70cdd322cacce425f03f92fc65bdd6d2d96b2458f96",
+          "bytes": 61952,
+          "actualSha256": "8e01a95c0ccbea7d7159e70cdd322cacce425f03f92fc65bdd6d2d96b2458f96",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-bench-impl.dll",
+          "expected": "b681866cffd7a405bd9adb077d354d31c1dfd5b2f866741d58143f0ab76eb2bc",
+          "bytes": 404480,
+          "actualSha256": "b681866cffd7a405bd9adb077d354d31c1dfd5b2f866741d58143f0ab76eb2bc",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-cli-impl.dll",
+          "expected": "ecd16e43feac3db067f47baec31cf1ec0191645b3bf71e677fd635cb60c1ca35",
+          "bytes": 3375104,
+          "actualSha256": "ecd16e43feac3db067f47baec31cf1ec0191645b3bf71e677fd635cb60c1ca35",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-common.dll",
+          "expected": "33ed3ca8a4a18ceabeb20588cd2157a5ccca5ec6ebd7ed648475e380605a37a5",
+          "bytes": 8346112,
+          "actualSha256": "33ed3ca8a4a18ceabeb20588cd2157a5ccca5ec6ebd7ed648475e380605a37a5",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-completion-impl.dll",
+          "expected": "edff78c851cedf92dbeb05c412f0bd60a96ec2c6f1aedc72b1f602f3592bc215",
+          "bytes": 138752,
+          "actualSha256": "edff78c851cedf92dbeb05c412f0bd60a96ec2c6f1aedc72b1f602f3592bc215",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-fit-params-impl.dll",
+          "expected": "754d509f9e6535a0165aaa9f37e778fd0632429cf42fdaaa56fc7d55ea2dcaaa",
+          "bytes": 43520,
+          "actualSha256": "754d509f9e6535a0165aaa9f37e778fd0632429cf42fdaaa56fc7d55ea2dcaaa",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-perplexity-impl.dll",
+          "expected": "ac3fe86897fe48a17da07428e58ceb63b61f04cce08dcaecf63f7d7f551d2feb",
+          "bytes": 198144,
+          "actualSha256": "ac3fe86897fe48a17da07428e58ceb63b61f04cce08dcaecf63f7d7f551d2feb",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-quantize-impl.dll",
+          "expected": "e5339d872021a5b0c06da24b065aa8d05872ef0f811db89ec8dce4f69e1e611b",
+          "bytes": 137216,
+          "actualSha256": "e5339d872021a5b0c06da24b065aa8d05872ef0f811db89ec8dce4f69e1e611b",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server-impl.dll",
+          "expected": "90dc5a4311650f53803b76bf7df4898467d97395521da2c122a2e54946ae50be",
+          "bytes": 10088960,
+          "actualSha256": "90dc5a4311650f53803b76bf7df4898467d97395521da2c122a2e54946ae50be",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama.dll",
+          "expected": "274a58c8af3f83bb8260f69f9cd1420d85e82fb292e82b81c32473368d87ac56",
+          "bytes": 3753472,
+          "actualSha256": "274a58c8af3f83bb8260f69f9cd1420d85e82fb292e82b81c32473368d87ac56",
+          "match": true
+        },
+        {
+          "role": "runtime-dependency",
+          "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\mtmd.dll",
+          "expected": "c19a1bc9b9ff07db48fcd09858955a5cda5910cfb2152e79942648f565fdff0e",
+          "bytes": 2143744,
+          "actualSha256": "c19a1bc9b9ff07db48fcd09858955a5cda5910cfb2152e79942648f565fdff0e",
+          "match": true
+        }
+      ]
+    },
+    "manifest": {
+      "schemaVersion": 1,
+      "provider": "local",
+      "ownerId": "2bd6872a-5382-4103-9e8c-ad77c869279a",
+      "startedAt": "2026-11-16T05:57:03.146Z",
+      "model": "qwen3-4b-instruct-2507-q8",
+      "modelSha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+      "runtimeSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+      "templateSha256": "40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541",
+      "templateHashEncoding": "utf8-raw",
+      "modelAsset": {
+        "schemaVersion": 1,
+        "id": "qwen3-4b-instruct-2507-q8",
+        "displayName": "Qwen3 4B Instruct 2507 · Q8_0",
+        "file": "qwen3-4b-instruct-2507-q8_0.gguf",
+        "bytes": 4280404960,
+        "sha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+        "source": "https://ollama.com/library/qwen3:4b-instruct-2507-q8_0",
+        "revision": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374",
+        "downloadUrl": "https://registry.ollama.ai/v2/library/qwen3/blobs/sha256:af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+        "license": "Apache-2.0",
+        "upstreamModel": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
+        "runtime": {
+          "project": "https://github.com/ggml-org/llama.cpp",
+          "testedRelease": "b12019",
+          "releaseUrl": "https://github.com/ggml-org/llama.cpp/releases/tag/b12019",
+          "testedPlatform": "win32-x64-vulkan",
+          "testedExecutableSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+          "license": "MIT"
+        },
+        "path": "__WORKSPACE__\\outputs\\Local-Models-Comparison-20261106\\Ollama--qwen3-4b-instruct-2507-q8_0\\qwen3-4b-instruct-2507-q8_0.gguf"
+      },
+      "runtime": {
+        "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server.exe",
+        "sha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+        "platform": "win32",
+        "arch": "x64",
+        "pinSource": "local-import",
+        "requestedVersion": "operator-supplied; startup logs retained",
+        "dependencies": [
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-base.dll",
+            "sha256": "e04acc632f4daae98ff1984dd0df8d2521f40901b5f13bc26f54963033b08ee5"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-alderlake.dll",
+            "sha256": "1bb61caa5e8c86866af4678bb110404900a777bc70bdd2e0b287ada7446d93ce"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cannonlake.dll",
+            "sha256": "cf1cb52561395fb5ad82acd542ae7dc3b228a90c8cf51f666b668a5871302889"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cascadelake.dll",
+            "sha256": "6279da559dc1672c18c3d275be88ea9c6f2ddebfa0f31863fe6aafee076f15b0"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cooperlake.dll",
+            "sha256": "381d8b12e7fc8dea646785f156130c999b330dac297986e4836c7a871a800860"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-haswell.dll",
+            "sha256": "090a21bb7a8904a660af046d222ccfad95612972c9939d7126e2532867ba7dc1"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-icelake.dll",
+            "sha256": "92dd7e21f3db8fd34825f2297b3e48c9b464e1547f027be4e13d4f0eb1ed6cbe"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-ivybridge.dll",
+            "sha256": "ce11fe1d6388aa1bf01a8ad8c84dae64f91c5aeaa50686514fcf3d4e3d7d1537"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-piledriver.dll",
+            "sha256": "8e1bdabc676371cb6d4f61c5de5d62f8019cda046eb80777af93eeb36f5b17d4"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sandybridge.dll",
+            "sha256": "a69cfa0ffc66fc67870250d8c5688ec86e39b24918e38f611bb250c184a49d99"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sapphirerapids.dll",
+            "sha256": "48cba9a15d0d6082901a44ab3e74fa53971d4714dd070e6b8c0afd6fe6fa905c"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-skylakex.dll",
+            "sha256": "4a5e456ad406acbb0678b4ef3db7a7507fd4a90e7511c508d6f029550d31cd16"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sse42.dll",
+            "sha256": "f11bf11cf3e0d8d475473a2ac8a2c7afe1a1e77d7c474d55b71ed18554be32e8"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-x64.dll",
+            "sha256": "964892971f5c0664b745c2cd2e83a643014de7de7e404efdde397ca1d73cab3a"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-zen4.dll",
+            "sha256": "ee8d72a90cb702cfa0d9bbc798b127781fadf75dcb4aa9f14192489f5add4d4d"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-rpc.dll",
+            "sha256": "aaed43f771d0bf7b2dac319757dd46886836a059af691788c93dd677ee987076"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-vulkan.dll",
+            "sha256": "5da52e071b39cbc8abc99eae0d94984c56bbac730f44f9ae00957a2c0dce3f7f"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml.dll",
+            "sha256": "29a59e7af6b26555ffd28a29fcc18d2814f6293d8d1ddd44084ff62bc53801fa"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\libomp.dll",
+            "sha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-batched-bench-impl.dll",
+            "sha256": "8e01a95c0ccbea7d7159e70cdd322cacce425f03f92fc65bdd6d2d96b2458f96"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-bench-impl.dll",
+            "sha256": "b681866cffd7a405bd9adb077d354d31c1dfd5b2f866741d58143f0ab76eb2bc"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-cli-impl.dll",
+            "sha256": "ecd16e43feac3db067f47baec31cf1ec0191645b3bf71e677fd635cb60c1ca35"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-common.dll",
+            "sha256": "33ed3ca8a4a18ceabeb20588cd2157a5ccca5ec6ebd7ed648475e380605a37a5"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-completion-impl.dll",
+            "sha256": "edff78c851cedf92dbeb05c412f0bd60a96ec2c6f1aedc72b1f602f3592bc215"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-fit-params-impl.dll",
+            "sha256": "754d509f9e6535a0165aaa9f37e778fd0632429cf42fdaaa56fc7d55ea2dcaaa"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-perplexity-impl.dll",
+            "sha256": "ac3fe86897fe48a17da07428e58ceb63b61f04cce08dcaecf63f7d7f551d2feb"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-quantize-impl.dll",
+            "sha256": "e5339d872021a5b0c06da24b065aa8d05872ef0f811db89ec8dce4f69e1e611b"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server-impl.dll",
+            "sha256": "90dc5a4311650f53803b76bf7df4898467d97395521da2c122a2e54946ae50be"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama.dll",
+            "sha256": "274a58c8af3f83bb8260f69f9cd1420d85e82fb292e82b81c32473368d87ac56"
+          },
+          {
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\mtmd.dll",
+            "sha256": "c19a1bc9b9ff07db48fcd09858955a5cda5910cfb2152e79942648f565fdff0e"
+          }
+        ]
+      },
+      "settings": {
+        "contextSize": 16384,
+        "maxOutputTokens": 768,
+        "threads": 6,
+        "gpuLayers": "auto",
+        "parallel": 1,
+        "reasoning": "off",
+        "host": "127.0.0.1",
+        "port": 8496
+      },
+      "args": [
+        "-m",
+        "__WORKSPACE__\\outputs\\Local-Models-Comparison-20261106\\Ollama--qwen3-4b-instruct-2507-q8_0\\qwen3-4b-instruct-2507-q8_0.gguf",
+        "--alias",
+        "qwen3-4b-instruct-2507-q8",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8496",
+        "-c",
+        "16384",
+        "-np",
+        "1",
+        "-ngl",
+        "auto",
+        "-t",
+        "6",
+        "-n",
+        "768",
+        "--jinja",
+        "--reasoning",
+        "off",
+        "--no-webui",
+        "--no-agent",
+        "--cache-ram",
+        "256"
+      ],
+      "templateSource": "GGUF embedded template; recorded from runtime /props",
+      "logs": {
+        "manifest": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime-manifest.json",
+        "events": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\lifecycle.jsonl",
+        "stdout": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime.stdout.log",
+        "stderr": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime.stderr.log",
+        "props": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime-props.json"
+      },
+      "fallback": "disabled",
+      "pid": 27476,
+      "templateRequestedSha256": null,
+      "validation": {
+        "at": "2026-11-16T05:57:07.491Z",
+        "complete": true,
+        "files": [
+          {
+            "role": "model",
+            "path": "__WORKSPACE__\\outputs\\Local-Models-Comparison-20261106\\Ollama--qwen3-4b-instruct-2507-q8_0\\qwen3-4b-instruct-2507-q8_0.gguf",
+            "expected": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+            "bytes": 4280404960,
+            "actualSha256": "af6e43ab13611311226e6f809f6a39b1a87b6df613bbf79468059f92ce819c4a",
+            "match": true
+          },
+          {
+            "role": "runtime",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server.exe",
+            "expected": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+            "bytes": 9728,
+            "actualSha256": "8e0b1db58a3770923fe96981a5ce32858aed27a269363f9be53d854c4b13dff5",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-base.dll",
+            "expected": "e04acc632f4daae98ff1984dd0df8d2521f40901b5f13bc26f54963033b08ee5",
+            "bytes": 827904,
+            "actualSha256": "e04acc632f4daae98ff1984dd0df8d2521f40901b5f13bc26f54963033b08ee5",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-alderlake.dll",
+            "expected": "1bb61caa5e8c86866af4678bb110404900a777bc70bdd2e0b287ada7446d93ce",
+            "bytes": 1442816,
+            "actualSha256": "1bb61caa5e8c86866af4678bb110404900a777bc70bdd2e0b287ada7446d93ce",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cannonlake.dll",
+            "expected": "cf1cb52561395fb5ad82acd542ae7dc3b228a90c8cf51f666b668a5871302889",
+            "bytes": 1637888,
+            "actualSha256": "cf1cb52561395fb5ad82acd542ae7dc3b228a90c8cf51f666b668a5871302889",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cascadelake.dll",
+            "expected": "6279da559dc1672c18c3d275be88ea9c6f2ddebfa0f31863fe6aafee076f15b0",
+            "bytes": 1611776,
+            "actualSha256": "6279da559dc1672c18c3d275be88ea9c6f2ddebfa0f31863fe6aafee076f15b0",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-cooperlake.dll",
+            "expected": "381d8b12e7fc8dea646785f156130c999b330dac297986e4836c7a871a800860",
+            "bytes": 1620992,
+            "actualSha256": "381d8b12e7fc8dea646785f156130c999b330dac297986e4836c7a871a800860",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-haswell.dll",
+            "expected": "090a21bb7a8904a660af046d222ccfad95612972c9939d7126e2532867ba7dc1",
+            "bytes": 1447424,
+            "actualSha256": "090a21bb7a8904a660af046d222ccfad95612972c9939d7126e2532867ba7dc1",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-icelake.dll",
+            "expected": "92dd7e21f3db8fd34825f2297b3e48c9b464e1547f027be4e13d4f0eb1ed6cbe",
+            "bytes": 1617920,
+            "actualSha256": "92dd7e21f3db8fd34825f2297b3e48c9b464e1547f027be4e13d4f0eb1ed6cbe",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-ivybridge.dll",
+            "expected": "ce11fe1d6388aa1bf01a8ad8c84dae64f91c5aeaa50686514fcf3d4e3d7d1537",
+            "bytes": 1328640,
+            "actualSha256": "ce11fe1d6388aa1bf01a8ad8c84dae64f91c5aeaa50686514fcf3d4e3d7d1537",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-piledriver.dll",
+            "expected": "8e1bdabc676371cb6d4f61c5de5d62f8019cda046eb80777af93eeb36f5b17d4",
+            "bytes": 1321472,
+            "actualSha256": "8e1bdabc676371cb6d4f61c5de5d62f8019cda046eb80777af93eeb36f5b17d4",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sandybridge.dll",
+            "expected": "a69cfa0ffc66fc67870250d8c5688ec86e39b24918e38f611bb250c184a49d99",
+            "bytes": 1319424,
+            "actualSha256": "a69cfa0ffc66fc67870250d8c5688ec86e39b24918e38f611bb250c184a49d99",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sapphirerapids.dll",
+            "expected": "48cba9a15d0d6082901a44ab3e74fa53971d4714dd070e6b8c0afd6fe6fa905c",
+            "bytes": 1897472,
+            "actualSha256": "48cba9a15d0d6082901a44ab3e74fa53971d4714dd070e6b8c0afd6fe6fa905c",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-skylakex.dll",
+            "expected": "4a5e456ad406acbb0678b4ef3db7a7507fd4a90e7511c508d6f029550d31cd16",
+            "bytes": 1631744,
+            "actualSha256": "4a5e456ad406acbb0678b4ef3db7a7507fd4a90e7511c508d6f029550d31cd16",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-sse42.dll",
+            "expected": "f11bf11cf3e0d8d475473a2ac8a2c7afe1a1e77d7c474d55b71ed18554be32e8",
+            "bytes": 944128,
+            "actualSha256": "f11bf11cf3e0d8d475473a2ac8a2c7afe1a1e77d7c474d55b71ed18554be32e8",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-x64.dll",
+            "expected": "964892971f5c0664b745c2cd2e83a643014de7de7e404efdde397ca1d73cab3a",
+            "bytes": 935936,
+            "actualSha256": "964892971f5c0664b745c2cd2e83a643014de7de7e404efdde397ca1d73cab3a",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-cpu-zen4.dll",
+            "expected": "ee8d72a90cb702cfa0d9bbc798b127781fadf75dcb4aa9f14192489f5add4d4d",
+            "bytes": 1627648,
+            "actualSha256": "ee8d72a90cb702cfa0d9bbc798b127781fadf75dcb4aa9f14192489f5add4d4d",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-rpc.dll",
+            "expected": "aaed43f771d0bf7b2dac319757dd46886836a059af691788c93dd677ee987076",
+            "bytes": 231424,
+            "actualSha256": "aaed43f771d0bf7b2dac319757dd46886836a059af691788c93dd677ee987076",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml-vulkan.dll",
+            "expected": "5da52e071b39cbc8abc99eae0d94984c56bbac730f44f9ae00957a2c0dce3f7f",
+            "bytes": 41985024,
+            "actualSha256": "5da52e071b39cbc8abc99eae0d94984c56bbac730f44f9ae00957a2c0dce3f7f",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\ggml.dll",
+            "expected": "29a59e7af6b26555ffd28a29fcc18d2814f6293d8d1ddd44084ff62bc53801fa",
+            "bytes": 78848,
+            "actualSha256": "29a59e7af6b26555ffd28a29fcc18d2814f6293d8d1ddd44084ff62bc53801fa",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\libomp.dll",
+            "expected": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c",
+            "bytes": 768000,
+            "actualSha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-batched-bench-impl.dll",
+            "expected": "8e01a95c0ccbea7d7159e70cdd322cacce425f03f92fc65bdd6d2d96b2458f96",
+            "bytes": 61952,
+            "actualSha256": "8e01a95c0ccbea7d7159e70cdd322cacce425f03f92fc65bdd6d2d96b2458f96",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-bench-impl.dll",
+            "expected": "b681866cffd7a405bd9adb077d354d31c1dfd5b2f866741d58143f0ab76eb2bc",
+            "bytes": 404480,
+            "actualSha256": "b681866cffd7a405bd9adb077d354d31c1dfd5b2f866741d58143f0ab76eb2bc",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-cli-impl.dll",
+            "expected": "ecd16e43feac3db067f47baec31cf1ec0191645b3bf71e677fd635cb60c1ca35",
+            "bytes": 3375104,
+            "actualSha256": "ecd16e43feac3db067f47baec31cf1ec0191645b3bf71e677fd635cb60c1ca35",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-common.dll",
+            "expected": "33ed3ca8a4a18ceabeb20588cd2157a5ccca5ec6ebd7ed648475e380605a37a5",
+            "bytes": 8346112,
+            "actualSha256": "33ed3ca8a4a18ceabeb20588cd2157a5ccca5ec6ebd7ed648475e380605a37a5",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-completion-impl.dll",
+            "expected": "edff78c851cedf92dbeb05c412f0bd60a96ec2c6f1aedc72b1f602f3592bc215",
+            "bytes": 138752,
+            "actualSha256": "edff78c851cedf92dbeb05c412f0bd60a96ec2c6f1aedc72b1f602f3592bc215",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-fit-params-impl.dll",
+            "expected": "754d509f9e6535a0165aaa9f37e778fd0632429cf42fdaaa56fc7d55ea2dcaaa",
+            "bytes": 43520,
+            "actualSha256": "754d509f9e6535a0165aaa9f37e778fd0632429cf42fdaaa56fc7d55ea2dcaaa",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-perplexity-impl.dll",
+            "expected": "ac3fe86897fe48a17da07428e58ceb63b61f04cce08dcaecf63f7d7f551d2feb",
+            "bytes": 198144,
+            "actualSha256": "ac3fe86897fe48a17da07428e58ceb63b61f04cce08dcaecf63f7d7f551d2feb",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-quantize-impl.dll",
+            "expected": "e5339d872021a5b0c06da24b065aa8d05872ef0f811db89ec8dce4f69e1e611b",
+            "bytes": 137216,
+            "actualSha256": "e5339d872021a5b0c06da24b065aa8d05872ef0f811db89ec8dce4f69e1e611b",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama-server-impl.dll",
+            "expected": "90dc5a4311650f53803b76bf7df4898467d97395521da2c122a2e54946ae50be",
+            "bytes": 10088960,
+            "actualSha256": "90dc5a4311650f53803b76bf7df4898467d97395521da2c122a2e54946ae50be",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\llama.dll",
+            "expected": "274a58c8af3f83bb8260f69f9cd1420d85e82fb292e82b81c32473368d87ac56",
+            "bytes": 3753472,
+            "actualSha256": "274a58c8af3f83bb8260f69f9cd1420d85e82fb292e82b81c32473368d87ac56",
+            "match": true
+          },
+          {
+            "role": "runtime-dependency",
+            "path": "__WORKSPACE__\\outputs\\V0.15.3-LocalModel\\runtime\\mtmd.dll",
+            "expected": "c19a1bc9b9ff07db48fcd09858955a5cda5910cfb2152e79942648f565fdff0e",
+            "bytes": 2143744,
+            "actualSha256": "c19a1bc9b9ff07db48fcd09858955a5cda5910cfb2152e79942648f565fdff0e",
+            "match": true
+          }
+        ]
+      },
+      "readyAt": "2026-11-16T05:57:13.254Z",
+      "loadWallMs": 5744,
+      "propsSha256": "2694837c2a087748b5a2a73353e4181f84d2fe5abb70db2e1ab169f8e0636ad0",
+      "runtimeProps": {
+        "default_generation_settings": {
+          "params": {
+            "seed": 4294967295,
+            "temperature": 0.800000011920929,
+            "dynatemp_range": 0,
+            "dynatemp_exponent": 1,
+            "top_k": 40,
+            "top_p": 0.949999988079071,
+            "min_p": 0.05000000074505806,
+            "top_n_sigma": -1,
+            "xtc_probability": 0,
+            "xtc_threshold": 0.10000000149011612,
+            "typical_p": 1,
+            "repeat_last_n": 64,
+            "repeat_penalty": 1,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "dry_multiplier": 0,
+            "dry_base": 1.75,
+            "dry_allowed_length": 2,
+            "dry_penalty_last_n": 64,
+            "mirostat": 0,
+            "mirostat_tau": 5,
+            "mirostat_eta": 0.10000000149011612,
+            "adaptive_target": -1,
+            "adaptive_decay": 0.8999999761581421,
+            "max_tokens": -1,
+            "n_predict": -1,
+            "n_keep": 0,
+            "n_discard": 0,
+            "ignore_eos": false,
+            "stream": false,
+            "n_probs": 0,
+            "min_keep": 0,
+            "chat_format": "Content-only",
+            "reasoning_format": "none",
+            "reasoning_in_content": false,
+            "generation_prompt": "",
+            "samplers": [
+              "penalties",
+              "dry",
+              "top_n_sigma",
+              "top_k",
+              "typ_p",
+              "top_p",
+              "min_p",
+              "xtc",
+              "temperature"
+            ],
+            "speculative.types": "none",
+            "timings_per_token": false,
+            "post_sampling_probs": false,
+            "backend_sampling": false,
+            "lora": []
+          },
+          "n_ctx": 16384
+        },
+        "total_slots": 1,
+        "model_alias": "qwen3-4b-instruct-2507-q8",
+        "model_ftype": "Q8_0",
+        "model_path": "__WORKSPACE__\\outputs\\Local-Models-Comparison-20261106\\Ollama--qwen3-4b-instruct-2507-q8_0\\qwen3-4b-instruct-2507-q8_0.gguf",
+        "modalities": {
+          "vision": false,
+          "video": false,
+          "audio": false
+        },
+        "media_marker": "<__media_KxIuuy0LcjlSQlwytNp8rEcNoKRTmAZE__>",
+        "endpoint_slots": true,
+        "endpoint_props": false,
+        "endpoint_metrics": false,
+        "ui": false,
+        "ui_settings": {},
+        "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {{- messages[0].content + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0].content + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" and message.content is string and not(message.content.startswith('<tool_response>') and message.content.endswith('</tool_response>')) %}\n        {%- set ns.multi_step_tool = false %}\n        {%- set ns.last_query_index = index %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if message.content is string %}\n        {%- set content = message.content %}\n    {%- else %}\n        {%- set content = '' %}\n    {%- endif %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- if loop.index0 > ns.last_query_index %}\n            {%- if loop.last or (not loop.last and reasoning_content) %}\n                {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content.strip('\\n') + '\\n</think>\\n\\n' + content.lstrip('\\n') }}\n            {%- else %}\n                {{- '<|im_start|>' + message.role + '\\n' + content }}\n            {%- endif %}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}",
+        "chat_template_caps": {
+          "supports_object_arguments": true,
+          "supports_parallel_tool_calls": true,
+          "supports_preserve_reasoning": false,
+          "supports_reasoning_effort": false,
+          "supports_string_content": true,
+          "supports_system_role": true,
+          "supports_tool_calls": true,
+          "supports_tools": true,
+          "supports_typed_content": false,
+          "reasoning_effort_levels": []
+        },
+        "bos_token": "<|endoftext|>",
+        "eos_token": "<|im_end|>",
+        "build_info": "b12019-1052f7e1d",
+        "is_sleeping": false,
+        "cors_proxy_enabled": false
+      }
+    },
+    "baseURL": "http://127.0.0.1:8496/v1",
+    "pid": 27476,
+    "logs": {
+      "manifest": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime-manifest.json",
+      "events": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\lifecycle.jsonl",
+      "stdout": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime.stdout.log",
+      "stderr": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime.stderr.log",
+      "props": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-model-data-final\\local-model\\sessions\\2bd6872a-5382-4103-9e8c-ad77c869279a\\runtime-props.json"
+    },
+    "fallback": "disabled",
+    "downloadPolicy": "explicit-setup-only"
+  },
+  "finishedAt": "2026-11-16T05:58:52.491Z",
+  "ownedModelStopped": true,
+  "platformPass": true
+}

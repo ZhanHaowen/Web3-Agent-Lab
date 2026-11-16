@@ -6,6 +6,7 @@
   <meta name="color-scheme" content="light">
   <title>Web3 Agent Lab V0.16.0 · 实验工作台</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/testnet.css">
   <link rel="stylesheet" href="/local-model.css"><script src="/model-backend.js" defer></script><script src="/model-evidence.js" defer></script><script src="/app.js" defer></script>
 </head>
 <body>
@@ -13,7 +14,7 @@
     <aside class="sidebar">
       <a class="brand" href="#experiment" aria-label="Web3 Agent Lab 首页"><span class="brand-icon">W<span>3</span></span><span>Agent Lab<small>WEB3 RESEARCH WORKSPACE</small></span></a>
       <div class="sidebar-label">实验工作台</div>
-      <nav aria-label="主导航"><a class="nav-item" href="/tasks.html">任务与 Agent 中心 <span class="nav-end">NEW</span></a>
+      <nav aria-label="主导航"><a class="nav-item" href="/testnet.html">公开测试网实验 <span class="nav-end">预览</span></a><a class="nav-item" href="/tasks.html">任务与 Agent 中心 <span class="nav-end">NEW</span></a>
         <button class="nav-item active" data-tab="experiment"><span class="nav-icon">◈</span>运行实验<span class="nav-end">01</span></button>
         <button class="nav-item" data-tab="environment"><span class="nav-icon">▦</span>链与环境<span class="nav-end">02</span></button>
         <button class="nav-item" data-tab="archive"><span class="nav-icon">▤</span>实验档案<span class="nav-end">03</span></button>
@@ -28,6 +29,7 @@
       <div class="page-content">
         <div class="page-title"><div><p class="eyebrow">WEB3 AGENT EXPERIMENTS</p><h1 id="page-title">从任务到证据，一次完整实验。</h1><p id="page-subtitle">配置 Agent，执行链上任务，保留可检查的完整轨迹。</p></div><div class="chain-badge"><span class="status-dot" id="chain-dot"></span><div id="chain-label">链环境未初始化<small id="chain-subtitle">先在「链与环境」启动实验链</small></div></div></div>
         <div id="notification" class="notification hidden" role="status"><span id="notification-text"></span><button aria-label="关闭提示" id="notification-close">×</button></div>
+        <section class="environment-picker" aria-label="选择实验环境"><div><strong>选择实验环境</strong><p>本页使用本地 Anvil；公开测试网有独立的账户、部署与实验档案。</p></div><div class="environment-choices"><a href="/" class="button secondary current" aria-current="page">本地 Anvil · 当前环境</a><a href="/testnet.html" class="button secondary">公开测试网 · 基础任务预览 ↗</a></div></section>
 
         <section id="tab-experiment" class="tab-panel">
           <div id="first-launch" class="onboarding"><div class="step-circle">1</div><div><strong>先准备一个可重置的链环境</strong><p>初始化会启动本地 Anvil、创建实验资产并部署任务合约。无需真实钱包或真实资产。</p></div><button class="button primary" id="quick-init">初始化本地环境</button></div>

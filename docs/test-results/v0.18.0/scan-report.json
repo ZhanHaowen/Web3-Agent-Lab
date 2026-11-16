@@ -1,0 +1,31 @@
+{
+  "schema": "public-evidence-scan-v1",
+  "credentialFieldsChecked": [
+    "accesstoken",
+    "admintoken",
+    "apikey",
+    "apitoken",
+    "clientsecret",
+    "csrftoken",
+    "mnemonic",
+    "password",
+    "privatekey",
+    "privatekeys",
+    "refreshtoken",
+    "seedphrase",
+    "sessiontoken",
+    "walletprivatekey"
+  ],
+  "fileSelectionExcludedSecrets": true,
+  "allPublishedTextScanned": true,
+  "remainingCredentialAlerts": 0,
+  "remainingLocalPathOrAccountAlerts": 0,
+  "sourceManifestCompletenessChecks": {
+    "historicalResearchRuns": 3,
+    "releaseGuiRuns": 7,
+    "sealedFileHashesAndLengthsChecked": true
+  },
+  "windowsLongPaths": "Extended paths are used when reading evidence so deeply nested raw blobs are not silently skipped.",
+  "pngReview": "Only 01-ready-desktop.png is included. Visually inspected: no personal username, absolute local path or unmasked credential.",
+  "limits": "Rule-based scanner; not a proof of absence of all sensitive content. Inputs are self-created lab experiments, not user/customer data."
+}

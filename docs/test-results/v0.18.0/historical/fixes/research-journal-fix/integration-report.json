@@ -1,0 +1,3545 @@
+{
+  "schema": "research-integration-report-v1",
+  "startedAt": "2026-11-16T05:56:07.963Z",
+  "execution": "real_anvil_official_x402_and_local_erc8183",
+  "modelMode": "scripted",
+  "output": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration",
+  "cases": [
+    {
+      "name": "exact-quality",
+      "startedAt": "2026-11-16T05:56:07.964Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "real background transactions present in full public window",
+          "passed": true
+        },
+        {
+          "name": "background not tagged for attacker",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "5514c166-3d51-4528-9d54-e1664b802651",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\exact-quality",
+        "startedAt": "2026-11-16T05:56:07.967Z",
+        "endedAt": "2026-11-16T05:56:08.512Z",
+        "durationMs": 546,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "scripted",
+        "strategy": "quality",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "90000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "90000",
+          "remainingBudgetBase": "10000",
+          "estimatedSpendableBudgetFromInitial": "910000"
+        },
+        "chainBalances": {
+          "payer": "910000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "7"
+          },
+          "windowGasUsed": "357177",
+          "windowGasCostWei": "582119330098589",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4",
+            "passed": true
+          },
+          {
+            "id": "entry_state:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:a43a991f-9b0b-4a6a-ae29-8b15403c78cb",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:a43a991f-9b0b-4a6a-ae29-8b15403c78cb",
+            "passed": true
+          },
+          {
+            "id": "entry_state:a43a991f-9b0b-4a6a-ae29-8b15403c78cb",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:31cb48a2-0fbe-4647-8563-6a86da2d5d20",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:31cb48a2-0fbe-4647-8563-6a86da2d5d20",
+            "passed": true
+          },
+          {
+            "id": "entry_state:31cb48a2-0fbe-4647-8563-6a86da2d5d20",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "90000",
+            "budgetBase": "100000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:a43a991f-9b0b-4a6a-ae29-8b15403c78cb",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:31cb48a2-0fbe-4647-8563-6a86da2d5d20",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:2c4a36d7-6f3f-4baf-8eb0-1e57202114d4:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:a43a991f-9b0b-4a6a-ae29-8b15403c78cb",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:a43a991f-9b0b-4a6a-ae29-8b15403c78cb:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:31cb48a2-0fbe-4647-8563-6a86da2d5d20",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:31cb48a2-0fbe-4647-8563-6a86da2d5d20:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 0,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:08.563Z"
+    },
+    {
+      "name": "batch-adaptive",
+      "startedAt": "2026-11-16T05:56:08.564Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "unused channel capital refunded separately",
+          "passed": true
+        },
+        {
+          "name": "actual wallet delta matches settled service expense after channel cleanup",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "11a7cd56-facb-4f95-8f75-c8177b3cac1d",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\batch-adaptive",
+        "startedAt": "2026-11-16T05:56:08.565Z",
+        "endedAt": "2026-11-16T05:56:09.465Z",
+        "durationMs": 900,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "120000",
+          "remainingBudgetBase": "80000",
+          "estimatedSpendableBudgetFromInitial": "880000"
+        },
+        "chainBalances": {
+          "payer": "880000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": {
+          "refundedBase": "240000",
+          "kind": "unused_channel_capital"
+        },
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "5",
+            "toBlock": "29"
+          },
+          "windowGasUsed": "2275278",
+          "windowGasCostWei": "2824894769166207",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:9f858850-f543-46a5-9476-7761d19b502d",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:9f858850-f543-46a5-9476-7761d19b502d",
+            "passed": true
+          },
+          {
+            "id": "entry_state:9f858850-f543-46a5-9476-7761d19b502d",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:541beaa6-f933-4b6e-9b1e-da99b6a20dd3",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:541beaa6-f933-4b6e-9b1e-da99b6a20dd3",
+            "passed": true
+          },
+          {
+            "id": "entry_state:541beaa6-f933-4b6e-9b1e-da99b6a20dd3",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:03ba83d9-5b59-4191-9243-36ea4feab25c",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:03ba83d9-5b59-4191-9243-36ea4feab25c",
+            "passed": true
+          },
+          {
+            "id": "entry_state:03ba83d9-5b59-4191-9243-36ea4feab25c",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:0bc8a436-e383-4f01-84e1-1ec11751d709",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:0bc8a436-e383-4f01-84e1-1ec11751d709",
+            "passed": true
+          },
+          {
+            "id": "entry_state:0bc8a436-e383-4f01-84e1-1ec11751d709",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:0a8eacb8-0b47-4ef0-8850-2d9c7b6c359b",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:0a8eacb8-0b47-4ef0-8850-2d9c7b6c359b",
+            "passed": true
+          },
+          {
+            "id": "entry_state:0a8eacb8-0b47-4ef0-8850-2d9c7b6c359b",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:064175fc-d2d2-4a6a-bdfb-d91d34fb9926",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:064175fc-d2d2-4a6a-bdfb-d91d34fb9926",
+            "passed": true
+          },
+          {
+            "id": "entry_state:064175fc-d2d2-4a6a-bdfb-d91d34fb9926",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "120000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:9f858850-f543-46a5-9476-7761d19b502d",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:541beaa6-f933-4b6e-9b1e-da99b6a20dd3",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:03ba83d9-5b59-4191-9243-36ea4feab25c",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:0bc8a436-e383-4f01-84e1-1ec11751d709",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:0a8eacb8-0b47-4ef0-8850-2d9c7b6c359b",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:064175fc-d2d2-4a6a-bdfb-d91d34fb9926",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:9f858850-f543-46a5-9476-7761d19b502d",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:541beaa6-f933-4b6e-9b1e-da99b6a20dd3",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:03ba83d9-5b59-4191-9243-36ea4feab25c",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:0bc8a436-e383-4f01-84e1-1ec11751d709",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:0a8eacb8-0b47-4ef0-8850-2d9c7b6c359b",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:064175fc-d2d2-4a6a-bdfb-d91d34fb9926",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 0,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:09.548Z"
+    },
+    {
+      "name": "ap2-exact-quality",
+      "startedAt": "2026-11-16T05:56:09.548Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "67bdce3f-e618-4855-99a7-398b0d0b2ac6",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\ap2-exact-quality",
+        "startedAt": "2026-11-16T05:56:09.549Z",
+        "endedAt": "2026-11-16T05:56:09.976Z",
+        "durationMs": 427,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "scripted",
+        "strategy": "quality",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "90000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "90000",
+          "remainingBudgetBase": "10000",
+          "estimatedSpendableBudgetFromInitial": "910000"
+        },
+        "chainBalances": {
+          "payer": "910000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "5"
+          },
+          "windowGasUsed": "315201",
+          "windowGasCostWei": "543921051192661",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:5a0bb857-cf7b-4450-9b2c-9e0689065cee",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:5a0bb857-cf7b-4450-9b2c-9e0689065cee",
+            "passed": true
+          },
+          {
+            "id": "entry_state:5a0bb857-cf7b-4450-9b2c-9e0689065cee",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:408a9831-4d40-478c-bc13-24881847dd94",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:408a9831-4d40-478c-bc13-24881847dd94",
+            "passed": true
+          },
+          {
+            "id": "entry_state:408a9831-4d40-478c-bc13-24881847dd94",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9",
+            "passed": true
+          },
+          {
+            "id": "entry_state:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "90000",
+            "budgetBase": "100000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:5a0bb857-cf7b-4450-9b2c-9e0689065cee",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:408a9831-4d40-478c-bc13-24881847dd94",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:5a0bb857-cf7b-4450-9b2c-9e0689065cee",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a0bb857-cf7b-4450-9b2c-9e0689065cee:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:408a9831-4d40-478c-bc13-24881847dd94",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:408a9831-4d40-478c-bc13-24881847dd94:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:a8a33a3a-546b-4b4f-b8d1-24a40b58fca9:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 0,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:10.029Z"
+    },
+    {
+      "name": "exact-http-failure-keeps-charge",
+      "startedAt": "2026-11-16T05:56:10.030Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "HTTP failure does not refund settled service charge",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "878b3b1e-c675-4c34-b319-424d8cf9efb3",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\exact-http-failure-keeps-charge",
+        "startedAt": "2026-11-16T05:56:10.031Z",
+        "endedAt": "2026-11-16T05:56:10.538Z",
+        "durationMs": 507,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "120000",
+          "remainingBudgetBase": "80000",
+          "estimatedSpendableBudgetFromInitial": "880000"
+        },
+        "chainBalances": {
+          "payer": "880000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "8"
+          },
+          "windowGasUsed": "562305",
+          "windowGasCostWei": "904174455935973",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e",
+            "passed": true
+          },
+          {
+            "id": "entry_state:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:59f5c0a2-6883-4ac9-bee7-cb15152bf594",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:59f5c0a2-6883-4ac9-bee7-cb15152bf594",
+            "passed": true
+          },
+          {
+            "id": "entry_state:59f5c0a2-6883-4ac9-bee7-cb15152bf594",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:95f2e5de-e478-4bba-a4f4-85f1396ab6bd",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:95f2e5de-e478-4bba-a4f4-85f1396ab6bd",
+            "passed": true
+          },
+          {
+            "id": "entry_state:95f2e5de-e478-4bba-a4f4-85f1396ab6bd",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:aa080f7b-050f-48a4-9742-9f04227f001b",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:aa080f7b-050f-48a4-9742-9f04227f001b",
+            "passed": true
+          },
+          {
+            "id": "entry_state:aa080f7b-050f-48a4-9742-9f04227f001b",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:7d177113-59f1-4d57-aa48-35426a51451e",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:7d177113-59f1-4d57-aa48-35426a51451e",
+            "passed": true
+          },
+          {
+            "id": "entry_state:7d177113-59f1-4d57-aa48-35426a51451e",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:fa28acb1-9476-4acb-bb6b-b728f2faa039",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:fa28acb1-9476-4acb-bb6b-b728f2faa039",
+            "passed": true
+          },
+          {
+            "id": "entry_state:fa28acb1-9476-4acb-bb6b-b728f2faa039",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "120000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:59f5c0a2-6883-4ac9-bee7-cb15152bf594",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:95f2e5de-e478-4bba-a4f4-85f1396ab6bd",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:aa080f7b-050f-48a4-9742-9f04227f001b",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:7d177113-59f1-4d57-aa48-35426a51451e",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:fa28acb1-9476-4acb-bb6b-b728f2faa039",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:527e6975-b9d9-4ebe-a308-8dd4c95b8c4e:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:59f5c0a2-6883-4ac9-bee7-cb15152bf594",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:59f5c0a2-6883-4ac9-bee7-cb15152bf594:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:95f2e5de-e478-4bba-a4f4-85f1396ab6bd",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:95f2e5de-e478-4bba-a4f4-85f1396ab6bd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:aa080f7b-050f-48a4-9742-9f04227f001b",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:aa080f7b-050f-48a4-9742-9f04227f001b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:7d177113-59f1-4d57-aa48-35426a51451e",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:7d177113-59f1-4d57-aa48-35426a51451e:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:fa28acb1-9476-4acb-bb6b-b728f2faa039",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:fa28acb1-9476-4acb-bb6b-b728f2faa039:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 1,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:10.600Z"
+    },
+    {
+      "name": "batch-http-failure-keeps-charge",
+      "startedAt": "2026-11-16T05:56:10.600Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "unused channel capital refunded separately",
+          "passed": true
+        },
+        {
+          "name": "actual wallet delta matches settled service expense after channel cleanup",
+          "passed": true
+        },
+        {
+          "name": "HTTP failure does not refund settled service charge",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "147e9eaf-8dc3-47ee-a1ce-ed8d28fcef6e",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\batch-http-failure-keeps-charge",
+        "startedAt": "2026-11-16T05:56:10.601Z",
+        "endedAt": "2026-11-16T05:56:11.436Z",
+        "durationMs": 835,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "120000",
+          "remainingBudgetBase": "80000",
+          "estimatedSpendableBudgetFromInitial": "880000"
+        },
+        "chainBalances": {
+          "payer": "880000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": {
+          "refundedBase": "240000",
+          "kind": "unused_channel_capital"
+        },
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "5",
+            "toBlock": "29"
+          },
+          "windowGasUsed": "2275278",
+          "windowGasCostWei": "2824893498640587",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:92a5a88f-62b8-414c-a6fd-4ba1206b5b8a",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:92a5a88f-62b8-414c-a6fd-4ba1206b5b8a",
+            "passed": true
+          },
+          {
+            "id": "entry_state:92a5a88f-62b8-414c-a6fd-4ba1206b5b8a",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:88f019a8-4d33-4271-9d2a-a08f8798beee",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:88f019a8-4d33-4271-9d2a-a08f8798beee",
+            "passed": true
+          },
+          {
+            "id": "entry_state:88f019a8-4d33-4271-9d2a-a08f8798beee",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:c7433d79-5c75-4dc6-82e1-77157a4593f7",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:c7433d79-5c75-4dc6-82e1-77157a4593f7",
+            "passed": true
+          },
+          {
+            "id": "entry_state:c7433d79-5c75-4dc6-82e1-77157a4593f7",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:8289438e-0f6c-428c-b2bf-54b5c3bb551f",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:8289438e-0f6c-428c-b2bf-54b5c3bb551f",
+            "passed": true
+          },
+          {
+            "id": "entry_state:8289438e-0f6c-428c-b2bf-54b5c3bb551f",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:79aee879-1005-49e2-865c-ecbe4265de80",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:79aee879-1005-49e2-865c-ecbe4265de80",
+            "passed": true
+          },
+          {
+            "id": "entry_state:79aee879-1005-49e2-865c-ecbe4265de80",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:b7188415-cdb7-43c1-9bed-cb1573f573f4",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:b7188415-cdb7-43c1-9bed-cb1573f573f4",
+            "passed": true
+          },
+          {
+            "id": "entry_state:b7188415-cdb7-43c1-9bed-cb1573f573f4",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "120000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:92a5a88f-62b8-414c-a6fd-4ba1206b5b8a",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:88f019a8-4d33-4271-9d2a-a08f8798beee",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:c7433d79-5c75-4dc6-82e1-77157a4593f7",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:8289438e-0f6c-428c-b2bf-54b5c3bb551f",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:79aee879-1005-49e2-865c-ecbe4265de80",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:b7188415-cdb7-43c1-9bed-cb1573f573f4",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:92a5a88f-62b8-414c-a6fd-4ba1206b5b8a",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:88f019a8-4d33-4271-9d2a-a08f8798beee",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:c7433d79-5c75-4dc6-82e1-77157a4593f7",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:8289438e-0f6c-428c-b2bf-54b5c3bb551f",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:79aee879-1005-49e2-865c-ecbe4265de80",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:b7188415-cdb7-43c1-9bed-cb1573f573f4",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 1,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:11.516Z"
+    },
+    {
+      "name": "erc8183-quality",
+      "startedAt": "2026-11-16T05:56:11.516Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "e0adc0e2-f56a-4f70-8a41-ac08aa4e2174",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\erc8183-quality",
+        "startedAt": "2026-11-16T05:56:11.517Z",
+        "endedAt": "2026-11-16T05:56:11.936Z",
+        "durationMs": 419,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "scripted",
+        "strategy": "quality",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "90000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "90000",
+          "remainingBudgetBase": "10000",
+          "estimatedSpendableBudgetFromInitial": "910000"
+        },
+        "chainBalances": {
+          "payer": "910000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "21"
+          },
+          "windowGasUsed": "2718345",
+          "windowGasCostWei": "4188691996710579",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:bd99e381-6373-4219-8862-09f67258f331",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:bd99e381-6373-4219-8862-09f67258f331",
+            "passed": true
+          },
+          {
+            "id": "entry_state:bd99e381-6373-4219-8862-09f67258f331",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:371721a3-b5bd-40b8-af31-639ffbec2ce0",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:371721a3-b5bd-40b8-af31-639ffbec2ce0",
+            "passed": true
+          },
+          {
+            "id": "entry_state:371721a3-b5bd-40b8-af31-639ffbec2ce0",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc",
+            "passed": true
+          },
+          {
+            "id": "entry_state:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "90000",
+            "budgetBase": "100000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:bd99e381-6373-4219-8862-09f67258f331",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:371721a3-b5bd-40b8-af31-639ffbec2ce0",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:bd99e381-6373-4219-8862-09f67258f331",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:bd99e381-6373-4219-8862-09f67258f331:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:bd99e381-6373-4219-8862-09f67258f331:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:bd99e381-6373-4219-8862-09f67258f331:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:bd99e381-6373-4219-8862-09f67258f331:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:bd99e381-6373-4219-8862-09f67258f331:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:371721a3-b5bd-40b8-af31-639ffbec2ce0",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:371721a3-b5bd-40b8-af31-639ffbec2ce0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:371721a3-b5bd-40b8-af31-639ffbec2ce0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:371721a3-b5bd-40b8-af31-639ffbec2ce0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:371721a3-b5bd-40b8-af31-639ffbec2ce0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:371721a3-b5bd-40b8-af31-639ffbec2ce0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5a50efaa-7e7c-43f5-a88b-ff44e596f0bc:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 0,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:11.983Z"
+    },
+    {
+      "name": "erc8183-reject-refund",
+      "startedAt": "2026-11-16T05:56:11.983Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "escrow refunds are confirmed and reduce only own failed-job net charge",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "d4cceff9-5804-4b3c-84bd-6bf670f71642",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\erc8183-reject-refund",
+        "startedAt": "2026-11-16T05:56:11.984Z",
+        "endedAt": "2026-11-16T05:56:12.531Z",
+        "durationMs": 547,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "10000",
+          "liabilityBase": "110000",
+          "remainingBudgetBase": "90000",
+          "estimatedSpendableBudgetFromInitial": "890000"
+        },
+        "chainBalances": {
+          "payer": "890000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "38"
+          },
+          "windowGasUsed": "4001240",
+          "windowGasCostWei": "5516716752961262",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:cde2a2a9-9e76-47e0-8017-6252530b7379",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:cde2a2a9-9e76-47e0-8017-6252530b7379",
+            "passed": true
+          },
+          {
+            "id": "entry_state:cde2a2a9-9e76-47e0-8017-6252530b7379",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:5bb95894-82cb-40e5-92ae-5f30c0e1d69b",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:5bb95894-82cb-40e5-92ae-5f30c0e1d69b",
+            "passed": true
+          },
+          {
+            "id": "entry_state:5bb95894-82cb-40e5-92ae-5f30c0e1d69b",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:e31556bc-f549-464b-886d-a706fff68855",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:e31556bc-f549-464b-886d-a706fff68855",
+            "passed": true
+          },
+          {
+            "id": "entry_state:e31556bc-f549-464b-886d-a706fff68855",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0",
+            "passed": true
+          },
+          {
+            "id": "entry_state:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:649c61d0-d97b-4fbc-a09c-03027d44058c",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:649c61d0-d97b-4fbc-a09c-03027d44058c",
+            "passed": true
+          },
+          {
+            "id": "entry_state:649c61d0-d97b-4fbc-a09c-03027d44058c",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:dc585df8-3527-4ad6-a48e-40700b9936c1",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:dc585df8-3527-4ad6-a48e-40700b9936c1",
+            "passed": true
+          },
+          {
+            "id": "entry_state:dc585df8-3527-4ad6-a48e-40700b9936c1",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "10000",
+            "actual": "10000"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "110000",
+            "actual": "110000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "110000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:cde2a2a9-9e76-47e0-8017-6252530b7379",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:5bb95894-82cb-40e5-92ae-5f30c0e1d69b",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:e31556bc-f549-464b-886d-a706fff68855",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:649c61d0-d97b-4fbc-a09c-03027d44058c",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:dc585df8-3527-4ad6-a48e-40700b9936c1",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:cde2a2a9-9e76-47e0-8017-6252530b7379",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:cde2a2a9-9e76-47e0-8017-6252530b7379:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:cde2a2a9-9e76-47e0-8017-6252530b7379:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:cde2a2a9-9e76-47e0-8017-6252530b7379:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:cde2a2a9-9e76-47e0-8017-6252530b7379:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:5bb95894-82cb-40e5-92ae-5f30c0e1d69b",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5bb95894-82cb-40e5-92ae-5f30c0e1d69b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5bb95894-82cb-40e5-92ae-5f30c0e1d69b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5bb95894-82cb-40e5-92ae-5f30c0e1d69b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5bb95894-82cb-40e5-92ae-5f30c0e1d69b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:5bb95894-82cb-40e5-92ae-5f30c0e1d69b:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:e31556bc-f549-464b-886d-a706fff68855",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:e31556bc-f549-464b-886d-a706fff68855:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:e31556bc-f549-464b-886d-a706fff68855:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:e31556bc-f549-464b-886d-a706fff68855:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:e31556bc-f549-464b-886d-a706fff68855:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:e31556bc-f549-464b-886d-a706fff68855:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:05faaeb6-d8f2-4c94-b249-a30f1ec3f5f0:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:649c61d0-d97b-4fbc-a09c-03027d44058c",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:649c61d0-d97b-4fbc-a09c-03027d44058c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:649c61d0-d97b-4fbc-a09c-03027d44058c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:649c61d0-d97b-4fbc-a09c-03027d44058c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:649c61d0-d97b-4fbc-a09c-03027d44058c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:649c61d0-d97b-4fbc-a09c-03027d44058c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:dc585df8-3527-4ad6-a48e-40700b9936c1",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:dc585df8-3527-4ad6-a48e-40700b9936c1:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:dc585df8-3527-4ad6-a48e-40700b9936c1:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:dc585df8-3527-4ad6-a48e-40700b9936c1:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:dc585df8-3527-4ad6-a48e-40700b9936c1:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:dc585df8-3527-4ad6-a48e-40700b9936c1:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 1,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:12.594Z"
+    },
+    {
+      "name": "erc8183-expiry-refund",
+      "startedAt": "2026-11-16T05:56:12.594Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "escrow refunds are confirmed and reduce only own failed-job net charge",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "f7288b9f-facc-4ccf-bbf7-c5d3bcba37ce",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\erc8183-expiry-refund",
+        "startedAt": "2026-11-16T05:56:12.596Z",
+        "endedAt": "2026-11-16T05:56:13.169Z",
+        "durationMs": 573,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "10000",
+          "liabilityBase": "110000",
+          "remainingBudgetBase": "90000",
+          "estimatedSpendableBudgetFromInitial": "890000"
+        },
+        "chainBalances": {
+          "payer": "890000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "39"
+          },
+          "windowGasUsed": "3999917",
+          "windowGasCostWei": "5484759643509437",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:2209d35c-7d7a-480c-b640-3ebf41cab713",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:2209d35c-7d7a-480c-b640-3ebf41cab713",
+            "passed": true
+          },
+          {
+            "id": "entry_state:2209d35c-7d7a-480c-b640-3ebf41cab713",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:c0a7b1c7-310c-48ea-ade4-5b222d2a1161",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:c0a7b1c7-310c-48ea-ade4-5b222d2a1161",
+            "passed": true
+          },
+          {
+            "id": "entry_state:c0a7b1c7-310c-48ea-ade4-5b222d2a1161",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:8c8c8395-2496-4dfc-a586-ebd102795ddf",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:8c8c8395-2496-4dfc-a586-ebd102795ddf",
+            "passed": true
+          },
+          {
+            "id": "entry_state:8c8c8395-2496-4dfc-a586-ebd102795ddf",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:c66bc493-cc74-4169-9d40-4de3931356dd",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:c66bc493-cc74-4169-9d40-4de3931356dd",
+            "passed": true
+          },
+          {
+            "id": "entry_state:c66bc493-cc74-4169-9d40-4de3931356dd",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:acfb192a-cd3e-4bb3-b3c5-faea99465501",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:acfb192a-cd3e-4bb3-b3c5-faea99465501",
+            "passed": true
+          },
+          {
+            "id": "entry_state:acfb192a-cd3e-4bb3-b3c5-faea99465501",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791",
+            "passed": true
+          },
+          {
+            "id": "entry_state:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "10000",
+            "actual": "10000"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "110000",
+            "actual": "110000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "110000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:2209d35c-7d7a-480c-b640-3ebf41cab713",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:c0a7b1c7-310c-48ea-ade4-5b222d2a1161",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:8c8c8395-2496-4dfc-a586-ebd102795ddf",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:c66bc493-cc74-4169-9d40-4de3931356dd",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:acfb192a-cd3e-4bb3-b3c5-faea99465501",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:2209d35c-7d7a-480c-b640-3ebf41cab713",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:2209d35c-7d7a-480c-b640-3ebf41cab713:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:2209d35c-7d7a-480c-b640-3ebf41cab713:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:2209d35c-7d7a-480c-b640-3ebf41cab713:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:2209d35c-7d7a-480c-b640-3ebf41cab713:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:c0a7b1c7-310c-48ea-ade4-5b222d2a1161",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c0a7b1c7-310c-48ea-ade4-5b222d2a1161:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c0a7b1c7-310c-48ea-ade4-5b222d2a1161:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c0a7b1c7-310c-48ea-ade4-5b222d2a1161:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c0a7b1c7-310c-48ea-ade4-5b222d2a1161:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c0a7b1c7-310c-48ea-ade4-5b222d2a1161:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:8c8c8395-2496-4dfc-a586-ebd102795ddf",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:8c8c8395-2496-4dfc-a586-ebd102795ddf:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:8c8c8395-2496-4dfc-a586-ebd102795ddf:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:8c8c8395-2496-4dfc-a586-ebd102795ddf:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:8c8c8395-2496-4dfc-a586-ebd102795ddf:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:8c8c8395-2496-4dfc-a586-ebd102795ddf:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:c66bc493-cc74-4169-9d40-4de3931356dd",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c66bc493-cc74-4169-9d40-4de3931356dd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c66bc493-cc74-4169-9d40-4de3931356dd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c66bc493-cc74-4169-9d40-4de3931356dd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c66bc493-cc74-4169-9d40-4de3931356dd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:c66bc493-cc74-4169-9d40-4de3931356dd:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:acfb192a-cd3e-4bb3-b3c5-faea99465501",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:acfb192a-cd3e-4bb3-b3c5-faea99465501:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:acfb192a-cd3e-4bb3-b3c5-faea99465501:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:acfb192a-cd3e-4bb3-b3c5-faea99465501:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:acfb192a-cd3e-4bb3-b3c5-faea99465501:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:acfb192a-cd3e-4bb3-b3c5-faea99465501:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:d7ba5d2a-3ea4-4bfe-9cb5-9f8e3f09b791:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 1,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:13.227Z"
+    },
+    {
+      "name": "mpp-quality",
+      "startedAt": "2026-11-16T05:56:13.228Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "6b9b760a-2596-4463-a7f8-018eab107007",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\mpp-quality",
+        "startedAt": "2026-11-16T05:56:13.229Z",
+        "endedAt": "2026-11-16T05:56:13.649Z",
+        "durationMs": 420,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 4,
+        "purchases": 3,
+        "mode": "scripted",
+        "strategy": "quality",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "90000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "90000",
+          "remainingBudgetBase": "10000",
+          "estimatedSpendableBudgetFromInitial": "910000"
+        },
+        "chainBalances": {
+          "payer": "910000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "0"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "5"
+          },
+          "windowGasUsed": "316305",
+          "windowGasCostWei": "545776286430129",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:85252784-114d-482c-9915-9c8fd2a399df",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:85252784-114d-482c-9915-9c8fd2a399df",
+            "passed": true
+          },
+          {
+            "id": "entry_state:85252784-114d-482c-9915-9c8fd2a399df",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:586b76b0-d0f2-43cb-92a5-297a5d455ea2",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:586b76b0-d0f2-43cb-92a5-297a5d455ea2",
+            "passed": true
+          },
+          {
+            "id": "entry_state:586b76b0-d0f2-43cb-92a5-297a5d455ea2",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:675d3687-0f72-4547-9328-40e12de294cb",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:675d3687-0f72-4547-9328-40e12de294cb",
+            "passed": true
+          },
+          {
+            "id": "entry_state:675d3687-0f72-4547-9328-40e12de294cb",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "90000",
+            "actual": "90000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "90000",
+            "budgetBase": "100000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:85252784-114d-482c-9915-9c8fd2a399df",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:586b76b0-d0f2-43cb-92a5-297a5d455ea2",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:675d3687-0f72-4547-9328-40e12de294cb",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:85252784-114d-482c-9915-9c8fd2a399df",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:85252784-114d-482c-9915-9c8fd2a399df:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:586b76b0-d0f2-43cb-92a5-297a5d455ea2",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:586b76b0-d0f2-43cb-92a5-297a5d455ea2:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:675d3687-0f72-4547-9328-40e12de294cb",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:675d3687-0f72-4547-9328-40e12de294cb:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 0,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:13.697Z"
+    },
+    {
+      "name": "mpp-http-failure-keeps-charge",
+      "startedAt": "2026-11-16T05:56:13.697Z",
+      "assertions": [
+        {
+          "name": "actual chain evidence complete",
+          "passed": true
+        },
+        {
+          "name": "finished without unresolved liabilities",
+          "passed": true
+        },
+        {
+          "name": "task independently succeeds",
+          "passed": true
+        },
+        {
+          "name": "ledger and RPC projection independently validate",
+          "passed": true
+        },
+        {
+          "name": "model mode labelled scripted",
+          "passed": true
+        },
+        {
+          "name": "window gas derives from all public receipts",
+          "passed": true
+        },
+        {
+          "name": "no private task labels or run identity in observer text",
+          "passed": true
+        },
+        {
+          "name": "recorded purchases match ledger",
+          "passed": true
+        },
+        {
+          "name": "sealed files validate on read-only resume",
+          "passed": true
+        },
+        {
+          "name": "HTTP failure does not refund settled service charge",
+          "passed": true
+        },
+        {
+          "name": "actual HTTP402 challenge present",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "schema": "web3-research-summary-v1",
+        "runId": "845bd677-32ee-432c-bc45-aa5ee0f6cf3a",
+        "outDir": "__WORKSPACE__\\outputs\\testnet-preview-20261116\\research-journal-fix\\integration\\mpp-http-failure-keeps-charge",
+        "startedAt": "2026-11-16T05:56:13.699Z",
+        "endedAt": "2026-11-16T05:56:14.214Z",
+        "durationMs": 515,
+        "status": "completed",
+        "finishReason": "agent_finished",
+        "taskOutcome": "success",
+        "completedNormally": true,
+        "steps": 7,
+        "purchases": 6,
+        "mode": "scripted",
+        "strategy": "adaptive",
+        "evidenceOrigin": "real_chain",
+        "finances": {
+          "settledBase": "120000",
+          "reservedBase": "0",
+          "refundedBase": "0",
+          "liabilityBase": "120000",
+          "remainingBudgetBase": "80000",
+          "estimatedSpendableBudgetFromInitial": "880000"
+        },
+        "chainBalances": {
+          "payer": "880000",
+          "providers": [
+            {
+              "id": "discover-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "discover-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "analyze-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "analyze-pro",
+              "balanceBase": "30000"
+            },
+            {
+              "id": "verify-lite",
+              "balanceBase": "10000"
+            },
+            {
+              "id": "verify-pro",
+              "balanceBase": "30000"
+            }
+          ]
+        },
+        "capitalRefund": null,
+        "costs": {
+          "modelCalls": 0,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "totalTokens": 0,
+          "usageComplete": true
+        },
+        "errors": [],
+        "recordingComplete": true,
+        "observerPresent": true,
+        "observer": {
+          "range": {
+            "fromBlock": "2",
+            "toBlock": "8"
+          },
+          "windowGasUsed": "564549",
+          "windowGasCostWei": "907696257924369",
+          "scope": "All receipt gas in the captured public block window, including background and setup transactions; not net Agent-only gas."
+        },
+        "privacyDatasetReady": true,
+        "privateFiles": [
+          "private/ground-truth.json",
+          "private/budget-ledger.json",
+          "private/purchase-links.json"
+        ],
+        "checkerStatus": "pass"
+      },
+      "independentChecker": {
+        "schema": "web3-research-check-v1",
+        "status": "pass",
+        "assertions": [
+          {
+            "id": "private_truth_present",
+            "passed": true
+          },
+          {
+            "id": "ledger_schema",
+            "passed": true
+          },
+          {
+            "id": "budget_truth_consistency",
+            "passed": true
+          },
+          {
+            "id": "budget_semantics_explicit",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:b2bdffd7-c1d5-4dce-b53f-a16589cab008",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:b2bdffd7-c1d5-4dce-b53f-a16589cab008",
+            "passed": true
+          },
+          {
+            "id": "entry_state:b2bdffd7-c1d5-4dce-b53f-a16589cab008",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:38258e5d-ee9f-4f73-8609-bd9528b9ba4a",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:38258e5d-ee9f-4f73-8609-bd9528b9ba4a",
+            "passed": true
+          },
+          {
+            "id": "entry_state:38258e5d-ee9f-4f73-8609-bd9528b9ba4a",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:9211b001-a722-4fa6-85d0-fdb4a7a2403c",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:9211b001-a722-4fa6-85d0-fdb4a7a2403c",
+            "passed": true
+          },
+          {
+            "id": "entry_state:9211b001-a722-4fa6-85d0-fdb4a7a2403c",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:b796b05d-2d95-429b-8a92-19d915e3c9ac",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:b796b05d-2d95-429b-8a92-19d915e3c9ac",
+            "passed": true
+          },
+          {
+            "id": "entry_state:b796b05d-2d95-429b-8a92-19d915e3c9ac",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:1161dd91-cea3-4fe5-8d59-0d49136b5321",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:1161dd91-cea3-4fe5-8d59-0d49136b5321",
+            "passed": true
+          },
+          {
+            "id": "entry_state:1161dd91-cea3-4fe5-8d59-0d49136b5321",
+            "passed": true
+          },
+          {
+            "id": "entry_identity:04735404-7282-44e9-8d05-b265260b93cb",
+            "passed": true
+          },
+          {
+            "id": "entry_arithmetic:04735404-7282-44e9-8d05-b265260b93cb",
+            "passed": true
+          },
+          {
+            "id": "entry_state:04735404-7282-44e9-8d05-b265260b93cb",
+            "passed": true
+          },
+          {
+            "id": "total_settledBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "total_reservedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_refundedBase",
+            "passed": true,
+            "expected": "0",
+            "actual": "0"
+          },
+          {
+            "id": "total_liabilityBase",
+            "passed": true,
+            "expected": "120000",
+            "actual": "120000"
+          },
+          {
+            "id": "private_budget_not_exceeded",
+            "passed": true,
+            "liabilityBase": "120000",
+            "budgetBase": "200000"
+          },
+          {
+            "id": "remaining_budget_matches",
+            "passed": true
+          },
+          {
+            "id": "accounting_capacity_matches",
+            "passed": true,
+            "scope": "Accounting capacity, not actual on-chain liquid balance; channel capital is separate."
+          },
+          {
+            "id": "settled_principal_within_initial_balance",
+            "passed": true
+          },
+          {
+            "id": "observer_public_schema_and_source",
+            "passed": true,
+            "issues": [],
+            "scope": "schema, recorded source declaration, hash and cross-record consistency; not RPC authenticity"
+          },
+          {
+            "id": "settled_entry_receipt:b2bdffd7-c1d5-4dce-b53f-a16589cab008",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:38258e5d-ee9f-4f73-8609-bd9528b9ba4a",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:9211b001-a722-4fa6-85d0-fdb4a7a2403c",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:b796b05d-2d95-429b-8a92-19d915e3c9ac",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:1161dd91-cea3-4fe5-8d59-0d49136b5321",
+            "passed": true
+          },
+          {
+            "id": "settled_entry_receipt:04735404-7282-44e9-8d05-b265260b93cb",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:b2bdffd7-c1d5-4dce-b53f-a16589cab008",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:b2bdffd7-c1d5-4dce-b53f-a16589cab008:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:38258e5d-ee9f-4f73-8609-bd9528b9ba4a",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:38258e5d-ee9f-4f73-8609-bd9528b9ba4a:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:9211b001-a722-4fa6-85d0-fdb4a7a2403c",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:9211b001-a722-4fa6-85d0-fdb4a7a2403c:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:b796b05d-2d95-429b-8a92-19d915e3c9ac",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:b796b05d-2d95-429b-8a92-19d915e3c9ac:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:1161dd91-cea3-4fe5-8d59-0d49136b5321",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:1161dd91-cea3-4fe5-8d59-0d49136b5321:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_transaction_observed:04735404-7282-44e9-8d05-b265260b93cb",
+            "passed": true
+          },
+          {
+            "id": "purchase_payment_reference:04735404-7282-44e9-8d05-b265260b93cb:tx",
+            "passed": true
+          },
+          {
+            "id": "purchase_id_uniqueness",
+            "passed": true
+          },
+          {
+            "id": "failure_outcomes_retained",
+            "passed": true,
+            "failureOrUnknownPurchases": 1,
+            "policy": "Failure samples are retained, not filtered to successful tasks."
+          },
+          {
+            "id": "run_identity",
+            "passed": true
+          }
+        ],
+        "scope": "Recomputed saved ledger and public RPC projection consistency; not signer correctness, RPC authentication, service utility or a privacy guarantee.",
+        "taskOutcome": "success"
+      },
+      "status": "passed",
+      "finishedAt": "2026-11-16T05:56:14.315Z"
+    }
+  ],
+  "finishedAt": "2026-11-16T05:56:14.316Z",
+  "passed": true
+}

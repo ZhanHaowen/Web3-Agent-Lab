@@ -1,0 +1,17 @@
+(node:20944) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS six enabled profiles, fourteen catalog-only profiles and original local navigation
+PASS dedicated test wallet connection and immediate password-field clearing
+PASS explicit Lab fixture deployment through standard RPC and visible native gas balance
+PASS real browser scripted balance with on-chain independent success
+PASS real browser scripted transfer with on-chain independent success
+PASS real browser scripted approve with on-chain independent success
+PASS real browser scripted swap with on-chain independent success
+PASS real browser scripted swap_deposit with on-chain independent success
+PASS parameter rebuild and real before-tool / before-transaction pause-resume preserve target amount
+PASS sealed-evidence task recheck uses local service without any RPC or model call
+PASS raw event detail and explicit provenance graph nodes render from sealed evidence
+PASS native browser bundle, GraphML and CSV downloads preserve original file bytes without private key
+PASS offline import, step replay and graph inspection make zero HTTP/RPC requests; mobile layout fits
+PASS exported manifest reattaches to readonly account; UI prohibits writes and balance query succeeds
+PASS local/API model selectors remain explicit and no browser JavaScript errors

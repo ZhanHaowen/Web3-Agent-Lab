@@ -57,7 +57,7 @@ export class Recorder {
     await mkdir(join(this.folder, 'blobs'), { recursive: true });
     await atomic(join(this.folder, 'config.json'), json(this.redactor.clean({ ...config, schema_version: '1.0', run_id: this.runId })));
     this.handle = await open(join(this.folder, 'events.jsonl'), 'ax', 0o600);
-    await this.emit('run.started', { started_at: new Date().toISOString(), data_origin: config.data_origin || (config.mode === 'llm' ? 'llm' : 'scripted'), chain_execution: 'real_anvil' });
+    await this.emit('run.started', { started_at: new Date().toISOString(), data_origin: config.data_origin || (config.mode === 'llm' ? 'llm' : 'scripted'), chain_execution: config.chain_execution || 'real_anvil' });
   }
   emit(type: string, payload: any, links: Record<string, any> = {}): Promise<void> {
     if (this.sealed) return Promise.reject(new Error('RECORDING_SEALED'));

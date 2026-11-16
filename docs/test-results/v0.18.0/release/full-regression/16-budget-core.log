@@ -1,0 +1,18 @@
+(node:37164) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS 01 split policy reproduces 140 actual / 80 normal counter
+PASS 02 unified budget rejects permit 60 after payment 80
+PASS 03 unified 80 + permit 20 reaches exact budget
+PASS 04 unified 80 + permit 21 is rejected
+PASS 05 permit-only positive control transfers 60
+PASS 06 split transaction-only 80 + 60 is rejected
+PASS 07 reused signature nonce cannot transfer twice
+PASS 08 a different spender cannot redeem the signed permit
+PASS 09 wrong session and transaction destination override are rejected
+PASS 10 concurrent permits share one reservation ledger
+PASS 11 permit reservation also limits a later normal transaction
+PASS 12 config rejects negative, excess precision, scientific and unknown fields
+PASS 13 export integrity and raw log checker detect tampering
+PASS 14 offline CLI distinguishes integrity from budget violation
+PASS 15 expired permit cannot be redeemed and causes no token debit
+PASS 16 first payment above budget is rejected without any token debit

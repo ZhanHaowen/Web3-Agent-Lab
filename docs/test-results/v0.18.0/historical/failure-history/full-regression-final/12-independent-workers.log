@@ -1,0 +1,69 @@
+Published offline 174a6f56-9b80-498c-8853-10966dff2a9c
+Agents [
+  {
+    agentId: 'agent-a',
+    address: '0xc81605A5B931f47702511633a6e1B28F1A624480',
+    profileVersion: 1,
+    modelRef: 'scripted',
+    provider: 'scripted',
+    capabilities: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    authorized: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    pid: 31328,
+    online: true,
+    leaseEpoch: 1
+  },
+  {
+    agentId: 'agent-b',
+    address: '0xA1Ef72104C7Aa476E8df532BFB6B319becE4D5bC',
+    profileVersion: 1,
+    modelRef: 'scripted',
+    provider: 'scripted',
+    capabilities: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    authorized: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    pid: 30956,
+    online: true,
+    leaseEpoch: 1
+  }
+]
+Assigned d05d4880-cef3-478b-a2d7-07c8a6e4a9da
+Result queued undefined undefined RPC端口已被占用；请停止占用进程或更换端口。
+AssertionError [ERR_ASSERTION]: {"id":"d05d4880-cef3-478b-a2d7-07c8a6e4a9da","jobId":"174a6f56-9b80-498c-8853-10966dff2a9c","definitionId":"peer_swap@1.0.0","definitionHash":"7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5","state":"queued","attempt":1,"bindings":{"maker":{"executionId":"d05d4880-cef3-478b-a2d7-07c8a6e4a9da","agentId":"agent-a","address":"0xc81605A5B931f47702511633a6e1B28F1A624480","profileVersion":1,"role":"maker","agentRunId":"47e2bba9-82d0-4030-8bfe-9f4aedea03e2","epoch":1},"taker":{"executionId":"d05d4880-cef3-478b-a2d7-07c8a6e4a9da","agentId":"agent-b","address":"0xA1Ef72104C7Aa476E8df532BFB6B319becE4D5bC","profileVersion":1,"role":"taker","agentRunId":"eec2e2ef-8e63-4443-87b6-b6d8d5eaf7a3","epoch":1}},"reservationExpires":1794807723966,"autoStart":true,"ready":true}
++ actual - expected
+
++ 'queued'
+- 'completed'
+
+    at file:///__WORKSPACE__/work/public-web3-agent-lab/tests/v2-integration.mjs:12:108
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+(node:4164) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Web3 Agent Lab V0.17.0 Research Beta http://127.0.0.1:19017
+

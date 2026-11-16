@@ -1,0 +1,986 @@
+{
+  "emptyFeatures": {
+    "schema": "web3-private-inference-evaluation-v1",
+    "visibility": "private-evaluator-only",
+    "observerWindowAssumption": {
+      "kind": "oracle-window",
+      "source": "researcher-selected public block range",
+      "automaticTaskSegmentation": false
+    },
+    "splitCounts": {
+      "train": 18,
+      "validation": 6,
+      "test": 12
+    },
+    "classification": {
+      "task": {
+        "method": "training-only-standardized-nearest-centroid",
+        "threshold": 0,
+        "rejectAll": false,
+        "calibration": "validation-risk-coverage-selection",
+        "trainingClasses": [
+          "evidence_review",
+          "risk_analysis"
+        ],
+        "predictions": [
+          {
+            "sampleId": "cell-0-03e7c669",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-1-742b5394",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-6-6364b51b",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-8-1aedcec7",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-9-8cf69f78",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-10-0d1a4d07",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-14-6d59fa1d",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-16-a90ff51d",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-19-8c633904",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-21-5102d3fd",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-26-0f163737",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          },
+          {
+            "sampleId": "cell-31-30885af2",
+            "label": "evidence_review",
+            "confidence": 0.5,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "evidence_review"
+          }
+        ],
+        "n": 12,
+        "labels": [
+          "__unknown__",
+          "evidence_review"
+        ],
+        "confusionMatrix": {
+          "__unknown__": {
+            "__unknown__": 0,
+            "evidence_review": 12
+          },
+          "evidence_review": {
+            "__unknown__": 0,
+            "evidence_review": 0
+          }
+        },
+        "perClass": [
+          {
+            "label": "__unknown__",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 12
+          },
+          {
+            "label": "evidence_review",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 0
+          }
+        ],
+        "macroF1": 0,
+        "macroF1Scope": "union of observed truth and predicted labels, including unknown; rejection of unseen labels is not recovery of their original class",
+        "accuracy": 0,
+        "knownLabelCount": 0,
+        "knownLabelAccuracy": null,
+        "unknownOnlyTest": true,
+        "coverage": 1,
+        "selectiveRisk": 1,
+        "unknownCount": 12,
+        "unknownRejectionRate": 0
+      },
+      "strategy": {
+        "method": "training-only-standardized-nearest-centroid",
+        "threshold": 1,
+        "rejectAll": true,
+        "calibration": "validation-no-acceptable-operating-point",
+        "trainingClasses": [
+          "adaptive",
+          "cost",
+          "quality"
+        ],
+        "predictions": [
+          {
+            "sampleId": "cell-0-03e7c669",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-1-742b5394",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-6-6364b51b",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-8-1aedcec7",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-9-8cf69f78",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-10-0d1a4d07",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-14-6d59fa1d",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-16-a90ff51d",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-19-8c633904",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-21-5102d3fd",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-26-0f163737",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-31-30885af2",
+            "label": "adaptive",
+            "confidence": 0.3333333333333333,
+            "distance": 0,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          }
+        ],
+        "n": 12,
+        "labels": [
+          "__unknown__",
+          "adaptive",
+          "cost",
+          "quality"
+        ],
+        "confusionMatrix": {
+          "__unknown__": {
+            "__unknown__": 0,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "adaptive": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "cost": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "quality": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          }
+        },
+        "perClass": [
+          {
+            "label": "__unknown__",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 0
+          },
+          {
+            "label": "adaptive",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          },
+          {
+            "label": "cost",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          },
+          {
+            "label": "quality",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          }
+        ],
+        "macroF1": 0,
+        "macroF1Scope": "union of observed truth and predicted labels, including unknown; rejection of unseen labels is not recovery of their original class",
+        "accuracy": 0,
+        "knownLabelCount": 12,
+        "knownLabelAccuracy": 0,
+        "unknownOnlyTest": false,
+        "coverage": 0,
+        "selectiveRisk": null,
+        "unknownCount": 0,
+        "unknownRejectionRate": null
+      }
+    },
+    "budget": {
+      "method": "k-nearest-neighbour median + validation absolute-error calibration",
+      "k": 3,
+      "nominalCoverage": 0.9,
+      "calibrationSamples": 6,
+      "intervalKind": "unbounded-insufficient-calibration",
+      "predictions": [
+        {
+          "sampleId": "cell-0-03e7c669",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-1-742b5394",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-6-6364b51b",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-8-1aedcec7",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-9-8cf69f78",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-10-0d1a4d07",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-14-6d59fa1d",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-16-a90ff51d",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-19-8c633904",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-21-5102d3fd",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-26-0f163737",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-31-30885af2",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        }
+      ],
+      "units": "human token units from private truth decimals",
+      "mae": 0.04499999999999999,
+      "constantMedianBaseline": {
+        "prediction": 0.105,
+        "mae": 0.04499999999999999
+      },
+      "distinctTrainBudgets": 2,
+      "distinctTestBudgets": 2,
+      "empiricalCoverage": 1,
+      "meanIntervalWidth": null
+    },
+    "attackInput": {
+      "schema": "web3-isolated-attack-input-v1",
+      "sha256": "f6da992841e4fcf1c4326c07a971a72d45c9efcc0667e855e8ac9dbc1dda838f",
+      "bytes": 3007,
+      "testFields": [
+        "sampleId",
+        "features"
+      ],
+      "testTruthPassed": false,
+      "identity": "anonymous sequential identifiers",
+      "isolation": "train/validation allowed labels, test features only; process separation is not an OS security sandbox"
+    },
+    "retention": {
+      "inputSamples": 36,
+      "retainedSamples": 36,
+      "failedOrUnknown": 24,
+      "filter": "none"
+    },
+    "warnings": [
+      "task: all test labels are unseen in training; open-set rejection scores do not measure recovery of task/strategy labels.",
+      "Oracle-window condition: researcher-selected public block range; automatic task segmentation is not implemented.",
+      "Small constructed datasets, correlated histories and distribution shift do not imply a statistical coverage guarantee.",
+      "Failed/unknown episodes remain included. This baseline is not an optimal attacker or universal privacy guarantee."
+    ]
+  },
+  "shuffledLabels": {
+    "schema": "web3-private-inference-evaluation-v1",
+    "visibility": "private-evaluator-only",
+    "observerWindowAssumption": {
+      "kind": "oracle-window",
+      "source": "researcher-selected public block range",
+      "automaticTaskSegmentation": false
+    },
+    "splitCounts": {
+      "train": 18,
+      "validation": 6,
+      "test": 12
+    },
+    "classification": {
+      "task": {
+        "method": "training-only-standardized-nearest-centroid",
+        "threshold": 1,
+        "rejectAll": true,
+        "calibration": "validation-no-acceptable-operating-point",
+        "trainingClasses": [
+          "evidence_review",
+          "risk_analysis"
+        ],
+        "predictions": [
+          {
+            "sampleId": "cell-0-03e7c669",
+            "label": "evidence_review",
+            "confidence": 0.5019331959981315,
+            "distance": 0.9475659430828951,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-1-742b5394",
+            "label": "risk_analysis",
+            "confidence": 0.5125915540232526,
+            "distance": 0.8477890072632834,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-6-6364b51b",
+            "label": "evidence_review",
+            "confidence": 0.5926447050434803,
+            "distance": 1.1581861325190184,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-8-1aedcec7",
+            "label": "evidence_review",
+            "confidence": 0.5162178596824858,
+            "distance": 0.7649562093380654,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-9-8cf69f78",
+            "label": "evidence_review",
+            "confidence": 0.5892472646767769,
+            "distance": 0.9717696712853049,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-10-0d1a4d07",
+            "label": "risk_analysis",
+            "confidence": 0.534578526615612,
+            "distance": 0.83024235150486,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-14-6d59fa1d",
+            "label": "risk_analysis",
+            "confidence": 0.6074568562194277,
+            "distance": 0.8027878810423599,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-16-a90ff51d",
+            "label": "risk_analysis",
+            "confidence": 0.5481283374447226,
+            "distance": 0.7281910351418032,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-19-8c633904",
+            "label": "risk_analysis",
+            "confidence": 0.5668060871337468,
+            "distance": 0.854882895536165,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-21-5102d3fd",
+            "label": "risk_analysis",
+            "confidence": 0.5481283374447226,
+            "distance": 0.7281910351418032,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-26-0f163737",
+            "label": "risk_analysis",
+            "confidence": 0.5040535104332254,
+            "distance": 1.2122496282072852,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-31-30885af2",
+            "label": "risk_analysis",
+            "confidence": 0.5467498117727189,
+            "distance": 1.048093759562133,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          }
+        ],
+        "n": 12,
+        "labels": [
+          "__unknown__"
+        ],
+        "confusionMatrix": {
+          "__unknown__": {
+            "__unknown__": 12
+          }
+        },
+        "perClass": [
+          {
+            "label": "__unknown__",
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 12
+          }
+        ],
+        "macroF1": 1,
+        "macroF1Scope": "union of observed truth and predicted labels, including unknown; rejection of unseen labels is not recovery of their original class",
+        "accuracy": 1,
+        "knownLabelCount": 0,
+        "knownLabelAccuracy": null,
+        "unknownOnlyTest": true,
+        "coverage": 0,
+        "selectiveRisk": null,
+        "unknownCount": 12,
+        "unknownRejectionRate": 1
+      },
+      "strategy": {
+        "method": "training-only-standardized-nearest-centroid",
+        "threshold": 1,
+        "rejectAll": true,
+        "calibration": "validation-no-acceptable-operating-point",
+        "trainingClasses": [
+          "adaptive",
+          "cost",
+          "quality"
+        ],
+        "predictions": [
+          {
+            "sampleId": "cell-0-03e7c669",
+            "label": "cost",
+            "confidence": 0.36645649492737564,
+            "distance": 0.86636220317678,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-1-742b5394",
+            "label": "cost",
+            "confidence": 0.3771572028199163,
+            "distance": 0.7465692136416879,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-6-6364b51b",
+            "label": "quality",
+            "confidence": 0.3946720568589419,
+            "distance": 1.2405403876818637,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-8-1aedcec7",
+            "label": "adaptive",
+            "confidence": 0.3601527125212849,
+            "distance": 0.7441117101161581,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-9-8cf69f78",
+            "label": "quality",
+            "confidence": 0.3831004307583818,
+            "distance": 1.0685886158575981,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-10-0d1a4d07",
+            "label": "cost",
+            "confidence": 0.4092683955855487,
+            "distance": 0.6632682906758317,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-14-6d59fa1d",
+            "label": "cost",
+            "confidence": 0.3856949825146127,
+            "distance": 0.8231600061134853,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-16-a90ff51d",
+            "label": "cost",
+            "confidence": 0.3912107238694061,
+            "distance": 0.638053544317434,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-19-8c633904",
+            "label": "quality",
+            "confidence": 0.35192905094234755,
+            "distance": 0.9113620553048197,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-21-5102d3fd",
+            "label": "cost",
+            "confidence": 0.3912107238694061,
+            "distance": 0.638053544317434,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-26-0f163737",
+            "label": "adaptive",
+            "confidence": 0.38609605244296397,
+            "distance": 1.0707453747996476,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          },
+          {
+            "sampleId": "cell-31-30885af2",
+            "label": "adaptive",
+            "confidence": 0.3640774652825205,
+            "distance": 1.034060481939138,
+            "outsideTrainingRadius": false,
+            "predicted": "__unknown__"
+          }
+        ],
+        "n": 12,
+        "labels": [
+          "__unknown__",
+          "adaptive",
+          "cost",
+          "quality"
+        ],
+        "confusionMatrix": {
+          "__unknown__": {
+            "__unknown__": 0,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "adaptive": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "cost": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          },
+          "quality": {
+            "__unknown__": 4,
+            "adaptive": 0,
+            "cost": 0,
+            "quality": 0
+          }
+        },
+        "perClass": [
+          {
+            "label": "__unknown__",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 0
+          },
+          {
+            "label": "adaptive",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          },
+          {
+            "label": "cost",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          },
+          {
+            "label": "quality",
+            "precision": 0,
+            "recall": 0,
+            "f1": 0,
+            "support": 4
+          }
+        ],
+        "macroF1": 0,
+        "macroF1Scope": "union of observed truth and predicted labels, including unknown; rejection of unseen labels is not recovery of their original class",
+        "accuracy": 0,
+        "knownLabelCount": 12,
+        "knownLabelAccuracy": 0,
+        "unknownOnlyTest": false,
+        "coverage": 0,
+        "selectiveRisk": null,
+        "unknownCount": 0,
+        "unknownRejectionRate": null
+      }
+    },
+    "budget": {
+      "method": "k-nearest-neighbour median + validation absolute-error calibration",
+      "k": 3,
+      "nominalCoverage": 0.9,
+      "calibrationSamples": 6,
+      "intervalKind": "unbounded-insufficient-calibration",
+      "predictions": [
+        {
+          "sampleId": "cell-0-03e7c669",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-1-742b5394",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-6-6364b51b",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-8-1aedcec7",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-9-8cf69f78",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-10-0d1a4d07",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-14-6d59fa1d",
+          "predicted": 0.06,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-16-a90ff51d",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-19-8c633904",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-21-5102d3fd",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-26-0f163737",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.15,
+          "covered": true,
+          "width": null
+        },
+        {
+          "sampleId": "cell-31-30885af2",
+          "predicted": 0.15,
+          "lower": 0,
+          "upper": null,
+          "truth": 0.06,
+          "covered": true,
+          "width": null
+        }
+      ],
+      "units": "human token units from private truth decimals",
+      "mae": 0.05249999999999999,
+      "constantMedianBaseline": {
+        "prediction": 0.105,
+        "mae": 0.04499999999999999
+      },
+      "distinctTrainBudgets": 2,
+      "distinctTestBudgets": 2,
+      "empiricalCoverage": 1,
+      "meanIntervalWidth": null
+    },
+    "attackInput": {
+      "schema": "web3-isolated-attack-input-v1",
+      "sha256": "a0b607b1cbfc825723762c00688bd4c35986ebe0451e57569e43b3a17848ddff",
+      "bytes": 34480,
+      "testFields": [
+        "sampleId",
+        "features"
+      ],
+      "testTruthPassed": false,
+      "identity": "anonymous sequential identifiers",
+      "isolation": "train/validation allowed labels, test features only; process separation is not an OS security sandbox"
+    },
+    "retention": {
+      "inputSamples": 36,
+      "retainedSamples": 36,
+      "failedOrUnknown": 24,
+      "filter": "none"
+    },
+    "warnings": [
+      "task: all test labels are unseen in training; open-set rejection scores do not measure recovery of task/strategy labels.",
+      "Oracle-window condition: researcher-selected public block range; automatic task segmentation is not implemented.",
+      "Small constructed datasets, correlated histories and distribution shift do not imply a statistical coverage guarantee.",
+      "Failed/unknown episodes remain included. This baseline is not an optimal attacker or universal privacy guarantee."
+    ]
+  },
+  "note": "Negative controls are diagnostic, with no fixed expected accuracy assertion. Label permutations stay inside each split."
+}

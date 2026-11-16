@@ -1,0 +1,18 @@
+✔ testnet page is isolated from legacy app and has explicit scope and secret input controls (1.153ms)
+✔ all five tasks preserve human-readable parameters and reject malformed or overflowing values (2.4282ms)
+✔ local and scripted backends do not forward API secrets; remote model includes correct explicit configuration (0.9404ms)
+✔ dedicated API client uses only testnet routes, its own CSRF header and blocks all requests while offline (1.146ms)
+✔ entering offline aborts outstanding requests and rejects late responses even if transport ignores abort (0.7073ms)
+✔ offline bundle verification resolves only content-addressed local events and validates derived files (6.3537ms)
+✔ offline raw evidence tampering and run mismatches are rejected; bad derived data cannot invent relationships (3.5411ms)
+✔ pending and unknown remain distinct UI states (0.9068ms)
+✔ GUI boots without chain writes, exposes only enabled profiles, and clears private key on connect (31.4794ms)
+✔ GUI imports bundle into offline mode, permits local replay and graph clicks without any network request (26.8859ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 143.1226

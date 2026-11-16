@@ -1,0 +1,11 @@
+{
+  "version": "0.18.0",
+  "sourceHash": "bb1039fb642b27d9d893158f73e81ad81cceb6c58e9f1ea2f9b45dceb533c5ea",
+  "fullRegression": "26/26",
+  "browser": "15/15",
+  "portable": "6/6",
+  "guiRunsBoundToSourceHash": 7,
+  "filesVerified": 658,
+  "outputsVerified": 4,
+  "publicNetworkTransactionsSent": false
+}

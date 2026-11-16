@@ -1,8 +1,8 @@
 import type { BalanceObservation, ChainState, TxRecord } from './chain.js';
 import { resolveTask, taskAmountBaseUnits, type TaskId, type TaskParameters } from './tasks.js';
 
-export const CHECKER_VERSION='2.2.0';
-export interface CheckOptions {experimentMode?:'independent'|'continuous';taskParameters?:TaskParameters;}
+export const CHECKER_VERSION='2.3.0';
+export interface CheckOptions {experimentMode?:'independent'|'continuous';taskParameters?:TaskParameters;expectedChainId?:number;balanceQueryPolicy?:'initial_block'|'observed_block';externalEvidenceVerified?:boolean;externalEvidenceReason?:string;}
 export interface Assertion {id:string;passed:boolean;expected:unknown;actual:unknown;}
 export interface CheckResult {
   checkerVersion:string;taskId:TaskId;status:'success'|'failure'|'pending'|'unknown';
@@ -63,7 +63,13 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
   const add=(id:string,expected:unknown,actual:unknown,passed=expected===actual)=>assertions.push({id,passed,expected,actual});
   const unique=new Map<string,TxRecord>();transactions.forEach((tx,i)=>unique.set(tx.hash||tx.txHash||`unbroadcast-${i}`,tx));
   const txs=[...unique.values()];
-  const result:CheckResult={checkerVersion:CHECKER_VERSION,taskId,status:'unknown',validationStatus:'checked',reason:'',assertions,evidence:{before,after,transactions:txs,agentFinal,observations,options:{experimentMode:mode,...(options.taskParameters?{taskParameters:options.taskParameters}:{})}},costs:{gasUsed:'0',gasCostWei:'0',transactionAttempts:txs.length}};
+  const result:CheckResult={checkerVersion:CHECKER_VERSION,taskId,status:'unknown',validationStatus:'checked',reason:'',assertions,evidence:{before,after,transactions:txs,agentFinal,observations,options:{...options,experimentMode:mode}},costs:{gasUsed:'0',gasCostWei:'0',transactionAttempts:txs.length}};
+  // Sealed public-network evidence carries the live verifier's outcome. An
+  // offline recalculation cannot establish canonicality or repair a failed RPC
+  // lookup, so it must not upgrade an explicitly unverified evidence bundle.
+  // Undefined preserves the historical local/offline checker behavior.
+  if(options.externalEvidenceVerified!==undefined&&typeof options.externalEvidenceVerified!=='boolean') {result.validationStatus='precondition_error';result.reason='Invalid external evidence verification flag';return result;}
+  if(options.externalEvidenceVerified===false) {result.validationStatus='evidence_missing';result.reason=options.externalEvidenceReason||'External chain evidence was not verified; fresh live verification required';return result;}
   let parameters:TaskParameters;
   try {parameters=resolveTask(taskId,{taskParameters:options.taskParameters}).taskParameters;}
   catch(error) {result.validationStatus='precondition_error';result.reason=String(error);return result;}
@@ -77,7 +83,9 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
       if(ADDRESS_KEYS.some(key=>!/^0x[0-9a-f]{40}$/i.test(state.addresses[key]))||numeric(state).some(value=>typeof value!=='string'||!/^\d+$/.test(value))) throw new Error();
     }
   } catch {result.validationStatus='evidence_missing';result.reason='Missing or malformed block-bound state evidence';return result;}
-  add('same-chain','31337 / 31337',`${before.chainId} / ${after.chainId}`,before.chainId===31337&&after.chainId===31337);
+  const expectedChainId=options.expectedChainId??31337;
+  if(!Number.isSafeInteger(expectedChainId)||expectedChainId<=0||!['initial_block','observed_block'].includes(options.balanceQueryPolicy??'initial_block')) {result.validationStatus='precondition_error';result.reason='Invalid chain or query policy';return result;}
+  add('same-chain',`${expectedChainId} / ${expectedChainId}`,`${before.chainId} / ${after.chainId}`,before.chainId===expectedChainId&&after.chainId===expectedChainId);
   add('same-epoch',before.chainInstanceId,after.chainInstanceId);
   add('same-contracts',true,ADDRESS_KEYS.every(key=>lower(before.addresses[key])===lower(after.addresses[key])));
   add('state-block-order',true,big(after.blockNumber)>=big(before.blockNumber)&&after.nonce>=before.nonce&&(before.blockNumber!==after.blockNumber||(lower(before.blockHash)===lower(after.blockHash)&&before.nonce===after.nonce)));
@@ -104,14 +112,16 @@ export function checkTask(taskId:TaskId,before:ChainState,after:ChainState,trans
     case 'balance': {
       add('no-submitted-transactions',0,txs.filter(tx=>tx.hash||tx.txHash).length);
       add('observed-token-a-balance',before.balances.agentA,after.balances.agentA);
-      const observation=observations.find(item=>item.tool==='get_balance'&&item.token==='A'&&lower(item.address)===lower(a.agent)&&item.balance===before.balances.agentA&&lower(item.blockHash)===lower(before.blockHash));
-      add('actual-query-observation',true,Boolean(observation));
       let answer:any=null;try {answer=JSON.parse(agentFinal.trim());} catch {}
+      const eligible=observations.filter(item=>item.tool==='get_balance'&&item.token==='A'&&lower(item.address)===lower(a.agent)&&item.balance===before.balances.agentA&&
+        (options.balanceQueryPolicy==='observed_block' ? /^\d+$/.test(item.blockNumber)&&big(item.blockNumber)>=big(before.blockNumber)&&big(item.blockNumber)<=big(after.blockNumber)&&/^0x[0-9a-f]{64}$/i.test(item.blockHash) : lower(item.blockHash)===lower(before.blockHash)));
+      const observation=(options.balanceQueryPolicy==='observed_block'?eligible.find(item=>lower(item.blockHash)===lower(answer?.blockHash)):undefined)??eligible[0];
+      add('actual-query-observation',true,Boolean(observation));
       add('answer-json-object',true,Boolean(answer&&typeof answer==='object'&&!Array.isArray(answer)));
       add('answer-token','A',answer?.token??null);
       add('answer-account',lower(a.agent),lower(answer?.address));
       add('answer-base-units',before.balances.agentA,answer?.balanceBaseUnits??null);
-      add('answer-block-hash',lower(before.blockHash),lower(answer?.blockHash));
+      add('answer-block-hash',lower(options.balanceQueryPolicy==='observed_block'?observation?.blockHash:before.blockHash),lower(answer?.blockHash));
       break;
     }
     case 'transfer':

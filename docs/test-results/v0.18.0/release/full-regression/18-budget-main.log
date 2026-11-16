@@ -1,0 +1,9 @@
+PASS main-only startup serves budget category and assets on a custom port
+PASS budget mutations require exact origin and their scoped token
+PASS original main chain initializes independently of the budget module
+PASS custom split values reproduce 355 actual, 175 normal counter and 55 excess
+PASS the same custom values under unified policy reject the second commitment
+PASS fractional values execute exactly without floating-point rounding
+PASS budget execution preserves main data path, chain identity and original contract code
+PASS main shutdown closes a signed but unredeemed budget signer and its dedicated chain
+PASS main shutdown during a new budget initialization leaves its observed Anvil closed

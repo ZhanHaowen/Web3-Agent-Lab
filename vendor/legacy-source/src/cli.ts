@@ -38,7 +38,7 @@ async function main() {
     if(command==='check') {
       const e=events.find((e:any)=>e.type==='check.evidence')?.payload;
       if(!e) throw new Error('MISSING_CHECK_EVIDENCE');
-      console.log(json((checkTask as any)(config.taskId,e.before,e.after,e.transactions,e.agentFinal,e.observations,{experimentMode:config.experimentMode||'independent',taskParameters:config.taskParameters})));
+      console.log(json((checkTask as any)(config.taskId,e.before,e.after,e.transactions,e.agentFinal,e.observations,{...(e.options||{}),experimentMode:config.experimentMode||'independent',taskParameters:config.taskParameters})));
     }
     return;
   }

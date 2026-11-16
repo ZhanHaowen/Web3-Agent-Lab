@@ -1,12 +1,25 @@
 import {mkdir, readdir, readFile, writeFile, appendFile, rename} from 'node:fs/promises';
 import {join} from 'node:path';
 import {randomUUID} from 'node:crypto';
+import {setTimeout as delay} from 'node:timers/promises';
 import {finalizeModelCapture, modelRecordRedactor} from '../model/capture.mjs';
 import {sha256, stringify} from './manifest.mjs';
 import {writeResearchProvenance} from './provenance.mjs';
 
-export async function atomicJson(path, value) {
-  const tmp = path + '.' + randomUUID() + '.tmp'; await writeFile(tmp, stringify(value) + '\n', {flag: 'wx'}); await rename(tmp, path);
+export async function atomicJson(path, value, {renameFile = rename, wait = delay, platform = process.platform} = {}) {
+  const tmp = path + '.' + randomUUID() + '.tmp';
+  await writeFile(tmp, stringify(value) + '\n', {flag: 'wx'});
+  // Windows readers/antivirus can briefly deny replacement of an existing file.
+  // Retry only the rename of these already-written bytes, never a payment or
+  // ledger mutation. Preserve the previous file and propagate permanent errors.
+  const retryDelays = [25, 50, 100, 200, 250, 250, 250];
+  for (let attempt = 0; ; attempt++) {
+    try { await renameFile(tmp, path); return; }
+    catch (error) {
+      if (platform !== 'win32' || !['EPERM', 'EACCES', 'EBUSY'].includes(error?.code) || attempt >= retryDelays.length) throw error;
+      await wait(retryDelays[attempt]);
+    }
+  }
 }
 export class ResearchJournal {
   constructor({outDir, runId, model = {}, emit}) {

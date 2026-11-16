@@ -1,0 +1,1046 @@
+[
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "03e7c6690a61d8eb110970df55bbe6f55b6e387aaf92b86051ac4c5ac7b4b8a5",
+    "scheduleIndex": 0
+  },
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "742b5394d8d27f55beb586738a3735d2ca290f078edc2e2a00ee9ccc04304453",
+    "scheduleIndex": 1
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "d2f531340a04382c5cdc6a85cf75a729c2e6dc743bdbe6de8de7694be54632c6",
+    "scheduleIndex": 2
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "1ffda704f5eff0af06712e74fbba796f654de376b46548355c4458ce75965464",
+    "scheduleIndex": 3
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "ca043bebe55a94accae440dc603dfab91e6ae5697963089383cd4ae0f8a594cc",
+    "scheduleIndex": 4
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "6b18e783412674db0a543abe4be704a3c6071833dab88cdc47b3be8a66534c6a",
+    "scheduleIndex": 5
+  },
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "6364b51ba0e24926cce35d7b58773ee3d1999a31d48100152bf458ea55f157ec",
+    "scheduleIndex": 6
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "e98a30a3fc82bbb763e7f9361d3d85524580e73901e044655cab97efbfc84678",
+    "scheduleIndex": 7
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "1aedcec714c19873bb8200b456922835f70350504b202d589ece418960ef27f8",
+    "scheduleIndex": 8
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "8cf69f781252a298a611d72628a40822ee6d2c3d30386bff5854bb1f93058278",
+    "scheduleIndex": 9
+  },
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "0d1a4d074fb7b89991e1ec9651f7bbb2ebd630a75375881017b479b2d005ad58",
+    "scheduleIndex": 10
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "a69752fb11082a7be3d4dc3ae6cc73948cc773cc9b82d2f612cd26613c8d719d",
+    "scheduleIndex": 11
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "bf6d5de896b258b4a5b27c8ba44a842e5ded87331470a25c1b137c1026bea734",
+    "scheduleIndex": 12
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "c3ee3433ca37cf8d42f59a31d094daf44e4b2c76bdd9a8b92b6fa54b733b2336",
+    "scheduleIndex": 13
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "6d59fa1de80adc16c376ab636a6009debda8ac2836cc8da8f6c76f3c76809b13",
+    "scheduleIndex": 14
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "8200bc39256abaa5107ea62cc9e02fef05605d9266e74a46125f7e50d1649245",
+    "scheduleIndex": 15
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "a90ff51dc6df1311e4ddecd4a655e9f5c071d91cf73b436fbe83e0fbb9742eb3",
+    "scheduleIndex": 16
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "bb254c70ec9fb54afcd5c7f2b25ce59bc7c9335bbd40c0005c743dcdc4559f29",
+    "scheduleIndex": 17
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "7b482b6ed10594278a80cdee5cb2dbb741b67cbf4c5c3f16d07c9a123f1b09b2",
+    "scheduleIndex": 18
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "8c633904a6629973b95fee8da6969c7ec55b48d49e2cae1e4a458bccc4b5ec22",
+    "scheduleIndex": 19
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "6874043ebb21f740163652504b67fd8a8e4a5ab69703ded8f4bb5772499593cf",
+    "scheduleIndex": 20
+  },
+  {
+    "replicate": 0,
+    "groupId": "trend_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "5102d3fd232fd852ffe78474e5976bffbf1b09eed0f98bd430e53c5a8a632926",
+    "scheduleIndex": 21
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "7424cb6d89fe5b0b114bfa9bd2634ed367effb5cf7915265fe46f163b9f923f2",
+    "scheduleIndex": 22
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "a12b3a08bbfc4cf93f5e3042d1708712cf8954f3665fe2a84e6ff09e4fd54698",
+    "scheduleIndex": 23
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "e01c733c8bbe31460c74592201501cb70557126292e495ecc1a93136f2a07c57",
+    "scheduleIndex": 24
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "df7cc25cf8ffe8ba2adb9d3122f117246424804d688d81f7d2feba49a32ac220",
+    "scheduleIndex": 25
+  },
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "0f1637371636a0a54e4e519701c8561e05cab3d00ebd7244c2a2fd44d4f8c9b8",
+    "scheduleIndex": 26
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "5afec90acb500c8b101435f3c410e41df3e5a84d980c3907bd05aae7a63db628",
+    "scheduleIndex": 27
+  },
+  {
+    "replicate": 1,
+    "groupId": "evidence_review:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "a748a870438b3f5b8e771bf69d660440f2066467bb57ddb0d489965dcc32133d",
+    "scheduleIndex": 28
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "e8218619763a6c8fa21f2f9eb054ceaa4eef9c6d7099a6a9a7f50df841a77123",
+    "scheduleIndex": 29
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "776149bc9741d290fad4c05c17839b159285402a3dd25fd75c36fa667b46b783",
+    "scheduleIndex": 30
+  },
+  {
+    "replicate": 1,
+    "groupId": "trend_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "trend_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "30885af2a689d11a8a227494777e4dd2d7f8c8b469ac02045eca289986ddbf8c",
+    "scheduleIndex": 31
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "cf09f15959b446a2a1c59864b29df68f5ead5df26bd0a649ebd6f661bc8da9ef",
+    "scheduleIndex": 32
+  },
+  {
+    "replicate": 0,
+    "groupId": "evidence_review:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "evidence_review",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "adaptive",
+      "budgetBase": "150000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "500a424fc6c90bb2d6355566f1850c60151354b14b6b161d7eb006567253cd9b",
+    "scheduleIndex": 33
+  },
+  {
+    "replicate": 1,
+    "groupId": "risk_analysis:factor-smoke-2",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 201,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-2",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "quality",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "f926efad761671bf5c6cfe0fb901655b5638222503358be09488e52f7ec821b6",
+    "scheduleIndex": 34
+  },
+  {
+    "replicate": 0,
+    "groupId": "risk_analysis:factor-smoke-1",
+    "config": {
+      "schema": "web3-research-config-v1",
+      "seed": 200,
+      "task": {
+        "family": "risk_analysis",
+        "instanceId": "factor-smoke-1",
+        "difficulty": 3
+      },
+      "mode": "scripted",
+      "strategy": "cost",
+      "budgetBase": "60000",
+      "initialBalanceBase": "1000000",
+      "tokenDecimals": 6,
+      "maxSteps": 16,
+      "payment": {
+        "scheme": "exact",
+        "authorization": "none"
+      },
+      "workload": {
+        "faults": []
+      },
+      "finalizePayments": true
+    },
+    "matrixCellHash": "7a361a346d98a9de9ed7ef24aebf306513f54bb6e7db86d79f370e07fbfa4be4",
+    "scheduleIndex": 35
+  }
+]

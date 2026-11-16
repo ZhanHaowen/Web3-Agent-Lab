@@ -1,0 +1,21 @@
+(node:16860) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ managed local cold start resolves before the run guard, while execution retains runtime evidence (131.561ms)
+✔ two asynchronous model preparations admit exactly one active run (94.8806ms)
+✔ environment replaced during model preparation cannot silently execute on the new connection (8.0332ms)
+✔ model/tool runtime failure is sealed, retained and exported instead of disappearing (81.7567ms)
+✔ missing managed runtime evidence forces unknown outcome and retains the capture failure (82.14ms)
+✔ shutdown cancels a paused task, seals its trace and clears signing availability (75.1255ms)
+✔ process restart marks an unfinished lifecycle unknown without rewriting raw evidence (20.1193ms)
+✔ resume while the paused event is still writing is accepted without executing before the record is durable (4.412ms)
+✔ cancellation during the paused event write cannot execute or emit resumed and removes its listener (3.8005ms)
+✔ failed paused-event persistence prevents execution after early resume and clears the gate (3.4494ms)
+✔ cancellation while the resumed event is writing still prevents transaction continuation (3.8374ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1336.5693

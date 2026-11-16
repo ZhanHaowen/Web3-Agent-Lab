@@ -2442,7 +2442,7 @@ var toolDefinitions = [
 ];
 
 // vendor/legacy-source/src/checker.ts
-var CHECKER_VERSION = "2.2.0";
+var CHECKER_VERSION = "2.3.0";
 var lower = (value) => String(value ?? "").toLowerCase();
 var big = (value) => BigInt(String(value));
 var MAX_ALLOWANCE = 2n ** 256n - 1n;
@@ -2493,7 +2493,17 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
   const unique = /* @__PURE__ */ new Map();
   transactions.forEach((tx, i) => unique.set(tx.hash || tx.txHash || `unbroadcast-${i}`, tx));
   const txs = [...unique.values()];
-  const result = { checkerVersion: CHECKER_VERSION, taskId, status: "unknown", validationStatus: "checked", reason: "", assertions, evidence: { before, after, transactions: txs, agentFinal, observations, options: { experimentMode: mode, ...options.taskParameters ? { taskParameters: options.taskParameters } : {} } }, costs: { gasUsed: "0", gasCostWei: "0", transactionAttempts: txs.length } };
+  const result = { checkerVersion: CHECKER_VERSION, taskId, status: "unknown", validationStatus: "checked", reason: "", assertions, evidence: { before, after, transactions: txs, agentFinal, observations, options: { ...options, experimentMode: mode } }, costs: { gasUsed: "0", gasCostWei: "0", transactionAttempts: txs.length } };
+  if (options.externalEvidenceVerified !== void 0 && typeof options.externalEvidenceVerified !== "boolean") {
+    result.validationStatus = "precondition_error";
+    result.reason = "Invalid external evidence verification flag";
+    return result;
+  }
+  if (options.externalEvidenceVerified === false) {
+    result.validationStatus = "evidence_missing";
+    result.reason = options.externalEvidenceReason || "External chain evidence was not verified; fresh live verification required";
+    return result;
+  }
   let parameters;
   try {
     parameters = resolveTask(taskId, { taskParameters: options.taskParameters }).taskParameters;
@@ -2524,7 +2534,13 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
     result.reason = "Missing or malformed block-bound state evidence";
     return result;
   }
-  add("same-chain", "31337 / 31337", `${before.chainId} / ${after.chainId}`, before.chainId === 31337 && after.chainId === 31337);
+  const expectedChainId = options.expectedChainId ?? 31337;
+  if (!Number.isSafeInteger(expectedChainId) || expectedChainId <= 0 || !["initial_block", "observed_block"].includes(options.balanceQueryPolicy ?? "initial_block")) {
+    result.validationStatus = "precondition_error";
+    result.reason = "Invalid chain or query policy";
+    return result;
+  }
+  add("same-chain", `${expectedChainId} / ${expectedChainId}`, `${before.chainId} / ${after.chainId}`, before.chainId === expectedChainId && after.chainId === expectedChainId);
   add("same-epoch", before.chainInstanceId, after.chainInstanceId);
   add("same-contracts", true, ADDRESS_KEYS.every((key) => lower(before.addresses[key]) === lower(after.addresses[key])));
   add("state-block-order", true, big(after.blockNumber) >= big(before.blockNumber) && after.nonce >= before.nonce && (before.blockNumber !== after.blockNumber || lower(before.blockHash) === lower(after.blockHash) && before.nonce === after.nonce));
@@ -2570,18 +2586,19 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
     case "balance": {
       add("no-submitted-transactions", 0, txs.filter((tx) => tx.hash || tx.txHash).length);
       add("observed-token-a-balance", before.balances.agentA, after.balances.agentA);
-      const observation = observations.find((item) => item.tool === "get_balance" && item.token === "A" && lower(item.address) === lower(a.agent) && item.balance === before.balances.agentA && lower(item.blockHash) === lower(before.blockHash));
-      add("actual-query-observation", true, Boolean(observation));
       let answer = null;
       try {
         answer = JSON.parse(agentFinal.trim());
       } catch {
       }
+      const eligible = observations.filter((item) => item.tool === "get_balance" && item.token === "A" && lower(item.address) === lower(a.agent) && item.balance === before.balances.agentA && (options.balanceQueryPolicy === "observed_block" ? /^\d+$/.test(item.blockNumber) && big(item.blockNumber) >= big(before.blockNumber) && big(item.blockNumber) <= big(after.blockNumber) && /^0x[0-9a-f]{64}$/i.test(item.blockHash) : lower(item.blockHash) === lower(before.blockHash)));
+      const observation = (options.balanceQueryPolicy === "observed_block" ? eligible.find((item) => lower(item.blockHash) === lower(answer?.blockHash)) : void 0) ?? eligible[0];
+      add("actual-query-observation", true, Boolean(observation));
       add("answer-json-object", true, Boolean(answer && typeof answer === "object" && !Array.isArray(answer)));
       add("answer-token", "A", answer?.token ?? null);
       add("answer-account", lower(a.agent), lower(answer?.address));
       add("answer-base-units", before.balances.agentA, answer?.balanceBaseUnits ?? null);
-      add("answer-block-hash", lower(before.blockHash), lower(answer?.blockHash));
+      add("answer-block-hash", lower(options.balanceQueryPolicy === "observed_block" ? observation?.blockHash : before.blockHash), lower(answer?.blockHash));
       break;
     }
     case "transfer":
@@ -3343,7 +3360,7 @@ async function main() {
     if (command === "check") {
       const e = events.find((e2) => e2.type === "check.evidence")?.payload;
       if (!e) throw new Error("MISSING_CHECK_EVIDENCE");
-      console.log(json(checkTask(config.taskId, e.before, e.after, e.transactions, e.agentFinal, e.observations, { experimentMode: config.experimentMode || "independent", taskParameters: config.taskParameters })));
+      console.log(json(checkTask(config.taskId, e.before, e.after, e.transactions, e.agentFinal, e.observations, { ...e.options || {}, experimentMode: config.experimentMode || "independent", taskParameters: config.taskParameters })));
     }
     return;
   }

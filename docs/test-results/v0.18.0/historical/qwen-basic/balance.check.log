@@ -1,0 +1,228 @@
+{
+  "checkerVersion": "2.2.0",
+  "taskId": "balance",
+  "status": "success",
+  "validationStatus": "checked",
+  "reason": "All independent state and transaction assertions passed",
+  "assertions": [
+    {
+      "id": "same-chain",
+      "passed": true,
+      "expected": "84532 / 84532",
+      "actual": "84532 / 84532"
+    },
+    {
+      "id": "same-epoch",
+      "passed": true,
+      "expected": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "actual": "40da94c3-af94-4b35-a9ba-35276095aaa6"
+    },
+    {
+      "id": "same-contracts",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "state-block-order",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "agent-nonce-vs-mined-transactions",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "no-submitted-transactions",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "id": "observed-token-a-balance",
+      "passed": true,
+      "expected": "100000000",
+      "actual": "100000000"
+    },
+    {
+      "id": "actual-query-observation",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "answer-json-object",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "id": "answer-token",
+      "passed": true,
+      "expected": "A",
+      "actual": "A"
+    },
+    {
+      "id": "answer-account",
+      "passed": true,
+      "expected": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe",
+      "actual": "0xa30e8c9b93bc69624fd54be06a3ce9512bc09bfe"
+    },
+    {
+      "id": "answer-base-units",
+      "passed": true,
+      "expected": "100000000",
+      "actual": "100000000"
+    },
+    {
+      "id": "answer-block-hash",
+      "passed": true,
+      "expected": "0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c",
+      "actual": "0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c"
+    }
+  ],
+  "evidence": {
+    "before": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "7",
+      "blockHash": "0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c",
+      "timestamp": "1794809123",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "100000000",
+        "agentB": "0",
+        "recipientA": "0",
+        "recipientB": "0",
+        "native": "99996452463459220055"
+      },
+      "allowances": {
+        "ammA": "0",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10000000000",
+        "B": "10000000000"
+      },
+      "nonce": 7,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "100",
+          "agentB": "0",
+          "recipientA": "0",
+          "recipientB": "0",
+          "native": "99.996452463459220055"
+        },
+        "allowances": {
+          "ammA": "0",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10000",
+          "B": "10000"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "after": {
+      "chainInstanceId": "40da94c3-af94-4b35-a9ba-35276095aaa6",
+      "chainId": 84532,
+      "blockNumber": "7",
+      "blockHash": "0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c",
+      "timestamp": "1794809123",
+      "addresses": {
+        "agent": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "recipient": "0x85D6cb26DEbc49cfEc6A8D3Eb96056c0878e8fa1",
+        "tokenA": "0x5e616a8fa17748c6405d280a6aa14808de928b26",
+        "tokenB": "0x362a51827b8c0a82452af0b66e5263c0c98a615e",
+        "amm": "0xbcb720d22ec0dfb13338f0ef7c88d41999fdb66e",
+        "vault": "0x481d09668239b92682bcafe2e637d26d12dfd79b"
+      },
+      "balances": {
+        "agentA": "100000000",
+        "agentB": "0",
+        "recipientA": "0",
+        "recipientB": "0",
+        "native": "99996452463459220055"
+      },
+      "allowances": {
+        "ammA": "0",
+        "vaultB": "0"
+      },
+      "shares": "0",
+      "vaultAssets": "0",
+      "reserves": {
+        "A": "10000000000",
+        "B": "10000000000"
+      },
+      "nonce": 7,
+      "formatted": {
+        "unit": "token",
+        "tokenDecimals": 6,
+        "nativeDecimals": 18,
+        "balances": {
+          "agentA": "100",
+          "agentB": "0",
+          "recipientA": "0",
+          "recipientB": "0",
+          "native": "99.996452463459220055"
+        },
+        "allowances": {
+          "ammA": "0",
+          "vaultB": "0"
+        },
+        "reserves": {
+          "A": "10000",
+          "B": "10000"
+        },
+        "shares": "0",
+        "vaultAssets": "0"
+      }
+    },
+    "transactions": [],
+    "agentFinal": "{\"token\":\"A\",\"address\":\"0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe\",\"balanceBaseUnits\":\"100000000\",\"blockHash\":\"0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c\"}",
+    "observations": [
+      {
+        "tool": "get_balance",
+        "token": "A",
+        "account": "agent",
+        "address": "0xA30e8c9B93bC69624fD54bE06a3ce9512bc09bfe",
+        "balance": "100000000",
+        "formatted": "100",
+        "decimals": 6,
+        "blockNumber": "7",
+        "blockHash": "0x39be69c7894c74ce0adb6beae4c5ab56278f431257661412577cee8bd750f05c",
+        "contractCallId": "685fdcd8-3254-4ab0-ad17-8c12d2a1bddc"
+      }
+    ],
+    "options": {
+      "experimentMode": "continuous",
+      "taskParameters": {},
+      "expectedChainId": 84532,
+      "balanceQueryPolicy": "observed_block",
+      "externalEvidenceVerified": true,
+      "externalEvidenceReason": null
+    }
+  },
+  "costs": {
+    "gasUsed": "0",
+    "gasCostWei": "0",
+    "transactionAttempts": 0
+  }
+}

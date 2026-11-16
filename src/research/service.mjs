@@ -93,7 +93,7 @@ export class ResearchService {
    res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; connect-src "+(path.includes('observer')?"'none'":"'self'")+"; frame-ancestors 'none'; base-uri 'none'; object-src 'none'");
    if(assets[path]){if(req.method!=='GET')throw Error('METHOD');const [name,type]=assets[path];res.writeHead(200,{'Content-Type':type+'; charset=utf-8'});res.end(await readFile(join(this.root,'public',name)));return true;}
    await this.init();const action=path.slice('/api/research'.length),url=new URL(req.url,origins[0]);
-   if(req.method==='GET'&&action==='/health'){send(res,200,{version:'V0.17.0 Research Beta',csrfToken:this.token,busy:this.busy,dataDirectory:this.data});return true;}
+   if(req.method==='GET'&&action==='/health'){send(res,200,{version:'V0.18.0 Testnet Beta',csrfToken:this.token,busy:this.busy,dataDirectory:this.data});return true;}
    if(req.headers['x-research-token']!==this.token)throw Error('AUTH');
    if(req.method==='GET'){
     if(action==='/protocols')send(res,200,protocolMatrix());

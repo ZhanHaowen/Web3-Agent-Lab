@@ -1,0 +1,15 @@
+(node:34612) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS T04 insufficient allowance rolls back both assets; open escrow remains refundable
+PASS T04 insufficient balance after approval has no unilateral delivery
+PASS T05 wrong taker, wrong terms hash, unknown asset and zero amount are rejected
+PASS T05 session scope and exchange address bind terms and order IDs
+PASS T06/T07 same salt cannot double lock, repeated fill cannot double pay
+PASS T08 cancel first wins fill/cancel race
+PASS T08 fill first wins fill/cancel race
+PASS T09 fill deadline boundary -1
+PASS T09 fill deadline boundary 0
+PASS T09 fill deadline boundary 1
+PASS T10 multiple open orders and unsolicited donation are not conflated
+PASS T03 existing approvals are consumed as base units without being mistaken for new approvals
+PASS T07 gateway reconciles lost create response by sender nonce and original salt without another payment

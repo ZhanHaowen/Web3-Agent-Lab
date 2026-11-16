@@ -1,0 +1,13 @@
+(node:38724) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS C01 exact expectedBudget and sufficient allowance are required
+PASS C02 role impersonation is rejected
+PASS C03 duplicate create/fund/submit/evaluate cannot double charge
+PASS C04 changed artifact commitment cannot be approved
+PASS C05 rejection refunds exactly once
+PASS C06 evaluation deadline boundary -1
+PASS C06 evaluation deadline boundary 0
+PASS C06 evaluation deadline boundary 1
+PASS C07 before-deadline refund rejected; funded timeout refundable once
+PASS C08 cancellation only by buyer before funding
+PASS C09 scope/address prevents cross-contract replay

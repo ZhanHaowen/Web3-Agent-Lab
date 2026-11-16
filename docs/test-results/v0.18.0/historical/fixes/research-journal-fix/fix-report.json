@@ -1,0 +1,62 @@
+{
+  "schema": "research-journal-fix-evidence-v1",
+  "rootCause": "Windows EPERM replacing budget-ledger.json with an already-written temporary file; not a nonce, receipt, or unsettled-liability failure",
+  "originalStatus": "error",
+  "originalErrors": [
+    {
+      "phase": "execution",
+      "name": "Error",
+      "message": "EPERM: operation not permitted, rename '__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-02\\results\\25-research-engine\\research\\batch-http-failure-keeps-charge\\private\\budget-ledger.json.9d395a73-937f-445d-ae08-96715c658402.tmp' -> '__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-02\\results\\25-research-engine\\research\\batch-http-failure-keeps-charge\\private\\budget-ledger.json'"
+    }
+  ],
+  "originalLedgerTotals": {
+    "settledBase": "80000",
+    "reservedBase": "0",
+    "refundedBase": "0",
+    "liabilityBase": "80000",
+    "remainingBudgetBase": "120000",
+    "estimatedSpendableBudgetFromInitial": "920000"
+  },
+  "originalRecordingComplete": true,
+  "originalCheckerStatus": "pass",
+  "changedFiles": [
+    "src/research/journal.mjs",
+    "tests/research-journal.test.mjs"
+  ],
+  "retryPolicy": {
+    "codes": [
+      "EPERM",
+      "EACCES",
+      "EBUSY"
+    ],
+    "platform": "win32",
+    "permanentFailure": "throw original error; prior destination preserved",
+    "maxAttempts": 8,
+    "retriesPayment": false,
+    "cumulativeDelayMilliseconds": 1125,
+    "delayMilliseconds": [
+      25,
+      50,
+      100,
+      200,
+      250,
+      250,
+      250
+    ],
+    "retriesBudgetMutation": false
+  },
+  "unit": {
+    "failed": 0,
+    "addedDeterministicCases": 5,
+    "passed": 59,
+    "rawLog": "research-unit.log"
+  },
+  "integration": {
+    "report": "integration/report.json",
+    "checks": 108.0,
+    "rawLog": "research-integration.log",
+    "scenarioCount": 10,
+    "passed": true
+  },
+  "scope": "Only isolated fixtures and Anvil; no public-network transactions"
+}

@@ -1,0 +1,18 @@
+(node:35096) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS HTTP isolation, independent token, origin, field and catalog restrictions
+PASS Invalid precision and conflicting task parameters rejected before signing
+PASS Five-task continuous scripted regression: balance
+PASS Five-task continuous scripted regression: transfer
+PASS Five-task continuous scripted regression: approve
+PASS Five-task continuous scripted regression: swap
+PASS Five-task continuous scripted regression: swap_deposit
+PASS Read-only reconnect, saved manifest attach and query; writes denied
+PASS Pause before tool, concurrent experiment rejected, cancellation preserved
+Error: /resume: HTTP 400 RUN_NOT_PAUSED; expected 202
+    at Object.request (file:///__WORKSPACE__/work/public-web3-agent-lab/tests/testnet-fixture.mjs:55:200)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///__WORKSPACE__/work/public-web3-agent-lab/tests/testnet-integration.mjs:55:132
+    at async record (file:///__WORKSPACE__/work/public-web3-agent-lab/tests/testnet-integration.mjs:8:80)
+    at async file:///__WORKSPACE__/work/public-web3-agent-lab/tests/testnet-integration.mjs:53:2
+REPORT __WORKSPACE__\outputs\testnet-preview-20261116\full-regression-final-03\results\07-testnet-integration\testnet\report.json

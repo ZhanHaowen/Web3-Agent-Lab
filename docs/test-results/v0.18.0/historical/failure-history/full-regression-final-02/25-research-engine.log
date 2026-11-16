@@ -1,0 +1,11 @@
+{"case":"exact-quality","status":"passed","checks":12,"failed":[]}
+{"case":"batch-adaptive","status":"passed","checks":12,"failed":[]}
+{"case":"ap2-exact-quality","status":"passed","checks":10,"failed":[]}
+{"case":"exact-http-failure-keeps-charge","status":"passed","checks":11,"failed":[]}
+{"case":"batch-http-failure-keeps-charge","status":"failed","checks":2,"failed":[{"name":"finished without unresolved liabilities","passed":false}],"error":"AssertionError [ERR_ASSERTION]: finished without unresolved liabilities\n    at check (file:///__WORKSPACE__/work/public-web3-agent-lab/tests/research-integration.mjs:33:94)\n    at file:///__WORKSPACE__/work/public-web3-agent-lab/tests/research-integration.mjs:42:3"}
+{"case":"erc8183-quality","status":"passed","checks":9,"failed":[]}
+{"case":"erc8183-reject-refund","status":"passed","checks":10,"failed":[]}
+{"case":"erc8183-expiry-refund","status":"passed","checks":10,"failed":[]}
+{"case":"mpp-quality","status":"passed","checks":10,"failed":[]}
+{"case":"mpp-http-failure-keeps-charge","status":"passed","checks":11,"failed":[]}
+{"passed":false,"report":"__WORKSPACE__\\outputs\\testnet-preview-20261116\\full-regression-final-02\\results\\25-research-engine\\research\\report.json"}

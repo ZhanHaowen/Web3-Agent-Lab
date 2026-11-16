@@ -1,0 +1,31 @@
+{
+  "schema": "program-identity-v1",
+  "checkedAt": "2026-11-16T06:13:28.252Z",
+  "earlierSourceHash": "871215501703c7f0841ebcffa75a4bf05db1e5aab75932ced4605524d4021ffe",
+  "finalSourceHash": "8db44894e4113d749779100beedf56279fe8c3b73502f18b7ce05cf2e674bd02",
+  "identicalExecutableOutputs": {
+    "dist/server.mjs": "6dbaaedb38a9c01d6dc03eaadd83f3127ad6c379abb55dd688cf90fc7a8b6c01",
+    "dist/cli.mjs": "ecffc10e14675ef062624a90c943205688dd63029a75415ffaa1e332993af6cf",
+    "dist/agent-worker.mjs": "febb1fdf564f7279b8f0086414b460c2e73ebd114d0c9c5eb25c5de3833c3f9a",
+    "dist/legacy-cli.mjs": "d6588f5ee5a01d1054239ef7376146569ea4b54a6f945962a20e913760fabff0"
+  },
+  "changedSourceFiles": [
+    "src/research/journal.mjs",
+    "src/testnet/service.mjs",
+    "scripts/testnet-regression.mjs",
+    "tests/research-journal.test.mjs",
+    "tests/testnet-service.test.mjs"
+  ],
+  "changedApplicationFiles": [
+    "src/research/journal.mjs",
+    "src/testnet/service.mjs"
+  ],
+  "validation": {
+    "fullRegression": "full-regression-final-04/summary.json",
+    "changedResearchRealModel": "research-actual-qwen-final/report.json",
+    "actualBasicModel": "actual-qwen-final-02/report.json",
+    "gui": "../testnet-preview-dev/browser-final-02/testnet-browser-results.json",
+    "finalPortable": "portable-smoke-final-02/report.json"
+  },
+  "meaning": "Bundled executable outputs remain identical; external runtime source changes are explicitly listed. Final full regression, GUI, five actual Qwen tasks and extracted portable checks bind to the final sourceHash. Separate actual-Qwen research evidence binds to the final research journal hash. Earlier artifacts remain historical and are not relabelled as final runs."
+}
