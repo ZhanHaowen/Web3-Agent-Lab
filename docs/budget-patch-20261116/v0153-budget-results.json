@@ -1,0 +1,82 @@
+{
+  "version": "V0.17.0 Research Beta",
+  "buildHash": "a5ce46ec2842fe9054d1744dc895303e4b35a3d87d26fae6bf01162b8f35e40c",
+  "time": "2026-11-16T15:11:13.860Z",
+  "results": [
+    {
+      "name": "direct spend limits new permits and a revised sequence uses both paths",
+      "passed": true,
+      "elapsedMs": 1664
+    },
+    {
+      "name": "an outstanding permit reserves budget against direct spending",
+      "passed": true,
+      "elapsedMs": 1750
+    },
+    {
+      "name": "exact amounts on both chain paths pass independent task and budget checks",
+      "passed": true,
+      "elapsedMs": 1656
+    },
+    {
+      "name": "wrong-path substitution is rejected before payment and the original task remains incomplete",
+      "passed": true,
+      "elapsedMs": 1395
+    },
+    {
+      "name": "an unredeemed signature reserves funds but does not count as task payment",
+      "passed": true,
+      "elapsedMs": 1613
+    },
+    {
+      "name": "confirmed effects determine task outcome even when Agent stops at the step limit",
+      "passed": true,
+      "elapsedMs": 1465
+    },
+    {
+      "name": "smart account uses one distinct session for direct payment and ERC-1271 Permit2 clearance",
+      "passed": true,
+      "elapsedMs": 961
+    },
+    {
+      "name": "smart account enforces reservation and denies calls from outside the active session",
+      "passed": true,
+      "elapsedMs": 979
+    },
+    {
+      "name": "local-eoa disables Permit2 without disabling permitted direct transfers",
+      "passed": true,
+      "elapsedMs": 1643
+    },
+    {
+      "name": "smart-account disables Permit2 without disabling permitted direct transfers",
+      "passed": true,
+      "elapsedMs": 719
+    },
+    {
+      "name": "signer accepts only the experiment session and registered parameters",
+      "passed": true,
+      "elapsedMs": 1406
+    },
+    {
+      "name": "unified checker detects inconsistent ledger and tampered bundle",
+      "passed": true,
+      "elapsedMs": 1577
+    },
+    {
+      "name": "prior sealed experiment bundles remain readable and retain original results",
+      "passed": true,
+      "elapsedMs": 90
+    },
+    {
+      "name": "configuration cannot select historical budget or fixed scripted fields",
+      "passed": true,
+      "elapsedMs": 0
+    },
+    {
+      "name": "configured local backend uses its resolver and gates every model request",
+      "passed": true,
+      "elapsedMs": 4760
+    }
+  ]
+}

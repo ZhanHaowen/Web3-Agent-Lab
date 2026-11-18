@@ -1,0 +1,62 @@
+{
+  "basePackage": "Web3-Agent-Lab-V0.18.0-Windows-x64.zip",
+  "budgetPackage": "Web3-Agent-Lab-main-Windows-x64-budget-fixed-20261116(1).zip",
+  "originalFileCount": 1739,
+  "originalFilesUnchanged": 1718,
+  "changedOriginalFiles": [
+    "build-info.json",
+    "dist/server.mjs",
+    "package.json",
+    "public/budget.css",
+    "public/budget.html",
+    "public/budget.js",
+    "release-manifest.json",
+    "scripts/build-v014.mjs",
+    "scripts/compile-budget.mjs",
+    "src/budget/checker.mjs",
+    "src/budget/cli.mjs",
+    "src/budget/common.mjs",
+    "src/budget/engine.mjs",
+    "src/budget/service.mjs",
+    "src/budget/signer.mjs",
+    "tests/budget-gui.mjs",
+    "tests/budget-http.mjs",
+    "tests/budget-integration.mjs",
+    "tests/budget-launcher.mjs",
+    "tests/budget-main-integration.mjs",
+    "tests/budget-parameter-matrix.mjs"
+  ],
+  "addedFiles": [
+    "contracts/BudgetSessionWallet.sol",
+    "contracts/artifacts/BudgetSessionWallet.json",
+    "docs/budget-patch-20261116/budget-constraints-results.json",
+    "docs/budget-patch-20261116/budget-gui-results.json",
+    "docs/budget-patch-20261116/scope-verification.json",
+    "docs/budget-patch-20261116/v0153-budget-results.json",
+    "docs/budget-patch-20261116/v0153-http-results.json",
+    "docs/releases/V0.18.1-transplant-audit.json",
+    "docs/releases/V0.18.1-validation.json",
+    "docs/releases/V0.18.1.md",
+    "public/budget-evidence.js",
+    "src/budget/agent.mjs",
+    "src/budget/policy.mjs",
+    "src/budget/wallet.mjs",
+    "tests/budget-config.test.mjs",
+    "tests/budget-constraints.mjs",
+    "tests/budget-model-compat.test.mjs",
+    "tests/helpers/budget-model.mjs"
+  ],
+  "runtimeFilesPreserved": 56,
+  "unexpectedChanges": [],
+  "budgetCompatibilityAdjustments": [
+    "Budget-local endpoint validation preserves V0.18.0 shared model capture bytes.",
+    "Minimal BudgetService bridge injection preserves the V0.18.0 TestnetService, routes, lock, exports and compiled legacy core.",
+    "Launcher test keeps V0.18.0 exact-build/data-directory shutdown isolation; no launcher implementation is replaced."
+  ],
+  "notImported": [
+    "donor data directories",
+    "donor SQLite databases",
+    "donor administrator tokens",
+    "donor unrelated model/research/legacy/testnet changes"
+  ]
+}

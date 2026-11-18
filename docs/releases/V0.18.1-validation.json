@@ -1,0 +1,118 @@
+{
+  "release": "V0.18.1 Testnet Beta",
+  "createdAt": "2026-11-18T11:42:32.368616+00:00",
+  "finalBuildHash": "8c58c3c465c38e23ac6c254d2daee25a84d8e64d0092e8c19b24d31c63a0cda2",
+  "sourcePackages": {
+    "base": {
+      "file": "Web3-Agent-Lab-V0.18.0-Windows-x64.zip",
+      "sha256": "93c7a04c425c4a39a9d8d7c3b36952262a5a4c783b885faeaec60ec4e94715ca"
+    },
+    "budget": {
+      "file": "Web3-Agent-Lab-main-Windows-x64-budget-fixed-20261116(1).zip",
+      "sha256": "ed70505518ce9e74c89db33e44aeb45e55e6f6f2151c261770ae005d553eb9fa"
+    }
+  },
+  "suites": [
+    {
+      "name": "budget-core",
+      "passed": 21,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-core-local/budget-integration/v0153-budget-results.json"
+    },
+    {
+      "name": "budget-constraints",
+      "passed": 23,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-core-local/budget-constraints/budget-constraints-results.json"
+    },
+    {
+      "name": "budget-parameter-matrix",
+      "passed": 33,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-core-local/budget-parameter-matrix/v0153-parameter-results.json"
+    },
+    {
+      "name": "budget-http",
+      "passed": 7,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-service/http-local/v0153-http-results.json"
+    },
+    {
+      "name": "budget-main-integration",
+      "passed": 10,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-service/main-local/v0153-main-results.json"
+    },
+    {
+      "name": "budget-browser",
+      "passed": 25,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "budget-gui/budget-gui-results.json"
+    },
+    {
+      "name": "windows-launcher-final",
+      "passed": 4,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "8c58c3c465c38e23ac6c254d2daee25a84d8e64d0092e8c19b24d31c63a0cda2",
+      "report": "launcher-verified/v0153-launcher-results.json"
+    },
+    {
+      "name": "unit",
+      "passed": 235,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "protection/summary.json"
+    },
+    {
+      "name": "testnet-integration",
+      "passed": 20,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "protection/summary.json"
+    },
+    {
+      "name": "portable-smoke",
+      "passed": 6,
+      "failed": 0,
+      "exitCode": 0,
+      "recordedBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+      "report": "protection/summary.json"
+    }
+  ],
+  "doctor": {
+    "integrityValid": true,
+    "checkedFiles": 672,
+    "buildHash": "8c58c3c465c38e23ac6c254d2daee25a84d8e64d0092e8c19b24d31c63a0cda2"
+  },
+  "scope": "Local Anvil / local HTTP model fixtures. No public-chain writes or commercial-model evaluation.",
+  "regressionIdentity": {
+    "mainRegressionBuildHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+    "finalBuildHash": "8c58c3c465c38e23ac6c254d2daee25a84d8e64d0092e8c19b24d31c63a0cda2",
+    "onlyPostRegressionTrackedSourceChange": "tests/budget-launcher.mjs: assert retained V0.18.0 shutdown refusal using actual guard output and no shutdown request, instead of donor previous-build-stop behavior or pause-masked cmd exit code.",
+    "reconstructedMainSourceHash": "3ce94f2840821c8e4a650e9cf2e4b9922d7742769355d24fc72c19be9374c699",
+    "reconstructionMatches": true,
+    "productRuntimeChangedAfterMainRegressions": false,
+    "finalLauncherAndDoctorPassed": true
+  },
+  "historicalFailedAttemptsRetainedOutsidePackage": [
+    "sandbox localhost EACCES/Anvil timeout",
+    "test-only dependency loader initially needed a Windows file URL",
+    "launcher compatibility assertion initially assumed donor shutdown behavior and cmd exit propagation"
+  ],
+  "packaging": "Test-generated data, databases, logs, dependency hooks and credentials are excluded by an explicit package file allowlist. Historical source reports retain their original identity."
+}

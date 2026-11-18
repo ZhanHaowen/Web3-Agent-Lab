@@ -1,0 +1,31 @@
+{
+  "version": "V0.17.0 Research Beta",
+  "buildHash": "a5ce46ec2842fe9054d1744dc895303e4b35a3d87d26fae6bf01162b8f35e40c",
+  "time": "2026-11-16T15:06:43.124Z",
+  "results": [
+    {
+      "name": "HTTP keeps its origin and token gate and rejects removed configuration",
+      "passed": true
+    },
+    {
+      "name": "concurrent clicks request only one model decision and reserve once",
+      "passed": true
+    },
+    {
+      "name": "API backend sees the budget rejection and completes a valid reordered sequence",
+      "passed": true
+    },
+    {
+      "name": "evidence includes model exchanges and excludes credentials and reusable signatures",
+      "passed": true
+    },
+    {
+      "name": "automatic run respects maxSteps and stale IDs cannot advance it",
+      "passed": true
+    },
+    {
+      "name": "model prose without a tool never initiates a payment",
+      "passed": true
+    }
+  ]
+}

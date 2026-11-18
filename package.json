@@ -1,9 +1,9 @@
 {
   "name": "web3-agent-lab",
-  "version": "0.18.0",
-  "displayVersion": "V0.18.0 Testnet Beta",
-  "releaseRevision": "testnet-validated-preview",
-  "releaseLabel": "V0.18.0 Testnet Beta",
+  "version": "0.18.1",
+  "displayVersion": "V0.18.1 Testnet Beta",
+  "releaseRevision": "budget-20261116-transplant",
+  "releaseLabel": "V0.18.1 Testnet Beta",
   "private": true,
   "type": "module",
   "description": "Reproducible Web3 Agent experiments, local/API models, payment traces and private-ground-truth inference evaluation",
