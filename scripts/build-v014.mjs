@@ -15,6 +15,7 @@ var localModelService = (process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WOR
   requireIdle();
   if (researchService?.busy) throw Error('RESEARCH_EXPERIMENT_ACTIVE');
   if (testnetService?.busy) throw Error('TESTNET_EXPERIMENT_ACTIVE');
+  if (budgetService?.localModelActive) throw Error('LOCAL_MODEL_BUSY_EXPERIMENT_ACTIVE');
   if (labControl?.store.list('agents').some(a=>a.provider==='local'&&(Date.now()-(a.heartbeat??0)<6000||((p)=>p&&p.exitCode===null&&!p.killed)(labControl.workers.get(a.agentId))))) throw Error('LOCAL_MODEL_WORKERS_ONLINE: stop local Agent workers before changing or stopping inference');
 }});
 async function resolveModelConfiguration(model) {
@@ -33,7 +34,9 @@ var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
   requireReady, resolveModel:resolveModelConfiguration,captureRuntimeEvidence:captureLocalRuntimeEvidence,assertLocalModel:model=>localModelService?.assertModel(model), lock:()=>{requireIdle();requireReady();busy=true;},
   unlock:()=>{busy=false;refresh().catch(()=>{});}
 });
-var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
+var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,
+  lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256,LabActionProvider},
+  modelResolver:resolveModelConfiguration,assertLocalModel:model=>localModelService?.assertModel(model)});
 var researchService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new ResearchService({root:ROOT3,data:join3(DATA,"research"),port:PORT,modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null});
 var testnetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new TestnetService({root:ROOT3,data:DATA,port:PORT,
  lib:{runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,resolveTask,toolDefinitions,checkTask,privateKeyToAccount,buildDiagnostics,readExecutionTrace,sha256,json,readJSON},
@@ -59,7 +62,7 @@ replaceOnce('controller?.abort();\n  const deadline','controller?.abort();\n  aw
 replaceOnce('  await chain2.stop().catch(() => {\n  });', '  if (!labControl?.preserveOnExit) await chain2.stop().catch(() => {\n  });');
 replaceOnce('server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab http://127.0.0.1:${PORT}`));','if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab '+pkg.displayVersion+' http://127.0.0.1:${PORT}`));');
 replaceOnce('await mkdir4(DATA, { recursive: true });','await mkdir4(DATA, { recursive: true });\nawait budgetService?.init();');
-source+='\nexport {createWalletClient,createPublicClient,mnemonicToAccount,localChain,http,encodeFunctionData,decodeEventLog,decodeFunctionData,keccak256,parseAbi,ChainLab,checkTask,scenarioService,labControl,privateKeyToAccount,recoverAddress,serializeTransaction,resolveTask,scriptedCalls,validateTaskAmounts,runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,toolDefinitions,buildDiagnostics,readExecutionTrace,sha256,json,readJSON};\n';
+source+='\nexport {createWalletClient,createPublicClient,mnemonicToAccount,localChain,http,encodeFunctionData,decodeEventLog,decodeFunctionData,keccak256,parseAbi,ChainLab,checkTask,scenarioService,labControl,privateKeyToAccount,recoverAddress,serializeTransaction,resolveTask,scriptedCalls,validateTaskAmounts,LabActionProvider,runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,toolDefinitions,buildDiagnostics,readExecutionTrace,sha256,json,readJSON};\n';
 await mkdir(join(root,'dist'),{recursive:true});
 await writeFile(join(root,'dist/server.mjs'),source);
 await writeFile(join(root,'dist/cli.mjs'),'import \"../src/control/cli.mjs\";\n');

@@ -1,0 +1,72 @@
+{
+  "version": "V0.17.0 Research Beta",
+  "buildHash": "a5ce46ec2842fe9054d1744dc895303e4b35a3d87d26fae6bf01162b8f35e40c",
+  "time": "2026-11-16T15:05:45.979Z",
+  "browser": "Chrome headless",
+  "results": [
+    {
+      "name": "the page exposes both model backends and one unified budget policy",
+      "passed": true
+    },
+    {
+      "name": "automatic run calls the model and blocks an excess commitment",
+      "passed": true
+    },
+    {
+      "name": "1024px layout fits",
+      "passed": true
+    },
+    {
+      "name": "each manual step requests one model decision and both paths settle within budget",
+      "passed": true
+    },
+    {
+      "name": "model settings remain in the form and authenticate both runs on the same page",
+      "passed": true
+    },
+    {
+      "name": "smart account authority and separately confirmed path effects appear in the permission panel",
+      "passed": true
+    },
+    {
+      "name": "native browser file download",
+      "passed": true
+    },
+    {
+      "name": "integrated export, copy fallback and offline replay work",
+      "passed": true
+    },
+    {
+      "name": "offline text remains inert",
+      "passed": true
+    },
+    {
+      "name": "390px layout fits viewport",
+      "passed": true
+    },
+    {
+      "name": "a historical evidence bundle remains readable",
+      "passed": true
+    },
+    {
+      "name": "navigation stays on current main origin",
+      "passed": true
+    },
+    {
+      "name": "refresh resets the model form and discards the API key",
+      "passed": true
+    },
+    {
+      "name": "40/80 task never substitutes20 after80 is rejected; original task visibly incomplete",
+      "passed": true
+    },
+    {
+      "name": "review UI pauses and rejects before signing or paying",
+      "passed": true
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "passed": true
+    }
+  ]
+}

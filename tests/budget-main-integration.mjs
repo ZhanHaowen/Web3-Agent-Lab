@@ -1,4 +1,5 @@
 import {artifactPath} from './helpers/artifacts.mjs';
+import {authorize,finish,redeem,startBudgetModelFixture,transfer} from './helpers/budget-model.mjs';
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
@@ -8,6 +9,7 @@ import {ROOT} from '../src/budget/common.mjs';
 import {freePort,sleep} from '../src/budget/engine.mjs';
 
 const results=[];
+const fixture=await startBudgetModelFixture();
 let buildHash=null;
 const owned=[];
 function alive(pid){
@@ -87,7 +89,7 @@ try{
   assert.ok(links.includes('/tasks.html'),'task-center navigation is not relative');
   assert.ok(links.includes('/services.html'),'service navigation is not relative');
   assert.ok(!links.some(x=>/localhost:4319|127\.0\.0\.1:4319/.test(x)),'UI still directs users to the standalone port');
-  for(const asset of ['/budget.js','/budget.css','/budget-presets.js']){
+  for(const asset of ['/budget.js','/budget.css']){
    const r=await c.request(asset);assert.equal(r.status,200,asset+' '+JSON.stringify(r.value));assert.ok(String(r.value).length>100,asset+' is empty');
   }
   return {mainPort:c.port,heading};
@@ -97,6 +99,14 @@ try{
   assert.equal((await c.request('/api/budget/run',{config:{}},{'X-Budget-Token':''})).status,403);
   assert.equal((await c.request('/api/budget/run',{config:{}},{'X-Budget-Token':'','X-Lab-Token':c.mainToken})).status,403);
   assert.equal((await c.request('/api/v2/executions')).status,403);
+ });
+ await check('unconfigured local model fails before creating the experiment chain',async()=>{
+  const result=await c.request('/api/budget/run',{config:fixture.config({model:{backend:'local'}})});
+  assert.equal(result.status,400);
+  assert.equal(result.value.error,'LOCAL_MODEL_NOT_CONFIGURED');
+  assert.equal((await ok(c,'/api/budget/state')).stage,'idle');
+  assert.equal((await ok(c,'/api/budget/health')).chainPid,undefined);
+  assert.equal(fixture.requests.length,0);
  });
  let mainBefore,anchor,codeBefore,mainRpc;
  await check('original main chain initializes independently of the budget module',async()=>{
@@ -109,24 +119,26 @@ try{
   assert.ok(codeBefore.length>2);
   assert.ok(mainBefore.environment.chainInstanceId);
  });
- await check('custom split values reproduce 355 actual, 175 normal counter and 55 excess',async()=>{
-  const s=await ok(c,'/api/budget/run',{config:{mode:'split',initial:'1000',budget:'300',payment:'175',permit:'180',secondPath:'permit'}});
-  assert.equal(s.stage,'completed');assert.equal(s.check.reproduction,true);assert.equal(s.check.status,'failed');
-  assert.equal(s.check.actualSpent,'355000000');assert.equal(s.check.normalTransactionCounter,'175000000');
-  assert.equal(s.check.overspend,'55000000');assert.equal(s.final.balance,'645000000');
-  assert.equal(new Set(s.events.map(e=>e.sessionId)).size,1);
+ await check('main platform rejects removed split mode and fixed payment fields',async()=>{
+  const split=await c.request('/api/budget/run',{config:fixture.config({mode:'split'})});
+  const fixed=await c.request('/api/budget/run',{config:fixture.config({payment:'175'})});
+  assert.equal(split.status,400);assert.equal(fixed.status,400);
+  assert.equal((await ok(c,'/api/budget/state')).stage,'idle');
  });
- await check('the same custom values under unified policy reject the second commitment',async()=>{
-  const s=await ok(c,'/api/budget/run',{config:{mode:'unified',initial:'1000',budget:'300',payment:'175',permit:'180',secondPath:'permit'}});
+ await check('default unified policy rejects an over-budget signature after a direct payment',async()=>{
+  fixture.plan([transfer('175'),authorize('180'),finish]);
+  const s=await ok(c,'/api/budget/run',{config:fixture.config({initial:'1000',budget:'300'})});
   assert.equal(s.stage,'completed');assert.equal(s.check.status,'success');assert.equal(s.check.reproduction,false);
   assert.equal(s.check.actualSpent,'175000000');assert.equal(s.final.balance,'825000000');
   assert.equal(s.blocked.reason,'TASK_BUDGET_EXCEEDED');
   assert.equal(s.events.some(e=>e.type==='permit.signed'),false);
+  assert.equal(new Set(s.events.map(e=>e.sessionId)).size,1);
  });
- await check('fractional values execute exactly without floating-point rounding',async()=>{
-  const s=await ok(c,'/api/budget/run',{config:{mode:'split',initial:'2',budget:'0.75',payment:'0.4',permit:'0.5',secondPath:'permit'}});
-  assert.equal(s.check.reproduction,true);assert.equal(s.check.actualSpent,'900000');
-  assert.equal(s.check.normalTransactionCounter,'400000');assert.equal(s.check.overspend,'150000');assert.equal(s.final.balance,'1100000');
+ await check('both paths settle fractional values without floating-point rounding',async()=>{
+  fixture.plan([transfer('0.4'),authorize('0.35'),redeem,finish]);
+  const s=await ok(c,'/api/budget/run',{config:fixture.config({initial:'2',budget:'0.75'})});
+  assert.equal(s.check.actualSpent,'750000');assert.equal(s.check.status,'success');
+  assert.equal(s.check.normalTransactionCounter,'400000');assert.equal(s.check.overspend,'0');assert.equal(s.final.balance,'1250000');
   const exported=await ok(c,'/api/budget/export');
   assert.equal(exported.format,'web3-agent-budget-experiment');
   assert.ok(!JSON.stringify(exported).includes('"signature":'));
@@ -145,10 +157,11 @@ try{
   assert.notEqual(String(budgetHealth.chainPort),String(c.chainPort));
  });
  await check('main shutdown closes a signed but unredeemed budget signer and its dedicated chain',async()=>{
-  let s=await ok(c,'/api/budget/start',{config:{mode:'unified',initial:'500',budget:'150',payment:'40',permit:'50',secondPath:'permit'}});
+  fixture.plan([transfer('40'),authorize('50')]);
+  let s=await ok(c,'/api/budget/start',{config:fixture.config({initial:'500',budget:'150'})});
   s=await ok(c,'/api/budget/step',{executionId:s.id});
   s=await ok(c,'/api/budget/step',{executionId:s.id});
-  assert.equal(s.stage,'redemption');assert.equal(s.ledger.reserved,'50000000');
+  assert.equal(s.stage,'decision');assert.equal(s.ledger.reserved,'50000000');
   const h=await ok(c,'/api/budget/health');
   const pids=[s.signerPid,h.chainPid];
   assert.ok(pids.every(p=>Number.isSafeInteger(p)&&p>0),'health/state must identify owned child processes');
@@ -159,7 +172,7 @@ try{
  });
  await check('main shutdown during a new budget initialization leaves its observed Anvil closed',async()=>{
   const race=await launch();
-  const pending=race.request('/api/budget/start',{config:{initial:'800',budget:'220',payment:'130',permit:'140'}}).then(v=>({response:v}),e=>({error:e.message}));
+  const pending=race.request('/api/budget/start',{config:fixture.config({initial:'800',budget:'220'})}).then(v=>({response:v}),e=>({error:e.message}));
   let h,state;
   await waitUntil(async()=>{
    h=await ok(race,'/api/budget/health');
@@ -184,6 +197,7 @@ try{
    if(instance.p.exitCode===null)instance.p.kill();
   }
  }
+ await fixture.close();
  await writeFile(artifactPath('v0153-main-results.json'),JSON.stringify({
   version:JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).displayVersion,time:new Date().toISOString(),
   buildHash:buildHash??JSON.parse(await readFile(join(ROOT,'build-info.json'),'utf8')).sourceHash,
