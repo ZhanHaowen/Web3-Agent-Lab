@@ -1,0 +1,623 @@
+{
+  "version": "V0.18.2 BNB SDK Beta",
+  "buildHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "time": "2026-11-19T08:50:19.227Z",
+  "amountUnit": "BUD (six decimals); actualSpent and initialAllowance are in base units",
+  "pathOrder": {
+    "initial": "200",
+    "budget": "100",
+    "wallets": [
+      "local-eoa",
+      "smart-account"
+    ],
+    "caseCount": 16,
+    "firstPayment": "80",
+    "boundaryPayments": [
+      "20",
+      "20.000001"
+    ]
+  },
+  "pairedComparison": {
+    "caseCount": 8,
+    "configSources": [
+      "manual",
+      "confirmed-prefill"
+    ],
+    "executors": [
+      "script",
+      "api-fixture"
+    ],
+    "apiFixture": "Fixed Chat Completions responses through the Agent tool adapter; no learned model."
+  },
+  "results": [
+    {
+      "name": "arbitrary integer amounts share the budget",
+      "passed": true,
+      "actualSpent": "175000000"
+    },
+    {
+      "name": "same payments fit a larger task budget",
+      "passed": true,
+      "actualSpent": "355000000"
+    },
+    {
+      "name": "higher wallet balance does not change the task budget",
+      "passed": true,
+      "actualSpent": "175000000"
+    },
+    {
+      "name": "fractional amount above remainder is rejected",
+      "passed": true,
+      "actualSpent": "400000"
+    },
+    {
+      "name": "six-decimal exact boundary is accepted",
+      "passed": true,
+      "actualSpent": "5"
+    },
+    {
+      "name": "one minimal unit above the boundary is rejected",
+      "passed": true,
+      "actualSpent": "3"
+    },
+    {
+      "name": "multiple direct transfers aggregate",
+      "passed": true,
+      "actualSpent": "175000000"
+    },
+    {
+      "name": "permit-only valid sequence",
+      "passed": true,
+      "actualSpent": "3000000"
+    },
+    {
+      "name": "first payment above budget causes no token spend",
+      "passed": true,
+      "actualSpent": "0"
+    },
+    {
+      "name": "local-eoa TT exact-boundary",
+      "id": "local-eoa-TT-exact-boundary",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "TT",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-TT-exact-boundary.json",
+      "confirmedOrder": "TT",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa TT one-unit-over",
+      "id": "local-eoa-TT-one-unit-over",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "TT",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-TT-one-unit-over.json",
+      "confirmedOrder": "T",
+      "initialAllowance": "200000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 2,
+        "tool": "transfer_tokens",
+        "toolCallId": "budget-action-2",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "local-eoa SS exact-boundary",
+      "id": "local-eoa-SS-exact-boundary",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "SS",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-SS-exact-boundary.json",
+      "confirmedOrder": "SS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa SS one-unit-over",
+      "id": "local-eoa-SS-one-unit-over",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "SS",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-SS-one-unit-over.json",
+      "confirmedOrder": "S",
+      "initialAllowance": "200000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 3,
+        "tool": "authorize_permit2",
+        "toolCallId": "budget-action-3",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "local-eoa TS exact-boundary",
+      "id": "local-eoa-TS-exact-boundary",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-TS-exact-boundary.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa TS one-unit-over",
+      "id": "local-eoa-TS-one-unit-over",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-TS-one-unit-over.json",
+      "confirmedOrder": "T",
+      "initialAllowance": "200000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 2,
+        "tool": "authorize_permit2",
+        "toolCallId": "budget-action-2",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "local-eoa ST exact-boundary",
+      "id": "local-eoa-ST-exact-boundary",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "ST",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-ST-exact-boundary.json",
+      "confirmedOrder": "ST",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa ST one-unit-over",
+      "id": "local-eoa-ST-one-unit-over",
+      "family": "path-order",
+      "backend": "local-eoa",
+      "order": "ST",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-ST-one-unit-over.json",
+      "confirmedOrder": "S",
+      "initialAllowance": "200000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 3,
+        "tool": "transfer_tokens",
+        "toolCallId": "budget-action-3",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "smart-account TT exact-boundary",
+      "id": "smart-account-TT-exact-boundary",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "TT",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/smart-account-TT-exact-boundary.json",
+      "confirmedOrder": "TT",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account TT one-unit-over",
+      "id": "smart-account-TT-one-unit-over",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "TT",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/smart-account-TT-one-unit-over.json",
+      "confirmedOrder": "T",
+      "initialAllowance": "100000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 2,
+        "tool": "transfer_tokens",
+        "toolCallId": "budget-action-2",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "smart-account SS exact-boundary",
+      "id": "smart-account-SS-exact-boundary",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "SS",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/smart-account-SS-exact-boundary.json",
+      "confirmedOrder": "SS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account SS one-unit-over",
+      "id": "smart-account-SS-one-unit-over",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "SS",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/smart-account-SS-one-unit-over.json",
+      "confirmedOrder": "S",
+      "initialAllowance": "100000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 3,
+        "tool": "authorize_permit2",
+        "toolCallId": "budget-action-3",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "smart-account TS exact-boundary",
+      "id": "smart-account-TS-exact-boundary",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/smart-account-TS-exact-boundary.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account TS one-unit-over",
+      "id": "smart-account-TS-one-unit-over",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/smart-account-TS-one-unit-over.json",
+      "confirmedOrder": "T",
+      "initialAllowance": "100000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 2,
+        "tool": "authorize_permit2",
+        "toolCallId": "budget-action-2",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "smart-account ST exact-boundary",
+      "id": "smart-account-ST-exact-boundary",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "ST",
+      "amounts": [
+        "80",
+        "20"
+      ],
+      "boundary": "exact-boundary",
+      "evidenceFile": "budget-matrix-evidence/smart-account-ST-exact-boundary.json",
+      "confirmedOrder": "ST",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account ST one-unit-over",
+      "id": "smart-account-ST-one-unit-over",
+      "family": "path-order",
+      "backend": "smart-account",
+      "order": "ST",
+      "amounts": [
+        "80",
+        "20.000001"
+      ],
+      "boundary": "one-unit-over",
+      "evidenceFile": "budget-matrix-evidence/smart-account-ST-one-unit-over.json",
+      "confirmedOrder": "S",
+      "initialAllowance": "100000000",
+      "taskStatus": "failed",
+      "rejection": {
+        "stage": "decision",
+        "step": 3,
+        "tool": "transfer_tokens",
+        "toolCallId": "budget-action-3",
+        "reason": "TASK_BUDGET_EXCEEDED",
+        "layer": "experiment_gateway",
+        "walletReached": false,
+        "walletResult": null,
+        "amount": "20.000001"
+      },
+      "passed": true,
+      "actualSpent": "80000000"
+    },
+    {
+      "name": "local-eoa 50+50 manual script",
+      "id": "local-eoa-50-50-manual-script",
+      "family": "config-source-and-executor",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "manual",
+      "executor": "script",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-50-50-manual-script.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa 50+50 manual api-fixture",
+      "id": "local-eoa-50-50-manual-api-fixture",
+      "family": "config-source-and-executor",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "manual",
+      "executor": "api-fixture",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-50-50-manual-api-fixture.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa 50+50 confirmed-prefill script",
+      "id": "local-eoa-50-50-confirmed-prefill-script",
+      "family": "config-source-and-executor",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "confirmed-prefill",
+      "executor": "script",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-50-50-confirmed-prefill-script.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "local-eoa 50+50 confirmed-prefill api-fixture",
+      "id": "local-eoa-50-50-confirmed-prefill-api-fixture",
+      "family": "config-source-and-executor",
+      "backend": "local-eoa",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "confirmed-prefill",
+      "executor": "api-fixture",
+      "evidenceFile": "budget-matrix-evidence/local-eoa-50-50-confirmed-prefill-api-fixture.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "200000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account 50+50 manual script",
+      "id": "smart-account-50-50-manual-script",
+      "family": "config-source-and-executor",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "manual",
+      "executor": "script",
+      "evidenceFile": "budget-matrix-evidence/smart-account-50-50-manual-script.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account 50+50 manual api-fixture",
+      "id": "smart-account-50-50-manual-api-fixture",
+      "family": "config-source-and-executor",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "manual",
+      "executor": "api-fixture",
+      "evidenceFile": "budget-matrix-evidence/smart-account-50-50-manual-api-fixture.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account 50+50 confirmed-prefill script",
+      "id": "smart-account-50-50-confirmed-prefill-script",
+      "family": "config-source-and-executor",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "confirmed-prefill",
+      "executor": "script",
+      "evidenceFile": "budget-matrix-evidence/smart-account-50-50-confirmed-prefill-script.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    },
+    {
+      "name": "smart-account 50+50 confirmed-prefill api-fixture",
+      "id": "smart-account-50-50-confirmed-prefill-api-fixture",
+      "family": "config-source-and-executor",
+      "backend": "smart-account",
+      "order": "TS",
+      "amounts": [
+        "50",
+        "50"
+      ],
+      "configSource": "confirmed-prefill",
+      "executor": "api-fixture",
+      "evidenceFile": "budget-matrix-evidence/smart-account-50-50-confirmed-prefill-api-fixture.json",
+      "confirmedOrder": "TS",
+      "initialAllowance": "100000000",
+      "taskStatus": "passed",
+      "rejection": null,
+      "passed": true,
+      "actualSpent": "100000000"
+    }
+  ]
+}

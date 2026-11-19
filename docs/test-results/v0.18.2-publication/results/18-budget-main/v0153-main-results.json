@@ -1,0 +1,73 @@
+{
+  "version": "V0.18.2 BNB SDK Beta",
+  "time": "2026-11-19T08:45:17.660Z",
+  "buildHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "results": [
+    {
+      "name": "main-only startup serves budget category and assets on a custom port",
+      "passed": true,
+      "elapsedMs": 34,
+      "detail": {
+        "mainPort": 51377,
+        "heading": "跨路径资产授权与预算控制"
+      }
+    },
+    {
+      "name": "budget mutations require exact origin and their scoped token",
+      "passed": true,
+      "elapsedMs": 63
+    },
+    {
+      "name": "unconfigured local model fails before creating the experiment chain",
+      "passed": true,
+      "elapsedMs": 29
+    },
+    {
+      "name": "original main chain initializes independently of the budget module",
+      "passed": true,
+      "elapsedMs": 829
+    },
+    {
+      "name": "main platform rejects removed split mode and fixed payment fields",
+      "passed": true,
+      "elapsedMs": 39
+    },
+    {
+      "name": "default unified policy rejects an over-budget signature after a direct payment",
+      "passed": true,
+      "elapsedMs": 1486
+    },
+    {
+      "name": "both paths settle fractional values without floating-point rounding",
+      "passed": true,
+      "elapsedMs": 1474
+    },
+    {
+      "name": "budget execution preserves main data path, chain identity and original contract code",
+      "passed": true,
+      "elapsedMs": 61
+    },
+    {
+      "name": "main shutdown closes a signed but unredeemed budget signer and its dedicated chain",
+      "passed": true,
+      "elapsedMs": 4826,
+      "detail": {
+        "ownedChildPids": [
+          25404,
+          26800
+        ]
+      }
+    },
+    {
+      "name": "main shutdown during a new budget initialization leaves its observed Anvil closed",
+      "passed": true,
+      "elapsedMs": 1254,
+      "detail": {
+        "observedStage": "initializing",
+        "ownedChildPids": [
+          27304
+        ]
+      }
+    }
+  ]
+}

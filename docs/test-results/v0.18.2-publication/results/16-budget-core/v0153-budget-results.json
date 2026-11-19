@@ -1,0 +1,112 @@
+{
+  "version": "V0.18.2 BNB SDK Beta",
+  "buildHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "time": "2026-11-19T08:44:17.720Z",
+  "results": [
+    {
+      "name": "direct spend limits new permits and a revised sequence uses both paths",
+      "passed": true,
+      "elapsedMs": 1539
+    },
+    {
+      "name": "an outstanding permit reserves budget against direct spending",
+      "passed": true,
+      "elapsedMs": 1578
+    },
+    {
+      "name": "exact amounts on both chain paths pass independent task and budget checks",
+      "passed": true,
+      "elapsedMs": 1552
+    },
+    {
+      "name": "wrong-path substitution is rejected before payment and the original task remains incomplete",
+      "passed": true,
+      "elapsedMs": 1253
+    },
+    {
+      "name": "task text alone does not lock a hypothetical payment as the current business goal",
+      "passed": true,
+      "elapsedMs": 1422
+    },
+    {
+      "name": "an unredeemed signature reserves funds but does not count as task payment",
+      "passed": true,
+      "elapsedMs": 1387
+    },
+    {
+      "name": "confirmed effects determine task outcome even when Agent stops at the step limit",
+      "passed": true,
+      "elapsedMs": 1347
+    },
+    {
+      "name": "smart account uses one distinct session for direct payment and ERC-1271 Permit2 clearance",
+      "passed": true,
+      "elapsedMs": 921
+    },
+    {
+      "name": "gateway preserves smart account reservation and the contract rejects an unauthorized caller",
+      "passed": true,
+      "elapsedMs": 1047
+    },
+    {
+      "name": "local-eoa disables Permit2 without disabling permitted direct transfers",
+      "passed": true,
+      "elapsedMs": 1338
+    },
+    {
+      "name": "local-eoa completes a cumulative goal across multiple payments on each path",
+      "passed": true,
+      "elapsedMs": 1828
+    },
+    {
+      "name": "local-eoa records a lower wallet cap separately from the task authorization",
+      "passed": true,
+      "elapsedMs": 1637
+    },
+    {
+      "name": "smart-account disables Permit2 without disabling permitted direct transfers",
+      "passed": true,
+      "elapsedMs": 759
+    },
+    {
+      "name": "smart-account completes a cumulative goal across multiple payments on each path",
+      "passed": true,
+      "elapsedMs": 1408
+    },
+    {
+      "name": "smart-account records a lower wallet cap separately from the task authorization",
+      "passed": true,
+      "elapsedMs": 1014
+    },
+    {
+      "name": "expired EOA permit is rejected by the adapter before on-chain submission",
+      "passed": true,
+      "elapsedMs": 1389
+    },
+    {
+      "name": "signer accepts only the experiment session and registered parameters",
+      "passed": true,
+      "elapsedMs": 1245
+    },
+    {
+      "name": "unified checker detects inconsistent ledger and tampered bundle",
+      "passed": true,
+      "elapsedMs": 1403
+    },
+    {
+      "name": "prior sealed experiment bundles remain readable and retain original results",
+      "passed": true,
+      "elapsedMs": 59
+    },
+    {
+      "name": "configuration cannot select historical budget or fixed scripted fields",
+      "passed": true,
+      "elapsedMs": 0
+    },
+    {
+      "name": "configured local backend uses its resolver and gates every model request",
+      "passed": true,
+      "elapsedMs": 4423
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "checkedCommit": "0fd40d47b395ac6bc4acf4ed41c4a5ce9286ae1f",
+  "remoteBase": "c629fea499a4d440d58a3dd122d7885fe87e1e62",
+  "sourceHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "buildInputs": 784,
+  "buildOutputs": 4,
+  "hashesMatch": true,
+  "remoteChangedFilesChecked": 27,
+  "remoteFilesByteIdentical": 26,
+  "remainingFile": "scripts/build-v014.mjs: retained budget wiring and added isolated BNB module",
+  "newFilesReviewed": 372,
+  "credentialFindings": 0,
+  "conflictMarkers": 0,
+  "scope": "Read-only merged source and documentation publication audit; excludes dynamic behavior."
+}

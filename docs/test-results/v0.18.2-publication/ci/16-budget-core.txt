@@ -1,0 +1,23 @@
+(node:9784) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS direct spend limits new permits and a revised sequence uses both paths
+PASS an outstanding permit reserves budget against direct spending
+PASS exact amounts on both chain paths pass independent task and budget checks
+PASS wrong-path substitution is rejected before payment and the original task remains incomplete
+PASS task text alone does not lock a hypothetical payment as the current business goal
+PASS an unredeemed signature reserves funds but does not count as task payment
+PASS confirmed effects determine task outcome even when Agent stops at the step limit
+PASS smart account uses one distinct session for direct payment and ERC-1271 Permit2 clearance
+PASS gateway preserves smart account reservation and the contract rejects an unauthorized caller
+PASS local-eoa disables Permit2 without disabling permitted direct transfers
+PASS local-eoa completes a cumulative goal across multiple payments on each path
+PASS local-eoa records a lower wallet cap separately from the task authorization
+PASS smart-account disables Permit2 without disabling permitted direct transfers
+PASS smart-account completes a cumulative goal across multiple payments on each path
+PASS smart-account records a lower wallet cap separately from the task authorization
+PASS expired EOA permit is rejected by the adapter before on-chain submission
+PASS signer accepts only the experiment session and registered parameters
+PASS unified checker detects inconsistent ledger and tampered bundle
+PASS prior sealed experiment bundles remain readable and retain original results
+PASS configuration cannot select historical budget or fixed scripted fields
+PASS configured local backend uses its resolver and gates every model request

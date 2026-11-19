@@ -1,0 +1,63 @@
+{
+  "schema": "github-ci-independent-verification-v1",
+  "runId": 44489687601,
+  "runUrl": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/44489687601",
+  "headSha": "0fd40d47b395ac6bc4acf4ed41c4a5ce9286ae1f",
+  "conclusion": "success",
+  "finishedAt": "2026-11-19T08:53:39Z",
+  "sourceHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "expectedSourceHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "sourceHashMatches": true,
+  "passedSteps": 26,
+  "failedSteps": 0,
+  "unit": {
+    "tests": 258,
+    "pass": 258,
+    "fail": 0,
+    "skipped": 0
+  },
+  "legacyTypeScript": {
+    "tests": 145,
+    "pass": 145,
+    "fail": 0,
+    "skipped": 0
+  },
+  "budgetConstraints": {
+    "tests": 23,
+    "pass": 23,
+    "fail": 0
+  },
+  "artifactFiles": [
+    "01-budget-build.log",
+    "02-platform-build.log",
+    "03-doctor.log",
+    "04-typecheck.log",
+    "05-unit.log",
+    "06-legacy-source.log",
+    "07-testnet-integration.log",
+    "08-original-api.log",
+    "09-allowance-matrix.log",
+    "10-peer-contract.log",
+    "11-peer-integration.log",
+    "12-independent-workers.log",
+    "13-worker-shutdown-recovery.log",
+    "14-service-contract.log",
+    "15-service-integration.log",
+    "16-budget-core.log",
+    "17-budget-parameters.log",
+    "18-budget-main.log",
+    "19-budget-http.log",
+    "20-windows-launcher.log",
+    "21-x402-ap2.log",
+    "22-mpp.log",
+    "23-payment-adversarial.log",
+    "24-research-escrow.log",
+    "25-research-engine.log",
+    "26-research-dataset.log",
+    "budget-constraints",
+    "results",
+    "summary.json"
+  ],
+  "summarySha256": "0b35ddd0e0a1521fc878ded0d35db5ab4125e4fb08c7376ba24e17ef83185cd2",
+  "passed": true
+}

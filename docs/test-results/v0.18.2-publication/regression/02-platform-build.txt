@@ -1,0 +1,16 @@
+Bundled pinned BNB SDK 0.6.1 independent runtime.
+Bundled pinned x402 and MPP HTTP runtime dependencies.
+Compiled LabPeerExchange with 0.8.30+commit.73712a01.Emscripten.clang
+Compiled LabServiceEscrow with 0.8.30+commit.73712a01.Emscripten.clang
+Compiled ResearchEIP3009Token
+Compiled x402BatchSettlement
+Compiled ERC3009DepositCollector
+Compiled Multicall3
+Compiled AgentResearchJob
+Compiled 3 public-testnet fixtures with Paris EVM target; original Anvil artifacts unchanged.
+
+  build\legacy-server.mjs   19.0mb
+  build\legacy-cli.mjs     180.4kb
+
+Done in 978ms
+Built V0.18.2 BNB SDK Beta compatibility bridge and source manifest.

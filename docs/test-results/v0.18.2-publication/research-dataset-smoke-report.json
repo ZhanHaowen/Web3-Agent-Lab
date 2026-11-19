@@ -1,0 +1,381 @@
+{
+  "schema": "research-real-dataset-smoke-v1",
+  "startedAt": "2026-11-19T08:46:53.419Z",
+  "scope": "36 full-factor constructed scripted-policy samples (3 families x 3 strategies x 2 budgets x 2 replicates), actual official x402 exact + Anvil; validates collection/splits/isolated evaluator only, no scientific inference claim.",
+  "samples": [
+    {
+      "sampleId": "cell-0-03e7c669",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-0-03e7c669",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "03e7c6690a61d8eb110970df55bbe6f55b6e387aaf92b86051ac4c5ac7b4b8a5",
+      "runId": "a103dab4-d011-49b8-8404-33a3384ca430",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-1-742b5394",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-1-742b5394",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "742b5394d8d27f55beb586738a3735d2ca290f078edc2e2a00ee9ccc04304453",
+      "runId": "74816962-7fda-483a-8d43-99bbc1d415da",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-2-d2f53134",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-2-d2f53134",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "d2f531340a04382c5cdc6a85cf75a729c2e6dc743bdbe6de8de7694be54632c6",
+      "runId": "98674c95-a396-456c-8361-4e35d5b49d6a",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-3-1ffda704",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-3-1ffda704",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "1ffda704f5eff0af06712e74fbba796f654de376b46548355c4458ce75965464",
+      "runId": "214010cc-57a0-4999-84e2-83460ff2f309",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-4-ca043beb",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-4-ca043beb",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "ca043bebe55a94accae440dc603dfab91e6ae5697963089383cd4ae0f8a594cc",
+      "runId": "2501c882-5fec-480a-afc9-15491f5e849b",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-5-6b18e783",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-5-6b18e783",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "6b18e783412674db0a543abe4be704a3c6071833dab88cdc47b3be8a66534c6a",
+      "runId": "32f94dec-777a-40af-8fcc-1fbdac4fa18a",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-6-6364b51b",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-6-6364b51b",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "6364b51ba0e24926cce35d7b58773ee3d1999a31d48100152bf458ea55f157ec",
+      "runId": "f58e38ee-ccaa-4338-b584-023c526fdc3c",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-7-e98a30a3",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-7-e98a30a3",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "e98a30a3fc82bbb763e7f9361d3d85524580e73901e044655cab97efbfc84678",
+      "runId": "b049190c-cd10-47cb-a145-b0e73a829158",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-8-1aedcec7",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-8-1aedcec7",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "1aedcec714c19873bb8200b456922835f70350504b202d589ece418960ef27f8",
+      "runId": "d199a1aa-71e1-4d10-82e7-1b4544a9ba76",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-9-8cf69f78",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-9-8cf69f78",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "8cf69f781252a298a611d72628a40822ee6d2c3d30386bff5854bb1f93058278",
+      "runId": "89c5cd10-f5b0-45c5-aa91-18865c7d35ec",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-10-0d1a4d07",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-10-0d1a4d07",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "0d1a4d074fb7b89991e1ec9651f7bbb2ebd630a75375881017b479b2d005ad58",
+      "runId": "a9ce2663-28f9-4238-b198-e8b62587638f",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-11-a69752fb",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-11-a69752fb",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "a69752fb11082a7be3d4dc3ae6cc73948cc773cc9b82d2f612cd26613c8d719d",
+      "runId": "39dfeb72-29bb-4a85-847e-6eedef96e6fb",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-12-bf6d5de8",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-12-bf6d5de8",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "bf6d5de896b258b4a5b27c8ba44a842e5ded87331470a25c1b137c1026bea734",
+      "runId": "2522fd70-7fbc-43cc-ad93-1130d221ee28",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-13-c3ee3433",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-13-c3ee3433",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "c3ee3433ca37cf8d42f59a31d094daf44e4b2c76bdd9a8b92b6fa54b733b2336",
+      "runId": "f45b179f-b3a0-4d38-88dd-574cf7299759",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-14-6d59fa1d",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-14-6d59fa1d",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "6d59fa1de80adc16c376ab636a6009debda8ac2836cc8da8f6c76f3c76809b13",
+      "runId": "2cf09884-2930-49ec-a593-4fd077febd60",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-15-8200bc39",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-15-8200bc39",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "8200bc39256abaa5107ea62cc9e02fef05605d9266e74a46125f7e50d1649245",
+      "runId": "a12b7097-b2b6-4402-9b7f-0e80ac858454",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-16-a90ff51d",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-16-a90ff51d",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "a90ff51dc6df1311e4ddecd4a655e9f5c071d91cf73b436fbe83e0fbb9742eb3",
+      "runId": "7b9ea3bc-1375-43c2-bebf-bf81206606fc",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-17-bb254c70",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-17-bb254c70",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "bb254c70ec9fb54afcd5c7f2b25ce59bc7c9335bbd40c0005c743dcdc4559f29",
+      "runId": "b99c844b-63ac-4170-a2da-ee164c2a7484",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-18-7b482b6e",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-18-7b482b6e",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "7b482b6ed10594278a80cdee5cb2dbb741b67cbf4c5c3f16d07c9a123f1b09b2",
+      "runId": "12ff8a83-809b-4997-892c-d20bcc0fc3e7",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-19-8c633904",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-19-8c633904",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "8c633904a6629973b95fee8da6969c7ec55b48d49e2cae1e4a458bccc4b5ec22",
+      "runId": "ae2cb6a0-8612-494d-a3ad-0b16d42ffb0f",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-20-6874043e",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-20-6874043e",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "6874043ebb21f740163652504b67fd8a8e4a5ab69703ded8f4bb5772499593cf",
+      "runId": "7eed0fdd-180c-467b-bf4b-fd110a89ca70",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-21-5102d3fd",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-21-5102d3fd",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "5102d3fd232fd852ffe78474e5976bffbf1b09eed0f98bd430e53c5a8a632926",
+      "runId": "af748e30-9a39-4134-a2de-1fbfb766d8f8",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-22-7424cb6d",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-22-7424cb6d",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "7424cb6d89fe5b0b114bfa9bd2634ed367effb5cf7915265fe46f163b9f923f2",
+      "runId": "5162677e-c368-4ac1-a9fa-26ec76361599",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-23-a12b3a08",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-23-a12b3a08",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "a12b3a08bbfc4cf93f5e3042d1708712cf8954f3665fe2a84e6ff09e4fd54698",
+      "runId": "64abe9f0-2b12-4156-9787-f487ba12a838",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-24-e01c733c",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-24-e01c733c",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "e01c733c8bbe31460c74592201501cb70557126292e495ecc1a93136f2a07c57",
+      "runId": "18d49cf2-9401-499c-8f45-358a667166f0",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-25-df7cc25c",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-25-df7cc25c",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "df7cc25cf8ffe8ba2adb9d3122f117246424804d688d81f7d2feba49a32ac220",
+      "runId": "acda58a8-8f5e-4939-a25e-7a04eaea6a01",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-26-0f163737",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-26-0f163737",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "0f1637371636a0a54e4e519701c8561e05cab3d00ebd7244c2a2fd44d4f8c9b8",
+      "runId": "cb5d6566-b485-4e8d-99d5-41ec8ca8ba70",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-27-5afec90a",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-27-5afec90a",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "5afec90acb500c8b101435f3c410e41df3e5a84d980c3907bd05aae7a63db628",
+      "runId": "bd9a86b8-c93c-492f-8984-275ad22c33f1",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-28-a748a870",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-28-a748a870",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "a748a870438b3f5b8e771bf69d660440f2066467bb57ddb0d489965dcc32133d",
+      "runId": "9754ae07-d5b5-4db7-b883-c3336a82e0b7",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-29-e8218619",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-29-e8218619",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "e8218619763a6c8fa21f2f9eb054ceaa4eef9c6d7099a6a9a7f50df841a77123",
+      "runId": "07aea98a-0347-4c4c-b3b4-771dd693916a",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-30-776149bc",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-30-776149bc",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "776149bc9741d290fad4c05c17839b159285402a3dd25fd75c36fa667b46b783",
+      "runId": "4c20f600-5a27-4f3a-98bd-1556a9c7ff93",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-31-30885af2",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-31-30885af2",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "30885af2a689d11a8a227494777e4dd2d7f8c8b469ac02045eca289986ddbf8c",
+      "runId": "d3ee29e2-049d-4a2c-87b8-8a7a1d1e16b5",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-32-cf09f159",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-32-cf09f159",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "cf09f15959b446a2a1c59864b29df68f5ead5df26bd0a649ebd6f661bc8da9ef",
+      "runId": "d6fff144-d397-457e-bbec-b4d8c8e156d9",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-33-500a424f",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-33-500a424f",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "500a424fc6c90bb2d6355566f1850c60151354b14b6b161d7eb006567253cd9b",
+      "runId": "67a0b0da-48b8-499f-93e8-b66988bb400b",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-34-f926efad",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-34-f926efad",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "f926efad761671bf5c6cfe0fb901655b5638222503358be09488e52f7ec821b6",
+      "runId": "9c29655a-7294-48e0-9785-769eb5802211",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-35-7a361a34",
+      "dir": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\cell-35-7a361a34",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "7a361a346d98a9de9ed7ef24aebf306513f54bb6e7db86d79f370e07fbfa4be4",
+      "runId": "d8f23200-913a-4297-baa0-82e03599fa16",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    }
+  ],
+  "finishedAt": "2026-11-19T08:47:48.285Z",
+  "passed": true,
+  "retention": {
+    "inputSamples": 36,
+    "retainedSamples": 36,
+    "failedOrUnknown": 24,
+    "filter": "none"
+  },
+  "splitCounts": {
+    "train": 18,
+    "validation": 6,
+    "test": 12
+  },
+  "testTruthPassed": false
+}

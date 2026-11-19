@@ -1,0 +1,7 @@
+PASS HTTP keeps its origin and token gate and rejects removed configuration
+PASS concurrent clicks request only one model decision and reserve once
+PASS API backend sees the budget rejection and completes a valid reordered sequence
+PASS evidence includes model exchanges and excludes credentials and reusable signatures
+PASS automatic run respects maxSteps and stale IDs cannot advance it
+PASS model prose without a tool never initiates a payment
+PASS archives survive restart, preserve incomplete receipts and deduplicate screened candidates

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "report": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\smoke-report.json",
+  "retention": {
+    "inputSamples": 36,
+    "retainedSamples": 36,
+    "failedOrUnknown": 24,
+    "filter": "none"
+  },
+  "splitCounts": {
+    "train": 18,
+    "validation": 6,
+    "test": 12
+  }
+}

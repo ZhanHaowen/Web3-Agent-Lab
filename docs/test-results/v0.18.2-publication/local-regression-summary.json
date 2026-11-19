@@ -1,0 +1,684 @@
+{
+  "schema": "testnet-local-review-regression-v1",
+  "startedAt": "2026-11-19T08:37:49.037Z",
+  "baselineCommit": "fe59a4d81cf2f8c3b82dca7eac4effbf4632a10b",
+  "branch": "codex/v0.18.2-bnb-sdk",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "out": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression",
+  "scope": "Windows local isolated integration and regression. No real testnet broadcasts, no GitHub update. Actual model and GUI runs reported separately.",
+  "selectedSteps": null,
+  "steps": [
+    {
+      "name": "01-budget-build",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "scripts/compile-budget.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:37:49.100Z",
+      "finishedAt": "2026-11-19T08:37:56.605Z",
+      "elapsedMs": 7505,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\01-budget-build.log",
+      "logSha256": "c2ff9fb2c9c68045767e4ffdbe4745419885fd36247ee43975314243bc063351",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\01-budget-build"
+    },
+    {
+      "name": "02-platform-build",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--run",
+        "build"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:37:56.608Z",
+      "finishedAt": "2026-11-19T08:38:10.430Z",
+      "elapsedMs": 13822,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\02-platform-build.log",
+      "logSha256": "316f0a16373ebc5858505972bb71b33cdf355f7ea03fc80f703f94188164aef5",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\02-platform-build"
+    },
+    {
+      "name": "03-doctor",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "dist/cli.mjs",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:38:10.432Z",
+      "finishedAt": "2026-11-19T08:38:10.635Z",
+      "elapsedMs": 202,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\03-doctor.log",
+      "logSha256": "fa780e88d72fcac58b3fc20eaf8fa20cac05d18cdd849656fb5ff36a69d70b7d",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\03-doctor"
+    },
+    {
+      "name": "04-typecheck",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.control.json",
+        "--noEmit"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:38:10.637Z",
+      "finishedAt": "2026-11-19T08:38:10.989Z",
+      "elapsedMs": 352,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\04-typecheck.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\04-typecheck"
+    },
+    {
+      "name": "05-unit",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--test",
+        "tests/*.test.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:38:10.991Z",
+      "finishedAt": "2026-11-19T08:39:17.286Z",
+      "elapsedMs": 66294,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 258,
+        "pass": 258,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\05-unit.log",
+      "logSha256": "c7bb8cc74c2621901c2d23401eecf4261c078f5bff358a37a27c2267c05b8882",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\05-unit"
+    },
+    {
+      "name": "06-legacy-source",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--import",
+        "./scripts/register-agentkit.mjs",
+        "--import",
+        "tsx",
+        "--test",
+        "tests/*.test.ts"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\vendor\\legacy-source",
+      "startedAt": "2026-11-19T08:39:17.288Z",
+      "finishedAt": "2026-11-19T08:39:37.015Z",
+      "elapsedMs": 19727,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 145,
+        "pass": 145,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\06-legacy-source.log",
+      "logSha256": "952e8e3a74fd05d80ce113b4222662c8cee66fba01e15d788e0daeb09f42ca92",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\06-legacy-source"
+    },
+    {
+      "name": "07-testnet-integration",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/testnet-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:39:37.017Z",
+      "finishedAt": "2026-11-19T08:40:09.185Z",
+      "elapsedMs": 32168,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\07-testnet-integration.log",
+      "logSha256": "cfd774dbced2a83def79c056c6e5c5cb5a30c3ce8158c8d940a26062158a868b",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\07-testnet-integration"
+    },
+    {
+      "name": "08-original-api",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/legacy-regression-wrapper.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:40:09.187Z",
+      "finishedAt": "2026-11-19T08:40:44.813Z",
+      "elapsedMs": 35626,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\08-original-api.log",
+      "logSha256": "5c4dc5a6e0d3f1ecdf492f17d5bd7236f084f4507440baeb1f319bd20b941214",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\08-original-api"
+    },
+    {
+      "name": "09-allowance-matrix",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/legacy-allowance-matrix.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:40:44.814Z",
+      "finishedAt": "2026-11-19T08:40:51.003Z",
+      "elapsedMs": 6188,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\09-allowance-matrix.log",
+      "logSha256": "e3f07c2e30c84da77edcf1c2e167e01ced68cf85da80004f61d0e73dae159113",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\09-allowance-matrix"
+    },
+    {
+      "name": "10-peer-contract",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/peer-contract.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:40:51.005Z",
+      "finishedAt": "2026-11-19T08:41:07.300Z",
+      "elapsedMs": 16296,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\10-peer-contract.log",
+      "logSha256": "91f9f1df30b8f7c6bd9b9921013f96eec7b8b82948ecac5c3fedc5e6f3f96bd1",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\10-peer-contract"
+    },
+    {
+      "name": "11-peer-integration",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/peer-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:41:07.302Z",
+      "finishedAt": "2026-11-19T08:41:32.132Z",
+      "elapsedMs": 24830,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\11-peer-integration.log",
+      "logSha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\11-peer-integration"
+    },
+    {
+      "name": "12-independent-workers",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/v2-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:41:32.134Z",
+      "finishedAt": "2026-11-19T08:41:54.330Z",
+      "elapsedMs": 22196,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\12-independent-workers.log",
+      "logSha256": "525f00eb0b368cd9aaa00f36de1fe57382110b3beb2daeed46c3c9a3ac4c37d7",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\12-independent-workers"
+    },
+    {
+      "name": "13-worker-shutdown-recovery",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/v2-shutdown-recovery.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:41:54.332Z",
+      "finishedAt": "2026-11-19T08:42:29.228Z",
+      "elapsedMs": 34897,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\13-worker-shutdown-recovery.log",
+      "logSha256": "99f0a9ac010117d41698a10e090a100263821a83755318b9bf53115e7e9f9472",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\13-worker-shutdown-recovery"
+    },
+    {
+      "name": "14-service-contract",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/service-contract.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:42:29.230Z",
+      "finishedAt": "2026-11-19T08:42:41.638Z",
+      "elapsedMs": 12408,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\14-service-contract.log",
+      "logSha256": "ca5f6810aa4a3dd5bcd31d79cd501b0a2f770a63a0a12128e5cee58c1adead3c",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\14-service-contract"
+    },
+    {
+      "name": "15-service-integration",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/service-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:42:41.640Z",
+      "finishedAt": "2026-11-19T08:43:48.333Z",
+      "elapsedMs": 66693,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\15-service-integration.log",
+      "logSha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\15-service-integration"
+    },
+    {
+      "name": "16-budget-core",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:43:48.335Z",
+      "finishedAt": "2026-11-19T08:44:20.747Z",
+      "elapsedMs": 32413,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\16-budget-core.log",
+      "logSha256": "494c714e676454306e6ecde93f44922caf1fe80f7db1a823f997c5d5ed2c0eb8",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\16-budget-core"
+    },
+    {
+      "name": "17-budget-parameters",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-parameter-matrix.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:44:20.749Z",
+      "finishedAt": "2026-11-19T08:45:06.640Z",
+      "elapsedMs": 45892,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\17-budget-parameters.log",
+      "logSha256": "9070686c71fd5c0c30c40dbe3763c9419d17f2332e108b94ec5a769e9add0426",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\17-budget-parameters"
+    },
+    {
+      "name": "18-budget-main",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-main-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:06.642Z",
+      "finishedAt": "2026-11-19T08:45:17.680Z",
+      "elapsedMs": 11038,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\18-budget-main.log",
+      "logSha256": "60989d36fff619a2b00b3aefccebd7fb1abc1139aef40d1413f0ae9b80f0b98f",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\18-budget-main"
+    },
+    {
+      "name": "19-budget-http",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-http.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:17.682Z",
+      "finishedAt": "2026-11-19T08:45:32.874Z",
+      "elapsedMs": 15192,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\19-budget-http.log",
+      "logSha256": "26c50ff590c10579f3d69992c057bf7fdc6fd7838e9569e4111cc907908d5214",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\19-budget-http"
+    },
+    {
+      "name": "20-windows-launcher",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/budget-launcher.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:32.876Z",
+      "finishedAt": "2026-11-19T08:45:42.409Z",
+      "elapsedMs": 9533,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\20-windows-launcher.log",
+      "logSha256": "966c839a0a47e1250b295b9da43220f31b6a4fe13a292f008be098efe9095588",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\20-windows-launcher"
+    },
+    {
+      "name": "21-x402-ap2",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:42.411Z",
+      "finishedAt": "2026-11-19T08:45:50.880Z",
+      "elapsedMs": 8469,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\21-x402-ap2.log",
+      "logSha256": "c54f2b42437352f8ce653afc776ea653fd061c7ca3302652fc57d42d345a3160",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\21-x402-ap2"
+    },
+    {
+      "name": "22-mpp",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments-mpp.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:50.882Z",
+      "finishedAt": "2026-11-19T08:45:56.835Z",
+      "elapsedMs": 5954,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\22-mpp.log",
+      "logSha256": "f5221e8129b5f950d16f1bcb9fd91ec513003591a7978bfd0af6cf6726bb3a3e",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\22-mpp"
+    },
+    {
+      "name": "23-payment-adversarial",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-payments-adversarial.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:45:56.837Z",
+      "finishedAt": "2026-11-19T08:46:04.441Z",
+      "elapsedMs": 7604,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\23-payment-adversarial.log",
+      "logSha256": "563db769057f950ca380ed09b8bd5b596b08c1f0b1e103a60c32c8eaa28613c3",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\23-payment-adversarial"
+    },
+    {
+      "name": "24-research-escrow",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-escrow.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:46:04.442Z",
+      "finishedAt": "2026-11-19T08:46:17.123Z",
+      "elapsedMs": 12680,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\24-research-escrow.log",
+      "logSha256": "f8369eafdc0f745515a58a9a705f5c9abf6abc12c00782597189d3f31d336c04",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\24-research-escrow"
+    },
+    {
+      "name": "25-research-engine",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-integration.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:46:17.124Z",
+      "finishedAt": "2026-11-19T08:46:53.292Z",
+      "elapsedMs": 36169,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\25-research-engine.log",
+      "logSha256": "c7bb4f503062be2f1a0948241ffc7c1f0e018b747f29020c9746ba4cbdfc54fc",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\25-research-engine"
+    },
+    {
+      "name": "26-research-dataset",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "tests/research-dataset-smoke.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:46:53.294Z",
+      "finishedAt": "2026-11-19T08:47:53.074Z",
+      "elapsedMs": 59780,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\26-research-dataset.log",
+      "logSha256": "682731b444da7f4861de12c766a2dc2730db70e219d1d3ec198e0e5fbf631751",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\regression\\results\\26-research-dataset"
+    }
+  ],
+  "build": {
+    "sourceHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+    "builtAt": "2026-11-19T08:38:09.758Z",
+    "version": "0.18.2"
+  },
+  "finishedAt": "2026-11-19T08:47:53.079Z",
+  "passed": true,
+  "passedSteps": 26,
+  "failedSteps": 0
+}

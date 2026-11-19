@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "scope": "Read-only verification of merged V0.18.2 GitHub publication ZIP against newly executed portable tests, source provenance, evidence indexes and complete short staging inventory",
+  "archive": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Desktop\\Web3-Agent-Lab_V0.18.2\\Web3-Agent-Lab-V0.18.2-Windows-x64.zip",
+  "archiveBytes": 145926734,
+  "archiveSha256": "0c529386c31c7da78d40d8c09716f683d684017cc391c8fd733b090884c2efac",
+  "archiveEntries": 2214,
+  "buildHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "version": "0.18.2",
+  "testCount": 10,
+  "checks": [
+    {
+      "name": "archive CRC, unique release root and safe nonduplicate paths",
+      "passed": true,
+      "entries": 2214
+    },
+    {
+      "name": "all release-manifest files and exact archive inventory",
+      "passed": true,
+      "verified": 2213,
+      "issues": [],
+      "unexpected": [],
+      "missing": []
+    },
+    {
+      "name": "all current merged build inputs and outputs match expected publication hash",
+      "passed": true,
+      "inputs": 784,
+      "outputs": 4,
+      "issues": []
+    },
+    {
+      "name": "all vendored SDK files match recorded upstream provenance",
+      "passed": true,
+      "files": 96,
+      "sdkVersion": "0.6.1",
+      "commit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+      "issues": []
+    },
+    {
+      "name": "every release-evidence SHA256 index entry is present and verified",
+      "passed": true,
+      "indexedFiles": 334,
+      "indexes": [
+        "docs/test-results/v0.18.2/SHA256SUMS.txt",
+        "docs/test-results/v0.18.2-publication/SHA256SUMS.txt"
+      ],
+      "issues": []
+    },
+    {
+      "name": "distributed test-log copies equal actual source test-log bytes",
+      "passed": true,
+      "files": 85,
+      "issues": []
+    },
+    {
+      "name": "new portable 17-check execution report binds this publication build",
+      "passed": true,
+      "portableChecks": 17,
+      "testedArchiveSha256": "a2939dde62bdaf262ca023ea1b741a7aed097dd8ba7b07f2cecfcd0fa846d544",
+      "sameArchive": false,
+      "note": "A different archive hash is permitted only when next check proves all tested source and runtime bytes identical, e.g. added final reports."
+    },
+    {
+      "name": "all final source and executable files equal newly runtime-tested files",
+      "passed": true,
+      "files": 790,
+      "issues": [],
+      "untested": []
+    },
+    {
+      "name": "development dependencies, wallet secrets and model weights excluded",
+      "passed": true,
+      "forbidden": []
+    },
+    {
+      "name": "all allowed files from fresh short staging are included without path omissions",
+      "passed": true,
+      "stageFiles": 2213,
+      "missing": [],
+      "unexpected": [],
+      "stage": "C:\\w182pub-final"
+    }
+  ],
+  "portableVerification": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\publication182\\portable\\portable.json",
+  "stage": "C:\\w182pub-final",
+  "priorVersionEvidence": "Existing older reports may remain historical; this verification requires a new publicationVerification=true portable report bound to the merged build."
+}

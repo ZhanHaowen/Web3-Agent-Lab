@@ -1,0 +1,4 @@
+PASS start.cmd unified startup
+PASS batch-started custom experiment
+PASS stop.cmd unified cleanup
+PASS retained build and data-directory shutdown isolation

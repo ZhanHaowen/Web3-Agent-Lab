@@ -1,0 +1,35 @@
+{
+  "version": "V0.18.2 BNB SDK Beta",
+  "buildHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+  "time": "2026-11-19T08:50:47.562Z",
+  "results": [
+    {
+      "name": "HTTP keeps its origin and token gate and rejects removed configuration",
+      "passed": true
+    },
+    {
+      "name": "concurrent clicks request only one model decision and reserve once",
+      "passed": true
+    },
+    {
+      "name": "API backend sees the budget rejection and completes a valid reordered sequence",
+      "passed": true
+    },
+    {
+      "name": "evidence includes model exchanges and excludes credentials and reusable signatures",
+      "passed": true
+    },
+    {
+      "name": "automatic run respects maxSteps and stale IDs cannot advance it",
+      "passed": true
+    },
+    {
+      "name": "model prose without a tool never initiates a payment",
+      "passed": true
+    },
+    {
+      "name": "archives survive restart, preserve incomplete receipts and deduplicate screened candidates",
+      "passed": true
+    }
+  ]
+}

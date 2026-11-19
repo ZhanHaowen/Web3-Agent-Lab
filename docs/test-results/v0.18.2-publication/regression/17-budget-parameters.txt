@@ -1,0 +1,35 @@
+(node:26932) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS arbitrary integer amounts share the budget
+PASS same payments fit a larger task budget
+PASS higher wallet balance does not change the task budget
+PASS fractional amount above remainder is rejected
+PASS six-decimal exact boundary is accepted
+PASS one minimal unit above the boundary is rejected
+PASS multiple direct transfers aggregate
+PASS permit-only valid sequence
+PASS first payment above budget causes no token spend
+PASS local-eoa TT exact-boundary
+PASS local-eoa TT one-unit-over
+PASS local-eoa SS exact-boundary
+PASS local-eoa SS one-unit-over
+PASS local-eoa TS exact-boundary
+PASS local-eoa TS one-unit-over
+PASS local-eoa ST exact-boundary
+PASS local-eoa ST one-unit-over
+PASS smart-account TT exact-boundary
+PASS smart-account TT one-unit-over
+PASS smart-account SS exact-boundary
+PASS smart-account SS one-unit-over
+PASS smart-account TS exact-boundary
+PASS smart-account TS one-unit-over
+PASS smart-account ST exact-boundary
+PASS smart-account ST one-unit-over
+PASS local-eoa 50+50 manual script
+PASS local-eoa 50+50 manual api-fixture
+PASS local-eoa 50+50 confirmed-prefill script
+PASS local-eoa 50+50 confirmed-prefill api-fixture
+PASS smart-account 50+50 manual script
+PASS smart-account 50+50 manual api-fixture
+PASS smart-account 50+50 confirmed-prefill script
+PASS smart-account 50+50 confirmed-prefill api-fixture

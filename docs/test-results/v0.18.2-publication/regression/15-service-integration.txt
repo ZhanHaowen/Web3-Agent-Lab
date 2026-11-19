@@ -1,0 +1,16 @@
+PASS S01 correct report is accepted and exactly one payment occurs
+PASS S02 wrong_balance rejected and buyer refunded
+PASS S02 wrong_block rejected and buyer refunded
+PASS S02 malformed rejected and buyer refunded
+PASS S02 hash_mismatch rejected and buyer refunded
+PASS S03 dishonest approval pays wrong report but independent Checker fails
+PASS S04 dishonest rejection refunds correct report and leaves provider unpaid
+PASS S05 timeout refund {"evaluatorMode":"offline"}
+PASS S05 timeout refund {"reportMode":"withhold"}
+PASS S06 manual pending locks shared chain and mines to completion
+PASS S07 stop before signing and rerun produce isolated episode
+PASS S09 two real model protocol histories complete service purchase without evaluator LLM
+PASS S10 buyer declines unaffordable quote without funding
+PASS S11 report targets TokenB and independent recipient at pinned block
+PASS S12 stopped funded task can still mine and refund without resuming decisions
+PASS S08 peer swap remains compatible

@@ -1,0 +1,63 @@
+Published offline f98b3d96-5d52-4a8b-80ef-1903fc065345
+Agents [
+  {
+    agentId: 'agent-a',
+    address: '0xE349a46E6E55b0c7acDDaac23d0B2E51B6bEe48b',
+    profileVersion: 1,
+    modelRef: 'scripted',
+    provider: 'scripted',
+    capabilities: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    authorized: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    pid: 27652,
+    online: true,
+    leaseEpoch: 1
+  },
+  {
+    agentId: 'agent-b',
+    address: '0xC8e21FddEa24Cd2103bC0F6722c904cAaf6B00B0',
+    profileVersion: 1,
+    modelRef: 'scripted',
+    provider: 'scripted',
+    capabilities: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    authorized: [
+      'peer_swap',
+      'balance',
+      'transfer',
+      'approve',
+      'swap',
+      'swap_deposit'
+    ],
+    pid: 10452,
+    online: true,
+    leaseEpoch: 1
+  }
+]
+Assigned 252bf977-872a-4dd5-b068-ebbb03f06c76
+Result completed null success null
+PASS independently signed peer trade
+Legacy balance completed success null
+Legacy transfer completed success null
+Legacy approve completed success null
+Legacy swap completed success null
+Legacy swap_deposit completed success null

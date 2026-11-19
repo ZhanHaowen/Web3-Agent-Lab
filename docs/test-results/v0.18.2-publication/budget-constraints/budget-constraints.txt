@@ -1,0 +1,25 @@
+(node:16636) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS local-eoa confirmed exact 40/80 never silently becomes 40/20
+PASS local-eoa exact40/50 is unchanged and completes
+PASS local-eoa recipientAllowed denied
+PASS local-eoa spenderAllowed denied
+PASS local-eoa contractAllowed denied
+PASS local-eoa literal empty whitelist denies
+PASS local-eoa expiry denies second request
+PASS local-eoa review pauses and approve is single use
+PASS local-eoa review reject creates no payment
+PASS local-eoa hard budget cannot enter review
+PASS local-eoa time rechecked after manual review
+PASS smart-account confirmed exact 40/80 never silently becomes 40/20
+PASS smart-account exact40/50 is unchanged and completes
+PASS smart-account recipientAllowed denied
+PASS smart-account spenderAllowed denied
+PASS smart-account contractAllowed denied
+PASS smart-account literal empty whitelist denies
+PASS smart-account expiry denies second request
+PASS smart-account review pauses and approve is single use
+PASS smart-account review reject creates no payment
+PASS smart-account hard budget cannot enter review
+PASS smart-account time rechecked after manual review
+PASS invalid policy is rejected

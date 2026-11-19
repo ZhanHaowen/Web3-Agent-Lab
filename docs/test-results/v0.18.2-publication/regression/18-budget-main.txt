@@ -1,0 +1,10 @@
+PASS main-only startup serves budget category and assets on a custom port
+PASS budget mutations require exact origin and their scoped token
+PASS unconfigured local model fails before creating the experiment chain
+PASS original main chain initializes independently of the budget module
+PASS main platform rejects removed split mode and fixed payment fields
+PASS default unified policy rejects an over-budget signature after a direct payment
+PASS both paths settle fractional values without floating-point rounding
+PASS budget execution preserves main data path, chain identity and original contract code
+PASS main shutdown closes a signed but unredeemed budget signer and its dedicated chain
+PASS main shutdown during a new budget initialization leaves its observed Anvil closed

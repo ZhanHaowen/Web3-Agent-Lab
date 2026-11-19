@@ -1,0 +1,359 @@
+{
+  "schema": "publication-merged-regression-review-v1",
+  "reviewedAt": "2026-11-19T08:48:54.026Z",
+  "build": {
+    "sourceHash": "ca9585ff4dbacaa22b0e6b8f99b7167ca7c29e8d21791f8185d94fb3abbe0057",
+    "version": "0.18.2"
+  },
+  "regression": {
+    "passed": true,
+    "passedSteps": 26,
+    "failedSteps": 0,
+    "summarySha256": "c7ea8051fc084cd1d2330ec28eac7262053e06e81ddef97de8c07a5935a250da",
+    "rawBaselineCommit": "fe59a4d81cf2f8c3b82dca7eac4effbf4632a10b",
+    "rawBranch": "codex/v0.18.2-bnb-sdk",
+    "note": "Started on the resolved merge working tree before merge commit; raw baselineCommit is preserved. Source hash identifies tested sources."
+  },
+  "stages": [
+    {
+      "name": "01-budget-build",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "02-platform-build",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "03-doctor",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "04-typecheck",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "05-unit",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": 258,
+        "pass": 258,
+        "fail": 0,
+        "skipped": 0
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "06-legacy-source",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": 145,
+        "pass": 145,
+        "fail": 0,
+        "skipped": 0
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "07-testnet-integration",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 20
+    },
+    {
+      "name": "08-original-api",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 54
+    },
+    {
+      "name": "09-allowance-matrix",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 4
+    },
+    {
+      "name": "10-peer-contract",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 13
+    },
+    {
+      "name": "11-peer-integration",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 10
+    },
+    {
+      "name": "12-independent-workers",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 1
+    },
+    {
+      "name": "13-worker-shutdown-recovery",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 3
+    },
+    {
+      "name": "14-service-contract",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 11
+    },
+    {
+      "name": "15-service-integration",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 16
+    },
+    {
+      "name": "16-budget-core",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 21
+    },
+    {
+      "name": "17-budget-parameters",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 33
+    },
+    {
+      "name": "18-budget-main",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 10
+    },
+    {
+      "name": "19-budget-http",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 7
+    },
+    {
+      "name": "20-windows-launcher",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 4
+    },
+    {
+      "name": "21-x402-ap2",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 24
+    },
+    {
+      "name": "22-mpp",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 11
+    },
+    {
+      "name": "23-payment-adversarial",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 10
+    },
+    {
+      "name": "24-research-escrow",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "25-research-engine",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    },
+    {
+      "name": "26-research-dataset",
+      "passed": true,
+      "exitCode": 0,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "consolePassRows": 0
+    }
+  ],
+  "budgetConstraints": {
+    "passed": true,
+    "count": 23,
+    "failed": 0,
+    "resultsSha256": "f0fc874ac64f63e2633d111d1cd6eb2494067ed9f619f69e7dac63da7900c3d3",
+    "scope": "deterministic tool-call fixture; no external paid API"
+  },
+  "dataset": {
+    "passed": true,
+    "retention": {
+      "inputSamples": 36,
+      "retainedSamples": 36,
+      "failedOrUnknown": 24,
+      "filter": "none"
+    },
+    "splitCounts": {
+      "train": 18,
+      "validation": 6,
+      "test": 12
+    },
+    "originalReport": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\artifacts\\research-dataset\\2026-11-19T08-46-53-418Z\\smoke-report.json"
+  },
+  "limitations": [
+    "No public-chain broadcasts, live commercial model or Qwen evaluation, macOS runtime, or new browser UI run in this suite.",
+    "AT-15 historical full acceptance remains partial/BLOCKED; the 26-phase regression does not rerun acceptance-v014 full checklist.",
+    "Research dataset retained 36/36 samples including 24 failed or unknown task outcomes; pipeline success is not 36 task successes.",
+    "Console PASS row counts are diagnostic counts, not independent aggregate test totals."
+  ]
+}
