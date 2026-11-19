@@ -1,0 +1,18 @@
+{
+  "version": "V0.18.2 BNB SDK Beta",
+  "buildHash": "90d70eaf5e158c4fb331a017af6e2dee08afa81ad3b58adc462836da214723d1",
+  "node": "v24.19.0",
+  "sqlite": "3.53.3",
+  "integrityValid": true,
+  "errors": [],
+  "checkedFiles": 778,
+  "changedFromV015": [
+    "src/scenario/service.mjs",
+    "src/scenario/agent-runtime.mjs",
+    "src/scenario/core.mjs",
+    "public/services.html",
+    "public/service-ui.js"
+  ],
+  "historicalBaselineNote": "Historical hashes are comparison evidence. V0.16 changes are verified against the current build manifest.",
+  "network": "not accessed"
+}

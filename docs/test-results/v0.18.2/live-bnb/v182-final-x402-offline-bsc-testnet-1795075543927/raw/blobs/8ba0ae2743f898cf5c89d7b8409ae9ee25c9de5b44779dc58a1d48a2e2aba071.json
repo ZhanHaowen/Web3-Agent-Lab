@@ -1,0 +1,5 @@
+{
+  "kind": "unknown-token",
+  "rejected": true,
+  "message": "B402 asset address \"0x0000000000000000000000000000000000005678\" is not registered on chain_id=97"
+}

@@ -246,3 +246,14 @@ The isolated payment SDK lockfile is `packages/payment-adapters/pnpm-lock.yaml`.
 Full license and notice files for the 20 packages actually included in the payment runtime bundles are retained in `licenses/research/`; `licenses/research/manifest.json` records versions and file hashes. Generated bundles retain their linked `runtime.mjs.LEGAL.txt` and `mpp-runtime.mjs.LEGAL.txt` notices. `packages/payment-adapters/runtime-build.json` records source inputs and bundle hashes. Rebuild using `pnpm run setup:research` followed by `node scripts/bundle-research-deps.mjs`.
 
 Vendored x402 contracts and their license are in `packages/payment-adapters/vendor/x402/`; AP2's upstream license is in `packages/payment-adapters/vendor/ap2/`; Multicall3's original source and MIT license are in `packages/payment-adapters/vendor/multicall3/`. OpenZeppelin's full MIT license is retained as `licenses/research/OpenZeppelin-Contracts-5.6.1-LICENSE`. Contract artifacts preserve compiler/source hashes and the explicitly documented Multicall3 pragma transformation. AP2 support is a local research subset, not an endorsement or certification by the upstream authors.
+
+## V0.18.2 isolated BNB SDK module
+
+The selected BNB Agent SDK 0.6.1 source is from bnb-chain/bnbagent-sdk commit
+`260e16196931780d0370bd3a9d9b67ece744bb9d`, MIT, copyright (c) 2026 BNBChain Contributors.
+Original license and exact source hashes are retained in
+`packages/bnb-sdk-lab/vendor/LICENSE` and `packages/bnb-sdk-lab/upstream-provenance.json`.
+The independent runtime uses pinned viem 2.54.6, Zod 4.4.3, dotenv 16.6.1,
+@noble/ciphers 1.3.0 and @noble/hashes 1.8.0 (MIT); transitive versions are in its
+separate pnpm lockfile. Bundled legal comments are in `runtime.mjs.LEGAL.txt`.
+This module does not replace the older versions used by the existing platform.

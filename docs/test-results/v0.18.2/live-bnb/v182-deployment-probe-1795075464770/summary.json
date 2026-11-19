@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-deployment-probe-1795075464770",
+  "scenario": "deployment-probe",
+  "network": "bsc-testnet",
+  "status": "unknown",
+  "startedAt": "2026-11-19T08:04:24.772Z",
+  "finishedAt": "2026-11-19T08:04:35.003Z",
+  "elapsedMs": 10232,
+  "sdkVersion": "0.6.1",
+  "sdkCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+  "transactionCount": 0,
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "completed-run",
+      "status": "failed",
+      "detail": "HTTP request failed."
+    }
+  ],
+  "publicWrites": false,
+  "limitations": [
+    "Bytecode and implementation-slot presence only; not proof of business transaction success."
+  ],
+  "artifacts": [
+    "raw/events.jsonl",
+    "derived/checker.json",
+    "derived/graph.json",
+    "derived/graph.graphml",
+    "derived/nodes.csv",
+    "derived/edges.csv",
+    "derived/execution-trace.json"
+  ]
+}

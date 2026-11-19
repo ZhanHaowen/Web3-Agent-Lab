@@ -1,0 +1,5 @@
+PASS AT-03 frozen-definition-executed subchecks PASS
+PASS AT-12 stop-before-order subchecks PASS
+PASS AT-12 shutdown-open-order-attach-refund subchecks PASS
+BLOCKED AT-15 incompatible-rejection-and-step-budget subchecks PASS
+Supplement C:\Users\Administrator.DESKTOP-5VOHUJH\Documents\Codex\2026-09-22\c9-agent-github-docx-web3-agent\work\bnb-v0182-release\final-regression\results\13-worker-shutdown-recovery\acceptance-final-recovery\supplement assertions PASS

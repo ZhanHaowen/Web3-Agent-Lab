@@ -1,0 +1,5 @@
+{
+  "kind": "environment",
+  "message": "HTTP request failed.",
+  "stage": "setup"
+}

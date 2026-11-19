@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+  "scenario": "x402-offline",
+  "status": "passed",
+  "checkedAt": "2026-11-19T08:12:03.288Z",
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "signature-verified",
+      "status": "passed",
+      "detail": "Actual local EIP-3009 signature verified during execution; signature is intentionally not exported, so this check is evidence review, not signature re-verification."
+    },
+    {
+      "id": "chain-31337",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "unknown-token",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "cumulative-budget",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "offline-no-transactions",
+      "status": "passed",
+      "detail": "Offline signer case must contain no chain transaction."
+    }
+  ],
+  "transactionCount": 0,
+  "limitations": [
+    "Offline recheck validates saved evidence, not current public-chain state.",
+    "Hash integrity is not an externally anchored authenticity proof.",
+    "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+  ]
+}

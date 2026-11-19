@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-deployment-probe-1795075464770",
+  "scenario": "deployment-probe",
+  "status": "unknown",
+  "checkedAt": "2026-11-19T08:04:34.996Z",
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "completed-run",
+      "status": "failed",
+      "detail": "HTTP request failed."
+    }
+  ],
+  "transactionCount": 0,
+  "limitations": [
+    "Offline recheck validates saved evidence, not current public-chain state.",
+    "Hash integrity is not an externally anchored authenticity proof.",
+    "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+  ]
+}

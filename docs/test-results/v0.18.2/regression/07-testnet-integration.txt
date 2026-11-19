@@ -1,0 +1,23 @@
+(node:19020) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS HTTP isolation, independent token, origin, field and catalog restrictions
+PASS Invalid precision and conflicting task parameters rejected before signing
+PASS Five-task continuous scripted regression: balance
+PASS Five-task continuous scripted regression: transfer
+PASS Five-task continuous scripted regression: approve
+PASS Five-task continuous scripted regression: swap
+PASS Five-task continuous scripted regression: swap_deposit
+PASS Read-only reconnect, saved manifest attach and query; writes denied
+PASS Pause before tool, concurrent experiment rejected, cancellation preserved
+PASS Pause before transaction resumes exactly one prepared payment
+PASS Cancellation after preparation does not fabricate a broadcast or pending liability
+PASS Insufficient test-token funds retain a failed task and raw error without broadcasting
+PASS Pending transaction survives service restart and read-only recheck never resends
+PASS Accepted broadcast with lost HTTP response retains hash and only reconciles
+PASS HTTP model transaction fixture links task-model-tool-contract-transaction and marks unavailable trace
+PASS Historical recheck after later transactions does not invent success or overwrite raw evidence
+PASS Offline task recheck reproduces captured result without any RPC after live state changed
+PASS Offline recheck retains unknown external evidence: reorged anchor
+PASS Offline recheck retains unknown external evidence: missing RPC block
+PASS Service RPC contains no Anvil privileges or unlocked-account transaction requests
+REPORT C:\Users\Administrator.DESKTOP-5VOHUJH\Documents\Codex\2026-09-22\c9-agent-github-docx-web3-agent\work\bnb-v0182-release\final-regression\results\07-testnet-integration\testnet\report.json

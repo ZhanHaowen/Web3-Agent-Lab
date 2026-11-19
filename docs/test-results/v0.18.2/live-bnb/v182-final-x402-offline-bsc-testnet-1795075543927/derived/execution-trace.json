@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+  "events": [
+    {
+      "seq": 1,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:1",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.929Z",
+      "type": "run.started",
+      "payloadRef": "raw/blobs/6bad2eb4442fd25c2225aa09de14949b901ff6140e53e2995c7edf5591ba585d.json",
+      "payloadSha256": "6bad2eb4442fd25c2225aa09de14949b901ff6140e53e2995c7edf5591ba585d",
+      "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "f2e00eb87095a89f46650cf530dbbba6945ac6bad298ea3373dc7939f76496dc",
+      "payload": {
+        "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+        "config": {
+          "scenario": "x402-offline",
+          "network": "bsc-testnet",
+          "rpcUrl": "https://bsc-testnet-rpc.publicnode.com",
+          "timeoutSeconds": 300,
+          "pauseBeforeOperations": false
+        },
+        "sdk": {
+          "name": "@bnbagent/sdk",
+          "version": "0.6.1",
+          "commit": "260e16196931780d0370bd3a9d9b67ece744bb9d"
+        },
+        "runtime": {
+          "node": "v24.19.0",
+          "platform": "win32"
+        },
+        "scope": "offline-signing",
+        "publicWrites": false
+      }
+    },
+    {
+      "seq": 2,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:2",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.975Z",
+      "type": "runtime.loaded",
+      "payloadRef": "raw/blobs/e9eb747743dec6159452b366602afe05f1af6e68392e282fcf4136da9bcc5d31.json",
+      "payloadSha256": "e9eb747743dec6159452b366602afe05f1af6e68392e282fcf4136da9bcc5d31",
+      "prevHash": "f2e00eb87095a89f46650cf530dbbba6945ac6bad298ea3373dc7939f76496dc",
+      "hash": "68bbd60bb9b01426be7f05b51ee1133f1cd47bc19cad0a6abe4f29a4ea4eaf7e",
+      "payload": {
+        "file": "packages/bnb-sdk-lab/runtime.mjs",
+        "sha256": "a7b73553a5cedf59dc8f8fd7818ce92900d6ebe6310b002c72f3f1dfb1a0b54a"
+      }
+    },
+    {
+      "seq": 3,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:3",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.996Z",
+      "type": "wallet.created",
+      "payloadRef": "raw/blobs/98a9261cd4453d70a96dc0b128e091cfde2b64048a231d484e072f4ebfe85737.json",
+      "payloadSha256": "98a9261cd4453d70a96dc0b128e091cfde2b64048a231d484e072f4ebfe85737",
+      "prevHash": "68bbd60bb9b01426be7f05b51ee1133f1cd47bc19cad0a6abe4f29a4ea4eaf7e",
+      "hash": "b015675960ff3486dab28d883412f3c2a5107015eeedf766fb0cc8dc857bdc86",
+      "payload": {
+        "address": "0x918473F7066b525E68Bcb370F4b814FBeAf90a08",
+        "ephemeral": true,
+        "persisted": false,
+        "backend": "EVMWalletProvider"
+      }
+    },
+    {
+      "seq": 4,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:4",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.997Z",
+      "type": "x402.rejection",
+      "payloadRef": "raw/blobs/ffc6b466c1461a3ee960e5d2e21e4a7514ebb15cda2942a0d6201be877d74684.json",
+      "payloadSha256": "ffc6b466c1461a3ee960e5d2e21e4a7514ebb15cda2942a0d6201be877d74684",
+      "prevHash": "b015675960ff3486dab28d883412f3c2a5107015eeedf766fb0cc8dc857bdc86",
+      "hash": "0bbf3650330707ef437fd50220d4408ba8c010c0ec917a2b0ce4db0b00402703",
+      "payload": {
+        "kind": "chain-31337",
+        "rejected": true,
+        "message": "unsupported or malformed B402 network: \"eip155:31337\""
+      }
+    },
+    {
+      "seq": 5,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:5",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.997Z",
+      "type": "x402.rejection",
+      "payloadRef": "raw/blobs/8ba0ae2743f898cf5c89d7b8409ae9ee25c9de5b44779dc58a1d48a2e2aba071.json",
+      "payloadSha256": "8ba0ae2743f898cf5c89d7b8409ae9ee25c9de5b44779dc58a1d48a2e2aba071",
+      "prevHash": "0bbf3650330707ef437fd50220d4408ba8c010c0ec917a2b0ce4db0b00402703",
+      "hash": "6b743a3398024eda59536882bb7e8e46ff5e16cc3a5f029541dfb8b8f350936f",
+      "payload": {
+        "kind": "unknown-token",
+        "rejected": true,
+        "message": "B402 asset address \"0x0000000000000000000000000000000000005678\" is not registered on chain_id=97"
+      }
+    },
+    {
+      "seq": 6,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:6",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.999Z",
+      "type": "checkpoint.entered",
+      "payloadRef": "raw/blobs/469c24beaf4ffba6dbf56844c858f876e81e9e722b76cb2d7076ddde803a485d.json",
+      "payloadSha256": "469c24beaf4ffba6dbf56844c858f876e81e9e722b76cb2d7076ddde803a485d",
+      "prevHash": "6b743a3398024eda59536882bb7e8e46ff5e16cc3a5f029541dfb8b8f350936f",
+      "hash": "0f950c85bc6acb63c77f3c1749568920afa3ffc77ddba0a793d5529a44ca0b62",
+      "payload": {
+        "phase": "before-sign-or-submit",
+        "operation": "X402Signer.signPayment"
+      }
+    },
+    {
+      "seq": 7,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:7",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.999Z",
+      "type": "checkpoint.released",
+      "payloadRef": "raw/blobs/469c24beaf4ffba6dbf56844c858f876e81e9e722b76cb2d7076ddde803a485d.json",
+      "payloadSha256": "469c24beaf4ffba6dbf56844c858f876e81e9e722b76cb2d7076ddde803a485d",
+      "prevHash": "0f950c85bc6acb63c77f3c1749568920afa3ffc77ddba0a793d5529a44ca0b62",
+      "hash": "a97c53172482f64ba5e1bc06990b9f77756ac60b91022f297bcf03f4aefd58e6",
+      "payload": {
+        "phase": "before-sign-or-submit",
+        "operation": "X402Signer.signPayment"
+      }
+    },
+    {
+      "seq": 8,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:8",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:43.999Z",
+      "type": "operation.started",
+      "payloadRef": "raw/blobs/a0f5b899d94f3b63d32a898b3d83c6ec10c27b42bd5c8994d817bf4ec6b40f0b.json",
+      "payloadSha256": "a0f5b899d94f3b63d32a898b3d83c6ec10c27b42bd5c8994d817bf4ec6b40f0b",
+      "prevHash": "a97c53172482f64ba5e1bc06990b9f77756ac60b91022f297bcf03f4aefd58e6",
+      "hash": "0924edc801f4c89741a54f692c9a6c690497cc63ffc2b780bd654a5b2f09b929",
+      "payload": {
+        "operationId": "operation-1",
+        "name": "X402Signer.signPayment",
+        "kind": "signing",
+        "args": {
+          "domain": {
+            "name": "U",
+            "version": "1",
+            "chainId": 97,
+            "verifyingContract": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39"
+          },
+          "types": {
+            "EIP712Domain": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "version",
+                "type": "string"
+              },
+              {
+                "name": "chainId",
+                "type": "uint256"
+              },
+              {
+                "name": "verifyingContract",
+                "type": "address"
+              }
+            ],
+            "TransferWithAuthorization": [
+              {
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "name": "value",
+                "type": "uint256"
+              },
+              {
+                "name": "validAfter",
+                "type": "uint256"
+              },
+              {
+                "name": "validBefore",
+                "type": "uint256"
+              },
+              {
+                "name": "nonce",
+                "type": "bytes32"
+              }
+            ]
+          },
+          "message": {
+            "from": "0x918473F7066b525E68Bcb370F4b814FBeAf90a08",
+            "to": "0x0000000000000000000000000000000000005678",
+            "value": "60",
+            "validAfter": "1795075513",
+            "validBefore": "1795075843",
+            "nonce": "0xa5bff6963d45eaec8aee6663de4d9ab74839edd2e2178160b3bc8486a59a9c63"
+          },
+          "expectedRoute": {
+            "network": "eip155:97",
+            "chainId": 97,
+            "assetId": "TEST_U",
+            "address": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39",
+            "transferMethod": "eip3009",
+            "name": "U",
+            "version": "1"
+          },
+          "expectedTo": "0x0000000000000000000000000000000000005678"
+        },
+        "contract": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39",
+        "result": {
+          "signatureVerified": true,
+          "signatureExported": false,
+          "budgetSpent": "60"
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:9",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.009Z",
+      "type": "operation.result",
+      "payloadRef": "raw/blobs/45b6ca86d60e59507c8cebd81a2bbe37f333328ee3c54d7652e0d18589bafee0.json",
+      "payloadSha256": "45b6ca86d60e59507c8cebd81a2bbe37f333328ee3c54d7652e0d18589bafee0",
+      "prevHash": "0924edc801f4c89741a54f692c9a6c690497cc63ffc2b780bd654a5b2f09b929",
+      "hash": "b3a9fb2daca58c35bc4cf6b02041b706bbc728c1861bb7360bf4453f1bddcf95",
+      "payload": {
+        "operationId": "operation-1",
+        "result": {
+          "signatureVerified": true,
+          "signatureExported": false,
+          "budgetSpent": "60"
+        }
+      }
+    },
+    {
+      "seq": 10,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:10",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.009Z",
+      "type": "x402.validation",
+      "payloadRef": "raw/blobs/d8f1245e01e53dcca6457c0d78e155d6ee695dd653aa7e18bc682b2021796199.json",
+      "payloadSha256": "d8f1245e01e53dcca6457c0d78e155d6ee695dd653aa7e18bc682b2021796199",
+      "prevHash": "b3a9fb2daca58c35bc4cf6b02041b706bbc728c1861bb7360bf4453f1bddcf95",
+      "hash": "7a1d2814c01547dab9594e3c385aa0fac0e61bfb8e5b1918029e0b78082c069c",
+      "payload": {
+        "operationId": "operation-1",
+        "signatureVerified": true,
+        "request": {
+          "domain": {
+            "name": "U",
+            "version": "1",
+            "chainId": 97,
+            "verifyingContract": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39"
+          },
+          "types": {
+            "EIP712Domain": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "version",
+                "type": "string"
+              },
+              {
+                "name": "chainId",
+                "type": "uint256"
+              },
+              {
+                "name": "verifyingContract",
+                "type": "address"
+              }
+            ],
+            "TransferWithAuthorization": [
+              {
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "name": "value",
+                "type": "uint256"
+              },
+              {
+                "name": "validAfter",
+                "type": "uint256"
+              },
+              {
+                "name": "validBefore",
+                "type": "uint256"
+              },
+              {
+                "name": "nonce",
+                "type": "bytes32"
+              }
+            ]
+          },
+          "message": {
+            "from": "0x918473F7066b525E68Bcb370F4b814FBeAf90a08",
+            "to": "0x0000000000000000000000000000000000005678",
+            "value": "60",
+            "validAfter": "1795075513",
+            "validBefore": "1795075843",
+            "nonce": "0xa5bff6963d45eaec8aee6663de4d9ab74839edd2e2178160b3bc8486a59a9c63"
+          },
+          "expectedRoute": {
+            "network": "eip155:97",
+            "chainId": 97,
+            "assetId": "TEST_U",
+            "address": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39",
+            "transferMethod": "eip3009",
+            "name": "U",
+            "version": "1"
+          },
+          "expectedTo": "0x0000000000000000000000000000000000005678"
+        },
+        "requestSha256": "01f2778b84a3d43bdcc4f61644505403cb82d5116148d92aa8c72fdf58acf9be",
+        "route": {
+          "network": "eip155:97",
+          "chainId": 97,
+          "assetId": "TEST_U",
+          "address": "0x330949Aed7d00FCe0558C64ED6FeC9792616cC39",
+          "transferMethod": "eip3009",
+          "name": "U",
+          "version": "1"
+        },
+        "budgetSpent": "60",
+        "budgetCap": "100",
+        "signatureExported": false,
+        "settlementPerformed": false
+      }
+    },
+    {
+      "seq": 11,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:11",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.010Z",
+      "type": "checkpoint.entered",
+      "payloadRef": "raw/blobs/c29fd05d212bb716c72a2b2c884fcf4c35b2972747f318ef224df3b8614217a7.json",
+      "payloadSha256": "c29fd05d212bb716c72a2b2c884fcf4c35b2972747f318ef224df3b8614217a7",
+      "prevHash": "7a1d2814c01547dab9594e3c385aa0fac0e61bfb8e5b1918029e0b78082c069c",
+      "hash": "74103fb159f003a11e1d8df29105943b41714ca69c866b3482e6285308f4217c",
+      "payload": {
+        "phase": "before-sign-or-submit",
+        "operation": "X402Signer.signPayment over budget"
+      }
+    },
+    {
+      "seq": 12,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:12",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.010Z",
+      "type": "checkpoint.released",
+      "payloadRef": "raw/blobs/c29fd05d212bb716c72a2b2c884fcf4c35b2972747f318ef224df3b8614217a7.json",
+      "payloadSha256": "c29fd05d212bb716c72a2b2c884fcf4c35b2972747f318ef224df3b8614217a7",
+      "prevHash": "74103fb159f003a11e1d8df29105943b41714ca69c866b3482e6285308f4217c",
+      "hash": "dc8123703de94b9991b1e38bf0ed4ac92293fb3adeb7b58f6062ddad22449867",
+      "payload": {
+        "phase": "before-sign-or-submit",
+        "operation": "X402Signer.signPayment over budget"
+      }
+    },
+    {
+      "seq": 13,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:13",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.011Z",
+      "type": "x402.rejection",
+      "payloadRef": "raw/blobs/e1de52079ae06a8474560197e13f89976e7c330999c69c495b00e76ef0c89b5a.json",
+      "payloadSha256": "e1de52079ae06a8474560197e13f89976e7c330999c69c495b00e76ef0c89b5a",
+      "prevHash": "dc8123703de94b9991b1e38bf0ed4ac92293fb3adeb7b58f6062ddad22449867",
+      "hash": "0506fe20ba6fe6a175d321cdac8800ce10df782dbfc3b7b8b9b384d807403f32",
+      "payload": {
+        "kind": "cumulative-budget",
+        "rejected": true,
+        "message": "value 60 would exceed session budget for 0x330949Aed7d00FCe0558C64ED6FeC9792616cC39 (spent 60 / cap 100)",
+        "budgetSpent": "60"
+      }
+    },
+    {
+      "seq": 14,
+      "eventId": "v182-final-x402-offline-bsc-testnet-1795075543927:14",
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "time": "2026-11-19T08:05:44.012Z",
+      "type": "run.completed",
+      "payloadRef": "raw/blobs/2821f807346ed2e1d26970753b821e45a4d0e8441a76b6beef193610ebe1d000.json",
+      "payloadSha256": "2821f807346ed2e1d26970753b821e45a4d0e8441a76b6beef193610ebe1d000",
+      "prevHash": "0506fe20ba6fe6a175d321cdac8800ce10df782dbfc3b7b8b9b384d807403f32",
+      "hash": "945e5b2d155497ec0775ac909e0b2eb19ce638d7d952117b21857bdb4b865dc5",
+      "payload": {
+        "scenario": "x402-offline",
+        "elapsedMs": 83
+      }
+    }
+  ]
+}

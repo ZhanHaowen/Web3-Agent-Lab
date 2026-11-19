@@ -1,0 +1,5 @@
+{
+  "kind": "chain-31337",
+  "rejected": true,
+  "message": "unsupported or malformed B402 network: \"eip155:31337\""
+}

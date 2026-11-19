@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+  "scenario": "deployment-probe",
+  "status": "unknown",
+  "checkedAt": "2026-11-19T08:06:10.285Z",
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "completed-run",
+      "status": "failed",
+      "detail": "The request took too long to respond."
+    }
+  ],
+  "transactionCount": 0,
+  "limitations": [
+    "Offline recheck validates saved evidence, not current public-chain state.",
+    "Hash integrity is not an externally anchored authenticity proof.",
+    "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+  ]
+}

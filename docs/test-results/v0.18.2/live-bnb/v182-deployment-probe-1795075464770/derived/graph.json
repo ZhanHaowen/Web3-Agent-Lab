@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "web3-agent-lab/bnb-provenance/1",
+  "runId": "v182-deployment-probe-1795075464770",
+  "nodes": [
+    {
+      "id": "run:v182-deployment-probe-1795075464770",
+      "type": "experiment",
+      "label": "BNB SDK 独立实验",
+      "data": {
+        "runId": "v182-deployment-probe-1795075464770"
+      },
+      "sourceEvents": [
+        "v182-deployment-probe-1795075464770:1"
+      ]
+    }
+  ],
+  "edges": [],
+  "missingRelations": [
+    {
+      "relation": "model-call",
+      "reason": "This SDK experiment does not invoke an LLM; no model decision is fabricated."
+    }
+  ],
+  "source": "raw/events.jsonl"
+}

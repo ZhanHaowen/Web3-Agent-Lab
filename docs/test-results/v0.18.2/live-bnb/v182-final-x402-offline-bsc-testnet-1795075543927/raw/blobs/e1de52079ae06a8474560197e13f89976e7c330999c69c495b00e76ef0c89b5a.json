@@ -1,0 +1,6 @@
+{
+  "kind": "cumulative-budget",
+  "rejected": true,
+  "message": "value 60 would exceed session budget for 0x330949Aed7d00FCe0558C64ED6FeC9792616cC39 (spent 60 / cap 100)",
+  "budgetSpent": "60"
+}

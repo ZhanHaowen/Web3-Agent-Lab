@@ -1,0 +1,8 @@
+{
+  "operationId": "operation-1",
+  "result": {
+    "signatureVerified": true,
+    "signatureExported": false,
+    "budgetSpent": "60"
+  }
+}

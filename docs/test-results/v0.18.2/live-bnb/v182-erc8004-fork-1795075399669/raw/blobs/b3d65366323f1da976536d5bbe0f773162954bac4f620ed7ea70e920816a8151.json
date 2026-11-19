@@ -1,0 +1,8 @@
+{
+  "pid": 24976,
+  "localRpc": "http://127.0.0.1:62741",
+  "upstreamRpc": "https://bsc-testnet-rpc.publicnode.com",
+  "blockNumber": "143603615",
+  "blockHash": "0x95d7954a1b9aae1d4cc281468ee5deb1a61fffd517c8dddbe0bad29d7b6cb280",
+  "usePaymaster": false
+}

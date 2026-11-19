@@ -1,0 +1,16 @@
+{
+  "operationId": "operation-2",
+  "result": {
+    "id": "1744",
+    "client": "0x0909145e638E63E4F6241560997a819001fa31cD",
+    "provider": "0x0000000000000000000000000000000000005678",
+    "evaluator": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+    "description": "Web3 Agent Lab local fork experiment v182-erc8183-fork-1795075426204",
+    "budget": "0",
+    "expiredAt": "1795162726",
+    "status": 0,
+    "hook": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+    "submittedAt": "0",
+    "deliverable": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "note": "The portable distribution excludes runtime .log files by policy. These reviewed test-log .txt copies preserve the original bytes; actual working test logs remain unchanged. Original .log paths in raw summaries still refer to the test workspace. SHA256SUMS verifies the distributed .txt copies.",
+  "files": [
+    {
+      "original": "baseline/typecheck.log",
+      "distributed": "baseline/typecheck.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "baseline/unit.log",
+      "distributed": "baseline/unit.txt",
+      "sha256": "70b8f8a49fb671f78b038d69f51e69933dc7f67c4b925f003421423c5fdd3ab1"
+    },
+    {
+      "original": "module/pre-provenance-module20.log",
+      "distributed": "module/pre-provenance-module20.txt",
+      "sha256": "59232bd415d7f7c66f3f7066da90dcf8db1c4acd9de2131252c90b0185721bd9"
+    },
+    {
+      "original": "post-portability/03-doctor.log",
+      "distributed": "post-portability/03-doctor.txt",
+      "sha256": "d29ec18519ad7ab2738a24ab12eb00b6d6fbdd798babb14bb2aa1bf86bc41923"
+    },
+    {
+      "original": "post-portability/04-typecheck.log",
+      "distributed": "post-portability/04-typecheck.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "post-portability/05-unit.log",
+      "distributed": "post-portability/05-unit.txt",
+      "sha256": "9a7f59c832ef0f6c957e0598e9f1589458e2ed55ef8990db447ba60e7188f32b"
+    },
+    {
+      "original": "regression/01-budget-build.log",
+      "distributed": "regression/01-budget-build.txt",
+      "sha256": "cebdb3c4db2ff602327351ace3032caf92728cb3abac7973dc7917ead610a89c"
+    },
+    {
+      "original": "regression/02-platform-build.log",
+      "distributed": "regression/02-platform-build.txt",
+      "sha256": "b415984a1d3560f0bec9becf518de9cf88bd6ff5c62a09bc1e8113572f8165b3"
+    },
+    {
+      "original": "regression/03-doctor.log",
+      "distributed": "regression/03-doctor.txt",
+      "sha256": "7b08f7a514ffcfb03975e1f5f1a34ac187b30bfb4cd7e88481672c8383526ddc"
+    },
+    {
+      "original": "regression/04-typecheck.log",
+      "distributed": "regression/04-typecheck.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "regression/05-unit.log",
+      "distributed": "regression/05-unit.txt",
+      "sha256": "96b958048ebb51cde1fefc60b1abfb58b2223d4f106357e672fcdf3d365255f3"
+    },
+    {
+      "original": "regression/06-legacy-source.log",
+      "distributed": "regression/06-legacy-source.txt",
+      "sha256": "c179b13dbca614849b65229eea05c64e7e6243490e8d59feaa25e4f90867be0e"
+    },
+    {
+      "original": "regression/07-testnet-integration.log",
+      "distributed": "regression/07-testnet-integration.txt",
+      "sha256": "ca64685845a8345a186a20f55049c93c42b469dd80d84dcf0f9741b8b5eb9ec4"
+    },
+    {
+      "original": "regression/08-original-api.log",
+      "distributed": "regression/08-original-api.txt",
+      "sha256": "ee7abdcb7dac8d3513c59fd8753bb3036dc82c15393305d00e43caa233151585"
+    },
+    {
+      "original": "regression/09-allowance-matrix.log",
+      "distributed": "regression/09-allowance-matrix.txt",
+      "sha256": "3df7d2c1e221f40b2983aea297d40d6e15465b5a9bb27561ddc94a87b4036234"
+    },
+    {
+      "original": "regression/10-peer-contract.log",
+      "distributed": "regression/10-peer-contract.txt",
+      "sha256": "6298f75edea8dad399a072ee9ff05a117f49e8c0fb59a8ce5b088770a13634a2"
+    },
+    {
+      "original": "regression/11-peer-integration.log",
+      "distributed": "regression/11-peer-integration.txt",
+      "sha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c"
+    },
+    {
+      "original": "regression/12-independent-workers.log",
+      "distributed": "regression/12-independent-workers.txt",
+      "sha256": "5c9ab13186fa2853b3728867ace8b2247a2b298be03848a520fd8572173fe45e"
+    },
+    {
+      "original": "regression/13-worker-shutdown-recovery.log",
+      "distributed": "regression/13-worker-shutdown-recovery.txt",
+      "sha256": "96b20bdadc3635034720e0323fa916f23aca3ca066b2bc74118ef27d0e9a0d09"
+    },
+    {
+      "original": "regression/14-service-contract.log",
+      "distributed": "regression/14-service-contract.txt",
+      "sha256": "9ff8058c2ac790d05b7bd697986b9ca96390ec8c342d41e4e699df9a8c121c14"
+    },
+    {
+      "original": "regression/15-service-integration.log",
+      "distributed": "regression/15-service-integration.txt",
+      "sha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd"
+    },
+    {
+      "original": "regression/16-budget-core.log",
+      "distributed": "regression/16-budget-core.txt",
+      "sha256": "0155f1d96341ee4fd082a77810f3b1235a51b7c6b7efc4d3ed1706373eb871e3"
+    },
+    {
+      "original": "regression/17-budget-parameters.log",
+      "distributed": "regression/17-budget-parameters.txt",
+      "sha256": "c8cd543469d7c4bfb58c58b3a251cf5d897614b09f5f94e33c78771a29f7b011"
+    },
+    {
+      "original": "regression/18-budget-main.log",
+      "distributed": "regression/18-budget-main.txt",
+      "sha256": "a45122327b7ef97fd010d81d6e5b71fd091abd34b5662d60f736006b73561993"
+    },
+    {
+      "original": "regression/19-budget-http.log",
+      "distributed": "regression/19-budget-http.txt",
+      "sha256": "5f04ac1606e4a5c284844a79fe57aa21da5370e13be3a656735d6933f914bd4c"
+    },
+    {
+      "original": "regression/20-windows-launcher.log",
+      "distributed": "regression/20-windows-launcher.txt",
+      "sha256": "28e3adbf582220a578581b98f28d81bc03b4a5b5a75a3d85ec0580361745426b"
+    },
+    {
+      "original": "regression/21-x402-ap2.log",
+      "distributed": "regression/21-x402-ap2.txt",
+      "sha256": "cb4b3cfe1bcbea61b46c6d6b44336deb7d6c25160610a4ca003e9edba37d57e0"
+    },
+    {
+      "original": "regression/22-mpp.log",
+      "distributed": "regression/22-mpp.txt",
+      "sha256": "c5b15458e4b80d077f0e16d4ace7d103f4d0a7806888de4e8ed84bc80911cd8b"
+    },
+    {
+      "original": "regression/23-payment-adversarial.log",
+      "distributed": "regression/23-payment-adversarial.txt",
+      "sha256": "b0e22065741adaa9c1e7ec91d1c93f0435c4166d02a265974513ca9b05314365"
+    },
+    {
+      "original": "regression/24-research-escrow.log",
+      "distributed": "regression/24-research-escrow.txt",
+      "sha256": "995c627ddd9a53d4a907604eab2c8bf847c138856c6e02a341355db8fd74c9f0"
+    },
+    {
+      "original": "regression/25-research-engine.log",
+      "distributed": "regression/25-research-engine.txt",
+      "sha256": "0cfd49bd6c9da4192c1b8dcc1ec2bb4898e554934bd658c055e2bd813fe324c9"
+    },
+    {
+      "original": "regression/26-research-dataset.log",
+      "distributed": "regression/26-research-dataset.txt",
+      "sha256": "8914d25d8ca4c94a73de749b3327ada2efdba3b51efc5c76a09b7bcf602eeb8c"
+    }
+  ]
+}

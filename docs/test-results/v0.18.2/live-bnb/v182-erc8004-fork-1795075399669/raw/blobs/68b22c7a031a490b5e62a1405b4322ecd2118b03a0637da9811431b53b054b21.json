@@ -1,0 +1,15 @@
+{
+  "operationId": "operation-1",
+  "name": "ERC8004.registerAgent",
+  "kind": "sdk-call",
+  "args": {
+    "uri": "data:application/json;base64,eyJuYW1lIjoiV2ViMyBBZ2VudCBMYWIgQk5CIFNESyBpc29sYXRlZCBleHBlcmltZW50IiwidHlwZSI6Imh0dHBzOi8vZWlwcy5ldGhlcmV1bS5vcmcvRUlQUy9laXAtODAwNCNyZWdpc3RyYXRpb24tdjEiLCJkZXNjcmlwdGlvbiI6IkxvY2FsIHBpbm5lZCBmb3JrIG9ubHkiLCJydW5JZCI6InYxODItZXJjODAwNC1mb3JrLTE3OTUwNzUzOTk2NjkifQ==",
+    "metadata": [
+      {
+        "key": "experiment",
+        "value": "v182-erc8004-fork-1795075399669"
+      }
+    ]
+  },
+  "contract": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+}

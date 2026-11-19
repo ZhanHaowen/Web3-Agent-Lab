@@ -1,0 +1,5 @@
+PASS normal allowance 0 -> 0 A
+PASS normal allowance 20 -> 10 A
+PASS normal allowance 100000000 -> 99999990 A
+PASS schema_only oversized approval is mined but task fails independent policy check
+ALLOWANCE MATRIX PASS C:\Users\Administrator.DESKTOP-5VOHUJH\Documents\Codex\2026-09-22\c9-agent-github-docx-web3-agent\work\bnb-v0182-release\final-regression\results\09-allowance-matrix\acceptance-allowance

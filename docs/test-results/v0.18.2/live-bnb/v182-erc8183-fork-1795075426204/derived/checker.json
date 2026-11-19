@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-erc8183-fork-1795075426204",
+  "scenario": "erc8183-fork",
+  "status": "passed",
+  "checkedAt": "2026-11-19T08:04:24.759Z",
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "fork-chain",
+      "status": "passed",
+      "detail": "BSC testnet source block recorded; all writes are on loopback fork."
+    },
+    {
+      "id": "receipts",
+      "status": "passed",
+      "detail": "Every submitted transaction has a matching successful receipt and block."
+    },
+    {
+      "id": "transaction-attribution",
+      "status": "passed",
+      "detail": "Each transaction targets its recorded SDK operation contract."
+    },
+    {
+      "id": "job-created",
+      "status": "passed",
+      "detail": "Created job is OPEN, belongs to the ephemeral client, and remains unfunded."
+    },
+    {
+      "id": "open-job-cancelled",
+      "status": "passed",
+      "detail": "SDK cancelOpen transitions the same unfunded job from OPEN(0) to REJECTED(4). This is not a funded refund."
+    },
+    {
+      "id": "two-job-transactions",
+      "status": "passed",
+      "detail": "Create and cancel each have their own successful receipt."
+    },
+    {
+      "id": "snapshot-restored",
+      "status": "passed",
+      "detail": "Snapshot restoration removes the created identity/job from local chain state."
+    }
+  ],
+  "transactionCount": 2,
+  "limitations": [
+    "Offline recheck validates saved evidence, not current public-chain state.",
+    "Hash integrity is not an externally anchored authenticity proof.",
+    "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+  ]
+}

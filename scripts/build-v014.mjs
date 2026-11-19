@@ -9,7 +9,7 @@ let source=await readFile(join(root,'build/legacy-server.mjs'),'utf8');
 const baseline=JSON.parse(await readFile(join(root,'vendor/v013-build-info.json'),'utf8'));
 const pkg=JSON.parse(await readFile(join(root,'package.json'),'utf8'));
 function replaceOnce(a,b){if(source.split(a).length!==2)throw Error('V013_ANCHOR_NOT_UNIQUE: '+a.slice(0,80));source=source.replace(a,b);}
-source='import { TestnetService } from "../src/testnet/service.mjs";\nimport { ResearchService } from "../src/research/service.mjs";\nimport { LocalModelService } from "../src/local-model/service.mjs";\nimport { BudgetService } from "../src/budget/service.mjs";\nimport { LabControl } from "../src/control/control.mjs";\nimport { ScenarioService } from "../src/scenario/service.mjs";\n'+source;
+source='import { BnbSdkService } from "../src/bnb-sdk/service.mjs";\nimport { TestnetService } from "../src/testnet/service.mjs";\nimport { ResearchService } from "../src/research/service.mjs";\nimport { LocalModelService } from "../src/local-model/service.mjs";\nimport { BudgetService } from "../src/budget/service.mjs";\nimport { LabControl } from "../src/control/control.mjs";\nimport { ScenarioService } from "../src/scenario/service.mjs";\n'+source;
 const bridge=`
 var localModelService = (process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new LocalModelService({dataDir:DATA,beforeChange:()=>{
   requireIdle();
@@ -34,6 +34,7 @@ var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
   unlock:()=>{busy=false;refresh().catch(()=>{});}
 });
 var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
+var bnbSdkService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BnbSdkService({root:ROOT3,data:join3(DATA,"bnb-sdk"),port:PORT});
 var researchService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new ResearchService({root:ROOT3,data:join3(DATA,"research"),port:PORT,modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null});
 var testnetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new TestnetService({root:ROOT3,data:DATA,port:PORT,
  lib:{runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,resolveTask,toolDefinitions,checkTask,privateKeyToAccount,buildDiagnostics,readExecutionTrace,sha256,json,readJSON},
@@ -52,10 +53,10 @@ replaceOnce('async function bodyJSON(req) {','async function bodyJSON(req,maxSiz
 replaceOnce('function requireIdle() {','function requireIdle() {\n  if (testnetService?.busy) throw new Error("TESTNET_EXPERIMENT_ACTIVE");');
 replaceOnce('if (size5 > 1024 * 1024) throw new Error(\"REQUEST_TOO_LARGE\");','if (size5 > maxSize) throw new Error(\"REQUEST_TOO_LARGE\");');
 replaceOnce('var server = createServer(async (req, res) => {',bridge+'\nvar server = createServer(async (req, res) => {');
-replaceOnce('const path4 = url2.pathname;','const path4 = url2.pathname;\n    if (await testnetService?.handle(req,res,path4)) return;\n    if (await researchService?.handle(req,res,path4)) return;\n    if (await budgetService?.handle(req,res,path4)) return;');
+replaceOnce('const path4 = url2.pathname;','const path4 = url2.pathname;\n    if (await bnbSdkService?.handle(req,res,path4)) return;\n    if (await testnetService?.handle(req,res,path4)) return;\n    if (await researchService?.handle(req,res,path4)) return;\n    if (await budgetService?.handle(req,res,path4)) return;');
 replaceOnce('const body = req.method === "POST" ? await bodyJSON(req) : {};','const body = req.method === "POST" ? await bodyJSON(req,path4.startsWith("/api/v2/agent/")?8*1024*1024:1024*1024) : {};\n    if (await localModelService?.handle(req,res,path4,body)) return;\n    if (await labControl?.handle(req,res,path4,body)) return;\n    if (await scenarioService.handle(req,res,path4,body)) return;');
 replaceOnce('if (req.method !== \"GET\" && req.headers[\"x-lab-token\"] !== TOKEN)', 'if (req.method !== \"GET\" && !(path4.startsWith(\"/api/v2/agent/\") || path4.startsWith(\"/api/v2/tx-intents\") || path4 === \"/api/v2/agents/register\" || path4 === \"/api/v2/agents/heartbeat\") && req.headers[\"x-lab-token\"] !== TOKEN)');
-replaceOnce('controller?.abort();\n  const deadline','controller?.abort();\n  await testnetService?.shutdown();\n  await researchService?.shutdown();\n  await budgetService?.shutdown();\n  await labControl?.shutdown();\n  for (const s of scenarioService.scenes.values()) s.abort.abort();\n  await localModelService?.shutdown();\n  const deadline');
+replaceOnce('controller?.abort();\n  const deadline','controller?.abort();\n  await bnbSdkService?.shutdown();\n  await testnetService?.shutdown();\n  await researchService?.shutdown();\n  await budgetService?.shutdown();\n  await labControl?.shutdown();\n  for (const s of scenarioService.scenes.values()) s.abort.abort();\n  await localModelService?.shutdown();\n  const deadline');
 replaceOnce('  await chain2.stop().catch(() => {\n  });', '  if (!labControl?.preserveOnExit) await chain2.stop().catch(() => {\n  });');
 replaceOnce('server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab http://127.0.0.1:${PORT}`));','if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab '+pkg.displayVersion+' http://127.0.0.1:${PORT}`));');
 replaceOnce('await mkdir4(DATA, { recursive: true });','await mkdir4(DATA, { recursive: true });\nawait budgetService?.init();');

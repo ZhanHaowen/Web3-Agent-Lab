@@ -1,0 +1,4 @@
+{
+  "phase": "before-sign-or-submit",
+  "operation": "X402Signer.signPayment over budget"
+}

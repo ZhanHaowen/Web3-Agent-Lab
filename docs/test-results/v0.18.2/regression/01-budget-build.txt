@@ -1,0 +1,1 @@
+Official Permit2 compiled offline: 0.8.17+commit.8df45f5f.Emscripten.clang

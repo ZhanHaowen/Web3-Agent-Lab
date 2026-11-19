@@ -2,11 +2,13 @@
 
 **面向 Web3 Agent 行为、协作、授权与资产效果研究的可观察实验平台。**
 
-当前版本：**V0.18.0 Testnet Beta**（package：`0.18.0`，GitHub prerelease）
+当前版本：**V0.18.2 BNB SDK Beta**（package：`0.18.2`）
 
-**本版新增可选的公开测试网基础任务环境。** 首页提供本地 Anvil 与测试网两个入口，开放 Base Sepolia、BNB Testnet、Arbitrum Sepolia、OP Sepolia、Polygon Amoy 和 Avalanche Fuji 六个 EVM 配置；其余十四个网络只作目录展示。五类基础任务使用自有 Lab 合约，后端经过隔离真实 EVM 回归。**尚未在这六条公网部署或发送交易验收**，不能将配置开放理解为公网已实测通过。原 Anvil、多 Agent、服务购买、预算和采购支付研究仍在本地运行。
+**本版新增独立 BNB SDK 实验室。** 固定上游 SDK 0.6.1 的已审查源码，提供离线签名与预算、部署只读探测、BSC 分叉身份登记、未注资托管任务创建与取消四类实验；独立子进程执行并保存原始证据、检查结果及溯源图，支持离线回放。本版没有开放完整注资结算或公网写交易，也不将脚本测试标作模型自主采购。见[操作手册](docs/BNB-SDK-LAB-V0.18.2.md)、[版本说明](docs/V0.18.2-RELEASE-NOTES.md)和[测试报告](docs/V0.18.2-TEST-REPORT.md)。
 
-[V0.18.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) · [本版更新说明](docs/releases/V0.18.0.md) · [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) · [本版测试报告](docs/TESTNET-VALIDATION-REPORT.md) · [同步测试证据](docs/test-results/v0.18.0/) · [采购与支付轨迹研究指南](docs/V0.17.0-RESEARCH-GUIDE.md) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md)
+**保留 V0.18.0 的可选公开测试网基础任务环境。** 首页提供本地 Anvil 与测试网入口，开放 Base Sepolia、BNB Testnet、Arbitrum Sepolia、OP Sepolia、Polygon Amoy 和 Avalanche Fuji 六个 EVM 配置；其余十四个网络只作目录展示。五类基础任务使用自有 Lab 合约，后端经过隔离真实 EVM 回归。**尚未在这六条公网部署或发送交易验收**，不能将配置开放理解为公网已实测通过。原 Anvil、多 Agent、服务购买、预算和采购支付研究仍在本地运行。
+
+[V0.18.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) · [V0.18.0 更新说明](docs/releases/V0.18.0.md) · [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) · [V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md) · [同步测试证据](docs/test-results/v0.18.0/) · [采购与支付轨迹研究指南](docs/V0.17.0-RESEARCH-GUIDE.md) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md)
 
 V0.17.0 在原有平台上增加采购与支付轨迹研究模块，支持实际付费工具选择、公开链上观察与私有真值分离，以及任务、总授权预算和采购策略标签的推断评估。新增模块通过独立入口和临时链运行，保留原单 Agent、多 Agent、服务购买、跨路径预算和本地/API 双后端功能。已执行 Windows 回归范围内未发现原核心功能退化；旧数据库迁移、Mac 真机与所有真实模型组合并未全面验证。
 
@@ -330,7 +332,7 @@ pnpm start
 
 ## 测试与验证
 
-V0.18.0 的构建身份、当前回归状态及历史验收分别见[本版测试报告](docs/TESTNET-VALIDATION-REPORT.md)与[同步证据](docs/test-results/v0.18.0/)。测试覆盖测试网基础任务、金额校验、暂停/取消、未决交易恢复、只读对账、图关联及离线隔离，并回归原单 Agent、双 Agent、独立 worker、服务购买、预算和支付研究。测试网链操作使用隔离 Anvil 的标准 RPC，不代表真实公网写入验收。
+V0.18.0 的构建身份、当前回归状态及历史验收分别见[V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md)与[同步证据](docs/test-results/v0.18.0/)。测试覆盖测试网基础任务、金额校验、暂停/取消、未决交易恢复、只读对账、图关联及离线隔离，并回归原单 Agent、双 Agent、独立 worker、服务购买、预算和支付研究。测试网链操作使用隔离 Anvil 的标准 RPC，不代表真实公网写入验收。
 
 本次 V0.18.0 发布构建本地回归 **26/26 阶段通过**；根目录 227/227、保留 TypeScript 145/145，测试网链/服务/端到端/UI 分别为 19/19、11/11、20/20、10/10，浏览器 15/15、Windows 便携包 6/6。各集合有重叠，不相加为独立用例总数。[GitHub Actions 独立 Windows 回归](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/43817559055)亦为 **26/26 阶段通过**，源码摘要与本地一致；被测代码提交及最终文档补充提交的关系见[CI 证据](docs/test-results/v0.18.0-ci/)和[验证报告](docs/TESTNET-VALIDATION-REPORT.md)。
 
@@ -365,9 +367,9 @@ pnpm test:service
 
 | 内容 | 入口 |
 | --- | --- |
-| V0.18.0 新增功能、限制与升级 | [本版更新说明](docs/releases/V0.18.0.md) |
+| V0.18.0 新增功能、限制与升级 | [V0.18.0 更新说明](docs/releases/V0.18.0.md) |
 | 测试网连接、基础任务与离线回放 | [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) |
-| 本版回归与原有功能影响 | [本版测试报告](docs/TESTNET-VALIDATION-REPORT.md) |
+| 本版回归与原有功能影响 | [V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md) |
 | 可核验的同步报告与日志 | [V0.18.0 测试证据](docs/test-results/v0.18.0/) |
 | V0.17.0 研究能力及兼容边界 | [更新说明](docs/V0.17.0-RELEASE-NOTES.md) |
 | 采购、观察者视图与推断评估 | [研究操作指南](docs/V0.17.0-RESEARCH-GUIDE.md) |

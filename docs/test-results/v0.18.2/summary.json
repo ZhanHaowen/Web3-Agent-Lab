@@ -1,0 +1,680 @@
+{
+  "schema": "web3-agent-lab-v0182-local-review-v1",
+  "clientDate": "2026-11-19",
+  "version": "V0.18.2 BNB SDK Beta",
+  "sourceHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4",
+  "baselineCommit": "065982a9b11666e24b7652937a31d57d52b201be",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "baselineUnit": {
+    "tests": 227,
+    "passed": 227,
+    "failed": 0
+  },
+  "finalUnit": {
+    "tests": 250,
+    "pass": 250,
+    "fail": 0,
+    "skipped": 0
+  },
+  "newBnbCases": 23,
+  "legacyTypeScript": {
+    "tests": 145,
+    "pass": 145,
+    "fail": 0,
+    "skipped": 0
+  },
+  "regression": {
+    "passed": true,
+    "passedStages": 26,
+    "totalStages": 26,
+    "stages": [
+      {
+        "name": "01-budget-build",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 5115,
+        "log": "regression/01-budget-build.log",
+        "sha256": "cebdb3c4db2ff602327351ace3032caf92728cb3abac7973dc7917ead610a89c"
+      },
+      {
+        "name": "02-platform-build",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 38451,
+        "log": "regression/02-platform-build.log",
+        "sha256": "b415984a1d3560f0bec9becf518de9cf88bd6ff5c62a09bc1e8113572f8165b3"
+      },
+      {
+        "name": "03-doctor",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 207,
+        "log": "regression/03-doctor.log",
+        "sha256": "7b08f7a514ffcfb03975e1f5f1a34ac187b30bfb4cd7e88481672c8383526ddc"
+      },
+      {
+        "name": "04-typecheck",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 361,
+        "log": "regression/04-typecheck.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "05-unit",
+        "passed": true,
+        "counts": {
+          "tests": 249,
+          "pass": 249,
+          "fail": 0,
+          "skipped": 0
+        },
+        "passLogRows": 0,
+        "elapsedMs": 68760,
+        "log": "regression/05-unit.log",
+        "sha256": "96b958048ebb51cde1fefc60b1abfb58b2223d4f106357e672fcdf3d365255f3"
+      },
+      {
+        "name": "06-legacy-source",
+        "passed": true,
+        "counts": {
+          "tests": 145,
+          "pass": 145,
+          "fail": 0,
+          "skipped": 0
+        },
+        "passLogRows": 0,
+        "elapsedMs": 35153,
+        "log": "regression/06-legacy-source.log",
+        "sha256": "c179b13dbca614849b65229eea05c64e7e6243490e8d59feaa25e4f90867be0e"
+      },
+      {
+        "name": "07-testnet-integration",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 20,
+        "elapsedMs": 30607,
+        "log": "regression/07-testnet-integration.log",
+        "sha256": "ca64685845a8345a186a20f55049c93c42b469dd80d84dcf0f9741b8b5eb9ec4"
+      },
+      {
+        "name": "08-original-api",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 54,
+        "elapsedMs": 31578,
+        "log": "regression/08-original-api.log",
+        "sha256": "ee7abdcb7dac8d3513c59fd8753bb3036dc82c15393305d00e43caa233151585"
+      },
+      {
+        "name": "09-allowance-matrix",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 4,
+        "elapsedMs": 6206,
+        "log": "regression/09-allowance-matrix.log",
+        "sha256": "3df7d2c1e221f40b2983aea297d40d6e15465b5a9bb27561ddc94a87b4036234"
+      },
+      {
+        "name": "10-peer-contract",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 13,
+        "elapsedMs": 16401,
+        "log": "regression/10-peer-contract.log",
+        "sha256": "6298f75edea8dad399a072ee9ff05a117f49e8c0fb59a8ce5b088770a13634a2"
+      },
+      {
+        "name": "11-peer-integration",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 10,
+        "elapsedMs": 24128,
+        "log": "regression/11-peer-integration.log",
+        "sha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c"
+      },
+      {
+        "name": "12-independent-workers",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 1,
+        "elapsedMs": 22072,
+        "log": "regression/12-independent-workers.log",
+        "sha256": "5c9ab13186fa2853b3728867ace8b2247a2b298be03848a520fd8572173fe45e"
+      },
+      {
+        "name": "13-worker-shutdown-recovery",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 3,
+        "elapsedMs": 35364,
+        "log": "regression/13-worker-shutdown-recovery.log",
+        "sha256": "96b20bdadc3635034720e0323fa916f23aca3ca066b2bc74118ef27d0e9a0d09"
+      },
+      {
+        "name": "14-service-contract",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 11,
+        "elapsedMs": 12555,
+        "log": "regression/14-service-contract.log",
+        "sha256": "9ff8058c2ac790d05b7bd697986b9ca96390ec8c342d41e4e699df9a8c121c14"
+      },
+      {
+        "name": "15-service-integration",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 16,
+        "elapsedMs": 65968,
+        "log": "regression/15-service-integration.log",
+        "sha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd"
+      },
+      {
+        "name": "16-budget-core",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 16,
+        "elapsedMs": 22534,
+        "log": "regression/16-budget-core.log",
+        "sha256": "0155f1d96341ee4fd082a77810f3b1235a51b7c6b7efc4d3ed1706373eb871e3"
+      },
+      {
+        "name": "17-budget-parameters",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 9,
+        "elapsedMs": 17469,
+        "log": "regression/17-budget-parameters.log",
+        "sha256": "c8cd543469d7c4bfb58c58b3a251cf5d897614b09f5f94e33c78771a29f7b011"
+      },
+      {
+        "name": "18-budget-main",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 9,
+        "elapsedMs": 15493,
+        "log": "regression/18-budget-main.log",
+        "sha256": "a45122327b7ef97fd010d81d6e5b71fd091abd34b5662d60f736006b73561993"
+      },
+      {
+        "name": "19-budget-http",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 8,
+        "elapsedMs": 8124,
+        "log": "regression/19-budget-http.log",
+        "sha256": "5f04ac1606e4a5c284844a79fe57aa21da5370e13be3a656735d6933f914bd4c"
+      },
+      {
+        "name": "20-windows-launcher",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 3,
+        "elapsedMs": 9121,
+        "log": "regression/20-windows-launcher.log",
+        "sha256": "28e3adbf582220a578581b98f28d81bc03b4a5b5a75a3d85ec0580361745426b"
+      },
+      {
+        "name": "21-x402-ap2",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 24,
+        "elapsedMs": 8519,
+        "log": "regression/21-x402-ap2.log",
+        "sha256": "cb4b3cfe1bcbea61b46c6d6b44336deb7d6c25160610a4ca003e9edba37d57e0"
+      },
+      {
+        "name": "22-mpp",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 11,
+        "elapsedMs": 5906,
+        "log": "regression/22-mpp.log",
+        "sha256": "c5b15458e4b80d077f0e16d4ace7d103f4d0a7806888de4e8ed84bc80911cd8b"
+      },
+      {
+        "name": "23-payment-adversarial",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 10,
+        "elapsedMs": 7636,
+        "log": "regression/23-payment-adversarial.log",
+        "sha256": "b0e22065741adaa9c1e7ec91d1c93f0435c4166d02a265974513ca9b05314365"
+      },
+      {
+        "name": "24-research-escrow",
+        "passed": true,
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0,
+          "skipped": 0
+        },
+        "passLogRows": 0,
+        "elapsedMs": 12438,
+        "log": "regression/24-research-escrow.log",
+        "sha256": "995c627ddd9a53d4a907604eab2c8bf847c138856c6e02a341355db8fd74c9f0"
+      },
+      {
+        "name": "25-research-engine",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 35085,
+        "log": "regression/25-research-engine.log",
+        "sha256": "0cfd49bd6c9da4192c1b8dcc1ec2bb4898e554934bd658c055e2bd813fe324c9"
+      },
+      {
+        "name": "26-research-dataset",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        },
+        "passLogRows": 0,
+        "elapsedMs": 54833,
+        "log": "regression/26-research-dataset.log",
+        "sha256": "8914d25d8ca4c94a73de749b3327ada2efdba3b51efc5c76a09b7bcf602eeb8c"
+      }
+    ]
+  },
+  "postPortability": {
+    "passed": true,
+    "stages": [
+      {
+        "name": "03-doctor",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        }
+      },
+      {
+        "name": "04-typecheck",
+        "passed": true,
+        "counts": {
+          "tests": null,
+          "pass": null,
+          "fail": null,
+          "skipped": null
+        }
+      },
+      {
+        "name": "05-unit",
+        "passed": true,
+        "counts": {
+          "tests": 250,
+          "pass": 250,
+          "fail": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "liveBnb": {
+    "runs": 7,
+    "passed": 5,
+    "unknown": 2,
+    "localForkTransactions": 3
+  },
+  "guiFixture": {
+    "groups": 6,
+    "passed": 6,
+    "apiRequests": 0,
+    "scope": "GUI fixture test; not SDK execution or on-chain evidence"
+  },
+  "scope": [
+    "Windows x64 pinned Node24.19.0; isolated local test data and ports.",
+    "Existing model tests use protocol fixtures, not live cloud or Qwen3 inference.",
+    "BNB public-chain calls were read-only. Three successful writes executed on local BSC testnet fork.",
+    "After initial gate began, graph semantics and fixed macOS binary lookup were corrected; final source manifest plus all Node cases, doctor and types revalidated. Existing Windows chain behavior was unchanged.",
+    "No macOS physical-machine test, no public-network signing/broadcast, no GitHub push, no new full upstream SDK test run."
+  ],
+  "passed": true,
+  "partialAcceptance": [
+    {
+      "caseId": "AT-15",
+      "status": "BLOCKED",
+      "subchecks": "PASS",
+      "reason": "The scripted scene ends on the first peer rejection, so a separate explicit Maker rejection event required by the strict reading of the standard is not produced. Both no-transfer branches pass; AT-15 remains partial."
+    }
+  ],
+  "researchDataset": {
+    "inputSamples": 36,
+    "retainedSamples": 36,
+    "failedOrUnknown": 24,
+    "filter": "none"
+  },
+  "guiLive": {
+    "version": "0.18.2",
+    "method": "Actual local platform UI driven through browser; SDK child process generated signatures, no model or public writes",
+    "runs": [
+      {
+        "id": "4a2ed3d5-841d-4606-8377-51918986a6d4",
+        "status": "passed",
+        "events": 14,
+        "pauseBeforeOperations": true,
+        "edgeTypes": [
+          "executes",
+          "calls"
+        ]
+      },
+      {
+        "id": "6be40641-a545-4379-92d2-06ed4c4111dc",
+        "status": "passed",
+        "events": 14,
+        "pauseBeforeOperations": false,
+        "edgeTypes": [
+          "executes",
+          "signs-for-contract"
+        ]
+      }
+    ],
+    "observed": [
+      "both signing checkpoints paused and resumed through GUI",
+      "sealed result passed and recheck passed",
+      "signing node exposes parameters/results and source event references",
+      "final signing edge signs-for-contract; no fabricated EVM nodes"
+    ],
+    "downloadNote": "Full-bundle button clicked; HTTP export separately archived and checked. Six-format download and offline import verified in separate browser fixture tests.",
+    "historicalNote": "First pause run predates graph semantic correction, its original exported graph is retained. Second run is final graph semantics."
+  },
+  "portable": {
+    "scope": "Windows portable ZIP extracted into a fresh short directory, no node_modules, bundled Node; real offline SDK execution, no model or public transaction",
+    "candidate": true,
+    "checks": [
+      {
+        "name": "archive integrity and expected root",
+        "passed": true,
+        "entries": 1920
+      },
+      {
+        "name": "all extracted release-manifest byte counts and SHA-256 hashes",
+        "passed": true,
+        "verifiedFiles": 1919
+      },
+      {
+        "name": "fresh portable directory contains no node_modules",
+        "passed": true
+      },
+      {
+        "name": "portable runtime, independent SDK runtime and GUI assets are present",
+        "passed": true,
+        "required": [
+          "runtime/node.exe",
+          "runtime/anvil.exe",
+          "dist/server.mjs",
+          "packages/bnb-sdk-lab/runtime.mjs",
+          "public/bnb-sdk.html",
+          "public/bnb-sdk.js",
+          "public/bnb-sdk.css"
+        ]
+      },
+      {
+        "name": "release version and build hash agree",
+        "passed": true,
+        "sourceHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4"
+      },
+      {
+        "name": "embedded build inputs and output hashes match extracted files",
+        "passed": true,
+        "inputs": 774,
+        "outputs": 4,
+        "mismatches": []
+      },
+      {
+        "name": "bundled Node starts the original platform health endpoint",
+        "passed": true,
+        "pid": 27264
+      },
+      {
+        "name": "independent BNB health exposes four bounded scenarios",
+        "passed": true,
+        "version": "V0.18.2 BNB SDK Beta"
+      },
+      {
+        "name": "all dedicated GUI and shared stylesheet assets are served",
+        "passed": true,
+        "bytes": {
+          "/bnb-sdk.html": 9442,
+          "/bnb-sdk.js": 28113,
+          "/bnb-sdk.css": 3919,
+          "/style.css": 33474
+        }
+      },
+      {
+        "name": "portable real SDK worker starts with independent run id",
+        "passed": true
+      },
+      {
+        "name": "real local SDK signing and budget scenario completes successfully",
+        "passed": true,
+        "runId": "024ad430-1653-457b-afa6-c79de4891450",
+        "events": 14,
+        "transactionCount": 0
+      },
+      {
+        "name": "real signature verification evidence is hydrated",
+        "passed": true
+      },
+      {
+        "name": "sealed bundle and all required raw and graph artifacts export",
+        "passed": true,
+        "files": 20
+      },
+      {
+        "name": "portable bundle excludes reusable signatures and raw wallet secrets",
+        "passed": true
+      },
+      {
+        "name": "independent recheck passes without changing sealed raw files",
+        "passed": true,
+        "checks": 8
+      },
+      {
+        "name": "original health remains available after independent SDK experiment",
+        "passed": true
+      },
+      {
+        "name": "owned portable server shuts down cleanly",
+        "passed": true,
+        "exitCode": 0
+      }
+    ],
+    "limitations": [
+      "Initial extraction under a deeply nested workspace path exceeded Windows MAX_PATH; successful verification uses a short directory. Long-path-disabled Windows users should extract into a short path such as C:/Web3Lab."
+    ],
+    "passed": true,
+    "archive": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\candidate\\Web3-Agent-Lab-V0.18.2-Windows-x64-candidate.zip",
+    "archiveBytes": 144937532,
+    "archiveSha256": "89e6c6296cd45647d16b4a07d25c6820764d89dc31ba87efecccc20abcb5258a",
+    "archiveEntries": 1920,
+    "verifiedManifestFiles": 1919,
+    "uncompressedBytes": 585079494,
+    "extracted": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\w3p-77917535\\Web3-Agent-Lab-V0.18.2-Windows-x64",
+    "versions": {
+      "platform": "0.18.2",
+      "displayVersion": "V0.18.2 BNB SDK Beta",
+      "sdk": "0.6.1",
+      "upstreamCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+      "node": "v24.19.0",
+      "anvil": "anvil Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:54:39.315067700Z (1778226879)\nBuild Profile: dist"
+    },
+    "buildHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4",
+    "runId": "024ad430-1653-457b-afa6-c79de4891450",
+    "sdkChecks": [
+      {
+        "id": "raw-integrity",
+        "status": "passed",
+        "detail": "Event sequence, digest chain and every referenced blob verified."
+      },
+      {
+        "id": "same-run",
+        "status": "passed",
+        "detail": "All raw events belong to the declared run."
+      },
+      {
+        "id": "completed-scenario",
+        "status": "passed",
+        "detail": "Completion marker agrees with the original scenario."
+      },
+      {
+        "id": "signature-verified",
+        "status": "passed",
+        "detail": "Actual local EIP-3009 signature verified during execution; signature is intentionally not exported, so this check is evidence review, not signature re-verification."
+      },
+      {
+        "id": "chain-31337",
+        "status": "passed",
+        "detail": "Expected SDK rejection recorded."
+      },
+      {
+        "id": "unknown-token",
+        "status": "passed",
+        "detail": "Expected SDK rejection recorded."
+      },
+      {
+        "id": "cumulative-budget",
+        "status": "passed",
+        "detail": "Expected SDK rejection recorded."
+      },
+      {
+        "id": "offline-no-transactions",
+        "status": "passed",
+        "detail": "Offline signer case must contain no chain transaction."
+      }
+    ],
+    "graphNodes": 3,
+    "graphEdges": 2,
+    "ownedServerPid": 27264,
+    "exitCode": 0,
+    "testCount": 17
+  },
+  "tooling": {
+    "declaredPackageManager": "pnpm@11.19.0",
+    "actualBnbDependencyInstaller": "bundled pnpm@11.25.0",
+    "lockfileVersion": 9,
+    "buildInvoker": "Node v24.19.0 --run build",
+    "freshCiInstallWithDeclaredPnpm": false
+  }
+}

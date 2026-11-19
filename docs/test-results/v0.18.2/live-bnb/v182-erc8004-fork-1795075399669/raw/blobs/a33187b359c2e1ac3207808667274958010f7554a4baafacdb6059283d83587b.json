@@ -1,0 +1,3 @@
+{
+  "text": "2026-11-19T08:03:41.024875Z  INFO node::user: \n2026-11-19T08:03:41.024888Z  INFO node::user:     Transaction: 0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770\n2026-11-19T08:03:41.024894Z  INFO node::user:     Gas used: 467357\n2026-11-19T08:03:41.024897Z  INFO node::user: \n2026-11-19T08:03:41.024902Z  INFO node::user:     Block Number: 143603616\n2026-11-19T08:03:41.024905Z  INFO node::user:     Block Hash: 0x1d967237d18cfcfc425de0d03e63e9cb07e94c231bb4ab23883211e93c087128\n2026-11-19T08:03:41.024910Z  INFO node::user:     Block Time: \"Thu, 19 Nov 2026 08:03:32 +0000\"\n\n"
+}

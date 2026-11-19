@@ -1,4 +1,4 @@
-name: Windows V0.18.0 verification
+name: Windows V0.18.2 verification
 
 on:
   push:
@@ -44,6 +44,9 @@ jobs:
       - name: Install isolated payment SDK dependencies
         run: pnpm run setup:research
 
+      - name: Install isolated BNB SDK dependencies
+        run: pnpm run setup:bnb
+
       - name: Prepare verified local Anvil and the Windows launcher runtime
         run: |
           node scripts/setup-runtime.mjs
@@ -57,11 +60,11 @@ jobs:
 
       - name: Run all 26 isolated regression phases including testnet adapters
         env:
-          LAB_REGRESSION_OUT: artifacts/test-results/v0180-ci
+          LAB_REGRESSION_OUT: artifacts/test-results/v0182-ci
         run: |
           node scripts/testnet-regression.mjs
-          if ($LASTEXITCODE -ne 0) { throw 'V0.18.0 regression failed.' }
-          $ciSummary = Get-Content artifacts/test-results/v0180-ci/summary.json -Raw | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 regression failed.' }
+          $ciSummary = Get-Content artifacts/test-results/v0182-ci/summary.json -Raw | ConvertFrom-Json
           if (-not $ciSummary.passed -or $ciSummary.passedSteps -ne 26 -or $ciSummary.failedSteps -ne 0) {
             throw 'All 26 phases must pass; partial results cannot pass the release gate.'
           }
@@ -70,16 +73,16 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: windows-v0180-validation
+          name: windows-v0182-validation
           overwrite: true
           if-no-files-found: warn
           retention-days: 14
           path: |
-            artifacts/test-results/v0180-ci/*.log
-            artifacts/test-results/v0180-ci/summary.json
-            artifacts/test-results/v0180-ci/results/*/*-results.json
-            artifacts/test-results/v0180-ci/results/*/research/report.json
-            artifacts/test-results/v0180-ci/results/*/testnet/report.json
+            artifacts/test-results/v0182-ci/*.log
+            artifacts/test-results/v0182-ci/summary.json
+            artifacts/test-results/v0182-ci/results/*/*-results.json
+            artifacts/test-results/v0182-ci/results/*/research/report.json
+            artifacts/test-results/v0182-ci/results/*/testnet/report.json
 
       # GUI browser checks and macOS runs are not performed by this job.
       # Historical release reports remain historical evidence, not CI results.

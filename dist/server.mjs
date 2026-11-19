@@ -1,3 +1,4 @@
+import { BnbSdkService } from "../src/bnb-sdk/service.mjs";
 import { TestnetService } from "../src/testnet/service.mjs";
 import { ResearchService } from "../src/research/service.mjs";
 import { LocalModelService } from "../src/local-model/service.mjs";
@@ -494307,6 +494308,7 @@ var scenarioService = new ScenarioService({ root:ROOT3, data:DATA, chain:chain2,
   unlock:()=>{busy=false;refresh().catch(()=>{});}
 });
 var budgetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BudgetService({root:ROOT3,data:join3(DATA,"budget"),port:PORT,lib:{createWalletClient,createPublicClient,privateKeyToAccount,localChain,http,decodeEventLog,decodeFunctionData,keccak256}});
+var bnbSdkService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new BnbSdkService({root:ROOT3,data:join3(DATA,"bnb-sdk"),port:PORT});
 var researchService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new ResearchService({root:ROOT3,data:join3(DATA,"research"),port:PORT,modelResolver:resolveModelConfiguration,captureRuntimeEvidence:(model,cursor)=>captureLocalRuntimeEvidence([model],cursor),runtimeEvidenceCursor:()=>localModelService?.evidenceCursor()??null});
 var testnetService=(process.env.LAB_LIBRARY_ONLY||process.env.LAB_AGENT_WORKER)?null:new TestnetService({root:ROOT3,data:DATA,port:PORT,
  lib:{runAgent,Recorder,Redactor,readRun,readEvents,listRuns,saveResult,saveExecutionTrace,verifyRun,exportRun,resolveTask,toolDefinitions,checkTask,privateKeyToAccount,buildDiagnostics,readExecutionTrace,sha256,json,readJSON},
@@ -494329,6 +494331,7 @@ var server = createServer(async (req, res) => {
     if (!validHosts.includes(req.headers.host || "") || req.headers.origin && ![origin, `http://localhost:${PORT}`].includes(req.headers.origin)) return send(res, 403, { error: "LOCAL_ORIGIN_REQUIRED" });
     const url2 = new URL(req.url || "/", origin);
     const path4 = url2.pathname;
+    if (await bnbSdkService?.handle(req,res,path4)) return;
     if (await testnetService?.handle(req,res,path4)) return;
     if (await researchService?.handle(req,res,path4)) return;
     if (await budgetService?.handle(req,res,path4)) return;
@@ -494513,6 +494516,7 @@ async function shutdown() {
   if (shuttingDown) return;
   shuttingDown = true;
   controller?.abort();
+  await bnbSdkService?.shutdown();
   await testnetService?.shutdown();
   await researchService?.shutdown();
   await budgetService?.shutdown();
@@ -494528,7 +494532,7 @@ async function shutdown() {
 }
 await mkdir4(DATA, { recursive: true });
 await budgetService?.init();
-if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.18.0 Testnet Beta http://127.0.0.1:${PORT}`));
+if (!process.env.LAB_LIBRARY_ONLY) server.listen(PORT, "127.0.0.1", () => console.log(`Web3 Agent Lab V0.18.2 BNB SDK Beta http://127.0.0.1:${PORT}`));
 server.on("error", (e) => {
   console.error(e.message);
   process.exit(1);

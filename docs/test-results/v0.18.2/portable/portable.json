@@ -1,0 +1,171 @@
+{
+  "scope": "Windows portable ZIP extracted into a fresh short directory, no node_modules, bundled Node; real offline SDK execution, no model or public transaction",
+  "candidate": true,
+  "checks": [
+    {
+      "name": "archive integrity and expected root",
+      "passed": true,
+      "entries": 1920
+    },
+    {
+      "name": "all extracted release-manifest byte counts and SHA-256 hashes",
+      "passed": true,
+      "verifiedFiles": 1919
+    },
+    {
+      "name": "fresh portable directory contains no node_modules",
+      "passed": true
+    },
+    {
+      "name": "portable runtime, independent SDK runtime and GUI assets are present",
+      "passed": true,
+      "required": [
+        "runtime/node.exe",
+        "runtime/anvil.exe",
+        "dist/server.mjs",
+        "packages/bnb-sdk-lab/runtime.mjs",
+        "public/bnb-sdk.html",
+        "public/bnb-sdk.js",
+        "public/bnb-sdk.css"
+      ]
+    },
+    {
+      "name": "release version and build hash agree",
+      "passed": true,
+      "sourceHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4"
+    },
+    {
+      "name": "embedded build inputs and output hashes match extracted files",
+      "passed": true,
+      "inputs": 774,
+      "outputs": 4,
+      "mismatches": []
+    },
+    {
+      "name": "bundled Node starts the original platform health endpoint",
+      "passed": true,
+      "pid": 27264
+    },
+    {
+      "name": "independent BNB health exposes four bounded scenarios",
+      "passed": true,
+      "version": "V0.18.2 BNB SDK Beta"
+    },
+    {
+      "name": "all dedicated GUI and shared stylesheet assets are served",
+      "passed": true,
+      "bytes": {
+        "/bnb-sdk.html": 9442,
+        "/bnb-sdk.js": 28113,
+        "/bnb-sdk.css": 3919,
+        "/style.css": 33474
+      }
+    },
+    {
+      "name": "portable real SDK worker starts with independent run id",
+      "passed": true
+    },
+    {
+      "name": "real local SDK signing and budget scenario completes successfully",
+      "passed": true,
+      "runId": "024ad430-1653-457b-afa6-c79de4891450",
+      "events": 14,
+      "transactionCount": 0
+    },
+    {
+      "name": "real signature verification evidence is hydrated",
+      "passed": true
+    },
+    {
+      "name": "sealed bundle and all required raw and graph artifacts export",
+      "passed": true,
+      "files": 20
+    },
+    {
+      "name": "portable bundle excludes reusable signatures and raw wallet secrets",
+      "passed": true
+    },
+    {
+      "name": "independent recheck passes without changing sealed raw files",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "original health remains available after independent SDK experiment",
+      "passed": true
+    },
+    {
+      "name": "owned portable server shuts down cleanly",
+      "passed": true,
+      "exitCode": 0
+    }
+  ],
+  "limitations": [
+    "Initial extraction under a deeply nested workspace path exceeded Windows MAX_PATH; successful verification uses a short directory. Long-path-disabled Windows users should extract into a short path such as C:/Web3Lab."
+  ],
+  "passed": true,
+  "archive": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\candidate\\Web3-Agent-Lab-V0.18.2-Windows-x64-candidate.zip",
+  "archiveBytes": 144937532,
+  "archiveSha256": "89e6c6296cd45647d16b4a07d25c6820764d89dc31ba87efecccc20abcb5258a",
+  "archiveEntries": 1920,
+  "verifiedManifestFiles": 1919,
+  "uncompressedBytes": 585079494,
+  "extracted": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\w3p-77917535\\Web3-Agent-Lab-V0.18.2-Windows-x64",
+  "versions": {
+    "platform": "0.18.2",
+    "displayVersion": "V0.18.2 BNB SDK Beta",
+    "sdk": "0.6.1",
+    "upstreamCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+    "node": "v24.19.0",
+    "anvil": "anvil Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:54:39.315067700Z (1778226879)\nBuild Profile: dist"
+  },
+  "buildHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4",
+  "runId": "024ad430-1653-457b-afa6-c79de4891450",
+  "sdkChecks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "signature-verified",
+      "status": "passed",
+      "detail": "Actual local EIP-3009 signature verified during execution; signature is intentionally not exported, so this check is evidence review, not signature re-verification."
+    },
+    {
+      "id": "chain-31337",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "unknown-token",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "cumulative-budget",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "offline-no-transactions",
+      "status": "passed",
+      "detail": "Offline signer case must contain no chain transaction."
+    }
+  ],
+  "graphNodes": 3,
+  "graphEdges": 2,
+  "ownedServerPid": 27264,
+  "exitCode": 0,
+  "testCount": 17
+}

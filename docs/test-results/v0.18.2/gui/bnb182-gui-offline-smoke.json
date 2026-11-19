@@ -1,0 +1,31 @@
+{
+  "kind": "GUI fixture test; not SDK execution or on-chain evidence",
+  "checks": [
+    {
+      "name": "pure offline entry makes no API requests and disables execution",
+      "passed": true
+    },
+    {
+      "name": "bundle imports checker/events and renders untrusted text without HTML execution",
+      "passed": true
+    },
+    {
+      "name": "graph nodes and relations expose details with source-event navigation",
+      "passed": true
+    },
+    {
+      "name": "offline replay advances saved events without execution",
+      "passed": true
+    },
+    {
+      "name": "complete bundle and six individual artifact downloads",
+      "passed": true
+    },
+    {
+      "name": "invalid bundle paths rejected without replacing current data; zero API calls and page errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "apiRequests": []
+}

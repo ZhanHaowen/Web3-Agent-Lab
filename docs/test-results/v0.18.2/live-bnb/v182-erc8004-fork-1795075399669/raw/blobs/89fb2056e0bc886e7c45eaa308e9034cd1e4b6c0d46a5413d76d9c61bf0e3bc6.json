@@ -1,0 +1,9 @@
+{
+  "operationId": "operation-2",
+  "name": "ERC8004.getAgentInfo",
+  "kind": "sdk-call",
+  "args": {
+    "agentId": 2885
+  },
+  "contract": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+}

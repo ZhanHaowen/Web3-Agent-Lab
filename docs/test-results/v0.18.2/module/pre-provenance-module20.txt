@@ -1,0 +1,28 @@
+✔ immutable journal redacts secrets and validates every payload (22.1777ms)
+✔ offline checker does not trust forged summary or truncated log (32.2683ms)
+✔ checker rejects missing x402 guards and treats environment failure as unknown (26.5584ms)
+✔ checker binds transaction to SDK operation contract and receipt block (19.599ms)
+✔ provenance retains exact sources and nested EVM calls without fabricated LLM nodes (0.9269ms)
+✔ mainnet writes are rejected before creating an output journal (1.4983ms)
+✔ pre-aborted experiment preserves cancellation evidence (26.7728ms)
+✔ canonical EIP-3009 domain fields are complete (0.1757ms)
+✔ real bundled SDK signs offline, enforces route/budget and exports replayable graph (128.5556ms)
+✔ BNB capability/config restricts four scenarios to fixed RPC presets and local signing (1.0158ms)
+✔ BNB HTTP API rejects wrong token/origin/host/method, traversal, excess body and unsupported fields (30.7503ms)
+✔ actual offline SDK worker seals a recheckable export with hydrated operation details (206.8372ms)
+✔ actual SDK pauses before signing and cancellation seals an incomplete cancelled trace (166.7358ms)
+✔ actual SDK resume advances both signing checkpoints and completes exactly one run (205.8612ms)
+✔ worker environment excludes caller secrets and abrupt exit preserves unknown without retry (11.4008ms)
+✔ worker resource PIDs are tracked from current event wire shape and late pause cannot undo cancel (9.7988ms)
+✔ worker launch failure clears the active lock and records unknown outcome (11.8263ms)
+✔ failed initial IPC send terminates its worker and clears the active lock (12.5023ms)
+✔ asynchronous worker error terminates the child before releasing its experiment lock (10.609ms)
+✔ restart marks unfinished experiment unknown without rewriting raw data or starting a worker (9.772ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 781.3033

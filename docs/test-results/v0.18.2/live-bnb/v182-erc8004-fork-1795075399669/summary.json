@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-erc8004-fork-1795075399669",
+  "scenario": "erc8004-fork",
+  "network": "bsc-testnet",
+  "status": "passed",
+  "startedAt": "2026-11-19T08:03:19.671Z",
+  "finishedAt": "2026-11-19T08:03:46.203Z",
+  "elapsedMs": 26533,
+  "sdkVersion": "0.6.1",
+  "sdkCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+  "transactionCount": 1,
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "fork-chain",
+      "status": "passed",
+      "detail": "BSC testnet source block recorded; all writes are on loopback fork."
+    },
+    {
+      "id": "receipts",
+      "status": "passed",
+      "detail": "Every submitted transaction has a matching successful receipt and block."
+    },
+    {
+      "id": "transaction-attribution",
+      "status": "passed",
+      "detail": "Each transaction targets its recorded SDK operation contract."
+    },
+    {
+      "id": "registered-owner-uri",
+      "status": "passed",
+      "detail": "Registry readback matches the ephemeral owner, agent ID and original URI."
+    },
+    {
+      "id": "identity-receipt-log",
+      "status": "passed",
+      "detail": "Registration has an ERC-721 Transfer log for the registered agent ID."
+    },
+    {
+      "id": "snapshot-restored",
+      "status": "passed",
+      "detail": "Snapshot restoration removes the created identity/job from local chain state."
+    }
+  ],
+  "publicWrites": false,
+  "limitations": [
+    "Actual deployed bytecode on local BSC testnet fork; not a public-network transaction.",
+    "ERC-8183 scope is unfunded create/cancel; no delivery, funded settlement or refund claim.",
+    "Fixed-block replay requires an upstream RPC retaining that historical state."
+  ],
+  "artifacts": [
+    "raw/events.jsonl",
+    "derived/checker.json",
+    "derived/graph.json",
+    "derived/graph.graphml",
+    "derived/nodes.csv",
+    "derived/edges.csv",
+    "derived/execution-trace.json"
+  ]
+}

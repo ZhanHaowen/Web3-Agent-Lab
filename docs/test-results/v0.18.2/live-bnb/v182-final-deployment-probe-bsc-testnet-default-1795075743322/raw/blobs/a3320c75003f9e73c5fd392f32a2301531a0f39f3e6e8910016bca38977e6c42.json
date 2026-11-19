@@ -1,0 +1,21 @@
+{
+  "runId": "v182-final-deployment-probe-bsc-testnet-default-1795075743322",
+  "config": {
+    "scenario": "deployment-probe",
+    "network": "bsc-testnet",
+    "rpcUrl": "https://data-seed-prebsc-2-s2.binance.org:8545",
+    "timeoutSeconds": 300,
+    "pauseBeforeOperations": false
+  },
+  "sdk": {
+    "name": "@bnbagent/sdk",
+    "version": "0.6.1",
+    "commit": "260e16196931780d0370bd3a9d9b67ece744bb9d"
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32"
+  },
+  "scope": "public-readonly",
+  "publicWrites": false
+}

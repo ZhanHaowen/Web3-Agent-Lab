@@ -1,0 +1,34 @@
+{
+  "version": "0.18.2",
+  "method": "Actual local platform UI driven through browser; SDK child process generated signatures, no model or public writes",
+  "runs": [
+    {
+      "id": "4a2ed3d5-841d-4606-8377-51918986a6d4",
+      "status": "passed",
+      "events": 14,
+      "pauseBeforeOperations": true,
+      "edgeTypes": [
+        "executes",
+        "calls"
+      ]
+    },
+    {
+      "id": "6be40641-a545-4379-92d2-06ed4c4111dc",
+      "status": "passed",
+      "events": 14,
+      "pauseBeforeOperations": false,
+      "edgeTypes": [
+        "executes",
+        "signs-for-contract"
+      ]
+    }
+  ],
+  "observed": [
+    "both signing checkpoints paused and resumed through GUI",
+    "sealed result passed and recheck passed",
+    "signing node exposes parameters/results and source event references",
+    "final signing edge signs-for-contract; no fabricated EVM nodes"
+  ],
+  "downloadNote": "Full-bundle button clicked; HTTP export separately archived and checked. Six-format download and offline import verified in separate browser fixture tests.",
+  "historicalNote": "First pause run predates graph semantic correction, its original exported graph is retained. Second run is final graph semantics."
+}

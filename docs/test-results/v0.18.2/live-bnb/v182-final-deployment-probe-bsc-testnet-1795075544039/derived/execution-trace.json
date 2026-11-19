@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+  "events": [
+    {
+      "seq": 1,
+      "eventId": "v182-final-deployment-probe-bsc-testnet-1795075544039:1",
+      "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+      "time": "2026-11-19T08:05:44.040Z",
+      "type": "run.started",
+      "payloadRef": "raw/blobs/6b7fb86b98f8944c20136cdb0f8456e26f3f2a7733fa23c70b550b072fec56cf.json",
+      "payloadSha256": "6b7fb86b98f8944c20136cdb0f8456e26f3f2a7733fa23c70b550b072fec56cf",
+      "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "d0c8a52efefa8f24318829022226a3cb1589d66ac998ae87ae41ace3e7300076",
+      "payload": {
+        "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+        "config": {
+          "scenario": "deployment-probe",
+          "network": "bsc-testnet",
+          "rpcUrl": "https://bsc-testnet-rpc.publicnode.com",
+          "timeoutSeconds": 300,
+          "pauseBeforeOperations": false
+        },
+        "sdk": {
+          "name": "@bnbagent/sdk",
+          "version": "0.6.1",
+          "commit": "260e16196931780d0370bd3a9d9b67ece744bb9d"
+        },
+        "runtime": {
+          "node": "v24.19.0",
+          "platform": "win32"
+        },
+        "scope": "public-readonly",
+        "publicWrites": false
+      }
+    },
+    {
+      "seq": 2,
+      "eventId": "v182-final-deployment-probe-bsc-testnet-1795075544039:2",
+      "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+      "time": "2026-11-19T08:05:44.041Z",
+      "type": "runtime.loaded",
+      "payloadRef": "raw/blobs/e9eb747743dec6159452b366602afe05f1af6e68392e282fcf4136da9bcc5d31.json",
+      "payloadSha256": "e9eb747743dec6159452b366602afe05f1af6e68392e282fcf4136da9bcc5d31",
+      "prevHash": "d0c8a52efefa8f24318829022226a3cb1589d66ac998ae87ae41ace3e7300076",
+      "hash": "e0265fe78137be09b7582d1ad26c6cf14bf58f49c06648c84d9186c7dc502110",
+      "payload": {
+        "file": "packages/bnb-sdk-lab/runtime.mjs",
+        "sha256": "a7b73553a5cedf59dc8f8fd7818ce92900d6ebe6310b002c72f3f1dfb1a0b54a"
+      }
+    },
+    {
+      "seq": 3,
+      "eventId": "v182-final-deployment-probe-bsc-testnet-1795075544039:3",
+      "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+      "time": "2026-11-19T08:06:10.274Z",
+      "type": "run.error",
+      "payloadRef": "raw/blobs/6b2a27651bd62be4356939860f231870b68e87a514cce68a3816660bef316e8b.json",
+      "payloadSha256": "6b2a27651bd62be4356939860f231870b68e87a514cce68a3816660bef316e8b",
+      "prevHash": "e0265fe78137be09b7582d1ad26c6cf14bf58f49c06648c84d9186c7dc502110",
+      "hash": "254101b632ec72a877dee87f74fbe18c567b854ea62b6ca07d4c0818156fd3a4",
+      "payload": {
+        "kind": "environment",
+        "message": "The request took too long to respond.",
+        "stage": "setup"
+      }
+    }
+  ]
+}

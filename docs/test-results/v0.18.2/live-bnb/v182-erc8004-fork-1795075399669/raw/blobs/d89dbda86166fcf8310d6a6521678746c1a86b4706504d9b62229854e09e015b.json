@@ -1,0 +1,21 @@
+{
+  "runId": "v182-erc8004-fork-1795075399669",
+  "config": {
+    "scenario": "erc8004-fork",
+    "network": "bsc-testnet",
+    "rpcUrl": "https://bsc-testnet-rpc.publicnode.com",
+    "timeoutSeconds": 300,
+    "pauseBeforeOperations": false
+  },
+  "sdk": {
+    "name": "@bnbagent/sdk",
+    "version": "0.6.1",
+    "commit": "260e16196931780d0370bd3a9d9b67ece744bb9d"
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32"
+  },
+  "scope": "local-pinned-bsc-fork",
+  "publicWrites": false
+}

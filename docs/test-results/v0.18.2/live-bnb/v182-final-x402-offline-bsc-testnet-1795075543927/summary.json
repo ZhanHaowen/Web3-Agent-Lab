@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+  "scenario": "x402-offline",
+  "network": "bsc-testnet",
+  "status": "passed",
+  "startedAt": "2026-11-19T08:05:43.929Z",
+  "finishedAt": "2026-11-19T08:05:44.038Z",
+  "elapsedMs": 109,
+  "sdkVersion": "0.6.1",
+  "sdkCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+  "transactionCount": 0,
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "signature-verified",
+      "status": "passed",
+      "detail": "Actual local EIP-3009 signature verified during execution; signature is intentionally not exported, so this check is evidence review, not signature re-verification."
+    },
+    {
+      "id": "chain-31337",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "unknown-token",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "cumulative-budget",
+      "status": "passed",
+      "detail": "Expected SDK rejection recorded."
+    },
+    {
+      "id": "offline-no-transactions",
+      "status": "passed",
+      "detail": "Offline signer case must contain no chain transaction."
+    }
+  ],
+  "publicWrites": false,
+  "limitations": [
+    "Actual SDK offline signature and guards only; no HTTP 402 round-trip, payment or settlement.",
+    "Signature is not exported; offline recheck verifies the saved verification result and integrity."
+  ],
+  "artifacts": [
+    "raw/events.jsonl",
+    "derived/checker.json",
+    "derived/graph.json",
+    "derived/graph.graphml",
+    "derived/nodes.csv",
+    "derived/edges.csv",
+    "derived/execution-trace.json"
+  ]
+}

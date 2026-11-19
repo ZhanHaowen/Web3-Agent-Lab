@@ -1,0 +1,14 @@
+{
+  "operationId": "operation-2",
+  "contract": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+  "wallet": "0xA5511A8FFEEA632522f9A36766e31fFA944AAF88",
+  "agentId": 2885,
+  "expectedUri": "data:application/json;base64,eyJuYW1lIjoiV2ViMyBBZ2VudCBMYWIgQk5CIFNESyBpc29sYXRlZCBleHBlcmltZW50IiwidHlwZSI6Imh0dHBzOi8vZWlwcy5ldGhlcmV1bS5vcmcvRUlQUy9laXAtODAwNCNyZWdpc3RyYXRpb24tdjEiLCJkZXNjcmlwdGlvbiI6IkxvY2FsIHBpbm5lZCBmb3JrIG9ubHkiLCJydW5JZCI6InYxODItZXJjODAwNC1mb3JrLTE3OTUwNzUzOTk2NjkifQ==",
+  "info": {
+    "agentId": 2885,
+    "agentAddress": "0xA5511A8FFEEA632522f9A36766e31fFA944AAF88",
+    "agentWallet": "0xA5511A8FFEEA632522f9A36766e31fFA944AAF88",
+    "owner": "0xA5511A8FFEEA632522f9A36766e31fFA944AAF88",
+    "agentURI": "data:application/json;base64,eyJuYW1lIjoiV2ViMyBBZ2VudCBMYWIgQk5CIFNESyBpc29sYXRlZCBleHBlcmltZW50IiwidHlwZSI6Imh0dHBzOi8vZWlwcy5ldGhlcmV1bS5vcmcvRUlQUy9laXAtODAwNCNyZWdpc3RyYXRpb24tdjEiLCJkZXNjcmlwdGlvbiI6IkxvY2FsIHBpbm5lZCBmb3JrIG9ubHkiLCJydW5JZCI6InYxODItZXJjODAwNC1mb3JrLTE3OTUwNzUzOTk2NjkifQ=="
+  }
+}

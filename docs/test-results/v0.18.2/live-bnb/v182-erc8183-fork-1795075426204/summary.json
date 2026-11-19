@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-erc8183-fork-1795075426204",
+  "scenario": "erc8183-fork",
+  "network": "bsc-testnet",
+  "status": "passed",
+  "startedAt": "2026-11-19T08:03:46.206Z",
+  "finishedAt": "2026-11-19T08:04:24.770Z",
+  "elapsedMs": 38565,
+  "sdkVersion": "0.6.1",
+  "sdkCommit": "260e16196931780d0370bd3a9d9b67ece744bb9d",
+  "transactionCount": 2,
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "fork-chain",
+      "status": "passed",
+      "detail": "BSC testnet source block recorded; all writes are on loopback fork."
+    },
+    {
+      "id": "receipts",
+      "status": "passed",
+      "detail": "Every submitted transaction has a matching successful receipt and block."
+    },
+    {
+      "id": "transaction-attribution",
+      "status": "passed",
+      "detail": "Each transaction targets its recorded SDK operation contract."
+    },
+    {
+      "id": "job-created",
+      "status": "passed",
+      "detail": "Created job is OPEN, belongs to the ephemeral client, and remains unfunded."
+    },
+    {
+      "id": "open-job-cancelled",
+      "status": "passed",
+      "detail": "SDK cancelOpen transitions the same unfunded job from OPEN(0) to REJECTED(4). This is not a funded refund."
+    },
+    {
+      "id": "two-job-transactions",
+      "status": "passed",
+      "detail": "Create and cancel each have their own successful receipt."
+    },
+    {
+      "id": "snapshot-restored",
+      "status": "passed",
+      "detail": "Snapshot restoration removes the created identity/job from local chain state."
+    }
+  ],
+  "publicWrites": false,
+  "limitations": [
+    "Actual deployed bytecode on local BSC testnet fork; not a public-network transaction.",
+    "ERC-8183 scope is unfunded create/cancel; no delivery, funded settlement or refund claim.",
+    "Fixed-block replay requires an upstream RPC retaining that historical state."
+  ],
+  "artifacts": [
+    "raw/events.jsonl",
+    "derived/checker.json",
+    "derived/graph.json",
+    "derived/graph.graphml",
+    "derived/nodes.csv",
+    "derived/edges.csv",
+    "derived/execution-trace.json"
+  ]
+}

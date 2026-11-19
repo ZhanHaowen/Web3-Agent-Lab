@@ -1,0 +1,332 @@
+{
+  "scope": "Saved real SDK runs; read-only re-evaluation by final checker. Public probes can be unknown; local fork writes only.",
+  "rows": [
+    {
+      "name": "v182-deployment-probe-1795075464770",
+      "schemaVersion": 1,
+      "runId": "v182-deployment-probe-1795075464770",
+      "scenario": "deployment-probe",
+      "status": "unknown",
+      "checkedAt": "2026-11-19T08:13:05.061Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "completed-run",
+          "status": "failed",
+          "detail": "HTTP request failed."
+        }
+      ],
+      "transactionCount": 0,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-erc8004-fork-1795075399669",
+      "schemaVersion": 1,
+      "runId": "v182-erc8004-fork-1795075399669",
+      "scenario": "erc8004-fork",
+      "status": "passed",
+      "checkedAt": "2026-11-19T08:13:05.384Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "same-run",
+          "status": "passed",
+          "detail": "All raw events belong to the declared run."
+        },
+        {
+          "id": "completed-scenario",
+          "status": "passed",
+          "detail": "Completion marker agrees with the original scenario."
+        },
+        {
+          "id": "fork-chain",
+          "status": "passed",
+          "detail": "BSC testnet source block recorded; all writes are on loopback fork."
+        },
+        {
+          "id": "receipts",
+          "status": "passed",
+          "detail": "Every submitted transaction has a matching successful receipt and block."
+        },
+        {
+          "id": "transaction-attribution",
+          "status": "passed",
+          "detail": "Each transaction targets its recorded SDK operation contract."
+        },
+        {
+          "id": "registered-owner-uri",
+          "status": "passed",
+          "detail": "Registry readback matches the ephemeral owner, agent ID and original URI."
+        },
+        {
+          "id": "identity-receipt-log",
+          "status": "passed",
+          "detail": "Registration has an ERC-721 Transfer log for the registered agent ID."
+        },
+        {
+          "id": "snapshot-restored",
+          "status": "passed",
+          "detail": "Snapshot restoration removes the created identity/job from local chain state."
+        }
+      ],
+      "transactionCount": 1,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-erc8183-fork-1795075426204",
+      "schemaVersion": 1,
+      "runId": "v182-erc8183-fork-1795075426204",
+      "scenario": "erc8183-fork",
+      "status": "passed",
+      "checkedAt": "2026-11-19T08:13:05.840Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "same-run",
+          "status": "passed",
+          "detail": "All raw events belong to the declared run."
+        },
+        {
+          "id": "completed-scenario",
+          "status": "passed",
+          "detail": "Completion marker agrees with the original scenario."
+        },
+        {
+          "id": "fork-chain",
+          "status": "passed",
+          "detail": "BSC testnet source block recorded; all writes are on loopback fork."
+        },
+        {
+          "id": "receipts",
+          "status": "passed",
+          "detail": "Every submitted transaction has a matching successful receipt and block."
+        },
+        {
+          "id": "transaction-attribution",
+          "status": "passed",
+          "detail": "Each transaction targets its recorded SDK operation contract."
+        },
+        {
+          "id": "job-created",
+          "status": "passed",
+          "detail": "Created job is OPEN, belongs to the ephemeral client, and remains unfunded."
+        },
+        {
+          "id": "open-job-cancelled",
+          "status": "passed",
+          "detail": "SDK cancelOpen transitions the same unfunded job from OPEN(0) to REJECTED(4). This is not a funded refund."
+        },
+        {
+          "id": "two-job-transactions",
+          "status": "passed",
+          "detail": "Create and cancel each have their own successful receipt."
+        },
+        {
+          "id": "snapshot-restored",
+          "status": "passed",
+          "detail": "Snapshot restoration removes the created identity/job from local chain state."
+        }
+      ],
+      "transactionCount": 2,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-final-deployment-probe-bsc-mainnet-1795075570292",
+      "schemaVersion": 1,
+      "runId": "v182-final-deployment-probe-bsc-mainnet-1795075570292",
+      "scenario": "deployment-probe",
+      "status": "passed",
+      "checkedAt": "2026-11-19T08:13:05.875Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "same-run",
+          "status": "passed",
+          "detail": "All raw events belong to the declared run."
+        },
+        {
+          "id": "completed-scenario",
+          "status": "passed",
+          "detail": "Completion marker agrees with the original scenario."
+        },
+        {
+          "id": "chain-id",
+          "status": "passed",
+          "detail": "Read-only RPC chain matches requested preset."
+        },
+        {
+          "id": "contract-code",
+          "status": "passed",
+          "detail": "Configured protocol addresses contain runtime bytecode at the pinned block."
+        },
+        {
+          "id": "readonly-no-transactions",
+          "status": "passed",
+          "detail": "Probe has no signer and produces no transactions."
+        }
+      ],
+      "transactionCount": 0,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+      "schemaVersion": 1,
+      "runId": "v182-final-deployment-probe-bsc-testnet-1795075544039",
+      "scenario": "deployment-probe",
+      "status": "unknown",
+      "checkedAt": "2026-11-19T08:13:05.899Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "completed-run",
+          "status": "failed",
+          "detail": "The request took too long to respond."
+        }
+      ],
+      "transactionCount": 0,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-final-deployment-probe-bsc-testnet-default-1795075743322",
+      "schemaVersion": 1,
+      "runId": "v182-final-deployment-probe-bsc-testnet-default-1795075743322",
+      "scenario": "deployment-probe",
+      "status": "passed",
+      "checkedAt": "2026-11-19T08:13:05.930Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "same-run",
+          "status": "passed",
+          "detail": "All raw events belong to the declared run."
+        },
+        {
+          "id": "completed-scenario",
+          "status": "passed",
+          "detail": "Completion marker agrees with the original scenario."
+        },
+        {
+          "id": "chain-id",
+          "status": "passed",
+          "detail": "Read-only RPC chain matches requested preset."
+        },
+        {
+          "id": "contract-code",
+          "status": "passed",
+          "detail": "Configured protocol addresses contain runtime bytecode at the pinned block."
+        },
+        {
+          "id": "readonly-no-transactions",
+          "status": "passed",
+          "detail": "Probe has no signer and produces no transactions."
+        }
+      ],
+      "transactionCount": 0,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    },
+    {
+      "name": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "schemaVersion": 1,
+      "runId": "v182-final-x402-offline-bsc-testnet-1795075543927",
+      "scenario": "x402-offline",
+      "status": "passed",
+      "checkedAt": "2026-11-19T08:13:06.067Z",
+      "checks": [
+        {
+          "id": "raw-integrity",
+          "status": "passed",
+          "detail": "Event sequence, digest chain and every referenced blob verified."
+        },
+        {
+          "id": "same-run",
+          "status": "passed",
+          "detail": "All raw events belong to the declared run."
+        },
+        {
+          "id": "completed-scenario",
+          "status": "passed",
+          "detail": "Completion marker agrees with the original scenario."
+        },
+        {
+          "id": "signature-verified",
+          "status": "passed",
+          "detail": "Actual local EIP-3009 signature verified during execution; signature is intentionally not exported, so this check is evidence review, not signature re-verification."
+        },
+        {
+          "id": "chain-31337",
+          "status": "passed",
+          "detail": "Expected SDK rejection recorded."
+        },
+        {
+          "id": "unknown-token",
+          "status": "passed",
+          "detail": "Expected SDK rejection recorded."
+        },
+        {
+          "id": "cumulative-budget",
+          "status": "passed",
+          "detail": "Expected SDK rejection recorded."
+        },
+        {
+          "id": "offline-no-transactions",
+          "status": "passed",
+          "detail": "Offline signer case must contain no chain transaction."
+        }
+      ],
+      "transactionCount": 0,
+      "limitations": [
+        "Offline recheck validates saved evidence, not current public-chain state.",
+        "Hash integrity is not an externally anchored authenticity proof.",
+        "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+      ]
+    }
+  ]
+}

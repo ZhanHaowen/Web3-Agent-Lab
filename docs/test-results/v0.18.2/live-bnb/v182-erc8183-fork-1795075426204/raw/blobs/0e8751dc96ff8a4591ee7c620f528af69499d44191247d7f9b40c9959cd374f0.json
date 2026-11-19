@@ -1,0 +1,11 @@
+{
+  "operationId": "operation-1",
+  "name": "ERC8183.createJob",
+  "kind": "sdk-call",
+  "args": {
+    "provider": "0x0000000000000000000000000000000000005678",
+    "expiredAt": "1795162726",
+    "description": "Web3 Agent Lab local fork experiment v182-erc8183-fork-1795075426204"
+  },
+  "contract": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de"
+}

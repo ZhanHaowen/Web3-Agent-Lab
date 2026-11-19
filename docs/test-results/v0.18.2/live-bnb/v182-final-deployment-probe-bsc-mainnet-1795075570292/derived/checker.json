@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "runId": "v182-final-deployment-probe-bsc-mainnet-1795075570292",
+  "scenario": "deployment-probe",
+  "status": "passed",
+  "checkedAt": "2026-11-19T08:06:34.638Z",
+  "checks": [
+    {
+      "id": "raw-integrity",
+      "status": "passed",
+      "detail": "Event sequence, digest chain and every referenced blob verified."
+    },
+    {
+      "id": "same-run",
+      "status": "passed",
+      "detail": "All raw events belong to the declared run."
+    },
+    {
+      "id": "completed-scenario",
+      "status": "passed",
+      "detail": "Completion marker agrees with the original scenario."
+    },
+    {
+      "id": "chain-id",
+      "status": "passed",
+      "detail": "Read-only RPC chain matches requested preset."
+    },
+    {
+      "id": "contract-code",
+      "status": "passed",
+      "detail": "Configured protocol addresses contain runtime bytecode at the pinned block."
+    },
+    {
+      "id": "readonly-no-transactions",
+      "status": "passed",
+      "detail": "Probe has no signer and produces no transactions."
+    }
+  ],
+  "transactionCount": 0,
+  "limitations": [
+    "Offline recheck validates saved evidence, not current public-chain state.",
+    "Hash integrity is not an externally anchored authenticity proof.",
+    "Only recorded SDK operations are attributed; missing LLM relations are not fabricated."
+  ]
+}

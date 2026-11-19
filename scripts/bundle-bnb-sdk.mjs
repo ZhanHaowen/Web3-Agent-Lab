@@ -1,0 +1,12 @@
+import {build} from 'esbuild';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {dirname,resolve,join} from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),dir=join(root,'packages/bnb-sdk-lab');
+const sha=x=>createHash('sha256').update(x).digest('hex');
+const provenance=JSON.parse(await readFile(join(dir,'upstream-provenance.json'),'utf8'));
+for(const [path,hash]of Object.entries(provenance.sourceFiles))if(sha(await readFile(join(dir,'vendor',path)))!==hash)throw Error('BNB_VENDOR_MODIFIED: '+path);
+const result=await build({entryPoints:[join(dir,'index.mjs')],outfile:join(dir,'runtime.mjs'),platform:'node',format:'esm',target:'node24',bundle:true,metafile:true,legalComments:'linked',banner:{js:'import {createRequire as __bnbRequire} from "node:module"; const require=__bnbRequire(import.meta.url);'}});
+await writeFile(join(dir,'runtime-build.json'),JSON.stringify({schema:'bundled-bnb-sdk-runtime-v1',sdkVersion:provenance.version,upstreamCommit:provenance.commit,lockSha256:sha(await readFile(join(dir,'pnpm-lock.yaml'))),outputSha256:sha(await readFile(join(dir,'runtime.mjs'))),inputs:Object.keys(result.metafile.inputs).map(x=>x.replaceAll('\\','/')).sort(),scope:'Selected EVM wallet, ERC8004, ERC8183 and x402 signing; no external wallet providers, LLM or public write runner.'},null,2)+'\n');
+console.log('Bundled pinned BNB SDK '+provenance.version+' independent runtime.');

@@ -1,0 +1,9 @@
+id,source,target,type,source_events
+"edge-1","run:v182-erc8004-fork-1795075399669","op:operation-1","executes","v182-erc8004-fork-1795075399669:13"
+"edge-2","op:operation-1","contract:0x8004a818bfb912233c491871b3d84c89a494bd9e","calls","v182-erc8004-fork-1795075399669:13"
+"edge-3","op:operation-1","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770","submits","v182-erc8004-fork-1795075399669:27"
+"edge-4","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770","contract:0x8004a818bfb912233c491871b3d84c89a494bd9e","targets","v182-erc8004-fork-1795075399669:27"
+"edge-5","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770:call:0","evm-execution","v182-erc8004-fork-1795075399669:27"
+"edge-6","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770:call:0","tx:0x87e82ba47bc38f7a310597f941f1b2ed05fb6e273cd4796eebfff82aee063770:call:0.0","internal-call","v182-erc8004-fork-1795075399669:27"
+"edge-7","run:v182-erc8004-fork-1795075399669","op:operation-2","executes","v182-erc8004-fork-1795075399669:28"
+"edge-8","op:operation-2","contract:0x8004a818bfb912233c491871b3d84c89a494bd9e","calls","v182-erc8004-fork-1795075399669:28"

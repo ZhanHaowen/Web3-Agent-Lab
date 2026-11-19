@@ -1,0 +1,107 @@
+{
+  "schema": "testnet-local-review-regression-v1",
+  "startedAt": "2026-11-19T08:21:10.719Z",
+  "baselineCommit": "065982a9b11666e24b7652937a31d57d52b201be",
+  "branch": "codex/v0.18.0-testnet",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "out": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression",
+  "scope": "Windows local isolated integration and regression. No real testnet broadcasts, no GitHub update. Actual model and GUI runs reported separately.",
+  "selectedSteps": [
+    "03-doctor",
+    "04-typecheck",
+    "05-unit"
+  ],
+  "steps": [
+    {
+      "name": "03-doctor",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "dist/cli.mjs",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:21:10.785Z",
+      "finishedAt": "2026-11-19T08:21:11.008Z",
+      "elapsedMs": 223,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\03-doctor.log",
+      "logSha256": "d29ec18519ad7ab2738a24ab12eb00b6d6fbdd798babb14bb2aa1bf86bc41923",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\results\\03-doctor"
+    },
+    {
+      "name": "04-typecheck",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.control.json",
+        "--noEmit"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:21:11.010Z",
+      "finishedAt": "2026-11-19T08:21:11.386Z",
+      "elapsedMs": 375,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\04-typecheck.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\results\\04-typecheck"
+    },
+    {
+      "name": "05-unit",
+      "command": [
+        "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab\\runtime\\node.exe",
+        "--test",
+        "tests/*.test.mjs"
+      ],
+      "cwd": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\public-web3-agent-lab",
+      "startedAt": "2026-11-19T08:21:11.387Z",
+      "finishedAt": "2026-11-19T08:22:19.945Z",
+      "elapsedMs": 68558,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 250,
+        "pass": 250,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\05-unit.log",
+      "logSha256": "9a7f59c832ef0f6c957e0598e9f1589458e2ed55ef8990db447ba60e7188f32b",
+      "artifacts": "C:\\Users\\Administrator.DESKTOP-5VOHUJH\\Documents\\Codex\\2026-09-22\\c9-agent-github-docx-web3-agent\\work\\bnb-v0182-release\\post-portability-regression\\results\\05-unit"
+    }
+  ],
+  "build": {
+    "sourceHash": "99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4",
+    "builtAt": "2026-11-19T08:17:42.360Z",
+    "version": "0.18.2"
+  },
+  "finishedAt": "2026-11-19T08:22:19.947Z",
+  "passed": true,
+  "passedSteps": 3,
+  "failedSteps": 0
+}

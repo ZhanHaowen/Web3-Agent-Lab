@@ -1,0 +1,4 @@
+{
+  "phase": "before-sign-or-submit",
+  "operation": "ERC8183.createJob"
+}

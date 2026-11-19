@@ -1,0 +1,6 @@
+{
+  "address": "0x918473F7066b525E68Bcb370F4b814FBeAf90a08",
+  "ephemeral": true,
+  "persisted": false,
+  "backend": "EVMWalletProvider"
+}

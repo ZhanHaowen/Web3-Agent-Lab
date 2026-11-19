@@ -1,9 +1,9 @@
 {
   "name": "web3-agent-lab",
-  "version": "0.18.0",
-  "displayVersion": "V0.18.0 Testnet Beta",
-  "releaseRevision": "testnet-validated-preview",
-  "releaseLabel": "V0.18.0 Testnet Beta",
+  "version": "0.18.2",
+  "displayVersion": "V0.18.2 BNB SDK Beta",
+  "releaseRevision": "independent-bnb-sdk-module",
+  "releaseLabel": "V0.18.2 BNB SDK Beta",
   "private": true,
   "type": "module",
   "description": "Reproducible Web3 Agent experiments, local/API models, payment traces and private-ground-truth inference evaluation",
@@ -12,7 +12,7 @@
   },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
-    "build": "node scripts/bundle-research-deps.mjs && node scripts/compile-peer.mjs && node scripts/compile-research-payments.mjs && node scripts/compile-research-job.mjs && node scripts/compile-testnet.mjs && node scripts/build-legacy.mjs && node scripts/build-v014.mjs",
+    "build": "node scripts/bundle-bnb-sdk.mjs && node scripts/bundle-research-deps.mjs && node scripts/compile-peer.mjs && node scripts/compile-research-payments.mjs && node scripts/compile-research-job.mjs && node scripts/compile-testnet.mjs && node scripts/build-legacy.mjs && node scripts/build-v014.mjs",
     "setup:research": "pnpm --dir packages/payment-adapters install --frozen-lockfile --ignore-workspace",
     "research": "node scripts/research-cli.mjs",
     "test:research": "node --test tests/research-*.test.mjs",
@@ -41,7 +41,10 @@
     "test:service": "node tests/service-integration.mjs",
     "build:base-contracts": "node scripts/compile-contracts.mjs",
     "package:windows": "python scripts/package-budget.py",
-    "test:v2": "node tests/v2-integration.mjs"
+    "test:v2": "node tests/v2-integration.mjs",
+    "setup:bnb": "pnpm --dir packages/bnb-sdk-lab install --frozen-lockfile --ignore-workspace",
+    "test:bnb": "node --test tests/bnb-sdk-*.test.mjs",
+    "test:bnb:fork": "node scripts/bnb-sdk-smoke.mjs --fork"
   },
   "dependencies": {
     "@coinbase/agentkit": "0.10.4",

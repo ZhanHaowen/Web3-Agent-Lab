@@ -1,0 +1,9 @@
+{
+  "operationId": "operation-4",
+  "name": "ERC8183.getJob",
+  "kind": "sdk-call",
+  "args": {
+    "jobId": "1744"
+  },
+  "contract": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de"
+}

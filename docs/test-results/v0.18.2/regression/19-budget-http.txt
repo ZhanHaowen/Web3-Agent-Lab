@@ -1,0 +1,8 @@
+PASS HTTP origin and token required
+PASS unknown configuration is rejected
+PASS stale execution cannot advance another experiment
+PASS overlapping clicks do not duplicate a payment
+PASS manual unified flow blocks permit and seals evidence
+PASS one-click split run reproduces actual 140
+PASS export contains evidence without reusable signature
+PASS completed earlier execution cannot act in later execution

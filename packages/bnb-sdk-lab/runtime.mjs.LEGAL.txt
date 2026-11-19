@@ -1,0 +1,15 @@
+Bundled license information:
+
+@noble/hashes/esm/utils.js:
+  /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
+
+@noble/curves/esm/abstract/utils.js:
+@noble/curves/esm/abstract/modular.js:
+@noble/curves/esm/abstract/curve.js:
+@noble/curves/esm/abstract/weierstrass.js:
+@noble/curves/esm/_shortw_utils.js:
+@noble/curves/esm/secp256k1.js:
+  /*! noble-curves - MIT License (c) 2022 Paul Miller (paulmillr.com) */
+
+@noble/ciphers/esm/utils.js:
+  /*! noble-ciphers - MIT License (c) 2023 Paul Miller (paulmillr.com) */

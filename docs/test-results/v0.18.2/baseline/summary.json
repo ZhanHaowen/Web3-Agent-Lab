@@ -1,0 +1,24 @@
+{
+  "schema": "bnb-v0182-baseline-v1",
+  "clientDate": "2026-11-19",
+  "baselineCommit": "065982a9b11666e24b7652937a31d57d52b201be",
+  "node": "v24.19.0",
+  "os": "Windows",
+  "unit": {
+    "tests": 227,
+    "passed": 227,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "durationMs": 70269.2438,
+    "log": "unit.log",
+    "logSha256": "70b8f8a49fb671f78b038d69f51e69933dc7f67c4b925f003421423c5fdd3ab1"
+  },
+  "typecheck": {
+    "passed": true,
+    "exitCode": 0,
+    "log": "typecheck.log",
+    "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": "Before BNB SDK source integration; existing full unit suite and control interfaces; no public-chain writes."
+}
