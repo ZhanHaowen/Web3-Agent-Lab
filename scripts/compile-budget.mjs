@@ -21,3 +21,17 @@ const c=output.contracts['src/Permit2.sol'].Permit2;
 const sourceHashes=Object.fromEntries(Object.entries(sources).sort().map(([p,s])=>[p,createHash('sha256').update(s.content).digest('hex')]));
 await writeFile(join(root,'contracts/artifacts/Permit2.json'),JSON.stringify({contractName:'Permit2',compiler:version,optimizerRuns:200,viaIR:true,evmVersion:'london',sourceHashes,abi:c.abi,bytecode:'0x'+c.evm.bytecode.object,deployedBytecode:'0x'+c.evm.deployedBytecode.object},null,2)+'\n');
 console.log('Official Permit2 compiled offline:',version);
+
+const walletFile='BudgetSessionWallet.sol';
+const walletSources={[walletFile]:{content:await readFile(join(root,'contracts',walletFile),'utf8')}};
+for(const name of ['ISignatureTransfer.sol','IEIP712.sol']){
+ const upstream='src/interfaces/'+name;
+ walletSources['upstream/permit2/'+upstream]=sources[upstream];
+}
+const walletInput={language:'Solidity',sources:walletSources,settings:{...input.settings,outputSelection:{[walletFile]:{'BudgetSessionWallet':['abi','evm.bytecode.object','evm.deployedBytecode.object']}}}};
+const walletOutput=JSON.parse(raw.cwrap('solidity_compile','string',['string','number','number'])(JSON.stringify(walletInput),0,0));
+const walletErrors=(walletOutput.errors??[]).filter(e=>e.severity==='error');
+if(walletErrors.length)throw Error(walletErrors.map(e=>e.formattedMessage).join('\n'));
+const wallet=walletOutput.contracts[walletFile].BudgetSessionWallet;
+await writeFile(join(root,'contracts/artifacts/BudgetSessionWallet.json'),JSON.stringify({contractName:'BudgetSessionWallet',compiler:version,optimizerRuns:200,viaIR:true,evmVersion:'london',abi:wallet.abi,bytecode:'0x'+wallet.evm.bytecode.object,deployedBytecode:'0x'+wallet.evm.deployedBytecode.object},null,2)+'\n');
+console.log('BudgetSessionWallet compiled offline:',version);

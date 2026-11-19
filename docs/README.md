@@ -1,10 +1,17 @@
-# V0.18.0 Testnet Beta 文档索引
+# V0.18.2 BNB SDK Beta 文档索引
 
-当前版本为 **V0.18.0 Testnet Beta**（package：`0.18.0`，prerelease）。本版增加六个 EVM 测试网配置的基础任务入口，保留原单 Agent、多 Agent、服务购买、预算控制、采购支付研究及本地/API 双后端。原研究模块继续在本地运行，其他十四个网络只作目录展示。测试网自动验收使用隔离真实 EVM，尚未在六条公网写入验收；历史与发布构建结果分别记录。
+当前版本为 **V0.18.2 BNB SDK Beta**（package：`0.18.2`，prerelease）。本版新增独立 BNB SDK 实验室，并保留远端 V0.18.1 的跨路径预算更新：固定有效期、白名单、风险标签、人工审核及本地 ERC-1271 研究智能账户。原单 Agent、多 Agent、服务购买、采购支付研究、本地/API 双后端及六个 EVM 测试网基础任务配置继续保留。BNB 模块执行可核验的 SDK 脚本，不代表模型自主采购；该入口对公共链仅只读，身份登记及托管任务写入只发生在本地分叉。历史测试和合并后的发布验证分别记录。
 
 ## 本版先读
 
-- [V0.18.0 更新说明](releases/V0.18.0.md)：测试网基础任务、恢复与检查、原有功能影响、升级和未实现范围。
+- [V0.18.2 更新说明](V0.18.2-RELEASE-NOTES.md)：BNB SDK 独立模块、四类实验、保留的预算更新及能力边界。
+- [BNB SDK 实验室操作手册](BNB-SDK-LAB-V0.18.2.md)：运行、暂停、记录检查、图导出和离线回放。
+- [V0.18.2 发布验证](releases/V0.18.2-publication-validation.md)：合入远端 V0.18.1 后的发布构建身份、回归及便携包结果。
+- [V0.18.2 首轮本地测试](V0.18.2-TEST-REPORT.md)与[历史证据](test-results/v0.18.2/)：保留最初 SDK 集成的测试身份，不能代替合并后发布验证。
+- [V0.18.1 更新说明](releases/V0.18.1.md)：预算模块替换范围、兼容接入和升级。
+- [V0.18.1 预算实验指南](V0.18.1-BUDGET-GUIDE.md)：80/60 超额任务、40/50 预算内对照、白名单、有效期和人工审核。
+- [V0.18.1 本地验证](releases/V0.18.1-validation.json)与[替换审计](releases/V0.18.1-transplant-audit.json)：实际套件、原构建身份和文件保留范围。
+- [V0.18.0 历史更新说明](releases/V0.18.0.md)：测试网基础任务、恢复与检查、原有功能影响、升级和未实现范围。
 - [测试网操作指南](TESTNET-PREVIEW-GUIDE.md)：连接、明确部署/清单接入、五任务、模型、暂停、只读对账及离线回放。
 - [V0.18.0 验证报告](TESTNET-VALIDATION-REPORT.md)与[同步测试证据](test-results/v0.18.0/)：发布构建、历史候选、真实模型失败和未测范围分别标注。
 - [V0.17.0 历史更新说明](V0.17.0-RELEASE-NOTES.md)：保留的四项隐私研究能力、六种本地支付部署与实现边界。
@@ -17,31 +24,33 @@
 
 | 需要做的事 | 文档 |
 | --- | --- |
+| BNB SDK 签名、部署探测、身份及未注资托管任务 | [BNB 实验室操作手册](BNB-SDK-LAB-V0.18.2.md) |
 | 测试网连接、五类基础任务、轨迹与离线复查 | [测试网操作指南](TESTNET-PREVIEW-GUIDE.md) |
 | 支付轨迹、任务/预算/采购策略推断实验 | [V0.17.0 研究指南](V0.17.0-RESEARCH-GUIDE.md) |
-| 判断新版本对原功能的影响 | [V0.18.0 验证报告](TESTNET-VALIDATION-REPORT.md) |
+| 判断本版集成范围与验证状态 | [V0.18.2 更新说明](V0.18.2-RELEASE-NOTES.md)、[发布验证](releases/V0.18.2-publication-validation.md) |
 | 原单 Agent 任务与平台模块选择 | [操作指南](操作手册.md) |
 | 任务发布、Agent 配置与独立 worker | [任务中心手册](操作手册_V0.15.1.md)、[Control API](control-api_V0.15.1.md) |
 | 双 Agent 协商换币 | [V0.14.1 手册](操作手册_V0.14.1.md) |
 | 分角色服务购买和交付检查 | [V0.15 手册](操作手册_V0.15.md) |
-| 跨路径授权与预算控制 | [V0.15.3 预算手册](操作手册_V0.15.3.md) |
+| 跨路径授权与预算控制 | [V0.18.1 预算实验指南](V0.18.1-BUDGET-GUIDE.md) |
 | 执行轨迹、图和原模块证据格式 | [证据与轨迹格式](trace-schema.md) |
 | 新增研究数据与观察者边界 | [研究指南第 4—6 节](V0.17.0-RESEARCH-GUIDE.md#4-文件与攻击者边界) |
 | 扩展任务、角色与工具 | [研究扩展指南](extension-guide.md) |
 | 架构及兼容基线 | [框架说明](framework-selection.md)、[仓库架构入口](../README.md#技术架构) |
-| 重建与第三方组件 | [构建说明](third-party-rebuild.md)、[本版安装命令](V0.17.0-RESEARCH-GUIDE.md#7-cli-与源码复现) |
+| 重建与第三方组件 | [构建说明](third-party-rebuild.md)、[本版安装命令](../README.md#源码开发) |
 | 封存样例及离线命令 | [样例集合](../examples/README.md) |
 
 版本化旧手册描述保留模块的操作，不代表本版全部功能已由该旧报告验收。新增研究模块采用独立数据格式，不能用旧模块读取器代替其公开视图与私有证据读取流程。
 
 ## 发布、验证与历史资料
 
-从 [V0.18.0 Release](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) 选择 `Web3-Agent-Lab-V0.18.0-Windows-x64.zip`。GitHub 自动生成的 Source code ZIP 不含完整便携运行程序，源码安装需按 [README](../README.md#源码开发) 安装根依赖和隔离支付依赖。
+从 [V0.18.2 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.2) 选择 `Web3-Agent-Lab-V0.18.2-Windows-x64.zip`。GitHub 自动生成的 Source code ZIP 不含完整便携运行程序，源码安装需按 [README](../README.md#源码开发) 安装根依赖、隔离支付依赖和 BNB SDK 依赖（`pnpm run setup:bnb`）。
 
-本版实测范围以 [V0.18.0 验证报告](TESTNET-VALIDATION-REPORT.md)为准；远端 CI 以对应提交的 Actions 结果为准。`build-info.json` 标识构建和源码摘要，实验完整性清单校验封存文件；完整性通过不等于任务成功或隐私攻击有效。
+本版发布实测范围以 [V0.18.2 发布验证](releases/V0.18.2-publication-validation.md)为准。首轮 BNB 集成报告的源码摘要为 `99832d0799876455511da738315e8fceabb0fa885e2be432d7c951472ba7d4e4`，早于合入远端 V0.18.1 预算更新；其中 250/250 单元、26/26 阶段和 17/17 便携检查是该首轮构建的历史结果。V0.18.1 的[本地验证](releases/V0.18.1-validation.json)与 V0.18.0 的[验证报告](TESTNET-VALIDATION-REPORT.md)也保留各自身份。远端 CI 以对应提交的 Actions 结果为准。`build-info.json` 标识构建和源码摘要，实验完整性清单校验封存文件；完整性通过不等于任务成功或隐私攻击有效。
 
-本次发布构建本地 26/26 阶段、浏览器 15/15、Windows 便携包 6/6 通过；这与 GitHub Actions 独立，不代表推送后的 CI 已通过。八个真实 Qwen 样本保留历史身份，基础任务 4/5、采购 0/3 的任务完成结果没有改写为本次模型重测。
+历史 V0.18.1 本地根单元235/235、预算浏览器25/25、测试网集成20/20及便携包6/6通过，其他预算套件见独立验证记录。V0.18.0 当时的26/26阶段和浏览器15/15记录不改写为本次结果。上述本地记录不代表推送后的 CI 已通过；八个真实 Qwen 历史样本的基础任务4/5、采购0/3结果没有改写为本次模型重测。
 
+- [V0.15.3 预算手册](操作手册_V0.15.3.md)保留旧分离计数页面的操作，不适用于当前预算入口。
 - [V0.16.0 更新说明](V0.16.0更新说明.md)与[回归报告](V0.16.0回归测试报告.md)保留本地/API 后端引入时的证据。
 - [V0.15.3 源码同步记录](repository-sync-v0153-validation.json)、[验证摘要](V0.15.3验证摘要.md)、`v0153-*.json` 均是历史记录。
 - [V0.15.3 便携构建身份](releases/V0.15.3-portable-build-info.json)与[仓库同步清单](releases/V0.15.3-github-overlay-manifest.json)用于区分当时的附件和源码迁移。

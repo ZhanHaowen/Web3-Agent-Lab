@@ -1,0 +1,36 @@
+{
+  "baseline": "G:\\xwechat_files\\wxid_17p20ha5ctjk22_632c\\msg\\file\\2026-11\\Web3-Agent-Lab-main-Windows-x64.zip",
+  "modifiedExistingFiles": [
+    "public/budget.css",
+    "public/budget.html",
+    "public/budget.js",
+    "src/budget/agent.mjs",
+    "src/budget/checker.mjs",
+    "src/budget/common.mjs",
+    "src/budget/engine.mjs",
+    "src/budget/service.mjs",
+    "src/budget/signer.mjs",
+    "src/budget/wallet.mjs",
+    "tests/budget-gui.mjs",
+    "tests/budget-integration.mjs"
+  ],
+  "otherModulesByteIdentical": true,
+  "testReports": [
+    {
+      "report": "budget-constraints-results.json",
+      "passed": 23
+    },
+    {
+      "report": "v0153-budget-results.json",
+      "passed": 15
+    },
+    {
+      "report": "v0153-http-results.json",
+      "passed": 6
+    },
+    {
+      "report": "budget-gui-results.json",
+      "passed": 16
+    }
+  ]
+}

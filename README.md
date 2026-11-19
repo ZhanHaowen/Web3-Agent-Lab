@@ -6,9 +6,11 @@
 
 **本版新增独立 BNB SDK 实验室。** 固定上游 SDK 0.6.1 的已审查源码，提供离线签名与预算、部署只读探测、BSC 分叉身份登记、未注资托管任务创建与取消四类实验；独立子进程执行并保存原始证据、检查结果及溯源图，支持离线回放。本版没有开放完整注资结算或公网写交易，也不将脚本测试标作模型自主采购。见[操作手册](docs/BNB-SDK-LAB-V0.18.2.md)、[版本说明](docs/V0.18.2-RELEASE-NOTES.md)和[测试报告](docs/V0.18.2-TEST-REPORT.md)。
 
+**同时保留远端 V0.18.1 的预算更新。** 包括模型驱动的跨路径统一预算、固定有效期、白名单、风险标签、人工审核、受限 EOA 与 ERC-1271 研究智能账户。见[预算实验指南](docs/V0.18.1-BUDGET-GUIDE.md)。
+
 **保留 V0.18.0 的可选公开测试网基础任务环境。** 首页提供本地 Anvil 与测试网入口，开放 Base Sepolia、BNB Testnet、Arbitrum Sepolia、OP Sepolia、Polygon Amoy 和 Avalanche Fuji 六个 EVM 配置；其余十四个网络只作目录展示。五类基础任务使用自有 Lab 合约，后端经过隔离真实 EVM 回归。**尚未在这六条公网部署或发送交易验收**，不能将配置开放理解为公网已实测通过。原 Anvil、多 Agent、服务购买、预算和采购支付研究仍在本地运行。
 
-[V0.18.0 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) · [V0.18.0 更新说明](docs/releases/V0.18.0.md) · [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) · [V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md) · [同步测试证据](docs/test-results/v0.18.0/) · [采购与支付轨迹研究指南](docs/V0.17.0-RESEARCH-GUIDE.md) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md)
+[V0.18.2 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.2) · [V0.18.2 更新说明](docs/V0.18.2-RELEASE-NOTES.md) · [合并发布验证](docs/releases/V0.18.2-publication-validation.md) · [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) · [V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md) · [同步测试证据](docs/test-results/v0.18.0/) · [采购与支付轨迹研究指南](docs/V0.17.0-RESEARCH-GUIDE.md) · [本地模型操作指南](docs/V0.16.0本地模型与双后端操作指南.md)
 
 V0.17.0 在原有平台上增加采购与支付轨迹研究模块，支持实际付费工具选择、公开链上观察与私有真值分离，以及任务、总授权预算和采购策略标签的推断评估。新增模块通过独立入口和临时链运行，保留原单 Agent、多 Agent、服务购买、跨路径预算和本地/API 双后端功能。已执行 Windows 回归范围内未发现原核心功能退化；旧数据库迁移、Mac 真机与所有真实模型组合并未全面验证。
 
@@ -116,25 +118,22 @@ V0.17.0 引入、在本版保留的四项能力：
 
 ### 跨路径资产授权与预算控制
 
-该研究类别关注同一任务通过不同路径产生的累计资产效果：
-
-- **交易路径**：请求钱包发起交易，由代币或业务合约完成支付。
-- **签名路径**：签署支付许可，再由第三方提交并兑现，从钱包转出资产。
-
-实验对比两种策略：
-
-| 策略 | 研究内容 |
-| --- | --- |
-| 分离计数 | 正常交易入口与签名兑现路径分别检查，观察组合后是否超出任务预算 |
-| 统一预算 | 同时考虑已支出金额和未兑现承诺，在新增操作前检查共同额度 |
-
-统一预算的检查思路为：
+Agent 根据任务和工具返回，自主选择直接转账或 Permit2 签名支付。两条路径共用同一任务预算，已签署但尚未兑现的许可会预留额度：
 
 **已实际支出 + 未兑现承诺预留 + 本次新增支出或承诺 ≤ 任务总预算**
 
-余额、预算、首笔交易和第二笔请求均可自定义，支持六位小数。分类模板按当前参数生成，覆盖超额对照、预算内组合、恰好用尽预算、仅签名兑现及仅交易支付等情况。
+支持本地 Qwen3 4B 或兼容工具调用 API，可配置任务、预算、决策步数，以及逐笔或累计的业务目标。目标确认后保留原任务金额；例如预算100、要求直接支付80并通过Permit2支付60，不会自动改成80与20。
 
-本模块使用官方 Permit2 的本地部署、软件限制的 EOA 签名进程和第三方兑现钱包。分离计数是有意设置的研究对照，结果不直接证明 Permit2 或其他版本平台存在相同漏洞。
+| 钱包后端 | 执行与检查 |
+| --- | --- |
+| 本地受限 EOA | 独立签名进程检查会话、权限和共同预算 |
+| 本地智能账户（ERC-1271） | BudgetSessionWallet 合约检查额度、权限、到期和许可预留 |
+
+额外约束包括固定有效期（默认24小时）、收款地址／兑现方／授权合约白名单，以及高风险动作实验标签。白名单与风险违规可拒绝或进入人工确认；人工确认不能覆盖共同预算与到期限制。白名单和风险标签由实验网关执行，钱包仍独立检查预算。
+
+实验使用本地临时链和六位小数 BUD 测试代币。模型提议、网关判断、钱包执行、链上结果和任务检查分别记录，支持完整证据导出与离线复查。结果不能直接证明外部钱包或生产协议存在同样漏洞。
+
+操作见 [V0.18.1 预算实验指南](docs/V0.18.1-BUDGET-GUIDE.md)。
 
 ## 实验控制与可观测性
 
@@ -256,8 +255,10 @@ src/
   research/              采购任务、私有预算、真值、评估、研究 GUI/API 与托管适配
   payments/              x402/AP2/MPP 支付适配及原始协议证据
   observer/              独立公开 RPC 采集、图、公开特征及推断子进程
+  bnb-sdk/               独立 SDK 子进程、四场景、检查器与溯源图
   testnet/               可选 EVM 测试网连接、Lab 合约、基础任务与只读复查
 packages/payment-adapters/ 固定支付依赖、锁文件与便携运行桥
+packages/bnb-sdk-lab/     固定 BNB SDK 源码、锁文件与独立运行桥
 contracts/               实验合约、上游源码与合约产物
 tasks/                   版本化任务定义、参数 schema 与角色提示词
 scripts/                 构建、启动、测试、打包与辅助工具
@@ -283,10 +284,10 @@ dist/                    当前兼容运行入口
 
 ## 快速开始
 
-1. 从 [V0.18.0 Release](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.0) 的附件下载 `Web3-Agent-Lab-V0.18.0-Windows-x64.zip`，解压到新的、较短的可写目录。
+1. 从 [V0.18.2 发布页](https://github.com/ZhanHaowen/Web3-Agent-Lab/releases/tag/V0.18.2) 下载附件 `Web3-Agent-Lab-V0.18.2-Windows-x64.zip`，解压到新的、较短的可写目录。
 2. 双击 `start.cmd` 打开平台，或用 `open-research.cmd` 直接进入采购与支付轨迹研究。默认地址为 `http://127.0.0.1:4317`。
 3. 在首页选择本地 Anvil 或公开测试网基础任务；任务中心、服务购买、跨路径预算及支付轨迹研究继续使用本地环境。
-4. 按对应模块准备任务和环境，先运行脚本基线，再按需要配置真实模型。
+4. 按对应模块准备任务和环境；基础任务先运行脚本基线。新版跨路径预算页使用模型 Agent，按[预算指南](docs/V0.18.1-BUDGET-GUIDE.md)配置模型和业务目标。
 5. 查看检查结果、交易记录和资产变化，导出需要保留的证据。
 6. 使用 `stop.cmd` 关闭平台。
 
@@ -314,6 +315,7 @@ GitHub 自动生成的 Source code ZIP 和普通源码克隆不包含便携运�
 ```powershell
 pnpm install --frozen-lockfile
 pnpm run setup:research
+pnpm run setup:bnb
 node scripts/setup-runtime.mjs
 pnpm build:budget
 pnpm build
@@ -324,7 +326,7 @@ pnpm start
 
 `setup-runtime.mjs` 获取并校验 Anvil，需要系统可用的 `tar`。它不安装 Windows 便携启动器所需的 `runtime/node.exe`；源码开发可使用系统 Node，运行启动器测试时另需准备匹配的运行文件。
 
-`pnpm run setup:research` 安装隔离的支付依赖；`pnpm build` 打包支付运行桥、编译换币、服务及研究合约并生成兼容桥；`pnpm build:budget` 使用固定离线编译器构建 Permit2。固定支付依赖包括 x402 2.30.0、mppx 0.18.0、viem 2.57.4 和 OpenZeppelin 5.6.1，锁文件位于 `packages/payment-adapters/`。
+`pnpm run setup:research` 安装隔离的支付依赖；`pnpm run setup:bnb` 安装独立 BNB SDK 依赖；`pnpm build` 打包支付运行桥、编译换币、服务及研究合约并生成兼容桥；`pnpm build:budget` 使用固定离线编译器构建 Permit2 和 BudgetSessionWallet。固定支付依赖包括 x402 2.30.0、mppx 0.18.0、viem 2.57.4 和 OpenZeppelin 5.6.1，锁文件位于 `packages/payment-adapters/`。
 
 当前运行时由新增 ESM 模块与固定 vendor 基线组成。完整 TypeScript 运行时迁移及脱离 vendor 的干净全源码构建尚未完成。`typecheck:interfaces` 仅检查指定接口和类型测试文件，不代表全部运行时通过类型检查。
 
@@ -332,13 +334,19 @@ pnpm start
 
 ## 测试与验证
 
-V0.18.0 的构建身份、当前回归状态及历史验收分别见[V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md)与[同步证据](docs/test-results/v0.18.0/)。测试覆盖测试网基础任务、金额校验、暂停/取消、未决交易恢复、只读对账、图关联及离线隔离，并回归原单 Agent、双 Agent、独立 worker、服务购买、预算和支付研究。测试网链操作使用隔离 Anvil 的标准 RPC，不代表真实公网写入验收。
+V0.18.2 的 SDK 模块测试与合并远端 V0.18.1 后的发布回归分别保存，见[模块首轮测试](docs/V0.18.2-TEST-REPORT.md)和[合并发布验证](docs/releases/V0.18.2-publication-validation.md)。后者标识当前构建、完整回归与新增预算约束测试，不以旧源码结果代替新构建验收。
 
-本次 V0.18.0 发布构建本地回归 **26/26 阶段通过**；根目录 227/227、保留 TypeScript 145/145，测试网链/服务/端到端/UI 分别为 19/19、11/11、20/20、10/10，浏览器 15/15、Windows 便携包 6/6。各集合有重叠，不相加为独立用例总数。[GitHub Actions 独立 Windows 回归](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/43817559055)亦为 **26/26 阶段通过**，源码摘要与本地一致；被测代码提交及最终文档补充提交的关系见[CI 证据](docs/test-results/v0.18.0-ci/)和[验证报告](docs/TESTNET-VALIDATION-REPORT.md)。
+V0.18.1 历史本地验证：根目录单元 **235/235**；预算核心、额外约束、参数矩阵分别为 **21/21、23/23、33/33**；预算 HTTP、主平台集成、浏览器和 Windows 启停分别为 **7/7、10/10、25/25、4/4**；测试网集成及便携包检查为 **20/20、6/6**。各集合存在覆盖重叠，不相加为独立用例总数。范围和构建身份见[本版本地验证记录](docs/releases/V0.18.1-validation.json)。模型接口测试使用协议夹具与真实 Anvil，未重新评估真实 Qwen 或商业模型任务成功率，也未执行公网交易；这些本地结果不表示推送后的 GitHub Actions 已通过。
+
+以下 V0.18.0 记录保留原发布与提交身份，作为历史验证资料。
+
+V0.18.0 的构建身份、当时回归状态及历史验收分别见[历史测试报告](docs/TESTNET-VALIDATION-REPORT.md)与[同步证据](docs/test-results/v0.18.0/)。测试覆盖测试网基础任务、金额校验、暂停/取消、未决交易恢复、只读对账、图关联及离线隔离，并回归原单 Agent、双 Agent、独立 worker、服务购买、预算和支付研究。测试网链操作使用隔离 Anvil 的标准 RPC，不代表真实公网写入验收。
+
+V0.18.0 发布构建当时的本地回归 **26/26 阶段通过**；根目录 227/227、保留 TypeScript 145/145，测试网链/服务/端到端/UI 分别为 19/19、11/11、20/20、10/10，浏览器 15/15、Windows 便携包 6/6。各集合有重叠，不相加为独立用例总数。[GitHub Actions 独立 Windows 回归](https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/43817559055)亦为 **26/26 阶段通过**，源码摘要与本地一致；被测代码提交及最终文档补充提交的关系见[CI 证据](docs/test-results/v0.18.0-ci/)和[验证报告](docs/TESTNET-VALIDATION-REPORT.md)。
 
 完整公开日志、报告与轨迹样本另提供 Release 的 `Web3-Agent-Lab-V0.18.0-Test-Evidence.zip`；Windows 运行包按打包规则排除日志及嵌套 ZIP，请分别下载。公开样本保留脱敏说明与文件校验索引。
 
-历史 Testnet Preview 的 final04 为 26/26 阶段通过；真实 Qwen 基础任务完成 4/5，原采购研究任务完成 0/3，失败样本均保留。历史报告及 sourceHash 不作为 V0.18.0 新构建的验收身份；本次发布构建的结果以本版测试报告为准。
+历史 Testnet Preview 的 final04 为 26/26 阶段通过；真实 Qwen 基础任务完成 4/5，原采购研究任务完成 0/3，失败样本均保留。这些历史报告及 sourceHash 保留各自身份；V0.18.1 的本地验证以本版独立记录为准。
 
 基础设施测试通过不等于模型完成任务，也不等于存在可泛化隐私泄露。V0.17.0 的 36 份构造任务轨迹保留成功与失败；真实 Qwen3 4B 运行的失败记录也保留。各套件按自身范围报告，不将重叠断言累加成单一通过总数。远端 CI 以对应提交的 Actions 结果为准；历史证据保留原版本身份。
 
@@ -347,11 +355,14 @@ V0.18.0 的构建身份、当前回归状态及历史验收分别见[V0.18.0 测
 ```powershell
 pnpm test
 pnpm test:testnet
+pnpm test:bnb
+node scripts/bnb-sdk-smoke.mjs
 node tests/testnet-integration.mjs
 pnpm test:research
 pnpm test:research:chain
 pnpm test:budget
 pnpm test:budget:matrix
+node tests/budget-constraints.mjs
 pnpm test:budget:main
 pnpm test:budget:http
 pnpm test:budget:launcher
@@ -367,9 +378,13 @@ pnpm test:service
 
 | 内容 | 入口 |
 | --- | --- |
-| V0.18.0 新增功能、限制与升级 | [V0.18.0 更新说明](docs/releases/V0.18.0.md) |
+| V0.18.2 SDK 独立模块、限制与升级 | [本版更新说明](docs/V0.18.2-RELEASE-NOTES.md)、[操作手册](docs/BNB-SDK-LAB-V0.18.2.md) |
+| V0.18.2 发布回归与证据 | [合并发布验证](docs/releases/V0.18.2-publication-validation.md)、[模块首轮测试](docs/V0.18.2-TEST-REPORT.md) |
+| V0.18.1 预算更新、限制与升级 | [本版更新说明](docs/releases/V0.18.1.md) |
+| V0.18.0 测试网引入记录 | [历史更新说明](docs/releases/V0.18.0.md) |
 | 测试网连接、基础任务与离线回放 | [测试网操作指南](docs/TESTNET-PREVIEW-GUIDE.md) |
-| 本版回归与原有功能影响 | [V0.18.0 测试报告](docs/TESTNET-VALIDATION-REPORT.md) |
+| V0.18.1 历史回归与替换范围 | [验证记录](docs/releases/V0.18.1-validation.json)、[替换审计](docs/releases/V0.18.1-transplant-audit.json) |
+| V0.18.0 回归与原有功能影响 | [历史测试报告](docs/TESTNET-VALIDATION-REPORT.md) |
 | 可核验的同步报告与日志 | [V0.18.0 测试证据](docs/test-results/v0.18.0/) |
 | V0.17.0 研究能力及兼容边界 | [更新说明](docs/V0.17.0-RELEASE-NOTES.md) |
 | 采购、观察者视图与推断评估 | [研究操作指南](docs/V0.17.0-RESEARCH-GUIDE.md) |
@@ -379,7 +394,7 @@ pnpm test:service
 | 任务与 Agent 中心 | [任务中心手册](docs/操作手册_V0.15.1.md) |
 | 双 Agent 换币 | [双 Agent 操作手册](docs/操作手册_V0.14.1.md) |
 | 购买 Agent 服务 | [服务购买手册](docs/操作手册_V0.15.md) |
-| 跨路径预算实验 | [V0.15.3 操作手册](docs/操作手册_V0.15.3.md) |
+| 跨路径预算实验 | [V0.18.1 预算实验指南](docs/V0.18.1-BUDGET-GUIDE.md) |
 | 执行轨迹、图和证据格式 | [格式说明](docs/trace-schema.md) |
 | 添加任务、角色或工具 | [扩展指南](docs/extension-guide.md) |
 | 技术选型与实现边界 | [架构说明](docs/framework-selection.md) |
@@ -390,13 +405,13 @@ pnpm test:service
 
 ## 数据与当前实现范围
 
-当前版本为 **V0.18.0 Testnet Beta**，作为 prerelease 提供，适用于受控研究与复查，不承诺生产网络或所有模型后端可用。
+当前版本为 **V0.18.1 Testnet Beta**，作为 prerelease 提供，适用于受控研究与复查，不承诺生产网络或所有模型后端可用。
 
-- 当前发布与新增验证面向 Windows x64；历史 macOS 记录不能替代 V0.18.0 的真机验收。
+- 当前发布与新增验证面向 Windows x64；历史 macOS 记录不能替代 V0.18.1 的真机验收。
 - 仅六个 EVM 测试网配置开放基础任务，其余十四个目录项未开放执行；六网公网写入仍待逐网验收。原支付协议、多 Agent 与研究模块保持本地执行范围。
 - 原始记录保存实际发生的调用与错误。协议模拟模型和脚本测试不代表真实外部模型能力。
 - Agent 的本地运行目录可能包含钱包秘密、模型配置和身份凭据；公开分享应使用经过脱敏的导出包。
-- 预算签名主体是软件限制的 EOA，尚非智能账户 session key。预算链为临时链，不支持中途崩溃后续跑。
+- 预算实验提供本地受限 EOA 与 ERC-1271 研究智能账户；白名单和风险标签由实验网关执行，不等于生产钱包的全面权限隔离。预算链为临时链，不支持中途崩溃后续跑。
 - 原样重跑与崩溃恢复受模块、原链状态和已验证覆盖范围约束，不承诺任意检查点无损恢复。
 - 采购研究的私有完整包含任务、授权预算及策略真值，不应交给攻击程序；使用单独的公开观察者导出。推断评估结果本身也含测试真值，仅供研究者。
 - 目前仅比较已实现结算部署的可见信息，未实现 PrivateX402、A402 或 TACEO 的隐私保护协议。

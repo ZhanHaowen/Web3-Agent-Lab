@@ -23,6 +23,9 @@ jobs:
       CI: 'true'
       LAB_TEST_ARTIFACT_DIR: artifacts/test-results/current
     steps:
+      - name: Enable long paths for sealed evidence checkout
+        run: git config --global core.longpaths true
+
       # Keep official actions on the v4 major pins used by the existing workflow.
       - name: Check out source without retaining push credentials
         uses: actions/checkout@v4
@@ -63,11 +66,19 @@ jobs:
           LAB_REGRESSION_OUT: artifacts/test-results/v0182-ci
         run: |
           node scripts/testnet-regression.mjs
-          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 regression failed.' }
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 inherited regression failed.' }
           $ciSummary = Get-Content artifacts/test-results/v0182-ci/summary.json -Raw | ConvertFrom-Json
           if (-not $ciSummary.passed -or $ciSummary.passedSteps -ne 26 -or $ciSummary.failedSteps -ne 0) {
             throw 'All 26 phases must pass; partial results cannot pass the release gate.'
           }
+
+      - name: Verify budget policy constraints
+        env:
+          LAB_TEST_ARTIFACT_DIR: artifacts/test-results/v0182-ci/budget-constraints
+          LAB_TEST_DATA_DIR: artifacts/test-results/v0182-ci/budget-constraints/data
+        run: |
+          node tests/budget-constraints.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 budget constraint regression failed.' }
 
       - name: Upload current CI logs and reports
         if: always()
@@ -80,6 +91,7 @@ jobs:
           path: |
             artifacts/test-results/v0182-ci/*.log
             artifacts/test-results/v0182-ci/summary.json
+            artifacts/test-results/v0182-ci/budget-constraints/*.json
             artifacts/test-results/v0182-ci/results/*/*-results.json
             artifacts/test-results/v0182-ci/results/*/research/report.json
             artifacts/test-results/v0182-ci/results/*/testnet/report.json
