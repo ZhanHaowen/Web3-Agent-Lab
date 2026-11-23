@@ -1,4 +1,4 @@
-export const VERSION='V0.18.2 BNB SDK Beta';
+export const VERSION='V0.18.3 Transaction Recovery Beta';
 export const SDK_COMMIT='260e16196931780d0370bd3a9d9b67ece744bb9d';
 export const NETWORKS={
  'bsc-testnet':{id:'bsc-testnet',label:'BNB 测试网 97',chainId:97,rpcs:{default:'https://data-seed-prebsc-2-s2.binance.org:8545',publicnode:'https://bsc-testnet-rpc.publicnode.com'}},

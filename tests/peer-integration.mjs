@@ -118,11 +118,23 @@ try{
    sessions.clear();const model={baseUrl:`http://127.0.0.1:${modelPort}/v1`,model:'recovery-protocol-fixture'};
    const s=await run({mode:'llm',agents:[{model},{model}]});assert.equal(s.check.status,'success',JSON.stringify(s));
    const b=await save(s,'10-empty-accept-recovery-fixture');const events=b.files['raw/events.jsonl'].trim().split('\n').map(JSON.parse);
-   const payloads=events.map(e=>({type:e.type,actor:e.agentId,p:JSON.parse(b.files[e.payloadRef.path])}));
-   assert.ok(payloads.some(e=>e.type==='agent.error'&&e.p.error.includes('MUTUAL_ACCEPTANCE_REQUIRED')));
-   assert.ok(payloads.some(e=>e.type==='agent.error'&&e.p.error.includes('ORDER_REQUIRED')));
+   const payloads=events.map(e=>({event:e,type:e.type,actor:e.agentId,p:JSON.parse(b.files[e.payloadRef.path])}));
+   for(const name of ['create_order','inspect_order']){
+     const attempted=payloads.find(e=>e.type==='tool.call'&&e.p.name===name);
+     const failure=payloads.find(e=>e.type==='agent.error'&&e.event.causalEventIds.includes(attempted.event.eventId));
+     assert.ok(failure,'Each premature tool must retain its own causal failure evidence: '+name);
+     assert.match(failure.p.error,/MUTUAL_ACCEPTANCE_REQUIRED|ORDER_REQUIRED/);
+     assert.equal(failure.p.submitted,false,'Premature tools must fail before a chain submission');
+     assert.equal(payloads.some(e=>e.type==='tx.intent'&&e.event.logicalClock<failure.event.logicalClock),false);
+   }
    assert.equal(payloads.some(e=>e.type==='agent.error'&&e.p.error.includes('TOOL_MISSING_ARGUMENT')),false);
-   const accepted=payloads.find(e=>e.type==='message.sent'&&e.p.kind==='accept');assert.deepEqual(accepted.p.payload,{});
+   const accepted=payloads.find(e=>e.type==='message.sent'&&e.p.kind==='accept');
+   const acceptCall=payloads.find(e=>e.type==='tool.call'&&e.p.name==='send_message'&&e.p.args.kind==='accept');
+   assert.equal(acceptCall.p.args.payload,undefined,'An omitted model payload remains valid and its original form is retained');
+   assert.deepEqual(accepted.p.payload,{termsHash:s.quote.termsHash});
+   assert.equal(accepted.p.quoteId,s.acceptance.quoteId);assert.equal(s.acceptance.termsHash,s.quote.termsHash);
+   const acceptedEvidence=payloads.find(e=>e.event.eventId===s.acceptanceEventId);
+   assert.equal(acceptedEvidence.type,'quote.accepted');assert.equal(acceptedEvidence.p.acceptance.acceptanceId,s.acceptance.acceptanceId);
    assert.ok(s.elapsedMs>0);assert.ok(s.startedAt&&s.endedAt);await wait(100);assert.equal((await api('/api/scenarios/'+s.id)).elapsedMs,s.elapsedMs);
    return {scenarioId:s.id,elapsedMs:s.elapsedMs,modelFixture:true,realLLM:false};
  });

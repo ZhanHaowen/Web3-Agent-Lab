@@ -1,0 +1,96 @@
+{
+  "version": "0.18.3",
+  "generatedAt": "2026-11-23T09:41:49.640Z",
+  "baselineCommit": "333ffb8611386a7690348e86910da8427cd5edba",
+  "branch": "codex/v0.18.3-local-review",
+  "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "anvil": "1.7.1"
+  },
+  "fullRegression": {
+    "startedAt": "2026-11-23T09:33:19.888Z",
+    "finishedAt": "2026-11-23T09:41:17.980Z",
+    "elapsedSeconds": 478,
+    "stagesPassed": 26,
+    "stagesFailed": 0,
+    "unit": {
+      "tests": 317,
+      "pass": 317,
+      "fail": 0,
+      "skipped": 0
+    },
+    "legacySource": {
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "targetedPeer": {
+    "passed": 13,
+    "failed": 0,
+    "realEVM": true,
+    "realLLM": false,
+    "publicNetwork": false
+  },
+  "budgetConstraints": {
+    "passed": 23,
+    "failed": 0
+  },
+  "bnbOffline": [
+    {
+      "id": "adf9fa3e-abab-40d6-b776-241cb317e1c6",
+      "scenario": "x402-offline",
+      "state": "sealed",
+      "status": "passed",
+      "checkerStatus": "passed",
+      "events": 14,
+      "bundleFiles": 20
+    }
+  ],
+  "legacyAcceptance": {
+    "status": "NOT_FULLY_ACCEPTED",
+    "partial": [
+      {
+        "caseId": "AT-15",
+        "status": "BLOCKED",
+        "subchecks": "PASS",
+        "reason": "The scripted scene ends on the first peer rejection, so a separate explicit Maker rejection event required by the strict reading of the standard is not produced. Both no-transfer branches pass; AT-15 remains partial."
+      }
+    ]
+  },
+  "limitations": [
+    "Windows local EVM only; no public testnet writes, macOS run, real LLM campaign or new EXE.",
+    "Legacy AT-15 remains partially covered; all-stage process success is not full acceptance of every historical AT criterion.",
+    "Existing active pre-upgrade executions without acceptance evidence are not migrated."
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/test-results/v0183-full-20261123/summary.json",
+      "sha256": "00fc2dd6a785a3ecb8966d62b001dbd60de8ec3b2561ef61615941f9d12dad8b"
+    },
+    {
+      "path": "artifacts/test-results/peer-recovery/4d76459d-097d-4835-84b8-1337ef305ae5/summary.json",
+      "sha256": "79cb7803138623ef9daaa42ee2bc1c71eb7319ee2dc98439e6891d505a37f504"
+    },
+    {
+      "path": "artifacts/test-results/v0183-extras/budget/budget-constraints-results.json",
+      "sha256": "f0fc874ac64f63e2633d111d1cd6eb2494067ed9f619f69e7dac63da7900c3d3"
+    },
+    {
+      "path": "artifacts/test-results/v0183-extras/bnb-offline/smoke-results.json",
+      "sha256": "d4c6ac2e4132b17db171c616128c46e1fb43ea4d6e8c0fa77e6c90e5a604b4ad"
+    },
+    {
+      "path": "artifacts/test-results/v0183-full-20261123/results/13-worker-shutdown-recovery/acceptance-final-recovery/supplement/summary.json",
+      "sha256": "1069220dc4796f7f6bdd2c3914f4a3c6fbca8f33aad0fbaa98ddc5ca7747f556"
+    },
+    {
+      "path": "artifacts/research-dataset/2026-11-23T09-40-37-792Z/smoke-report.json",
+      "sha256": "db5a482bf345e5973a8df60170ac039ce59a42bd1f88e2b0983738d00db3771f"
+    }
+  ]
+}

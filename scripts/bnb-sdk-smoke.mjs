@@ -24,5 +24,5 @@ try{
   const result={id,scenario:config.scenario,state:run.state.state,status:run.summary?.status??'unknown',checkerStatus:check.status,events:run.events.length,bundleFiles:Object.keys(bundle.files).length};
   results.push(result);console.log(JSON.stringify(result));
  }
-}finally{await service.shutdown();await mkdir(data,{recursive:true});await writeFile(join(data,'smoke-results.json'),JSON.stringify({version:'0.18.2',results},null,2)+'\n');}
+}finally{await service.shutdown();await mkdir(data,{recursive:true});await writeFile(join(data,'smoke-results.json'),JSON.stringify({version:'0.18.3',results},null,2)+'\n');}
 if(results.some(r=>r.state!=='sealed'||r.status!=='passed'||r.checkerStatus!=='passed'))process.exitCode=1;

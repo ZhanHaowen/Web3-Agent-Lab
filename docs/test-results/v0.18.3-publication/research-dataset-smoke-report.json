@@ -1,0 +1,381 @@
+{
+  "schema": "research-real-dataset-smoke-v1",
+  "startedAt": "2026-11-23T09:40:37.793Z",
+  "scope": "36 full-factor constructed scripted-policy samples (3 families x 3 strategies x 2 budgets x 2 replicates), actual official x402 exact + Anvil; validates collection/splits/isolated evaluator only, no scientific inference claim.",
+  "samples": [
+    {
+      "sampleId": "cell-0-03e7c669",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-0-03e7c669",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "03e7c6690a61d8eb110970df55bbe6f55b6e387aaf92b86051ac4c5ac7b4b8a5",
+      "runId": "40819ee3-b0c5-45d8-b22d-2bdd4a9b1952",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-1-742b5394",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-1-742b5394",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "742b5394d8d27f55beb586738a3735d2ca290f078edc2e2a00ee9ccc04304453",
+      "runId": "a9caa8fa-6550-4f32-a153-6bd875d1e013",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-2-d2f53134",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-2-d2f53134",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "d2f531340a04382c5cdc6a85cf75a729c2e6dc743bdbe6de8de7694be54632c6",
+      "runId": "10740fbf-c887-4083-a741-c736f46f50b0",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-3-1ffda704",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-3-1ffda704",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "1ffda704f5eff0af06712e74fbba796f654de376b46548355c4458ce75965464",
+      "runId": "98a3908e-2d6c-498d-8adb-4aa24df58dfa",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-4-ca043beb",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-4-ca043beb",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "ca043bebe55a94accae440dc603dfab91e6ae5697963089383cd4ae0f8a594cc",
+      "runId": "90f267f3-9901-41e6-89c1-1e6c21ef1f98",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-5-6b18e783",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-5-6b18e783",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "6b18e783412674db0a543abe4be704a3c6071833dab88cdc47b3be8a66534c6a",
+      "runId": "62c88c92-5f6a-4347-8b43-ae085b1392c7",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-6-6364b51b",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-6-6364b51b",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "6364b51ba0e24926cce35d7b58773ee3d1999a31d48100152bf458ea55f157ec",
+      "runId": "b604acb3-9066-4332-9db3-5b7a21e7f3ab",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-7-e98a30a3",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-7-e98a30a3",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "e98a30a3fc82bbb763e7f9361d3d85524580e73901e044655cab97efbfc84678",
+      "runId": "04ab8872-48fa-4716-b811-3bf5f17bd0ae",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-8-1aedcec7",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-8-1aedcec7",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "1aedcec714c19873bb8200b456922835f70350504b202d589ece418960ef27f8",
+      "runId": "3ae4f379-c14a-4c59-a390-8910fd1de8cb",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-9-8cf69f78",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-9-8cf69f78",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "8cf69f781252a298a611d72628a40822ee6d2c3d30386bff5854bb1f93058278",
+      "runId": "04ee74d4-5fee-4f6f-a891-50cddc93418f",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-10-0d1a4d07",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-10-0d1a4d07",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "0d1a4d074fb7b89991e1ec9651f7bbb2ebd630a75375881017b479b2d005ad58",
+      "runId": "ad15c9ea-3142-45f6-b0ed-1960b770d4f5",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-11-a69752fb",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-11-a69752fb",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "a69752fb11082a7be3d4dc3ae6cc73948cc773cc9b82d2f612cd26613c8d719d",
+      "runId": "266bd6c1-5d2e-414c-8605-fbbf31a13b12",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-12-bf6d5de8",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-12-bf6d5de8",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "bf6d5de896b258b4a5b27c8ba44a842e5ded87331470a25c1b137c1026bea734",
+      "runId": "6b5ac2da-650d-4603-903d-1b336f321827",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-13-c3ee3433",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-13-c3ee3433",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "c3ee3433ca37cf8d42f59a31d094daf44e4b2c76bdd9a8b92b6fa54b733b2336",
+      "runId": "5bae2b48-e995-471e-afec-c52ae0736a1c",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-14-6d59fa1d",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-14-6d59fa1d",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "6d59fa1de80adc16c376ab636a6009debda8ac2836cc8da8f6c76f3c76809b13",
+      "runId": "b04c2647-ba98-4d70-881c-20e5f65cc74e",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-15-8200bc39",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-15-8200bc39",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "8200bc39256abaa5107ea62cc9e02fef05605d9266e74a46125f7e50d1649245",
+      "runId": "c3171265-966d-4ab7-be44-3dd8e942eea8",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-16-a90ff51d",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-16-a90ff51d",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "a90ff51dc6df1311e4ddecd4a655e9f5c071d91cf73b436fbe83e0fbb9742eb3",
+      "runId": "d662ed51-0473-494e-beae-ff4e187a3bec",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-17-bb254c70",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-17-bb254c70",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "bb254c70ec9fb54afcd5c7f2b25ce59bc7c9335bbd40c0005c743dcdc4559f29",
+      "runId": "5540974c-cb46-4631-8766-f2ec2b8c01cf",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-18-7b482b6e",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-18-7b482b6e",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "7b482b6ed10594278a80cdee5cb2dbb741b67cbf4c5c3f16d07c9a123f1b09b2",
+      "runId": "e138db71-2cb8-4b08-93c6-b2db62621fe7",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-19-8c633904",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-19-8c633904",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "8c633904a6629973b95fee8da6969c7ec55b48d49e2cae1e4a458bccc4b5ec22",
+      "runId": "a57efc39-a1e9-4db9-b622-245a67ca20ba",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-20-6874043e",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-20-6874043e",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "6874043ebb21f740163652504b67fd8a8e4a5ab69703ded8f4bb5772499593cf",
+      "runId": "b9cb7791-2330-4de0-9a56-ed5f7d9ba266",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-21-5102d3fd",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-21-5102d3fd",
+      "groupId": "trend_analysis:factor-smoke-1",
+      "matrixCellHash": "5102d3fd232fd852ffe78474e5976bffbf1b09eed0f98bd430e53c5a8a632926",
+      "runId": "b453e9de-0fe6-429f-a35b-9df41f97afe8",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-22-7424cb6d",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-22-7424cb6d",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "7424cb6d89fe5b0b114bfa9bd2634ed367effb5cf7915265fe46f163b9f923f2",
+      "runId": "3cd6264c-0a77-4fd1-821c-aab16d2435ab",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-23-a12b3a08",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-23-a12b3a08",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "a12b3a08bbfc4cf93f5e3042d1708712cf8954f3665fe2a84e6ff09e4fd54698",
+      "runId": "8490c432-6660-41e4-bdee-745b86c08308",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-24-e01c733c",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-24-e01c733c",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "e01c733c8bbe31460c74592201501cb70557126292e495ecc1a93136f2a07c57",
+      "runId": "cd8f75ef-4efa-4d98-b68b-19399759ca78",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-25-df7cc25c",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-25-df7cc25c",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "df7cc25cf8ffe8ba2adb9d3122f117246424804d688d81f7d2feba49a32ac220",
+      "runId": "f22fadd2-8b85-4807-b69f-d9541ff5260e",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-26-0f163737",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-26-0f163737",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "0f1637371636a0a54e4e519701c8561e05cab3d00ebd7244c2a2fd44d4f8c9b8",
+      "runId": "335e257c-e86b-4161-982e-d99ef9191ead",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-27-5afec90a",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-27-5afec90a",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "5afec90acb500c8b101435f3c410e41df3e5a84d980c3907bd05aae7a63db628",
+      "runId": "ba2b25b4-f947-479a-8d0c-cfa4b13ebd8e",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-28-a748a870",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-28-a748a870",
+      "groupId": "evidence_review:factor-smoke-2",
+      "matrixCellHash": "a748a870438b3f5b8e771bf69d660440f2066467bb57ddb0d489965dcc32133d",
+      "runId": "72a9d21a-c1b6-4076-8279-f1b1d1f781b5",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-29-e8218619",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-29-e8218619",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "e8218619763a6c8fa21f2f9eb054ceaa4eef9c6d7099a6a9a7f50df841a77123",
+      "runId": "c522ea74-a3aa-4dc2-8fd1-43a3d42c1754",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-30-776149bc",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-30-776149bc",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "776149bc9741d290fad4c05c17839b159285402a3dd25fd75c36fa667b46b783",
+      "runId": "1a538b62-9dba-4532-a463-257e15f78522",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-31-30885af2",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-31-30885af2",
+      "groupId": "trend_analysis:factor-smoke-2",
+      "matrixCellHash": "30885af2a689d11a8a227494777e4dd2d7f8c8b469ac02045eca289986ddbf8c",
+      "runId": "b6da6a3b-91c2-4ff7-a571-a21e09dc1c1d",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-32-cf09f159",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-32-cf09f159",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "cf09f15959b446a2a1c59864b29df68f5ead5df26bd0a649ebd6f661bc8da9ef",
+      "runId": "2d230139-25e7-47b5-980c-cd0915236543",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-33-500a424f",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-33-500a424f",
+      "groupId": "evidence_review:factor-smoke-1",
+      "matrixCellHash": "500a424fc6c90bb2d6355566f1850c60151354b14b6b161d7eb006567253cd9b",
+      "runId": "9724c597-e92c-4833-a4da-b31d965a6b4e",
+      "taskOutcome": "success",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-34-f926efad",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-34-f926efad",
+      "groupId": "risk_analysis:factor-smoke-2",
+      "matrixCellHash": "f926efad761671bf5c6cfe0fb901655b5638222503358be09488e52f7ec821b6",
+      "runId": "93c31985-2d55-44d6-a828-b2524e8a0e5b",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    },
+    {
+      "sampleId": "cell-35-7a361a34",
+      "dir": "./artifacts/research-dataset/2026-11-23T09-40-37-792Z/cell-35-7a361a34",
+      "groupId": "risk_analysis:factor-smoke-1",
+      "matrixCellHash": "7a361a346d98a9de9ed7ef24aebf306513f54bb6e7db86d79f370e07fbfa4be4",
+      "runId": "01234194-8862-4e87-8f1e-8a579e5db80f",
+      "taskOutcome": "failure",
+      "checkerStatus": "pass",
+      "privacyDatasetReady": true
+    }
+  ],
+  "finishedAt": "2026-11-23T09:41:13.137Z",
+  "passed": true,
+  "retention": {
+    "inputSamples": 36,
+    "retainedSamples": 36,
+    "failedOrUnknown": 24,
+    "filter": "none"
+  },
+  "splitCounts": {
+    "train": 18,
+    "validation": 6,
+    "test": 12
+  },
+  "testTruthPassed": false
+}

@@ -1,8 +1,9 @@
 import { randomUUID } from 'node:crypto';
 import { copy,json,checkQuote } from './core.mjs';
 import { capturedChatCompletion, modelSamplingParameters, recordUsage } from '../model/capture.mjs';
+import {bindQuoteAction} from './quote-binding.mjs';
 const properties={recipient:{type:'string',enum:['maker','taker']},kind:{type:'string',enum:['inquiry','quote','accept','reject','order_ref']},
-  payload:{type:'object',additionalProperties:true},quoteId:{type:'string'},replyTo:{type:'string'},orderId:{type:'string'},reason:{type:'string'}};
+  payload:{type:'object',additionalProperties:true},quoteId:{type:'string'},termsHash:{type:'string'},replyTo:{type:'string'},orderId:{type:'string'},reason:{type:'string'}};
 export function definitions(spec){return spec.tools.map(name=>({type:'function',function:{name,
   description:({send_message:'Send an actual business message. Required: recipient and kind. payload defaults to {} for accept/inquiry/reject. Quote payload requires sellAmount and buyAmount decimal strings. accept requires the received quoteId, e.g. {recipient:"maker",kind:"accept",quoteId:"received-id"}. order_ref payload requires orderId. Text alone never sends a message.',
     inspect_order:'Read and independently verify the current order against your accepted terms. Required before taker approval or fill.',
@@ -17,22 +18,30 @@ export class AgentRuntime {
     this.gasUsedWei=0n;this.finished=false;this.stage=0;this.inspected=null;this.pendingCalls=[];this.ownToolIds=new Set();}
   async step(s){
     const inbox=await s.bus.receive(this);this.history.push(...inbox);
-    if(s.spec.mode==='scripted')return this.scripted(s,inbox);
+    if(s.spec.mode==='scripted')return bindQuoteAction(s,await this.scripted(s,inbox));
     return this.llm(s,inbox);
   }
   async scripted(s){
     const last=kind=>this.history.filter(m=>m.kind===kind).at(-1);
+    const confirmed=s.progress?.(this)?.confirmedActions??[];
+    if(this.role==='maker'){
+      if(this.stage===1&&confirmed.includes('approve'))this.stage=2;
+      if(this.stage===2&&confirmed.includes('createOrder'))this.stage=3;
+    }else{
+      if(this.stage===3&&confirmed.includes('approve'))this.stage=4;
+      if(this.stage===4&&confirmed.includes('fillOrder'))this.stage=5;
+    }
     if(this.role==='taker'){
       if(this.stage===0){this.stage++;return {name:'send_message',args:{recipient:'maker',kind:'inquiry',payload:{request:'Quote TokenA for TokenB'}}};}
       if(this.stage===1&&last('quote')){this.stage++;const m=last('quote');let accepted=true;try{checkQuote(this.spec,m.visiblePayload);}catch{accepted=false;}
         return {name:'send_message',args:{recipient:'maker',kind:accepted?'accept':'reject',quoteId:m.quoteId,replyTo:m.messageId,payload:{reason:accepted?'within_private_goal':'outside_private_goal'}}};}
       if(this.stage===2&&last('order_ref')){this.stage++;return {name:'inspect_order',args:{}};}
-      if(this.stage===3){this.stage++;return {name:'approve_buy',args:{}};}
-      if(this.stage===4){this.stage++;return {name:'fill_order',args:{}};}
+      if(this.stage===3)return {name:'approve_buy',args:{}};
+      if(this.stage===4)return {name:'fill_order',args:{}};
     }else{
       if(this.stage===0&&last('inquiry')){this.stage++;return {name:'send_message',args:{recipient:'taker',kind:'quote',replyTo:last('inquiry').messageId,payload:{sellAmount:this.spec.goal.sellAmount,buyAmount:this.spec.goal.minBuy}}};}
-      if(this.stage===1&&last('accept')){this.stage++;return {name:'approve_sell',args:{}};}
-      if(this.stage===2){this.stage++;return {name:'create_order',args:{}};}
+      if(this.stage===1&&last('accept'))return {name:'approve_sell',args:{}};
+      if(this.stage===2)return {name:'create_order',args:{}};
       if(this.stage===3&&s.orderId){this.stage++;return {name:'send_message',args:{recipient:'taker',kind:'order_ref',quoteId:s.quote.quoteId,payload:{orderId:s.orderId}}};}
     }
     if(last('reject'))return {name:'finish',args:{reason:'rejected'}};
@@ -51,7 +60,7 @@ export class AgentRuntime {
     const m=this.spec.model;
     const progress=s.progress(this);
     const context={role:'user',content:json({source:'platform_verified_progress',...progress,
-      instruction:'Only successful tool results change the platform state. An error means the action did not succeed. Use a real tool_call; JSON or promises in assistant text do not execute. If waiting for the peer, call wait. The platform does not choose your price or acceptance.'})};
+      instruction:'Use platform-verified transaction and business states. A delivery or RPC error does not prove a transaction was not submitted. Never replace a pending or unknown transaction. Use a real tool_call; text does not execute. Accepted quote terms are frozen; accept may reference termsHash but must not contain revised amounts. If waiting, call wait.'})};
     this.messages.push(context);
     const contextEvent=await s.emit('agent.progress',{message:context,progress},this,inbox.map(m=>m.consumedEventId));
     const request={model:m.model,messages:copy(this.messages),tools:this.definitions().filter(d=>progress.allowedActions.includes(d.function.name)),tool_choice:'auto',stream:false,...modelSamplingParameters(m)};
@@ -65,9 +74,15 @@ export class AgentRuntime {
     this.messages.push(copy(msg));
     for(const call of msg.tool_calls??[]){if(!call.id||this.ownToolIds.has(call.id)||call.type!=='function')throw Error('MODEL_TOOL_ID');
       this.ownToolIds.add(call.id);let args;try{args=JSON.parse(call.function.arguments);}catch{args=null;}
-      this.pendingCalls.push({name:call.function.name,args,providerToolCallId:call.id,modelCallId:requestId,causes:[responseEvent?.eventId??e.eventId]});}
+      this.pendingCalls.push(bindQuoteAction(s,{name:call.function.name,args,providerToolCallId:call.id,modelCallId:requestId,causes:[responseEvent?.eventId??e.eventId]}));}
     if(!this.pendingCalls.length){this.messages.push({role:'user',content:'刚才只有文字，没有实际执行操作。即使文字写着“已接受”，平台也未收到 accept。请依据 platform_verified_progress 调用一个允许的工具；等待时调用 wait，不要重复输出工具 JSON 代码块。'});return {wait:true};}
     return this.pendingCalls.shift();
   }
-  result(call,value){if(call.providerToolCallId)this.messages.push({role:'tool',tool_call_id:call.providerToolCallId,content:json(value)});}
+  result(call,value){
+    if(value?.skipped&&value.reason==='existing_allowance_sufficient'){
+      if(this.role==='maker'&&this.stage===1&&call.name==='approve_sell')this.stage=2;
+      if(this.role==='taker'&&this.stage===3&&call.name==='approve_buy')this.stage=4;
+    }
+    if(call.providerToolCallId)this.messages.push({role:'tool',tool_call_id:call.providerToolCallId,content:json(value)});
+  }
 }

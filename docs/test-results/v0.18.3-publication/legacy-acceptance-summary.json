@@ -1,0 +1,222 @@
+{
+  "suite": "frozen-definition-stop-and-graceful-recovery",
+  "platform": "win32",
+  "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+  "controlPort": 61258,
+  "rpcPort": 61259,
+  "dataDirectory": "./artifacts/test-results/v0183-full-20261123/isolated/13-worker-shutdown-recovery",
+  "records": [
+    {
+      "caseId": "AT-03",
+      "label": "frozen-definition-executed",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+      "fixtureHash": "150d5f2da5ec1c4505f59e6b0a84763d90b12cbf79ad10c5889752f0ebb1106d",
+      "startedAt": "2026-11-23T09:36:24.443Z",
+      "executionIds": [
+        "78a06f23-0163-4dfd-bc07-f5b5b50c95fa"
+      ],
+      "evidenceFiles": [
+        "frozen-definition-78a06f23-0163-4dfd-bc07-f5b5b50c95fa.json",
+        "AT03-manifests-and-conflict.json"
+      ],
+      "expected": "Old Job runs against original definition after new version is installed; archived prompts/schema/checker remain frozen.",
+      "actual": {
+        "checker": "peer-2.0",
+        "definitionHash": "7025d32401e2d80d294b0591eabfea631866000e1405dbaca7bca6be7c3511d5",
+        "originalPrompts": {
+          "maker": "Use only Maker tools and your private sell goal. Do not invent acceptance or payment.",
+          "taker": "Use only Taker tools and your own budget. Accept a real received quoteId and inspect the chain order."
+        },
+        "originalSchema": {
+          "sellAmount": "decimal",
+          "buyAmount": "decimal",
+          "deadlineSeconds": "integer"
+        },
+        "checkerVersion": "2.0.0"
+      },
+      "subchecks": "PASS",
+      "coverageReason": "",
+      "status": "PASS",
+      "endedAt": "2026-11-23T09:36:34.160Z"
+    },
+    {
+      "caseId": "AT-12",
+      "label": "stop-before-order",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+      "fixtureHash": "acf59406a6ba7daf175231d8edd507bc034c104919d05b288e7c5ec5a9793763",
+      "startedAt": "2026-11-23T09:36:34.161Z",
+      "executionIds": [
+        "d61992e9-73a4-427a-9694-5778ff04fe2c"
+      ],
+      "evidenceFiles": [
+        "stop-before-order-d61992e9-73a4-427a-9694-5778ff04fe2c.json"
+      ],
+      "expected": "Stop before order has no token/allowance/escrow movement and releases lock.",
+      "actual": {
+        "state": "stopped",
+        "assetsUnchanged": true,
+        "environmentLock": false,
+        "transactions": 0
+      },
+      "subchecks": "PASS",
+      "coverageReason": "",
+      "status": "PASS",
+      "endedAt": "2026-11-23T09:36:35.044Z"
+    },
+    {
+      "caseId": "AT-12",
+      "label": "shutdown-open-order-attach-refund",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+      "fixtureHash": "4b0b648f4df8eaf0ab9732b9b5d886b8c72512e2716c02800bda6cd904188d7c",
+      "startedAt": "2026-11-23T09:36:35.045Z",
+      "executionIds": [
+        "ad8241fc-06e8-4869-8988-8bd625f8d44b"
+      ],
+      "evidenceFiles": [
+        "open-before-shutdown-ad8241fc-06e8-4869-8988-8bd625f8d44b.json",
+        "open-after-attach-ad8241fc-06e8-4869-8988-8bd625f8d44b.json",
+        "refund-after-attach-ad8241fc-06e8-4869-8988-8bd625f8d44b.json"
+      ],
+      "expected": "Open escrow survives real graceful shutdown; restart attaches same chain, retains lock, and unlocks only after one explicit refund receipt.",
+      "actual": {
+        "controlShutdown": {
+          "requested": true,
+          "confirmed": true,
+          "exitCode": 0
+        },
+        "chainInstanceId": "be5465ff-79f0-4ffd-9f13-0d26e90fa4a1",
+        "blockHashPreserved": "0x4165f12d38f9ed0ba096c90f22474af4571df1b4791ae00698cac645f685e9a3",
+        "resetRejected": {
+          "error": "BUSY: 当前实验尚未结束"
+        },
+        "orderState": 3,
+        "refundHash": "0x8687c88554d8c16efb44cd31a006a6d606766856457124c980f0290c132467e0",
+        "refundReceipt": {
+          "type": "eip1559",
+          "status": "success",
+          "cumulativeGasUsed": "51940",
+          "logs": [
+            {
+              "address": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+              "topics": [
+                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                "0x000000000000000000000000a513e6e4b8f2a923d98304ec87f64353c4d5c853",
+                "0x0000000000000000000000003edc2be2eeb20e9068866c6cf6e4b1636a9b6d07"
+              ],
+              "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+              "blockHash": "0x2cb26bdace7d13ea09857e1cbaab0d52397d98b3e3c312188cbb197071bb41e9",
+              "blockNumber": "13",
+              "blockTimestamp": "0x6553f10d",
+              "transactionHash": "0x8687c88554d8c16efb44cd31a006a6d606766856457124c980f0290c132467e0",
+              "transactionIndex": 0,
+              "logIndex": 0,
+              "removed": false
+            },
+            {
+              "address": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+              "topics": [
+                "0xa6eb7cdc219e1518ced964e9a34e61d68a94e4f1569db3e84256ba981ba52753",
+                "0x5ae99e8d415eed6936b038d3817eda931974c6ac8730f96eb31e4f6526dea56e",
+                "0x0000000000000000000000003edc2be2eeb20e9068866c6cf6e4b1636a9b6d07"
+              ],
+              "data": "0x",
+              "blockHash": "0x2cb26bdace7d13ea09857e1cbaab0d52397d98b3e3c312188cbb197071bb41e9",
+              "blockNumber": "13",
+              "blockTimestamp": "0x6553f10d",
+              "transactionHash": "0x8687c88554d8c16efb44cd31a006a6d606766856457124c980f0290c132467e0",
+              "transactionIndex": 0,
+              "logIndex": 1,
+              "removed": false
+            }
+          ],
+          "logsBloom": "0x00000000000000000000000000400000000000000000000000000000000000010000000000000000000000002000000000000000000000000000000040000000000000000000000000000008000000000000000010000004010000000000000000000040000000000000000000000000000000000000000000000010000000000200000000000800000001000000000000000000000000000000000200000000000040000000000000000000000000020000000000000000000000000000000000000042000001000000000000000000000000000000000000000000000000000040000000000000000000000800000000000000000000000000000000000000",
+          "transactionHash": "0x8687c88554d8c16efb44cd31a006a6d606766856457124c980f0290c132467e0",
+          "transactionIndex": 0,
+          "blockHash": "0x2cb26bdace7d13ea09857e1cbaab0d52397d98b3e3c312188cbb197071bb41e9",
+          "blockNumber": "13",
+          "gasUsed": "51940",
+          "effectiveGasPrice": "1056128168",
+          "blobGasPrice": "1",
+          "from": "0x3edc2be2eeb20e9068866c6cf6e4b1636a9b6d07",
+          "to": "0xa513e6e4b8f2a923d98304ec87f64353c4d5c853",
+          "contractAddress": null,
+          "blockTimestamp": 1700000013
+        },
+        "assets": {
+          "maker": {
+            "A": "100000000",
+            "B": "0",
+            "allowanceA": "0",
+            "allowanceB": "0"
+          },
+          "taker": {
+            "A": "0",
+            "B": "100000000",
+            "allowanceA": "0",
+            "allowanceB": "0"
+          },
+          "escrow": {
+            "A": "0",
+            "B": "0"
+          }
+        },
+        "environmentLock": false
+      },
+      "subchecks": "PASS",
+      "coverageReason": "",
+      "status": "PASS",
+      "endedAt": "2026-11-23T09:36:50.135Z"
+    },
+    {
+      "caseId": "AT-15",
+      "label": "incompatible-rejection-and-step-budget",
+      "platform": "win32",
+      "sourceCommit": null,
+      "baseCommit": "cc51b37456eaec19ffcd002e07a33d8466fdff28",
+      "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+      "fixtureHash": "bd8d21cbafbdb4262c82c2ba76ca7040913b64236d65a10d87ae5e907e148a2c",
+      "startedAt": "2026-11-23T09:36:50.136Z",
+      "executionIds": [
+        "cfba0b50-a9a8-4119-84a5-2d2a0c5a595f",
+        "a6524aba-e22a-497f-80bc-bc4e3fbb84ef"
+      ],
+      "evidenceFiles": [
+        "incompatible-rejected-cfba0b50-a9a8-4119-84a5-2d2a0c5a595f.json",
+        "negotiation-step-budget-a6524aba-e22a-497f-80bc-bc4e3fbb84ef.json"
+      ],
+      "expected": "Incompatible goals reject without settlement; exhausted negotiation has an explicit step_budget outcome without funds movement or fulfilled label.",
+      "actual": {
+        "rejectionActors": [
+          "taker"
+        ],
+        "rejectionBusiness": "no_deal",
+        "budgetSteps": 3,
+        "budgetBusiness": "failed",
+        "transactionCounts": [
+          0,
+          0
+        ]
+      },
+      "subchecks": "PASS",
+      "coverageReason": "The scripted scene ends on the first peer rejection, so a separate explicit Maker rejection event required by the strict reading of the standard is not produced. Both no-transfer branches pass; AT-15 remains partial.",
+      "status": "BLOCKED",
+      "endedAt": "2026-11-23T09:36:53.081Z"
+    }
+  ],
+  "shutdown": {
+    "requested": true,
+    "confirmed": true,
+    "exitCode": 0
+  },
+  "acceptanceStatus": "NOT_FULLY_ACCEPTED",
+  "note": "Supplemental API evidence only. AT-11 still lacks pending-confirmation/resume-once coverage and screen recording. Never interpret subchecks PASS as all AT-01..AT-36 accepted."
+}

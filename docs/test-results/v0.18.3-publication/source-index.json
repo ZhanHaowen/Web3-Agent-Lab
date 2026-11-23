@@ -1,0 +1,100 @@
+{
+  "schema": "v0183-publication-evidence-v1",
+  "version": "0.18.3",
+  "generatedAt": "2026-11-23T09:45:23.650Z",
+  "testedSourceHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+  "baselineCommit": "333ffb8611386a7690348e86910da8427cd5edba",
+  "scope": "Derived public summaries of local Windows/Anvil runs; no raw experiment bundles, credentials, private runtime or databases.",
+  "transformations": [
+    "JSON string values referencing the local repository root are normalized to repository-relative ./ paths; original result values and statuses are retained.",
+    "JSON formatting is normalized to two-space indentation plus final newline.",
+    "The Chinese case summary has a publication notice prepended; its body is retained."
+  ],
+  "files": [
+    {
+      "source": "artifacts/test-results/v0183-review-summary.json",
+      "published": "review-summary.json",
+      "sourceBytes": 3158,
+      "sourceSha256": "91ac22b44c9bf616d00c2ce241333ebef866ccc3768246bd8fbb7c3fef3bd75c",
+      "publishedBytes": 3158,
+      "publishedSha256": "91ac22b44c9bf616d00c2ce241333ebef866ccc3768246bd8fbb7c3fef3bd75c",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/v0183-full-20261123/summary.json",
+      "published": "full-summary.json",
+      "sourceBytes": 30463,
+      "sourceSha256": "00fc2dd6a785a3ecb8966d62b001dbd60de8ec3b2561ef61615941f9d12dad8b",
+      "publishedBytes": 21247,
+      "publishedSha256": "45283143c2da3195287b8e5dd7fff26d8db8129fad2aca08eea16309927d4a6b",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/peer-recovery/4d76459d-097d-4835-84b8-1337ef305ae5/summary.json",
+      "published": "peer-summary.json",
+      "sourceBytes": 11744,
+      "sourceSha256": "79cb7803138623ef9daaa42ee2bc1c71eb7319ee2dc98439e6891d505a37f504",
+      "publishedBytes": 11745,
+      "publishedSha256": "bd5066b6627cc356dfcbdce00dbffee3e0fe6b0199bb01d279b3553e727e4382",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/v0183-extras/budget/budget-constraints-results.json",
+      "published": "budget-results.json",
+      "sourceBytes": 2288,
+      "sourceSha256": "f0fc874ac64f63e2633d111d1cd6eb2494067ed9f619f69e7dac63da7900c3d3",
+      "publishedBytes": 2289,
+      "publishedSha256": "16d5020ff8fc51109691188c17791aedcbe7ca92378231ee9fedabee0acde220",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/v0183-extras/bnb-offline/smoke-results.json",
+      "published": "bnb-smoke-results.json",
+      "sourceBytes": 272,
+      "sourceSha256": "d4c6ac2e4132b17db171c616128c46e1fb43ea4d6e8c0fa77e6c90e5a604b4ad",
+      "publishedBytes": 272,
+      "publishedSha256": "d4c6ac2e4132b17db171c616128c46e1fb43ea4d6e8c0fa77e6c90e5a604b4ad",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/v0183-full-20261123/results/13-worker-shutdown-recovery/acceptance-final-recovery/supplement/summary.json",
+      "published": "legacy-acceptance-summary.json",
+      "sourceBytes": 9697,
+      "sourceSha256": "1069220dc4796f7f6bdd2c3914f4a3c6fbca8f33aad0fbaa98ddc5ca7747f556",
+      "publishedBytes": 9608,
+      "publishedSha256": "ecac9e26dff7637b75a7564773ba8ccdad14e2c2c73a3cab086d73a4cbdd5ef7",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/research-dataset/2026-11-23T09-40-37-792Z/smoke-report.json",
+      "published": "research-dataset-smoke-report.json",
+      "sourceBytes": 19375,
+      "sourceSha256": "db5a482bf345e5973a8df60170ac039ce59a42bd1f88e2b0983738d00db3771f",
+      "publishedBytes": 16172,
+      "publishedSha256": "de44287f7c5c40f66c99ee1663f0d96e98866caf386936cfbc11946673ee6215",
+      "transformation": "path-normalized JSON derived copy"
+    },
+    {
+      "source": "artifacts/test-results/peer-recovery/4d76459d-097d-4835-84b8-1337ef305ae5/case-summary-zh.md",
+      "published": "peer-cases-zh.md",
+      "sourceBytes": 8190,
+      "sourceSha256": "144a0e9b9f508d1d5f04cc0f05bc44a168654c27eddff8b4a32ebb63ec0115f4",
+      "publishedBytes": 8495,
+      "publishedSha256": "d27b08d20440217254d7712195be2fb951125bd1fa4221b140e31be9e91b126b",
+      "transformation": "publication notice prepended to original Chinese case summary"
+    }
+  ],
+  "safetyReview": {
+    "selectedFiles": 8,
+    "credentialLikeFieldOrPatternFindings": 0,
+    "excluded": [
+      "raw experiment bundles",
+      "runtime-private recovery caches",
+      "database files",
+      "private keys and mnemonics",
+      "API credentials",
+      "signed transaction bytes"
+    ],
+    "note": "Targeted key/pattern scan and manual review of selected summary fields; not a claim that arbitrary unselected data is safe to publish."
+  }
+}

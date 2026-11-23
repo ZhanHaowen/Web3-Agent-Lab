@@ -1,9 +1,9 @@
 {
   "name": "web3-agent-lab",
-  "version": "0.18.2",
-  "displayVersion": "V0.18.2 BNB SDK Beta",
-  "releaseRevision": "independent-bnb-sdk-module",
-  "releaseLabel": "V0.18.2 BNB SDK Beta",
+  "version": "0.18.3",
+  "displayVersion": "V0.18.3 Transaction Recovery Beta",
+  "releaseRevision": "peer-recovery-and-quote-binding",
+  "releaseLabel": "V0.18.3 Transaction Recovery Beta",
   "private": true,
   "type": "module",
   "description": "Reproducible Web3 Agent experiments, local/API models, payment traces and private-ground-truth inference evaluation",

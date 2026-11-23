@@ -1,0 +1,14 @@
+{
+  "version": "0.18.3",
+  "results": [
+    {
+      "id": "adf9fa3e-abab-40d6-b776-241cb317e1c6",
+      "scenario": "x402-offline",
+      "state": "sealed",
+      "status": "passed",
+      "checkerStatus": "passed",
+      "events": 14,
+      "bundleFiles": 20
+    }
+  ]
+}

@@ -83,18 +83,32 @@ try{
    await send(maker,ex,artifact.abi,'createOrder',o.args);await send(taker,ex,artifact.abi,'fillOrder',[o.id]);
    assert.equal(await read(c.tokenA,tokenAbi(),'allowance',[maker.address,ex]),40000000n);assert.equal(await read(c.tokenB,tokenAbi(),'allowance',[taker.address,ex]),40000000n);
  });
- await test('T07 gateway reconciles lost create response by sender nonce and original salt without another payment',async()=>{
+ await test('T07 gateway reconciles a lost create response using its durable hash and original salt without another payment',async()=>{
    const {ScenarioService,Scenario}=await import('../src/scenario/service.mjs');let locked=false;
    const svc=new ScenarioService({...lib,chain,root,data:join(root,'data-contract-scenarios'),clean:v=>JSON.parse(JSON.stringify(v,(_k,x)=>typeof x==='bigint'?String(x):x)),addSecret:()=>{},
      lock:()=>{assert.equal(locked,false);locked=true;},unlock:()=>{locked=false;}});
    const s=new Scenario(svc,{manual:true});await s.start();
-   while(s.agents[0].stage<2)await s.step();
-   const a=s.agents[0],sendOriginal=a.client.sendTransaction.bind(a.client);let submissions=0;
-   a.client.sendTransaction=async request=>{submissions++;const h=await sendOriginal(request);if(submissions===1)throw Error('SIMULATED_RPC_RESPONSE_LOSS');return h;};
-   while(!s.proposedOrderId)await s.step();
-   assert.equal(s.pending.length,1);assert.equal(s.pending[0].state,'unknown');assert.equal(s.pending[0].hash,undefined);
-   for(let i=0;i<30&&s.state!=='completed';i++)await s.step();
-   assert.equal(s.check.status,'success',JSON.stringify(s.check));assert.equal(submissions,1);assert.equal(s.transactions.filter(t=>t.functionName==='createOrder').length,1);assert.equal(locked,false);
+   for(let i=0;i<20&&!s.transactions.some(t=>t.actorId==='maker'&&t.functionName==='approve'&&t.businessVerified);i++)await s.step();
+   assert.ok(s.transactions.some(t=>t.actorId==='maker'&&t.functionName==='approve'&&t.businessVerified));
+   assert.equal(s.transactions.filter(t=>t.functionName==='createOrder').length,0);
+   const client=chain.publicClient,sendOriginal=client.sendRawTransaction;let submissions=0,expectedHash;
+   const payload=e=>JSON.parse(s.files[e.payloadRef.path]);
+   client.sendRawTransaction=async request=>{
+     const hash=lib.keccak256(request.serializedTransaction),tx=s.transactions.find(t=>t.hash===hash&&t.functionName==='createOrder');
+     if(!tx)return sendOriginal.call(client,request);
+     submissions++;expectedHash=hash;
+     assert.ok(s.events.some(e=>e.type==='tx.hash_durable'&&payload(e).hash===hash),'Hash must be durably recorded before broadcast');
+     const h=await sendOriginal.call(client,request);
+     if(submissions===1)throw Error('SIMULATED_RPC_RESPONSE_LOSS');return h;
+   };
+   try{
+     for(let i=0;i<30&&s.state!=='completed';i++)await s.step();
+     const creates=s.transactions.filter(t=>t.functionName==='createOrder');
+     assert.equal(s.check.status,'success',JSON.stringify(s.check));assert.equal(submissions,1);assert.equal(creates.length,1);
+     assert.equal(creates[0].hash,expectedHash);assert.equal(creates[0].receipt.transactionHash,expectedHash);assert.equal(creates[0].state,'confirmed');
+     assert.ok(s.events.some(e=>e.type==='tx.unknown'&&payload(e).hash===expectedHash&&payload(e).error==='SIMULATED_RPC_RESPONSE_LOSS'));
+     assert.equal(s.orderId,s.proposedOrderId);assert.equal(s.order.salt,s.quote.salt);assert.equal(s.pending.length,0);assert.equal(locked,false);
+   }finally{client.sendRawTransaction=sendOriginal;clearInterval(svc.monitorTimer);}
    await mkdir(artifactDirectory('fixtures/peer-v014'),{recursive:true});await writeFile(artifactPath('fixtures/peer-v014/07-response-loss-reconciled.json'),JSON.stringify(await s.bundle(),null,2));
  });
 }finally{await writeFile(artifactPath('v014-contract-results.json'),JSON.stringify({compiler:artifact.compiler,realEVM:true,results},null,2));await chain.stop();}

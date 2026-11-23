@@ -9,18 +9,18 @@ var __esm = (fn2, res, err) => function __init() {
   }
 };
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/version.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/version.js
 var version;
 var init_version = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/version.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/version.js"() {
     version = "1.1.0";
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/errors.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/errors.js
 var BaseError;
 var init_errors = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/errors.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/errors.js"() {
     init_version();
     BaseError = class _BaseError extends Error {
       constructor(shortMessage, args = {}) {
@@ -76,21 +76,21 @@ var init_errors = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/regex.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/regex.js
 function execTyped(regex, string2) {
   const match = regex.exec(string2);
   return match?.groups;
 }
 var bytesRegex, integerRegex, isTupleRegex;
 var init_regex = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/regex.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/regex.js"() {
     bytesRegex = /^bytes([1-9]|1[0-9]|2[0-9]|3[0-2])?$/;
     integerRegex = /^u?int(8|16|24|32|40|48|56|64|72|80|88|96|104|112|120|128|136|144|152|160|168|176|184|192|200|208|216|224|232|240|248|256)?$/;
     isTupleRegex = /^\(.+?\).*?$/;
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameter.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameter.js
 function formatAbiParameter(abiParameter) {
   let type = abiParameter.type;
   if (tupleRegex.test(abiParameter.type) && "components" in abiParameter) {
@@ -117,13 +117,13 @@ function formatAbiParameter(abiParameter) {
 }
 var tupleRegex;
 var init_formatAbiParameter = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameter.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameter.js"() {
     init_regex();
     tupleRegex = /^tuple(?<array>(\[(\d*)\])*)$/;
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameters.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameters.js
 function formatAbiParameters(abiParameters) {
   let params = "";
   const length = abiParameters.length;
@@ -136,12 +136,12 @@ function formatAbiParameters(abiParameters) {
   return params;
 }
 var init_formatAbiParameters = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameters.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiParameters.js"() {
     init_formatAbiParameter();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiItem.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiItem.js
 function formatAbiItem(abiItem) {
   if (abiItem.type === "function")
     return `function ${abiItem.name}(${formatAbiParameters(abiItem.inputs)})${abiItem.stateMutability && abiItem.stateMutability !== "nonpayable" ? ` ${abiItem.stateMutability}` : ""}${abiItem.outputs?.length ? ` returns (${formatAbiParameters(abiItem.outputs)})` : ""}`;
@@ -156,12 +156,12 @@ function formatAbiItem(abiItem) {
   return "receive() external payable";
 }
 var init_formatAbiItem = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiItem.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/formatAbiItem.js"() {
     init_formatAbiParameters();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/signatures.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/signatures.js
 function isErrorSignature(signature) {
   return errorSignatureRegex.test(signature);
 }
@@ -203,7 +203,7 @@ function isReceiveSignature(signature) {
 }
 var errorSignatureRegex, eventSignatureRegex, functionSignatureRegex, structSignatureRegex, constructorSignatureRegex, fallbackSignatureRegex, receiveSignatureRegex, eventModifiers, functionModifiers;
 var init_signatures = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/signatures.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/signatures.js"() {
     init_regex();
     errorSignatureRegex = /^error (?<name>[a-zA-Z$_][a-zA-Z0-9$_]*)\((?<parameters>.*?)\)$/;
     eventSignatureRegex = /^event (?<name>[a-zA-Z$_][a-zA-Z0-9$_]*)\((?<parameters>.*?)\)$/;
@@ -221,10 +221,10 @@ var init_signatures = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiItem.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiItem.js
 var UnknownTypeError, UnknownSolidityTypeError;
 var init_abiItem = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiItem.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiItem.js"() {
     init_errors();
     UnknownTypeError = class extends BaseError {
       constructor({ type }) {
@@ -257,10 +257,10 @@ var init_abiItem = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiParameter.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiParameter.js
 var InvalidParameterError, SolidityProtectedKeywordError, InvalidModifierError, InvalidFunctionModifierError, InvalidAbiTypeParameterError;
 var init_abiParameter = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiParameter.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/abiParameter.js"() {
     init_errors();
     InvalidParameterError = class extends BaseError {
       constructor({ param }) {
@@ -341,10 +341,10 @@ var init_abiParameter = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/signature.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/signature.js
 var InvalidSignatureError, UnknownSignatureError, InvalidStructSignatureError;
 var init_signature = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/signature.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/signature.js"() {
     init_errors();
     InvalidSignatureError = class extends BaseError {
       constructor({ signature, type }) {
@@ -389,10 +389,10 @@ var init_signature = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/struct.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/struct.js
 var CircularReferenceError;
 var init_struct = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/struct.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/struct.js"() {
     init_errors();
     CircularReferenceError = class extends BaseError {
       constructor({ type }) {
@@ -410,10 +410,10 @@ var init_struct = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/splitParameters.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/splitParameters.js
 var InvalidParenthesisError;
 var init_splitParameters = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/splitParameters.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/errors/splitParameters.js"() {
     init_errors();
     InvalidParenthesisError = class extends BaseError {
       constructor({ current, depth }) {
@@ -434,7 +434,7 @@ var init_splitParameters = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/cache.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/cache.js
 function getParameterCacheKey(param, type, structs) {
   let structKey = "";
   if (structs)
@@ -453,7 +453,7 @@ function getParameterCacheKey(param, type, structs) {
 }
 var parameterCache;
 var init_cache = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/cache.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/cache.js"() {
     parameterCache = /* @__PURE__ */ new Map([
       // Unnamed
       ["address", { type: "address" }],
@@ -511,7 +511,7 @@ var init_cache = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/utils.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/utils.js
 function parseSignature(signature, structs = {}) {
   if (isFunctionSignature(signature))
     return parseFunctionSignature(signature, structs);
@@ -707,7 +707,7 @@ function isValidDataLocation(type, isArray) {
 }
 var abiParameterWithoutTupleRegex, abiParameterWithTupleRegex, dynamicIntegerRegex, protectedKeywordsRegex;
 var init_utils = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/utils.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/utils.js"() {
     init_regex();
     init_abiItem();
     init_abiParameter();
@@ -722,7 +722,7 @@ var init_utils = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/structs.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/structs.js
 function parseStructs(signatures) {
   const shallowStructs = {};
   const signaturesLength = signatures.length;
@@ -792,7 +792,7 @@ function resolveStructs(abiParameters, structs, ancestors = /* @__PURE__ */ new 
 }
 var typeWithoutTupleRegex;
 var init_structs = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/structs.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/runtime/structs.js"() {
     init_regex();
     init_abiItem();
     init_abiParameter();
@@ -804,7 +804,7 @@ var init_structs = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/parseAbi.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/parseAbi.js
 function parseAbi(signatures) {
   const structs = parseStructs(signatures);
   const abi = [];
@@ -818,22 +818,22 @@ function parseAbi(signatures) {
   return abi;
 }
 var init_parseAbi = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/parseAbi.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/human-readable/parseAbi.js"() {
     init_signatures();
     init_structs();
     init_utils();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/exports/index.js
+// node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/exports/index.js
 var init_exports = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/exports/index.js"() {
+  "node_modules/.pnpm/abitype@1.1.0_typescript@5.9.3_zod@3.25.76/node_modules/abitype/dist/esm/exports/index.js"() {
     init_formatAbiItem();
     init_parseAbi();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/formatAbiItem.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/formatAbiItem.js
 function formatAbiItem2(abiItem, { includeName = false } = {}) {
   if (abiItem.type !== "function" && abiItem.type !== "event" && abiItem.type !== "error")
     throw new InvalidDefinitionTypeError(abiItem.type);
@@ -851,12 +851,12 @@ function formatAbiParam(param, { includeName }) {
   return param.type + (includeName && param.name ? ` ${param.name}` : "");
 }
 var init_formatAbiItem2 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/formatAbiItem.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/formatAbiItem.js"() {
     init_abi();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/isHex.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/isHex.js
 function isHex(value, { strict = true } = {}) {
   if (!value)
     return false;
@@ -865,31 +865,31 @@ function isHex(value, { strict = true } = {}) {
   return strict ? /^0x[0-9a-fA-F]*$/.test(value) : value.startsWith("0x");
 }
 var init_isHex = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/isHex.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/isHex.js"() {
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/size.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/size.js
 function size(value) {
   if (isHex(value, { strict: false }))
     return Math.ceil((value.length - 2) / 2);
   return value.length;
 }
 var init_size = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/size.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/size.js"() {
     init_isHex();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/version.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/version.js
 var version2;
 var init_version2 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/version.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/version.js"() {
     version2 = "2.38.3";
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/base.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/base.js
 function walk(err, fn2) {
   if (fn2?.(err))
     return err;
@@ -899,7 +899,7 @@ function walk(err, fn2) {
 }
 var errorConfig, BaseError2;
 var init_base = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/base.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/base.js"() {
     init_version2();
     errorConfig = {
       getDocsUrl: ({ docsBaseUrl, docsPath = "", docsSlug }) => docsPath ? `${docsBaseUrl ?? "https://viem.sh"}${docsPath}${docsSlug ? `#${docsSlug}` : ""}` : void 0,
@@ -979,10 +979,10 @@ var init_base = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/abi.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/abi.js
 var AbiDecodingDataSizeTooSmallError, AbiDecodingZeroDataError, AbiFunctionSignatureNotFoundError, InvalidAbiDecodingTypeError, InvalidDefinitionTypeError;
 var init_abi = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/abi.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/abi.js"() {
     init_formatAbiItem2();
     init_base();
     AbiDecodingDataSizeTooSmallError = class extends BaseError2 {
@@ -1055,10 +1055,10 @@ var init_abi = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/data.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/data.js
 var SliceOffsetOutOfBoundsError, SizeExceedsPaddingSizeError;
 var init_data = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/data.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/data.js"() {
     init_base();
     SliceOffsetOutOfBoundsError = class extends BaseError2 {
       constructor({ offset, position, size: size2 }) {
@@ -1073,7 +1073,7 @@ var init_data = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/pad.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/pad.js
 function pad(hexOrBytes, { dir, size: size2 = 32 } = {}) {
   if (typeof hexOrBytes === "string")
     return padHex(hexOrBytes, { dir, size: size2 });
@@ -1108,15 +1108,15 @@ function padBytes(bytes, { dir, size: size2 = 32 } = {}) {
   return paddedBytes;
 }
 var init_pad = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/pad.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/pad.js"() {
     init_data();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/encoding.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/encoding.js
 var IntegerOutOfRangeError, InvalidBytesBooleanError, SizeOverflowError;
 var init_encoding = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/encoding.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/encoding.js"() {
     init_base();
     IntegerOutOfRangeError = class extends BaseError2 {
       constructor({ max, min, signed, size: size2, value }) {
@@ -1138,7 +1138,7 @@ var init_encoding = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/trim.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/trim.js
 function trim(hexOrBytes, { dir = "left" } = {}) {
   let data = typeof hexOrBytes === "string" ? hexOrBytes.replace("0x", "") : hexOrBytes;
   let sliceLength = 0;
@@ -1157,11 +1157,11 @@ function trim(hexOrBytes, { dir = "left" } = {}) {
   return data;
 }
 var init_trim = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/trim.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/trim.js"() {
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromHex.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromHex.js
 function assertSize(hexOrBytes, { size: size2 }) {
   if (size(hexOrBytes) > size2)
     throw new SizeOverflowError({
@@ -1186,13 +1186,13 @@ function hexToNumber(hex, opts = {}) {
   return Number(hexToBigInt(hex, opts));
 }
 var init_fromHex = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromHex.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromHex.js"() {
     init_encoding();
     init_size();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toHex.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toHex.js
 function toHex(value, opts = {}) {
   if (typeof value === "number" || typeof value === "bigint")
     return numberToHex(value, opts);
@@ -1257,7 +1257,7 @@ function stringToHex(value_, opts = {}) {
 }
 var hexes, encoder;
 var init_toHex = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toHex.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toHex.js"() {
     init_encoding();
     init_pad();
     init_fromHex();
@@ -1266,7 +1266,7 @@ var init_toHex = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toBytes.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toBytes.js
 function toBytes(value, opts = {}) {
   if (typeof value === "number" || typeof value === "bigint")
     return numberToBytes(value, opts);
@@ -1329,7 +1329,7 @@ function stringToBytes(value, opts = {}) {
 }
 var encoder2, charCodeMap;
 var init_toBytes = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toBytes.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/toBytes.js"() {
     init_base();
     init_isHex();
     init_pad();
@@ -1347,7 +1347,7 @@ var init_toBytes = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/_u64.js
+// node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/_u64.js
 function fromBig(n, le = false) {
   if (le)
     return { h: Number(n & U32_MASK64), l: Number(n >> _32n & U32_MASK64) };
@@ -1365,7 +1365,7 @@ function split(lst, le = false) {
 }
 var U32_MASK64, _32n, rotlSH, rotlSL, rotlBH, rotlBL;
 var init_u64 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/_u64.js"() {
+  "node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/_u64.js"() {
     U32_MASK64 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
     _32n = /* @__PURE__ */ BigInt(32);
     rotlSH = (h, l, s) => h << s | l >>> 32 - s;
@@ -1375,7 +1375,7 @@ var init_u64 = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/utils.js
+// node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/utils.js
 function isBytes(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -1440,7 +1440,7 @@ function createHasher(hashCons) {
 }
 var isLE, swap32IfBE, Hash;
 var init_utils2 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/utils.js"() {
+  "node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/utils.js"() {
     isLE = /* @__PURE__ */ (() => new Uint8Array(new Uint32Array([287454020]).buffer)[0] === 68)();
     swap32IfBE = isLE ? (u) => u : byteSwap32;
     Hash = class {
@@ -1448,7 +1448,7 @@ var init_utils2 = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/sha3.js
+// node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/sha3.js
 function keccakP(s, rounds = 24) {
   const B = new Uint32Array(5 * 2);
   for (let round = 24 - rounds; round < 24; round++) {
@@ -1491,7 +1491,7 @@ function keccakP(s, rounds = 24) {
 }
 var _0n, _1n, _2n, _7n, _256n, _0x71n, SHA3_PI, SHA3_ROTL, _SHA3_IOTA, IOTAS, SHA3_IOTA_H, SHA3_IOTA_L, rotlH, rotlL, Keccak, gen, keccak_256;
 var init_sha3 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/sha3.js"() {
+  "node_modules/.pnpm/@noble+hashes@1.8.0/node_modules/@noble/hashes/esm/sha3.js"() {
     init_u64();
     init_utils2();
     _0n = BigInt(0);
@@ -1636,7 +1636,7 @@ var init_sha3 = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/keccak256.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/keccak256.js
 function keccak256(value, to_) {
   const to = to_ || "hex";
   const bytes = keccak_256(isHex(value, { strict: false }) ? toBytes(value) : value);
@@ -1645,7 +1645,7 @@ function keccak256(value, to_) {
   return toHex(bytes);
 }
 var init_keccak256 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/keccak256.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/keccak256.js"() {
     init_sha3();
     init_isHex();
     init_toBytes();
@@ -1653,20 +1653,20 @@ var init_keccak256 = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/hashSignature.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/hashSignature.js
 function hashSignature(sig) {
   return hash(sig);
 }
 var hash;
 var init_hashSignature = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/hashSignature.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/hashSignature.js"() {
     init_toBytes();
     init_keccak256();
     hash = (value) => keccak256(toBytes(value));
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/normalizeSignature.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/normalizeSignature.js
 function normalizeSignature(signature) {
   let active = true;
   let current = "";
@@ -1710,15 +1710,15 @@ function normalizeSignature(signature) {
   return result;
 }
 var init_normalizeSignature = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/normalizeSignature.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/normalizeSignature.js"() {
     init_base();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignature.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignature.js
 var toSignature;
 var init_toSignature = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignature.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignature.js"() {
     init_exports();
     init_normalizeSignature();
     toSignature = (def) => {
@@ -1732,21 +1732,21 @@ var init_toSignature = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignatureHash.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignatureHash.js
 function toSignatureHash(fn2) {
   return hashSignature(toSignature(fn2));
 }
 var init_toSignatureHash = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignatureHash.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toSignatureHash.js"() {
     init_hashSignature();
     init_toSignature();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/lru.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/lru.js
 var LruMap;
 var init_lru = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/lru.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/lru.js"() {
     LruMap = class extends Map {
       constructor(size2) {
         super();
@@ -1779,7 +1779,7 @@ var init_lru = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/address/getAddress.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/address/getAddress.js
 function checksumAddress(address_, chainId) {
   if (checksumAddressCache.has(`${address_}.${chainId}`))
     return checksumAddressCache.get(`${address_}.${chainId}`);
@@ -1800,7 +1800,7 @@ function checksumAddress(address_, chainId) {
 }
 var checksumAddressCache;
 var init_getAddress = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/address/getAddress.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/address/getAddress.js"() {
     init_toBytes();
     init_keccak256();
     init_lru();
@@ -1808,7 +1808,7 @@ var init_getAddress = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/slice.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/slice.js
 function slice(value, start, end, { strict } = {}) {
   if (isHex(value, { strict: false }))
     return sliceHex(value, start, end, {
@@ -1850,14 +1850,14 @@ function sliceHex(value_, start, end, { strict } = {}) {
   return value;
 }
 var init_slice = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/slice.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/data/slice.js"() {
     init_data();
     init_isHex();
     init_size();
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js
 function getArrayComponents(type) {
   const matches = type.match(/^(.*)\[(\d+)?\]$/);
   return matches ? (
@@ -1866,24 +1866,24 @@ function getArrayComponents(type) {
   ) : void 0;
 }
 var init_encodeAbiParameters = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/encodeAbiParameters.js"() {
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toFunctionSelector.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toFunctionSelector.js
 var toFunctionSelector;
 var init_toFunctionSelector = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toFunctionSelector.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/hash/toFunctionSelector.js"() {
     init_slice();
     init_toSignatureHash();
     toFunctionSelector = (fn2) => slice(toSignatureHash(fn2), 0, 4);
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/cursor.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/cursor.js
 var NegativeOffsetError, PositionOutOfBoundsError, RecursiveReadLimitExceededError;
 var init_cursor = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/cursor.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/errors/cursor.js"() {
     init_base();
     NegativeOffsetError = class extends BaseError2 {
       constructor({ offset }) {
@@ -1905,7 +1905,7 @@ var init_cursor = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/cursor.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/cursor.js
 function createCursor(bytes, { recursiveReadLimit = 8192 } = {}) {
   const cursor = Object.create(staticCursor);
   cursor.bytes = bytes;
@@ -1916,7 +1916,7 @@ function createCursor(bytes, { recursiveReadLimit = 8192 } = {}) {
 }
 var staticCursor;
 var init_cursor2 = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/cursor.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/cursor.js"() {
     init_cursor();
     staticCursor = {
       bytes: new Uint8Array(),
@@ -2080,7 +2080,7 @@ var init_cursor2 = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromBytes.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromBytes.js
 function bytesToBigInt(bytes, opts = {}) {
   if (typeof opts.size !== "undefined")
     assertSize(bytes, { size: opts.size });
@@ -2112,7 +2112,7 @@ function bytesToString(bytes_, opts = {}) {
   return new TextDecoder().decode(bytes);
 }
 var init_fromBytes = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromBytes.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/encoding/fromBytes.js"() {
     init_encoding();
     init_trim();
     init_fromHex();
@@ -2120,7 +2120,7 @@ var init_fromBytes = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeAbiParameters.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeAbiParameters.js
 function decodeAbiParameters(params, data) {
   const bytes = typeof data === "string" ? hexToBytes(data) : data;
   const cursor = createCursor(bytes);
@@ -2306,7 +2306,7 @@ function hasDynamicChild(param) {
 }
 var sizeOfLength, sizeOfOffset;
 var init_decodeAbiParameters = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeAbiParameters.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeAbiParameters.js"() {
     init_abi();
     init_getAddress();
     init_cursor2();
@@ -2322,7 +2322,7 @@ var init_decodeAbiParameters = __esm({
   }
 });
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeFunctionData.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeFunctionData.js
 function decodeFunctionData(parameters) {
   const { abi, data } = parameters;
   const signature = slice(data, 0, 4);
@@ -2337,7 +2337,7 @@ function decodeFunctionData(parameters) {
   };
 }
 var init_decodeFunctionData = __esm({
-  "../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeFunctionData.js"() {
+  "node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/utils/abi/decodeFunctionData.js"() {
     init_abi();
     init_slice();
     init_toFunctionSelector();
@@ -2684,7 +2684,7 @@ function checkTask(taskId, before, after, transactions, agentFinal = "", observa
 // vendor/legacy-source/src/store.ts
 import { createHash, randomUUID } from "node:crypto";
 
-// ../web3-agent-lab/node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/index.js
+// node_modules/.pnpm/viem@2.38.3_bufferutil@4.1._9dc4a39aebdace23bb9e81751f3d7da7/node_modules/viem/_esm/index.js
 init_exports();
 init_decodeFunctionData();
 init_toFunctionSelector();

@@ -16,12 +16,12 @@ async function action(fn,button=null,pendingLabel='处理中…'){
   catch(e){notify('操作未完成：'+e.message);}
   finally{if(button){delete button.dataset.busy;button.classList.remove('is-busy');button.removeAttribute('aria-busy');button.disabled=false;txt(button,original);updateAvailability();}}
 }
-const activeStates=['initializing','running','paused','pending','pending_reconciliation'];
+const activeStates=['initializing','running','paused','pending','pending_reconciliation','requires_attention'];
 function updateAvailability(){
   const live=!!scene&&!offline&&!scene.archived,active=live&&activeStates.includes(scene.state),pending=scene?.transactions?.some(t=>['pending','unknown','broadcasting'].includes(t.state));
   const setupBusy=['start','init','rerun'].some(id=>$(id)?.dataset.busy==='true');
   const enabled={start:!active&&!setupBusy,init:!active&&!setupBusy,step:live&&['running','pending'].includes(scene.state)&&!scene.stepInProgress,
-    pause:live&&['running','pending'].includes(scene.state),resume:live&&(scene.state==='paused'||scene.pausedAgents?.length>0),stop:active,
+      pause:live&&['running','pending'].includes(scene.state),resume:live&&!scene.transactionFailure&&(scene.state==='paused'||scene.pausedAgents?.length>0||(scene.stopRequested&&pending)),stop:active,
     mine:active&&(!scene.stepInProgress||scene.state==='paused'),cancel:live&&scene.order?.state==1&&!pending&&!scene.stepInProgress,
     expire:live&&scene.order?.state==1&&!pending&&!scene.stepInProgress,rerun:!!scene&&!offline&&!active&&!setupBusy,export:!!scene,'graph-export':!!scene};
   for(const [id,available]of Object.entries(enabled)){const b=$(id);if(b)b.disabled=b.dataset.busy==='true'||!available;}
@@ -35,13 +35,13 @@ function updateElapsed(){
 function bind(id,label,fn){const b=$(id);b.onclick=()=>action(fn,b,label);}
 function amount(n){if(n==null)return '—';const v=BigInt(n);return`${v/1000000n}.${(v%1000000n).toString().padStart(6,'0')}`.replace(/\.?0+$/,'');}
 function showDetail(value){txt($('detail'),JSON.stringify(value,null,2));}
-const states={draft:'待启动',initializing:'初始化中',running:'运行中',paused:'暂停',pending:'待确认',pending_reconciliation:'停止后待对账',completed:'已结束',error:'基础设施错误',interrupted:'进程中断 · 只读档案'};
+const states={draft:'待启动',initializing:'初始化中',running:'运行中',paused:'暂停',pending:'待确认 · 后台持续对账',pending_reconciliation:'停止后待对账',requires_attention:'交易或托管资金待处理',completed:'已结束',error:'基础设施错误',interrupted:'进程中断 · 只读档案'};
 function render(){if(!scene)return;txt($('state'),states[scene.state]||scene.state);txt($('identity'),`${offline?'离线回放 · ':''}${scene.id} / episode ${scene.episodeId} / 步数 ${scene.steps}`);
   updateAvailability();$('pause-detail').hidden=!scene.paused;txt($('pause-detail'),JSON.stringify(scene.paused,null,2));
   if(Number.isFinite(scene.elapsedMs))elapsedClock={id:scene.id,ms:scene.elapsedMs,receivedAt:performance.now(),running:!offline&&!scene.archived&&!!scene.startedAt&&!scene.endedAt&&activeStates.includes(scene.state)};else elapsedClock=null;
   updateElapsed();txt($('metric-models'),(scene.agents??[]).reduce((n,a)=>n+(a.costs?.modelCalls??0),0));txt($('metric-tools'),(scene.agents??[]).reduce((n,a)=>n+(a.costs?.toolCalls??0),0));txt($('metric-transactions'),scene.transactions?.length??0);
   const stages={need_inquiry:'需要发送询价',awaiting_inquiry_or_quote:'等待询价或发送报价',awaiting_peer_acceptance:'等待对方接受报价',need_quote_decision:'需要接受、还价或拒绝',maker_prepare_order:'已达成协议，准备授权和创建订单',awaiting_order:'等待 Maker 创建订单',order_open:'订单已创建，核对条款并成交',awaiting_chain_confirmation:'等待链上确认或对账'};
-  txt($('phase-status'),scene.state==='completed'?'实验已结束；请查看下方结论。':Object.entries(scene.progress??{}).map(([id,p])=>`${id==='maker'?'Maker':'Taker'}：${stages[p.stage]??p.stage}`).join('；')||'等待场景准备。');
+  txt($('phase-status'),scene.transactionFailure?`链上动作未满足条件：${scene.transactionFailure.code}。已暂停后续交易；开放订单可取消或到期清退。`:scene.stopRequested&&scene.order?.state==1?'业务已停止，但订单仍有托管资金；请取消订单或到期清退。':scene.state==='completed'?'实验已结束；请查看下方结论。':Object.entries(scene.progress??{}).map(([id,p])=>`${id==='maker'?'Maker':'Taker'}：${stages[p.stage]??p.stage}`).join('；')||'等待场景准备。');
   $('agent-status').replaceChildren();for(const a of scene.agents??[]){const box=el('div');box.append(el('h3',a.agentId),el('p',a.address,'mono'),el('p',`模型调用 ${a.costs?.modelCalls??0} · 工具 ${a.costs?.toolCalls??0} · Token ${a.costs?.usageComplete===false?'不完整':a.costs?.totalTokens??0}`),el('p',`Gas 成本 ${a.gasUsedWei??'未知'} wei`));const lastError=scene.progress?.[a.agentId]?.lastToolError;if(lastError)box.append(el('p',`最近未成功的操作：${lastError.tool??'模型'} · ${lastError.error}`,'fail'));$('agent-status').append(box);}
   $('assets').replaceChildren();for(const role of ['maker','taker','escrow']){const tr=el('tr'),b=role==='escrow'?scene.before?.escrow:scene.before?.assets?.[role],a=role==='escrow'?scene.after?.escrow:scene.after?.assets?.[role];
     for(const v of [role,amount(b?.A),amount(a?.A),amount(b?.B),amount(a?.B),b?.address??scene.before?.exchange??'—'])tr.append(el('td',v));$('assets').append(tr);}
@@ -50,7 +50,7 @@ function render(){if(!scene)return;txt($('state'),states[scene.state]||scene.sta
     const d=el('details');d.append(el('summary','逐项检查依据'));for(const a of check.assertions??[])d.append(el('p',`${a.passed?'✓':'✗'} ${a.id}：期望 ${JSON.stringify(a.expected)} / 实际 ${JSON.stringify(a.actual)}`,a.passed?'pass':'fail'));$('verdict').append(d);
   }else txt($('verdict'),scene.error||'运行结束或对账后生成独立结论');
   $('messages').replaceChildren();for(const m of scene.messages??[]){const box=el('div',undefined,'message');box.dataset.sender=m.senderAgentId;box.append(el('strong',`${m.senderAgentId} → ${m.recipientAgentId} · ${m.kind}`),el('p',JSON.stringify(m.visiblePayload??m.payload)));box.onclick=()=>showDetail(m);$('messages').append(box);}
-  txt($('order'),JSON.stringify({quote:scene.quote,orderId:scene.orderId,order:scene.order},null,2));$('transactions').replaceChildren();for(const t of scene.transactions??[]){const box=el('div',`${t.actorId} · ${t.functionName} · ${t.state}\n${t.hash??'哈希未知，先对账'}`,'tx mono');box.onclick=()=>showDetail(t);$('transactions').append(box);}
+  txt($('order'),JSON.stringify({quote:scene.quote,acceptance:scene.acceptance,expectedOrderId:scene.expectedOrderId,orderId:scene.orderId,order:scene.order,fundsStatus:scene.fundsStatus},null,2));$('transactions').replaceChildren();for(const t of scene.transactions??[]){const box=el('div',`${t.actorId} · ${t.functionName} · ${t.state}\n${t.hash??'哈希未知，先对账'}`,'tx mono');box.onclick=()=>showDetail(t);$('transactions').append(box);}
   if(scene.state==='completed'&&graphScene!==scene.id){graphScene=scene.id;action(drawGraph);}
 }
 async function load(id){nativeEvidence.clear();scene=await api('/api/scenarios/'+id);offline=false;bundle=null;render();}

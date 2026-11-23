@@ -1,0 +1,343 @@
+{
+  "suite": "peer-pending-and-accepted-quote-recovery",
+  "runId": "4d76459d-097d-4835-84b8-1337ef305ae5",
+  "buildHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "generatedAt": "2026-11-23T09:36:28.038Z",
+  "realEVM": true,
+  "realLLM": false,
+  "publicNetwork": false,
+  "records": [
+    {
+      "id": "P01",
+      "title": "Four dependent transactions remain single while pending, then settle exactly once",
+      "startedAt": "2026-11-23T09:33:53.994Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "4b1da384-251b-4026-8554-75d34809668d",
+      "phases": [
+        {
+          "phase": 1,
+          "functionName": "approve",
+          "hash": "0x555b25c172ab4b8ba9e503a3c94289f5e028708426dc13c69cc6048d99f5cd92",
+          "nonce": 0,
+          "pendingSteps": 5
+        },
+        {
+          "phase": 2,
+          "functionName": "createOrder",
+          "hash": "0xadc334f5f2f54068783018118454893eb2bb5bf39b0bbc073bc30065b703bd42",
+          "nonce": 1,
+          "pendingSteps": 7
+        },
+        {
+          "phase": 3,
+          "functionName": "approve",
+          "hash": "0xae62e0436bda73b352de8932fef021727eb14c8750b74df67e820564c7a521ca",
+          "nonce": 0,
+          "pendingSteps": 12
+        },
+        {
+          "phase": 4,
+          "functionName": "fillOrder",
+          "hash": "0xcecc826254d45be1fa62df4df25b3412b43807079460dd72741e0856e6f869ea",
+          "nonce": 1,
+          "pendingSteps": 14
+        }
+      ],
+      "evidence": [
+        "P01-settled.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:34:06.916Z"
+    },
+    {
+      "id": "P02",
+      "title": "Stop while createOrder is pending preserves open escrow and permits one refund",
+      "startedAt": "2026-11-23T09:34:06.917Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "7e579720-8d7f-49a5-9a5d-10c7ee1dd32e",
+      "pendingHash": "0x9a77d61a425646ec5fc8d5b8f8f1f949d1bc76ceebcbc92adea2c6f2d32974e5",
+      "evidence": [
+        "P02-open-after-stop.json",
+        "P02-refunded.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:34:17.192Z"
+    },
+    {
+      "id": "P03",
+      "title": "A real reverted order does not advance to buyer approval or settlement",
+      "startedAt": "2026-11-23T09:34:17.193Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "f206d4ba-d02b-48a5-bbe3-30b68e2aaf75",
+      "transactionStates": [
+        {
+          "functionName": "approve",
+          "state": "confirmed"
+        },
+        {
+          "functionName": "createOrder",
+          "state": "reverted"
+        }
+      ],
+      "evidence": [
+        "P03-reverted.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:34:30.824Z"
+    },
+    {
+      "id": "P04",
+      "title": "Confirmation arriving after the former five-second polling window resumes automatically",
+      "startedAt": "2026-11-23T09:34:30.825Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "e979ada0-0cad-4ad8-b99c-d5e2728ef709",
+      "waitingMs": 6500,
+      "hash": "0x85d5faa5f0ab00aed16d258b7938c78ddaadd2bde251ba57bf5a8d50e8e4ddd3",
+      "resumedPhase": "createOrder",
+      "evidence": [
+        "P04-late-confirmation.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:34:46.207Z"
+    },
+    {
+      "id": "P05",
+      "title": "Repeated HTTP control idempotency key does not execute another decision or transaction",
+      "startedAt": "2026-11-23T09:34:46.207Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "484e85c7-44b8-4876-b84d-91ac33d31710",
+      "controlId": "e987edf1-4e91-468e-812d-08201366fc5a",
+      "evidence": [
+        "P05-idempotent-control.json"
+      ],
+      "coverage": "HTTP control operation replay; lower-level semantic operation replay is covered by the gateway regression tests.",
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:34:57.314Z"
+    },
+    {
+      "id": "P06",
+      "title": "Injected response failure after broadcast reconciles the original hash",
+      "startedAt": "2026-11-23T09:34:57.314Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "b4455681-0c68-4549-864b-abe7b27db04a",
+      "hash": "0xbc7715f726589ef20934c9151b1208156a3fa32e88fc0ec78f7818807db01b5d",
+      "evidence": [
+        "P06-broadcast-fault.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:35:05.576Z"
+    },
+    {
+      "id": "P07",
+      "title": "Actual control-process crash after broadcast restores one durable transaction",
+      "startedAt": "2026-11-23T09:35:05.576Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "facbcd16-4e4b-4f0c-90e4-70a8d7a87010",
+      "hash": "0x6e70467037294be58cc7c77c017bf1a87e5d3fe715276a7ae8e471420b62a269",
+      "actualCrashExitCode": 91,
+      "evidence": [
+        "P07-crash-recovered.json"
+      ],
+      "coverage": "Crash is after sendRawTransaction; a separate pre-broadcast crash point is not claimed by this case.",
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:35:18.982Z"
+    },
+    {
+      "id": "P08",
+      "title": "Invalid acceptance and post-acceptance quote changes are rejected before any changed trade",
+      "startedAt": "2026-11-23T09:35:18.984Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "1d27f451-2368-4eac-8f9e-717dc56529be",
+      "errors": [
+        "MESSAGE_RECIPIENT",
+        "ACCEPT_TERMS_OVERRIDE",
+        "QUOTE_ALREADY_ACCEPTED",
+        "TOOL_ADDITIONAL_PROPERTIES: amount"
+      ],
+      "protocolFixture": true,
+      "evidence": [
+        "P08-quote-guard.json",
+        "P08-model-protocol-requests.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:35:33.554Z"
+    },
+    {
+      "id": "P09",
+      "title": "Original peer workbench also recovers a stopped pending order and refunds it",
+      "startedAt": "2026-11-23T09:35:33.554Z",
+      "realEVM": true,
+      "independentWorkers": false,
+      "realLLM": false,
+      "publicNetwork": false,
+      "scenarioId": "70b9343d-0e20-46ca-aa63-5f7dbe73e8e1",
+      "pendingOrderHash": "0x7fa7b715b3e45069a427fb54deea969aa205bffe8f1de51a2f51ad184f880b6f",
+      "entryPoint": "original /api/scenarios workbench",
+      "evidence": [
+        "P09-workbench-refunded.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:35:38.672Z"
+    },
+    {
+      "id": "P10",
+      "title": "Actual crash before broadcast replays the same signed hash and completes the trade",
+      "startedAt": "2026-11-23T09:35:38.673Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "8698e505-9c31-446f-b51a-bdfe5705a56a",
+      "actualCrashExitCode": 91,
+      "durable": {
+        "intentId": "1cb44fae-fe31-4032-9459-ed4bcf045ebd",
+        "operationId": "b2a00bfc42eba5affae624ae1f465aded69e0dd00eabd34febf8c7a7178f012f",
+        "nonce": 0,
+        "hash": "0x7246a7bf9853b640203e6759d48e36b7104b09744cf3818649d51e3ad58375a8",
+        "state": "broadcasting",
+        "chainTransaction": null,
+        "latestNonce": "0x0"
+      },
+      "finalTransactionCount": 4,
+      "evidence": [
+        "P10-prebroadcast-durable-evidence.json",
+        "P10-prebroadcast-crash-recovered.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:35:54.503Z"
+    },
+    {
+      "id": "P11",
+      "title": "A reverted early expiry can be retried explicitly after expiry and refunds once",
+      "startedAt": "2026-11-23T09:35:54.503Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "a4c98b33-a20e-4b26-b35c-1bc5227d2468",
+      "attempts": [
+        {
+          "operationId": "84050206c6be539756216d3f0cc2ac0a694f227e6a7daa99ec97e8dd8324f178",
+          "attempt": 1,
+          "intentId": "1e4ca210-5fd3-4245-937e-efa5e9eb6cd5",
+          "cleanupControlId": "4c55e648-6a8f-4966-a459-323f1a42056c",
+          "hash": "0x91631c957300b5fca513499cc00db0014d2c976b8ccd1b5a97445ef6acd2e019",
+          "nonce": 2,
+          "state": "reverted"
+        },
+        {
+          "operationId": "84050206c6be539756216d3f0cc2ac0a694f227e6a7daa99ec97e8dd8324f178",
+          "attempt": 2,
+          "intentId": "a32b4e25-2f16-4c7d-839a-bf6171cd2d18",
+          "priorIntentId": "1e4ca210-5fd3-4245-937e-efa5e9eb6cd5",
+          "priorReceiptHash": "0x91631c957300b5fca513499cc00db0014d2c976b8ccd1b5a97445ef6acd2e019",
+          "cleanupControlId": "fb3b4b7d-1dac-4289-9c85-60a9ce494ebe",
+          "hash": "0x894d90c44c4cfadd6f914b605ebde830498d3c5795a11075387e23beeb2214a7",
+          "nonce": 3,
+          "state": "confirmed"
+        }
+      ],
+      "evidence": [
+        "P11-early-expiry-reverted.json",
+        "P11-expiry-retry-refunded.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:36:05.994Z"
+    },
+    {
+      "id": "P12",
+      "title": "A genuinely stopped worker enters recovering and resumes to successful unlocked completion",
+      "startedAt": "2026-11-23T09:36:05.994Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "53d31270-d17b-47a3-bff7-f3dfcaf033d4",
+      "workerBefore": {
+        "pid": 29512,
+        "leaseEpoch": 1
+      },
+      "workerAfter": {
+        "pid": 27992,
+        "leaseEpoch": 3
+      },
+      "evidence": [
+        "P12-worker-offline.json",
+        "P12-worker-restarted-completed.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:36:17.957Z"
+    },
+    {
+      "id": "P13",
+      "title": "An open order with a prior worker failure can be cancelled directly without resuming trading",
+      "startedAt": "2026-11-23T09:36:17.957Z",
+      "realEVM": true,
+      "independentWorkers": true,
+      "realLLM": false,
+      "publicNetwork": false,
+      "executionId": "c299657c-2c26-4d0a-889b-526fc83ef4e4",
+      "tradingResumed": false,
+      "workerBefore": {
+        "pid": 27868,
+        "leaseEpoch": 1
+      },
+      "workerAfter": {
+        "pid": 27104,
+        "leaseEpoch": 3
+      },
+      "finalState": "completed",
+      "refundHash": "0x7e9878b16db81b2967cc08b7afdf1872e8272cf9711c4f97aeed7d82f17cd6cc",
+      "evidence": [
+        "P13-open-order-worker-failed.json",
+        "P13-direct-cancel-after-worker-failure.json"
+      ],
+      "status": "PASS",
+      "cleanupErrors": [],
+      "endedAt": "2026-11-23T09:36:28.037Z"
+    }
+  ],
+  "limitations": [
+    "No public-chain finality/reorganization test.",
+    "The model endpoint is a deterministic protocol fixture, not a claim about any LLM.",
+    "Source-level semantic operation replay across distinct model commands is tested separately; P05 exercises HTTP control replay."
+  ]
+}

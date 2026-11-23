@@ -1,4 +1,4 @@
-name: Windows V0.18.2 verification
+name: Windows V0.18.3 verification
 
 on:
   push:
@@ -63,38 +63,67 @@ jobs:
 
       - name: Run all 26 isolated regression phases including testnet adapters
         env:
-          LAB_REGRESSION_OUT: artifacts/test-results/v0182-ci
+          LAB_REGRESSION_OUT: artifacts/test-results/v0183-ci
         run: |
           node scripts/testnet-regression.mjs
-          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 inherited regression failed.' }
-          $ciSummary = Get-Content artifacts/test-results/v0182-ci/summary.json -Raw | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.3 inherited regression failed.' }
+          $ciSummary = Get-Content artifacts/test-results/v0183-ci/summary.json -Raw | ConvertFrom-Json
           if (-not $ciSummary.passed -or $ciSummary.passedSteps -ne 26 -or $ciSummary.failedSteps -ne 0) {
             throw 'All 26 phases must pass; partial results cannot pass the release gate.'
           }
 
       - name: Verify budget policy constraints
         env:
-          LAB_TEST_ARTIFACT_DIR: artifacts/test-results/v0182-ci/budget-constraints
-          LAB_TEST_DATA_DIR: artifacts/test-results/v0182-ci/budget-constraints/data
+          LAB_TEST_ARTIFACT_DIR: artifacts/test-results/v0183-ci/budget-constraints
+          LAB_TEST_DATA_DIR: artifacts/test-results/v0183-ci/budget-constraints/data
         run: |
           node tests/budget-constraints.mjs
-          if ($LASTEXITCODE -ne 0) { throw 'V0.18.2 budget constraint regression failed.' }
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.3 budget constraint regression failed.' }
+
+      - name: Verify pending recovery and accepted quote binding on real local EVM
+        env:
+          LAB_TEST_ARTIFACT_DIR: artifacts/test-results
+          LAB_PEER_CASES: ''
+        run: |
+          node tests/peer-recovery-regression.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.3 peer recovery regression failed.' }
+          $peerSummaries = @(Get-ChildItem artifacts/test-results/peer-recovery/*/summary.json)
+          if ($peerSummaries.Count -ne 1) { throw 'Expected exactly one peer recovery run.' }
+          $peerSummary = Get-Content $peerSummaries[0].FullName -Raw | ConvertFrom-Json
+          if ($peerSummary.records.Count -ne 13 -or @($peerSummary.records | Where-Object { $_.status -ne 'PASS' -or $_.cleanupErrors.Count -ne 0 }).Count -ne 0) {
+            throw 'All 13 recovery cases and owned-process cleanup must pass.'
+          }
+          $ciBuild = Get-Content build-info.json -Raw | ConvertFrom-Json
+          if ($peerSummary.buildHash -ne $ciBuild.sourceHash -or $ciBuild.version -ne '0.18.3') {
+            throw 'Peer cases must run against the final V0.18.3 build.'
+          }
+
+      - name: Verify isolated BNB SDK offline experiment
+        env:
+          LAB_BNB_TEST_OUT: artifacts/test-results/v0183-ci/bnb-offline
+        run: |
+          node scripts/bnb-sdk-smoke.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'V0.18.3 BNB offline smoke failed.' }
 
       - name: Upload current CI logs and reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: windows-v0182-validation
+          name: windows-v0183-validation
           overwrite: true
           if-no-files-found: warn
           retention-days: 14
           path: |
-            artifacts/test-results/v0182-ci/*.log
-            artifacts/test-results/v0182-ci/summary.json
-            artifacts/test-results/v0182-ci/budget-constraints/*.json
-            artifacts/test-results/v0182-ci/results/*/*-results.json
-            artifacts/test-results/v0182-ci/results/*/research/report.json
-            artifacts/test-results/v0182-ci/results/*/testnet/report.json
+            artifacts/test-results/v0183-ci/*.log
+            artifacts/test-results/v0183-ci/summary.json
+            artifacts/test-results/v0183-ci/budget-constraints/*.json
+            artifacts/test-results/v0183-ci/bnb-offline/smoke-results.json
+            artifacts/test-results/v0183-ci/results/*/*-results.json
+            artifacts/test-results/v0183-ci/results/*/research/report.json
+            artifacts/test-results/v0183-ci/results/*/testnet/report.json
+            artifacts/test-results/v0183-ci/results/13-worker-shutdown-recovery/acceptance-final-recovery/supplement/summary.json
+            artifacts/test-results/peer-recovery/*/summary.json
+            artifacts/test-results/peer-recovery/*/P*.result.json
 
       # GUI browser checks and macOS runs are not performed by this job.
       # Historical release reports remain historical evidence, not CI results.

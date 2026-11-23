@@ -1,0 +1,684 @@
+{
+  "schema": "testnet-local-review-regression-v1",
+  "startedAt": "2026-11-23T09:33:19.888Z",
+  "baselineCommit": "333ffb8611386a7690348e86910da8427cd5edba",
+  "branch": "codex/v0.18.3-local-review",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "out": "./artifacts/test-results/v0183-full-20261123",
+  "scope": "Windows local isolated integration and regression. No real testnet broadcasts, no GitHub update. Actual model and GUI runs reported separately.",
+  "selectedSteps": null,
+  "steps": [
+    {
+      "name": "01-budget-build",
+      "command": [
+        "./runtime/node.exe",
+        "scripts/compile-budget.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:33:19.950Z",
+      "finishedAt": "2026-11-23T09:33:27.183Z",
+      "elapsedMs": 7232,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/01-budget-build.log",
+      "logSha256": "c2ff9fb2c9c68045767e4ffdbe4745419885fd36247ee43975314243bc063351",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/01-budget-build"
+    },
+    {
+      "name": "02-platform-build",
+      "command": [
+        "./runtime/node.exe",
+        "--run",
+        "build"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:33:27.184Z",
+      "finishedAt": "2026-11-23T09:33:40.342Z",
+      "elapsedMs": 13157,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/02-platform-build.log",
+      "logSha256": "44cf4018f0ecb008cca4a96ff2778fb65a1d5578e6881c63ef950dec845062ce",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/02-platform-build"
+    },
+    {
+      "name": "03-doctor",
+      "command": [
+        "./runtime/node.exe",
+        "dist/cli.mjs",
+        "doctor"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:33:40.343Z",
+      "finishedAt": "2026-11-23T09:33:40.551Z",
+      "elapsedMs": 208,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/03-doctor.log",
+      "logSha256": "42dc5196b04b7027546d0223a124a3b82ea324069e9a39cdf1b5ff6b5787ff26",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/03-doctor"
+    },
+    {
+      "name": "04-typecheck",
+      "command": [
+        "./runtime/node.exe",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.control.json",
+        "--noEmit"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:33:40.552Z",
+      "finishedAt": "2026-11-23T09:33:40.893Z",
+      "elapsedMs": 341,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/04-typecheck.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/04-typecheck"
+    },
+    {
+      "name": "05-unit",
+      "command": [
+        "./runtime/node.exe",
+        "--test",
+        "tests/*.test.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:33:40.894Z",
+      "finishedAt": "2026-11-23T09:34:26.546Z",
+      "elapsedMs": 45653,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 317,
+        "pass": 317,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/05-unit.log",
+      "logSha256": "5ba213337eed9dd526eb9361f62c2bb4fd0c8150a2276d578f055d353e098794",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/05-unit"
+    },
+    {
+      "name": "06-legacy-source",
+      "command": [
+        "./runtime/node.exe",
+        "--import",
+        "./scripts/register-agentkit.mjs",
+        "--import",
+        "tsx",
+        "--test",
+        "tests/*.test.ts"
+      ],
+      "cwd": "./vendor/legacy-source",
+      "startedAt": "2026-11-23T09:34:26.547Z",
+      "finishedAt": "2026-11-23T09:34:41.056Z",
+      "elapsedMs": 14509,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 145,
+        "pass": 145,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/06-legacy-source.log",
+      "logSha256": "fbf146125e812c91468b367c035bd80ada9dea6396f0665f4ef08c916411d694",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/06-legacy-source"
+    },
+    {
+      "name": "07-testnet-integration",
+      "command": [
+        "./runtime/node.exe",
+        "tests/testnet-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:34:41.057Z",
+      "finishedAt": "2026-11-23T09:35:00.720Z",
+      "elapsedMs": 19663,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/07-testnet-integration.log",
+      "logSha256": "310fcd198519930ce58012ea7a4bb18699581e6545dd84ac511bf41b973c2eaa",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/07-testnet-integration"
+    },
+    {
+      "name": "08-original-api",
+      "command": [
+        "./runtime/node.exe",
+        "tests/legacy-regression-wrapper.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:35:00.721Z",
+      "finishedAt": "2026-11-23T09:35:24.741Z",
+      "elapsedMs": 24020,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/08-original-api.log",
+      "logSha256": "b360e8f5245613cd780bceaa94afc6168857a2837e9391173f7fbd9138f2907e",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/08-original-api"
+    },
+    {
+      "name": "09-allowance-matrix",
+      "command": [
+        "./runtime/node.exe",
+        "tests/legacy-allowance-matrix.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:35:24.742Z",
+      "finishedAt": "2026-11-23T09:35:30.127Z",
+      "elapsedMs": 5384,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/09-allowance-matrix.log",
+      "logSha256": "caa732e05bcfbf1deb6b04a12ff2b7009f1f6cd48b2f17a5147f2017bef8b4cb",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/09-allowance-matrix"
+    },
+    {
+      "name": "10-peer-contract",
+      "command": [
+        "./runtime/node.exe",
+        "tests/peer-contract.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:35:30.128Z",
+      "finishedAt": "2026-11-23T09:35:42.199Z",
+      "elapsedMs": 12071,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/10-peer-contract.log",
+      "logSha256": "9d8e0ead34cb9baeb9193648c748a25de29e2fb0c26b3a61328b14fdb4f795b1",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/10-peer-contract"
+    },
+    {
+      "name": "11-peer-integration",
+      "command": [
+        "./runtime/node.exe",
+        "tests/peer-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:35:42.200Z",
+      "finishedAt": "2026-11-23T09:36:02.542Z",
+      "elapsedMs": 20342,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/11-peer-integration.log",
+      "logSha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/11-peer-integration"
+    },
+    {
+      "name": "12-independent-workers",
+      "command": [
+        "./runtime/node.exe",
+        "tests/v2-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:36:02.543Z",
+      "finishedAt": "2026-11-23T09:36:23.227Z",
+      "elapsedMs": 20684,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/12-independent-workers.log",
+      "logSha256": "3cc7400003c4d9b489f86c1b3d6012df8e24a7cc98b715acb17ac74897e0671b",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/12-independent-workers"
+    },
+    {
+      "name": "13-worker-shutdown-recovery",
+      "command": [
+        "./runtime/node.exe",
+        "tests/v2-shutdown-recovery.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:36:23.228Z",
+      "finishedAt": "2026-11-23T09:36:56.552Z",
+      "elapsedMs": 33324,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/13-worker-shutdown-recovery.log",
+      "logSha256": "8af14bd2de2e659288a05120434cbde0e758516bfdcd2c5c596eb02f6485e413",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/13-worker-shutdown-recovery"
+    },
+    {
+      "name": "14-service-contract",
+      "command": [
+        "./runtime/node.exe",
+        "tests/service-contract.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:36:56.553Z",
+      "finishedAt": "2026-11-23T09:37:05.864Z",
+      "elapsedMs": 9311,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/14-service-contract.log",
+      "logSha256": "f4bce77b778691d10a0e7c2b35f0f49f77c76e6c458196d35bbc622739ef20f9",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/14-service-contract"
+    },
+    {
+      "name": "15-service-integration",
+      "command": [
+        "./runtime/node.exe",
+        "tests/service-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:37:05.865Z",
+      "finishedAt": "2026-11-23T09:37:55.226Z",
+      "elapsedMs": 49361,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/15-service-integration.log",
+      "logSha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/15-service-integration"
+    },
+    {
+      "name": "16-budget-core",
+      "command": [
+        "./runtime/node.exe",
+        "tests/budget-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:37:55.227Z",
+      "finishedAt": "2026-11-23T09:38:25.183Z",
+      "elapsedMs": 29957,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/16-budget-core.log",
+      "logSha256": "ef7121d03d779a0955228334097d3d450ae799a353b6ccd1e05ed44e4ba4759b",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/16-budget-core"
+    },
+    {
+      "name": "17-budget-parameters",
+      "command": [
+        "./runtime/node.exe",
+        "tests/budget-parameter-matrix.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:38:25.184Z",
+      "finishedAt": "2026-11-23T09:39:07.051Z",
+      "elapsedMs": 41867,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/17-budget-parameters.log",
+      "logSha256": "5a9d354bbd470cfea1332171f5cb3a00ef45e2527095ff18a351f9d778067397",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/17-budget-parameters"
+    },
+    {
+      "name": "18-budget-main",
+      "command": [
+        "./runtime/node.exe",
+        "tests/budget-main-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:07.052Z",
+      "finishedAt": "2026-11-23T09:39:17.742Z",
+      "elapsedMs": 10690,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/18-budget-main.log",
+      "logSha256": "60989d36fff619a2b00b3aefccebd7fb1abc1139aef40d1413f0ae9b80f0b98f",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/18-budget-main"
+    },
+    {
+      "name": "19-budget-http",
+      "command": [
+        "./runtime/node.exe",
+        "tests/budget-http.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:17.745Z",
+      "finishedAt": "2026-11-23T09:39:32.884Z",
+      "elapsedMs": 15140,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/19-budget-http.log",
+      "logSha256": "26c50ff590c10579f3d69992c057bf7fdc6fd7838e9569e4111cc907908d5214",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/19-budget-http"
+    },
+    {
+      "name": "20-windows-launcher",
+      "command": [
+        "./runtime/node.exe",
+        "tests/budget-launcher.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:32.885Z",
+      "finishedAt": "2026-11-23T09:39:42.276Z",
+      "elapsedMs": 9391,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/20-windows-launcher.log",
+      "logSha256": "966c839a0a47e1250b295b9da43220f31b6a4fe13a292f008be098efe9095588",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/20-windows-launcher"
+    },
+    {
+      "name": "21-x402-ap2",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-payments.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:42.276Z",
+      "finishedAt": "2026-11-23T09:39:49.545Z",
+      "elapsedMs": 7269,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/21-x402-ap2.log",
+      "logSha256": "0b7bfb7b130d60d3c9219ae3a7c892ccec5a08086a523e035eb871ca59a21630",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/21-x402-ap2"
+    },
+    {
+      "name": "22-mpp",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-payments-mpp.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:49.546Z",
+      "finishedAt": "2026-11-23T09:39:55.408Z",
+      "elapsedMs": 5862,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/22-mpp.log",
+      "logSha256": "dd691b4c1b1b918c1a2f8bd70a98a151e5b14f5eef48b9d3e2529c85a0eb2b1f",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/22-mpp"
+    },
+    {
+      "name": "23-payment-adversarial",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-payments-adversarial.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:39:55.409Z",
+      "finishedAt": "2026-11-23T09:40:02.581Z",
+      "elapsedMs": 7172,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/23-payment-adversarial.log",
+      "logSha256": "888b0240905de8e7a78871ab7bcb644a7e5f92b8e88fc2331b1db2b8f603137b",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/23-payment-adversarial"
+    },
+    {
+      "name": "24-research-escrow",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-escrow.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:40:02.582Z",
+      "finishedAt": "2026-11-23T09:40:12.979Z",
+      "elapsedMs": 10397,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/24-research-escrow.log",
+      "logSha256": "c07f61a125ae354299a1673bc8821335931c88116607adaaa95992edbac0fdc5",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/24-research-escrow"
+    },
+    {
+      "name": "25-research-engine",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-integration.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:40:12.979Z",
+      "finishedAt": "2026-11-23T09:40:37.673Z",
+      "elapsedMs": 24693,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/25-research-engine.log",
+      "logSha256": "ab2cd3f55e3bdf0fbb4124d860a8b113f521270f477f922c1faa56582e74e4b6",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/25-research-engine"
+    },
+    {
+      "name": "26-research-dataset",
+      "command": [
+        "./runtime/node.exe",
+        "tests/research-dataset-smoke.mjs"
+      ],
+      "cwd": ".",
+      "startedAt": "2026-11-23T09:40:37.674Z",
+      "finishedAt": "2026-11-23T09:41:17.979Z",
+      "elapsedMs": 40305,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "./artifacts/test-results/v0183-full-20261123/26-research-dataset.log",
+      "logSha256": "5681e9c1f3f7a225382a0f116691b37d20854adbb5459f151e488717a0374ef6",
+      "artifacts": "./artifacts/test-results/v0183-full-20261123/results/26-research-dataset"
+    }
+  ],
+  "build": {
+    "sourceHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+    "builtAt": "2026-11-23T09:33:39.700Z",
+    "version": "0.18.3"
+  },
+  "finishedAt": "2026-11-23T09:41:17.980Z",
+  "passed": true,
+  "passedSteps": 26,
+  "failedSteps": 0
+}

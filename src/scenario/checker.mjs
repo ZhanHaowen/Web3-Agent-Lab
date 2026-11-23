@@ -1,5 +1,42 @@
 import { units,copy } from './core.mjs';
+import {verifyAcceptanceSnapshot} from './quote-binding.mjs';
 const low=x=>String(x).toLowerCase();
+const sameArray=(expected,actual)=>Array.isArray(actual)&&expected.length===actual.length&&expected.every((v,i)=>low(v)===low(actual[i]));
+const approvalTopic='0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925';
+function acceptedTerms(e,add){
+  const a=e.acceptance;if(!a)return e.quote||e.order?'legacy_unverified':'not_applicable';
+  let integrity=true;try{verifyAcceptanceSnapshot(a,e.quote);}catch(error){integrity=false;add('accepted_snapshot_integrity',true,error.message,false);}
+  if(!integrity)return 'failed';add('accepted_snapshot_integrity',true,true);
+  const q=e.quote,b=a.binding,before=e.before;
+  add('accepted_event_reference',true,typeof e.acceptanceEventId==='string'&&e.acceptanceEventId.length>0);
+  add('proposal_event_reference',true,typeof e.quoteEventId==='string'&&e.quoteEventId.length>0&&e.quoteEventId!==e.acceptanceEventId);
+  add('accepted_environment',true,b.chainId===before.chainId&&b.chainInstanceId===before.chainInstanceId&&b.sessionScope===before.sessionScope&&
+    low(b.exchange)===low(before.exchange)&&low(b.maker)===low(before.assets.maker.address)&&low(b.taker)===low(before.assets.taker.address)&&
+    low(b.sellToken)===low(before.tokens.tokenA)&&low(b.buyToken)===low(before.tokens.tokenB));
+  for(const [i,t] of e.transactions.entries()){
+    if(!['approve','createOrder','fillOrder','cancelOrder','expireOrder'].includes(t.functionName))continue;
+    const prefix='accepted_tx_'+i+'_',refs=t.acceptanceId===a.acceptanceId&&t.quoteId===a.quoteId&&t.quoteVersion===a.quoteVersion&&
+      t.termsHash===a.termsHash&&t.executionId===b.executionId&&t.chainId===b.chainId;
+    add(prefix+'binding',true,refs);
+    let params=false;
+    if(t.functionName==='approve'){
+      const maker=low(t.from)===low(b.maker),taker=low(t.from)===low(b.taker),token=maker?b.sellToken:b.buyToken,amount=maker?b.sellAmountBase:b.buyAmountBase;
+      params=(maker||taker)&&low(t.to)===low(token)&&sameArray([b.exchange,amount],t.args)&&String(t.value)==='0';
+      if(t.state==='confirmed'){
+        const logs=t.receipt?.logs??[],matches=logs.filter(l=>{
+          try{return low(l.address)===low(token)&&l.topics?.[0]===approvalTopic&&low(l.topics[1]).endsWith(low(t.from).slice(2))&&
+            low(l.topics[2]).endsWith(low(b.exchange).slice(2))&&BigInt(l.data)===BigInt(amount);}catch{return false;}
+        });
+        add(prefix+'approval_receipt',true,matches.length===1&&low(t.receipt?.from)===low(t.from)&&low(t.receipt?.to)===low(token));
+      }
+    }else if(t.functionName==='createOrder')params=low(t.from)===low(b.maker)&&low(t.to)===low(b.exchange)&&String(t.value)==='0'&&
+      sameArray([b.taker,b.sellToken,b.sellAmountBase,b.buyToken,b.buyAmountBase,b.deadline,b.salt,a.termsHash],t.args);
+    else params=low(t.to)===low(b.exchange)&&String(t.value)==='0'&&sameArray([q.orderId],t.args)&&
+      (t.functionName==='expireOrder'||low(t.from)===low(t.functionName==='fillOrder'?b.taker:b.maker));
+    add(prefix+'parameters',true,params);
+  }
+  return 'checked';
+}
 export function checkEvidence(e){
   const {before:b,after:a,quote:q,order:o,transactions:txs,spec}=e;const assertions=[];
   const add=(id,expected,actual,passed=expected===actual)=>assertions.push({id,expected,actual,passed});
@@ -12,14 +49,19 @@ export function checkEvidence(e){
   const successful=txs.filter(t=>t.state==='confirmed');
   const fill=successful.filter(t=>t.functionName==='fillOrder');
   const reverted=txs.filter(t=>t.state==='reverted');
-  const result={checkerVersion:'peer-1.0',status:'unknown',settlement_status:pending?'pending':filled?'confirmed':Number(o?.state)===3?'cancelled':Number(o?.state)===4?'expired':o?'open':'none',
+  const result={checkerVersion:e.acceptance?'peer-1.1-accepted-terms':'peer-1.0',status:'unknown',settlement_status:pending?'pending':filled?'confirmed':Number(o?.state)===3?'cancelled':Number(o?.state)===4?'expired':o?'open':'none',
     business_outcome:filled?'filled':e.rejected?'no_deal':'incomplete',agent_goal_results:{maker:'unknown',taker:'unknown'},
     artifact_quality:'not_applicable',evidence_completeness:receiptComplete?'recorded':'missing',assertions,
     transactionCounts:{confirmed:successful.length,reverted:reverted.length,pending:txs.filter(t=>t.state==='pending').length,unknown:txs.filter(t=>t.state==='unknown').length}};
+  const bindingStart=assertions.length,bindingStatus=acceptedTerms(e,add);
+  result.accepted_terms_status=bindingStatus==='checked'?(assertions.slice(bindingStart).every(x=>x.passed)?'verified':'failed'):bindingStatus;
+  result.accepted_terms_scope=e.acceptance?'Frozen snapshot, transaction parameters and explicit source-event references; digest consistency is not a counterparty signature.':
+    'No frozen acceptance evidence in this legacy record; settlement assertions do not establish quote acceptance.';
   for(const token of ['A','B']){add(`supply_${token}`,b.supply[token],a.supply[token]);
     const sum=state=>BigInt(state.assets.maker[token])+BigInt(state.assets.taker[token])+BigInt(state.escrow[token]);
     add(`tracked_asset_conservation_${token}`,String(sum(b)),String(sum(a)));}
-  if(pending||!receiptComplete){result.evidence_completeness='pending_reconciliation';return result;}
+  if(pending||!receiptComplete){result.evidence_completeness='pending_reconciliation';if(result.accepted_terms_status==='failed')result.status='failure';return result;}
+  if(result.accepted_terms_status==='failed'){result.status='failure';result.reason='Accepted quote evidence or transaction binding is inconsistent';return copy(result);}
   if(filled&&q){
     const x=units(q.sellAmount),y=units(q.buyAmount);
     add('maker_identity',low(b.assets.maker.address),low(o.maker));add('taker_identity',low(b.assets.taker.address),low(o.taker));

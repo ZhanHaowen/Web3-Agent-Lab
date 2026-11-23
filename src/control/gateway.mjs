@@ -1,5 +1,6 @@
 import {readFile} from 'node:fs/promises';import {join} from 'node:path';import {randomUUID} from 'node:crypto';
 import {WalletRegistry} from '../scenario/wallet-registry.mjs';import {copy,hash,units} from '../scenario/core.mjs';
+import {operationIdentity,assertSameOperation,selectOperationAttempt} from '../scenario/transaction-recovery.mjs';
 export class RemoteRegistry extends WalletRegistry {
  constructor(control){super(control.b);this.control=control;}
  async initialize(s){const {chain,b,control}=this,job=control.store.get('jobs',s.jobId),bindings=s.bindings;
@@ -21,14 +22,19 @@ export class RemoteRegistry extends WalletRegistry {
  async assertEnvironment(s){const pc=this.chain.publicClient,r=s.realm;if(this.chain.env()?.chainInstanceId!==r.epoch)throw Error('STALE_CHAIN');if(await pc.getChainId()!==31337)throw Error('CHAIN_ID_CHANGED');if(s.before){const block=await pc.getBlock({blockNumber:BigInt(s.before.blockNumber)});if(block.hash!==s.before.blockHash)throw Error('CHAIN_START_CHANGED');}const code=await pc.getBytecode({address:r.exchange});if(!code||this.b.keccak256(code)!==r.contractCodeHash)throw Error('EXCHANGE_CODE_CHANGED');if(r.abi.some(x=>x.type==='function'&&x.name==='sessionScope')){const scope=await pc.readContract({address:r.exchange,abi:r.abi,functionName:'sessionScope'});if(scope!==r.scope)throw Error('SCOPE_CHANGED');}}
  async submit(...args){const [s,actor]=args,key=s.realm.epoch+':'+actor.address.toLowerCase(),prev=this.queues.get(key)??Promise.resolve();const op=prev.catch(()=>{}).then(()=>this.executeSubmit(...args));this.queues.set(key,op);return op;}
  async executeSubmit(s,actor,address,abi,functionName,args,causes=[]){
-  const control=this.control,store=control.store,lease=control.lease(s,actor),key=s.id+':'+actor.agentRunId+':'+(actor.activeCommand??s.steps)+':'+functionName;
-  let tx=store.get('tx_intents',key);
-  if(tx&&tx.state!=='reserved'){await this.reconcile(s);return copy(s.transactions.find(t=>t.intentId===tx.intentId)??tx);}
+  const control=this.control,store=control.store,lease=control.lease(s,actor),operation=operationIdentity(s,actor,address,functionName,args),
+   legacyKey=s.id+':'+actor.agentRunId+':'+(actor.activeCommand??s.steps)+':'+functionName,
+   selection=selectOperationAttempt(s,store.list('tx_intents').filter(t=>t.executionId===s.id),operation,functionName),
+   key=selection.existing?.key??(selection.prior?undefined:store.get('tx_intents',legacyKey)?.key)??s.id+':operation:'+operation.operationId+(selection.prior?':attempt:'+hash(selection.metadata.cleanupControlId):'');
+  let tx=selection.existing??store.get('tx_intents',key);
+  if(tx){assertSameOperation(tx,operation);if(tx.calldataHash!==this.b.keccak256(this.b.encodeFunctionData({abi,functionName,args}))||tx.to.toLowerCase()!==address.toLowerCase())throw Error('OPERATION_PARAMETERS_CHANGED');}
+  if(tx&&tx.state!=='reserved'){tx=this.remember(s,tx);await this.reconcile(s);return copy(tx);}
   await this.assertEnvironment(s);if(s.pending.length)throw Error('RECONCILE_FIRST');s.checkAbort();
+  if(selection.prior)await this.assertCleanupRetry(s,selection.prior);
   const nonce=tx?.nonce??await this.chain.publicClient.getTransactionCount({address:actor.address,blockTag:'pending'}),data=this.b.encodeFunctionData({abi,functionName,args});const fees=await this.chain.publicClient.estimateFeesPerGas(),maxFee=fees.maxFeePerGas??await this.chain.publicClient.getGasPrice();
   if(actor.gasUsedWei+800000n*maxFee>BigInt(actor.spec.maxGasWei))throw Error('GAS_BUDGET');
   const unsigned=tx?.unsigned??{chainId:31337,type:'eip1559',to:address,data,value:'0',nonce,gas:'800000',maxFeePerGas:String(maxFee),maxPriorityFeePerGas:String(fees.maxPriorityFeePerGas??1000000000n)};
-  tx=tx??{key,intentId:randomUUID(),executionId:s.id,actorId:actor.role,agentId:lease.agentId,agentRunId:actor.agentRunId,leaseEpoch:lease.epoch,from:actor.address,to:address,chainId:31337,nonce,functionName,args:copy(args),calldataHash:this.b.keccak256(data),gas:'800000',value:'0',unsigned,state:'reserved'};
+  tx=tx??{...operation,...selection.metadata,key,intentId:randomUUID(),executionId:s.id,actorId:actor.role,toolEventId:causes[0]??null,agentId:lease.agentId,agentRunId:actor.agentRunId,leaseEpoch:lease.epoch,from:actor.address,to:address,chainId:31337,nonce,functionName,args:copy(args),calldataHash:this.b.keccak256(data),gas:'800000',value:'0',unsigned,state:'reserved'};
   store.transaction(()=>{store.db.prepare('INSERT OR IGNORE INTO wallet_nonces VALUES(?,?,?,?)').run(s.realm.epoch,actor.address.toLowerCase(),nonce,tx.intentId);const held=store.db.prepare('SELECT intent_id FROM wallet_nonces WHERE chain_instance=? AND address=? AND nonce=?').get(s.realm.epoch,actor.address.toLowerCase(),nonce);if(held.intent_id!==tx.intentId)throw Error('NONCE_RESERVED');const e=control.event(s,'tx.intent',tx,actor,causes);tx.intentEventId=e.eventId;store.put('tx_intents',key,tx);});
   await control.archive(s);control.fault('after_intent_persist');
   if(s.spec.pauseBeforeTransaction)await s.gate('before_transaction',actor,tx);
@@ -38,14 +44,13 @@ export class RemoteRegistry extends WalletRegistry {
   const typeTx={...unsigned,value:0n,gas:800000n,maxFeePerGas:BigInt(unsigned.maxFeePerGas),maxPriorityFeePerGas:BigInt(unsigned.maxPriorityFeePerGas)};
   const recovered=await this.b.recoverAddress({hash:this.b.keccak256(this.b.serializeTransaction(typeTx)),signature:signed.signature});if(recovered.toLowerCase()!==actor.address.toLowerCase())throw Error('SIGNATURE_SENDER');
   const sig=signed.signature,sigParts={r:sig.slice(0,66),s:'0x'+sig.slice(66,130),yParity:Number(BigInt('0x'+sig.slice(130)))-27};
-  const raw=this.b.serializeTransaction(typeTx,sigParts);this.b.addSecret(raw);tx.hash=this.b.keccak256(raw);const committed=store.get('tx_intents',key);if(committed?.signatureTxHash&&committed.signatureTxHash!==tx.hash)throw Error('INTENT_SIGNATURE_CONFLICT');tx.signatureTxHash=committed?.signatureTxHash??tx.hash;tx.state='broadcasting';
-  store.transaction(()=>{store.put('tx_intents',key,tx);control.event(s,'tx.hash_durable',{...tx,unsigned:undefined},actor,causes);});
-  s.transactions.push(tx);s.pending.push(tx);await s.persist();await control.archive(s);
-  try{await this.assertEnvironment(s);control.lease(s,actor);s.checkAbort();const h=await this.chain.publicClient.sendRawTransaction({serializedTransaction:raw});if(h!==tx.hash)throw Error('HASH_MISMATCH');control.fault('after_broadcast',functionName);tx.state='pending';await s.emit('tx.broadcast',tx,actor,causes);}
-  catch(error){tx.state='unknown';tx.error=error.shortMessage??error.message;await s.emit('tx.unknown',tx,actor,causes);}
+  const raw=this.b.serializeTransaction(typeTx,sigParts),expectedHash=this.b.keccak256(raw),committed=store.get('tx_intents',key);
+  if(committed?.signatureTxHash&&committed.signatureTxHash!==expectedHash)throw Error('INTENT_SIGNATURE_CONFLICT');
+  await this.prepareSigned(s,actor,tx,raw,causes);control.fault('after_hash_persist',functionName);
+  await this.broadcastPrepared(s,actor,tx,raw,causes);
   store.put('tx_intents',key,tx);await this.reconcile(s);return copy(tx);
  }
- async reconcile(s){const previous=s.reconcileQueue??Promise.resolve();const op=previous.catch(()=>{}).then(async()=>{await super.reconcile(s);for(const tx of s.transactions)this.control.store.put('tx_intents',tx.key,tx);});s.reconcileQueue=op;return op;}
+ async persistTransactions(s){for(const tx of s.transactions)this.control.store.put('tx_intents',tx.key,tx);await s.persist();}
  async scan(s){const pc=this.chain.publicClient,end=await pc.getBlockNumber(),start=BigInt(s.before.blockNumber),found=[],known=new Map(s.transactions.map(t=>[t.hash?.toLowerCase(),t]));if(end-start>2000n)throw Error('SCAN_BOUND');
   const addresses=s.agents.map(a=>a.address.toLowerCase());for(let n=start+1n;n<=end;n++){const b=await pc.getBlock({blockNumber:n,includeTransactions:true});for(const t of b.transactions){if(typeof t==='string'||!addresses.includes(t.from.toLowerCase()))continue;const r=await pc.getTransactionReceipt({hash:t.hash});found.push({hash:t.hash,from:t.from,to:t.to,nonce:t.nonce,input:t.input,blockNumber:String(b.number),transactionIndex:r.transactionIndex,status:r.status,recorded:known.has(t.hash.toLowerCase())});}}
   found.sort((a,b)=>Number(BigInt(a.blockNumber)-BigInt(b.blockNumber))||a.transactionIndex-b.transactionIndex);return {transactions:found,unrecorded:found.filter(t=>!t.recorded),ordering:'blockNumber,transactionIndex,logIndex; nonce only within sender'};

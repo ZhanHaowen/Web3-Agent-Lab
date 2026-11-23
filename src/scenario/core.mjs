@@ -47,11 +47,36 @@ export function checkQuote(actor,quote) {
   return {sellAmount:decimal(a),buyAmount:decimal(b)};
 }
 export class MessageBus {
-  constructor(scenario,emit){this.scenario=scenario;this.emit=emit;this.outbox=[];this.inboxes=new Map((scenario.agents??[{agentId:'maker'},{agentId:'taker'}]).map(a=>[a.agentId,[]]));this.delivered=new Set();this.consumed=new Set();}
-  async send(actor,args,causes=[]){
+  constructor(scenario,emit){this.scenario=scenario;this.emit=emit;this.outbox=[];this.inboxes=new Map((scenario.agents??[{agentId:'maker'},{agentId:'taker'}]).map(a=>[a.agentId,[]]));this.delivered=new Set();this.consumed=new Set();this.consumptionEvents=new Map();this.sendQueue=Promise.resolve();}
+  validate(actor,args,{checkBudget=true}={}){
+    if(!args||typeof args!=='object'||Array.isArray(args))throw Error('MESSAGE_ARGUMENTS');
     if(!this.inboxes.has(args.recipient)||args.recipient===actor.agentId)throw Error('MESSAGE_RECIPIENT');
     if(!['inquiry','quote','accept','reject','order_ref'].includes(args.kind))throw Error('MESSAGE_KIND');
-    if(this.outbox.length>=this.scenario.spec.maxMessages)throw Error('MESSAGE_BUDGET');
+    if(args.requestId!==undefined&&args.requestId!==null&&(typeof args.requestId!=='string'||!args.requestId||args.requestId.length>512))throw Error('MESSAGE_REQUEST_ID');
+    if(checkBudget&&this.outbox.length>=this.scenario.spec.maxMessages)throw Error('MESSAGE_BUDGET');
+    const payload=args.payload??{};if(typeof payload!=='object'||Array.isArray(payload))throw Error('MESSAGE_PAYLOAD_OBJECT');
+    if(Buffer.byteLength(json(payload))>16384)throw Error('MESSAGE_TOO_LARGE');
+    return true;
+  }
+  findRequest(actor,requestId){if(!requestId)return null;const m=this.outbox.find(m=>m.senderAgentId===actor.agentId&&m.requestId===requestId);return m?copy(m):null;}
+  send(actor,args,causes=[]){const operation=this.sendQueue.catch(()=>{}).then(()=>this.sendOnce(actor,args,causes));this.sendQueue=operation;return operation;}
+  async sendOnce(actor,args,causes=[]){
+    this.validate(actor,args,{checkBudget:false});
+    const prior=args.requestId?this.outbox.find(m=>m.senderAgentId===actor.agentId&&m.requestId===args.requestId):null;
+    if(prior){
+      const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])])):v;
+      const same=prior.kind===args.kind&&prior.recipientAgentId===args.recipient&&(prior.quoteId??null)===(args.quoteId??null)&&
+        (prior.replyTo??null)===(args.replyTo??null)&&(prior.orderRef??null)===(args.orderRef??null)&&hash(canonical(prior.payload))===hash(canonical(args.payload??{}));
+      if(!same)throw Error('MESSAGE_REQUEST_ID_CONFLICT');
+      const key=`${prior.episodeId}:${prior.messageId}`;
+      if(!this.delivered.has(key)){
+        if(prior.deliveredEventId){this.delivered.add(key);const inbox=this.inboxes.get(prior.recipientAgentId);
+          if(prior.consumedBy)this.consumed.add(key);else if(!this.consumed.has(key)&&!inbox.some(m=>m.messageId===prior.messageId))inbox.push(prior);
+        }else await this.deliver(prior);
+      }
+      return copy(prior);
+    }
+    this.validate(actor,args);
     const m={schemaVersion:2,scenarioId:this.scenario.id,episodeId:this.scenario.episodeId,messageId:randomUUID(),
       senderAgentId:actor.agentId,recipientAgentId:args.recipient,conversationId:this.scenario.id,
       replyTo:args.replyTo??null,kind:args.kind,requestId:args.requestId??null,quoteId:args.quoteId??null,
@@ -64,11 +89,15 @@ export class MessageBus {
   async deliver(m){const key=`${m.episodeId}:${m.messageId}`;
     if(m.episodeId!==this.scenario.episodeId)throw Error('STALE_EPISODE');
     if(this.delivered.has(key)){await this.emit('message.duplicate',{messageId:m.messageId},null,[m.sentEventId]);return false;}
-    this.delivered.add(key);this.inboxes.get(m.recipientAgentId).push(m);
-    const e=await this.emit('message.delivered',m,null,[m.sentEventId]);m.deliveredEventId=e.eventId;return true;
+    if(!this.inboxes.has(m.recipientAgentId))throw Error('MESSAGE_RECIPIENT');
+    const e=await this.emit('message.delivered',m,null,[m.sentEventId]);m.deliveredEventId=e.eventId;
+    this.delivered.add(key);this.inboxes.get(m.recipientAgentId).push(m);return true;
   }
-  async receive(actor){const list=this.inboxes.get(actor.agentId).splice(0);const out=[];
-    for(const m of list){const key=`${m.episodeId}:${m.messageId}`;if(this.consumed.has(key))continue;this.consumed.add(key);
-      const e=await this.emit('message.consumed',{messageId:m.messageId,visiblePayload:m.visiblePayload},actor,[m.deliveredEventId]);out.push({...copy(m),consumedEventId:e.eventId});}return out;
+  async receive(actor){const inbox=this.inboxes.get(actor.agentId);if(!inbox)throw Error('MESSAGE_RECIPIENT');const list=[...inbox],out=[],keys=[];
+    for(const m of list){const key=`${m.episodeId}:${m.messageId}`;if(this.consumed.has(key))continue;
+      let e=this.consumptionEvents.get(key);if(!e){e=await this.emit('message.consumed',{messageId:m.messageId,visiblePayload:m.visiblePayload},actor,[m.deliveredEventId]);this.consumptionEvents.set(key,e);}
+      keys.push(key);out.push({...copy(m),consumedEventId:e.eventId});}
+    for(const key of keys){this.consumed.add(key);this.consumptionEvents.delete(key);}
+    this.inboxes.set(actor.agentId,inbox.filter(m=>!list.includes(m)));return out;
   }
 }
