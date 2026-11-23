@@ -1,0 +1,684 @@
+{
+  "schema": "testnet-local-review-regression-v1",
+  "startedAt": "2026-11-23T09:50:02.356Z",
+  "baselineCommit": "6dec27e81e1cc5c4f277bb0e28a08a5cd37bd85d",
+  "branch": "main",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "out": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci",
+  "scope": "Windows local isolated integration and regression. No real testnet broadcasts, no GitHub update. Actual model and GUI runs reported separately.",
+  "selectedSteps": null,
+  "steps": [
+    {
+      "name": "01-budget-build",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "scripts/compile-budget.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:50:02.510Z",
+      "finishedAt": "2026-11-23T09:50:15.119Z",
+      "elapsedMs": 12608,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\01-budget-build.log",
+      "logSha256": "c2ff9fb2c9c68045767e4ffdbe4745419885fd36247ee43975314243bc063351",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\01-budget-build"
+    },
+    {
+      "name": "02-platform-build",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "--run",
+        "build"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:50:15.121Z",
+      "finishedAt": "2026-11-23T09:50:34.310Z",
+      "elapsedMs": 19188,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\02-platform-build.log",
+      "logSha256": "1f0d9f7867cae2433be08b953e60c75f3272803e3fa8eff7693fb9128590bec2",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\02-platform-build"
+    },
+    {
+      "name": "03-doctor",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "dist/cli.mjs",
+        "doctor"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:50:34.311Z",
+      "finishedAt": "2026-11-23T09:50:34.684Z",
+      "elapsedMs": 373,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\03-doctor.log",
+      "logSha256": "42dc5196b04b7027546d0223a124a3b82ea324069e9a39cdf1b5ff6b5787ff26",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\03-doctor"
+    },
+    {
+      "name": "04-typecheck",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.control.json",
+        "--noEmit"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:50:34.685Z",
+      "finishedAt": "2026-11-23T09:50:35.355Z",
+      "elapsedMs": 670,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\04-typecheck.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\04-typecheck"
+    },
+    {
+      "name": "05-unit",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "--test",
+        "tests/*.test.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:50:35.357Z",
+      "finishedAt": "2026-11-23T09:51:54.371Z",
+      "elapsedMs": 79015,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 317,
+        "pass": 317,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\05-unit.log",
+      "logSha256": "d26c4d0257a6e4c056a07b8dd5bd04472de82e1e9125a57165e996a24377f674",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\05-unit"
+    },
+    {
+      "name": "06-legacy-source",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "--import",
+        "./scripts/register-agentkit.mjs",
+        "--import",
+        "tsx",
+        "--test",
+        "tests/*.test.ts"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\vendor\\legacy-source",
+      "startedAt": "2026-11-23T09:51:54.372Z",
+      "finishedAt": "2026-11-23T09:52:34.711Z",
+      "elapsedMs": 40338,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 145,
+        "pass": 145,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\06-legacy-source.log",
+      "logSha256": "cf0c05e88ea236c1e8249f17d7ff4824ec9ab19cbcbcdadbd6cc26fd6a77edd2",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\06-legacy-source"
+    },
+    {
+      "name": "07-testnet-integration",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/testnet-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:52:34.712Z",
+      "finishedAt": "2026-11-23T09:53:00.536Z",
+      "elapsedMs": 25825,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\07-testnet-integration.log",
+      "logSha256": "f8b2f47072d63cf8adea4bc53e7a1288511b2720e022b42da36b2090dc08df36",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\07-testnet-integration"
+    },
+    {
+      "name": "08-original-api",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/legacy-regression-wrapper.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:53:00.537Z",
+      "finishedAt": "2026-11-23T09:53:29.557Z",
+      "elapsedMs": 29019,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\08-original-api.log",
+      "logSha256": "3693589fdd0a7342d0249f8dc6dce378ea982c3db072c638e65c252771abfd98",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\08-original-api"
+    },
+    {
+      "name": "09-allowance-matrix",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/legacy-allowance-matrix.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:53:29.558Z",
+      "finishedAt": "2026-11-23T09:53:35.939Z",
+      "elapsedMs": 6381,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\09-allowance-matrix.log",
+      "logSha256": "10216261991c7f6247d2b6f1090ddc873807ce7ea1fd20a6067d2dc91e912bae",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\09-allowance-matrix"
+    },
+    {
+      "name": "10-peer-contract",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/peer-contract.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:53:35.941Z",
+      "finishedAt": "2026-11-23T09:53:50.248Z",
+      "elapsedMs": 14307,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\10-peer-contract.log",
+      "logSha256": "4f0ad0a7e2b020e5b31e388ca2aa7c1007625376e6a11bb0587c8ab7d66490ab",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\10-peer-contract"
+    },
+    {
+      "name": "11-peer-integration",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/peer-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:53:50.249Z",
+      "finishedAt": "2026-11-23T09:54:13.782Z",
+      "elapsedMs": 23533,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\11-peer-integration.log",
+      "logSha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\11-peer-integration"
+    },
+    {
+      "name": "12-independent-workers",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/v2-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:54:13.783Z",
+      "finishedAt": "2026-11-23T09:54:36.727Z",
+      "elapsedMs": 22945,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\12-independent-workers.log",
+      "logSha256": "36125942fd7f02f9b14a987b33ddb3ee456fd46e201e1bb7fedf3fb3364a445b",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\12-independent-workers"
+    },
+    {
+      "name": "13-worker-shutdown-recovery",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/v2-shutdown-recovery.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:54:36.729Z",
+      "finishedAt": "2026-11-23T09:55:15.753Z",
+      "elapsedMs": 39026,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\13-worker-shutdown-recovery.log",
+      "logSha256": "141e4eace2de3e781fc9ab11e4f60c0a99fd71238c4d413746feada823a60c49",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\13-worker-shutdown-recovery"
+    },
+    {
+      "name": "14-service-contract",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/service-contract.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:55:15.755Z",
+      "finishedAt": "2026-11-23T09:55:27.626Z",
+      "elapsedMs": 11871,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\14-service-contract.log",
+      "logSha256": "5af39a6e73d2c9bc0667f017cb59e9fab89f99498780240759467ffdfd0bb2d6",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\14-service-contract"
+    },
+    {
+      "name": "15-service-integration",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/service-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:55:27.627Z",
+      "finishedAt": "2026-11-23T09:56:30.604Z",
+      "elapsedMs": 62979,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\15-service-integration.log",
+      "logSha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\15-service-integration"
+    },
+    {
+      "name": "16-budget-core",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/budget-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:56:30.605Z",
+      "finishedAt": "2026-11-23T09:57:09.908Z",
+      "elapsedMs": 39304,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\16-budget-core.log",
+      "logSha256": "33f8e74621d6be1b04fa9aa0a2a947caa0075b2b07999c11b548c6fb534b1a85",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\16-budget-core"
+    },
+    {
+      "name": "17-budget-parameters",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/budget-parameter-matrix.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:57:09.910Z",
+      "finishedAt": "2026-11-23T09:58:05.174Z",
+      "elapsedMs": 55265,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\17-budget-parameters.log",
+      "logSha256": "cef23af149ca0ac25bb334af5f8d427ee66a72e6a4d9be18af79d8b746fc902f",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\17-budget-parameters"
+    },
+    {
+      "name": "18-budget-main",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/budget-main-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:58:05.175Z",
+      "finishedAt": "2026-11-23T09:58:18.385Z",
+      "elapsedMs": 13210,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\18-budget-main.log",
+      "logSha256": "60989d36fff619a2b00b3aefccebd7fb1abc1139aef40d1413f0ae9b80f0b98f",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\18-budget-main"
+    },
+    {
+      "name": "19-budget-http",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/budget-http.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:58:18.387Z",
+      "finishedAt": "2026-11-23T09:58:36.286Z",
+      "elapsedMs": 17899,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\19-budget-http.log",
+      "logSha256": "26c50ff590c10579f3d69992c057bf7fdc6fd7838e9569e4111cc907908d5214",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\19-budget-http"
+    },
+    {
+      "name": "20-windows-launcher",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/budget-launcher.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:58:36.287Z",
+      "finishedAt": "2026-11-23T09:58:50.324Z",
+      "elapsedMs": 14037,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\20-windows-launcher.log",
+      "logSha256": "966c839a0a47e1250b295b9da43220f31b6a4fe13a292f008be098efe9095588",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\20-windows-launcher"
+    },
+    {
+      "name": "21-x402-ap2",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-payments.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:58:50.325Z",
+      "finishedAt": "2026-11-23T09:58:58.698Z",
+      "elapsedMs": 8373,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\21-x402-ap2.log",
+      "logSha256": "18f152b758c90b6a6500fbe2ee04ed0fcde2355700b348ef0e9a0763e7c09cf6",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\21-x402-ap2"
+    },
+    {
+      "name": "22-mpp",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-payments-mpp.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:58:58.700Z",
+      "finishedAt": "2026-11-23T09:59:04.755Z",
+      "elapsedMs": 6055,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\22-mpp.log",
+      "logSha256": "849cfccd5bdb6d07b9a848b8505dab78bf178f36da748aa4c51b6c0c1ce3dc32",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\22-mpp"
+    },
+    {
+      "name": "23-payment-adversarial",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-payments-adversarial.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:59:04.756Z",
+      "finishedAt": "2026-11-23T09:59:12.339Z",
+      "elapsedMs": 7583,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\23-payment-adversarial.log",
+      "logSha256": "67149131c313601a7f81f95cbf8aa99cac2b051852fdcb2f65f68e85cfcaa6fd",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\23-payment-adversarial"
+    },
+    {
+      "name": "24-research-escrow",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-escrow.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:59:12.340Z",
+      "finishedAt": "2026-11-23T09:59:23.669Z",
+      "elapsedMs": 11329,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\24-research-escrow.log",
+      "logSha256": "906c37d533fd9c296038ccfeb68c4369828a942066be52512b499e02406ba5a4",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\24-research-escrow"
+    },
+    {
+      "name": "25-research-engine",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-integration.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:59:23.671Z",
+      "finishedAt": "2026-11-23T09:59:54.454Z",
+      "elapsedMs": 30784,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\25-research-engine.log",
+      "logSha256": "7cfa05f66d4f513df972c7fd11302f0b7d373c13e334c9a7fa7fa90723581709",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\25-research-engine"
+    },
+    {
+      "name": "26-research-dataset",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\node\\24.19.0\\x64\\node.exe",
+        "tests/research-dataset-smoke.mjs"
+      ],
+      "cwd": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab",
+      "startedAt": "2026-11-23T09:59:54.455Z",
+      "finishedAt": "2026-11-23T10:00:43.780Z",
+      "elapsedMs": 49326,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "launchError": null,
+      "passed": true,
+      "counts": {
+        "tests": null,
+        "pass": null,
+        "fail": null,
+        "skipped": null
+      },
+      "log": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\26-research-dataset.log",
+      "logSha256": "f83ac59f270a01e1fe01ad73ebd856717317d64a802b8e656e5d9415b08d4a18",
+      "artifacts": "D:\\a\\Web3-Agent-Lab\\Web3-Agent-Lab\\artifacts\\test-results\\v0183-ci\\results\\26-research-dataset"
+    }
+  ],
+  "build": {
+    "sourceHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd",
+    "builtAt": "2026-11-23T09:50:34.217Z",
+    "version": "0.18.3"
+  },
+  "finishedAt": "2026-11-23T10:00:43.782Z",
+  "passed": true,
+  "passedSteps": 26,
+  "failedSteps": 0
+}

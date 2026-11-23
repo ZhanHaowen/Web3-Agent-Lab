@@ -1,0 +1,286 @@
+{
+  "schema": "v0183-completed-ci-independent-verification-v1",
+  "verifiedAt": "2026-11-23T10:05:43.897Z",
+  "verifierSha256": "30e65b92f7d9e1a6d70e21c9dcf2fd2615d714cd83449d8a807578bc8b628bf4",
+  "ci": {
+    "databaseId": "45150369771",
+    "headSha": "6dec27e81e1cc5c4f277bb0e28a08a5cd37bd85d",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/ZhanHaowen/Web3-Agent-Lab/actions/runs/45150369771",
+    "workflowName": "Windows V0.18.3 verification",
+    "createdAt": "2026-11-23T09:48:41Z",
+    "updatedAt": "2026-11-23T10:04:27Z",
+    "metadataSource": "artifacts/setup/v0183-ci-run.json",
+    "metadataSha256": "14cbe7956e2af159df58c701f8cff4ccdd40e220053699898bb4ad6fb5b9773d",
+    "job": {
+      "name": "Windows x64 compatibility and integration tests",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  },
+  "build": {
+    "version": "0.18.3",
+    "sourceHash": "feee79814a33eb5f19698a899586a5892706f40f6c5f512d0f0c5414784715dd"
+  },
+  "checks": {
+    "regressionPhases": 26,
+    "unitTests": 317,
+    "legacySourceTests": 145,
+    "peerCases": 13,
+    "budgetChecks": 23,
+    "bnbOffline": "passed",
+    "verifiedPhaseLogHashes": 26,
+    "individualPeerReportsMatched": 13
+  },
+  "coverage": {
+    "platform": "Windows x64 / Node 24.19.0 / local Anvil",
+    "realEVM": true,
+    "realLLM": false,
+    "publicNetwork": false,
+    "legacyAcceptanceStatus": "NOT_FULLY_ACCEPTED",
+    "knownPartial": [
+      {
+        "caseId": "AT-15",
+        "status": "BLOCKED",
+        "subchecks": "PASS",
+        "reason": "The scripted scene ends on the first peer rejection, so a separate explicit Maker rejection event required by the strict reading of the standard is not produced. Both no-transfer branches pass; AT-15 remains partial."
+      }
+    ],
+    "notClaimed": [
+      "macOS run",
+      "manual browser GUI or screen recording",
+      "real LLM campaign",
+      "public-chain writes/finality/reorganization",
+      "new EXE installer acceptance",
+      "all historical AT criteria fully accepted"
+    ]
+  },
+  "selectedReports": [
+    {
+      "downloadPath": "v0183-ci/summary.json",
+      "published": "full-summary.json",
+      "bytes": 24768,
+      "sha256": "79af4b62cb4f27ce5abc9ddef9dd700283eae555fa4ed32bbe56267068f118b8",
+      "transformation": "none; original bytes copied"
+    },
+    {
+      "downloadPath": "peer-recovery/a2e24ae9-b424-45d7-a8fa-00142e5a2812/summary.json",
+      "published": "peer-summary.json",
+      "bytes": 11738,
+      "sha256": "3a3dba64a024ab329c16ffe8458cccdd492d156607939292da3b2ef89d4bdcb5",
+      "transformation": "none; original bytes copied"
+    },
+    {
+      "downloadPath": "v0183-ci/budget-constraints/budget-constraints-results.json",
+      "published": "budget-results.json",
+      "bytes": 2288,
+      "sha256": "f0fc874ac64f63e2633d111d1cd6eb2494067ed9f619f69e7dac63da7900c3d3",
+      "transformation": "none; original bytes copied"
+    },
+    {
+      "downloadPath": "v0183-ci/bnb-offline/smoke-results.json",
+      "published": "bnb-smoke-results.json",
+      "bytes": 272,
+      "sha256": "07a1436c728694dea0405379cf5ee1633de9b1f34ee42f2354d9fe283032206a",
+      "transformation": "none; original bytes copied"
+    },
+    {
+      "downloadPath": "v0183-ci/results/13-worker-shutdown-recovery/acceptance-final-recovery/supplement/summary.json",
+      "published": "legacy-acceptance-summary.json",
+      "bytes": 9637,
+      "sha256": "5e208e642ddab76b474d48e2cdd47758883d49609b7b3cdfb901daf4ad8d0dab",
+      "transformation": "none; original bytes copied"
+    }
+  ],
+  "phaseLogs": [
+    {
+      "phase": "01-budget-build",
+      "downloadPath": "v0183-ci/01-budget-build.log",
+      "bytes": 153,
+      "sha256": "c2ff9fb2c9c68045767e4ffdbe4745419885fd36247ee43975314243bc063351",
+      "published": false
+    },
+    {
+      "phase": "02-platform-build",
+      "downloadPath": "v0183-ci/02-platform-build.log",
+      "bytes": 647,
+      "sha256": "1f0d9f7867cae2433be08b953e60c75f3272803e3fa8eff7693fb9128590bec2",
+      "published": false
+    },
+    {
+      "phase": "03-doctor",
+      "downloadPath": "v0183-ci/03-doctor.log",
+      "bytes": 633,
+      "sha256": "42dc5196b04b7027546d0223a124a3b82ea324069e9a39cdf1b5ff6b5787ff26",
+      "published": false
+    },
+    {
+      "phase": "04-typecheck",
+      "downloadPath": "v0183-ci/04-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published": false
+    },
+    {
+      "phase": "05-unit",
+      "downloadPath": "v0183-ci/05-unit.log",
+      "bytes": 31320,
+      "sha256": "d26c4d0257a6e4c056a07b8dd5bd04472de82e1e9125a57165e996a24377f674",
+      "published": false
+    },
+    {
+      "phase": "06-legacy-source",
+      "downloadPath": "v0183-ci/06-legacy-source.log",
+      "bytes": 14003,
+      "sha256": "cf0c05e88ea236c1e8249f17d7ff4824ec9ab19cbcbcdadbd6cc26fd6a77edd2",
+      "published": false
+    },
+    {
+      "phase": "07-testnet-integration",
+      "downloadPath": "v0183-ci/07-testnet-integration.log",
+      "bytes": 1855,
+      "sha256": "f8b2f47072d63cf8adea4bc53e7a1288511b2720e022b42da36b2090dc08df36",
+      "published": false
+    },
+    {
+      "phase": "08-original-api",
+      "downloadPath": "v0183-ci/08-original-api.log",
+      "bytes": 3118,
+      "sha256": "3693589fdd0a7342d0249f8dc6dce378ea982c3db072c638e65c252771abfd98",
+      "published": false
+    },
+    {
+      "phase": "09-allowance-matrix",
+      "downloadPath": "v0183-ci/09-allowance-matrix.log",
+      "bytes": 333,
+      "sha256": "10216261991c7f6247d2b6f1090ddc873807ce7ea1fd20a6067d2dc91e912bae",
+      "published": false
+    },
+    {
+      "phase": "10-peer-contract",
+      "downloadPath": "v0183-ci/10-peer-contract.log",
+      "bytes": 1057,
+      "sha256": "4f0ad0a7e2b020e5b31e388ca2aa7c1007625376e6a11bb0587c8ab7d66490ab",
+      "published": false
+    },
+    {
+      "phase": "11-peer-integration",
+      "downloadPath": "v0183-ci/11-peer-integration.log",
+      "bytes": 807,
+      "sha256": "debd68a7f1f0a8b014fc67cafa3e2fa76e3860d360546174fdeb3ebe1fea581c",
+      "published": false
+    },
+    {
+      "phase": "12-independent-workers",
+      "downloadPath": "v0183-ci/12-independent-workers.log",
+      "bytes": 1340,
+      "sha256": "36125942fd7f02f9b14a987b33ddb3ee456fd46e201e1bb7fedf3fb3364a445b",
+      "published": false
+    },
+    {
+      "phase": "13-worker-shutdown-recovery",
+      "downloadPath": "v0183-ci/13-worker-shutdown-recovery.log",
+      "bytes": 392,
+      "sha256": "141e4eace2de3e781fc9ab11e4f60c0a99fd71238c4d413746feada823a60c49",
+      "published": false
+    },
+    {
+      "phase": "14-service-contract",
+      "downloadPath": "v0183-ci/14-service-contract.log",
+      "bytes": 768,
+      "sha256": "5af39a6e73d2c9bc0667f017cb59e9fab89f99498780240759467ffdfd0bb2d6",
+      "published": false
+    },
+    {
+      "phase": "15-service-integration",
+      "downloadPath": "v0183-ci/15-service-integration.log",
+      "bytes": 996,
+      "sha256": "11aa93f41fefa90c946e4af8c9aac2f233bdcbbc4958f490dbdb47bfafcd86dd",
+      "published": false
+    },
+    {
+      "phase": "16-budget-core",
+      "downloadPath": "v0183-ci/16-budget-core.log",
+      "bytes": 1906,
+      "sha256": "33f8e74621d6be1b04fa9aa0a2a947caa0075b2b07999c11b548c6fb534b1a85",
+      "published": false
+    },
+    {
+      "phase": "17-budget-parameters",
+      "downloadPath": "v0183-ci/17-budget-parameters.log",
+      "bytes": 1535,
+      "sha256": "cef23af149ca0ac25bb334af5f8d427ee66a72e6a4d9be18af79d8b746fc902f",
+      "published": false
+    },
+    {
+      "phase": "18-budget-main",
+      "downloadPath": "v0183-ci/18-budget-main.log",
+      "bytes": 778,
+      "sha256": "60989d36fff619a2b00b3aefccebd7fb1abc1139aef40d1413f0ae9b80f0b98f",
+      "published": false
+    },
+    {
+      "phase": "19-budget-http",
+      "downloadPath": "v0183-ci/19-budget-http.log",
+      "bytes": 543,
+      "sha256": "26c50ff590c10579f3d69992c057bf7fdc6fd7838e9569e4111cc907908d5214",
+      "published": false
+    },
+    {
+      "phase": "20-windows-launcher",
+      "downloadPath": "v0183-ci/20-windows-launcher.log",
+      "bytes": 156,
+      "sha256": "966c839a0a47e1250b295b9da43220f31b6a4fe13a292f008be098efe9095588",
+      "published": false
+    },
+    {
+      "phase": "21-x402-ap2",
+      "downloadPath": "v0183-ci/21-x402-ap2.log",
+      "bytes": 1297,
+      "sha256": "18f152b758c90b6a6500fbe2ee04ed0fcde2355700b348ef0e9a0763e7c09cf6",
+      "published": false
+    },
+    {
+      "phase": "22-mpp",
+      "downloadPath": "v0183-ci/22-mpp.log",
+      "bytes": 604,
+      "sha256": "849cfccd5bdb6d07b9a848b8505dab78bf178f36da748aa4c51b6c0c1ce3dc32",
+      "published": false
+    },
+    {
+      "phase": "23-payment-adversarial",
+      "downloadPath": "v0183-ci/23-payment-adversarial.log",
+      "bytes": 1384,
+      "sha256": "67149131c313601a7f81f95cbf8aa99cac2b051852fdcb2f65f68e85cfcaa6fd",
+      "published": false
+    },
+    {
+      "phase": "24-research-escrow",
+      "downloadPath": "v0183-ci/24-research-escrow.log",
+      "bytes": 1273,
+      "sha256": "906c37d533fd9c296038ccfeb68c4369828a942066be52512b499e02406ba5a4",
+      "published": false
+    },
+    {
+      "phase": "25-research-engine",
+      "downloadPath": "v0183-ci/25-research-engine.log",
+      "bytes": 894,
+      "sha256": "7cfa05f66d4f513df972c7fd11302f0b7d373c13e334c9a7fa7fa90723581709",
+      "published": false
+    },
+    {
+      "phase": "26-research-dataset",
+      "downloadPath": "v0183-ci/26-research-dataset.log",
+      "bytes": 2755,
+      "sha256": "f83ac59f270a01e1fe01ad73ebd856717317d64a802b8e656e5d9415b08d4a18",
+      "published": false
+    }
+  ],
+  "publicationScan": {
+    "selectedJsonReports": 5,
+    "credentialLikeFindings": 0,
+    "completeExperimentBundlesPublished": false,
+    "privateRuntimePublished": false
+  }
+}

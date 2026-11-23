@@ -1,0 +1,98 @@
+{
+  "results": [
+    {
+      "name": "local-eoa confirmed exact 40/80 never silently becomes 40/20",
+      "passed": true
+    },
+    {
+      "name": "local-eoa exact40/50 is unchanged and completes",
+      "passed": true
+    },
+    {
+      "name": "local-eoa recipientAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "local-eoa spenderAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "local-eoa contractAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "local-eoa literal empty whitelist denies",
+      "passed": true
+    },
+    {
+      "name": "local-eoa expiry denies second request",
+      "passed": true
+    },
+    {
+      "name": "local-eoa review pauses and approve is single use",
+      "passed": true
+    },
+    {
+      "name": "local-eoa review reject creates no payment",
+      "passed": true
+    },
+    {
+      "name": "local-eoa hard budget cannot enter review",
+      "passed": true
+    },
+    {
+      "name": "local-eoa time rechecked after manual review",
+      "passed": true
+    },
+    {
+      "name": "smart-account confirmed exact 40/80 never silently becomes 40/20",
+      "passed": true
+    },
+    {
+      "name": "smart-account exact40/50 is unchanged and completes",
+      "passed": true
+    },
+    {
+      "name": "smart-account recipientAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "smart-account spenderAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "smart-account contractAllowed denied",
+      "passed": true
+    },
+    {
+      "name": "smart-account literal empty whitelist denies",
+      "passed": true
+    },
+    {
+      "name": "smart-account expiry denies second request",
+      "passed": true
+    },
+    {
+      "name": "smart-account review pauses and approve is single use",
+      "passed": true
+    },
+    {
+      "name": "smart-account review reject creates no payment",
+      "passed": true
+    },
+    {
+      "name": "smart-account hard budget cannot enter review",
+      "passed": true
+    },
+    {
+      "name": "smart-account time rechecked after manual review",
+      "passed": true
+    },
+    {
+      "name": "invalid policy is rejected",
+      "passed": true
+    }
+  ],
+  "realEVM": true,
+  "model": "deterministic tool-call fixture; no external paid API"
+}
